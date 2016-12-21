@@ -1,0 +1,7 @@
+lib
+bin
+test
+Gemfile
+snuggsi-*.gem
+Rakefile
+snuggsi.gemspec

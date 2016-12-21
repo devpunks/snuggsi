@@ -1,0 +1,29 @@
+{
+  "name": "snuggsi",
+  "version": "0.1.0",
+  "description": "Sane client components",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/snuggs/snuggsi.git"
+  },
+  "keywords": [
+    "web",
+    "components",
+    "resource",
+    "routing",
+    "templates"
+  ],
+  "author": "Snuggsi",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/snuggs/snuggsi/issues"
+  },
+  "homepage": "https://github.com/snuggs/snuggsi#readme"
+}
