@@ -1,6 +1,6 @@
 {
   "name": "snuggsi",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Sane client components",
   "main": "index.js",
   "directories": {
