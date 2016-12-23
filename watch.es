@@ -3,12 +3,10 @@ const fork = require ('child_process').fork
 var fs = require (`fs`)
   , dir = `./`
 
-fs.watch (dir, (event, file) => {
+fs.watch (dir, { recursive: true }, (event, file) => {
+  if (!file.includes (`index.test.es`)) return
 
-  console.log (file)
-  if (`index.es` !== file) return
-
-  var child = fork ('./index.test.es', [], {stdio: 'pipe'})
+  var child = fork (file, [], {stdio: 'pipe'})
 
   child.on('data', data => console.log (data))
 })
