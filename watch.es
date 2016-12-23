@@ -10,14 +10,9 @@ fs.watch (dir, (event, file) => {
   console.log (file)
   if (`index.es` !== file) return
 
-  fork ('./index.es')
+  var child = fork ('./index.es', [], {stdio: 'pipe'})
 
-  return
-
-  const test = spawn ('npm -v', [])
-  test.stdout.on (`data`, data => console.log (`stdout: ${data}`))
-  test.stderr.on (`data`, data => console.log (`stderr: ${data}`))
-  test.on (`close`, code => console.log (`child process exited with code ${code}`))
+  child.on('data', data => console.log (data))
 })
 
 console.log (`Watching tests from => ${dir}`)

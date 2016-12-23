@@ -33,6 +33,7 @@
     "postinstall": "npm ln ../jsdom && npm ln ../buble-tape",
 
     "test": "node --use_strict index.es",
+    "watch": "node watch.es",
 
     "cover": "tap index.es --cov --coverage-report=lcov"
   },
