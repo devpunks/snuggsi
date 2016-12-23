@@ -1,18 +1,20 @@
 {
   "name": "snuggsi",
   "version": "0.1.2",
+  "author": "Snuggsi",
   "description": "Sane client components",
-  "main": "index.js",
-  "directories": {
-    "test": "test"
-  },
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
+  "license": "MIT",
+
+  "bugs": { "url": "https://github.com/snuggs/snuggsi/issues" },
+
+  "homepage": "https://github.com/snuggs/snuggsi#readme",
+  "engines": { "node": "7.3.x" },
+
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/snuggs/snuggsi.git"
   },
+
   "keywords": [
     "web",
     "components",
@@ -20,10 +22,18 @@
     "routing",
     "templates"
   ],
-  "author": "Snuggsi",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/snuggs/snuggsi/issues"
+
+  "main": "index.js",
+
+  "directories": {
+    "test": "test"
   },
-  "homepage": "https://github.com/snuggs/snuggsi#readme"
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+
+  "devDependencies": {
+    "jsdom": "^9.9.1"
+  }
 }
