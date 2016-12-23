@@ -30,10 +30,14 @@
   },
 
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "postinstall": "npm ln ../jsdom && npm ln ../buble-tape",
+
+    "test": "node --use_strict index.es",
+
+    "cover": "tap index.es --cov --coverage-report=lcov"
   },
 
   "devDependencies": {
-    "jsdom": "^9.9.1"
+    "tap": "*"
   }
 }

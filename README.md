@@ -1,6 +1,15 @@
 # Snuggsi
 Sane Client Components
 
+## Testing
+https://remysharp.com/2015/12/14/my-node-test-strategy
+https://remysharp.com/2016/02/08/testing-tape-vs-tap
+
+### Running
+```bash
+$ npm test
+```
+
 ## Installation
 
 Add this line to your application's Gemfile:
