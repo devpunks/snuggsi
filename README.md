@@ -2,6 +2,8 @@
 Sane Client Components
 
 ## Testing
+"Update April 2016: since writing this post, I've moved to using tap which spawns individual processes for each test file, so I don't need this approach at all now."
+
 https://remysharp.com/2015/12/14/my-node-test-strategy
 https://remysharp.com/2016/02/08/testing-tape-vs-tap
 
