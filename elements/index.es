@@ -3,8 +3,8 @@ module.exports = class {
     if (!(name)) throw `Must provide name`
 
     console.warn (`Creating Element: ${name}`)
-    console.warn (`Document: ${document}`)
-    console.warn (`Window: ${window}`)
+//  console.warn (`Document: ${document}`)
+//  console.warn (`Window: ${window}`)
   }
 
   append (node) {
