@@ -23,7 +23,7 @@
     "templates"
   ],
 
-  "main": "index.js",
+  "main": "index.es",
 
   "directories": {
     "test": "test"
@@ -32,10 +32,10 @@
   "scripts": {
     "postinstall": "npm ln ../jsdom && npm ln ../buble-tape",
 
-    "test": "node --use_strict index.es",
+    "test": "node --use_strict index.test.es",
     "watch": "node watch.es",
 
-    "cover": "tap index.es --cov --coverage-report=lcov"
+    "cover": "tap index.test.es --cov --coverage-report=lcov"
   },
 
   "devDependencies": {
