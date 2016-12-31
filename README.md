@@ -22,9 +22,18 @@ $ npm install snuggsi
 ```
 
 ### Ruby
-Add this to your gemfile
+_Supports > Rails 5.x_
+Add this to your Gemfile
 ```bash
-gem snuggsi
+gem "snuggsi"
+```
+
+Remove the following gems from Gemfile ([YAGNI](https://en.wikipedia.org/wiki/You_aren't_gonna_need_it))
+```bash
+gem "uglifier" # We don't have to worry about this anymore!
+gem "sass-rails" # We use SugarSS. No worries! looks like SASS.
+gem "jquery-rails" # YES you won't need this anymore
+gem "coffee-rails" # Coffeescript is out. ECMAScript is in!
 ```
 
 And then execute:
