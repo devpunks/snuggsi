@@ -5,17 +5,30 @@ const {test} = require (`tap`)
 
 const tag = require (`./index.es`)
 
-test (`tag`, t => {
-  let id = `1234567890`
-  let alias = `TaraTrouble`
-  let context = {foo: 'bar', 'baz': 'bat'}
+let id = `1234567890`
+let alias = `TaraTrouble`
+let context = {foo: 'bar', 'baz': 'bat'}
 
-  let p = tag `
+test (`tag`, t => {
+  let p =
+
+
+
+
+  tag `
     <p id="${id}">Hello ${alias}!</p>
   `
+
   (context)
 
-  console.log (`paragraph`, p)
+  // tag (context) `<p>${alias}</p>`
+  // p (context) `Hello ${alias}`
+
+
+
+
+
 
   t.done ()
+  console.log (`paragraph`, p)
 })

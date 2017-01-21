@@ -5,7 +5,7 @@ module.exports = function (tokens, ...values) {
     .map(token => strip (token))
 
   return context => {
-    console.log (`rendering context: ${context}`)
+    console.log (`rendering context:`, context)
 
     return values
       .reduce ((tag, value) => {
