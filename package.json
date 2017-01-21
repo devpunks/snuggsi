@@ -37,7 +37,7 @@
     "watch/browser": "browser-sync start --server --port=8181 --index=harness.html --files './harness.html,proxy.js'",
 
     "cover": "tap index.test.es --cov --coverage-report=lcov",
-    "weight": "for file in ./*.js; do echo eval $(gzip -9 -c $file | wc -c; done)"
+    "weight": "echo $(gzip -9 -c -S=.js ./*.js | wc -c) bytes"
   },
 
   "devDependencies": {
