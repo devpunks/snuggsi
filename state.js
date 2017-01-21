@@ -1,3 +1,6 @@
+// State Machine
+// http://whatis.techtarget.com/definition/state-machine
+
 class State {
   constructor (attributes) {
     console.log (`State Machine`, attributes)
