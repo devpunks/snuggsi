@@ -1,11 +1,16 @@
-// DOM Level 1 Attr
+// DOM Levels
 // (https://developer.mozilla.org/fr/docs/DOM_Levels)
 //
-// WHATWG
+// DOM Level 1 Attr
+//
+// DOM Level 4 Attr
+// https://www.w3.org/TR/dom/#interface-attr
+//
+// WHATWG Attr
 // https://dom.spec.whatwg.org/#interface-attr
 // https://dom.spec.whatwg.org/#dom-document-createattribute
 //
-// MDN
+// MDN Attr
 // https://developer.mozilla.org/en-US/docs/Web/API/Attr
 // https://developer.mozilla.org/en-US/docs/Web/API/Document/createAttribute
 //
@@ -38,18 +43,3 @@ class Attribute extends Attr {
     )
   }
 }
-
-window.attr = new Attribute ('id')
-
-
-console.warn ('Attribute')
-console.log ('Attribute', attr.name)
-console.log ('Value', attr.value)
-attr.value = 'snuggsi'
-console.log ('Value', attr.value)
-
-let h1 = document.querySelector ('h1')
-//console.log ('IsID', attr.isId)
-  h1.setAttributeNode (attr)
-//console.log ('IsID', attr.isId)
-console.log ('Element', attr.ownerElement)
