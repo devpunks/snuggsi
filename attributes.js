@@ -70,8 +70,25 @@ class Attributes { // extends NamedNodeMap {
   // https://www.w3.org/TR/REC-DOM-Level-1/level-one-core.html#method-removeNamedItem
   //
   removeNamedItem (name) {
-    let removed = null
-  
+    let removed = this.getNamedItem (name)
+
+    let index = this [Symbol.species]
+      .indexOf (removed)
+
+    if (index === -1)
+      throw (name + ' NOT_FOUND_ERROR') // should be DomException
+
+    // TODO: Potential memory leak from holding on to each element?
+    // Talk to Dees
+    this [Symbol.species] = this [Symbol.species]
+
+    // https://jsperf.com/remove-element-splice-vs-move-and-pop
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+    // http://stackoverflow.com/questions/638381/fastest-way-to-delete-one-entry-from-the-middle-of-array
+    .slice (index, 1)
+
+    // never gets removed
+    return removed
   }
 
   // .item (index) - Returns the `index`th item in the map.
@@ -96,3 +113,9 @@ class Attributes { // extends NamedNodeMap {
   //
   get length () { return this [Symbol.species].length }
 }
+
+window.attributes = new Attributes ([new Attribute ('id')])
+console.log (window.attributes)
+attributes.removeNamedItem ('id')
+console.log (window.attributes)
+

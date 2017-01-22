@@ -88,6 +88,11 @@ Upgrading to Cedar-14 is usually a painless process.
 
 
 #### Notes
+REDUX Demistified -
+  - https://hackernoon.com/if-not-redux-then-what-fc433234f5b4#.tyisp17cy
+  - https://hackernoon.com/thinking-in-redux-when-all-youve-known-is-mvc-c78a74d35133#.2v46lnu4c
+  - http://stackoverflow.com/questions/39977540/can-redux-be-seen-as-a-pub-sub-or-observer-pattern
+
 DOM Levels
   - https://developer.mozilla.org/fr/docs/DOM_Levels
 
