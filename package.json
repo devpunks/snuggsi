@@ -34,7 +34,7 @@
 
     "test": "node --use_strict index.test.es",
     "watch": "node watch.es",
-    "watch/browser": "browser-sync start --server --port=8181 --index=harness.html --files './harness.html,proxy.js'",
+    "watch/browser": "browser-sync start --config=./watch.browser.js",
 
     "cover": "tap index.test.es --cov --coverage-report=lcov",
     "weight": "echo $(gzip -9 -c -S=.js ./*.js | wc -c) bytes"

@@ -88,8 +88,12 @@ Upgrading to Cedar-14 is usually a painless process.
 
 
 #### Notes
+DOM Levels
+  - https://developer.mozilla.org/fr/docs/DOM_Levels
+
 Default Raw template handling
   - https://github.com/rails/rails/commit/8bea607265a2c9bb9bb2188b0a79089ca373b814
+
   - https://github.com/rails/rails/commit/4be859f0fdf7b3059a28d03c279f03f5938efc80
 
 Template lookup for I18n
