@@ -2,6 +2,11 @@
 Sane Client Components
 
 ## Testing
+
+### State
+How to manage state over time.
+
+## Testing
 "Update April 2016: since writing this post, I've moved to using tap which spawns individual processes for each test file, so I don't need this approach at all now."
 
 - https://remysharp.com/2015/12/14/my-node-test-strategy
@@ -53,6 +58,14 @@ ActionController::API
 
 #### Why a New Asset Pipeline ?
   - https://corcoran.io/2014/05/27/moving-past-rails-asset-pipeline/
+
+#### Why a Rack skeleton server ?
+https://news.ycombinator.com/item?id=4517021
+"Rails" is a collection of libraries and conventions, just as "Sinatra + ActiveRecord" is. There's nothing inherent in it that makes it "worse" than Sinatra (which I love, by the way) for JSON APIs.
+
+Use Rack, pick your favorite gems, and go to town. Why mess with all the other Sinatra junk when you can have a simple config.ru for your app and just write a simple call method and you're good to go?
+
+You don't need all the ceremony and structure of Sinatra to write a JSON API, you just don't.
 
 Add this to your Gemfile
 ```ruby

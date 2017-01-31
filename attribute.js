@@ -27,7 +27,7 @@
 
 class Attribute extends Attr {
   constructor (name) {
-    return document.createAttribute (name)
+//  return document.createAttribute (name)
 
     return new Proxy(
       document.createAttribute (name),
@@ -37,6 +37,7 @@ class Attribute extends Attr {
         },
 
         set (subject, name, value, self) {
+          console.warn ('setting')
           subject [name] = value
         }
       }
