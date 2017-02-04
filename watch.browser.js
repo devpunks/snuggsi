@@ -5,7 +5,7 @@
 
 module.exports = {
     "ui": false, // { "port": 8181, "weinre": { "port": 8080 } },
-    "files": ['./harness.html', '*.js'],
+    "files": ['./harness.html', '*.js', 'elements/*.js'],
     "watchOptions": {
       ignored: '*.txt',
       ignoreInitial: true

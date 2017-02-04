@@ -1,8 +1,6 @@
 # Snuggsi
 Sane Client Components
 
-## Testing
-
 ### State
 How to manage state over time.
 
@@ -12,22 +10,56 @@ How to manage state over time.
 - https://remysharp.com/2015/12/14/my-node-test-strategy
 - https://remysharp.com/2016/02/08/testing-tape-vs-tap
 
-### Running
-```bash
-$ npm test
-```
-
-## Installation
-
-Add this line to your application's Gemfile:
-
-### Node
+## Node
 ```bash
 $ npm install snuggsi
 ```
 
+### Scripts
+#### Watch Tests
+Watch ecmascripts routine. [watch.es](watch.es)
+```bash
+$ npm run watch
+```
+#### Weigh
+Weigh ecmascripts routine.
+_(gzip total byte size of bundled ecmascripts)_
+```bash
+$ npm run weigh
+```
+
+#### Browse
+Watch files and hot inject browser assets on file change.
+See [watch.browser.js](watch.browser.es)
+& [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation.
+```bash
+$ npm run browse
+```
+
+#### Testing
+```bash
+$ npm test
+```
+
+#### Test Coverage
+```bash
+$ npm run cover
+```
+
+#### Dependencies
+  - [Tap](https://github.com/tapjs/node-tap)
+  - [Browser Sync](https://browsersync.io/)
+  - [jsdom](https://github.com/tmpvar/jsdom)
+
 ### Ruby
 [![Gem Version](https://badge.fury.io/rb/snuggsi.svg)](http://badge.fury.io/rb/snuggsi)
+
+## Installation
+
+Add this line to your application's Gemfile:
+```ruby
+gem "snuggsi"
+```
 
 Taken from [SASSC-ruby](https://github.com/sass/sassc-ruby)
   - http://blog.sass-lang.com/posts/1022316-announcing-dart-sass
@@ -49,9 +81,7 @@ $ rails new AwesomeApp --skip-sprockets # 🎉Yay🎉
 Relies on ActionController::Renderer to render templates
   - https://github.com/rails/rails/pull/18546
   - http://guides.rubyonrails.org/5_0_release_notes.html#action-pack-notable-changes
-
-ActionController::API
-  - https://github.com/rails/rails/pull/19832
+### Turbolinks - https://gist.github.com/snuggs/f24303a6d3ce584e7582672f8b40c54f
 
 #### Configuring Rails Assets
   - configuring-assets
@@ -66,11 +96,6 @@ https://news.ycombinator.com/item?id=4517021
 Use Rack, pick your favorite gems, and go to town. Why mess with all the other Sinatra junk when you can have a simple config.ru for your app and just write a simple call method and you're good to go?
 
 You don't need all the ceremony and structure of Sinatra to write a JSON API, you just don't.
-
-Add this to your Gemfile
-```ruby
-gem "snuggsi"
-```
 
 Remove the following gems from Gemfile ([YAGNI](https://en.wikipedia.org/wiki/You_aren't_gonna_need_it))
 ```ruby
