@@ -1,20 +1,16 @@
 <h1>Snuggsi Platform Toolkit</h1>
 
-<!-- snuggsi.js suite -->
-<!-- <script src='./validator.js'></script> -->
-<script src='./proxy.js'></script>
 <script src='./state.js'></script>
-<script src='./attribute.js'></script>
 <script src='./attributes.js'></script>
+<script src='./elements/text-content.js'></script>
 
 <script src='./script.js'></script>
 
 <script>
 void function () {
-  if (!(location.hostname.includes('localhost'))) return
+  let script = `<script src='\/browser-sync\/browser-sync-client.js'><\/script>`
 
-  document.write(
-    "<script src='/browser-sync/browser-sync-client.js'><\/script>"
-  )
+  if (location.hostname.includes (`localhost`))
+    document.write (script)
 } ()
 </script>
