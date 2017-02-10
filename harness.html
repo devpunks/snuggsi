@@ -1,16 +1,17 @@
 <h1>Snuggsi Platform Toolkit</h1>
 
+<ul id='items'>
+</ul>
+
+<template id='item'>
+  <p>Hello World!${name}</p>
+</template>
+
 <script src='./state.js'></script>
 <script src='./attributes.js'></script>
 <script src='./elements/text-content.js'></script>
+<script src='./elements/template.js'></script>
 
 <script src='./script.js'></script>
 
-<script>
-void function () {
-  let script = `<script src='\/browser-sync\/browser-sync-client.js'><\/script>`
-
-  if (location.hostname.includes (`localhost`))
-    document.write (script)
-} ()
-</script>
+<script src='./vendor/browser-sync.js'></script>

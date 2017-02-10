@@ -81,7 +81,9 @@ $ rails new AwesomeApp --skip-sprockets # 🎉Yay🎉
 Relies on ActionController::Renderer to render templates
   - https://github.com/rails/rails/pull/18546
   - http://guides.rubyonrails.org/5_0_release_notes.html#action-pack-notable-changes
+
 ### Turbolinks - https://gist.github.com/snuggs/f24303a6d3ce584e7582672f8b40c54f
+ - Dom Fragments - http://ejohn.org/blog/dom-documentfragments/
 
 #### Configuring Rails Assets
   - configuring-assets
