@@ -1,6 +1,3 @@
-// DOM Levels
-// (https://developer.mozilla.org/fr/docs/DOM_Levels)
-//
 // MDN
 // https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
 //
@@ -10,7 +7,7 @@
 // DOM Level 1
 // https://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-textContent
 
-let TextContent = class extends Text {
+class TextContent extends Text {
 
   constructor (value) {
     super (value)
@@ -20,6 +17,17 @@ let TextContent = class extends Text {
     this.textContent.length
       ? node.textContent = this.textContent
       : this.textContent = node.textContent
+
+    // MDN
+    // https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver#MutationObserverInit
+    //
+    // Living Standard
+    // https://dom.spec.whatwg.org/#dictdef-mutationobserverinit
+    //
+    // DOM Level 4
+    // https://www.w3.org/TR/dom/#mutationobserverinit
+
+    const configuration = { characterData:true, childList:true }
 
     // MDN
     // https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
@@ -42,22 +50,12 @@ let TextContent = class extends Text {
       // DOM Level 4
       // https://www.w3.org/TR/dom/#dom-mutationobserver-observe
 
-      .observe (this, { characterData:true, childList:false })
-
+      .observe (this, configuration)
 
 
     void ( new MutationObserver ( this.observe.bind (this) ) ) // bound Node observation
 
-      // MDN
-      // https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver#MutationObserverInit
-      //
-      // Living Standard
-      // https://dom.spec.whatwg.org/#dictdef-mutationobserverinit
-      //
-      // DOM Level 4
-      // https://www.w3.org/TR/dom/#mutationobserverinit
-
-      .observe (node, { characterData: false, childList: true })
+      .observe (node, configuration)
   }
 
   observe (records, observer) {

@@ -1,14 +1,83 @@
 # Snuggsi
 Sane Client Components
 
-### State
+## DSL
+### [TextContent](/elements/text-content.js)
+
+Relayed text content mutations
+
+Copy & pasta contents from the following link into developer console.
+
+_✅  No worries! No foolishness here !_
+https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/text-content.js
+
+### [State](/state.js)
+
 How to manage state over time.
+
+### [Attribute](/elements/attribute.js)
+Living Standard ([Web IDL](/elements/attribute.idl))
+
+Attribute binding relay
+
+### [Attributes](/elements/attributes.js)
+
+Attributes named node map.
+
+### [Template](/elements/attributes.js)
+
+`<template>` to `DocumentFragment` element renderer.
 
 ## Testing
 "Update April 2016: since writing this post, I've moved to using tap which spawns individual processes for each test file, so I don't need this approach at all now."
 
 - https://remysharp.com/2015/12/14/my-node-test-strategy
 - https://remysharp.com/2016/02/08/testing-tape-vs-tap
+
+## [DOM Levels](https://developer.mozilla.org/fr/docs/DOM_Levels)
+
+Salute🙏  to [@domenic](https://github.com/domenic) for the alley-oop 🏀,
+and being such a prolific contributor to the community.
+Also owe ya a matcha tea 🍵  for the JSDOM help.
+
+_"What's the difference between the
+[W3C](https://w3.org) and the [WHATWG](https://whatwg.org) ?"_
+
+https://www.reddit.com/r/javascript/comments/5swe9b/what_is_the_difference_between_the_w3c_and_the
+
+### Modern DOM Interfaces
+#### TextContent
+MDN
+https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
+
+Living Standard
+https://dom.spec.whatwg.org/#dom-node-textcontent
+
+DOM Level 1
+https://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-textContent
+
+#### MutationObserver
+Why `MutationObserver` has comparable performance to `Proxy`.
+
+_(shouts to @ebidel for this one)_
+https://gist.github.com/ebidel/d923001dd7244dbd3fe0d5116050d227
+
+Mutation Observer Tutorial
+https://dev.opera.com/articles/mutation-observers-tutorial
+
+MDN
+https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
+
+Living Standard
+https://dom.spec.whatwg.org/#mutation-observers
+https://dom.spec.whatwg.org/#mutationobserver
+
+DOM Level 4
+https://www.w3.org/TR/dom/#mutationobserver
+
+#### ~~MutationEvents~~ _(deprecated)_
+*No longer used*
+https://www.w3.org/TR/DOM-Level-3-Events/#legacy-mutationevent-events
 
 ## Node
 ```bash
