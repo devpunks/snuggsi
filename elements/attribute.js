@@ -29,7 +29,7 @@ class Attribute extends Attr {
   constructor (name) {
 //  return document.createAttribute (name)
 
-    return new Proxy(
+    return new Proxy (
       document.createAttribute (name),
       {
         get (subject, name, self) {

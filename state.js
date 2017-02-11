@@ -4,10 +4,10 @@ class State {
   constructor (attributes) {
     console.warn (`State Machine`, attributes)
 
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy
     return Proxy
       // (Revokable)Proxy.revoke ()
       // - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Proxy/revocable
-      //
       .revocable (attributes, this)
       .proxy
       // If .revoke() called, the proxy becomes unusable
