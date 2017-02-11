@@ -75,11 +75,29 @@ https://dom.spec.whatwg.org/#mutationobserver
 DOM Level 4
 https://www.w3.org/TR/dom/#mutationobserver
 
+#### Rendering (Re-Flow, Re-Layout, Re-Paint)
+
+https://www.phpied.com/rendering-repaint-reflowrelayout-restyle
+
+![Rendering (Layout, Reflow, Repaint, & Redraw)](http://www.phpied.com/files/reflow/render.png)
+
+* render tree - the visual part of the DOM tree
+* nodes in the render tree are called frames or boxes
+* recalculating parts of the render tree is called reflow (in Mozilla), and called layout in every other browser, it seems
+* Updating the screen with the results of the recalculated render tree is called repaint, or redraw (in IE/DynaTrace)
+* SpeedTracer introduces the notion of "style recalculation" (styles without geometry changes) vs. "layout"
+
+
+10 ways to minimize reflows & improve performance
+
+https://www.sitepoint.com/10-ways-minimize-reflows-improve-performance
+
+
 #### ~~MutationEvents~~ _(deprecated)_
 *No longer used*
 https://www.w3.org/TR/DOM-Level-3-Events/#legacy-mutationevent-events
-
 ## Node
+### Installation
 ```bash
 $ npm install snuggsi
 ```
@@ -120,8 +138,31 @@ $ npm run cover
   - [Browser Sync](https://browsersync.io/)
   - [jsdom](https://github.com/tmpvar/jsdom)
 
+#### Notes
+REDUX Demistified -
+  - https://hackernoon.com/if-not-redux-then-what-fc433234f5b4#.tyisp17cy
+  - https://hackernoon.com/thinking-in-redux-when-all-youve-known-is-mvc-c78a74d35133#.2v46lnu4c
+  - http://stackoverflow.com/questions/39977540/can-redux-be-seen-as-a-pub-sub-or-observer-pattern
+
+DOM Levels
+  - https://developer.mozilla.org/fr/docs/DOM_Levels
+
+Default Raw template handling
+  - https://github.com/rails/rails/commit/8bea607265a2c9bb9bb2188b0a79089ca373b814
+
+  - https://github.com/rails/rails/commit/4be859f0fdf7b3059a28d03c279f03f5938efc80
+
+Template lookup for I18n
+  - https://github.com/rails/rails/commit/ecb1981b
+
+
 ### Ruby
 [![Gem Version](https://badge.fury.io/rb/snuggsi.svg)](http://badge.fury.io/rb/snuggsi)
+
+*WIP*
+
+- [ ] Sprockets bindings
+- [ ] Rails engine
 
 ## Installation
 
@@ -130,6 +171,34 @@ Add this line to your application's Gemfile:
 gem "snuggsi"
 ```
 
+Remove the following gems from Gemfile ([YAGNI](https://en.wikipedia.org/wiki/You_aren't_gonna_need_it))
+```ruby
+gem "uglifier" # We don't have to worry about this anymore!
+gem "sass-rails" # We use SugarSS. No worries! looks like SASS.
+gem "jquery-rails" # YES you won't need this anymore
+gem "coffee-rails" # Coffeescript is out. ECMAScript is in!
+```
+
+And then execute:
+```bash
+$ bundle
+```
+
+Or install it yourself as:
+```bash
+$ gem install snuggsi
+```
+
+### Dependencies
+  - [Minitest](https://github.com/seattlerb/minitest)
+  - [Sprockets](https://github.com/rails/sprockets)
+
+### Testing
+```bash
+$ rake test
+```
+
+### Notes
 Taken from [SASSC-ruby](https://github.com/sass/sassc-ruby)
   - http://blog.sass-lang.com/posts/1022316-announcing-dart-sass
 
@@ -151,7 +220,7 @@ Relies on ActionController::Renderer to render templates
   - https://github.com/rails/rails/pull/18546
   - http://guides.rubyonrails.org/5_0_release_notes.html#action-pack-notable-changes
 
-### Turbolinks - https://gist.github.com/snuggs/f24303a6d3ce584e7582672f8b40c54f
+#### Turbolinks - https://gist.github.com/snuggs/f24303a6d3ce584e7582672f8b40c54f
  - Dom Fragments - http://ejohn.org/blog/dom-documentfragments/
 
 #### Configuring Rails Assets
@@ -168,25 +237,7 @@ Use Rack, pick your favorite gems, and go to town. Why mess with all the other S
 
 You don't need all the ceremony and structure of Sinatra to write a JSON API, you just don't.
 
-Remove the following gems from Gemfile ([YAGNI](https://en.wikipedia.org/wiki/You_aren't_gonna_need_it))
-```ruby
-gem "uglifier" # We don't have to worry about this anymore!
-gem "sass-rails" # We use SugarSS. No worries! looks like SASS.
-gem "jquery-rails" # YES you won't need this anymore
-gem "coffee-rails" # Coffeescript is out. ECMAScript is in!
-```
-
-And then execute:
-```bash
-$ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install snuggsi
-```
-
-### Deployment to Heroku
+#### Deployment to Heroku
 https://github.com/sass/sassc-rails
 
 Due to LibSass compilation requirements, you must upgrade to the
@@ -194,24 +245,6 @@ Due to LibSass compilation requirements, you must upgrade to the
 in order to successfully install this gem.
 
 Upgrading to Cedar-14 is usually a painless process.
-
-
-#### Notes
-REDUX Demistified -
-  - https://hackernoon.com/if-not-redux-then-what-fc433234f5b4#.tyisp17cy
-  - https://hackernoon.com/thinking-in-redux-when-all-youve-known-is-mvc-c78a74d35133#.2v46lnu4c
-  - http://stackoverflow.com/questions/39977540/can-redux-be-seen-as-a-pub-sub-or-observer-pattern
-
-DOM Levels
-  - https://developer.mozilla.org/fr/docs/DOM_Levels
-
-Default Raw template handling
-  - https://github.com/rails/rails/commit/8bea607265a2c9bb9bb2188b0a79089ca373b814
-
-  - https://github.com/rails/rails/commit/4be859f0fdf7b3059a28d03c279f03f5938efc80
-
-Template lookup for I18n
-  - https://github.com/rails/rails/commit/ecb1981b
 
 ## Contributing
 
