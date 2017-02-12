@@ -1,15 +1,56 @@
-# Snuggsi
-Sane Client Components
+# snuggsi
 
-## DSL
-### [TextContent](/elements/text-content.js)
+Browser component extensions.
 
-Relayed text content mutations
+https://w3c.github.io/webcomponents/spec/custom
 
-Copy & pasta contents from the following link into developer console.
+_Why?_ We don't need _(yet)_ another framework.
+We need _"syntactic sugar"_ around new spec driven browser features.
+Consider them _"DOM Extensions"_ as you are always interacting with
+Living DOM nodes. This gives you the ability to gradually incorporate
+these extensions into your existing code!
+
+## Syntactic DOM "Sugar"
+
+### [Text](/elements/text.js)
+
+`bind`ing for `textContent` mutations between two `Nodes`.
+`Text` nodes are portable and can be used freely throughout code.
+Best use case is when you need to keep track of element changes
+without touching the DOM, or worse causing a reflow / repaint _(i.e. `appendChild()`, `.innerText`, `.innerHTML`)_
+
+#### Must Know
+  - `Text` - https://github.com/snuggs/snuggsi#text-1
+  - `Node.textContent` - https://github.com/snuggs/snuggsi#nodetextcontent
+  - `Document.querySelector ()` - https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+
+Copy & pasta dependency from the following link into developer console.
 
 _✅  No worries! No foolishness here !_
-https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/text-content.js
+https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/text.js
+
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
+```Javascript
+const name = new Text ('devPunks')
+name.textContent // "devPunks"
+
+const h1 = document.querySelector ('h1')
+h1.textContent  // "Default Header"
+
+// now let's bind text to a DOM node
+// Text node takes precedence over element contents
+name.bind (h1)
+h1.textContent  // "devPunks"
+name.textContent === h1.textContent // true
+
+// now let's update the DOM node
+// (which will implicitly update `Text` node)
+h1.textContent = 'So RAD!'
+name.textContent  // "So RAD!"
+name.textContent === h1.textContent // true
+
+// 2 way text content binding!
+```
 
 ### [State](/state.js)
 
@@ -24,7 +65,7 @@ Attribute binding relay
 
 Attributes named node map.
 
-### [Template](/elements/attributes.js)
+### [Template](/elements/template.js)
 
 `<template>` to `DocumentFragment` element renderer.
 
@@ -46,7 +87,113 @@ _"What's the difference between the
 https://www.reddit.com/r/javascript/comments/5swe9b/what_is_the_difference_between_the_w3c_and_the
 
 ### Modern DOM Interfaces
-#### TextContent
+The following are the minimum set of *modern* DOM APIs
+you should be familiar with today. Each API has a `console`
+example snippet. Just copy / pasta the examples into the
+developer console and _"It just works!" ™_
+
+#### CSS Selectors
+https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors
+
+#### Text
+The Text interface represents the textual content of Element or Attr.  If an element has no markup within its content, it has a single child implementing Text that contains the element's text.  However, if the element contains markup, it is parsed into information items and Text nodes that form its children.
+
+*WIP* _Internet Explorer polyfill_
+
+Also see `Document.createTextNode` https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode
+
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
+```Javascript
+const empty = new Text ()
+const full  = new Text ('Yo! 👊')
+
+empty.textContent // ""
+empty.textContent = 'Hey! ✋'
+
+console.log (empty.textContent) // 'Hey! ✋'
+
+console.log (full.textContent)  // "Yo! 👊"
+```
+
+MDN `Text ()` Constructor Documentation - https://developer.mozilla.org/en-US/docs/Web/API/Text/Text
+
+MDN `Text` Documentation - https://developer.mozilla.org/en-US/docs/Web/API/Text
+
+#### Document.querySelector
+Returns the first Element within the document
+(using depth-first pre-order traversal of the document's nodes
+by first element in document markup and iterating through sequential
+nodes by order of amount of child nodes) that matches the specified group of selectors.
+
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
+```Javascript
+// Select the <head> element
+const head = document.querySelector ('head')
+console.log (head)
+
+// Select the <body> element
+const body = document.querySelector ('body')
+console.log (body)
+
+// Returns the first `<h1>`
+const h1 = document.querySelector ('h1')
+console.log (h1)
+
+// Returns the *first* HTMLElement with the `id` of `foo`
+// (See https://developer.mozilla.org/en-US/docs/Web/API/Element/id)
+const foo = document.querySelector ('#foo')
+console.log (foo)
+
+// Returns the *first* HTMLElement with `posts` within its `classList`
+// (See https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+const posts = document.querySelector ('.posts')
+console.log (posts)
+```
+
+MDN
+https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
+
+Selectors API Level 2
+https://dev.w3.org/2006/webapi/selectors-api2/#interface-definitions
+
+#### Document.querySelectorAll
+Returns the first Element within the document
+(using depth-first pre-order traversal of the document's nodes
+by first element in document markup and iterating through sequential
+nodes by order of amount of child nodes) that matches the specified group of selectors.
+
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
+```Javascript
+// Returns a collection of *all* HTMLElement(s) with `posts` within its `classList`
+// (See https://developer.mozilla.org/en-US/docs/Web/API/Element/classList)
+const posts = document.querySelector ('.posts') // [<a class="posts">,<section class="posts">, ...]
+console.log (posts)
+
+// Returns a collection of *all* HTMLParagraphElement(s)
+const paragraphs = document.querySelector ('p')
+console.log (paragraphs) // [<p>,<p>, ...]
+
+// Returns an collection if not found
+const zebras = document.querySelector ('zebras')
+console.log (zebras) // []
+```
+
+MDN
+https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelectorAll
+
+Selectors API Level 2
+https://dev.w3.org/2006/webapi/selectors-api2/#interface-definitions
+
+
+
+#### Node.textContent
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
+```Javascript
+// Must be on any page with an `<h1>`
+const h1 = document.querySelector ('h1')
+h1.textContent // "Hello World"
+```
+
 MDN
 https://developer.mozilla.org/en-US/docs/Web/API/Node/textContent
 
