@@ -8,7 +8,12 @@ _Why?_ We don't need _(yet)_ another framework.
 We need _"syntactic sugar"_ around new spec driven browser features.
 Consider them _"DOM Extensions"_ as you are always interacting with
 Living DOM nodes. This gives you the ability to gradually incorporate
-these extensions into your existing code!
+these extensions into your existing code! Best of all,
+works in your browser today! _for the most part_. And if the feature doesn't,
+it will in the immediate future without you having to "update" anything. The
+browsers are working dilligently abiding by the specs. Therefore not only can
+we use the features today, this `README` alone will better acclaimate you to
+*modern browser development using javascript*.
 
 ## Syntactic DOM "Sugar"
 
@@ -95,6 +100,57 @@ developer console and _"It just works!" ™_
 #### CSS Selectors
 https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors
 
+#### Template Literals
+Template literals are string literals allowing embedded expressions
+_([string interpolation](https://en.wikipedia.org/wiki/String_interpolation))_.
+As you may have noticed the [Grave accent](https://en.wikipedia.org/wiki/Grave_accent) _(``)_
+is used instead of double/single quotes.
+You can use multi-line strings and string interpolation features with them.
+They were called "template strings" in prior editions of the ES2015 specification.
+```Javascript
+`Hello !`
+
+`Line one of text
+ Line two (with preserved \n`
+
+const greeting = 'world'
+`Hello ${greeting} !`
+
+tag `string text ${greeting} string text`
+```
+
+"Tagged" Template Literals
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals
+
+Raw Strings
+https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Raw_strings
+
+ECMAScript 2015 Specification Standard
+http://www.ecma-international.org/ecma-262/6.0/#sec-template-literals
+
+ECMAScript 2017 Draft
+https://tc39.github.io/ecma262/#sec-template-literals
+
+
+#### Templates
+The *HTML _<template>_* element is a mechanism for holding client-side content
+that is not to be rendered when a page is loaded but may subsequently
+be instantiated during runtime using JavaScript. 
+
+Think of a template as a content fragment that is being stored for subsequent use in the document.
+While the parser does process the contents of the <template> element while loading the page,
+it does so only to ensure that those contents are valid; the element's contents are not rendered, however.
+
+MDN
+https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
+
+HTML5
+https://www.w3.org/TR/html5/scripting-1.html#the-template-element
+
+Living Standard
+https://html.spec.whatwg.org/multipage/scripting.html#the-template-element
+
+
 #### Text
 The Text interface represents the textual content of Element or Attr.  If an element has no markup within its content, it has a single child implementing Text that contains the element's text.  However, if the element contains markup, it is parsed into information items and Text nodes that form its children.
 
@@ -118,6 +174,34 @@ console.log (full.textContent)  // "Yo! 👊"
 MDN `Text ()` Constructor Documentation - https://developer.mozilla.org/en-US/docs/Web/API/Text/Text
 
 MDN `Text` Documentation - https://developer.mozilla.org/en-US/docs/Web/API/Text
+
+
+#### DocumentFragment
+AKA _"How did 'front-end frameworks' miss this?"_
+
+The DocumentFragment has been proven to be the fastest method of updating DOM Tree.
+The implementation was spec'd all the way back in DOM Level 1. We should be using this today!
+
+- Dom Fragments - http://ejohn.org/blog/dom-documentfragments/
+
+MDN
+https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment
+
+Living Standard
+https://dom.spec.whatwg.org/#interface-documentfragment
+
+DOM Level 3
+https://www.w3.org/TR/DOM-Level-3-Core/core.html#ID-B63ED1A3
+
+DOM Level 2
+https://www.w3.org/TR/DOM-Level-2-Core/core.html#ID-B63ED1A3
+
+DOM Level 1
+https://www.w3.org/TR/DOM-Level-1/level-one-core.html#ID-B63ED1A3
+
+Selectors API Level 2
+https://dev.w3.org/2006/webapi/selectors-api2
+
 
 #### Document.querySelector
 Returns the first Element within the document
@@ -291,18 +375,6 @@ REDUX Demistified -
   - https://hackernoon.com/thinking-in-redux-when-all-youve-known-is-mvc-c78a74d35133#.2v46lnu4c
   - http://stackoverflow.com/questions/39977540/can-redux-be-seen-as-a-pub-sub-or-observer-pattern
 
-DOM Levels
-  - https://developer.mozilla.org/fr/docs/DOM_Levels
-
-Default Raw template handling
-  - https://github.com/rails/rails/commit/8bea607265a2c9bb9bb2188b0a79089ca373b814
-
-  - https://github.com/rails/rails/commit/4be859f0fdf7b3059a28d03c279f03f5938efc80
-
-Template lookup for I18n
-  - https://github.com/rails/rails/commit/ecb1981b
-
-
 ### Ruby
 [![Gem Version](https://badge.fury.io/rb/snuggsi.svg)](http://badge.fury.io/rb/snuggsi)
 
@@ -353,24 +425,28 @@ warning: "Ruby Sass, on the other hand, will eventually go away unless a new mai
 
 I want to emphasize that we aren't making the decision to stop developing Ruby Sass lightly. This is a big change, and it's not an easy one for me—I've worked on Ruby Sass continuously for almost ten years now, and it's difficult to let that history go. But Chris and I have discussed this thoroughly, and we're convinced this is the right move. We only have so much time to devote to Sass, and it no longer makes sense to put that time into an implementation that's so slow as to be infeasible for many of our largest users."
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
 _Supports > Rails 5.x_
-If you’re lucky enough to be starting with a brand new application, you can use the `--skip-sprockets` option when you create the app.
 
+If you’re lucky enough to be starting with a brand new application, you can use the `--skip-sprockets` option when you create the app.
 ```bash
 $ rails new AwesomeApp --skip-sprockets # 🎉Yay🎉
 ```
+
+#### Turbolinks - https://gist.github.com/snuggs/f24303a6d3ce584e7582672f8b40c54f
+
+#### Configuring Rails Assets
+Default Raw template handling
+  - https://github.com/rails/rails/commit/8bea607265a2c9bb9bb2188b0a79089ca373b814
+  - https://github.com/rails/rails/commit/4be859f0fdf7b3059a28d03c279f03f5938efc80
 
 Relies on ActionController::Renderer to render templates
   - https://github.com/rails/rails/pull/18546
   - http://guides.rubyonrails.org/5_0_release_notes.html#action-pack-notable-changes
 
-#### Turbolinks - https://gist.github.com/snuggs/f24303a6d3ce584e7582672f8b40c54f
- - Dom Fragments - http://ejohn.org/blog/dom-documentfragments/
 
-#### Configuring Rails Assets
+Template lookup for I18n
+  - https://github.com/rails/rails/commit/ecb1981b
+
   - configuring-assets
 
 #### Why a New Asset Pipeline ?
