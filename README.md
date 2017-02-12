@@ -44,7 +44,10 @@ h1.textContent  // "Default Header"
 
 // now let's bind text to a DOM node
 // Text node takes precedence over element contents
-name.bind (h1)
+name.bind (h1) // Now we're sync'd
+
+// Any changes to either in memory text or HTML element
+// will be relayed to its tandem
 h1.textContent  // "devPunks"
 name.textContent === h1.textContent // true
 
@@ -80,7 +83,17 @@ Attributes named node map.
 - https://remysharp.com/2015/12/14/my-node-test-strategy
 - https://remysharp.com/2016/02/08/testing-tape-vs-tap
 
-## [DOM Levels](https://developer.mozilla.org/fr/docs/DOM_Levels)
+
+### Modern DOM Interfaces
+The following are the minimum set of *modern* DOM APIs
+you should be familiar with today. Each API has a `console`
+example snippet. Just copy / pasta the examples into the
+developer console and _"It just works!" ™_
+
+
+#### [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
+MDN Document Object Model - https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
+MDN DOM Levels https://developer.mozilla.org/fr/docs/DOM_Levels
 
 Salute🙏  to [@domenic](https://github.com/domenic) for the alley-oop 🏀,
 and being such a prolific contributor to the community.
@@ -91,11 +104,6 @@ _"What's the difference between the
 
 https://www.reddit.com/r/javascript/comments/5swe9b/what_is_the_difference_between_the_w3c_and_the
 
-### Modern DOM Interfaces
-The following are the minimum set of *modern* DOM APIs
-you should be familiar with today. Each API has a `console`
-example snippet. Just copy / pasta the examples into the
-developer console and _"It just works!" ™_
 
 #### CSS Selectors
 https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors
@@ -107,6 +115,8 @@ As you may have noticed the [Grave accent](https://en.wikipedia.org/wiki/Grave_a
 is used instead of double/single quotes.
 You can use multi-line strings and string interpolation features with them.
 They were called "template strings" in prior editions of the ES2015 specification.
+
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
 ```Javascript
 `Hello !`
 
@@ -120,7 +130,7 @@ tag `string text ${greeting} string text`
 ```
 
 "Tagged" Template Literals
-https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals
+https://developer.mozillajorg/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals
 
 Raw Strings
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Raw_strings
@@ -133,13 +143,39 @@ https://tc39.github.io/ecma262/#sec-template-literals
 
 
 #### Templates
-The *HTML _<template>_* element is a mechanism for holding client-side content
+The *HTML `<template>`* element is a mechanism for holding client-side content
 that is not to be rendered when a page is loaded but may subsequently
 be instantiated during runtime using JavaScript. 
 
 Think of a template as a content fragment that is being stored for subsequent use in the document.
 While the parser does process the contents of the <template> element while loading the page,
 it does so only to ensure that those contents are valid; the element's contents are not rendered, however.
+
+
+_Snippet cannot be run in consle. Must save as HTML file_
+```
+<ul id='songs'>
+</ul>
+
+<template id='song'>
+  <li></li>
+</template>
+
+<script defer>
+
+let songs = ['Nothing else matters', 'Battery', 'One']
+
+const template = document.querySelector ('template#song')
+    , ul = document.querySelector ('ul#songs')
+    , li = template.content.querySelector ('li')
+
+for (let song in songs) {
+  li.textContent = song
+  songs.appendChild (li)
+}
+
+</script>
+```
 
 MDN
 https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template
@@ -156,7 +192,7 @@ The Text interface represents the textual content of Element or Attr.  If an ele
 
 *WIP* _Internet Explorer polyfill_
 
-Also see `Document.createTextNode` https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode
+See also `Document.createTextNode` https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode
 
 _[Console](https://developer.chrome.com/devtools#console) example snippet_
 ```Javascript
@@ -182,7 +218,37 @@ AKA _"How did 'front-end frameworks' miss this?"_
 The DocumentFragment has been proven to be the fastest method of updating DOM Tree.
 The implementation was spec'd all the way back in DOM Level 1. We should be using this today!
 
-- Dom Fragments - http://ejohn.org/blog/dom-documentfragments/
+The DocumentFragment interface represents a minimal document object that has no parent. It is used as a light-weight version of Document to store a segment of a document structure comprised of nodes just like a standard document. The key difference is that because the document fragment isn't part of the actual DOM's structure, changes made to the fragment don't affect the document, cause reflow, or incur any performance impact that can occur when changes are made.
+
+DocumentFragments are DOM Nodes. They are never part of the main DOM tree. The usual use case is to create the document fragment, append elements to the document fragment and then append the document fragment to the DOM tree. In the DOM tree, the document fragment is replaced by all its children.
+
+A common use for DocumentFragment is to create one, assemble a DOM subtree within it, then append or insert the fragment into the DOM using Node interface methods such as `appendChild()` or `insertBefore(). Doing this moves the fragment's nodes into the DOM, leaving behind an empty DocumentFragment. Because all of the nodes are inserted into the document at once, only one reflow and render is triggered instead of potentially one for each node inserted if they were inserted separately.
+
+Since the document fragment is in memory and not part of the main DOM tree,
+appending children to it does not cause page reflow (computation of element's position and geometry).
+Consequently, using document fragments often results in better performance.
+
+This interface is also of great use with Web components: `<template>` elements contain a `DocumentFragment` in their `HTMLTemplateElement.content property`.
+
+See also `Document.createDocumentFragment` https://developer.mozilla.org/en-US/docs/Web/API/Document/createDocumentFragment
+
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
+```Javascript
+const browsers = ['Chrome', 'Edge', 'Brave', 'Firefox']
+    , fragment = document.createDocumentFragment ()
+
+browsers.forEach (name => {
+  const li = document.createElement ('li')
+  li.textContent = name
+  fragment.appendChild (li)
+})
+
+document.querySelector ('ul')
+  .appendChild (fragment)
+```
+
+- DOM Fragments - http://ejohn.org/blog/dom-documentfragments
+- JavascriptDocumentFragment - https://davidwalsh.name/documentfragment
 
 MDN
 https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment
@@ -287,8 +353,29 @@ https://dom.spec.whatwg.org/#dom-node-textcontent
 DOM Level 1
 https://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-textContent
 
+
 #### MutationObserver
-Why `MutationObserver` has comparable performance to `Proxy`.
+Why? `MutationObserver` has comparable performance to `Proxy`.
+
+```Javascript
+const target = document.querySelector ('h1')
+ 
+// create an observer instance
+var observer = new MutationObserver (mutations => {
+  mutations.forEach( mutation => console.log (mutation.type) )
+})
+ 
+// configuration of the observer:
+var config = { attributes: true, childList: true, characterData: true }
+ 
+// pass in the target node, as well as the observer options
+observer.observe(target, config)
+ 
+target.textContent = 'Triggering mutation observer'
+
+// later, you can stop observing
+observer.disconnect()
+```
 
 _(shouts to @ebidel for this one)_
 https://gist.github.com/ebidel/d923001dd7244dbd3fe0d5116050d227
@@ -308,6 +395,7 @@ https://www.w3.org/TR/dom/#mutationobserver
 
 #### Rendering (Re-Flow, Re-Layout, Re-Paint)
 
+Minimizing Browser Reflow - https://developers.google.com/speed/articles/reflow
 https://www.phpied.com/rendering-repaint-reflowrelayout-restyle
 
 ![Rendering (Layout, Reflow, Repaint, & Redraw)](http://www.phpied.com/files/reflow/render.png)
@@ -320,13 +408,13 @@ https://www.phpied.com/rendering-repaint-reflowrelayout-restyle
 
 
 10 ways to minimize reflows & improve performance
-
 https://www.sitepoint.com/10-ways-minimize-reflows-improve-performance
 
 
 #### ~~MutationEvents~~ _(deprecated)_
 *No longer used*
 https://www.w3.org/TR/DOM-Level-3-Events/#legacy-mutationevent-events
+
 ## Node
 ### Installation
 ```bash
