@@ -17,6 +17,46 @@ we use the features today, this `README` alone will better acclaimate you to
 
 ## Syntactic DOM "Sugar"
 
+### [tag](/elements/tag.js)
+Easy way to create HTML tag strings and bind them to a context.
+
+#### Must Know
+Template Literals
+  - "Tagged" Templates - https://leanpub.com/understandinges6/read#leanpub-auto-tagged-templates
+  - Template String Literals - http://www.2ality.com/2015/01/template-strings-html.html
+
+Copy & pasta dependency from the following link into developer console.
+
+_✅  No worries! No foolishness here !_
+https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/tag.js
+
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
+```Javascript
+tag `<p>Hello from {handle} !</p>` ({ handle: 'Snuggs' })
+
+tag`<p>Hello from {handle} !</p>`
+  ({ handle: 'Snuggs' })
+
+tag `<p>Hello from {handle} !</p>`
+  ({ handle: 'Snuggs' })
+
+tag (`<p>{handle}</p>`, { handle: 'Dees' })
+
+tag (`<p>{handle}</p>`)
+  ({ handle: 'Snuggs' })
+
+// Events set on parent will not be thrashed.
+document.body.addEventListener ('click', event => {
+  console.warn (event, event.target)
+})
+
+let template = tag `<p>{name}</p><button id={id}>{other}</button>`
+  ({ name: 'Snuggs', id: 'shazaam', other: 'Dees' })
+
+// Updates entire body without thrashing parental event handlers.
+document.body.innerHTML = template
+```
+
 ### [Text](/elements/text.js)
 
 `bind`ing for `textContent` mutations between two `Nodes`.
@@ -129,8 +169,17 @@ const greeting = 'world'
 tag `string text ${greeting} string text`
 ```
 
+Template Literals
+  - 2Ality - http://www.2ality.com/2015/01/template-strings-html.html
+  - https://developers.google.com/web/updates/2015/01/ES6-Template-Strings
+
+  - https://developer.mozillajorg/en-US/docs/Web/JavaScript/Reference/Template_literals
+
 "Tagged" Template Literals
-https://developer.mozillajorg/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals
+  - https://developers.google.com/web/updates/2015/01/ES6-Template-Strings#tagged_templates
+  - https://leanpub.com/understandinges6/read#leanpub-auto-multiline-strings#leanpub-auto-tagged-templates
+  - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_template_literals
+  - http://exploringjs.com/es6/ch_template-literals.html#_implementing-tag-functions
 
 Raw Strings
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Raw_strings
