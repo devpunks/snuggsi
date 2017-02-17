@@ -100,6 +100,85 @@ name.textContent === h1.textContent // true
 // 2 way text content binding!
 ```
 
+### [Template](/elements/template.js)
+
+`<template>` to `DocumentFragment` element renderer.
+
+Copy & pasta dependency from the following link into developer console.
+
+_✅  No worries! No foolishness here !_
+https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/tag.js
+https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/template.js
+
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
+
+_Must have following HTML Template element within DOM_
+
+```HTML5
+<section id='some-element'></section>
+
+<template id='items'>
+  <ul title={name}></ul>
+</template>
+```
+
+```Javascript
+const state = { name: 'That Beast' }
+    , template = new Template ('#items')
+
+// bind to state
+template
+  .bind (state)
+  .content // an appendable HTMLDocumentFragment
+  // see https://html.spec.whatwg.org/multipage/scripting.html#dom-template-content
+
+document
+  // select element to append bound template
+  .querySelector ('#some-element')
+  // notice template is still bound to context from earlier
+  .appendChild (template.content)
+
+// <section id='some-element'><ul title='That Beast'></ul></section>
+```
+
+
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
+
+_Must have following HTML Template element within DOM_
+```HTML5
+<ul></ul>
+
+<template id='item'>
+  <!-- `{name}` will bind to `state` property `name` -->
+  <li>Hello {name}!</li>
+</template>
+```
+
+```Javascript
+// when state is a collection
+const state = [
+  {name: 'foo'}, {name: 'bar'}
+]
+const template = new Template ('#items')
+
+template
+   // render template for each item in state
+  .bind (state)
+  .content // an appendable HTMLDocumentFragment
+
+document
+  .querySelector ('ul')
+  .appendChild (template.content)
+
+/*
+<ul>
+  <li>Hello foo!</li>
+  <li>Hello bar!</li>
+</ul>
+*/
+```
+
+
 ### [State](/state.js)
 
 How to manage state over time.
@@ -113,26 +192,13 @@ Attribute binding relay
 
 Attributes named node map.
 
-### [Template](/elements/template.js)
-
-`<template>` to `DocumentFragment` element renderer.
-
-## Testing
-"Update April 2016: since writing this post, I've moved to using tap which spawns individual processes for each test file, so I don't need this approach at all now."
-
-- https://remysharp.com/2015/12/14/my-node-test-strategy
-- https://remysharp.com/2016/02/08/testing-tape-vs-tap
-
-
-### Modern DOM Interfaces
+## Modern DOM Interfaces
 The following are the minimum set of *modern* DOM APIs
 you should be familiar with today. Each API has a `console`
 example snippet. Just copy / pasta the examples into the
 developer console and _"It just works!" ™_
 
 
-#### [Document Object Model](https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model)
-MDN Document Object Model - https://developer.mozilla.org/en-US/docs/Web/API/Document_Object_Model
 MDN DOM Levels https://developer.mozilla.org/fr/docs/DOM_Levels
 
 Salute🙏  to [@domenic](https://github.com/domenic) for the alley-oop 🏀,
@@ -145,10 +211,34 @@ _"What's the difference between the
 https://www.reddit.com/r/javascript/comments/5swe9b/what_is_the_difference_between_the_w3c_and_the
 
 
-#### CSS Selectors
+### CSS Selectors
 https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors
 
-#### Template Literals
+
+### Text
+The Text interface represents the textual content of Element or Attr.  If an element has no markup within its content, it has a single child implementing Text that contains the element's text.  However, if the element contains markup, it is parsed into information items and Text nodes that form its children.
+
+*WIP* _Internet Explorer polyfill_
+
+See also `Document.createTextNode` https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode
+
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
+```Javascript
+( new Text ('Yo! 👊') )
+  .textContent  // "Yo! 👊"
+
+const empty = new Text ()
+empty.textContent // ""
+empty.textContent = 'Hey! ✋'
+empty.textContent // 'Hey! ✋'
+```
+
+MDN `Text ()` Constructor Documentation - https://developer.mozilla.org/en-US/docs/Web/API/Text/Text
+
+MDN `Text` Documentation - https://developer.mozilla.org/en-US/docs/Web/API/Text
+
+
+### Template Literals
 Template literals are string literals allowing embedded expressions
 _([string interpolation](https://en.wikipedia.org/wiki/String_interpolation))_.
 As you may have noticed the [Grave accent](https://en.wikipedia.org/wiki/Grave_accent) _(``)_
@@ -158,15 +248,18 @@ They were called "template strings" in prior editions of the ES2015 specificatio
 
 _[Console](https://developer.chrome.com/devtools#console) example snippet_
 ```Javascript
-`Hello !`
+void `Hello !`
 
-`Line one of text
- Line two (with preserved \n`
+void `Line one of text
+  Line two (with preserved \n`
 
 const greeting = 'world'
-`Hello ${greeting} !`
+void `Hello ${greeting} !`
 
-tag `string text ${greeting} string text`
+const tag = (...fragments) =>
+  ({ parts: fragments.shift (), tokens: fragments })
+
+tag `part before token ${greeting} part after token`
 ```
 
 Template Literals
@@ -191,7 +284,7 @@ ECMAScript 2017 Draft
 https://tc39.github.io/ecma262/#sec-template-literals
 
 
-#### Templates
+### Templates
 The *HTML `<template>`* element is a mechanism for holding client-side content
 that is not to be rendered when a page is loaded but may subsequently
 be instantiated during runtime using JavaScript. 
@@ -201,7 +294,7 @@ While the parser does process the contents of the <template> element while loadi
 it does so only to ensure that those contents are valid; the element's contents are not rendered, however.
 
 
-_Snippet cannot be run in consle. Must save as HTML file_
+_Snippet cannot be run in console. Must save as HTML file_
 ```
 <ul id='songs'>
 </ul>
@@ -236,32 +329,7 @@ Living Standard
 https://html.spec.whatwg.org/multipage/scripting.html#the-template-element
 
 
-#### Text
-The Text interface represents the textual content of Element or Attr.  If an element has no markup within its content, it has a single child implementing Text that contains the element's text.  However, if the element contains markup, it is parsed into information items and Text nodes that form its children.
-
-*WIP* _Internet Explorer polyfill_
-
-See also `Document.createTextNode` https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode
-
-_[Console](https://developer.chrome.com/devtools#console) example snippet_
-```Javascript
-const empty = new Text ()
-const full  = new Text ('Yo! 👊')
-
-empty.textContent // ""
-empty.textContent = 'Hey! ✋'
-
-console.log (empty.textContent) // 'Hey! ✋'
-
-console.log (full.textContent)  // "Yo! 👊"
-```
-
-MDN `Text ()` Constructor Documentation - https://developer.mozilla.org/en-US/docs/Web/API/Text/Text
-
-MDN `Text` Documentation - https://developer.mozilla.org/en-US/docs/Web/API/Text
-
-
-#### DocumentFragment
+### DocumentFragment
 AKA _"How did 'front-end frameworks' miss this?"_
 
 The DocumentFragment has been proven to be the fastest method of updating DOM Tree.
@@ -318,7 +386,7 @@ Selectors API Level 2
 https://dev.w3.org/2006/webapi/selectors-api2
 
 
-#### Document.querySelector
+### Document.querySelector
 Returns the first Element within the document
 (using depth-first pre-order traversal of the document's nodes
 by first element in document markup and iterating through sequential
@@ -355,7 +423,7 @@ https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
 Selectors API Level 2
 https://dev.w3.org/2006/webapi/selectors-api2/#interface-definitions
 
-#### Document.querySelectorAll
+### Document.querySelectorAll
 Returns the first Element within the document
 (using depth-first pre-order traversal of the document's nodes
 by first element in document markup and iterating through sequential
@@ -385,7 +453,7 @@ https://dev.w3.org/2006/webapi/selectors-api2/#interface-definitions
 
 
 
-#### Node.textContent
+### Node.textContent
 _[Console](https://developer.chrome.com/devtools#console) example snippet_
 ```Javascript
 // Must be on any page with an `<h1>`
@@ -403,7 +471,7 @@ DOM Level 1
 https://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-textContent
 
 
-#### MutationObserver
+### MutationObserver
 Why? `MutationObserver` has comparable performance to `Proxy`.
 
 ```Javascript
@@ -442,7 +510,7 @@ https://dom.spec.whatwg.org/#mutationobserver
 DOM Level 4
 https://www.w3.org/TR/dom/#mutationobserver
 
-#### Rendering (Re-Flow, Re-Layout, Re-Paint)
+### Rendering (Re-Flow, Re-Layout, Re-Paint)
 
 Minimizing Browser Reflow - https://developers.google.com/speed/articles/reflow
 https://www.phpied.com/rendering-repaint-reflowrelayout-restyle
@@ -460,9 +528,16 @@ https://www.phpied.com/rendering-repaint-reflowrelayout-restyle
 https://www.sitepoint.com/10-ways-minimize-reflows-improve-performance
 
 
-#### ~~MutationEvents~~ _(deprecated)_
+### ~~MutationEvents~~ _(deprecated)_
 *No longer used*
 https://www.w3.org/TR/DOM-Level-3-Events/#legacy-mutationevent-events
+
+## Testing
+"Update April 2016: since writing this post, I've moved to using tap which spawns individual processes for each test file, so I don't need this approach at all now."
+
+- https://remysharp.com/2015/12/14/my-node-test-strategy
+- https://remysharp.com/2016/02/08/testing-tape-vs-tap
+
 
 ## Node
 ### Installation

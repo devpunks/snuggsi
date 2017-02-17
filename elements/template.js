@@ -1,56 +1,83 @@
-'use strict'
-
-//class Template extends HTMLTemplateElement {
-//  constructor (selector) {
-//    console.log (selector)
-//    return document.querySelector (selector)
-//  }
-//}
-var Template = function (selector) {
-  console.warn ('Foo')
-  this [Symbol.species]
-    = document.querySelector (selector)
-
-  if ( !(this instanceof Template) )
-    return this [Symbol.species]
-
-  this.render = function (collection) {
-    console.log ('rendering', collection)
-
-    var templates = new Array
-      , fragment  = document.createDocumentFragment ()
-
-    for (var map of collection) {
-      let template  = this [Symbol.species].innerHTML
-      let html = template
-
-      // ttps://jsperf.com/importnode-vs-clonenode
-//    var clone = document.importNode
-//      (this [Symbol.species].content, true)
-//    var clone = this [Symbol.species].cloneNode(true)
-
-        for (var property in map)
-          // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/replace
-          template = template.replace ('${'+property+'}', map [property])
-
-      templates.push (template)
-    }
-
-    fragment.innerHTML = templates.join ('')
-    console.log ('Frag', fragment)
+class Template {
+  constructor (selector) {
+    return Object.assign (
+      this.factory (selector),
+      { bind: this.bind }
+    )
   }
 
-  return Object.assign
-    (document.querySelector (selector), this)
+  factory (selector) {
+    return (
+      document.querySelector (selector)
+        || document.createElement ('template')
+    ).cloneNode (true)
+  }
+
+  bind (state) {
+    let html   = window.template = this.innerHTML
+    let render = context => tag (html) (context)
+
+    let tags = Array.isArray (state)
+      ?  state.map (render)
+      : [render (state)]
+
+    this.innerHTML = tags.join ('')
+
+    return this
+  }
 }
 
+let record = { name: 'That Beast' }
+var collection = [
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+{name: 'foo'}, {name: 'bar'},
+]
+console.group ('template')
+console.time ('bind time')
+window.template = new Template ('#items')
 
-var ul = document.querySelector ('ul')
-var li = document.createElement ('li')
-li.textContent = 'Snuggsiiiiiy'
-ul.appendChild (li)
+document.
+  body.appendChild
+  (
+    (new Template ('#items'))
+      .bind(record)
+      .content
+  )
 
-var collection = [{name: 'foo'}, {name: 'bar'}]
+let items = new Template ('#item')
 
-void (new Template ('#item'))
-  .render (collection)
+items
+  .bind (collection)
+
+let ul = document.querySelector ('ul')
+
+ul.appendChild (items.content)
+
+console.timeEnd ('bind time')
+console.groupEnd ('template')
+
+console.group ('appendChild')
+console.time ('append time')
+for (let context of collection) {
+  let li = document.createElement ('li')
+  ul.appendChild (li)
+  li.outerHTML = `<li style='background:red'>Hello ${context.name}!</li>`
+}
+console.timeEnd ('append time')
+console.groupEnd ('appendChild')

@@ -1,16 +1,29 @@
+<style>
+ul {
+  margin: 5%;
+  padding: 0;
+  list-style: none;
+  position: absolute;
+  background: #bada55;
+  display: block;
+  width: 90%;
+}
+</style>
+
 <h1>Snuggsi Platform Toolkit</h1>
 
-<ul id='items'>
-</ul>
+<template id='items'>
+  <ul title={name}></ul>
+</template>
 
 <template id='item'>
-  <p>Hello World!${name}</p>
+  <li>Hello {name}!</li>
 </template>
 
 <script src='./state.js'></script>
 <script src='./elements/attributes.js'></script>
 <script src='./elements/text.js'></script>
-<script src='./elements/template.js'></script>
 <script src='./elements/tag.js'></script>
+<script src='./elements/template.js'></script>
 
 <script src='./vendor/browser-sync.js'></script>
