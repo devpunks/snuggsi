@@ -15,11 +15,11 @@ class Template {
 
   bind (state) {
     let html   = window.template = this.innerHTML
-    let render = context => tag (html) (context)
+      , render = context => tag (html) (context)
 
-    let tags = Array.isArray (state)
-      ?  state.map (render)
-      : [render (state)]
+      , tags = Array.isArray (state)
+          ?  state.map (render)
+          : [render (state)]
 
     this.innerHTML = tags.join ('')
 
