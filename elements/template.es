@@ -29,24 +29,7 @@ class Template {
 
 let record = { name: 'That Beast' }
 var collection = [
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
-{name: 'foo'}, {name: 'bar'},
+  {name: 'foo'}, {name: 'bar'},
 ]
 console.group ('template')
 console.time ('bind time')

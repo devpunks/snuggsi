@@ -4,18 +4,24 @@ function tag (...fragments) {
     ? fragments [0]
     : fragments [0][0]
 
-  let context  = fragments [1]
+  let context = fragments [1]
 
-  let map = context => {
-    for (const field in context)
-      html = html.replace (`{${field}}`, context [field])
+  let bind = context => {
 
-    return html
+    const pattern = Object.
+      keys (context).
+      map (key => `{${key}}`).
+      join (`|`)
+
+    const expression = new RegExp (pattern,`g`)
+
+    html.replace
+      ( expression, match => context [match.replace (/{|}/g, '')] )
   }
 
   return context
-    ? map (context)
-    : context => map (context)
+    ? bind (context)
+    : context => bind (context)
 }
 
 // Contextual auto-escaping
