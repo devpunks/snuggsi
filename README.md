@@ -71,7 +71,6 @@ without touching the DOM, or worse causing a reflow / repaint _(i.e. `appendChil
 
 Copy & pasta dependency from the following link into developer console.
 
-_✅  No worries! No foolishness here !_
 https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/text.js
 
 _[Console](https://developer.chrome.com/devtools#console) example snippet_
@@ -102,11 +101,20 @@ name.textContent === h1.textContent // true
 
 ### [Template](/elements/template.js)
 
-`<template>` to `DocumentFragment` element renderer.
+`<template>` to appendable `DocumentFragment`.
 
+You have a `<template>` in the DOM and you need to:
+1. Bind a state (or Javascript object) to the template
+2. Render the template.
+  - If `state` is an object `bind` a single template.
+  - If `state` is a collection (i.e. `Array`) `bind` an equal collection of templates.
+
+_See [Templates](https://github.com/snuggs/snuggsi#templates) for an
+in depth explaination.
+
+#### Object Template
 Copy & pasta dependency from the following link into developer console.
 
-_✅  No worries! No foolishness here !_
 https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/tag.js
 https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/template.js
 
@@ -142,6 +150,7 @@ document
 ```
 
 
+#### Collection Template
 _[Console](https://developer.chrome.com/devtools#console) example snippet_
 
 _Must have following HTML Template element within DOM_
