@@ -40,7 +40,9 @@ Therefore not only can we use modern style code today, this `README` alone will 
 *modern browser development best practices javascript* that you have always been curious to learn about.
 
 ## Polyfills
-### jQuery `$`
+
+### jQuery `$ (selector)`
+Returns a collection _(Just like jQuery)_
 ```
 // Polyfill for Sizzle CSS selection
 
@@ -48,8 +50,10 @@ const $ = selector => // always returns a collection. Just like jQuery
   document.querySelectorAll (selector)
 
 $ ('body').length // 1
+```
 
-
+### jQuery `$ ajax(uri)`
+```
 // Modern `fetch ()` API support
 // https://davidwalsh.name/fetch
 // https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
