@@ -104,13 +104,13 @@ name.textContent === h1.textContent // true
 `<template>` to appendable `DocumentFragment`.
 
 You have a `<template>` in the DOM and you need to:
+
 1. Bind a state (or Javascript object) to the template
 2. Render the template.
   - If `state` is an object `bind` a single template.
   - If `state` is a collection (i.e. `Array`) `bind` an equal collection of templates.
 
-_See [Templates](https://github.com/snuggs/snuggsi#templates) for an
-in depth explaination.
+_See [Templates](https://github.com/snuggs/snuggsi#templates) for an in depth explaination._
 
 #### Object Template
 Copy & pasta dependency from the following link into developer console.
@@ -120,7 +120,7 @@ https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/template.js
 
 _[Console](https://developer.chrome.com/devtools#console) example snippet_
 
-_Must have following HTML Template element within DOM_
+_Must have following HTML `<template>` element within DOM_
 
 ```HTML5
 <section id='some-element'></section>
@@ -153,7 +153,7 @@ document
 #### Collection Template
 _[Console](https://developer.chrome.com/devtools#console) example snippet_
 
-_Must have following HTML Template element within DOM_
+_Must have following HTML `<template>` element within DOM_
 ```HTML5
 <ul></ul>
 
