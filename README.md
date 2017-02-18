@@ -107,8 +107,8 @@ You have a `<template>` in the DOM and you need to:
 
 1. Bind a state (or Javascript object) to the template
 2. Render the template.
-  - If `state` is an object `bind` a single template.
-  - If `state` is a collection (i.e. `Array`) `bind` an equal collection of templates.
+  - If `state` is an object `bind` a single `<template`.
+  - If `state` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
 
 _See [Templates](https://github.com/snuggs/snuggsi#templates) for an in depth explaination._
 
