@@ -6,7 +6,7 @@ https://w3c.github.io/webcomponents/spec/custom
 
 _Why?_ We don't need _(yet)_ another framework.
 We need _"syntactic sugar"_ around new spec driven browser features.
-"Browser extensions" if you will.
+_"Browser extensions"_ if you will.
 For instance the _"DOM Extensions"_ are great to use
 as you are always interacting with Living DOM nodes.
 This gives you the ability to gradually incorporate
