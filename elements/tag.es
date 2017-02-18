@@ -7,16 +7,18 @@ function tag (...fragments) {
   let context = fragments [1]
 
   let bind = context => {
+    let pattern = Object
+      .keys (context)
+      .map (key => `{${key}}`)
+      .join (`|`)
 
-    const pattern = Object.
-      keys (context).
-      map (key => `{${key}}`).
-      join (`|`)
+    let expression = new RegExp (pattern,`g`)
 
-    const expression = new RegExp (pattern,`g`)
-
-    html.replace
-      ( expression, match => context [match.replace (/{|}/g, '')] )
+    return html
+      .trim ()
+      .replace ( expression,
+        match => context [match.replace (/{|}/g, ``)]
+      )
   }
 
   return context

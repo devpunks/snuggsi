@@ -13,13 +13,13 @@ class Template {
     ).cloneNode (true)
   }
 
-  bind (state) {
-    let html   = window.template = this.innerHTML
+  bind (context) {
+    let html   = this.innerHTML
       , render = context => tag (html) (context)
 
-      , tags = Array.isArray (state)
-          ?  state.map (render)
-          : [render (state)]
+      , tags = Array.isArray (context)
+          ?  context.map (render)
+          : [render (context)]
 
     this.innerHTML = tags.join ('')
 
@@ -31,36 +31,20 @@ let record = { name: 'That Beast' }
 var collection = [
   {name: 'foo'}, {name: 'bar'},
 ]
-console.group ('template')
-console.time ('bind time')
 window.template = new Template ('#items')
 
 document.
   body.appendChild
   (
-    (new Template ('#items'))
+    template
       .bind(record)
       .content
   )
 
 let items = new Template ('#item')
 
-items
-  .bind (collection)
+items.bind (collection)
 
-let ul = document.querySelector ('ul')
+document.querySelector ('ul')
+  .appendChild (items.content)
 
-ul.appendChild (items.content)
-
-console.timeEnd ('bind time')
-console.groupEnd ('template')
-
-console.group ('appendChild')
-console.time ('append time')
-for (let context of collection) {
-  let li = document.createElement ('li')
-  ul.appendChild (li)
-  li.outerHTML = `<li style='background:red'>Hello ${context.name}!</li>`
-}
-console.timeEnd ('append time')
-console.groupEnd ('appendChild')

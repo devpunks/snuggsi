@@ -19,23 +19,23 @@ Modern client side Javascript specs have been moving at light speed the past cou
 Best to avoid front end frameworks wherever possible as the browser
 can provide you with all you need in 2017! If you are uncomfortable
 with a particular browser's javascript implementation then
-_"[polyfill](https://en.wikipedia.org/wiki/Polyfill)"_ are typically trivial to implement.
+_"[polyfills](https://en.wikipedia.org/wiki/Polyfill)"_ are typically trivial to implement.
 You may be familiar with
 [Douglas Crockford's](https://en.wikipedia.org/wiki/Douglas_Crockford) ~~JSON2~~ polyfill from back in the day.
 _(Please use [JSON 3 Polyfill](https://bestiejs.github.io/json3) if you are still using `JSON2`)_
 These backwards compatibility snippets can be injected
-prior to your code. In the future they removed when you
+prior to your code. In the future they can be removed when you
 feel your respective browser landscape has matured.
 And if a feature we've implemented doesn't work to your liking feel free to
 [submit an issue](https://github.com/snuggs/snuggsi) and we will attempt
 a polyfill for you ASAP!
 
-*Using modern browser specifications have allowed us to decrease
-framework code by ~80%*. Hence why these are _"extensions"_ and
+**Using DOM & ECMAScriptmodern browser specifications have allowed us to decrease
+framework code by ~80%**. Hence why these are _"extensions"_ and
 not _YAFF (Yet Another Front-end Framework)_.
 **These extensions are so tiny they all weigh < 2KB!** _(uncommented,minified,gzipped)_. The browsers are working dilligently abiding by the specs and we should be
-abiding by the hard work they have put in over the years. Finally coming to fruition.
-You are able to use these features for the immediate future without you having to "update" anything.
+abiding by the hard work they have put in much work over the recent years. Finally the browsers are coming to fruition.
+You are able to use these features for the immediate future without needint to "update" anything.
 Therefore not only can we use modern style code today, this `README` alone will better acclaimate you to
 *modern browser development best practices javascript* that you have always been curious to learn about.
 
@@ -47,9 +47,31 @@ Returns a collection _([Just like jQuery](http://stackoverflow.com/questions/718
 // Polyfill for Sizzle CSS selection
 
 const $ = selector => // always returns a collection. Just like jQuery
-  document.querySelectorAll (selector)
+  ('string' === typeof selector)
+    ? document.querySelectorAll (selector)
+    : selector // identity function
 
-$ ('body').length // 1
+$('body').length // 1
+
+let element = document.body
+$(element) === document.body  // true
+```
+
+### jQuery `$.on (event, selector, handler)`
+```
+// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+
+$.on =
+  (event, selector, handler) =>
+    $(selector)[0].addEventListener (event, handler)
+
+// `selector` is CSS selector to apply event handler.
+
+$.on ( 'click', 'body',
+  event => console.log (`${this} was clicked!`)
+)
+
+// `this` is a reference to the selected element
 ```
 
 ### jQuery `$.ajax (url)`
