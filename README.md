@@ -42,7 +42,7 @@ Therefore not only can we use modern style code today, this `README` alone will 
 ## Polyfills
 
 ### jQuery `$ (selector)`
-Returns a collection _(Just like jQuery)_
+Returns a collection _([Just like jQuery](http://stackoverflow.com/questions/7183704/jquery-id-selector-id-returns-array#answer-7183714)_
 ```
 // Polyfill for Sizzle CSS selection
 
