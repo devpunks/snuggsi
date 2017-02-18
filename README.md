@@ -1,18 +1,39 @@
 # snuggsi
 
-Browser component extensions.
+Browser extensions.
 
 https://w3c.github.io/webcomponents/spec/custom
 
 _Why?_ We don't need _(yet)_ another framework.
 We need _"syntactic sugar"_ around new spec driven browser features.
-Consider them _"DOM Extensions"_ as you are always interacting with
-Living DOM nodes. This gives you the ability to gradually incorporate
-these extensions into your existing code! Best of all,
-works in your browser today! _for the most part_. And if the feature doesn't,
-it will in the immediate future without you having to "update" anything. The
-browsers are working dilligently abiding by the specs. Therefore not only can
-we use the features today, this `README` alone will better acclaimate you to
+"Browser extensions" if you will.
+For instance the _"DOM Extensions"_ are great to use
+as you are always interacting with Living DOM nodes.
+This gives you the ability to gradually incorporate
+your extension of choice a la carte into your existing client side code!
+Best of all, works in your favorite browser today! _for the most part_.
+This means you can try out the extensions just by "Copy & Pasta"'ing directly
+into your console straight from the README!
+
+Modern client side Javascript specs have been moving at light speed the past couple of years.
+Best to avoid front end frameworks wherever possible as the browser
+can provide you with all you need in 2017! If you are uncomfortable
+with a particular browser's javascript implementation then
+pollyfills are typically trivial to implement.
+These backwards compatibility snippets can be injected
+prior to your code. In the future they removed when you
+feel your respective browser landscape has matured.
+And if a feature we've implemented doesn't work to your liking feel free to
+[submit an issue](https://github.com/snuggs/snuggsi) and we will attempt
+a [polyfill](https://en.wikipedia.org/wiki/Polyfill) for you ASAP!
+
+*Using modern browser specifications have allowed us to decrease
+framework code by ~80%*. Hence why these are _"extensions"_ and
+not _YAFF (Yet Another Front-end Framework)_ The
+browsers are working dilligently abiding by the specs and we should be
+abiding by the hard work they have put in over the years. Finally coming to fruition.
+You are able to use these features for the immediate future without you having to "update" anything.
+Therefore not only can we use modern style code today, this `README` alone will better acclaimate you to
 *modern browser development using javascript*.
 
 ## Syntactic DOM "Sugar"
