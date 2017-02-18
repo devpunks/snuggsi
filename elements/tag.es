@@ -1,15 +1,16 @@
 function tag (...fragments) {
 
-  let context  = fragments [1]
-  let template = ('string' === typeof fragments [0])
+  let html = ('string' === typeof fragments [0])
     ? fragments [0]
     : fragments [0][0]
 
+  let context  = fragments [1]
+
   let map = context => {
     for (const field in context)
-      template = template.replace (`{${field}}`, context [field])
+      html = html.replace (`{${field}}`, context [field])
 
-    return template
+    return html
   }
 
   return context
