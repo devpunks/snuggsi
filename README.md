@@ -32,12 +32,34 @@ a polyfill for you ASAP!
 
 *Using modern browser specifications have allowed us to decrease
 framework code by ~80%*. Hence why these are _"extensions"_ and
-not _YAFF (Yet Another Front-end Framework)_ The
-browsers are working dilligently abiding by the specs and we should be
+not _YAFF (Yet Another Front-end Framework)_.
+These extensions are so tiny they The browsers are working dilligently abiding by the specs and we should be
 abiding by the hard work they have put in over the years. Finally coming to fruition.
 You are able to use these features for the immediate future without you having to "update" anything.
 Therefore not only can we use modern style code today, this `README` alone will better acclaimate you to
-*modern browser development using javascript*.
+*modern browser development best practices javascript* that you have always been curious to learn about.
+
+## Polyfills
+### jQuery `$`
+```
+// Polyfill for Sizzle CSS selection
+
+const $ = selector => // always returns a collection. Just like jQuery
+  document.querySelectorAll (selector)
+
+$ ('body').length // 1
+
+
+// Modern `fetch ()` API support
+// https://davidwalsh.name/fetch
+// https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
+
+$.ajax =
+  url => fetch (url)
+
+$.ajax (`https://youmightnotneedjquery.com`).
+  then (response => console.dir (response))
+```
 
 ## Syntactic DOM "Sugar"
 
