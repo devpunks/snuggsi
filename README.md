@@ -1,6 +1,4 @@
-# ツ snuggsi
-
-Javascript Browser Extensions.
+# ツ snuggsi - Modern ECMAscript DOM extensions
 
 https://w3c.github.io/webcomponents/spec/custom
 
@@ -30,7 +28,7 @@ And if a feature we've implemented doesn't work to your liking feel free to
 [submit an issue](https://github.com/snuggs/snuggsi) and we will attempt
 a polyfill for you ASAP!
 
-**Using DOM & ECMAScriptmodern browser specifications have allowed us to decrease
+**Using modern DOM & ECMAScript browser specifications have allowed us to decrease
 framework code by ~80%**. Hence why these are _"extensions"_ and
 not _YAFF (Yet Another Front-end Framework)_.
 **These extensions are so tiny they all weigh < 2KB!** _(uncommented,minified,gzipped)_. The browsers are working dilligently abiding by the specs and we should be
@@ -561,18 +559,21 @@ https://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-textContent
 Why? `MutationObserver` has comparable performance to `Proxy`.
 
 ```Javascript
-const target = document.querySelector ('h1')
+let target = document.querySelector ('h1')
  
 // create an observer instance
-var observer = new MutationObserver (mutations => {
-  mutations.forEach( mutation => console.log (mutation.type) )
-})
+let callback = mutations =>
+  mutations.forEach
+    (mutation => console.log (mutation.type))
+
+let observer = new MutationObserver (callback)
  
 // configuration of the observer:
 var config = { attributes: true, childList: true, characterData: true }
  
 // pass in the target node, as well as the observer options
-observer.observe(target, config)
+observer
+  .observe (target, config)
  
 target.textContent = 'Triggering mutation observer'
 
