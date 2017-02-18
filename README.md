@@ -33,7 +33,7 @@ a polyfill for you ASAP!
 *Using modern browser specifications have allowed us to decrease
 framework code by ~80%*. Hence why these are _"extensions"_ and
 not _YAFF (Yet Another Front-end Framework)_.
-These extensions are so tiny they The browsers are working dilligently abiding by the specs and we should be
+*These extensions are so tiny they all weigh < 2KB in total!* _(uncommented,minified,gzipped) The browsers are working dilligently abiding by the specs and we should be
 abiding by the hard work they have put in over the years. Finally coming to fruition.
 You are able to use these features for the immediate future without you having to "update" anything.
 Therefore not only can we use modern style code today, this `README` alone will better acclaimate you to
