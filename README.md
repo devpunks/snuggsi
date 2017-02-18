@@ -647,6 +647,11 @@ $ npm run browse
 ```
 
 #### Testing
+
+```bash
+$ npm test
+```
+
 [jsdom](https://github.com/tmpvar/jsdom) is used heavily to produce this code.
 It is an awesome test framework that implements a virtual dom based on the
 WEB-IDL specifications that are used on the HTML5, CSS, and ECMAScript standards board.
@@ -657,10 +662,6 @@ _"Update April 2016: since writing this post, I've moved to using tap which spaw
 
   - https://remysharp.com/2015/12/14/my-node-test-strategy
   - https://remysharp.com/2016/02/08/testing-tape-vs-tap
-
-```bash
-$ npm test
-```
 
 #### Test Coverage
 ```bash
