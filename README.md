@@ -52,7 +52,7 @@ const $ = selector => // always returns a collection. Just like jQuery
 $ ('body').length // 1
 ```
 
-### jQuery `$ ajax(uri)`
+### jQuery `$.ajax (url)`
 ```
 // Modern `fetch ()` API support
 // https://davidwalsh.name/fetch
