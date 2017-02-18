@@ -9,8 +9,8 @@ class Template {
   factory (selector) {
     return (
       document.querySelector (selector)
-        || document.getElementById (selector)
-        || document.createElement ('template')
+      || document.getElementById (selector)
+      || document.createElement ('template')
     ).cloneNode (true)
   }
 

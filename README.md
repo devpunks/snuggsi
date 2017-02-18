@@ -736,9 +736,18 @@ If you’re lucky enough to be starting with a brand new application, you can us
 $ rails new AwesomeApp --skip-sprockets # 🎉Yay🎉
 ```
 
-#### Turbolinks - https://gist.github.com/snuggs/f24303a6d3ce584e7582672f8b40c54f
+#### Turbolinks
+  - Why you **shouldn't** bind events directly to `document`
+    - http://stackoverflow.com/questions/12824549/should-all-jquery-events-be-bound-to-document#answers-header
+
+  - http requests - https://github.com/turbolinks/turbolinks/blob/c73e134731ad12b2ee987080f4c905aaacdebba1/src/turbolinks/http_request.coffee#L20-L22
+  - https://github.com/turbolinks/turbolinks/issues/152
+  - https://gist.github.com/snuggs/f24303a6d3ce584e7582672f8b40c54f
 
 #### Configuring Rails Assets
+Blade sprockets testing - https://github.com/javan/blade
+
+  - template streaming - https://github.com/rails/rails/issues/23828
 Default Raw template handling
   - https://github.com/rails/rails/commit/8bea607265a2c9bb9bb2188b0a79089ca373b814
   - https://github.com/rails/rails/commit/4be859f0fdf7b3059a28d03c279f03f5938efc80
@@ -746,7 +755,6 @@ Default Raw template handling
 Relies on ActionController::Renderer to render templates
   - https://github.com/rails/rails/pull/18546
   - http://guides.rubyonrails.org/5_0_release_notes.html#action-pack-notable-changes
-
 
 Template lookup for I18n
   - https://github.com/rails/rails/commit/ecb1981b
