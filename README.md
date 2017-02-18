@@ -619,13 +619,6 @@ https://www.sitepoint.com/10-ways-minimize-reflows-improve-performance
 *No longer used*
 https://www.w3.org/TR/DOM-Level-3-Events/#legacy-mutationevent-events
 
-## Testing
-"Update April 2016: since writing this post, I've moved to using tap which spawns individual processes for each test file, so I don't need this approach at all now."
-
-- https://remysharp.com/2015/12/14/my-node-test-strategy
-- https://remysharp.com/2016/02/08/testing-tape-vs-tap
-
-
 ## Node
 ### Installation
 ```bash
@@ -654,6 +647,17 @@ $ npm run browse
 ```
 
 #### Testing
+[jsdom](https://github.com/tmpvar/jsdom) is used heavily to produce this code.
+It is an awesome test framework that implements a virtual dom based on the
+WEB-IDL specifications that are used on the HTML5, CSS, and ECMAScript standards board.
+
+JSDOM has the potential to be a replacement for phantomjs in most cases for a fraction of the memory thumbprint.
+
+_"Update April 2016: since writing this post, I've moved to using tap which spawns individual processes for each test file, so I don't need this approach at all now."_
+
+  - https://remysharp.com/2015/12/14/my-node-test-strategy
+  - https://remysharp.com/2016/02/08/testing-tape-vs-tap
+
 ```bash
 $ npm test
 ```
