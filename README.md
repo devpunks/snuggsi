@@ -17,7 +17,7 @@ we use the features today, this `README` alone will better acclaimate you to
 
 ## Syntactic DOM "Sugar"
 
-### [tag](/elements/tag.js)
+### [tag](/elements/tag.es)
 Easy way to create HTML tag strings and bind them to a context.
 
 #### Must Know
@@ -28,27 +28,32 @@ Template Literals
 Copy & pasta dependency from the following link into developer console.
 
 _✅  No worries! No foolishness here !_
-https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/tag.js
+https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/tag.es
 
 _[Console](https://developer.chrome.com/devtools#console) example snippet_
 ```Javascript
-tag `<p>Hello from {handle} !</p>` ({ handle: 'Snuggs' })
 
-tag`<p>Hello from {handle} !</p>`
-  ({ handle: 'Snuggs' })
+// "Traditional" style
+tag `<p>Hello from {name} !</p>` ({ name: 'Snuggs' })
 
-tag `<p>Hello from {handle} !</p>`
-  ({ handle: 'Snuggs' })
+// "Funcy" style (Coffeescript friendly)
+tag `<p>Hello from {name} !</p>`
+  ({ name: 'Max' })
 
-tag (`<p>{handle}</p>`, { handle: 'Dees' })
+// "Ruby" style
 
-tag (`<p>{handle}</p>`)
-  ({ handle: 'Snuggs' })
+tag (`<p>{name}</p>`, { name: 'Dees' })
 
+tag (`<p>{name}</p>`)
+  ({ name: 'Brian' })
+
+// "Funcy" style (Coffeescript friendly)
+
+tag `<p>Hello from {name} !</p>`
 // Events set on parent will not be thrashed.
-document.body.addEventListener ('click', event => {
-  console.warn (event, event.target)
-})
+document.
+  addEventListener
+    ('click', event => console.warn (event, event.target) )
 
 let template = tag `<p>{name}</p><button id={id}>{other}</button>`
   ({ name: 'Snuggs', id: 'shazaam', other: 'Dees' })
@@ -57,7 +62,7 @@ let template = tag `<p>{name}</p><button id={id}>{other}</button>`
 document.body.innerHTML = template
 ```
 
-### [Text](/elements/text.js)
+### [Text](/elements/text.es)
 
 `bind`ing for `textContent` mutations between two `Nodes`.
 `Text` nodes are portable and can be used freely throughout code.
@@ -71,7 +76,7 @@ without touching the DOM, or worse causing a reflow / repaint _(i.e. `appendChil
 
 Copy & pasta dependency from the following link into developer console.
 
-https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/text.js
+https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/text.es
 
 _[Console](https://developer.chrome.com/devtools#console) example snippet_
 ```Javascript
@@ -99,24 +104,24 @@ name.textContent === h1.textContent // true
 // 2 way text content binding!
 ```
 
-### [Template](/elements/template.js)
+### [Template](/elements/template.es)
 
 `<template>` to appendable `DocumentFragment`.
 
 You have a `<template>` in the DOM and you need to:
 
-1. Bind a state (or Javascript object) to the template
+1. Bind a context (or Javascript object) to the template
 2. Render the template.
-  - If `state` is an object `bind` a single `<template`.
-  - If `state` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
+  - If `context` is an object `bind` a single `<template`.
+  - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
 
 _See [Templates](https://github.com/snuggs/snuggsi#templates) for an in depth explaination._
 
 #### Object Template
 Copy & pasta dependency from the following link into developer console.
 
-https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/tag.js
-https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/template.js
+https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/tag.es
+https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/template.es
 
 _[Console](https://developer.chrome.com/devtools#console) example snippet_
 
@@ -131,12 +136,12 @@ _Must have following HTML `<template>` element within DOM_
 ```
 
 ```Javascript
-const state = { name: 'That Beast' }
+const context = { name: 'That Beast' }
     , template = new Template ('#items')
 
-// bind to state
+// bind to context
 template
-  .bind (state)
+  .bind (context)
   .content // an appendable HTMLDocumentFragment
   // see https://html.spec.whatwg.org/multipage/scripting.html#dom-template-content
 
@@ -158,21 +163,21 @@ _Must have following HTML `<template>` element within DOM_
 <ul></ul>
 
 <template id='item'>
-  <!-- `{name}` will bind to `state` property `name` -->
+  <!-- `{name}` will bind to `context` property `name` -->
   <li>Hello {name}!</li>
 </template>
 ```
 
 ```Javascript
-// when state is a collection
-const state = [
+// when context is a collection
+const context = [
   {name: 'foo'}, {name: 'bar'}
 ]
 const template = new Template ('#items')
 
 template
-   // render template for each item in state
-  .bind (state)
+   // render template for each item in context
+  .bind (context)
   .content // an appendable HTMLDocumentFragment
 
 document
@@ -188,16 +193,16 @@ document
 ```
 
 
-### [State](/state.js)
+### [Context](/context.es)
 
-How to manage state over time.
+How to manage context state over time.
 
-### [Attribute](/elements/attribute.js)
+### [Attribute](/elements/attribute.es)
 Living Standard ([Web IDL](/elements/attribute.idl))
 
 Attribute binding relay
 
-### [Attributes](/elements/attributes.js)
+### [Attributes](/elements/attributes.es)
 
 Attributes named node map.
 
@@ -569,7 +574,7 @@ $ npm run weigh
 
 #### Browse
 Watch files and hot inject browser assets on file change.
-See [watch.browser.js](watch.browser.es)
+See [watch.browser.es](watch.browser.es)
 & [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation.
 ```bash
 $ npm run browse

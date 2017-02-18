@@ -1,6 +1,4 @@
-// State Machine
-// http://whatis.techtarget.com/definition/state-machine
-class State {
+class Context {
   constructor (attributes) {
     console.warn (`State Machine`, attributes)
 
