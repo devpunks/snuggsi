@@ -1,18 +1,18 @@
-# snuggsi
+# ツ snuggsi
 
-Browser extensions.
+Javascript Browser Extensions.
 
 https://w3c.github.io/webcomponents/spec/custom
 
 _Why?_ We don't need _(yet)_ another framework.
 We need _"syntactic sugar"_ around new spec driven browser features.
-_"Browser extensions"_ if you will.
+_"Javascript Browser Extensions"_ if you will.
 For instance the _"DOM Extensions"_ are great to use
 as you are always interacting with Living DOM nodes.
 This gives you the ability to gradually incorporate
 your extension of choice a la carte into your existing client side code!
 Best of all, works in your favorite browser today! _for the most part_.
-This means you can try out the extensions just by "Copy & Pasta"'ing directly
+This means you can try out the extensions just by _"Copy & Pasta"_ 'ing directly
 into your console straight from the README!
 
 Modern client side Javascript specs have been moving at light speed the past couple of years.
