@@ -19,13 +19,16 @@ Modern client side Javascript specs have been moving at light speed the past cou
 Best to avoid front end frameworks wherever possible as the browser
 can provide you with all you need in 2017! If you are uncomfortable
 with a particular browser's javascript implementation then
-pollyfills are typically trivial to implement.
+_"[polyfill](https://en.wikipedia.org/wiki/Polyfill)"_ are typically trivial to implement.
+You may be familiar with
+[Douglas Crockford's](https://en.wikipedia.org/wiki/Douglas_Crockford) ~~JSON2~~ polyfill from back in the day.
+_(Please use [JSON 3 Polyfill](https://bestiejs.github.io/json3) if you are still using `JSON2`)_
 These backwards compatibility snippets can be injected
 prior to your code. In the future they removed when you
 feel your respective browser landscape has matured.
 And if a feature we've implemented doesn't work to your liking feel free to
 [submit an issue](https://github.com/snuggs/snuggsi) and we will attempt
-a [polyfill](https://en.wikipedia.org/wiki/Polyfill) for you ASAP!
+a polyfill for you ASAP!
 
 *Using modern browser specifications have allowed us to decrease
 framework code by ~80%*. Hence why these are _"extensions"_ and
