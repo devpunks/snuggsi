@@ -412,6 +412,9 @@ https://www.w3.org/TR/html5/scripting-1.html#the-template-element
 Living Standard
 https://html.spec.whatwg.org/multipage/scripting.html#the-template-element
 
+HTML5 Rocks
+https://www.html5rocks.com/en/tutorials/webcomponents/template
+
 
 ### DocumentFragment
 AKA _"How did 'front-end frameworks' miss this?"_
@@ -584,8 +587,9 @@ observer.disconnect()
 _(shouts to @ebidel for this one)_
 https://gist.github.com/ebidel/d923001dd7244dbd3fe0d5116050d227
 
-Mutation Observer Tutorial
-https://dev.opera.com/articles/mutation-observers-tutorial
+Mutation Observer Tutorials
+  - https://dev.opera.com/articles/mutation-observers-tutorial
+  - https://tiffanybbrown.com/2013/09/mutation-observer
 
 MDN
 https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver
