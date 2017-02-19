@@ -12,7 +12,7 @@ module.exports = {
     },
     "server": {
       baseDir: './',
-      directory: true,
+      directory: false,
       index: 'harness.html',
       routes: {
         'browser-sync-client.js': 'node_modules/browser-sync-client/dist/index.min.js'
