@@ -672,15 +672,19 @@ _"Update April 2016: since writing this post, I've moved to using tap which spaw
 $ npm run cover
 ```
 
-#### Dependencies
+### Dependencies
   - [Tap](https://github.com/tapjs/node-tap)
   - [Browser Sync](https://browsersync.io/)
   - [jsdom](https://github.com/tmpvar/jsdom)
 
-#### Notes
+### Notes
 Custom Elements - https://toddmotto.com/web-components-concepts-shadow-dom-imports-templates-custom-elements/
 
-### Ruby
+Web Worker Harness
+https://testdrive-archive.azurewebsites.net/HTML5/WebWorkerTest262
+
+
+## Ruby
 [![Gem Version](https://badge.fury.io/rb/snuggsi.svg)](http://badge.fury.io/rb/snuggsi)
 
 *WIP*
@@ -688,7 +692,7 @@ Custom Elements - https://toddmotto.com/web-components-concepts-shadow-dom-impor
 - [ ] Sprockets bindings
 - [ ] Rails engine
 
-## Installation
+### Installation
 
 Add this line to your application's Gemfile:
 ```ruby
