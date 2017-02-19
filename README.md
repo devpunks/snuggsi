@@ -678,10 +678,7 @@ $ npm run cover
   - [jsdom](https://github.com/tmpvar/jsdom)
 
 #### Notes
-REDUX Demistified -
-  - https://hackernoon.com/if-not-redux-then-what-fc433234f5b4#.tyisp17cy
-  - https://hackernoon.com/thinking-in-redux-when-all-youve-known-is-mvc-c78a74d35133#.2v46lnu4c
-  - http://stackoverflow.com/questions/39977540/can-redux-be-seen-as-a-pub-sub-or-observer-pattern
+Custom Elements - https://toddmotto.com/web-components-concepts-shadow-dom-imports-templates-custom-elements/
 
 ### Ruby
 [![Gem Version](https://badge.fury.io/rb/snuggsi.svg)](http://badge.fury.io/rb/snuggsi)
