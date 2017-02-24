@@ -7,7 +7,7 @@
 // DOM Level 1
 // https://www.w3.org/TR/DOM-Level-3-Core/core.html#Node3-textContent
 
-class TextContent extends Text {
+class Text extends window.Text {
 
   constructor (value) {
     super (value)

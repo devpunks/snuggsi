@@ -315,6 +315,12 @@ const empty = new Text ()
 empty.textContent // ""
 empty.textContent = 'Hey! ✋'
 empty.textContent // 'Hey! ✋'
+
+document.body
+  .appendChild (empty)
+
+//<body>... "Hey! ✋"</body>
+
 ```
 
 MDN `Text ()` Constructor Documentation - https://developer.mozilla.org/en-US/docs/Web/API/Text/Text

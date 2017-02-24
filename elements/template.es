@@ -37,12 +37,10 @@ var collection = [
 ]
 window.template = new Template ('#items')
 
-document.
-  body.appendChild
-  (
-    template
-      .bind(record)
-      .content
+document.querySelector
+  ('h1').after (
+    template.bind
+      (record).content
   )
 
 let items = new Template ('#item')
