@@ -207,7 +207,7 @@ _Must have following HTML `<template>` element within DOM_
 
 ```Javascript
 const context = { name: 'That Beast' }
-    , template = new Template ('#items') // can select by id without `#`
+    , template = new Template ('items') // can select by id without `#`
 
 // bind to context
 template
@@ -243,7 +243,7 @@ _Must have following HTML `<template>` element within DOM_
 const context = [
   {name: 'foo'}, {name: 'bar'}
 ]
-const template = new Template ('#items')
+const template = new Template ('item')
 
 template
    // render template for each item in context

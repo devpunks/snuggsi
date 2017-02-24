@@ -1,14 +1,13 @@
 class Template {
-  constructor (selector) {
+  constructor (id) {
     return Object.assign (
-      this.factory (selector),
+      this.factory (id),
       { bind: this.bind }
     )
   }
 
-  factory (selector) {
+  factory (id) {
     return (
-      document.querySelector (selector)
       || document.getElementById (selector)
       || document.createElement ('template')
     ).cloneNode (true)
