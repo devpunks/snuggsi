@@ -137,7 +137,7 @@ document.body.innerHTML = template
 `bind`ing for `textContent` mutations between two `Nodes`.
 `Text` nodes are portable and can be used freely throughout code.
 Best use case is when you need to keep track of element changes
-without touching the DOM, or worse causing a reflow / repaint _(i.e. `appendChild()`, `.innerText`, `.innerHTML`)_
+without touching the DOM, or worse causing a reflow / repaint _(i.e. `append()`, `appendChild()`, `.innerText`, `.innerHTML`)_
 
 #### Must Know
   - `Text` - https://github.com/snuggs/snuggsi#text-1
@@ -219,7 +219,7 @@ document
   // select element to append bound template
   .querySelector ('#some-element')
   // notice template is still bound to context from earlier
-  .appendChild (template.content)
+  .append (template.content)
 
 // <section id='some-element'><ul title='That Beast'></ul></section>
 ```
@@ -252,7 +252,7 @@ template
 
 document
   .querySelector ('ul')
-  .appendChild (template.content)
+  .append (template.content)
 
 /*
 <ul>
@@ -317,7 +317,7 @@ empty.textContent = 'Hey! ✋'
 empty.textContent // 'Hey! ✋'
 
 document.body
-  .appendChild (empty)
+  .append (empty)
 
 //<body>... "Hey! ✋"</body>
 
@@ -403,7 +403,7 @@ const template = document.querySelector ('template#song')
 
 for (let song in songs) {
   li.textContent = song
-  songs.appendChild (li)
+  songs.append (li)
 }
 
 </script>
@@ -432,7 +432,7 @@ The DocumentFragment interface represents a minimal document object that has no 
 
 DocumentFragments are DOM Nodes. They are never part of the main DOM tree. The usual use case is to create the document fragment, append elements to the document fragment and then append the document fragment to the DOM tree. In the DOM tree, the document fragment is replaced by all its children.
 
-A common use for DocumentFragment is to create one, assemble a DOM subtree within it, then append or insert the fragment into the DOM using Node interface methods such as `appendChild()` or `insertBefore(). Doing this moves the fragment's nodes into the DOM, leaving behind an empty DocumentFragment. Because all of the nodes are inserted into the document at once, only one reflow and render is triggered instead of potentially one for each node inserted if they were inserted separately.
+A common use for DocumentFragment is to create one, assemble a DOM subtree within it, then append or insert the fragment into the DOM using Node interface methods such as `append()`, `appendChild()` or `insertBefore(). Doing this moves the fragment's nodes into the DOM, leaving behind an empty DocumentFragment. Because all of the nodes are inserted into the document at once, only one reflow and render is triggered instead of potentially one for each node inserted if they were inserted separately.
 
 Since the document fragment is in memory and not part of the main DOM tree,
 appending children to it does not cause page reflow (computation of element's position and geometry).
@@ -450,11 +450,11 @@ const browsers = ['Chrome', 'Edge', 'Brave', 'Firefox']
 browsers.forEach (name => {
   const li = document.createElement ('li')
   li.textContent = name
-  fragment.appendChild (li)
+  fragment.append (li)
 })
 
 document.querySelector ('ul')
-  .appendChild (fragment)
+  .append (fragment)
 ```
 
 - DOM Fragments - http://ejohn.org/blog/dom-documentfragments
