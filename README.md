@@ -748,6 +748,7 @@ $ rails new AwesomeApp --skip-sprockets # 🎉Yay🎉
 ```
 
 #### Turbolinks
+  - https://sevos.io/2017/02/27/turbolinks-lifecycle-explained.html
   - Why you **shouldn't** bind events directly to `document`
     - http://stackoverflow.com/questions/12824549/should-all-jquery-events-be-bound-to-document#answers-header
 

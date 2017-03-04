@@ -8,7 +8,7 @@ class Template {
 
   factory (id) {
     return (
-      || document.getElementById (selector)
+      document.getElementById (selector)
       || document.createElement ('template')
     ).cloneNode (true)
   }
