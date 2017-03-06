@@ -30,7 +30,7 @@
   },
 
   "scripts": {
-    "postinstall": "npm ln ../jsdom && npm ln ../buble-tape",
+    "postinstall": "[ \"$NODE_ENV\" != production ] && npm ln ../jsdom && npm ln ../buble-tape",
     "test": "node --use_strict index.test.es",
 
     "watch": "node watch.es",
