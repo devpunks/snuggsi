@@ -29,23 +29,3 @@ class Template {
     return this
   }
 }
-
-let record = { name: 'That Beast' }
-var collection = [
-  {name: 'foo'}, {name: 'bar'},
-]
-window.template = new Template ('#items')
-
-document.querySelector
-  ('h1').after (
-    template.bind
-      (record).content
-  )
-
-let items = new Template ('#item')
-
-items.bind (collection)
-
-document.querySelector ('ul')
-  .appendChild (items.content)
-
