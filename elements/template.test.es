@@ -10,6 +10,7 @@ var dom = require (`jsdom`)
   , template = fetch (`./elements/template.html`)
   , element = `<ul id='items'>\n\n</ul>\n\n${template}\n\n`
 
+
 var configuration = {
   //url: 'http://foo.bar.com',
   //html: element,
