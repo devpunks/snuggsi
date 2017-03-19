@@ -1,6 +1,9 @@
 // https://facebook.github.io/react/docs/react-component.html
-class Component  extends DocumentFragment {
-  constructor () { super () }
+class Component extends DocumentFragment {
+  constructor () {
+    return Object.assign
+      (super (), { bind: this.bind })
+  }
 
   bind (context) {
     // DOM parsing API
@@ -13,21 +16,10 @@ class Component  extends DocumentFragment {
     shadow.innerHTML =
       (html.bind) ? html.innerHTML : html
 
-    this.append (shadow.bind (context).content)
+//  this.append (shadow.bind (context).content)
 
     return this
   }
 
   render () { throw 'Must define `Component.render ()` function' }
 }
-
-class Greeter extends Component {
-  render () { return  `<h1>{name}</h1>` }
-}
-
-const names = [{name:'snuggs'}, {name:'dees'}]
-
-const greeter = (new Greeter).bind (names)
-
-document.body.append (greeter)
-

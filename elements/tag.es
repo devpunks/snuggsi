@@ -1,3 +1,9 @@
+// https://developers.google.com/web/updates/2015/01/ES6-Template-Strings#tagged_templates
+
+// innerHTML issues
+// http://www.kieranpotts.com/blog/javascript-html-to-dom/
+
+// https://lists.w3.org/Archives/Public/public-webapps/2012AprJun/0334.html#start334
 function tag (...fragments) {
 
   let html = ('string' === typeof fragments [0])

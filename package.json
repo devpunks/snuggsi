@@ -34,7 +34,7 @@
     "test": "node --use_strict index.test.es",
 
     "watch": "node watch.es",
-    "weigh": "echo $(gzip -9 -c -S=.js ./*.js | wc -c) bytes",
+    "weigh": "echo $(gzip -9 -c -S=.js ./elements/*.es | wc -c) bytes",
 
     "browse": "browser-sync start --config=./watch.browser.es",
 

@@ -8,12 +8,13 @@
 <script src='./context.es' defer></script>
 <script src='./elements/text.es' defer></script>
 <script src='./elements/tag.es' defer></script>
-<script src='./elements/template.polyfill.es' defer></script>
+<script src='./elements/template.polyfill.js' defer></script>
 <script src='./elements/template.es' defer></script>
 <script src='./elements/element.es' defer></script>
 <script src='./elements/component.es' defer></script>
 <script src='./notification.es' defer></script>
 <script src='./vendor/browser-sync.es'></script>
+<script src='./elements/calendar.es' defer></script>
 
 <template id='items'>
   <ul title={name}></ul>
@@ -32,3 +33,13 @@
   <h1>ツsnuggsi</h1>
   <h2>Easy DOM Components</h2>
 </hgroup>
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date -->
+<label for='event'>Event</label>
+<input id='event' name='event' type='date'>
+
+<date-calendar id='foo' for='event'>
+  <template name='day' id='day'>
+    <time datetime='2017-14-03'>Day {index}</time>
+  </template>
+</data-calendar>

@@ -104,6 +104,9 @@ _[Console](https://developer.chrome.com/devtools#console) example snippet_
 ```Javascript
 
 // "Traditional" style
+tag `<p>Hello from ${name} !</p>`
+
+// Bound context
 tag `<p>Hello from {name} !</p>` ({ name: 'Snuggs' })
 
 // "Funcy" style (Coffeescript friendly)
@@ -114,12 +117,10 @@ tag `<p>Hello from {name} !</p>`
 
 tag (`<p>{name}</p>`, { name: 'Dees' })
 
+// "Funcy" style (Coffeescript friendly)
 tag (`<p>{name}</p>`)
   ({ name: 'Brian' })
 
-// "Funcy" style (Coffeescript friendly)
-
-tag `<p>Hello from {name} !</p>`
 // Events set on parent will not be thrashed.
 document.
   addEventListener
@@ -303,6 +304,7 @@ https://developer.mozilla.org/en-US/docs/Learn/CSS/Introduction_to_CSS/Selectors
 The Text interface represents the textual content of Element or Attr.  If an element has no markup within its content, it has a single child implementing Text that contains the element's text.  However, if the element contains markup, it is parsed into information items and Text nodes that form its children.
 
 *WIP* _Internet Explorer polyfill_
+PONYFILL - https://github.com/sindresorhus/ponyfill
 
 See also `Document.createTextNode` https://developer.mozilla.org/en-US/docs/Web/API/Document/createTextNode
 
@@ -684,7 +686,24 @@ $ npm run cover
   - [jsdom](https://github.com/tmpvar/jsdom)
 
 ### Notes
-Custom Elements - https://toddmotto.com/web-components-concepts-shadow-dom-imports-templates-custom-elements/
+Custom Elements v1
+- https://toddmotto.com/web-components-concepts-shadow-dom-imports-templates-custom-elements/
+
+```
+class MyDiv extends HTMLElement {
+  constructor(...args) {
+    super(...args);
+    this.addEventListener('click', console.log);
+  }
+  connectedCallback() {
+    this.textContent = 'Hello World';
+  }
+}
+
+customElements.define('my-div', MyDiv);
+
+document.body.appendChild(new MyDiv);
+```
 
 Web Worker Harness
 https://testdrive-archive.azurewebsites.net/HTML5/WebWorkerTest262

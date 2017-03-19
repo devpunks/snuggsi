@@ -1,7 +1,7 @@
 // DocumentFragment() constructor polyfill
-if (! 'DocumentFragment' in self)
-  self.DocumentFragment =
-    function () { return document.createDocumentFragment () }
+//if (! 'DocumentFragment' in self)
+//  self.DocumentFragment =
+//    function () { return document.createDocumentFragment () }
 
 // http://caniuse.com/#search=template
 // Polyfill for IE 11

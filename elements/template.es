@@ -1,9 +1,7 @@
 class Template {
   constructor (id) {
-    return Object.assign (
-      this.factory (id),
-      { bind: this.bind }
-    )
+    return Object.assign
+      ( this.factory (id), { bind: this.bind })
   }
 
   factory (id) {
@@ -13,9 +11,6 @@ class Template {
     ).cloneNode (true)
   }
 
-  // investigate `Text.splitText ()`
-  // Recurse through elements and bind event handlers
-  // https://developer.mozilla.org/en-US/docs/Web/API/Text/splitText
   bind (context) {
     let html   = this.innerHTML
       , render = context => tag (html) (context)

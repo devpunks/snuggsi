@@ -1,14 +1,21 @@
-const fork = require ('child_process').fork
+const dir  = './public'
+    , command = `node --harmony index.es`
+    , exec = require ('child_process').exec
 
-var fs = require ('fs')
-  , dir = './elements/'
+require ('fs').watch (dir, { recursive: true },
+  (event, file) => {
 
-fs.watch (dir, { recursive: true }, (event, file) => {
-  if ( ! (file.includes ('template.test.es')) ) return
+  // Vim causes tmp file update `4913`
+  // https://github.com/bevry/watchr/issues/33
+  // specific to .es files. Can remove line for all files
+  if ( ! file.match (/\.es$/) ) return
 
-  var child = fork (`${dir}${file}`, [], {stdio: 'pipe'})
-
-  child.on ('data', data => console.log (`\n\n\n${data}`))
+  exec (command,
+    (error, stdout, stderr) =>
+      error
+        ?  console.error (`exec error: ${error}`)
+        || console.log (stdout, stderr)
+  )
 })
 
-console.log (`Watching tests from => ${dir}🔎 👀 `)
+console.log (`Watching from => ${dir}🔎 👀 `)

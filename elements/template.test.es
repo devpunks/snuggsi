@@ -1,3 +1,19 @@
+//Template =>
+//  Proxy =>
+//    document.getElementsByTagName (tag)[name]
+// Template.foo
+// Template [...]
+
+
+// innerHTML issues
+// http://www.kieranpotts.com/blog/javascript-html-to-dom/
+//
+// https://lists.w3.org/Archives/Public/public-webapps/2012AprJun/0334.html#start334
+
+// investigate `Text.splitText ()`
+// Recurse through elements and bind event handlers
+// https://developer.mozilla.org/en-US/docs/Web/API/Text/splitText
+/
 // Greatly improve <template> implementaiton
 // https://github.com/tmpvar/jsdom/commit/ceb79457dd01a19f56a615cf6a78598be8ed36b8
 var fetch = resource => fs.readFileSync (resource, `utf-8`)
