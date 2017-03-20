@@ -1,15 +1,21 @@
 // Usage
 //
 //  Element `date-calendar`
-//
+
 //  (class extends HTMLElement {
 //    constructor () {
 //      super ()
 //      console.log ('Goin in context', this.context)
+//      this.listen ('click', (event) => console.log (event))
 //    }
-//
+
+//    connectedCallback () {
+//      console.log ('from derived connected')
+//    }
+
 //    get baz () { return 'baz' }
 //  })
+
 
 // Custom elements polyfill
 // https://github.com/webcomponents/custom-elements/blob/master/src/custom-elements.js
@@ -29,7 +35,7 @@ const Element = function (tag, ...tokens) {
   return function (pro) {
     if (! pro)
       try { return new (window.customElements.get (tag)) }
-      catch (_) { throw `Must register custom element \n(i.e. Element \`${tag}\` (class {})` }
+      catch (_) { throw `Must define custom element \n(i.e. Element \`${tag}\` (class {})` }
 
     function proto () { // Kill this with fire
       pro.__proto__ = HTMLElement // WTF?
@@ -39,6 +45,11 @@ const Element = function (tag, ...tokens) {
     }
 
     class CustomElementPrototype extends pro {
+      listen (...params) {
+        console.log (...params)
+        this.addEventListener (...params)
+      }
+
       bind (context) { this.context = context }
 
       get context () { return { what: 'No way!' } }
@@ -50,7 +61,10 @@ const Element = function (tag, ...tokens) {
         console.warn (`attribute [${name}] changed from ${old} to ${value}`)
       }
 
-      connectedCallback () { console.warn (`connected`, this) }
+      connectedCallback () {
+        super.connectedCallback ()
+        console.warn (`connected`, this)
+      }
 
       // When element is removed from a shadow-including document
       // http://ryanmorr.com/using-mutation-observers-to-watch-for-element-availability/
@@ -71,6 +85,22 @@ const Element = function (tag, ...tokens) {
 // in case of feature checking on `Element`
 // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
 Element.prototype = window.Element.prototype
+
+Element `date-calendar`
+
+(class extends HTMLElement {
+  constructor () {
+    super ()
+    console.log ('Goin in context', this.context)
+    this.listen ('click', (event) => console.log (event))
+  }
+
+  connectedCallback () {
+    console.log ('from derived connected')
+  }
+
+  get baz () { return 'baz' }
+})
 
 //Element
 //(Element)
