@@ -16,19 +16,6 @@
 <script src='./vendor/browser-sync.es'></script>
 <script src='./elements/calendar.es' defer></script>
 
-<template id='items'>
-  <ul title={name}></ul>
-</template>
-
-<template id='item'>
-  <li>Hello {name}!</li>
-</template>
-
-<template id='conference'>
-  <h1>Holy Fuck This Worked!</h1>
-</template>
-
-
 <hgroup>
   <h1>ツsnuggsi</h1>
   <h2>Easy DOM Components</h2>
@@ -39,9 +26,13 @@
 <input id='event' name='event' type='date'>
 
 <button id='foo' for='event' is='date-calendar'></button>
-<date-calendar id='foo' for='event'>
+
+<date-calendar id='foo' for='event'></date-calendar>
+
+<template id='date-calendar'>
+  <li>Hello {name}!</li>
+</template>
 
   <template name='day' id='day'>
     <time datetime='2017-14-03'>Day {index}</time>
   </template>
-</data-calendar>

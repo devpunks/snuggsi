@@ -30,7 +30,7 @@ var ElementPrototype = window.Element.prototype
 const Element = function (tag, ...tokens) {
   if (this instanceof Element) return new self.Element
 
-  tag // = tag.raw [0] for HTML Sanitization?
+  // tag = tag.raw [0] for HTML Sanitization?
 
   return function (pro) {
     if (! pro)
@@ -50,9 +50,13 @@ const Element = function (tag, ...tokens) {
         this.addEventListener (...params)
       }
 
-      bind (context) { this.context = context }
+      bind (context) {
+        this [Symbol.species] = new Context (context)
+        this.append
+          (new Template (tag).bind (this [Symbol.species]).content)
+      }
 
-      get context () { return { what: 'No way!' } }
+      get context () { return this [Symbol.species] }
 
       // custom element reactions
 
@@ -86,18 +90,20 @@ const Element = function (tag, ...tokens) {
 // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
 Element.prototype = window.Element.prototype
 
+
+//var render = function () { console.log ('HOLY FUCK THIS WORKED!!!') }
+
 Element `date-calendar`
 
 (class extends HTMLElement {
   constructor () {
     super ()
-    console.log ('Goin in context', this.context)
+
+    this.bind ({ foo: 'bar', name: this.baz })
     this.listen ('click', (event) => console.log (event))
   }
 
-  connectedCallback () {
-    console.log ('from derived connected')
-  }
+  connectedCallback () { console.log ('from derived connected') }
 
   get baz () { return 'baz' }
 })
