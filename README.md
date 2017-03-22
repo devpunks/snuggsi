@@ -1,5 +1,6 @@
 # ツ snuggsi - Modern ECMAscript DOM extensions
 
+https://blog.risingstack.com/writing-a-javascript-framework-project-structuring/
 https://w3c.github.io/webcomponents/spec/custom
 
 _Why?_ We don't need _(yet)_ another framework.
