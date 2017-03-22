@@ -5,14 +5,15 @@
 
 // https://lists.w3.org/Archives/Public/public-webapps/2012AprJun/0334.html#start334
 function tag (...fragments) {
-
-  let html = ('string' === typeof fragments [0])
-    ? fragments [0]
-    : fragments [0][0]
-
-  let context = fragments [1]
+  let
+    html = /string/.test (typeof fragments [0])
+      ? fragments [0] : fragments [0][0]
+    context = fragments [1]
 
   let bind = context => {
+    if (/string|number|boolean/.test (typeof context))
+        context = { self: context }
+
     let pattern = Object
       .keys (context)
       .map (key => `{${key}}`)
