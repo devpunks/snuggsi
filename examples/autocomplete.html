@@ -1,0 +1,29 @@
+<title>Autocomplete Dropdown List</title>
+
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+<link rel='stylesheet' href='http://www.devpunks.com/typography.css'>
+
+<script src='http://www.devpunks.com/snuggsi.es' defer></script>
+
+<p>
+  This is a refactor of
+  <a href='https://jsfiddle.net/nomzz/Kp3s7'>https://jsfiddle.net/nomzz/Kp3s7</a>
+</p>
+
+<h1>Autocomplete Countries</h1>
+
+<auto-complete>
+  <form action='#'>
+    <label for='search'>Search</label>
+    <input id='search' list='results' placeholder='Search'>
+
+    <datalist id='results'></datalist>
+  </form>
+
+<script src='http://www.devpunks.com/examples/filter.es' defer> </script>
+<script src='./autocomplete.es' defer></script>
+</auto-complete>
+
+<script src='../../vendor/browser-sync.es'></script>
