@@ -24,3 +24,7 @@ class Template {
     return this
   }
 }
+
+document.addEventListener
+  ('DOMContentLoaded', 
+    _ => console.log ('DOM fully loaded and parsed'))

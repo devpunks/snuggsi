@@ -29,34 +29,27 @@
 
 var ElementPrototype = window.Element.prototype
 
-const Element = function (localName, ...tokens) {
+const Element = function (tagName, ...tokens) {
   if (this instanceof Element) return new self.Element
 
-  // localName = localName.raw [0] for HTML Sanitization?
+  // tagName = tagName.raw [0] for HTML Sanitization?
 
-  function bind (context) {
-    this [Symbol.species] = new Context (context)
-    console.log ('binding')
-//      this.append
-//        (new Template (localName).bind (this [Symbol.species]).content)
-  }
+  return function (prototype) { // Should this be a class❓❓❓❓
 
-  return function (pro) { // Should this be a class❓❓❓❓
-    if ( ! pro)
-      try { return new (window.customElements.get (localName)) }
-      catch (_) { throw `Must define custom element \n(i.e. Element \`${localName}\` (class {})` }
+    if ( ! prototype)
+      try { return new (window.customElements.get (tagName)) }
+      catch (_) { throw `Must define custom element \n(i.e. Element \`${tagName}\` (class {})` }
 
     if ( ! new.target) self = this // for `.bind ()`
 
-    function proto () { // Kill this with fire
-      pro.__proto__ = HTMLElement // WTF?
-
-      return ~ (pro.__proto__.name.toString ().search (/^HTML(.*)Element$/))
-        ? pro : HTMLElement
-    }
-
     // https://github.com/whatwg/html/issues/1704
-    class CustomElementPrototype extends pro { // exotic object
+    class CustomElement extends prototype { // exotic object
+
+      constructor (context = self) { super ()
+        console.log ('self', self)
+        this.context = new State (context, this.stateChangedCallback)
+      }
+      
       get rendered () { return this.render () }
 
       render (selector, context = this.context) {
@@ -99,16 +92,29 @@ const Element = function (localName, ...tokens) {
       }
 
       get context () { return self }
-      set context (context) { self = context }
+      set context (context) {
+        console.warn ('setting context', context)
+        return self = context
+        }
 
       // custom element reactions
 
+      stateChangedCallback
+        (previous, next)
+          {
+            console.warn ('previous', previous)
+            console.warn ('next', next)
+          }
+
+      attributeChangedCallback
+        (property, previous, next)
+          { console.warn (`[${name}] ${previous} to ${next}`) }
+
+      // possibly map this with context
       static get observedAttributes () { return [`id`] }
-      attributeChangedCallback (name, old, value) {
-        console.warn (`attribute [${name}] changed from ${old} to ${value}`)
-      }
 
       connectedCallback () {
+ //       console.log ('binding events', this.onclick)
         super.connectedCallback ()
       }
 
@@ -122,15 +128,17 @@ const Element = function (localName, ...tokens) {
       adoptedCallback () { console.warn (`adopted this`, this) }
     }
 
-    try { window.customElements.define (localName, CustomElementPrototype) }
-    finally { return window.customElements.get (localName) }
+    try { window.customElements.define (tagName, CustomElement) }
+    finally { return window.customElements.get (tagName) }
   }
 }
 
 // Assign `window.Element.prototype`
 // in case of feature checking on `Element`
-// https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
 Element.prototype = window.Element.prototype
+  // http://2ality.com/2013/09/window.html
+  // http://tobyho.com/2013/03/13/window-prop-vs-global-var/
+  // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
 
 //Element
 //(Element)
