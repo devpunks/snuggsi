@@ -23,12 +23,41 @@
 </hgroup>
 
 <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date -->
-<label for='event'>Event</label>
-<input id='event' name='event' type='date'>
+<form>
 
-<button id='foo' for='event' is='date-calendar'></button>
+<style>
+form {
+  height: 60vh;
+  background: red;
+  display: flex;
+  flex-flow: column;
+}
 
-<date-calendar id='foo' for='event'></date-calendar>
+form label input {
+   background: black;
+   height: 5vw;
+   width: 5vw;
+   background: green;
+}
+form label {
+  margin: 1em;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-basis: 50%;
+  background: white;
+}
+</style>
+
+  <label>Ejecutada?
+    <input type='checkbox'>
+  </label>
+
+  <label for='event'>Event
+    <infinity-calendar id='foo'></infinity-calendar>
+  </label>
+</form>
 
 <template id='date-calendar'>
   <li>Hello {name}!</li>
