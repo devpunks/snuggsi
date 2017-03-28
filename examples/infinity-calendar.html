@@ -1,0 +1,67 @@
+<title>ツsnuggsi Easy DOM Components</title>
+
+<meta charset='UTF-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'>
+
+<link rel='stylesheet' href='http://www.devpunks.com/typography.css'>
+
+<script src='./context.es' defer></script>
+<script src='./elements/text.es' defer></script>
+<script src='./elements/tag.es' defer></script>
+<script src='./elements/template.polyfill.js' defer></script>
+<script src='./elements/template.es' defer></script>
+<script src='./elements/element.es' defer></script>
+<script src='./elements/component.es' defer></script>
+<script src='./notification.es' defer></script>
+<script src='./vendor/browser-sync.es'></script>
+<script src='./index.es' defer></script>
+
+<hgroup>
+  <h1>ツsnuggsi</h1>
+  <h2>Easy DOM Components</h2>
+</hgroup>
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date -->
+<form>
+
+<style>
+form {
+  height: 60vh;
+  background: red;
+  display: flex;
+  flex-flow: column;
+}
+
+form label input {
+   background: black;
+   height: 5vw;
+   width: 5vw;
+   background: green;
+}
+form label {
+  margin: 1em;
+  color: black;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  flex-basis: 50%;
+  background: white;
+}
+</style>
+
+  <label>Ejecutada?
+    <input type='checkbox'>
+  </label>
+
+  <label for='event'>Event
+    <infinity-calendar id='foo'></infinity-calendar>
+  </label>
+</form>
+
+<template id='date-calendar'>
+  <li>Hello {name}!</li>
+</template>
+
+  <template name='day' id='day'>
+    <time datetime='2017-14-03'>Day {index}</time>
+  </template>
