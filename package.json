@@ -4,17 +4,17 @@
   "author": "Snuggsi",
   "description": "Sane client components",
   "license": "MIT",
-
-  "bugs": { "url": "https://github.com/snuggs/snuggsi/issues" },
-
+  "bugs": {
+    "url": "https://github.com/snuggs/snuggsi/issues"
+  },
   "homepage": "https://github.com/snuggs/snuggsi#readme",
-  "engines": { "node": "7.3.x" },
-
+  "engines": {
+    "node": "7.3.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/snuggs/snuggsi.git"
   },
-
   "keywords": [
     "web",
     "components",
@@ -22,27 +22,30 @@
     "routing",
     "templates"
   ],
-
   "main": "index.es",
-
   "directories": {
     "test": "test"
   },
-
   "scripts": {
     "postinstall": "[ \"$NODE_ENV\" != production ] && npm ln ../jsdom && npm ln ../buble-tape",
     "test": "node --use_strict index.test.es",
-
     "watch": "node watch.es",
+    
+    
+    
+    "bundle": "cat state.es elements/tag.es elements/template.es elements/element.es > dist/snuggsi.min.es",
+
+    
+    
+    
+    
     "weigh": "echo $(gzip -9 -c -S=.js ./dist/*.min.es | wc -c) bytes",
-
     "browse": "browser-sync start --config=./watch.browser.es",
-
     "cover": "tap index.test.es --cov --coverage-report=lcov"
   },
-
   "devDependencies": {
-    "tap": "*",
-    "browser-sync": "*"
+    "browser-sync": "*",
+    "devtools-terminal": "^0.1.3",
+    "tap": "*"
   }
 }
