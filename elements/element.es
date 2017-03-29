@@ -46,11 +46,20 @@ const Element = function (tagName, ...tokens) {
     class CustomElement extends prototype { // exotic object
 
       constructor (context = self) { super ()
-        console.log ('self', self)
+        console.log ('template', this.template.bind({month: 'July'})())// `days`)
+        console.log ('template', this.template`days`.bind({month: 'July'})())// `days`)
         this.context = new State (context, this.stateChangedCallback)
       }
-      
+
       get rendered () { return this.render () }
+      get template () { const that = this // ewwww
+        return function (name = []) {
+          const template = that.select
+            (name[0] ? `template[name=${name[0]}]` : 'template:not([name])')
+
+          console.log ('html', template.innerHTML)
+        }
+      }
 
       render (selector, context = this.context) {
         const
@@ -114,7 +123,6 @@ const Element = function (tagName, ...tokens) {
       static get observedAttributes () { return [`id`] }
 
       connectedCallback () {
- //       console.log ('binding events', this.onclick)
         super.connectedCallback ()
       }
 
@@ -126,6 +134,9 @@ const Element = function (tagName, ...tokens) {
       }
 
       adoptedCallback () { console.warn (`adopted this`, this) }
+
+      // on* events
+      // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
     }
 
     try { window.customElements.define (tagName, CustomElement) }

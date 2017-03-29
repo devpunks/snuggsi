@@ -9,6 +9,7 @@
 <script src='./elements/text.es' defer></script>
 <script src='./elements/template.polyfill.js' defer></script>
 <script src='./elements/tag.es' defer></script>
+<script src='./elements/tokenize.es' defer></script>
 <script src='./elements/template.es' defer></script>
 <script src='./elements/element.es' defer></script>
 
@@ -63,6 +64,6 @@ form label {
   <li>Hello {name}!</li>
 </template>
 
-  <template name='day' id='day'>
-    <time datetime='2017-14-03'>Day {index}</time>
+  <template name='days'>
+    <time datetime={date}>Day {day}</time>
   </template>

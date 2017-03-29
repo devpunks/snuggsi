@@ -1,17 +1,10 @@
-class Template {
-  constructor (id) {
+function Template (name) {
+  return function (){
     return Object.assign
-      ( this.factory (id), { bind: this.bind })
+      ( factory (name), { bind })    
   }
 
-  factory (id) {
-    return (
-      document.getElementById (id)
-      || document.createElement ('template')
-    ).cloneNode (true)
-  }
-
-  bind (context) {
+  function bind (context) {
     let html   = this.innerHTML
       , render = context => tag (html) (context)
 
@@ -23,8 +16,17 @@ class Template {
 
     return this
   }
+  
+  function factory (name) {
+    return (
+      document.querySelector (`template[name=${name}]`)
+      || document.createElement ('template')
+    ).cloneNode (true)
+  }
 }
 
 document.addEventListener
   ('DOMContentLoaded', 
     _ => console.log ('DOM fully loaded and parsed'))
+
+ Template ``
