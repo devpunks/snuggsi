@@ -26,9 +26,4 @@ Gem::Specification.new do |spec|
   spec.bindir        = "exe"
   spec.executables   = spec.files.grep(%r{^exe/}) { |f| File.basename(f) }
   spec.require_paths = ["lib"]
-
-  spec.add_development_dependency "ejs"
-  spec.add_development_dependency "jade-rails"
-  spec.add_development_dependency "blade"
-  spec.add_development_dependency "minitest"
 end
