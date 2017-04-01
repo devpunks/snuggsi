@@ -183,8 +183,8 @@ name.textContent === h1.textContent // true
 You have a `<template>` in the DOM and you need to:
 
 1. Bind a context (or Javascript object) to the template
-2. Render the template.
-  - If `context` is an object `bind` a single `<template`.
+2. Append rendered template to the document.
+  - If `context` is an object `bind` a single `<template>`.
   - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
 
 _See [Templates](https://github.com/snuggs/snuggsi#templates) for an in depth explaination._
@@ -192,7 +192,6 @@ _See [Templates](https://github.com/snuggs/snuggsi#templates) for an in depth ex
 #### Object Template
 Copy & pasta dependency from the following link into developer console.
 
-https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/tag.es
 https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/template.es
 
 _[Console](https://developer.chrome.com/devtools#console) example snippet_
@@ -200,16 +199,16 @@ _[Console](https://developer.chrome.com/devtools#console) example snippet_
 _Must have following HTML `<template>` element within DOM_
 
 ```HTML5
-<section id='some-element'></section>
+<section id='lead'></section>
 
-<template id='items'>
-  <ul title={name}></ul>
+<template name='developer'>
+  <h1>{name}</h1>
 </template>
 ```
 
 ```Javascript
 const context = { name: 'That Beast' }
-    , template = new Template ('items') // can select by id without `#`
+    , template = Template `developer`
 
 // bind to context
 template
@@ -219,11 +218,11 @@ template
 
 document
   // select element to append bound template
-  .querySelector ('#some-element')
+  .querySelector ('#lead')
   // notice template is still bound to context from earlier
   .append (template.content)
 
-// <section id='some-element'><ul title='That Beast'></ul></section>
+// <section id='lead'><h1>That Beast</h1></h1></section>
 ```
 
 
@@ -234,18 +233,18 @@ _Must have following HTML `<template>` element within DOM_
 ```HTML5
 <ul></ul>
 
-<template id='item'>
-  <!-- `{name}` will bind to `context` property `name` -->
-  <li>Hello {name}!</li>
+<template name='item'>
+  <!-- `{title}` will bind to `context` property `name` -->
+  <li>Hello {title}!</li>
 </template>
 ```
 
 ```Javascript
 // when context is a collection
 const context = [
-  {name: 'foo'}, {name: 'bar'}
+  {name: 'DevPunk'}, {name: 'Snuggsi'}
 ]
-const template = new Template ('item')
+const template = Template `item`
 
 template
    // render template for each item in context
@@ -258,25 +257,15 @@ document
 
 /*
 <ul>
-  <li>Hello foo!</li>
-  <li>Hello bar!</li>
+  <li>Hello DevPunk!</li>
+  <li>Hello Snuggsi!</li>
 </ul>
 */
 ```
 
 
-### [Context](/context.es)
-
-How to manage context state over time.
-
-### [Attribute](/elements/attribute.es)
-Living Standard ([Web IDL](/elements/attribute.idl))
-
-Attribute binding relay
-
-### [Attributes](/elements/attributes.es)
-
-Attributes named node map.
+### _(Coming Soon in v1)_ [State](/state.es)
+How to manage context state over time .
 
 ## Modern DOM Interfaces
 The following are the minimum set of *modern* DOM APIs
