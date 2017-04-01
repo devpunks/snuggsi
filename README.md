@@ -1,23 +1,22 @@
-# ツ snuggsi - Modern ECMAscript DOM extensions
+# ツ snuggsi - Easy Web Components
 
 https://w3c.github.io/webcomponents/spec/custom
 
 _Why?_ We don't need _(yet)_ another framework.
-We need _"syntactic sugar"_ around new spec driven browser features.
-_"Javascript Browser Extensions"_ if you will.
-For instance the _"DOM Extensions"_ are great to use
+We need _"syntactic sugar"_ around new spec'ed browser features.
+For instance the _"Components"_ are great to use
 as you are always interacting with Living DOM nodes.
 This gives you the ability to gradually incorporate
-your extension of choice a la carte into your existing client side code!
-Best of all, works in your favorite browser today! _for the most part_.
-This means you can try out the extensions just by _"Copy & Pasta"_ 'ing directly
+your component of choice a la carte into your existing client side code!
+Best of all, works in your favorite browser today!.
+This means you can try out the examples just by _"Copy & Pasta"_ 'ing directly
 into your console straight from the README!
 
 Modern client side Javascript specs have been moving at light speed the past couple of years.
 Best to avoid front end frameworks wherever possible as the browser
-can provide you with all you need in 2017! If you are uncomfortable
+can provide you with all your  needs! If you are uncomfortable
 with a particular browser's javascript implementation then
-_"[polyfills](https://en.wikipedia.org/wiki/Polyfill)"_ are typically trivial to implement.
+_"[polyfills](https://en.wikipedia.org/wiki/Polyfill)"_ are (usually) trivial to implement.
 You may be familiar with
 [Douglas Crockford's](https://en.wikipedia.org/wiki/Douglas_Crockford) ~~JSON2~~ polyfill from back in the day.
 _(Please use [JSON 3 Polyfill](https://bestiejs.github.io/json3) if you are still using `JSON2`)_
@@ -29,9 +28,9 @@ And if a feature we've implemented doesn't work to your liking feel free to
 a polyfill for you ASAP!
 
 **Using modern DOM & ECMAScript browser specifications have allowed us to decrease
-framework code by ~80%**. Hence why these are _"extensions"_ and
-not _YAFF (Yet Another Front-end Framework)_.
-**These extensions are so tiny they all weigh < 2KB!** _(uncommented,minified,gzipped)_. The browsers are working dilligently abiding by the specs and we should be
+framework needs by ~90%**.
+**This tool is extremely light weighing in at < 2KB!** _(uncommented,minified,gzipped)_.
+The browsers are working dilligently abiding by the specs and we should be
 abiding by the hard work they have put in much work over the recent years. Finally the browsers are coming to fruition.
 You are able to use these features for the immediate future without needint to "update" anything.
 Therefore not only can we use modern style code today, this `README` alone will better acclaimate you to
