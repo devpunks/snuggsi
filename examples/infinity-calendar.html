@@ -1,67 +1,106 @@
-<title>ツsnuggsi Easy DOM Components</title>
+<title>ツsnuggsi - Infinity Calendar</title>
 
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 
 <link rel='stylesheet' href='http://www.devpunks.com/typography.css'>
 
-<script src='./context.es' defer></script>
-<script src='./elements/text.es' defer></script>
-<script src='./elements/tag.es' defer></script>
-<script src='./elements/template.polyfill.js' defer></script>
-<script src='./elements/template.es' defer></script>
-<script src='./elements/element.es' defer></script>
-<script src='./elements/component.es' defer></script>
-<script src='./notification.es' defer></script>
-<script src='./vendor/browser-sync.es'></script>
-<script src='./index.es' defer></script>
+<script src=../elements/tag.es></script>
+<script src=../elements/template.es></script>
+<script src=../elements/element.es></script>
+<script src=../state.es></script>
+
+<!--<script src=http://www.devpunks.com/snuggsi.es></script>-->
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base -->
+<base href='//localhost:8181'>
 
 <hgroup>
   <h1>ツsnuggsi</h1>
-  <h2>Easy DOM Components</h2>
+  <h2>Infinity Calendar</h2>
 </hgroup>
 
-<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/date -->
+
 <form>
-
-<style>
-form {
-  height: 60vh;
-  background: red;
-  display: flex;
-  flex-flow: column;
-}
-
-form label input {
-   background: black;
-   height: 5vw;
-   width: 5vw;
-   background: green;
-}
-form label {
-  margin: 1em;
-  color: black;
-  display: flex;
-  justify-content: space-around;
-  align-items: center;
-  flex-basis: 50%;
-  background: white;
-}
-</style>
-
   <label>Ejecutada?
     <input type='checkbox'>
   </label>
 
-  <label for='event'>Event
-    <infinity-calendar id='foo'></infinity-calendar>
+  <label for=date>Event
+    <input name=date type=date>
+
+<infinity-calendar for=date>
+  <template>
+    <header>{month}</header>
+
+    <menu>
+      <li><button onclick={onprevious}>Previous</button>
+      <li><button onclick={onnext}>Next</button>
+    </menu>
+  </template>
+
+  <template name='days'>
+    <time datetime={epoch}>{readable}</time>
+  </template>
+</infinity-calendar>
+
   </label>
 </form>
 
-<template id='date-calendar'>
-  <li>Hello {name}!</li>
-</template>
+<script>
+Element `infinity-calendar`.bind ({date: new Date})
 
-  <template name='day' id='day'>
-    <time datetime='2017-14-03'>Day {index}</time>
-  </template>
+(class extends HTMLElement {
+  get onclick () {
+    console.log ('wtf this works?')
+    alert ('There is a God')
+  }
+
+  connectedCallback () {
+    window.state = this.context
+  }
+})
+
+var i = new (Element `infinity-calendar`.bind ({snuggs: 'Dees'}))
+</script>
+
+<style>
+form { background: var(--darkest-color); display: none; }
+
+label {
+  margin: 1em;
+  display: block;
+  text-align: left;
+  line-height: 5em;
+  color: var(--lightest-color);
+  background: var(--darkest-color) ;
+}
+input,
+label:first-letter { margin-left: 3em }
+
+@media (orientation: landscape) {
+  form { background: red }
+
+  label {
+    width: 49%;
+    display: inline-block;
+  }
+}
+</style>
+
+<style>
+infinity-calendar * {
+  display: none;
+}
+infinity-calendar {
+  width: 1em;
+  height: 1em;
+  cursor: pointer;
+  margin-top: 0.3em;
+  display: inline-block;
+  background: url(data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjE2cHgiIGhlaWdodD0iMTZweCIgdmlld0JveD0iMCAwIDUxMS42MzQgNTExLjYzNCIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTExLjYzNCA1MTEuNjM0OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPHBhdGggZD0iTTQ4Mi41MTMsODMuOTQyYy03LjIyNS03LjIzMy0xNS43OTctMTAuODUtMjUuNjk0LTEwLjg1aC0zNi41NDF2LTI3LjQxYzAtMTIuNTYtNC40NzctMjMuMzE1LTEzLjQyMi0zMi4yNjEgICBDMzk3LjkwNiw0LjQ3NSwzODcuMTU3LDAsMzc0LjU5MSwwaC0xOC4yNjhjLTEyLjU2NSwwLTIzLjMxOCw0LjQ3NS0zMi4yNjQsMTMuNDIyYy04Ljk0OSw4Ljk0NS0xMy40MjIsMTkuNzAxLTEzLjQyMiwzMi4yNjF2MjcuNDEgICBoLTEwOS42M3YtMjcuNDFjMC0xMi41Ni00LjQ3NS0yMy4zMTUtMTMuNDIyLTMyLjI2MUMxNzguNjQsNC40NzUsMTY3Ljg4NiwwLDE1NS4zMjEsMEgxMzcuMDUgICBjLTEyLjU2MiwwLTIzLjMxNyw0LjQ3NS0zMi4yNjQsMTMuNDIyYy04Ljk0NSw4Ljk0NS0xMy40MjEsMTkuNzAxLTEzLjQyMSwzMi4yNjF2MjcuNDFINTQuODIzYy05LjksMC0xOC40NjQsMy42MTctMjUuNjk3LDEwLjg1ICAgYy03LjIzMyw3LjIzMi0xMC44NSwxNS44LTEwLjg1LDI1LjY5N3YzNjUuNDUzYzAsOS44OSwzLjYxNywxOC40NTYsMTAuODUsMjUuNjkzYzcuMjMyLDcuMjMxLDE1Ljc5NiwxMC44NDksMjUuNjk3LDEwLjg0OWg0MDEuOTg5ICAgYzkuODk3LDAsMTguNDctMy42MTcsMjUuNjk0LTEwLjg0OWM3LjIzNC03LjIzNCwxMC44NTItMTUuODA0LDEwLjg1Mi0yNS42OTNWMTA5LjYzOSAgIEM0OTMuMzU3LDk5LjczOSw0ODkuNzQzLDkxLjE3NSw0ODIuNTEzLDgzLjk0MnogTTM0Ny4xODcsNDUuNjg2YzAtMi42NjcsMC44NDktNC44NTgsMi41Ni02LjU2NyAgIGMxLjcxMS0xLjcxMSwzLjkwMS0yLjU2OCw2LjU3LTIuNTY4aDE4LjI2OGMyLjY3LDAsNC44NTMsMC44NTQsNi41NywyLjU2OGMxLjcxMiwxLjcxMiwyLjU2NywzLjkwMywyLjU2Nyw2LjU2N3Y4Mi4yMjQgICBjMCwyLjY2Ni0wLjg1NSw0Ljg1My0yLjU2Nyw2LjU2N2MtMS43MTgsMS43MDktMy45LDIuNTY4LTYuNTcsMi41NjhoLTE4LjI2OGMtMi42NjksMC00Ljg1OS0wLjg1NS02LjU3LTIuNTY4ICAgYy0xLjcxMS0xLjcxNS0yLjU2LTMuOTAxLTIuNTYtNi41NjdWNDUuNjg2eiBNMTI3LjkxNSw0NS42ODZjMC0yLjY2NywwLjg1NS00Ljg1OCwyLjU2OC02LjU2NyAgIGMxLjcxNC0xLjcxMSwzLjkwMS0yLjU2OCw2LjU2Ny0yLjU2OGgxOC4yNzFjMi42NjcsMCw0Ljg1OCwwLjg1NCw2LjU2NywyLjU2OGMxLjcxMSwxLjcxMiwyLjU3LDMuOTAzLDIuNTcsNi41Njd2ODIuMjI0ICAgYzAsMi42NjYtMC44NTUsNC44NTYtMi41Nyw2LjU2N2MtMS43MTMsMS43MDktMy45LDIuNTY4LTYuNTY3LDIuNTY4SDEzNy4wNWMtMi42NjYsMC00Ljg1Ni0wLjg1NS02LjU2Ny0yLjU2OCAgIGMtMS43MDktMS43MTUtMi41NjgtMy45MDEtMi41NjgtNi41NjdWNDUuNjg2eiBNNDU2LjgxMiw0NzUuMDg4SDU0LjgyM3YtMjkyLjM2aDQwMS45ODlWNDc1LjA4OHoiIGZpbGw9IiMwMDAwMDAiLz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K) no-repeat top left;
+  background-size: 100%;
+}
+</style>
+
+<!--<script src='../../vendor/browser-sync.es'></script>-->
