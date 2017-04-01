@@ -38,6 +38,96 @@ You are able to use these features for the immediate future without needint to "
 Therefore not only can we use modern style code today, this `README` alone will better acclaimate you to
 *modern browser development best practices javascript* that you have always been curious to learn about.
 
+
+## Syntactic DOM "Sugar"
+
+## [Template](/elements/template.es)
+
+`<template>` to appendable `DocumentFragment`.
+
+You have a `<template>` in the DOM and you need to:
+
+1. Bind a context (or Javascript object) to the template
+2. Append rendered template to the document.
+  - If `context` is an object `bind` a single `<template>`.
+  - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
+
+_See [Templates](https://github.com/snuggs/snuggsi#templates) for an in depth explaination._
+
+### Object Template
+Copy & pasta dependency from the following link into developer console.
+
+https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/template.es
+
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
+
+_Must have following HTML `<template>` element within DOM_
+
+```HTML5
+<section id='lead'></section>
+
+<template name='developer'>
+  <h1>{name}</h1>
+</template>
+```
+
+```Javascript
+const context = { name: 'That Beast' }
+    , template = Template `developer`
+
+// bind to context
+template
+  .bind (context)
+  .content // an appendable HTMLDocumentFragment
+  // see https://html.spec.whatwg.org/multipage/scripting.html#dom-template-content
+
+document
+  // select element to append bound template
+  .querySelector ('#lead')
+  // notice template is still bound to context from earlier
+  .append (template.content)
+
+// <section id='lead'><h1>That Beast</h1></h1></section>
+```
+
+
+### Collection Template
+_[Console](https://developer.chrome.com/devtools#console) example snippet_
+
+_Must have following HTML `<template>` element within DOM_
+```HTML5
+<ul></ul>
+
+<template name='item'>
+  <!-- `{title}` will bind to `context` property `name` -->
+  <li>Hello {title}!</li>
+</template>
+```
+
+```Javascript
+// when context is a collection
+const context = [
+  {name: 'DevPunk'}, {name: 'Snuggsi'}
+]
+const template = Template `item`
+
+template
+   // render template for each item in context
+  .bind (context)
+  .content // an appendable HTMLDocumentFragment
+
+document
+  .querySelector ('ul')
+  .append (template.content)
+
+/*
+<ul>
+  <li>Hello DevPunk!</li>
+  <li>Hello Snuggsi!</li>
+</ul>
+*/
+```
+
 ## Polyfills
 
 ### jQuery `$ (selector)`
@@ -85,8 +175,6 @@ $.ajax =
 $.ajax (`https://youmightnotneedjquery.com`).
   then (response => console.dir (response))
 ```
-
-## Syntactic DOM "Sugar"
 
 ### [tag](/elements/tag.es)
 Easy way to create HTML tag strings and bind them to a context.
@@ -174,93 +262,6 @@ name.textContent  // "So RAD!"
 name.textContent === h1.textContent // true
 
 // 2 way text content binding!
-```
-
-### [Template](/elements/template.es)
-
-`<template>` to appendable `DocumentFragment`.
-
-You have a `<template>` in the DOM and you need to:
-
-1. Bind a context (or Javascript object) to the template
-2. Append rendered template to the document.
-  - If `context` is an object `bind` a single `<template>`.
-  - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
-
-_See [Templates](https://github.com/snuggs/snuggsi#templates) for an in depth explaination._
-
-#### Object Template
-Copy & pasta dependency from the following link into developer console.
-
-https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/template.es
-
-_[Console](https://developer.chrome.com/devtools#console) example snippet_
-
-_Must have following HTML `<template>` element within DOM_
-
-```HTML5
-<section id='lead'></section>
-
-<template name='developer'>
-  <h1>{name}</h1>
-</template>
-```
-
-```Javascript
-const context = { name: 'That Beast' }
-    , template = Template `developer`
-
-// bind to context
-template
-  .bind (context)
-  .content // an appendable HTMLDocumentFragment
-  // see https://html.spec.whatwg.org/multipage/scripting.html#dom-template-content
-
-document
-  // select element to append bound template
-  .querySelector ('#lead')
-  // notice template is still bound to context from earlier
-  .append (template.content)
-
-// <section id='lead'><h1>That Beast</h1></h1></section>
-```
-
-
-#### Collection Template
-_[Console](https://developer.chrome.com/devtools#console) example snippet_
-
-_Must have following HTML `<template>` element within DOM_
-```HTML5
-<ul></ul>
-
-<template name='item'>
-  <!-- `{title}` will bind to `context` property `name` -->
-  <li>Hello {title}!</li>
-</template>
-```
-
-```Javascript
-// when context is a collection
-const context = [
-  {name: 'DevPunk'}, {name: 'Snuggsi'}
-]
-const template = Template `item`
-
-template
-   // render template for each item in context
-  .bind (context)
-  .content // an appendable HTMLDocumentFragment
-
-document
-  .querySelector ('ul')
-  .append (template.content)
-
-/*
-<ul>
-  <li>Hello DevPunk!</li>
-  <li>Hello Snuggsi!</li>
-</ul>
-*/
 ```
 
 
