@@ -13,8 +13,7 @@ function Template ( name = `snuggsi` ) {
     this.innerHTML = ''
     for (const frame of rendered) this.content.appendChild (frame)
 
-    context.map (transfer, tokens)
-    return this
+    return context.map(transfer, tokens) && this
   }
 
   function factory (name) { return (
@@ -28,8 +27,7 @@ function Template ( name = `snuggsi` ) {
         (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object
       , {})
 
-    this.push (objectify (tokenize (fragment)))
-    return fragment
+    return this.push (objectify (tokenize (fragment))) && fragment
   }
 
   function transfer (context, index) {
