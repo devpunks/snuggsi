@@ -24,6 +24,7 @@ function State ( context, handler = _ => {} ) {
       ]
 
   for (property in context)
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
     Object.defineProperty (this, ...thunk (property))
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
 }
