@@ -34,33 +34,23 @@ const Element = function (tagName, ...tokens) {
 
   // tagName = tagName.raw [0] for HTML Sanitization?
 
-  return function (prototype) { // Should this be a class❓❓❓❓
+  return function Definition (prototype) { // Should this be a class❓❓❓❓
 
     if ( ! prototype)
       try { return new (window.customElements.get (tagName)) }
-      catch (_) { throw `Must define custom element \n(i.e. Element \`${tagName}\` (class {})` }
+      catch (_) { throw 'Must define custom element \n(i.e. Element `'+tagName+'` (class {})' }
 
-    if ( ! new.target) self = this // for `.bind ()`
+//    if ( ! new.target) self = this // for `.bind ()`
+      if ( ! this instanceof Definition) self = this // for `.bind ()`
 
     // https://github.com/whatwg/html/issues/1704
     class CustomElement extends prototype { // exotic object
 
       constructor (context = self) { super ()
-        console.log ('template', this.template.bind({month: 'July'})())// `days`)
-        console.log ('template', this.template`days`.bind({month: 'July'})())// `days`)
         this.context = new State (context, this.stateChangedCallback)
       }
 
       get rendered () { return this.render () }
-      get template () { const that = this // ewwww
-        return function (name = []) {
-          const template = that.select
-            (name[0] ? `template[name=${name[0]}]` : 'template:not([name])')
-
-          console.log ('html', template.innerHTML)
-        }
-      }
-
       render (selector, context = this.context) {
         const
           node = selector ? this.select (selector) : this
@@ -117,10 +107,10 @@ const Element = function (tagName, ...tokens) {
 
       attributeChangedCallback
         (property, previous, next)
-          { console.warn (`[${name}] ${previous} to ${next}`) }
+          { console.warn ('['+property+'] ['+previous+'] to ['+next+']') }
 
       // possibly map this with context
-      static get observedAttributes () { return [`id`] }
+      static get observedAttributes () { return ['id'] }
 
       connectedCallback () {
         super.connectedCallback ()
@@ -130,10 +120,10 @@ const Element = function (tagName, ...tokens) {
       // http://ryanmorr.com/using-mutation-observers-to-watch-for-element-availability/
       disconnectedCallback () {
        // detach event listeners added on attached
-        console.warn (`disconnected`, this)
+        console.warn ('disconnected', this)
       }
 
-      adoptedCallback () { console.warn (`adopted this`, this) }
+      adoptedCallback () { console.warn ('adopted this', this) }
 
       // on* events
       // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers

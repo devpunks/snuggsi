@@ -1,19 +1,19 @@
 {
   "name": "snuggsi",
   "version": "0.1.2",
-  "author": "Snuggsi",
-  "description": "Sane client components",
+  "author": "Snuggs",
+  "description": "Easy DOM Components",
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/snuggs/snuggsi/issues"
+    "url": "https://github.com/devpunks/snuggsi/issues"
   },
-  "homepage": "https://github.com/snuggs/snuggsi#readme",
+  "homepage": "https://github.com/devpunks/snuggsi#readme",
   "engines": {
     "node": "7.3.x"
   },
   "repository": {
     "type": "git",
-    "url": "git+ssh://git@github.com/snuggs/snuggsi.git"
+    "url": "git+ssh://git@github.com/devpunks/snuggsi.git"
   },
   "keywords": [
     "web",
@@ -30,20 +30,20 @@
     "postinstall": "[ \"$NODE_ENV\" != production ] && npm ln ../jsdom && npm ln ../buble-tape",
     "test": "node --use_strict index.test.es",
     "watch": "node watch.es",
-    
-    
-    
-    "bundle": "cat state.es elements/tag.es elements/template.es elements/element.es > dist/snuggsi.min.es",
 
-    
-    
-    
-    
-    "weigh": "echo $(gzip -9 -c -S=.js ./dist/*.min.es | wc -c) bytes",
+    "bundle": "cat state.es elements/tokenize.es elements/template.es elements/element.es > dist/snuggsi.es",
+
+    "transpile": "npm run bundle && node ./transpile.es > ./dist/snuggsi.js && npm run uglify && npm run weigh",
+    "copy" : "pbcopy < ./dist/snuggsi.js",
+    "uglify": "uglifyjs ./dist/snuggsi.js -c -m -o ./dist/snuggsi.min.js",
+
+    "weigh": "npm run bundle && echo $(gzip -9 -c -S=.js ./dist/*.min.js | wc -c) bytes",
     "browse": "browser-sync start --config=./watch.browser.es",
     "cover": "tap index.test.es --cov --coverage-report=lcov"
   },
   "devDependencies": {
+    "buble": "*",
+    "uglifyjs": "*",
     "browser-sync": "*",
     "devtools-terminal": "^0.1.3",
     "tap": "*"

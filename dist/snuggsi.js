@@ -1,19 +1,21 @@
-function State ( context, handler = _ => {} ) {
-  this.subscribe = callback => handler = callback
+function State ( context, handler ) {
+  var this$1 = this;
+  if ( handler === void 0 ) handler = function (_) {};
 
-  const
+  this.subscribe = function (callback) { return handler = callback; }
+
+  var
     history = new Array (context)
-  , clone   = context => JSON.parse
-      (JSON.stringify (context))
+  , clone   = function (context) { return JSON.parse
+      (JSON.stringify (context)); }
 
-  , thunk = property =>
-      [ property,
+  , thunk = function (property) { return [ property,
         {
-          get: _ => history
-            [history.length-1] [property],
+          get: function (_) { return history
+            [history.length-1] [property]; },
 
-          set (value) {
-            const next  = clone
+          set: function (value) {
+            var next  = clone
               (previous = history [history.length-1])
 
             next [property] = value
@@ -21,31 +23,33 @@ function State ( context, handler = _ => {} ) {
             history [history.length] = next
           }
         }
-      ]
+      ]; }
 
   for (property in context)
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
-    Object.defineProperty (this, ...thunk (property))
+    { Object.defineProperty.apply (Object, [ this$1 ].concat( thunk (property) )) }
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
 }
 function tokenize (fragment) {
-  const
+  var
     tokens = []
 
-  , tail = (text, sibling) =>
-      ( ! text.after (sibling)) && sibling
+  , tail = function (text, sibling) { return ( ! text.after (sibling)) && sibling; }
 
   // https://www.merriam-webster.com/dictionary/sift
-  , sift = text =>
-      text.textContent.match (/({\w+})/) && (tokens [tokens.length] = text)
-      || text
+  , sift = function (text) { return text.textContent.match (/({\w+})/) && (tokens [tokens.length] = text)
+      || text; }
 
-  for (match of mine (fragment))
+  for (var i = 0, list = mine (fragment); i < list.length; i += 1)
+    {
+    match = list[i];
+
     slice (match.textContent)
       .map (sift)
       .reduce (tail, match)
 
     && match.remove ()
+  }
 
   return tokens
 
@@ -64,12 +68,13 @@ function tokenize (fragment) {
 }
 
 function zip
-  (...elements) { const zipper = []
+  () {
+  var elements = [], len = arguments.length;
+  while ( len-- ) elements[ len ] = arguments[ len ];
+ var zipper = []
 
-  , lock = (zipper, row) => [...zipper, ...row]
-  , pair = teeth  => // http://english.stackexchange.com/questions/121601/pair-or-couple
-    // thunk
-      (tooth, position) => [tooth, teeth [position]]
+  , lock = function (zipper, row) { return zipper.concat( row); }
+  , pair = function (teeth)  { return function (tooth, position) { return [tooth, teeth [position]]; }; }
 
   return elements [1]
     .map (pair (elements [0]))
@@ -77,18 +82,18 @@ function zip
 }
 
 function slice
-  (text) { const tokens  = []
+  (text) { var tokens  = []
 
   , match    = /({\w+})/g
-  , replace  = token => collect (token) && '✂️'
-  , collect  = token => tokens.push (token)
+  , replace  = function (token) { return collect (token) && '✂️'; }
+  , collect  = function (token) { return tokens.push (token); }
   , sections = text
       .replace (match, replace)
         .split ('✂️')
 
   return zip (tokens, sections)
-     .filter (element => element)
-        .map (element => new Text (element))
+     .filter (function (element) { return element; })
+        .map (function (element) { return new Text (element); })
 }
 
 function mine // https://www.merriam-webster.com/dictionary/comb#h2
@@ -103,17 +108,17 @@ function mine // https://www.merriam-webster.com/dictionary/comb#h2
 (head) {
   console.time ()
 
-  const nodes = []
-  const walker = document.createNodeIterator
+  var nodes = []
+  var walker = document.createNodeIterator
       (head, NodeFilter.SHOW_TEXT, visit)
       // by default breaks on template YAY! 🎉
 
-  while (node = walker.nextNode ()) nodes.push (node)
+  while (node = walker.nextNode ()) { nodes.push (node) }
   console.timeEnd ()
   return nodes
 }
 
-const tail = (text, sibling) => ( ! text.after (sibling)) && sibling
+var tail = function (text, sibling) { return ( ! text.after (sibling)) && sibling; }
 
 function visit (node) {
   return /({\w+})/g.test (node.data)
@@ -122,23 +127,31 @@ function visit (node) {
 
 function comb (parent) {
   if (parent.hasChildNodes())
-    for (let node = parent.firstChild; node; node = node.nextSibling)
-      DOMComb (node)
+    { for (var node = parent.firstChild; node; node = node.nextSibling)
+      { DOMComb (node) } }
 }
-function Template ( name = 'snuggsi' ) {
-  return Object.assign (factory (...name), { bind })
+function Template ( name ) {
+  if ( name === void 0 ) name = 'snuggsi';
+
+  return Object.assign (factory.apply (void 0, name), { bind: bind })
 
   function bind (context) {
+    var this$1 = this;
+
     context = (Array.isArray (context) ? context : [context])
 
-    const
+    var
       tokens   = []
     , rendered = context
-        .map (context => this.content.cloneNode (true))
+        .map (function (context) { return this$1.content.cloneNode (true); })
         .map (collect, tokens)
 
     this.innerHTML = ''
-    for (const frame of rendered) this.content.appendChild (frame)
+    for (var i = 0, list = rendered; i < list.length; i += 1) {
+      var frame = list[i];
+
+      this$1.content.appendChild (frame)
+    }
 
     return context.map(transfer, tokens) && this
   }
@@ -149,17 +162,17 @@ function Template ( name = 'snuggsi' ) {
   )}
 
   function collect (fragment) {
-    const objectify = tokens =>
-      tokens.reduce ( (object, token) =>
-        (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object
-      , {})
+    var objectify = function (tokens) { return tokens.reduce ( function (object, token) { return (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object; }
+      , {}); }
 
     return this.push (objectify (tokenize (fragment))) && fragment
   }
 
   function transfer (context, index) {
-    for (const property in context) this [index]
-      [property] && (this [index] [property].textContent = context [property])
+    var this$1 = this;
+
+    for (var property in context) { this$1 [index]
+      [property] && (this$1 [index] [property].textContent = context [property]) }
   }
 }
 // Usage
@@ -193,105 +206,122 @@ function Template ( name = 'snuggsi' ) {
 
 var ElementPrototype = window.Element.prototype
 
-const Element = function (tagName, ...tokens) {
-  if (this instanceof Element) return new self.Element
+var Element = function (tagName) {
+  var tokens = [], len = arguments.length - 1;
+  while ( len-- > 0 ) tokens[ len ] = arguments[ len + 1 ];
+
+  if (this instanceof Element) { return new self.Element }
 
   // tagName = tagName.raw [0] for HTML Sanitization?
 
   return function Definition (prototype) { // Should this be a class❓❓❓❓
 
     if ( ! prototype)
-      try { return new (window.customElements.get (tagName)) }
-      catch (_) { throw 'Must define custom element \n(i.e. Element `'+tagName+'` (class {})' }
+      { try { return new (window.customElements.get (tagName)) }
+      catch (_) { throw 'Must define custom element \n(i.e. Element `'+tagName+'` (class {})' } }
 
 //    if ( ! new.target) self = this // for `.bind ()`
-      if ( ! this instanceof Definition) self = this // for `.bind ()`
+      if ( ! this instanceof Definition) { self = this } // for `.bind ()`
 
     // https://github.com/whatwg/html/issues/1704
-    class CustomElement extends prototype { // exotic object
-
-      constructor (context = self) { super ()
+    var CustomElement = (function (prototype) {
+      function CustomElement (context) {
+      if ( context === void 0 ) context = self;
+ prototype.call (this)
         this.context = new State (context, this.stateChangedCallback)
       }
 
-      get rendered () { return this.render () }
-      render (selector, context = this.context) {
-        const
+      if ( prototype ) CustomElement.__proto__ = prototype;
+      CustomElement.prototype = Object.create( prototype && prototype.prototype );
+      CustomElement.prototype.constructor = CustomElement;
+
+      var prototypeAccessors = { rendered: {},context: {} };
+      var staticAccessors = { observedAttributes: {} };
+
+      prototypeAccessors.rendered.get = function () { return this.render () };
+      CustomElement.prototype.render = function (selector, context) {
+        if ( context === void 0 ) context = this.context;
+
+        var
           node = selector ? this.select (selector) : this
-        , template = super.render (selector) // or a bonafied Template
+        , template = prototype.prototype.render.call (this, selector) // or a bonafied Template
 
         context = Array.isArray (context)
           ? context : [context]
 
         node.innerHTML = context
-          .map (item => tag (template, item))
+          .map (function (item) { return tag (template, item); })
           .join ('')
-      }
+      };
 
       // watch out for clobbering `HTMLInputElement.select ()`
       // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-      select (selector) {
+      CustomElement.prototype.select = function (selector) {
         return this.listenable
           ([this.querySelector (selector)])[0]
-      }
+      };
 
-      selectAll (selector) {
+      CustomElement.prototype.selectAll = function (selector) {
         return this.listenable
           (this.querySelectorAll (selector))
-      }
+      };
 
-      listenable (nodes) {
+      CustomElement.prototype.listenable = function (nodes) {
+        var this$1 = this;
+
         return Array.prototype.map
-          .call (nodes, node => Object.assign
-            (node, {listen: this.listen.bind(this)})) // MUTATES!
-      }
+          .call (nodes, function (node) { return Object.assign
+            (node, {listen: this$1.listen.bind(this$1)}); }) // MUTATES!
+      };
 
       // Event target coparisons
       // https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
       // https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/relatedTarget
       // https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget
-      listen (event, listener = this [event]) {
-        this.addEventListener (event, listener)
-      }
+      CustomElement.prototype.listen = function (event, listener) {
+        if ( listener === void 0 ) listener = this [event];
 
-      get context () { return self }
-      set context (context) {
+        this.addEventListener (event, listener)
+      };
+
+      prototypeAccessors.context.get = function () { return self };
+      prototypeAccessors.context.set = function (context) {
         console.warn ('setting context', context)
         return self = context
-        }
+        };
 
       // custom element reactions
 
-      stateChangedCallback
-        (previous, next)
+      CustomElement.prototype.stateChangedCallback = function (previous, next)
           {
             console.warn ('previous', previous)
             console.warn ('next', next)
-          }
+          };
 
-      attributeChangedCallback
-        (property, previous, next)
-          { console.warn ('['+property+'] ['+previous+'] to ['+next+']') }
+      CustomElement.prototype.attributeChangedCallback = function (property, previous, next)
+          { console.warn ('['+property+'] ['+previous+'] to ['+next+']') };
 
       // possibly map this with context
-      static get observedAttributes () { return ['id'] }
+      staticAccessors.observedAttributes.get = function () { return ['id'] };
 
-      connectedCallback () {
-        super.connectedCallback ()
-      }
+      CustomElement.prototype.connectedCallback = function () {
+        prototype.prototype.connectedCallback.call (this)
+      };
 
       // When element is removed from a shadow-including document
       // http://ryanmorr.com/using-mutation-observers-to-watch-for-element-availability/
-      disconnectedCallback () {
+      CustomElement.prototype.disconnectedCallback = function () {
        // detach event listeners added on attached
         console.warn ('disconnected', this)
-      }
+      };
 
-      adoptedCallback () { console.warn ('adopted this', this) }
+      CustomElement.prototype.adoptedCallback = function () { console.warn ('adopted this', this) };
 
-      // on* events
-      // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
-    }
+      Object.defineProperties( CustomElement.prototype, prototypeAccessors );
+      Object.defineProperties( CustomElement, staticAccessors );
+
+      return CustomElement;
+    }(prototype));
 
     try { window.customElements.define (tagName, CustomElement) }
     finally { return window.customElements.get (tagName) }
@@ -319,3 +349,4 @@ Element.prototype = window.Element.prototype
 //(new Element `date-calendar`)
 //new (Element `date-calendar`)
 //new Element (`date-calendar`)
+

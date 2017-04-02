@@ -1,4 +1,4 @@
-function Template ( name = `snuggsi` ) {
+function Template ( name = 'snuggsi' ) {
   return Object.assign (factory (...name), { bind })
 
   function bind (context) {
@@ -17,7 +17,7 @@ function Template ( name = `snuggsi` ) {
   }
 
   function factory (name) { return (
-       document.querySelector (`template[name=${name}]`).cloneNode (true)
+       document.querySelector ('template[name='+name+']').cloneNode (true)
     || document.createElement ('template')
   )}
 
