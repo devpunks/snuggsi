@@ -31,7 +31,7 @@
     "test": "node --use_strict index.test.es",
     "watch": "node watch.es",
 
-    "bundle": "cat elements/element.es > dist/snuggsi.es",
+    "bundle": "cat state.es elements/tokenize.es elements/template.es elements/element.es > dist/snuggsi.es",
 
     "transpile": "npm run bundle && node ./transpile.es > ./dist/snuggsi.js && npm run uglify && npm run gzip && npm run weigh",
     "copy" : "pbcopy < ./dist/snuggsi.js",
