@@ -1,4 +1,4 @@
-function Template ( name = 'snuggsi' ) {
+const Template = function ( name = 'snuggsi' ) {
   return Object.assign (factory (...name), { bind })
 
   function bind (context) {
@@ -16,7 +16,10 @@ function Template ( name = 'snuggsi' ) {
     return context.map(transfer, tokens) && this
   }
 
-  function factory (name) { return (
+  function factory (name) {
+   console.log ('im here',
+       document.querySelectorAll ('infinity-calendar'))
+    return (
        document.querySelector ('template[name='+name+']').cloneNode (true)
     || document.createElement ('template')
   )}
