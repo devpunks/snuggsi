@@ -5,10 +5,6 @@
 
 <link rel='stylesheet' href='http://www.devpunks.com/typography.css'>
 
-<script src='./context.es' defer></script>
-<script src='./elements/text.es' defer></script>
-<script src='./elements/template.polyfill.js' defer></script>
-<script src='./elements/tag.es' defer></script>
 <script src='./elements/tokenize.es' defer></script>
 <script src='./elements/template.es' defer></script>
 <script src='./elements/element.es' defer></script>
@@ -23,12 +19,15 @@ https://blog.hospodarets.com/native-ecmascript-modules-nomodule
 -->
 <!--<script src='./benchmarks/document.createElement.es' defer></script>-->
 
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base -->
+<base href='//localhost:8181/examples/'>
+
 <hgroup>
   <h1>ツsnuggsi</h1>
   <h2>Easy DOM Components</h2>
 </hgroup>
 
-<x-foo><p>WHAT {foo}<span><img>ZOMG THIS WORKED! {bar}</span></p><hr><img>
+<x-foo>
   <template id='date-calendar'>
     <li>Hello {name}! <span> {john} </span></li>
   </template>
