@@ -71,15 +71,12 @@ function mine // https://www.merriam-webster.com/dictionary/comb#h2
 // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
 
 (head) {
-  console.time ()
-
   const nodes = []
   const walker = document.createNodeIterator
       (head, NodeFilter.SHOW_TEXT, visit)
       // by default breaks on template YAY! 🎉
 
   while (node = walker.nextNode ()) nodes.push (node)
-  console.timeEnd ()
   return nodes
 }
 
