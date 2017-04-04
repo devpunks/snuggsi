@@ -34,6 +34,8 @@
     "compile":
       "npm run bundle && npm run transpile && npm run uglify && npm run gzip && npm run weigh",
 
+    "package": "./package",
+
     "bundle":
       "cat elements/tokenize.es elements/template.es elements/Global-Event-Handlers.es elements/element.es > dist/snuggsi.es",
 
