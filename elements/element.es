@@ -16,13 +16,11 @@ const Element = function
     (prototype, self = ! (this === window) ? this : {})
   { // Should this be a class❓❓❓❓
 
-console.time ()
     const
       reflect = p =>
         Object.getOwnPropertyNames (p)
 
     , __prototype = reflect (prototype.prototype)
-console.timeEnd ()
 
     try
       { if ( ! prototype ) return new (window.customElements.get (tagName)) }
