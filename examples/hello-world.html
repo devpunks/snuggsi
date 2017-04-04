@@ -1,22 +1,20 @@
-<title>ツsnuggsi Easy DOM Components</title>
-
-<meta charset='UTF-8'>
-<meta name='viewport' content='width=device-width, initial-scale=1'>
-
-<link rel='stylesheet' href='http://www.devpunks.com/typography.css'>
-
-<script src='http://www.devpunks.com/snuggsi.es' defer></script>
-
-<h1>ツsnuggsi Easy DOM Components</h2>
-
+<script src=../elements/tokenize.es></script>
+<script src=../elements/template.es></script>
+<script src=../elements/Global-Event-Handlers.es></script>
+<script src=../elements/element.es></script>
 <hello-world>
-  <template>
-    <li>Hello {name}!</li>
-  </template>
+<script defer>
+Element `hello-world`.bind ({})
 
-  <link rel='stylesheet'>
+(class extends HTMLElement {
+  initialize () {
+     this.append
+      (new Text ('Hello World'))
+  }
 
-  <script defer>
-  // Methinks inline scripts execute BEFORE `src`ed scripts
-  </script>
+  connectedCallback () {
+  }
+})
+
+</script>
 </hello-world>
