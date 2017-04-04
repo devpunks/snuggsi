@@ -35,24 +35,24 @@ const Element = function
 
       get context () { return self }
       set context (context) {
-        console.warn ('setting context', context)
         return self = context
       }
 
       get templates () { return this.selectAll ('template') }
 
       render (selector, context = this.context) {
-        for (const template of this.templates)
-          console.log ("i'm in the renderer", context, template)
+//      for (const template of this.templates)
+//        console.log ("i'm in the renderer", context, template)
 
         window.element = this
         window.state = this.context
 
-        for (const property of __prototype)
-          console.log (property)
+//      for (const property of __prototype)
+//        console.log (property)
 
+        return
         this.append(
-          Template `days`.bind (this.days)
+          Template(['days']).bind (this.days)
           .content
         )
 
