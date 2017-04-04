@@ -1,6 +1,6 @@
 // on* events https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
 // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Mix-ins
-const GlobalEventHandlers = EventTarget => class extends EventTarget {
+const GlobalEventHandlers = EventTarget => (class extends EventTarget {
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
   //
@@ -25,7 +25,7 @@ const GlobalEventHandlers = EventTarget => class extends EventTarget {
     super.constructor.onconnect
       ?  super.constructor.onconnect
       :  super.connectedCallback
-//    || function noop () {}
+      || function noop () {}
     .call (this)
   }
 
@@ -47,4 +47,4 @@ const GlobalEventHandlers = EventTarget => class extends EventTarget {
   static get observedAttributes () { return ['id'] }
   attributeChangedCallback (property, previous, next)
       { console.warn ('['+property+'] ['+previous+'] to ['+next+']') }
-}
+})
