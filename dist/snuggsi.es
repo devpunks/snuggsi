@@ -1,33 +1,3 @@
-function State ( context, handler = _ => {} ) {
-  this.subscribe = callback => handler = callback
-
-  const
-    history = new Array (context)
-  , clone   = context => JSON.parse
-      (JSON.stringify (context))
-
-  , thunk = property =>
-      [ property,
-        {
-          get: _ => history
-            [history.length-1] [property],
-
-          set (value) {
-            const next  = clone
-              (previous = history [history.length-1])
-
-            next [property] = value
-            handler (previous, next)
-            history [history.length] = next
-          }
-        }
-      ]
-
-  for (property in context)
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
-    Object.defineProperty (this, ...thunk (property))
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
-}
 function tokenize (fragment) {
   const
     tokens = []
@@ -125,7 +95,7 @@ function comb (parent) {
     for (let node = parent.firstChild; node; node = node.nextSibling)
       DOMComb (node)
 }
-function Template ( name = 'snuggsi' ) {
+const Template = function ( name = 'snuggsi' ) {
   return Object.assign (factory (...name), { bind })
 
   function bind (context) {
@@ -143,7 +113,10 @@ function Template ( name = 'snuggsi' ) {
     return context.map(transfer, tokens) && this
   }
 
-  function factory (name) { return (
+  function factory (name) {
+   console.log ('im here',
+       document.querySelectorAll ('infinity-calendar'))
+    return (
        document.querySelector ('template[name='+name+']').cloneNode (true)
     || document.createElement ('template')
   )}
@@ -162,147 +135,143 @@ function Template ( name = 'snuggsi' ) {
       [property] && (this [index] [property].textContent = context [property])
   }
 }
-// Usage
-//
-//  Element `date-calendar`
+// on* events https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Mix-ins
+const GlobalEventHandlers = EventTarget => (class extends EventTarget {
+  // DOM Levels
+  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
+  //
+  // DOM Level 2 EventTarget
+  // 😕  https://w3c.github.io/uievents/DOM3-Events.html#interface-EventTarget
+  //❓❓ https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
+  //  Within https://w3c.github.io/uievents/#conf-interactive-ua
+  //  EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
+  //
+  // WHATWG EventTarget
+  // https://dom.spec.whatwg.org/#interface-eventtarget
+  //
+  // MDN EventTarget
+  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
 
-//  (class extends HTMLElement {
-//    constructor () {
-//      super ()
-//      console.log ('Goin in context', this.context)
-//      this.listen ('click', (event) => console.log (event))
-//    }
+  // custom element reactions
+  connectedCallback () {
+    (super.initialize || function noop () {}).call (this)
 
-//    connectedCallback () {
-//      console.log ('from derived connected')
-//    }
+    this.render ()
 
-//    get baz () { return 'baz' }
-//  })
+    super.constructor.onconnect
+      ?  super.constructor.onconnect
+      :  super.connectedCallback
+//    || function noop () {}
+    .call (this)
+  }
 
+  listenable (nodes) {
+    return Array.prototype.map
+      .call (nodes, node => Object.assign
+        (node, {listen: this.listen.bind(this)})) // MUTATES!
+  }
 
-// https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
-// https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
+  // Event target coparisons - https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
+  listen (event, listener = this [event])
+    { this.addEventListener (event, listener) }
+
+  adoptedCallback () { console.warn ('adopted this', this) }
+
+  stateChangedCallback (previous, next)
+      { console.warn ('previous', previous, 'next', next) }
+
+  static get observedAttributes () { return ['id'] }
+  attributeChangedCallback (property, previous, next)
+      { console.warn ('['+property+'] ['+previous+'] to ['+next+']') }
+})
+var ElementPrototype = window.Element.prototype // see bottom of this file
+
+const Element = function
 // Custom elements polyfill
 // https://github.com/webcomponents/custom-elements/blob/master/src/custom-elements.js
+// https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
+// https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 // Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
-// https://developer.mozilla.org/en-US/docs/Web/API/Element
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/name
-
 //https://gist.github.com/allenwb/53927e46b31564168a1d
 
-var ElementPrototype = window.Element.prototype
+(tagName) {
+   tagName = Array.isArray (tagName)
+      ? tagName [0] : tagName
 
-const Element = function (tagName, ...tokens) {
-  if (this instanceof Element) return new self.Element
+  return function
+    (prototype, self = ! (this === window) ? this : {})
+  { // Should this be a class❓❓❓❓
 
-  // tagName = tagName.raw [0] for HTML Sanitization?
+console.time ()
+    const
+      reflect = p =>
+        Object.getOwnPropertyNames (p)
 
-  return function Definition (prototype) { // Should this be a class❓❓❓❓
+    , __prototype = reflect (prototype.prototype)
+console.timeEnd ()
 
-    if ( ! prototype)
-      try { return new (window.customElements.get (tagName)) }
-      catch (_) { throw 'Must define custom element \n(i.e. Element `'+tagName+'` (class {})' }
+    try
+      { if ( ! prototype ) return new (window.customElements.get (tagName)) }
 
-//    if ( ! new.target) self = this // for `.bind ()`
-      if ( ! this instanceof Definition) self = this // for `.bind ()`
+    catch (_)
+      { throw 'Must define custom element \n(i.e. Element `'+tagName+'` (class {})' }
 
-    // https://github.com/whatwg/html/issues/1704
-    class CustomElement extends prototype { // exotic object
-
-      constructor (context = self) { super ()
-        this.context = new State (context, this.stateChangedCallback)
-      }
-
-      get rendered () { return this.render () }
-      render (selector, context = this.context) {
-        const
-          node = selector ? this.select (selector) : this
-        , template = super.render (selector) // or a bonafied Template
-
-        context = Array.isArray (context)
-          ? context : [context]
-
-        node.innerHTML = context
-          .map (item => tag (template, item))
-          .join ('')
-      }
-
-      // watch out for clobbering `HTMLInputElement.select ()`
-      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-      select (selector) {
-        return this.listenable
-          ([this.querySelector (selector)])[0]
-      }
-
-      selectAll (selector) {
-        return this.listenable
-          (this.querySelectorAll (selector))
-      }
-
-      listenable (nodes) {
-        return Array.prototype.map
-          .call (nodes, node => Object.assign
-            (node, {listen: this.listen.bind(this)})) // MUTATES!
-      }
-
-      // Event target coparisons
-      // https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
-      // https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/relatedTarget
-      // https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget
-      listen (event, listener = this [event]) {
-        this.addEventListener (event, listener)
+    class HTMLCustomElement extends GlobalEventHandlers (prototype) { // exotic object - https://github.com/whatwg/html/issues/1704
+      constructor () { super ()
+        this.context = self //new State (self, this.stateChangedCallback)
       }
 
       get context () { return self }
       set context (context) {
         console.warn ('setting context', context)
         return self = context
-        }
-
-      // custom element reactions
-
-      stateChangedCallback
-        (previous, next)
-          {
-            console.warn ('previous', previous)
-            console.warn ('next', next)
-          }
-
-      attributeChangedCallback
-        (property, previous, next)
-          { console.warn ('['+property+'] ['+previous+'] to ['+next+']') }
-
-      // possibly map this with context
-      static get observedAttributes () { return ['id'] }
-
-      connectedCallback () {
-        super.connectedCallback ()
       }
 
-      // When element is removed from a shadow-including document
-      // http://ryanmorr.com/using-mutation-observers-to-watch-for-element-availability/
-      disconnectedCallback () {
-       // detach event listeners added on attached
-        console.warn ('disconnected', this)
+      get templates () { return this.selectAll ('template') }
+
+      render (selector, context = this.context) {
+        for (const template of this.templates)
+          console.log ("i'm in the renderer", context, template)
+
+        window.element = this
+        window.state = this.context
+
+        for (const property of __prototype)
+          console.log (property)
+
+        this.append(
+          Template(['days']).bind (this.days)
+          .content
+        )
+
+        const
+          node = selector ? this.select (selector) : this
+        , template = (super.render || function noop () {}) (selector) // or a bonafied Template
       }
 
-      adoptedCallback () { console.warn ('adopted this', this) }
+      // watch out for clobbering `HTMLInputElement.select ()`
+      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
+      select (selector) { return this.selectAll (selector) [0] }
 
-      // on* events
-      // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
+      selectAll (selector) {
+        return this.listenable
+          (this.querySelectorAll (selector))
+      }
     }
 
-    try { window.customElements.define (tagName, CustomElement) }
-    finally { return window.customElements.get (tagName) }
+    try
+      { window.customElements.define (tagName, HTMLCustomElement) }
+
+    finally
+      { return window.customElements.get (tagName) }
   }
 }
 
-// Assign `window.Element.prototype`
-// in case of feature checking on `Element`
+// Assign `window.Element.prototype` in case of feature checking on `Element`
 Element.prototype = window.Element.prototype
   // http://2ality.com/2013/09/window.html
-  // http://tobyho.com/2013/03/13/window-prop-vs-global-var/
+  // http://tobyho.com/2013/03/13/window-prop-vs-global-var
   // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
 
 //Element

@@ -1,35 +1,5 @@
-function State ( context, handler ) {
-  var this$1 = this;
-  if ( handler === void 0 ) handler = function (_) {};
 
-  this.subscribe = function (callback) { return handler = callback; }
-
-  var
-    history = new Array (context)
-  , clone   = function (context) { return JSON.parse
-      (JSON.stringify (context)); }
-
-  , thunk = function (property) { return [ property,
-        {
-          get: function (_) { return history
-            [history.length-1] [property]; },
-
-          set: function (value) {
-            var next  = clone
-              (previous = history [history.length-1])
-
-            next [property] = value
-            handler (previous, next)
-            history [history.length] = next
-          }
-        }
-      ]; }
-
-  for (property in context)
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
-    { Object.defineProperty.apply (Object, [ this$1 ].concat( thunk (property) )) }
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
-}
+var this$1 = this;
 function tokenize (fragment) {
   var
     tokens = []
@@ -130,7 +100,7 @@ function comb (parent) {
     { for (var node = parent.firstChild; node; node = node.nextSibling)
       { DOMComb (node) } }
 }
-function Template ( name ) {
+var Template = function ( name ) {
   if ( name === void 0 ) name = 'snuggsi';
 
   return Object.assign (factory.apply (void 0, name), { bind: bind })
@@ -156,7 +126,10 @@ function Template ( name ) {
     return context.map(transfer, tokens) && this
   }
 
-  function factory (name) { return (
+  function factory (name) {
+   console.log ('im here',
+       document.querySelectorAll ('infinity-calendar'))
+    return (
        document.querySelector ('template[name='+name+']').cloneNode (true)
     || document.createElement ('template')
   )}
@@ -175,164 +148,167 @@ function Template ( name ) {
       [property] && (this$1 [index] [property].textContent = context [property]) }
   }
 }
-// Usage
-//
-//  Element `date-calendar`
+// on* events https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
+// https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Mix-ins
+var GlobalEventHandlers = function (EventTarget) { return ((function (EventTarget) {
+    function anonymous () {
+      EventTarget.apply(this, arguments);
+    }
 
-//  (class extends HTMLElement {
-//    constructor () {
-//      super ()
-//      console.log ('Goin in context', this.context)
-//      this.listen ('click', (event) => console.log (event))
-//    }
+    if ( EventTarget ) anonymous.__proto__ = EventTarget;
+    anonymous.prototype = Object.create( EventTarget && EventTarget.prototype );
+    anonymous.prototype.constructor = anonymous;
 
-//    connectedCallback () {
-//      console.log ('from derived connected')
-//    }
+    var staticAccessors = { observedAttributes: {} };
 
-//    get baz () { return 'baz' }
-//  })
+    anonymous.prototype.connectedCallback = function () {
+    (EventTarget.prototype.initialize || function noop () {}).call (this)
 
+    this.render ()
 
-// https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
-// https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
+    EventTarget.prototype.constructor.onconnect
+      ?  EventTarget.prototype.constructor.onconnect
+      :  EventTarget.prototype.connectedCallback
+//    || function noop () {}
+    .call (this)
+  };
+
+  anonymous.prototype.listenable = function (nodes) {
+    var this$1 = this;
+
+    return Array.prototype.map
+      .call (nodes, function (node) { return Object.assign
+        (node, {listen: this$1.listen.bind(this$1)}); }) // MUTATES!
+  };
+
+  // Event target coparisons - https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
+  anonymous.prototype.listen = function (event, listener)
+    {
+    if ( listener === void 0 ) listener = this$1 [event];
+ this.addEventListener (event, listener) };
+
+  anonymous.prototype.adoptedCallback = function () { console.warn ('adopted this', this) };
+
+  anonymous.prototype.stateChangedCallback = function (previous, next)
+      { console.warn ('previous', previous, 'next', next) };
+
+  staticAccessors.observedAttributes.get = function () { return ['id'] };
+  anonymous.prototype.attributeChangedCallback = function (property, previous, next)
+      { console.warn ('['+property+'] ['+previous+'] to ['+next+']') };
+
+    Object.defineProperties( anonymous, staticAccessors );
+
+    return anonymous;
+  }(EventTarget))); }
+var ElementPrototype = window.Element.prototype // see bottom of this file
+
+var Element = function
 // Custom elements polyfill
 // https://github.com/webcomponents/custom-elements/blob/master/src/custom-elements.js
+// https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
+// https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 // Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
-// https://developer.mozilla.org/en-US/docs/Web/API/Element
-// https://developer.mozilla.org/en-US/docs/Web/API/Element/name
-
 //https://gist.github.com/allenwb/53927e46b31564168a1d
 
-var ElementPrototype = window.Element.prototype
+(tagName) {
+   tagName = Array.isArray (tagName)
+      ? tagName [0] : tagName
 
-var Element = function (tagName) {
-  var tokens = [], len = arguments.length - 1;
-  while ( len-- > 0 ) tokens[ len ] = arguments[ len + 1 ];
+  return function
+    (prototype, self)
+  {
+if ( self === void 0 ) self = ! (this === window) ? this : {};
+ // Should this be a class❓❓❓❓
 
-  if (this instanceof Element) { return new self.Element }
+console.time ()
+    var
+      reflect = function (p) { return Object.getOwnPropertyNames (p); }
 
-  // tagName = tagName.raw [0] for HTML Sanitization?
+    , __prototype = reflect (prototype.prototype)
+console.timeEnd ()
 
-  return function Definition (prototype) { // Should this be a class❓❓❓❓
+    try
+      { if ( ! prototype ) { return new (window.customElements.get (tagName)) } }
 
-    if ( ! prototype)
-      { try { return new (window.customElements.get (tagName)) }
-      catch (_) { throw 'Must define custom element \n(i.e. Element `'+tagName+'` (class {})' } }
+    catch (_)
+      { throw 'Must define custom element \n(i.e. Element `'+tagName+'` (class {})' }
 
-//    if ( ! new.target) self = this // for `.bind ()`
-      if ( ! this instanceof Definition) { self = this } // for `.bind ()`
-
-    // https://github.com/whatwg/html/issues/1704
-    var CustomElement = (function (prototype) {
-      function CustomElement (context) {
-      if ( context === void 0 ) context = self;
- prototype.call (this)
-        this.context = new State (context, this.stateChangedCallback)
+    var HTMLCustomElement = (function (superclass) {
+  function HTMLCustomElement () { superclass.call (this)
+        this.context = self //new State (self, this.stateChangedCallback)
       }
 
-      if ( prototype ) CustomElement.__proto__ = prototype;
-      CustomElement.prototype = Object.create( prototype && prototype.prototype );
-      CustomElement.prototype.constructor = CustomElement;
+  if ( superclass ) HTMLCustomElement.__proto__ = superclass;
+  HTMLCustomElement.prototype = Object.create( superclass && superclass.prototype );
+  HTMLCustomElement.prototype.constructor = HTMLCustomElement;
 
-      var prototypeAccessors = { rendered: {},context: {} };
-      var staticAccessors = { observedAttributes: {} };
-
-      prototypeAccessors.rendered.get = function () { return this.render () };
-      CustomElement.prototype.render = function (selector, context) {
-        if ( context === void 0 ) context = this.context;
-
-        var
-          node = selector ? this.select (selector) : this
-        , template = prototype.prototype.render.call (this, selector) // or a bonafied Template
-
-        context = Array.isArray (context)
-          ? context : [context]
-
-        node.innerHTML = context
-          .map (function (item) { return tag (template, item); })
-          .join ('')
-      };
-
-      // watch out for clobbering `HTMLInputElement.select ()`
-      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-      CustomElement.prototype.select = function (selector) {
-        return this.listenable
-          ([this.querySelector (selector)])[0]
-      };
-
-      CustomElement.prototype.selectAll = function (selector) {
-        return this.listenable
-          (this.querySelectorAll (selector))
-      };
-
-      CustomElement.prototype.listenable = function (nodes) {
-        var this$1 = this;
-
-        return Array.prototype.map
-          .call (nodes, function (node) { return Object.assign
-            (node, {listen: this$1.listen.bind(this$1)}); }) // MUTATES!
-      };
-
-      // Event target coparisons
-      // https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
-      // https://developer.mozilla.org/en-US/docs/Web/API/MouseEvent/relatedTarget
-      // https://developer.mozilla.org/en-US/docs/Web/API/Event/currentTarget
-      CustomElement.prototype.listen = function (event, listener) {
-        if ( listener === void 0 ) listener = this [event];
-
-        this.addEventListener (event, listener)
-      };
+  var prototypeAccessors = { context: {},templates: {} };
 
       prototypeAccessors.context.get = function () { return self };
       prototypeAccessors.context.set = function (context) {
         console.warn ('setting context', context)
         return self = context
-        };
+      };
 
-      // custom element reactions
+      prototypeAccessors.templates.get = function () { return this.selectAll ('template') };
 
-      CustomElement.prototype.stateChangedCallback = function (previous, next)
+      HTMLCustomElement.prototype.render = function (selector, context) {
+        var this$1 = this;
+        if ( context === void 0 ) context = this.context;
+
+        for (var i = 0, list = this$1.templates; i < list.length; i += 1)
           {
-            console.warn ('previous', previous)
-            console.warn ('next', next)
-          };
+          var template$1 = list[i];
 
-      CustomElement.prototype.attributeChangedCallback = function (property, previous, next)
-          { console.warn ('['+property+'] ['+previous+'] to ['+next+']') };
+          console.log ("i'm in the renderer", context, template$1)
+        }
 
-      // possibly map this with context
-      staticAccessors.observedAttributes.get = function () { return ['id'] };
+        window.element = this
+        window.state = this.context
 
-      CustomElement.prototype.connectedCallback = function () {
-        prototype.prototype.connectedCallback.call (this)
+        for (var i$1 = 0, list$1 = __prototype; i$1 < list$1.length; i$1 += 1)
+          {
+          var property = list$1[i$1];
+
+          console.log (property)
+        }
+
+        this.append(
+          Template(['days']).bind (this.days)
+          .content
+        )
+
+        var
+          node = selector ? this.select (selector) : this
+        , template = (superclass.prototype.render || function noop () {}) (selector) // or a bonafied Template
       };
 
-      // When element is removed from a shadow-including document
-      // http://ryanmorr.com/using-mutation-observers-to-watch-for-element-availability/
-      CustomElement.prototype.disconnectedCallback = function () {
-       // detach event listeners added on attached
-        console.warn ('disconnected', this)
+      // watch out for clobbering `HTMLInputElement.select ()`
+      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
+      HTMLCustomElement.prototype.select = function (selector) { return this.selectAll (selector) [0] };
+
+      HTMLCustomElement.prototype.selectAll = function (selector) {
+        return this.listenable
+          (this.querySelectorAll (selector))
       };
 
-      CustomElement.prototype.adoptedCallback = function () { console.warn ('adopted this', this) };
+  Object.defineProperties( HTMLCustomElement.prototype, prototypeAccessors );
 
-      Object.defineProperties( CustomElement.prototype, prototypeAccessors );
-      Object.defineProperties( CustomElement, staticAccessors );
+  return HTMLCustomElement;
+}(GlobalEventHandlers (prototype)));
 
-      return CustomElement;
-    }(prototype));
+    try
+      { window.customElements.define (tagName, HTMLCustomElement) }
 
-    try { window.customElements.define (tagName, CustomElement) }
-    finally { return window.customElements.get (tagName) }
+    finally
+      { return window.customElements.get (tagName) }
   }
 }
 
-// Assign `window.Element.prototype`
-// in case of feature checking on `Element`
+// Assign `window.Element.prototype` in case of feature checking on `Element`
 Element.prototype = window.Element.prototype
   // http://2ality.com/2013/09/window.html
-  // http://tobyho.com/2013/03/13/window-prop-vs-global-var/
+  // http://tobyho.com/2013/03/13/window-prop-vs-global-var
   // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
 
 //Element
