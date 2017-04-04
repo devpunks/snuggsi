@@ -17,8 +17,6 @@ const Template = function ( name = 'snuggsi' ) {
   }
 
   function factory (name) {
-   console.log ('im here',
-       document.querySelectorAll ('infinity-calendar'))
     return (
        document.querySelector ('template[name='+name+']').cloneNode (true)
     || document.createElement ('template')
