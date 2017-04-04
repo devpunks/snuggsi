@@ -35,7 +35,7 @@
       "npm run bundle && npm run transpile && npm run uglify && npm run gzip && npm run weigh",
 
     "bundle":
-      "cat state.es elements/tokenize.es elements/template.es elements/element.es > dist/snuggsi.es",
+      "cat elements/tokenize.es elements/template.es elements/Global-Event-Handlers.es elements/element.es > dist/snuggsi.es",
 
     "transpile":
       "npm run bundle && node ./transpile.es > ./dist/snuggsi.js && npm run uglify && npm run gzip && npm run weigh",
