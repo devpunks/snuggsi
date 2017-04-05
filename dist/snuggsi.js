@@ -4,10 +4,12 @@ function tokenize (fragment) {
   var
     tokens = []
 
-  , tail = function (text, sibling) { return ( ! text.after (sibling)) && sibling; }
+  , tail = function (text, sibling) { return (text.after (sibling), sibling); }
 
   // https://www.merriam-webster.com/dictionary/sift
-  , sift = function (text) { return text.textContent.match (/({\w+})/) && (tokens [tokens.length] = text)
+  , sift = function (text) { return text
+      .textContent.match (/({\w+})/)
+      && (tokens [tokens.length] = text)
       || text; }
 
   for (var i = 0, list = mine (fragment); i < list.length; i += 1)
@@ -17,8 +19,7 @@ function tokenize (fragment) {
     slice (match.textContent)
       .map (sift)
       .reduce (tail, match)
-
-    && match.remove ()
+    , match.remove ()
   }
 
   return tokens
@@ -55,7 +56,7 @@ function slice
   (text) { var tokens  = []
 
   , match    = /({\w+})/g
-  , replace  = function (token) { return collect (token) && '✂️'; }
+  , replace  = function (token) { return (collect (token), '✂️'); }
   , collect  = function (token) { return tokens.push (token); }
   , sections = text
       .replace (match, replace)
@@ -85,7 +86,7 @@ function mine // https://www.merriam-webster.com/dictionary/comb#h2
   return nodes
 }
 
-var tail = function (text, sibling) { return ( ! text.after (sibling)) && sibling; }
+var tail = function (text, sibling) { return (text.after (sibling), sibling); }
 
 function visit (node) {
   return /({\w+})/g.test (node.data)
@@ -159,11 +160,10 @@ var GlobalEventHandlers = function (EventTarget) { return ((function (EventTarge
     anonymous.prototype.connectedCallback = function () {
     this.render ()
 
-    EventTarget.prototype.constructor.onconnect
-      ?  EventTarget.prototype.constructor.onconnect
-      :  EventTarget.prototype.connectedCallback
+    void ( EventTarget.prototype.constructor.onconnect
+      || EventTarget.prototype.connectedCallback
       || function noop () {}
-    .call (this)
+    ).call (this)
   };
 
   anonymous.prototype.listenable = function (nodes) {
@@ -236,7 +236,7 @@ var Element = function
     var HTMLCustomElement = (function (superclass) {
       function HTMLCustomElement () { superclass.call (this)
         this.context = self //new State (self, this.stateChangedCallback)
-        superclass.prototype.initialize && superclass.prototype.initialize.call (this)
+        superclass.prototype.initialize, superclass.prototype.initialize.call (this)
       }
 
       if ( superclass ) HTMLCustomElement.__proto__ = superclass;
