@@ -18,8 +18,6 @@ const GlobalEventHandlers = EventTarget => (class extends EventTarget {
 
   // custom element reactions
   connectedCallback () {
-    (super.initialize || function noop () {}).call (this)
-
     this.render ()
 
     super.constructor.onconnect
