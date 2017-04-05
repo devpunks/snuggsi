@@ -13,16 +13,18 @@ bind ( { date : new Date, height: '50vh' } )
       date.getYear ()
   }
 
-  static onconnect () {
-    console.log ('connected!!!')
-  }
+  static onconnect () { }
 
   static onclick () {
     alert ('There is a static God')
   }
 
+  constructor () { super ()
+    console.log ('ctor')
+  }
+
   initialize () {
-    console.log ('Holy crap I got initialize')
+    console.log ('initialize')
   }
 
   get days () {
@@ -37,17 +39,20 @@ bind ( { date : new Date, height: '50vh' } )
       dates.push (daily.setDate (day))
     }
 
+    const collection = []
+
+//  for (let i=0; i<1000; i++) {
+//    let f = i
+//    collection.push ({day: f})
+//  }
+
+//  return collection
+
     return dates.map
       (function (day) { return { day: new Date(day).getDate () }})
   }
 
-  get mystery () {
-    console.log ('Dinner')
-    return 'Dinner'
-  }
+  get mystery () { }
 
-  onfart () {
-    console.log ('farting')
-    return 'farted'
-  }
+  onfart () { }
 })
