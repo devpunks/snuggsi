@@ -1,3 +1,5 @@
+// https://en.wikipedia.org/wiki/Immutable_object
+// https://en.wikipedia.org/wiki/Persistent_data_structure
 function State ( context, handler = _ => {} ) {
   this.subscribe = callback => handler = callback
 
