@@ -38,7 +38,7 @@ const Element = function
     class HTMLCustomElement extends GlobalEventHandlers (prototype) { // exotic object - https://github.com/whatwg/html/issues/1704
       constructor () { super ()
         this.context = self //new State (self, this.stateChangedCallback)
-        super.initialize && super.initialize ()
+        super.initialize, super.initialize ()
       }
 
       get context ()        { return self }
