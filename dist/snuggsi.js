@@ -76,15 +76,12 @@ function mine // https://www.merriam-webster.com/dictionary/comb#h2
 // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
 
 (head) {
-  console.time ()
-
   var nodes = []
   var walker = document.createNodeIterator
       (head, NodeFilter.SHOW_TEXT, visit)
       // by default breaks on template YAY! 🎉
 
   while (node = walker.nextNode ()) { nodes.push (node) }
-  console.timeEnd ()
   return nodes
 }
 
@@ -127,8 +124,6 @@ var Template = function ( name ) {
   }
 
   function factory (name) {
-   console.log ('im here',
-       document.querySelectorAll ('infinity-calendar'))
     return (
        document.querySelector ('template[name='+name+']').cloneNode (true)
     || document.createElement ('template')
@@ -162,14 +157,12 @@ var GlobalEventHandlers = function (EventTarget) { return ((function (EventTarge
     var staticAccessors = { observedAttributes: {} };
 
     anonymous.prototype.connectedCallback = function () {
-    (EventTarget.prototype.initialize || function noop () {}).call (this)
-
     this.render ()
 
     EventTarget.prototype.constructor.onconnect
       ?  EventTarget.prototype.constructor.onconnect
       :  EventTarget.prototype.connectedCallback
-//    || function noop () {}
+      || function noop () {}
     .call (this)
   };
 
@@ -200,6 +193,20 @@ var GlobalEventHandlers = function (EventTarget) { return ((function (EventTarge
 
     return anonymous;
   }(EventTarget))); }
+function upgrade () {
+    console.time ()
+    var
+      reflect = function (p) { return Object.
+          getOwnPropertyNames (p); }
+
+    , __prototype = reflect (prototype.prototype)
+    , __proto = reflect (prototype)
+    , configuration = this.attributes
+
+    console.timeEnd ()
+    console.warn (__prototype, __proto, configuration)
+}
+
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 var Element = function
@@ -210,98 +217,64 @@ var Element = function
 // Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
 //https://gist.github.com/allenwb/53927e46b31564168a1d
 
-(tagName) {
-   tagName = Array.isArray (tagName)
-      ? tagName [0] : tagName
+(tag) {
+  if ( tag === void 0 ) tag = Array.isArray (arguments [0]) ? arguments [0][0] : arguments [0];
 
-  return function
+
+  return function // https://en.wikipedia.org/wiki/Higher-order_function
     (prototype, self)
   {
-if ( self === void 0 ) self = ! (this === window) ? this : {};
+    if ( self === void 0 ) self = ! (this === window) ? this : {};
  // Should this be a class❓❓❓❓
 
-console.time ()
-    var
-      reflect = function (p) { return Object.getOwnPropertyNames (p); }
-
-    , __prototype = reflect (prototype.prototype)
-console.timeEnd ()
-
     try
-      { if ( ! prototype ) { return new (window.customElements.get (tagName)) } }
+      { if (! prototype) { return new window.customElements.get (tag) } }
 
     catch (_)
-      { throw 'Must define custom element \n(i.e. Element `'+tagName+'` (class {})' }
+      { throw 'Must define custom element \n(i.e. Element `'+tag+'` (class {})' }
 
     var HTMLCustomElement = (function (superclass) {
-  function HTMLCustomElement () { superclass.call (this)
+      function HTMLCustomElement () { superclass.call (this)
         this.context = self //new State (self, this.stateChangedCallback)
+        superclass.prototype.initialize && superclass.prototype.initialize.call (this)
       }
 
-  if ( superclass ) HTMLCustomElement.__proto__ = superclass;
-  HTMLCustomElement.prototype = Object.create( superclass && superclass.prototype );
-  HTMLCustomElement.prototype.constructor = HTMLCustomElement;
+      if ( superclass ) HTMLCustomElement.__proto__ = superclass;
+      HTMLCustomElement.prototype = Object.create( superclass && superclass.prototype );
+      HTMLCustomElement.prototype.constructor = HTMLCustomElement;
 
-  var prototypeAccessors = { context: {},templates: {} };
+      var prototypeAccessors = { context: {},templates: {} };
 
-      prototypeAccessors.context.get = function () { return self };
-      prototypeAccessors.context.set = function (context) {
-        console.warn ('setting context', context)
-        return self = context
-      };
+      prototypeAccessors.context.get = function ()        { return self };
+      prototypeAccessors.context.set = function (context) { return self = context };
 
       prototypeAccessors.templates.get = function () { return this.selectAll ('template') };
 
-      HTMLCustomElement.prototype.render = function (selector, context) {
-        var this$1 = this;
-        if ( context === void 0 ) context = this.context;
-
-        for (var i = 0, list = this$1.templates; i < list.length; i += 1)
-          {
-          var template$1 = list[i];
-
-          console.log ("i'm in the renderer", context, template$1)
-        }
-
-        window.element = this
-        window.state = this.context
-
-        for (var i$1 = 0, list$1 = __prototype; i$1 < list$1.length; i$1 += 1)
-          {
-          var property = list$1[i$1];
-
-          console.log (property)
-        }
-
-        this.append(
-          Template(['days']).bind (this.days)
-          .content
-        )
-
+      HTMLCustomElement.prototype.render = function (selector) {
         var
-          node = selector ? this.select (selector) : this
-        , template = (superclass.prototype.render || function noop () {}) (selector) // or a bonafied Template
+          node     = selector ? this.select (selector) : this
+        , template = superclass.prototype.render && superclass.prototype.render.call (this, selector) // or a bonafied Template
       };
-
-      // watch out for clobbering `HTMLInputElement.select ()`
-      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-      HTMLCustomElement.prototype.select = function (selector) { return this.selectAll (selector) [0] };
 
       HTMLCustomElement.prototype.selectAll = function (selector) {
         return this.listenable
           (this.querySelectorAll (selector))
       };
 
-  Object.defineProperties( HTMLCustomElement.prototype, prototypeAccessors );
+      // watch out for clobbering `HTMLInputElement.select ()`
+      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
+      HTMLCustomElement.prototype.select = function (selector) { return this.selectAll (selector) [0] };
 
-  return HTMLCustomElement;
-}(GlobalEventHandlers (prototype)));
+      Object.defineProperties( HTMLCustomElement.prototype, prototypeAccessors );
+
+      return HTMLCustomElement;
+    }(GlobalEventHandlers (prototype)));
 
     try
-      { window.customElements.define (tagName, HTMLCustomElement) }
+      { window.customElements.define (tag, HTMLCustomElement) }
 
     finally
-      { return window.customElements.get (tagName) }
+      { return window.customElements.get (tag) }
   }
 }
 
