@@ -71,15 +71,12 @@ function mine // https://www.merriam-webster.com/dictionary/comb#h2
 // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
 
 (head) {
-  console.time ()
-
   const nodes = []
   const walker = document.createNodeIterator
       (head, NodeFilter.SHOW_TEXT, visit)
       // by default breaks on template YAY! 🎉
 
   while (node = walker.nextNode ()) nodes.push (node)
-  console.timeEnd ()
   return nodes
 }
 
@@ -114,8 +111,6 @@ const Template = function ( name = 'snuggsi' ) {
   }
 
   function factory (name) {
-   console.log ('im here',
-       document.querySelectorAll ('infinity-calendar'))
     return (
        document.querySelector ('template[name='+name+']').cloneNode (true)
     || document.createElement ('template')
@@ -155,14 +150,12 @@ const GlobalEventHandlers = EventTarget => (class extends EventTarget {
 
   // custom element reactions
   connectedCallback () {
-    (super.initialize || function noop () {}).call (this)
-
     this.render ()
 
     super.constructor.onconnect
       ?  super.constructor.onconnect
       :  super.connectedCallback
-//    || function noop () {}
+      || function noop () {}
     .call (this)
   }
 
@@ -185,6 +178,21 @@ const GlobalEventHandlers = EventTarget => (class extends EventTarget {
   attributeChangedCallback (property, previous, next)
       { console.warn ('['+property+'] ['+previous+'] to ['+next+']') }
 })
+function upgrade () {
+    console.time ()
+    const
+      reflect = p =>
+        Object.
+          getOwnPropertyNames (p)
+
+    , __prototype = reflect (prototype.prototype)
+    , __proto = reflect (prototype)
+    , configuration = this.attributes
+
+    console.timeEnd ()
+    console.warn (__prototype, __proto, configuration)
+}
+
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 const Element = function
@@ -195,76 +203,50 @@ const Element = function
 // Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
 //https://gist.github.com/allenwb/53927e46b31564168a1d
 
-(tagName) {
-   tagName = Array.isArray (tagName)
-      ? tagName [0] : tagName
+(tag = Array.isArray (arguments [0]) ? arguments [0][0] : arguments [0]) {
 
-  return function
+  return function // https://en.wikipedia.org/wiki/Higher-order_function
     (prototype, self = ! (this === window) ? this : {})
   { // Should this be a class❓❓❓❓
 
-console.time ()
-    const
-      reflect = p =>
-        Object.getOwnPropertyNames (p)
-
-    , __prototype = reflect (prototype.prototype)
-console.timeEnd ()
-
     try
-      { if ( ! prototype ) return new (window.customElements.get (tagName)) }
+      { if (! prototype) return new window.customElements.get (tag) }
 
     catch (_)
-      { throw 'Must define custom element \n(i.e. Element `'+tagName+'` (class {})' }
+      { throw 'Must define custom element \n(i.e. Element `'+tag+'` (class {})' }
 
     class HTMLCustomElement extends GlobalEventHandlers (prototype) { // exotic object - https://github.com/whatwg/html/issues/1704
       constructor () { super ()
         this.context = self //new State (self, this.stateChangedCallback)
+        super.initialize && super.initialize ()
       }
 
-      get context () { return self }
-      set context (context) {
-        console.warn ('setting context', context)
-        return self = context
-      }
+      get context ()        { return self }
+      set context (context) { return self = context }
 
       get templates () { return this.selectAll ('template') }
 
-      render (selector, context = this.context) {
-        for (const template of this.templates)
-          console.log ("i'm in the renderer", context, template)
-
-        window.element = this
-        window.state = this.context
-
-        for (const property of __prototype)
-          console.log (property)
-
-        this.append(
-          Template(['days']).bind (this.days)
-          .content
-        )
-
+      render (selector) {
         const
-          node = selector ? this.select (selector) : this
-        , template = (super.render || function noop () {}) (selector) // or a bonafied Template
+          node     = selector ? this.select (selector) : this
+        , template = super.render && super.render (selector) // or a bonafied Template
       }
-
-      // watch out for clobbering `HTMLInputElement.select ()`
-      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-      select (selector) { return this.selectAll (selector) [0] }
 
       selectAll (selector) {
         return this.listenable
           (this.querySelectorAll (selector))
       }
+
+      // watch out for clobbering `HTMLInputElement.select ()`
+      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
+      select (selector) { return this.selectAll (selector) [0] }
     }
 
     try
-      { window.customElements.define (tagName, HTMLCustomElement) }
+      { window.customElements.define (tag, HTMLCustomElement) }
 
     finally
-      { return window.customElements.get (tagName) }
+      { return window.customElements.get (tag) }
   }
 }
 
