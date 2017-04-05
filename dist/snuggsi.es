@@ -3,19 +3,19 @@ function tokenize (fragment) {
     tokens = []
 
   , tail = (text, sibling) =>
-      ( ! text.after (sibling)) && sibling
+      (text.after (sibling), sibling)
 
   // https://www.merriam-webster.com/dictionary/sift
-  , sift = text =>
-      text.textContent.match (/({\w+})/) && (tokens [tokens.length] = text)
+  , sift = text => text
+      .textContent.match (/({\w+})/)
+      && (tokens [tokens.length] = text)
       || text
 
   for (match of mine (fragment))
     slice (match.textContent)
       .map (sift)
       .reduce (tail, match)
-
-    && match.remove ()
+    , match.remove ()
 
   return tokens
 
@@ -50,7 +50,7 @@ function slice
   (text) { const tokens  = []
 
   , match    = /({\w+})/g
-  , replace  = token => collect (token) && '✂️'
+  , replace  = token => (collect (token), '✂️')
   , collect  = token => tokens.push (token)
   , sections = text
       .replace (match, replace)
@@ -80,7 +80,7 @@ function mine // https://www.merriam-webster.com/dictionary/comb#h2
   return nodes
 }
 
-const tail = (text, sibling) => ( ! text.after (sibling)) && sibling
+const tail = (text, sibling) => (text.after (sibling), sibling)
 
 function visit (node) {
   return /({\w+})/g.test (node.data)
@@ -152,11 +152,10 @@ const GlobalEventHandlers = EventTarget => (class extends EventTarget {
   connectedCallback () {
     this.render ()
 
-    super.constructor.onconnect
-      ?  super.constructor.onconnect
-      :  super.connectedCallback
+    void ( super.constructor.onconnect
+      || super.connectedCallback
       || function noop () {}
-    .call (this)
+    ).call (this)
   }
 
   listenable (nodes) {
@@ -218,7 +217,7 @@ const Element = function
     class HTMLCustomElement extends GlobalEventHandlers (prototype) { // exotic object - https://github.com/whatwg/html/issues/1704
       constructor () { super ()
         this.context = self //new State (self, this.stateChangedCallback)
-        super.initialize && super.initialize ()
+        super.initialize, super.initialize ()
       }
 
       get context ()        { return self }
