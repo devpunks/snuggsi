@@ -20,11 +20,10 @@ const GlobalEventHandlers = EventTarget => (class extends EventTarget {
   connectedCallback () {
     this.render ()
 
-    super.constructor.onconnect
-      ?  super.constructor.onconnect
-      :  super.connectedCallback
+    void ( super.constructor.onconnect
+      || super.connectedCallback
       || function noop () {}
-    .call (this)
+    ).call (this)
   }
 
   listenable (nodes) {
