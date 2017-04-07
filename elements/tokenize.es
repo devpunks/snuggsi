@@ -7,7 +7,7 @@ function tokenize (fragment) {
 
   // https://www.merriam-webster.com/dictionary/sift
   , sift = text => text
-      .textContent.match (/({\w+})/)
+     .textContent.match (/({\w+})/) // stored regex is faster https://jsperf.com/regexp-indexof-perf
       && (tokens [tokens.length] = text)
       || text
 
@@ -49,7 +49,7 @@ function zip
 function slice
   (text) { const tokens  = []
 
-  , match    = /({\w+})/g
+ , match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
   , replace  = token => (collect (token), '✂️')
   , collect  = token => tokens.push (token)
   , sections = text
@@ -83,7 +83,7 @@ function mine // https://www.merriam-webster.com/dictionary/comb#h2
 const tail = (text, sibling) => (text.after (sibling), sibling)
 
 function visit (node) {
-  return /({\w+})/g.test (node.data)
+  return /({\w+})/g.test (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
     && NodeFilter.FILTER_ACCEPT // <😕  is this even necessary?
 }
 
