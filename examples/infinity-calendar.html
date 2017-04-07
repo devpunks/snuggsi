@@ -1,12 +1,9 @@
-<title>ツsnuggsi - Infinity Calendar</title>
+<title>snuggsi ツ - Infinity Calendar</title>
 
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-<!-- https://jakearchibald.com/2016/link-in-body -->
 <link rel='stylesheet' href='http://www.devpunks.com/typography.css'>
-
-<script src=../inject.es></script>
 
 <script src=../elements/tokenize.es></script>
 <script src=../elements/template.es></script>
@@ -14,19 +11,17 @@
 <script src=../elements/Global-Event-Handlers.es></script>
 <script src=../elements/element.es></script>
 
-<!--<script src=http://www.devpunks.com/snuggsi.min.js></script>-->
-
 <hgroup>
-  <h1>ツsnuggsi</h1>
+  <h1>snuggsi ツ</h1>
   <h2>Infinity Calendar</h2>
 </hgroup>
 
-<infinity-calendar for=date onclick=onclick snuggs=damn>
+<infinity-calendar for=date>
   <header>{month} {year}</header>
 
   <menu>
-    <button onclick=onprevious>Previous</button>
-    <button onclick=onnext>Next</button>
+    <button>Previous</button>
+    <button>Next</button>
   </menu>
 
   <template name='days'>
@@ -35,6 +30,7 @@
     </a>
   </template>
 
+  <!-- https://jakearchibald.com/2016/link-in-body -->
   <link rel=stylesheet href=./infinity-calendar.css>
   <script src=infinity-calendar.es defer></script>
 </infinity-calendar>

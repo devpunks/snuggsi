@@ -3,29 +3,12 @@ Element `infinity-calendar`.
 bind ( { date : new Date, height: '50vh' } )
 
 (class extends HTMLElement {
-  static get month () {
-    return this.context.
-      date.getMonth ()
-  }
 
-  static get year () {
-    return this.context.
-      date.getYear ()
-  }
+  static get date  () { return new Date }
+  static get month () { this.day.getMonth () }
+  static get year  () { this.day.getYear () }
 
-  static onconnect () { }
-
-  static onclick () {
-    alert ('There is a static God')
-  }
-
-  constructor () { super ()
-    console.log ('ctor')
-  }
-
-  initialize () {
-    console.log ('initialize')
-  }
+  initialize () { console.log ('initialize') }
 
   get days () {
     const
@@ -40,19 +23,7 @@ bind ( { date : new Date, height: '50vh' } )
     }
 
     const collection = []
-
-//  for (let i=0; i<1000; i++) {
-//    let f = i
-//    collection.push ({day: f})
-//  }
-
-//  return collection
-
     return dates.map
       (function (day) { return { day: new Date(day).getDate () }})
   }
-
-  get mystery () { }
-
-  onfart () { }
 })
