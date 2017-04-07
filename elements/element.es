@@ -1,18 +1,3 @@
-function upgrade () {
-    console.time ()
-    const
-      reflect = p =>
-        Object.
-          getOwnPropertyNames (p)
-
-    , __prototype = reflect (prototype.prototype)
-    , __proto = reflect (prototype)
-    , configuration = this.attributes
-
-    console.timeEnd ()
-    console.warn (__prototype, __proto, configuration)
-}
-
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 const Element = function
@@ -38,7 +23,7 @@ const Element = function
     class HTMLCustomElement extends GlobalEventHandlers (prototype) { // exotic object - https://github.com/whatwg/html/issues/1704
       constructor () { super ()
         this.context = self //new State (self, this.stateChangedCallback)
-        super.initialize, super.initialize ()
+        super.initialize && super.initialize ()
       }
 
       get context ()        { return self }
