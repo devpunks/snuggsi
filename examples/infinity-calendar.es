@@ -12,10 +12,7 @@ Element `infinity-calendar`
   }
 
   initialize () {
-    console.time ()
-    const i = this.symbolizedTextNodes
-    console.timeEnd ()
-    console.log (i)
+    this.context = {month: this.constructor.month, year: this.constructor.year}
   }
 
   get days () {
