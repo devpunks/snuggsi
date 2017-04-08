@@ -75,16 +75,13 @@ const GlobalEventHandlers = Node =>
 
   // custom element reactions
   connectedCallback () {
-    this.render () // this should go into render module?
-
     void ( super.constructor.onconnect
       || super.connectedCallback
       || function noop () {}
     ).call (this)
-  }
 
-  adoptedCallback ()
-    { console.warn ('adopted this', this) }
+    this.render ()
+  }
 
   static get observedAttributes () { return ['id'] }
   attributeChangedCallback (property, previous, next)
