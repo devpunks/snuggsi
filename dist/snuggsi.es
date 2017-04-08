@@ -1,142 +1,144 @@
-function tokenize (fragment) {
-  const
-    tokens = []
+class Text extends window.Text {
+  tokens () {
+    const
+      nodes  = []
+    , filter = /({\w+})/g
+    , text   = this.textContent
 
-  , tail = (text, sibling) =>
-      (text.after (sibling), sibling)
+    Array.from (filter.exec (text))
 
-  // https://www.merriam-webster.com/dictionary/sift
-  , sift = text => text
-     .textContent.match (/({\w+})/) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-      && (tokens [tokens.length] = text)
-      || text
-
-  for (match of mine (fragment))
-    slice (match.textContent)
-      .map (sift)
-      .reduce (tail, match)
-    , match.remove ()
-
-  return tokens
-
-  // deconstruct
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-
-    // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/after
-    // Would like to use children
-    // to use Element.insertAdjacentElement ('afterend', text)
-    // https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
-    // however, text is a Node not an Element
-    // WARNING: NO DocumentFragment support
-    // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children#Browser_compatibility
-    // https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore
-    // BENCHMARK: https://jsperf.com/insertadjacenthtml-perf/3
+    return this
+  }
 }
 
-function zip
-  (...elements) { const zipper = []
+const ParentNode = Node =>
+  // DOM Levels
+  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
+  //
+  // Living Standard HTML5 ParentNode
+  // https://dom.spec.whatwg.org/#parentnode
+  //
+  // MDN ParentNode
+  // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode
+  //
+  // ElementTraversal interface
+  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
 
-  , lock = (zipper, row) => [...zipper, ...row]
-  , pair = teeth  => // http://english.stackexchange.com/questions/121601/pair-or-couple
-    // thunk
-      (tooth, position) => [tooth, teeth [position]]
+(class extends Node {
+  // http://jsfiddle.net/zaqtg/10
+  // https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
+  // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
+  // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
+  // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
+  // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
 
-  return elements [1]
-    .map (pair (elements [0]))
-    .reduce (lock)
-}
+  selectAll (selector) {
+    return this.listenable
+      (this.querySelectorAll (selector))
+  }
 
-function slice
-  (text) { const tokens  = []
+  // watch out for clobbering `HTMLInputElement.select ()`
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
+  select (selector) { return this.selectAll (selector) [0] }
 
- , match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
-  , replace  = token => (collect (token), '✂️')
-  , collect  = token => tokens.push (token)
-  , sections = text
-      .replace (match, replace)
-        .split ('✂️')
-
-  return zip (tokens, sections)
-     .filter (element => element)
-        .map (element => new Text (element))
-}
-
-function mine // https://www.merriam-webster.com/dictionary/comb#h2
-// http://jsfiddle.net/zaqtg/10
-// http://stackoverflow.com/questions/2579666/getelementsbytagname-equivalent-for-textnodes#answer-2579869
-// https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
-// https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
-// https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-// https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
-// NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
-
-(head) {
-  const nodes = []
-  const walker = document.createNodeIterator
-      (head, NodeFilter.SHOW_TEXT, visit)
-      // by default breaks on template YAY! 🎉
-
-  while (node = walker.nextNode ()) nodes.push (node)
-  return nodes
-}
-
-const tail = (text, sibling) => (text.after (sibling), sibling)
-
-function visit (node) {
-  return /({\w+})/g.test (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-    && NodeFilter.FILTER_ACCEPT // <😕  is this even necessary?
-}
-
-function comb (parent) {
-  if (parent.hasChildNodes())
-    for (let node = parent.firstChild; node; node = node.nextSibling)
-      DOMComb (node)
-}
-const Template = function ( name = 'snuggsi' ) {
-  return Object.assign (factory (...name), { bind })
-
-  function bind (context) {
-    context = (Array.isArray (context) ? context : [context])
+  get symbolizedTextNodes () {
 
     const
-      tokens   = []
-    , rendered = context
-        .map (context => this.content.cloneNode (true))
-        .map (collect, tokens)
+      nodes  = []
+    , visit  = (node, filter = /({\w+})/g) =>
+        filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+          && NodeFilter.FILTER_ACCEPT
 
-    this.innerHTML = ''
-    for (const frame of rendered) this.content.appendChild (frame)
+    , walker = document.createNodeIterator
+        (this, NodeFilter.SHOW_TEXT, visit)
+        // by default breaks on template YAY! 🎉
 
-    return context.map(transfer, tokens) && this
+    let node
+    while (node = walker.nextNode ()) nodes.push (node)
+
+    return nodes.map (node => Text.prototype.tokens.call (node))
   }
+})
 
-  function factory (name) {
-    return (
-       document.querySelector ('template[name='+name+']').cloneNode (true)
-    || document.createElement ('template')
-  )}
+//function comb
+//  // ElementTraversal interface
+//  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
+//
+//(parent) {
+//  if (parent.hasChildNodes())
+//    for (let node = parent.firstChild; node; node = node.nextSibling)
+//      comb (node)
+//}
+const EventTarget = Node =>
+  // DOM Levels
+  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
+  //
+  // Living Standard HTML5 EventTarget
+  // https://dom.spec.whatwg.org/#eventtarget
+  //
+  // MDN EventTarget
+  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
+  //
+  // DOM Level 2
+  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+  //
+  // DOM Level 3
+  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
 
-  function collect (fragment) {
-    const objectify = tokens =>
-      tokens.reduce ( (object, token) =>
-        (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object
-      , {})
+(class extends Node {
 
-    return this.push (objectify (tokenize (fragment))) && fragment
-  }
+  listen (event, listener = 'on' + this [event])
+    // MDN EventTarget.removeEventListener
+    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+    //
+    // WHATWG Living Standard EventTarget.addEventListener
+    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+    //
+    // DOM Level 2 EventTarget.addEventListener
+    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
 
-  function transfer (context, index) {
-    for (const property in context) this [index]
-      [property] && (this [index] [property].textContent = context [property])
-  }
-}
-const GlobalEventHandlers = EventTarget =>
-// https://www.w3.org/TR/html5/webappapis.html#globaleventhandlers
-// GlobalEventHandlers - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
-// on* events - https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
-// Mix-ins    - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Mix-ins
+    { this.addEventListener (event, listener) }
 
-(class extends EventTarget {
+  mute (event, listener = 'on' + this [event])
+    // MDN EventTarget.removeEventListener
+    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+    //
+    // WHATWG Living Standard EventTarget.removeEventListener
+    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+    //
+    // DOM Level 2 EventTarget.removeEventListener
+    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
+
+    { this.removeEventListener (event, listener) }
+
+  dispatch (event)
+    // MDN EventTarget.dispatchEvent
+    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
+    //
+    // WHATWG Living Standard EventTarget.dispatchEvent
+    // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
+    //
+    // DOM Level 2 EventTarget.dispatchEvent
+    //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
+
+    { }
+})
+const GlobalEventHandlers = Node =>
+  // DOM Levels
+  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
+  //
+  // Living Standard HTML5 GlobalEventHandlers
+  // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
+  //
+  // MDN GlobalEventHandlers
+  // https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
+  //
+  // MDN on* Events
+  // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
+  //
+  // Traditional Event Registration - http://www.quirksmode.org/js/events_tradmod.html
+
+(class extends Node {
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
   //
@@ -196,26 +198,6 @@ const GlobalEventHandlers = EventTarget =>
         (node, {listen: this.listen.bind(this)})) // MUTATES!
   }
 
-  listen (event, listener = this [event])
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget#Example
-    // Event target coparisons - https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
-    { this.addEventListener (event, listener) }
-
-  dispatch (event)
-    // DOM Levels
-    // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-    //
-    // DOM Level 2 EventTarget.dispatchEvent
-    //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
-    //
-    // WHATWG EventTarget.dispatchEvent
-    //  https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
-    //
-    // MDN EventTarget.dispatchEvent
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
-
-    { }
-
   // custom element reactions
   connectedCallback () {
     this.render () // this should go into render module?
@@ -233,21 +215,6 @@ const GlobalEventHandlers = EventTarget =>
   attributeChangedCallback (property, previous, next)
     { console.warn ('['+property+'] ['+previous+'] to ['+next+']') }
 })
-function upgrade () {
-    console.time ()
-    const
-      reflect = p =>
-        Object.
-          getOwnPropertyNames (p)
-
-    , __prototype = reflect (prototype.prototype)
-    , __proto = reflect (prototype)
-    , configuration = this.attributes
-
-    console.timeEnd ()
-    console.warn (__prototype, __proto, configuration)
-}
-
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 const Element = function
@@ -258,50 +225,39 @@ const Element = function
 // Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
 //https://gist.github.com/allenwb/53927e46b31564168a1d
 
-(tag = Array.isArray (arguments [0]) ? arguments [0][0] : arguments [0]) {
+(tag = Array.isArray (arguments [0]) ? arguments [0][0] : arguments [0], registry = window.customElements) {
 
   return function // https://en.wikipedia.org/wiki/Higher-order_function
     (prototype, self = ! (this === window) ? this : {})
   { // Should this be a class❓❓❓❓
 
     try
-      { if (! prototype) return new window.customElements.get (tag) }
+      { if (! prototype) return new registry.get (tag) }
 
     catch (_)
       { throw 'Must define custom element \n(i.e. Element `'+tag+'` (class {})' }
 
-    class HTMLCustomElement extends GlobalEventHandlers (prototype) { // exotic object - https://github.com/whatwg/html/issues/1704
-      constructor () { super ()
-        this.context = self //new State (self, this.stateChangedCallback)
-        super.initialize, super.initialize ()
-      }
+    class HTMLCustomElement extends // mixins
+      (GlobalEventHandlers (EventTarget (ParentNode (prototype))))
+    { // exotic object - https://github.com/whatwg/html/issues/1704
 
-      get context ()        { return self }
-      set context (context) { return self = context }
+      constructor   () { super () && super.initialize && super.initialize () }
 
+      get context   () { return self }
       get templates () { return this.selectAll ('template') }
 
       render (selector) {
         const
-          node     = selector ? this.select (selector) : this
+          node = selector ? this.select (selector) : this
         , template = super.render && super.render (selector) // or a bonafied Template
       }
-
-      selectAll (selector) {
-        return this.listenable
-          (this.querySelectorAll (selector))
-      }
-
-      // watch out for clobbering `HTMLInputElement.select ()`
-      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-      select (selector) { return this.selectAll (selector) [0] }
     }
 
     try
-      { window.customElements.define (tag, HTMLCustomElement) }
+      { registry.define (tag, HTMLCustomElement) }
 
     finally
-      { return window.customElements.get (tag) }
+      { return registry.get (tag) }
   }
 }
 
@@ -310,18 +266,41 @@ Element.prototype = window.Element.prototype
   // http://2ality.com/2013/09/window.html
   // http://tobyho.com/2013/03/13/window-prop-vs-global-var
   // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
+const Template = function ( name = 'snuggsi' ) {
+  return Object.assign (factory (...name), { bind })
 
-//Element
-//(Element)
-//(Element) `data-calendar`
-//(Element `data-calendar`)
-//Element (`data-calendar`)
-//Element ('data-calendar')
+  function bind (context) {
+    context = (Array.isArray (context) ? context : [context])
 
-//new Element
-//(new Element)
-//new (Element`date-calendar`)
-//(new Element) `date-calendar`
-//(new Element `date-calendar`)
-//new (Element `date-calendar`)
-//new Element (`date-calendar`)
+    const
+      tokens   = []
+    , rendered = context
+        .map (context => this.content.cloneNode (true))
+        .map (collect, tokens)
+
+    this.innerHTML = ''
+    for (const frame of rendered) this.content.appendChild (frame)
+
+    return context.map(transfer, tokens) && this
+  }
+
+  function factory (name) {
+    return (
+       document.querySelector ('template[name='+name+']').cloneNode (true)
+    || document.createElement ('template')
+  )}
+
+  function collect (fragment) {
+    const objectify = tokens =>
+      tokens.reduce ( (object, token) =>
+        (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object
+      , {})
+
+    return this.push (objectify (tokenize (fragment))) && fragment
+  }
+
+  function transfer (context, index) {
+    for (const property in context) this [index]
+      [property] && (this [index] [property].textContent = context [property])
+  }
+}

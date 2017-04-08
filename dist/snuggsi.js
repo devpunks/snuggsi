@@ -1,156 +1,141 @@
 
 var this$1 = this;
-function tokenize (fragment) {
-  var
-    tokens = []
-
-  , tail = function (text, sibling) { return (text.after (sibling), sibling); }
-
-  // https://www.merriam-webster.com/dictionary/sift
-  , sift = function (text) { return text
-     .textContent.match (/({\w+})/) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-      && (tokens [tokens.length] = text)
-      || text; }
-
-  for (var i = 0, list = mine (fragment); i < list.length; i += 1)
-    {
-    match = list[i];
-
-    slice (match.textContent)
-      .map (sift)
-      .reduce (tail, match)
-    , match.remove ()
+var Text = (function (superclass) {
+  function Text () {
+    superclass.apply(this, arguments);
   }
 
-  return tokens
+  if ( superclass ) Text.__proto__ = superclass;
+  Text.prototype = Object.create( superclass && superclass.prototype );
+  Text.prototype.constructor = Text;
 
-  // deconstruct
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
-
-    // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/after
-    // Would like to use children
-    // to use Element.insertAdjacentElement ('afterend', text)
-    // https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
-    // however, text is a Node not an Element
-    // WARNING: NO DocumentFragment support
-    // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children#Browser_compatibility
-    // https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore
-    // BENCHMARK: https://jsperf.com/insertadjacenthtml-perf/3
-}
-
-function zip
-  () {
-  var elements = [], len = arguments.length;
-  while ( len-- ) elements[ len ] = arguments[ len ];
- var zipper = []
-
-  , lock = function (zipper, row) { return zipper.concat( row); }
-  , pair = function (teeth)  { return function (tooth, position) { return [tooth, teeth [position]]; }; }
-
-  return elements [1]
-    .map (pair (elements [0]))
-    .reduce (lock)
-}
-
-function slice
-  (text) { var tokens  = []
-
- , match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
-  , replace  = function (token) { return (collect (token), '✂️'); }
-  , collect  = function (token) { return tokens.push (token); }
-  , sections = text
-      .replace (match, replace)
-        .split ('✂️')
-
-  return zip (tokens, sections)
-     .filter (function (element) { return element; })
-        .map (function (element) { return new Text (element); })
-}
-
-function mine // https://www.merriam-webster.com/dictionary/comb#h2
-// http://jsfiddle.net/zaqtg/10
-// http://stackoverflow.com/questions/2579666/getelementsbytagname-equivalent-for-textnodes#answer-2579869
-// https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
-// https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
-// https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-// https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
-// NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
-
-(head) {
-  var nodes = []
-  var walker = document.createNodeIterator
-      (head, NodeFilter.SHOW_TEXT, visit)
-      // by default breaks on template YAY! 🎉
-
-  while (node = walker.nextNode ()) { nodes.push (node) }
-  return nodes
-}
-
-var tail = function (text, sibling) { return (text.after (sibling), sibling); }
-
-function visit (node) {
-  return /({\w+})/g.test (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-    && NodeFilter.FILTER_ACCEPT // <😕  is this even necessary?
-}
-
-function comb (parent) {
-  if (parent.hasChildNodes())
-    { for (var node = parent.firstChild; node; node = node.nextSibling)
-      { DOMComb (node) } }
-}
-var Template = function ( name ) {
-  if ( name === void 0 ) name = 'snuggsi';
-
-  return Object.assign (factory.apply (void 0, name), { bind: bind })
-
-  function bind (context) {
-    var this$1 = this;
-
-    context = (Array.isArray (context) ? context : [context])
-
+  Text.prototype.tokens = function () {
     var
-      tokens   = []
-    , rendered = context
-        .map (function (context) { return this$1.content.cloneNode (true); })
-        .map (collect, tokens)
+      nodes  = []
+    , filter = /({\w+})/g
+    , text   = this.textContent
 
-    this.innerHTML = ''
-    for (var i = 0, list = rendered; i < list.length; i += 1) {
-      var frame = list[i];
+    Array.from (filter.exec (text))
 
-      this$1.content.appendChild (frame)
+    return this
+  };
+
+  return Text;
+}(window.Text));
+
+var ParentNode = function (Node) { return ((function (Node) {
+    function anonymous () {
+      Node.apply(this, arguments);
     }
 
-    return context.map(transfer, tokens) && this
-  }
+    if ( Node ) anonymous.__proto__ = Node;
+    anonymous.prototype = Object.create( Node && Node.prototype );
+    anonymous.prototype.constructor = anonymous;
 
-  function factory (name) {
-    return (
-       document.querySelector ('template[name='+name+']').cloneNode (true)
-    || document.createElement ('template')
-  )}
+    var prototypeAccessors = { symbolizedTextNodes: {} };
 
-  function collect (fragment) {
-    var objectify = function (tokens) { return tokens.reduce ( function (object, token) { return (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object; }
-      , {}); }
+    anonymous.prototype.selectAll = function (selector) {
+    return this.listenable
+      (this.querySelectorAll (selector))
+  };
 
-    return this.push (objectify (tokenize (fragment))) && fragment
-  }
+  // watch out for clobbering `HTMLInputElement.select ()`
+  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
+  anonymous.prototype.select = function (selector) { return this.selectAll (selector) [0] };
 
-  function transfer (context, index) {
-    var this$1 = this;
+  prototypeAccessors.symbolizedTextNodes.get = function () {
 
-    for (var property in context) { this$1 [index]
-      [property] && (this$1 [index] [property].textContent = context [property]) }
-  }
-}
-var GlobalEventHandlers = function (EventTarget) { return ((function (EventTarget) {
-    function anonymous () { EventTarget.call (this)
+    var
+      nodes  = []
+    , visit  = function (node, filter) {
+          if ( filter === void 0 ) filter = /({\w+})/g;
+
+          return filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+          && NodeFilter.FILTER_ACCEPT;
+    }
+
+    , walker = document.createNodeIterator
+        (this, NodeFilter.SHOW_TEXT, visit)
+        // by default breaks on template YAY! 🎉
+
+    var node
+    while (node = walker.nextNode ()) { nodes.push (node) }
+
+    return nodes.map (function (node) { return Text.prototype.tokens.call (node); })
+  };
+
+    Object.defineProperties( anonymous.prototype, prototypeAccessors );
+
+    return anonymous;
+  }(Node))); }
+
+//function comb
+//  // ElementTraversal interface
+//  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
+//
+//(parent) {
+//  if (parent.hasChildNodes())
+//    for (let node = parent.firstChild; node; node = node.nextSibling)
+//      comb (node)
+//}
+var EventTarget = function (Node) { return ((function (Node) {
+    function anonymous () {
+      Node.apply(this, arguments);
+    }
+
+    if ( Node ) anonymous.__proto__ = Node;
+    anonymous.prototype = Object.create( Node && Node.prototype );
+    anonymous.prototype.constructor = anonymous;
+
+    anonymous.prototype.listen = function (event, listener)
+    // MDN EventTarget.removeEventListener
+    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+    //
+    // WHATWG Living Standard EventTarget.addEventListener
+    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+    //
+    // DOM Level 2 EventTarget.addEventListener
+    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
+
+    {
+    if ( listener === void 0 ) listener = 'on' + this$1 [event];
+ this.addEventListener (event, listener) };
+
+  anonymous.prototype.mute = function (event, listener)
+    // MDN EventTarget.removeEventListener
+    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+    //
+    // WHATWG Living Standard EventTarget.removeEventListener
+    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+    //
+    // DOM Level 2 EventTarget.removeEventListener
+    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
+
+    {
+    if ( listener === void 0 ) listener = 'on' + this$1 [event];
+ this.removeEventListener (event, listener) };
+
+  anonymous.prototype.dispatch = function (event)
+    // MDN EventTarget.dispatchEvent
+    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
+    //
+    // WHATWG Living Standard EventTarget.dispatchEvent
+    // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
+    //
+    // DOM Level 2 EventTarget.dispatchEvent
+    //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
+
+    { };
+
+    return anonymous;
+  }(Node))); }
+var GlobalEventHandlers = function (Node) { return ((function (Node) {
+    function anonymous () { Node.call (this)
     this.mirror (EventTarget)
   }
 
-    if ( EventTarget ) anonymous.__proto__ = EventTarget;
-    anonymous.prototype = Object.create( EventTarget && EventTarget.prototype );
+    if ( Node ) anonymous.__proto__ = Node;
+    anonymous.prototype = Object.create( Node && Node.prototype );
     anonymous.prototype.constructor = anonymous;
 
     var staticAccessors = { observedAttributes: {} };
@@ -198,34 +183,12 @@ var GlobalEventHandlers = function (EventTarget) { return ((function (EventTarge
         (node, {listen: this$1.listen.bind(this$1)}); }) // MUTATES!
   };
 
-  anonymous.prototype.listen = function (event, listener)
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget#Example
-    // Event target coparisons - https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
-    {
-    if ( listener === void 0 ) listener = this$1 [event];
- this.addEventListener (event, listener) };
-
-  anonymous.prototype.dispatch = function (event)
-    // DOM Levels
-    // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-    //
-    // DOM Level 2 EventTarget.dispatchEvent
-    //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
-    //
-    // WHATWG EventTarget.dispatchEvent
-    //  https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
-    //
-    // MDN EventTarget.dispatchEvent
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
-
-    { };
-
   // custom element reactions
   anonymous.prototype.connectedCallback = function () {
     this.render () // this should go into render module?
 
-    void ( EventTarget.prototype.constructor.onconnect
-      || EventTarget.prototype.connectedCallback
+    void ( Node.prototype.constructor.onconnect
+      || Node.prototype.connectedCallback
       || function noop () {}
     ).call (this)
   };
@@ -240,21 +203,7 @@ var GlobalEventHandlers = function (EventTarget) { return ((function (EventTarge
     Object.defineProperties( anonymous, staticAccessors );
 
     return anonymous;
-  }(EventTarget))); }
-function upgrade () {
-    console.time ()
-    var
-      reflect = function (p) { return Object.
-          getOwnPropertyNames (p); }
-
-    , __prototype = reflect (prototype.prototype)
-    , __proto = reflect (prototype)
-    , configuration = this.attributes
-
-    console.timeEnd ()
-    console.warn (__prototype, __proto, configuration)
-}
-
+  }(Node))); }
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 var Element = function
@@ -265,8 +214,9 @@ var Element = function
 // Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
 //https://gist.github.com/allenwb/53927e46b31564168a1d
 
-(tag) {
+(tag, registry) {
   if ( tag === void 0 ) tag = Array.isArray (arguments [0]) ? arguments [0][0] : arguments [0];
+  if ( registry === void 0 ) registry = window.customElements;
 
 
   return function // https://en.wikipedia.org/wiki/Higher-order_function
@@ -276,16 +226,13 @@ var Element = function
  // Should this be a class❓❓❓❓
 
     try
-      { if (! prototype) { return new window.customElements.get (tag) } }
+      { if (! prototype) { return new registry.get (tag) } }
 
     catch (_)
       { throw 'Must define custom element \n(i.e. Element `'+tag+'` (class {})' }
 
     var HTMLCustomElement = (function (superclass) {
-      function HTMLCustomElement () { superclass.call (this)
-        this.context = self //new State (self, this.stateChangedCallback)
-        superclass.prototype.initialize, superclass.prototype.initialize.call (this)
-      }
+      function HTMLCustomElement   () { superclass.call (this) && superclass.prototype.initialize && superclass.prototype.initialize.call (this) }
 
       if ( superclass ) HTMLCustomElement.__proto__ = superclass;
       HTMLCustomElement.prototype = Object.create( superclass && superclass.prototype );
@@ -293,36 +240,25 @@ var Element = function
 
       var prototypeAccessors = { context: {},templates: {} };
 
-      prototypeAccessors.context.get = function ()        { return self };
-      prototypeAccessors.context.set = function (context) { return self = context };
-
+      prototypeAccessors.context.get = function () { return self };
       prototypeAccessors.templates.get = function () { return this.selectAll ('template') };
 
       HTMLCustomElement.prototype.render = function (selector) {
         var
-          node     = selector ? this.select (selector) : this
+          node = selector ? this.select (selector) : this
         , template = superclass.prototype.render && superclass.prototype.render.call (this, selector) // or a bonafied Template
       };
-
-      HTMLCustomElement.prototype.selectAll = function (selector) {
-        return this.listenable
-          (this.querySelectorAll (selector))
-      };
-
-      // watch out for clobbering `HTMLInputElement.select ()`
-      // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-      HTMLCustomElement.prototype.select = function (selector) { return this.selectAll (selector) [0] };
 
       Object.defineProperties( HTMLCustomElement.prototype, prototypeAccessors );
 
       return HTMLCustomElement;
-    }(GlobalEventHandlers (prototype)));
+    }((GlobalEventHandlers (EventTarget (ParentNode (prototype))))));
 
     try
-      { window.customElements.define (tag, HTMLCustomElement) }
+      { registry.define (tag, HTMLCustomElement) }
 
     finally
-      { return window.customElements.get (tag) }
+      { return registry.get (tag) }
   }
 }
 
@@ -331,19 +267,50 @@ Element.prototype = window.Element.prototype
   // http://2ality.com/2013/09/window.html
   // http://tobyho.com/2013/03/13/window-prop-vs-global-var
   // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
+var Template = function ( name ) {
+  if ( name === void 0 ) name = 'snuggsi';
 
-//Element
-//(Element)
-//(Element) `data-calendar`
-//(Element `data-calendar`)
-//Element (`data-calendar`)
-//Element ('data-calendar')
+  return Object.assign (factory.apply (void 0, name), { bind: bind })
 
-//new Element
-//(new Element)
-//new (Element`date-calendar`)
-//(new Element) `date-calendar`
-//(new Element `date-calendar`)
-//new (Element `date-calendar`)
-//new Element (`date-calendar`)
+  function bind (context) {
+    var this$1 = this;
+
+    context = (Array.isArray (context) ? context : [context])
+
+    var
+      tokens   = []
+    , rendered = context
+        .map (function (context) { return this$1.content.cloneNode (true); })
+        .map (collect, tokens)
+
+    this.innerHTML = ''
+    for (var i = 0, list = rendered; i < list.length; i += 1) {
+      var frame = list[i];
+
+      this$1.content.appendChild (frame)
+    }
+
+    return context.map(transfer, tokens) && this
+  }
+
+  function factory (name) {
+    return (
+       document.querySelector ('template[name='+name+']').cloneNode (true)
+    || document.createElement ('template')
+  )}
+
+  function collect (fragment) {
+    var objectify = function (tokens) { return tokens.reduce ( function (object, token) { return (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object; }
+      , {}); }
+
+    return this.push (objectify (tokenize (fragment))) && fragment
+  }
+
+  function transfer (context, index) {
+    var this$1 = this;
+
+    for (var property in context) { this$1 [index]
+      [property] && (this$1 [index] [property].textContent = context [property]) }
+  }
+}
 
