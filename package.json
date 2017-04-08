@@ -56,10 +56,10 @@
     "cover": "tap index.test.es --cov --coverage-report=lcov"
   },
   "devDependencies": {
+    "tap": "*"
     "buble": "*",
     "uglifyjs": "*",
     "browser-sync": "*",
     "devtools-terminal": "^0.1.3",
-    "tap": "*"
   }
 }
