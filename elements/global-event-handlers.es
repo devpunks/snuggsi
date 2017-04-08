@@ -1,10 +1,19 @@
-const GlobalEventHandlers = EventTarget =>
-// https://www.w3.org/TR/html5/webappapis.html#globaleventhandlers
-// GlobalEventHandlers - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
-// on* events - https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
-// Mix-ins    - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Mix-ins
+const GlobalEventHandlers = Node =>
+  // DOM Levels
+  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
+  //
+  // Living Standard HTML5 GlobalEventHandlers
+  // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
+  //
+  // MDN GlobalEventHandlers
+  // https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
+  //
+  // MDN on* Events
+  // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
+  //
+  // Traditional Event Registration - http://www.quirksmode.org/js/events_tradmod.html
 
-(class extends EventTarget {
+(class extends Node {
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
   //
@@ -63,26 +72,6 @@ const GlobalEventHandlers = EventTarget =>
       .call (nodes, node => Object.assign
         (node, {listen: this.listen.bind(this)})) // MUTATES!
   }
-
-  listen (event, listener = this [event])
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget#Example
-    // Event target coparisons - https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
-    { this.addEventListener (event, listener) }
-
-  dispatch (event)
-    // DOM Levels
-    // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-    //
-    // DOM Level 2 EventTarget.dispatchEvent
-    //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
-    //
-    // WHATWG EventTarget.dispatchEvent
-    //  https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
-    //
-    // MDN EventTarget.dispatchEvent
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
-
-    { }
 
   // custom element reactions
   connectedCallback () {
