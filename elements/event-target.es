@@ -28,27 +28,27 @@ const EventTarget = Node =>
 
     { this.addEventListener (event, listener) }
 
-  mute (event, listener = 'on' + this [event])
-    // MDN EventTarget.removeEventListener
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
-    //
-    // WHATWG Living Standard EventTarget.removeEventListener
-    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
-    //
-    // DOM Level 2 EventTarget.removeEventListener
-    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
+//mute (event, listener = 'on' + this [event])
+//  // MDN EventTarget.removeEventListener
+//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+//  //
+//  // WHATWG Living Standard EventTarget.removeEventListener
+//  // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+//  //
+//  // DOM Level 2 EventTarget.removeEventListener
+//  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
 
-    { this.removeEventListener (event, listener) }
+//  { this.removeEventListener (event, listener) }
 
-  dispatch (event)
-    // MDN EventTarget.dispatchEvent
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
-    //
-    // WHATWG Living Standard EventTarget.dispatchEvent
-    // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
-    //
-    // DOM Level 2 EventTarget.dispatchEvent
-    //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
+//dispatch (event)
+//  // MDN EventTarget.dispatchEvent
+//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
+//  //
+//  // WHATWG Living Standard EventTarget.dispatchEvent
+//  // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
+//  //
+//  // DOM Level 2 EventTarget.dispatchEvent
+//  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
 
-    { }
+//  { }
 })
