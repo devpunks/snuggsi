@@ -1,13 +1,37 @@
-class Text extends window.Text {
-  tokens () {
+class TokenList {
+
+  constructor (nodes) {
     const
-      nodes  = []
-    , filter = /({\w+})/g
-    , text   = this.textContent
+      symbolize = symbol =>
+        symbol.match (/(\w+)/g) [0]
 
-    Array.from (filter.exec (text))
+    , insert = token =>
+        symbol => this [symbol] = token
 
-    return this
+    , tokenize = token =>
+        token.textContent.match (/{(\w+)}/g)
+          .map (symbolize)
+          .map (insert (token))
+
+    , textify = node =>
+        (node.text = node.data) && node
+
+    nodes
+      .map (textify)
+      .map (tokenize)
+  }
+
+
+  bind (context, node) {
+
+    for (const property in this)
+      node = this [property]
+      , node.data = node.text
+
+    for (const property in this)
+      node = this [property]
+      , node.data = node.data
+        .replace ('{'+property+'}', context [property])
   }
 }
 
@@ -41,11 +65,9 @@ const ParentNode = Node =>
   // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
   select (selector) { return this.selectAll (selector) [0] }
 
-  get symbolizedTextNodes () {
-
+  get texts () {
     const
-      nodes  = []
-    , visit  = (node, filter = /({\w+})/g) =>
+      visit = (node, filter = /({\w+})/g) =>
         filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
           && NodeFilter.FILTER_ACCEPT
 
@@ -53,10 +75,19 @@ const ParentNode = Node =>
         (this, NodeFilter.SHOW_TEXT, visit)
         // by default breaks on template YAY! 🎉
 
-    let node
-    while (node = walker.nextNode ()) nodes.push (node)
+    let
+      node
+    , nodes = []
 
-    return nodes.map (node => Text.prototype.tokens.call (node))
+    while (node = walker.nextNode ())
+      nodes.push (node)
+
+    return nodes
+  }
+
+  get tokens () {
+    return this._tokens
+      || (this._tokens = new TokenList (this.texts))
   }
 })
 
@@ -99,29 +130,29 @@ const EventTarget = Node =>
 
     { this.addEventListener (event, listener) }
 
-  mute (event, listener = 'on' + this [event])
-    // MDN EventTarget.removeEventListener
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
-    //
-    // WHATWG Living Standard EventTarget.removeEventListener
-    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
-    //
-    // DOM Level 2 EventTarget.removeEventListener
-    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
+//mute (event, listener = 'on' + this [event])
+//  // MDN EventTarget.removeEventListener
+//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+//  //
+//  // WHATWG Living Standard EventTarget.removeEventListener
+//  // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+//  //
+//  // DOM Level 2 EventTarget.removeEventListener
+//  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
 
-    { this.removeEventListener (event, listener) }
+//  { this.removeEventListener (event, listener) }
 
-  dispatch (event)
-    // MDN EventTarget.dispatchEvent
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
-    //
-    // WHATWG Living Standard EventTarget.dispatchEvent
-    // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
-    //
-    // DOM Level 2 EventTarget.dispatchEvent
-    //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
+//dispatch (event)
+//  // MDN EventTarget.dispatchEvent
+//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
+//  //
+//  // WHATWG Living Standard EventTarget.dispatchEvent
+//  // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
+//  //
+//  // DOM Level 2 EventTarget.dispatchEvent
+//  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
 
-    { }
+//  { }
 })
 const GlobalEventHandlers = Node =>
   // DOM Levels
@@ -200,16 +231,13 @@ const GlobalEventHandlers = Node =>
 
   // custom element reactions
   connectedCallback () {
-    this.render () // this should go into render module?
-
     void ( super.constructor.onconnect
       || super.connectedCallback
       || function noop () {}
     ).call (this)
-  }
 
-  adoptedCallback ()
-    { console.warn ('adopted this', this) }
+    this.render ()
+  }
 
   static get observedAttributes () { return ['id'] }
   attributeChangedCallback (property, previous, next)
@@ -217,40 +245,41 @@ const GlobalEventHandlers = Node =>
 })
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
-const Element = function
-// Custom elements polyfill
-// https://github.com/webcomponents/custom-elements/blob/master/src/custom-elements.js
-// https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
-// https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
-// Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
-//https://gist.github.com/allenwb/53927e46b31564168a1d
+const Element = function (
+  // Custom elements polyfill
+  // https://github.com/webcomponents/custom-elements/blob/master/src/custom-elements.js
+  // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
+  // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
+  // Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
+  //https://gist.github.com/allenwb/53927e46b31564168a1d
 
-(tag = Array.isArray (arguments [0]) ? arguments [0][0] : arguments [0], registry = window.customElements) {
+  tag = Array.isArray
+    (arguments [0]) ? arguments [0][0] : arguments [0]
+
+, registry = window.customElements
+) {
 
   return function // https://en.wikipedia.org/wiki/Higher-order_function
-    (prototype, self = ! (this === window) ? this : {})
+    (HTMLElement, self = ! (this === window) ? this : {})
   { // Should this be a class❓❓❓❓
 
     try
-      { if (! prototype) return new registry.get (tag) }
+      { if (! HTMLElement) return new registry.get (tag) }
 
     catch (_)
-      { throw 'Must define custom element \n(i.e. Element `'+tag+'` (class {})' }
+      { throw 'Undefined Element `'+tag+'` (class {})' }
 
     class HTMLCustomElement extends // mixins
-      (GlobalEventHandlers (EventTarget (ParentNode (prototype))))
+      (GlobalEventHandlers (EventTarget (ParentNode (HTMLElement))))
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
-      constructor   () { super () && super.initialize && super.initialize () }
+      constructor () { super () && super.initialize () }
 
-      get context   () { return self }
+      render () { this.tokens.bind (this.context) }
+
+      get context () { return self }
+      set context (value) { self = value }
       get templates () { return this.selectAll ('template') }
-
-      render (selector) {
-        const
-          node = selector ? this.select (selector) : this
-        , template = super.render && super.render (selector) // or a bonafied Template
-      }
     }
 
     try
@@ -262,7 +291,7 @@ const Element = function
 }
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
-Element.prototype = window.Element.prototype
+Element.prototype = ElementPrototype
   // http://2ality.com/2013/09/window.html
   // http://tobyho.com/2013/03/13/window-prop-vs-global-var
   // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
