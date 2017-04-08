@@ -1,0 +1,23 @@
+<script src=../elements/walkable.es></script>
+<script src=../elements/template.es></script>
+<script src=../elements/Global-Event-Handlers.es></script>
+<script src=../elements/element.es></script>
+
+<counter-demo>
+  <output>
+  <button onclick=increment>+</button>
+  <button onclick=decrement>-</button>
+  <script defer>
+
+  Element `counter-demo`
+
+  (class extends HTMLElement {
+    initialize () {
+      this.context.count = 0
+    }
+
+    increment () { this.context.count ++ }
+    decrement () { this.context.count -- }
+  })
+  </script>
+</counter-demo>
