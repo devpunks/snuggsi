@@ -31,16 +31,13 @@
     "test": "node --use_strict index.test.es",
     "watch": "node watch.es",
 
-    "compile":
-      "npm run bundle && npm run transpile && npm run uglify && npm run gzip && npm run weigh",
-
     "package": "./package",
+
+    "compile":
+      "npm run bundle && node ./transpile.es > ./dist/snuggsi.js && npm run uglify && npm run gzip && npm run weigh",
 
     "bundle":
       "cat elements/walkable.es elements/global-event-handlers.es elements/element.es > dist/snuggsi.es",
-
-    "transpile":
-      "npm run bundle && node ./transpile.es > ./dist/snuggsi.js && npm run uglify && npm run gzip && npm run weigh",
 
     "uglify":
       "uglifyjs ./dist/snuggsi.js -c -m -o ./dist/snuggsi.min.js",
