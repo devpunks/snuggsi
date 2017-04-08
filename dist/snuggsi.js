@@ -1,27 +1,38 @@
 
 var this$1 = this;
-var Text = (function (superclass) {
-  function Text () {
-    superclass.apply(this, arguments);
-  }
+var TokenList = function (nodes) {
+  var this$1 = this;
 
-  if ( superclass ) Text.__proto__ = superclass;
-  Text.prototype = Object.create( superclass && superclass.prototype );
-  Text.prototype.constructor = Text;
+  var
+    symbolize = function (symbol) { return symbol.match (/(\w+)/g) [0]; }
 
-  Text.prototype.tokens = function () {
-    var
-      nodes  = []
-    , filter = /({\w+})/g
-    , text   = this.textContent
+  , insert = function (token) { return function (symbol) { return this$1 [symbol] = token; }; }
 
-    Array.from (filter.exec (text))
+  , tokenize = function (token) { return token.textContent.match (/{(\w+)}/g)
+        .map (symbolize)
+        .map (insert (token)); }
 
-    return this
-  };
+  , textify = function (node) { return (node.text = node.data) && node; }
 
-  return Text;
-}(window.Text));
+  nodes
+    .map (textify)
+    .map (tokenize)
+};
+
+
+TokenList.prototype.bind = function (context, node) {
+    var this$1 = this;
+
+
+  for (var property in this$1)
+    { node = this$1 [property]
+    , node.data = node.text }
+
+  for (var property$1 in this$1)
+    { node = this$1 [property$1]
+    , node.data = node.data
+      .replace ('{'+property$1+'}', context [property$1]) }
+};
 
 var ParentNode = function (Node) { return ((function (Node) {
     function anonymous () {
@@ -32,7 +43,7 @@ var ParentNode = function (Node) { return ((function (Node) {
     anonymous.prototype = Object.create( Node && Node.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    var prototypeAccessors = { symbolizedTextNodes: {} };
+    var prototypeAccessors = { texts: {},tokens: {} };
 
     anonymous.prototype.selectAll = function (selector) {
     return this.listenable
@@ -43,11 +54,9 @@ var ParentNode = function (Node) { return ((function (Node) {
   // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
   anonymous.prototype.select = function (selector) { return this.selectAll (selector) [0] };
 
-  prototypeAccessors.symbolizedTextNodes.get = function () {
-
+  prototypeAccessors.texts.get = function () {
     var
-      nodes  = []
-    , visit  = function (node, filter) {
+      visit = function (node, filter) {
           if ( filter === void 0 ) filter = /({\w+})/g;
 
           return filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
@@ -58,10 +67,19 @@ var ParentNode = function (Node) { return ((function (Node) {
         (this, NodeFilter.SHOW_TEXT, visit)
         // by default breaks on template YAY! 🎉
 
-    var node
-    while (node = walker.nextNode ()) { nodes.push (node) }
+    var
+      node
+    , nodes = []
 
-    return nodes.map (function (node) { return Text.prototype.tokens.call (node); })
+    while (node = walker.nextNode ())
+      { nodes.push (node) }
+
+    return nodes
+  };
+
+  prototypeAccessors.tokens.get = function () {
+    return this._tokens
+      || (this._tokens = new TokenList (this.texts))
   };
 
     Object.defineProperties( anonymous.prototype, prototypeAccessors );
@@ -100,32 +118,6 @@ var EventTarget = function (Node) { return ((function (Node) {
     {
     if ( listener === void 0 ) listener = 'on' + this$1 [event];
  this.addEventListener (event, listener) };
-
-  anonymous.prototype.mute = function (event, listener)
-    // MDN EventTarget.removeEventListener
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
-    //
-    // WHATWG Living Standard EventTarget.removeEventListener
-    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
-    //
-    // DOM Level 2 EventTarget.removeEventListener
-    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
-
-    {
-    if ( listener === void 0 ) listener = 'on' + this$1 [event];
- this.removeEventListener (event, listener) };
-
-  anonymous.prototype.dispatch = function (event)
-    // MDN EventTarget.dispatchEvent
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
-    //
-    // WHATWG Living Standard EventTarget.dispatchEvent
-    // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
-    //
-    // DOM Level 2 EventTarget.dispatchEvent
-    //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
-
-    { };
 
     return anonymous;
   }(Node))); }
@@ -185,16 +177,13 @@ var GlobalEventHandlers = function (Node) { return ((function (Node) {
 
   // custom element reactions
   anonymous.prototype.connectedCallback = function () {
-    this.render () // this should go into render module?
-
     void ( Node.prototype.constructor.onconnect
       || Node.prototype.connectedCallback
       || function noop () {}
     ).call (this)
-  };
 
-  anonymous.prototype.adoptedCallback = function ()
-    { console.warn ('adopted this', this) };
+    this.render ()
+  };
 
   staticAccessors.observedAttributes.get = function () { return ['id'] };
   anonymous.prototype.attributeChangedCallback = function (property, previous, next)
@@ -206,33 +195,37 @@ var GlobalEventHandlers = function (Node) { return ((function (Node) {
   }(Node))); }
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
-var Element = function
-// Custom elements polyfill
-// https://github.com/webcomponents/custom-elements/blob/master/src/custom-elements.js
-// https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
-// https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
-// Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
-//https://gist.github.com/allenwb/53927e46b31564168a1d
+var Element = function (
+  // Custom elements polyfill
+  // https://github.com/webcomponents/custom-elements/blob/master/src/custom-elements.js
+  // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
+  // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
+  // Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
+  //https://gist.github.com/allenwb/53927e46b31564168a1d
 
-(tag, registry) {
-  if ( tag === void 0 ) tag = Array.isArray (arguments [0]) ? arguments [0][0] : arguments [0];
+  tag
+
+, registry
+) {
+  if ( tag === void 0 ) tag = Array.isArray
+    (arguments [0]) ? arguments [0][0] : arguments [0];
   if ( registry === void 0 ) registry = window.customElements;
 
 
   return function // https://en.wikipedia.org/wiki/Higher-order_function
-    (prototype, self)
+    (HTMLElement, self)
   {
     if ( self === void 0 ) self = ! (this === window) ? this : {};
  // Should this be a class❓❓❓❓
 
     try
-      { if (! prototype) { return new registry.get (tag) } }
+      { if (! HTMLElement) { return new registry.get (tag) } }
 
     catch (_)
-      { throw 'Must define custom element \n(i.e. Element `'+tag+'` (class {})' }
+      { throw 'Undefined Element `'+tag+'` (class {})' }
 
     var HTMLCustomElement = (function (superclass) {
-      function HTMLCustomElement   () { superclass.call (this) && superclass.prototype.initialize && superclass.prototype.initialize.call (this) }
+      function HTMLCustomElement () { superclass.call (this) && superclass.prototype.initialize.call (this) }
 
       if ( superclass ) HTMLCustomElement.__proto__ = superclass;
       HTMLCustomElement.prototype = Object.create( superclass && superclass.prototype );
@@ -240,19 +233,16 @@ var Element = function
 
       var prototypeAccessors = { context: {},templates: {} };
 
-      prototypeAccessors.context.get = function () { return self };
-      prototypeAccessors.templates.get = function () { return this.selectAll ('template') };
+      HTMLCustomElement.prototype.render = function () { this.tokens.bind (this.context) };
 
-      HTMLCustomElement.prototype.render = function (selector) {
-        var
-          node = selector ? this.select (selector) : this
-        , template = superclass.prototype.render && superclass.prototype.render.call (this, selector) // or a bonafied Template
-      };
+      prototypeAccessors.context.get = function () { return self };
+      prototypeAccessors.context.set = function (value) { self = value };
+      prototypeAccessors.templates.get = function () { return this.selectAll ('template') };
 
       Object.defineProperties( HTMLCustomElement.prototype, prototypeAccessors );
 
       return HTMLCustomElement;
-    }((GlobalEventHandlers (EventTarget (ParentNode (prototype))))));
+    }((GlobalEventHandlers (EventTarget (ParentNode (HTMLElement))))));
 
     try
       { registry.define (tag, HTMLCustomElement) }
@@ -263,7 +253,7 @@ var Element = function
 }
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
-Element.prototype = window.Element.prototype
+Element.prototype = ElementPrototype
   // http://2ality.com/2013/09/window.html
   // http://tobyho.com/2013/03/13/window-prop-vs-global-var
   // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
