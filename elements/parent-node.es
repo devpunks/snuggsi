@@ -1,13 +1,37 @@
-class Text extends window.Text {
-  tokens () {
+class TokenList {
+
+  constructor (nodes) {
     const
-      nodes  = []
-    , filter = /({\w+})/g
-    , text   = this.textContent
+      symbolize = symbol =>
+        symbol.match (/(\w+)/g) [0]
 
-    Array.from (filter.exec (text))
+    , insert = token =>
+        symbol => this [symbol] = token
 
-    return this
+    , tokenize = token =>
+        token.textContent.match (/{(\w+)}/g)
+          .map (symbolize)
+          .map (insert (token))
+
+    , textify = node =>
+        (node.text = node.data) && node
+
+    nodes
+      .map (textify)
+      .map (tokenize)
+  }
+
+
+  bind (context, node) {
+
+    for (const property in this)
+      node = this [property]
+      , node.data = node.text
+
+    for (const property in this)
+      node = this [property]
+      , node.data = node.data
+        .replace ('{'+property+'}', context [property])
   }
 }
 
@@ -41,11 +65,9 @@ const ParentNode = Node =>
   // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
   select (selector) { return this.selectAll (selector) [0] }
 
-  get symbolizedTextNodes () {
-
+  get texts () {
     const
-      nodes  = []
-    , visit  = (node, filter = /({\w+})/g) =>
+      visit = (node, filter = /({\w+})/g) =>
         filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
           && NodeFilter.FILTER_ACCEPT
 
@@ -53,10 +75,19 @@ const ParentNode = Node =>
         (this, NodeFilter.SHOW_TEXT, visit)
         // by default breaks on template YAY! 🎉
 
-    let node
-    while (node = walker.nextNode ()) nodes.push (node)
+    let
+      node
+    , nodes = []
 
-    return nodes.map (node => Text.prototype.tokens.call (node))
+    while (node = walker.nextNode ())
+      nodes.push (node)
+
+    return nodes
+  }
+
+  get tokens () {
+    return this._tokens
+      || (this._tokens = new TokenList (this.texts))
   }
 })
 
