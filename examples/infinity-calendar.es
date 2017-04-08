@@ -1,14 +1,22 @@
-Element `infinity-calendar`.
-
-bind ( { date : new Date, height: '50vh' } )
+Element `infinity-calendar`
 
 (class extends HTMLElement {
 
-  static get date  () { return new Date }
-  static get month () { this.day.getMonth () }
-  static get year  () { this.day.getYear () }
+  static get date   () { return new Date }
+  static get year   () { return this.date.getFullYear () }
+  static get month  () { return this.months [this.date.getMonth ()] }
+  static get months () {
+    return [
+      'January', 'February', 'March', 'April', 'May',
+      'June', 'July','August','September','October','December' ]
+  }
 
-  initialize () { console.log ('initialize') }
+  initialize () {
+    console.time ()
+    const i = this.symbolizedTextNodes
+    console.timeEnd ()
+    console.log (i)
+  }
 
   get days () {
     const
