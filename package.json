@@ -37,7 +37,7 @@
       "npm run bundle && node ./transpile.es > ./dist/snuggsi.js && npm run uglify && npm run gzip && npm run weigh",
 
     "bundle":
-      "cat elements/parent-node.es elements/global-event-handlers.es elements/element.es > dist/snuggsi.es",
+      "cat elements/parent-node.es elements/event-target.es elements/global-event-handlers.es elements/element.es elements/template.es > dist/snuggsi.es",
 
     "uglify":
       "uglifyjs ./dist/snuggsi.js -c -m -o ./dist/snuggsi.min.js",
