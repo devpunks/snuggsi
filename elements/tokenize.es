@@ -1,37 +1,49 @@
-function tokenize (fragment) {
-  const
-    tokens = []
+const Tokenizer = Text =>
 
-  , tail = (text, sibling) =>
-      (text.after (sibling), sibling)
+(class extends Text {
+//      tokens = []
+//    , symbol = /({\w+})/
 
-  // https://www.merriam-webster.com/dictionary/sift
-  , sift = text => text
-     .textContent.match (/({\w+})/) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-      && (tokens [tokens.length] = text)
-      || text
+  tokenize () {
+    const
+      tail = (text, sibling) => // https://en.wikipedia.org/wiki/Tail_call
+        (text.after (sibling), sibling)
 
-  for (match of mine (fragment))
-    slice (match.textContent)
-      .map (sift)
-      .reduce (tail, match)
-    , match.remove ()
+  //    , sift = text =>  // https://www.merriam-webster.com/dictionary/sift
+  //        symbol.exec (text.textContent) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+  //          && (tokens [tokens.length] = text)
+  //          || text
 
-  return tokens
+    for (const match of walked)
+      slice (match.textContent)
+  //        .map (sift)
+        .reduce (tail, match)
+      , match.remove ()
 
-  // deconstruct
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+    const objectify = tokens =>
+      tokens.reduce ( (object, token) =>
+        (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object
+      , {})
+    var obj = objectify (tokens)
+    for (const key in obj)
+      obj [key].textContent = fragment.constructor [key]
 
-    // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/after
-    // Would like to use children
-    // to use Element.insertAdjacentElement ('afterend', text)
-    // https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
-    // however, text is a Node not an Element
-    // WARNING: NO DocumentFragment support
-    // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children#Browser_compatibility
-    // https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore
+     return tokens
+
+    // deconstruct
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+
+      // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/after
+      // Would like to use children
+      // to use Element.insertAdjacentElement ('afterend', text)
+      // https://developer.mozilla.org/en-US/docs/Web/API/Element/insertAdjacentElement
+      // however, text is a Node not an Element
+      // WARNING: NO DocumentFragment support
+      // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode/children#Browser_compatibility
+      // https://developer.mozilla.org/en-US/docs/Web/API/Node/insertBefore
     // BENCHMARK: https://jsperf.com/insertadjacenthtml-perf/3
-}
+  }
+})
 
 function zip
   (...elements) { const zipper = []
@@ -49,7 +61,7 @@ function zip
 function slice
   (text) { const tokens  = []
 
- , match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
+ , match     = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
   , replace  = token => (collect (token), '✂️')
   , collect  = token => tokens.push (token)
   , sections = text
@@ -61,34 +73,3 @@ function slice
         .map (element => new Text (element))
 }
 
-function mine // https://www.merriam-webster.com/dictionary/comb#h2
-// http://jsfiddle.net/zaqtg/10
-// http://stackoverflow.com/questions/2579666/getelementsbytagname-equivalent-for-textnodes#answer-2579869
-// https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
-// https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
-// https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-// https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
-// NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
-
-(head) {
-  const nodes = []
-  const walker = document.createNodeIterator
-      (head, NodeFilter.SHOW_TEXT, visit)
-      // by default breaks on template YAY! 🎉
-
-  while (node = walker.nextNode ()) nodes.push (node)
-  return nodes
-}
-
-const tail = (text, sibling) => (text.after (sibling), sibling)
-
-function visit (node) {
-  return /({\w+})/g.test (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-    && NodeFilter.FILTER_ACCEPT // <😕  is this even necessary?
-}
-
-function comb (parent) {
-  if (parent.hasChildNodes())
-    for (let node = parent.firstChild; node; node = node.nextSibling)
-      DOMComb (node)
-}
