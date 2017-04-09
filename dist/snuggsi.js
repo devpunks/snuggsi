@@ -32,6 +32,8 @@ TokenList.prototype.bind = function (context, node) {
     { node = this$1 [property$1]
     , node.data = node.data
       .replace ('{'+property$1+'}', context [property$1]) }
+
+  return this
 };
 
 var ParentNode = function (Node) { return ((function (Node) {
@@ -105,16 +107,10 @@ var EventTarget = function (Node) { return ((function (Node) {
     anonymous.prototype = Object.create( Node && Node.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.listenable = function (nodes) {
-//  return Array.prototype.map
-//    .call (nodes, node => Object.assign
-//      (node, {listen: this.listen.bind(this)})) // MUTATES!
-    return nodes
-  };
+    anonymous.prototype.listen = function (event, listener)
 
-  anonymous.prototype.listen = function (event, listener)
-    // MDN EventTarget.removeEventListener
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+    // MDN EventTarget.addEventListener
+    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
     //
     // WHATWG Living Standard EventTarget.addEventListener
     // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
@@ -130,7 +126,7 @@ var EventTarget = function (Node) { return ((function (Node) {
   }(Node))); }
 var GlobalEventHandlers = function (Node) { return ((function (Node) {
     function anonymous () { Node.call (this)
-    this.mirror (EventTarget)
+    this.register (this.querySelectorAll ('*'))
   }
 
     if ( Node ) anonymous.__proto__ = Node;
@@ -139,7 +135,23 @@ var GlobalEventHandlers = function (Node) { return ((function (Node) {
 
     var staticAccessors = { observedAttributes: {} };
 
-  anonymous.prototype.mirror = function (target) {
+  anonymous.prototype.register = function (nodes) {
+    console.log ('what', nodes)
+
+    var exclude =
+      ['template', 'link', 'style', 'script']
+
+    , blacklist = function (element) { return ! exclude.includes
+            (element.tagName.toLowerCase ()); }
+
+    var a = [this ].concat( (Array.from (nodes)))
+      .filter (blacklist)
+      .map (this.mirror, this)
+
+    return this
+  };
+
+  anonymous.prototype.mirror = function (node) {
     var
       filter   = /^on/
     , onevents = function (name) { return filter.exec (name); }
@@ -165,13 +177,15 @@ var GlobalEventHandlers = function (Node) { return ((function (Node) {
             || this [name]
       }; }
 
-    , implicit = events (EventTarget)
-    , explicit = Array.from (this.attributes)
+    , implicit = events (Node)
+    , explicit = Array.from (node.attributes)
         .map  (function (attr) { return attr.name; })
         .filter (onevents)
 
+    console.log(Node.onclick, explicit)
+
     void [implicit.filter (subtract (explicit)), explicit]
-      .map ( reflect (this), target )
+      .map ( reflect (this), Node )
   };
 
   // custom element reactions
@@ -232,7 +246,7 @@ var Element = function (
 
       var prototypeAccessors = { context: {},templates: {} };
 
-      HTMLCustomElement.prototype.render = function () { this.tokens.bind (this.context) && this.register () };
+      HTMLCustomElement.prototype.render = function () { this.tokens.bind (this.context) };
 
       prototypeAccessors.context.get = function () { return self };
       prototypeAccessors.context.set = function (value) { self = value };
