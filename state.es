@@ -1,7 +1,3 @@
-// ONLY UPDATES CHANGED PROPERTY
-// Also we don't add a <span> around changed fields.
-// Does React still do this? https://www.youtube.com/watch?v=qh3dYM6Keuw
-
 function State
 
   // https://en.wikipedia.org/wiki/Immutable_object
