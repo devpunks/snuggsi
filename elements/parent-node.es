@@ -32,6 +32,8 @@ class TokenList {
       node = this [property]
       , node.data = node.data
         .replace ('{'+property+'}', context [property])
+
+    return this
   }
 }
 
