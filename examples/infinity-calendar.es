@@ -2,6 +2,10 @@ Element `infinity-calendar`
 
 (class extends HTMLElement {
 
+  static get onclick () { console.log (event) }
+
+  static get onchange () { console.log (event) }
+
   static get date   () { return new Date }
   static get year   () { return this.date.getFullYear () }
   static get month  () { return this.months [this.date.getMonth ()] }

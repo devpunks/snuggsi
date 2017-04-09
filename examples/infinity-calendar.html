@@ -17,12 +17,12 @@
   <h2>Infinity Calendar</h2>
 </hgroup>
 
-<infinity-calendar for=date>
+<infinity-calendar for=date onchange=what>
   <header>{month} {year}</header>
 
   <menu>
-    <button>Previous</button>
-    <button>Next</button>
+    <button onclick=onprevious>Previous</button>
+    <button onclick=onnext>Next</button>
   </menu>
 
   <template name='days'>
