@@ -4,34 +4,38 @@
 //
 // https://en.wikipedia.org/wiki/Immutable_object
 // https://en.wikipedia.org/wiki/Persistent_data_structure
+
 function State ( context, handler = _ => {} ) {
   this.subscribe = callback => handler = callback
 
   const
-    history = new Array (context)
+    history = [context]
+
   , clone   = context => JSON.parse
       (JSON.stringify (context))
 
-  , thunk = property =>
-      [ property,
-        {
-          get: _ => history
-            [history.length-1] [property],
+  , descriptor = property =>
+      {
+        get: _ => history
+          [history.length-1] [property],
 
-          set (value) {
-            const next  = clone
-              (previous = history [history.length-1])
+        set (value) {
+          const next  = clone
+            (previous = history [history.length-1])
 
-            next [property] = value
-            handler (previous, next)
-            history [history.length] = next
-          }
+          next [property] = value
+          handler (previous, next)
+          history [history.length] = next
         }
-      ]
+      }
+
+  , describe = property =>
+      [ property, descriptor (property)]
 
   for (property in context)
-    //http://www.ecma-international.org/ecma-262/5.1/#sec-15.2.3.6
+    // http://www.ecma-international.org/ecma-262/5.1/#sec-15.2.3.6
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
-    Object.defineProperty (this, ...thunk (property))
+    Object.defineProperty (this, ...describe (property))
 }
