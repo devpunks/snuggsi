@@ -11,7 +11,7 @@ const Element = function (
   tag = Array.isArray
     (arguments [0]) ? arguments [0][0] : arguments [0]
 
-, registry = window.customElements
+, CustomElementRegistry = window.customElements
 ) {
 
   return function // https://en.wikipedia.org/wiki/Higher-order_function
@@ -19,10 +19,10 @@ const Element = function (
   { // Should this be a class❓❓❓❓
 
     try
-      { if (! HTMLElement) return new registry.get (tag) }
+      { return new CustomElementRegistry.get (tag) }
 
     catch (_)
-      { throw 'Undefined Element `'+tag+'` (class {})' }
+      { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
 
     class HTMLCustomElement extends // mixins
       (GlobalEventHandlers (EventTarget (ParentNode (HTMLElement))))
@@ -38,10 +38,10 @@ const Element = function (
     }
 
     try
-      { registry.define (tag, HTMLCustomElement) }
+      { CustomElementRegistry.define (tag, HTMLCustomElement) }
 
     finally
-      { return registry.get (tag) }
+      { return CustomElementRegistry.get (tag) }
   }
 }
 
