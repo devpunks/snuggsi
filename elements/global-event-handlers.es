@@ -1,4 +1,5 @@
 const GlobalEventHandlers = Node =>
+
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
   //
@@ -11,30 +12,44 @@ const GlobalEventHandlers = Node =>
   // MDN on* Events
   // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
   //
-  // Traditional Event Registration - http://www.quirksmode.org/js/events_tradmod.html
+  // DOM Level 0
+  // This event handling model was introduced by Netscape Navigator,
+  // and remains the most cross-browser model as of 2005
+  // https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#DOM_Level_0
+  //
+  // Inline Model
+  // https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#Inline_model
+  //
+  // Traditional Model
+  // https://en.wikipedia.org/wiki/DOM_events#Traditional_model
+  //
+  // Traditional Registration
+  // http://www.quirksmode.org/js/events_tradmod.html
 
 (class extends Node {
-  // DOM Levels
-  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-  //
-  // DOM Level 2 EventTarget
-  // (AKA Str🎱  W3C #fockery) ➡️  https://annevankesteren.nl/2016/01/film-at-11
-  // 😕  https://w3c.github.io/uievents/DOM3-Events.html#interface-EventTarget
-  //❓❓ https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
-  // Within https://w3c.github.io/uievents/#conf-interactive-ua
-  // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
-  //
-  // WHATWG EventTarget
-  // https://dom.spec.whatwg.org/#interface-eventtarget
-  //
-  // MDN EventTarget
-  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
 
   constructor () { super ()
-    this.mirror (EventTarget)
+    this.register (this.querySelectorAll ('*'))
   }
 
-  mirror (target) {
+  register (nodes) {
+    console.log ('what', nodes)
+
+    const exclude =
+      ['template', 'link', 'style', 'script']
+
+    , blacklist = element =>
+        ! exclude.includes
+            (element.tagName.toLowerCase ())
+
+    var a = [this, ...(Array.from (nodes))]
+      .filter (blacklist)
+      .map (this.mirror, this)
+
+    return this
+  }
+
+  mirror (node) {
     const
       filter   = /^on/
     , onevents = name => filter.exec (name)
@@ -58,19 +73,15 @@ const GlobalEventHandlers = Node =>
             || this [name]
       }
 
-    , implicit = events (EventTarget)
-    , explicit = Array.from (this.attributes)
+    , implicit = events (Node)
+    , explicit = Array.from (node.attributes)
         .map  (attr => attr.name)
         .filter (onevents)
 
-    void [implicit.filter (subtract (explicit)), explicit]
-      .map ( reflect (this), target )
-  }
+    console.log(Node.onclick, explicit)
 
-  listenable (nodes) {
-    return Array.prototype.map
-      .call (nodes, node => Object.assign
-        (node, {listen: this.listen.bind(this)})) // MUTATES!
+    void [implicit.filter (subtract (explicit)), explicit]
+      .map ( reflect (this), Node )
   }
 
   // custom element reactions
