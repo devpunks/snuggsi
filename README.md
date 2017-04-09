@@ -1,4 +1,4 @@
-# ツ snuggsi - Easy Web Components
+# snuggsi ツ - Easy Web Components
 
 https://w3c.github.io/webcomponents/spec/custom
 
