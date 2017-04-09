@@ -31,7 +31,7 @@ function State ( context, handler = _ => {} ) {
 
   for (property in context)
     //http://www.ecma-international.org/ecma-262/5.1/#sec-15.2.3.6
-    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
     // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
     Object.defineProperty (this, ...thunk (property))
 }
