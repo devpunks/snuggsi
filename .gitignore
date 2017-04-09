@@ -12,3 +12,4 @@ Gemfile*
 Rakefile
 snuggsi-*.gem
 snuggsi.gemspec
+notification.es
