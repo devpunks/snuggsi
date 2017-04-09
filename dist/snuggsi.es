@@ -118,6 +118,13 @@ const EventTarget = Node =>
 
 (class extends Node {
 
+  listenable (nodes) {
+//  return Array.prototype.map
+//    .call (nodes, node => Object.assign
+//      (node, {listen: this.listen.bind(this)})) // MUTATES!
+    return nodes
+  }
+
   listen (event, listener = 'on' + this [event])
     // MDN EventTarget.removeEventListener
     // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
@@ -223,12 +230,6 @@ const GlobalEventHandlers = Node =>
       .map ( reflect (this), target )
   }
 
-  listenable (nodes) {
-    return Array.prototype.map
-      .call (nodes, node => Object.assign
-        (node, {listen: this.listen.bind(this)})) // MUTATES!
-  }
-
   // custom element reactions
   connectedCallback () {
     void ( super.constructor.onconnect
@@ -256,7 +257,7 @@ const Element = function (
   tag = Array.isArray
     (arguments [0]) ? arguments [0][0] : arguments [0]
 
-, registry = window.customElements
+, CustomElementRegistry = window.customElements
 ) {
 
   return function // https://en.wikipedia.org/wiki/Higher-order_function
@@ -264,10 +265,10 @@ const Element = function (
   { // Should this be a class❓❓❓❓
 
     try
-      { if (! HTMLElement) return new registry.get (tag) }
+      { return new CustomElementRegistry.get (tag) }
 
     catch (_)
-      { throw 'Undefined Element `'+tag+'` (class {})' }
+      { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
 
     class HTMLCustomElement extends // mixins
       (GlobalEventHandlers (EventTarget (ParentNode (HTMLElement))))
@@ -275,7 +276,7 @@ const Element = function (
 
       constructor () { super () && super.initialize () }
 
-      render () { this.tokens.bind (this.context) }
+      render () { this.tokens.bind (this.context) && this.register () }
 
       get context () { return self }
       set context (value) { self = value }
@@ -283,10 +284,10 @@ const Element = function (
     }
 
     try
-      { registry.define (tag, HTMLCustomElement) }
+      { CustomElementRegistry.define (tag, HTMLCustomElement) }
 
     finally
-      { return registry.get (tag) }
+      { return CustomElementRegistry.get (tag) }
   }
 }
 

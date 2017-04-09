@@ -105,7 +105,14 @@ var EventTarget = function (Node) { return ((function (Node) {
     anonymous.prototype = Object.create( Node && Node.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.listen = function (event, listener)
+    anonymous.prototype.listenable = function (nodes) {
+//  return Array.prototype.map
+//    .call (nodes, node => Object.assign
+//      (node, {listen: this.listen.bind(this)})) // MUTATES!
+    return nodes
+  };
+
+  anonymous.prototype.listen = function (event, listener)
     // MDN EventTarget.removeEventListener
     // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
     //
@@ -167,14 +174,6 @@ var GlobalEventHandlers = function (Node) { return ((function (Node) {
       .map ( reflect (this), target )
   };
 
-  anonymous.prototype.listenable = function (nodes) {
-    var this$1 = this;
-
-    return Array.prototype.map
-      .call (nodes, function (node) { return Object.assign
-        (node, {listen: this$1.listen.bind(this$1)}); }) // MUTATES!
-  };
-
   // custom element reactions
   anonymous.prototype.connectedCallback = function () {
     void ( Node.prototype.constructor.onconnect
@@ -205,11 +204,11 @@ var Element = function (
 
   tag
 
-, registry
+, CustomElementRegistry
 ) {
   if ( tag === void 0 ) tag = Array.isArray
     (arguments [0]) ? arguments [0][0] : arguments [0];
-  if ( registry === void 0 ) registry = window.customElements;
+  if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
 
 
   return function // https://en.wikipedia.org/wiki/Higher-order_function
@@ -219,10 +218,10 @@ var Element = function (
  // Should this be a class❓❓❓❓
 
     try
-      { if (! HTMLElement) { return new registry.get (tag) } }
+      { return new CustomElementRegistry.get (tag) }
 
     catch (_)
-      { throw 'Undefined Element `'+tag+'` (class {})' }
+      { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
 
     var HTMLCustomElement = (function (superclass) {
       function HTMLCustomElement () { superclass.call (this) && superclass.prototype.initialize.call (this) }
@@ -233,7 +232,7 @@ var Element = function (
 
       var prototypeAccessors = { context: {},templates: {} };
 
-      HTMLCustomElement.prototype.render = function () { this.tokens.bind (this.context) };
+      HTMLCustomElement.prototype.render = function () { this.tokens.bind (this.context) && this.register () };
 
       prototypeAccessors.context.get = function () { return self };
       prototypeAccessors.context.set = function (value) { self = value };
@@ -245,10 +244,10 @@ var Element = function (
     }((GlobalEventHandlers (EventTarget (ParentNode (HTMLElement))))));
 
     try
-      { registry.define (tag, HTMLCustomElement) }
+      { CustomElementRegistry.define (tag, HTMLCustomElement) }
 
     finally
-      { return registry.get (tag) }
+      { return CustomElementRegistry.get (tag) }
   }
 }
 
