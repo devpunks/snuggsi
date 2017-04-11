@@ -9,7 +9,8 @@
   },
   "homepage": "https://github.com/devpunks/snuggsi#readme",
   "engines": {
-    "node": "7.3.x"
+    "node": "7.8.x",
+    "npm": "4.2.0"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
   },
   "scripts": {
     "postinstall": "[ \"$NODE_ENV\" != production ] && npm ln ../jsdom && npm ln ../buble-tape",
+    "start": "./index.js",
     "test": "node --use_strict index.test.es",
     "watch": "node watch.es",
 
