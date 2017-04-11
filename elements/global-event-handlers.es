@@ -35,15 +35,15 @@ const GlobalEventHandlers = Node =>
   register (nodes) {
     console.log ('what', nodes)
 
-    const exclude =
+    const blacklist =
       ['template', 'link', 'style', 'script']
 
-    , blacklist = element =>
-        ! exclude.includes
+    , blacklisted = element =>
+        !!! blacklist.includes
             (element.tagName.toLowerCase ())
 
     var a = [this, ...(Array.from (nodes))]
-      .filter (blacklist)
+      .filter (blacklisted)
       .map (this.mirror, this)
 
     return this
