@@ -32,37 +32,23 @@ const GlobalEventHandlers = Node =>
     this.register (this.querySelectorAll ('*'))
   }
 
-  register (nodes) {
-    console.log ('what', nodes)
+  register (nodes) { this.mirror ()
+    const
+      blacklisted = element => !!!
+        ['template', 'link', 'style', 'script']
+          .includes (element.tagName.toLowerCase ())
 
-    const blacklist =
-      ['template', 'link', 'style', 'script']
-
-    , blacklisted = element =>
-        !!! blacklist.includes
-            (element.tagName.toLowerCase ())
-
-    var a = [this, ...(Array.from (nodes))]
+    Array.from (nodes)
       .filter (blacklisted)
       .map (this.mirror, this)
-
-    return this
   }
 
-  mirror (node) {
+  mirror (node = this) {
     const
       filter   = /^on/
-    , onevents = name => filter.exec (name)
-    , events   = prototype => introspect (prototype).filter (onevents)
-
-    , subtract = list =>
-        item => list.indexOf (item) < 0
-
-    , introspect = (prototype = Element) =>
-        Object.getOwnPropertyNames (prototype)
 
     , reflect = self => function (events) {
-        events
+        return events
           .filter (name => self [name] !== undefined)
           .map (delegate (self), this)
     }
@@ -73,15 +59,26 @@ const GlobalEventHandlers = Node =>
             || this [name]
       }
 
-    , implicit = events (Node)
-    , explicit = Array.from (node.attributes)
-        .map  (attr => attr.name)
-        .filter (onevents)
+    , onevents = name =>
+        filter.exec (name)
 
-    console.log(Node.onclick, explicit)
+    , handlers =
+        Object.getOwnPropertyNames
+          (Node).filter (onevents)
 
-    void [implicit.filter (subtract (explicit)), explicit]
-      .map ( reflect (this), Node )
+    , explicit = event =>
+        properties.indexOf (event) >= 0
+
+    , properties = Array.from
+        (node.attributes)
+          .map (attr => attr.name)
+          .filter (onevents)
+
+
+    console.log('Node onclick', handlers.filter (explicit))//, handlers.filter (properties) ) //, implicit)
+
+//  void [implicit, explicit]
+//    .map ( reflect (this), Node )
   }
 
   // custom element reactions
