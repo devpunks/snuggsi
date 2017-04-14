@@ -29,23 +29,39 @@ const GlobalEventHandlers = Node =>
 (class extends Node {
 
   constructor () { super ()
-    this.register (this.querySelectorAll ('*'))
+    this.mirror   ()
+    this.register ()
   }
 
-  register (nodes) { this.mirror ()
+  register () {
     const
-      blacklisted = element => !!!
-        ['template', 'link', 'style', 'script']
-          .includes (element.tagName.toLowerCase ())
+      selector = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
+        ':not(script):not(template):not(style):not(link)'
 
-    Array.from (nodes)
-      .filter (blacklisted)
-      .map (this.mirror, this)
+    , nodes = // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator#A_more_powerful_array_literal
+        [ this, ... ( Array.from ( this.querySelectorAll (selector))) ]
+
+    console.log (nodes)
   }
 
-  mirror (node = this) {
+  mirror () {
+
     const
-      filter   = /^on/
+      filter = /^on/
+
+    , onevents = name =>
+        filter.exec (name)
+
+    , handlers =
+        Object.getOwnPropertyNames (Node)
+          .filter (onevents)
+
+    , properties = Array.from (this.attributes)
+        .map (attr => attr.name)
+        .filter (onevents)
+
+    , explicit = event =>
+        properties.indexOf (event) >= 0
 
     , reflect = self => function (events) {
         return events
@@ -59,22 +75,6 @@ const GlobalEventHandlers = Node =>
             || this [name]
       }
 
-    , onevents = name =>
-        filter.exec (name)
-
-    , handlers =
-        Object.getOwnPropertyNames
-          (Node).filter (onevents)
-
-    , explicit = event =>
-        properties.indexOf (event) >= 0
-
-    , properties = Array.from
-        (node.attributes)
-          .map (attr => attr.name)
-          .filter (onevents)
-
-
     console.log('Node onclick', handlers.filter (explicit))//, handlers.filter (properties) ) //, implicit)
 
 //  void [implicit, explicit]
@@ -83,6 +83,7 @@ const GlobalEventHandlers = Node =>
 
   // custom element reactions
   connectedCallback () {
+
     void ( super.constructor.onconnect
       || super.connectedCallback
       || function noop () {}
