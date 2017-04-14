@@ -16,23 +16,29 @@ Element `infinity-calendar`
   }
 
   initialize () {
-    this.context = {month: this.constructor.month, year: this.constructor.year}
+    this.context = {
+      month: this.constructor.month,
+      year:  this.constructor.year
+    }
   }
 
   get days () {
     const
-      date =
-        new Date
-          (this.context.date.getYear (), this.context.date.getMonth () + 1, 0)
-    , dates = []
+      dates = []
+    , date =
+        new Date (
+          this.context.date.getYear ()
+        , this.context.date.getMonth () + 1
+        , 0
+        )
+
+    , days  =  day => { day: new Date(day).getDate () }
 
     for (let day=1; day <= date.getDate (); day++){
       let daily = new Date (date.getTime ())
       dates.push (daily.setDate (day))
     }
 
-    const collection = []
-    return dates.map
-      (function (day) { return { day: new Date(day).getDate () }})
+    return dates.map (days)
   }
 })
