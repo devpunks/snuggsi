@@ -25,7 +25,7 @@ const Element = function (
       { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
 
     class HTMLCustomElement extends // mixins
-      (GlobalEventHandlers (EventTarget (ParentNode (HTMLElement))))
+      (EventTarget (ParentNode (GlobalEventHandlers (HTMLElement))))
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
       constructor () { super () && super.initialize () }
