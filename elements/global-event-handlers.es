@@ -1,4 +1,4 @@
-const GlobalEventHandlers = Node =>
+const GlobalEventHandlers = prototype =>
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -26,73 +26,78 @@ const GlobalEventHandlers = Node =>
   // Traditional Registration
   // http://www.quirksmode.org/js/events_tradmod.html
 
-(class extends Node {
+(class extends prototype {
 
   constructor () { super ()
-    this.mirror   ()
-    this.register ()
-  }
-
-  register () {
-    const
-      selector = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
-        ':not(script):not(template):not(style):not(link)'
-
-    , nodes = // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator#A_more_powerful_array_literal
-        [ this, ... ( Array.from ( this.querySelectorAll (selector))) ]
-
-    console.log (nodes)
-  }
-
-  mirror () {
 
     const
-      filter = /^on/
+      events =
+        event =>
+          /^on/.exec (event)
 
-    , onevents = name =>
-        filter.exec (name)
-
-    , handlers =
-        Object.getOwnPropertyNames (Node)
-          .filter (onevents)
-
-    , properties = Array.from (this.attributes)
-        .map (attr => attr.name)
-        .filter (onevents)
-
-    , explicit = event =>
-        properties.indexOf (event) >= 0
-
-    , reflect = self => function (events) {
-        return events
-          .filter (name => self [name] !== undefined)
-          .map (delegate (self), this)
-    }
-
-    , delegate = self => function (name) {
-        self [name] = self
-          [(/{\s*(\w+)\s*}/.exec (self [name]) || Array (2)) [1]]
-            || this [name]
-      }
-
-    console.log('Node onclick', handlers.filter (explicit))//, handlers.filter (properties) ) //, implicit)
-
-//  void [implicit, explicit]
-//    .map ( reflect (this), Node )
+    this
+      .register (events)
+      .mirror (events)
   }
 
-  // custom element reactions
-  connectedCallback () {
+  mirror (events) {
 
-    void ( super.constructor.onconnect
-      || super.connectedCallback
-      || function noop () {}
-    ).call (this)
+    Object
+      .getOwnPropertyNames (prototype)
+      .filter (events)
+      .forEach (handler => !!! this [handler] && (this [handler] = prototype [handler]))
 
-    this.render ()
+    return this
   }
 
-  static get observedAttributes () { return ['id'] }
-  attributeChangedCallback (property, previous, next)
-    { console.warn ('['+property+'] ['+previous+'] to ['+next+']') }
+  register (events) {
+
+    let
+      nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
+        // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
+        // If we can do this we can only retrieve the elements that have a traditional inline event.
+        // This is theoretically more performant as most elements won't need traditional event registration.
+        ':not(script):not(template):not(style):not(link)' // remove metadata elements
+
+    , children =
+        Array
+          .from (this.querySelectorAll (nodes))
+
+    , registered = node =>
+        Array.from (node.attributes)
+          .map (attr => attr.name)
+          .filter (events)
+          .length > 0
+
+    , handle =
+        (event, handler = (/{\s*(\w+)\s*}/.exec (event) || []) [1])  =>
+
+          handler
+            && prototype [ handler ]
+            || event
+            || null
+
+    , reflect =
+        self => // `this` closure
+          node =>
+
+            Array
+              .from (node.attributes)
+              .map (attr => attr.name)
+              .filter (events)
+              .filter (name => this [name] !== undefined)
+              .map (reflection (node))
+
+    , reflection =
+        node => // closure
+          event =>
+            { node [event] = handle (node [event]) }
+
+    [this]
+      .concat (children)
+      .filter (registered)
+      .map (reflect (this))
+
+    return this
+  }
 })
