@@ -1,5 +1,77 @@
 
 var this$1 = this;
+var Template = function ( name ) {
+  if ( name === void 0 ) name = 'snuggsi';
+
+  return Object.assign (factory.apply (void 0, name), { bind: bind })
+
+  function bind (context) {
+    var this$1 = this;
+
+    context = (Array.isArray (context) ? context : [context])
+
+    var
+      tokens   = []
+    , rendered = context
+        .map (function (context) { return this$1.content.cloneNode (true); })
+        .map (collect, tokens)
+
+    this.innerHTML = ''
+    for (var i = 0, list = rendered; i < list.length; i += 1) {
+      var frame = list[i];
+
+      this$1.content.appendChild (frame)
+    }
+
+    return context.map(transfer, tokens) && this
+  }
+
+  function factory (name) {
+    return (
+       document.querySelector ('template[name='+name+']').cloneNode (true)
+    || document.createElement ('template')
+  )}
+
+  function collect (fragment) {
+    var objectify = function (tokens) { return tokens.reduce ( function (object, token) { return (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object; }
+      , {}); }
+
+    return this.push (objectify (tokenize (fragment))) && fragment
+  }
+
+  function transfer (context, index) {
+    var this$1 = this;
+
+    for (var property in context) { this$1 [index]
+      [property] && (this$1 [index] [property].textContent = context [property]) }
+  }
+}
+var EventTarget = function (Node) { return ((function (Node) {
+    function anonymous () {
+      Node.apply(this, arguments);
+    }
+
+    if ( Node ) anonymous.__proto__ = Node;
+    anonymous.prototype = Object.create( Node && Node.prototype );
+    anonymous.prototype.constructor = anonymous;
+
+    anonymous.prototype.listen = function (event, listener)
+
+    // MDN EventTarget.addEventListener
+    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+    //
+    // WHATWG Living Standard EventTarget.addEventListener
+    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+    //
+    // DOM Level 2 EventTarget.addEventListener
+    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
+
+    {
+    if ( listener === void 0 ) listener = 'on' + this$1 [event];
+ this.addEventListener (event, listener) };
+
+    return anonymous;
+  }(Node))); }
 var TokenList = function (nodes) {
   var this$1 = this;
 
@@ -98,114 +170,85 @@ var ParentNode = function (Node) { return ((function (Node) {
 //    for (let node = parent.firstChild; node; node = node.nextSibling)
 //      comb (node)
 //}
-var EventTarget = function (Node) { return ((function (Node) {
-    function anonymous () {
-      Node.apply(this, arguments);
-    }
+var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
+    function anonymous () { prototype.call (this)
 
-    if ( Node ) anonymous.__proto__ = Node;
-    anonymous.prototype = Object.create( Node && Node.prototype );
-    anonymous.prototype.constructor = anonymous;
+    var
+      events =
+        function (event) { return /^on/.exec (event); }
 
-    anonymous.prototype.listen = function (event, listener)
-
-    // MDN EventTarget.addEventListener
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-    //
-    // WHATWG Living Standard EventTarget.addEventListener
-    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
-    //
-    // DOM Level 2 EventTarget.addEventListener
-    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
-
-    {
-    if ( listener === void 0 ) listener = 'on' + this$1 [event];
- this.addEventListener (event, listener) };
-
-    return anonymous;
-  }(Node))); }
-var GlobalEventHandlers = function (Node) { return ((function (Node) {
-    function anonymous () { Node.call (this)
-    this.register (this.querySelectorAll ('*'))
+    this
+      .register (events)
+      .mirror (events)
   }
 
-    if ( Node ) anonymous.__proto__ = Node;
-    anonymous.prototype = Object.create( Node && Node.prototype );
+    if ( prototype ) anonymous.__proto__ = prototype;
+    anonymous.prototype = Object.create( prototype && prototype.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    var staticAccessors = { observedAttributes: {} };
+  anonymous.prototype.mirror = function (events) {
+    var this$1 = this;
 
-  anonymous.prototype.register = function (nodes) {
-    console.log ('what', nodes)
 
-    var exclude =
-      ['template', 'link', 'style', 'script']
-
-    , blacklist = function (element) { return ! exclude.includes
-            (element.tagName.toLowerCase ()); }
-
-    var a = [this ].concat( (Array.from (nodes)))
-      .filter (blacklist)
-      .map (this.mirror, this)
+    Object
+      .getOwnPropertyNames (prototype)
+      .filter (events)
+      .forEach (function (handler) { return !!! this$1 [handler] && (this$1 [handler] = prototype [handler]); })
 
     return this
   };
 
-  anonymous.prototype.mirror = function (node) {
+  anonymous.prototype.register = function (events) {
+    var this$1 = this;
+
+
     var
-      filter   = /^on/
-    , onevents = function (name) { return filter.exec (name); }
-    , events   = function (prototype) { return introspect (prototype).filter (onevents); }
+      nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
+        // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
+        // If we can do this we can only retrieve the elements that have a traditional inline event.
+        // This is theoretically more performant as most elements won't need traditional event registration.
+        ':not(script):not(template):not(style):not(link)' // remove metadata elements
 
-    , subtract = function (list) { return function (item) { return list.indexOf (item) < 0; }; }
+    , children =
+        Array
+          .from (this.querySelectorAll (nodes))
 
-    , introspect = function (prototype) {
-          if ( prototype === void 0 ) prototype = Element;
+    , registered = function (node) { return Array.from (node.attributes)
+          .map (function (attr) { return attr.name; })
+          .filter (events)
+          .length > 0; }
 
-          return Object.getOwnPropertyNames (prototype);
+    , handle =
+        function (event, handler)  {
+            if ( handler === void 0 ) handler = (/{\s*(\w+)\s*}/.exec (event) || []) [1];
+
+            return handler
+            && prototype [ handler ]
+            || event
+            || null;
     }
 
-    , reflect = function (self) { return function (events) {
-        events
-          .filter (function (name) { return self [name] !== undefined; })
-          .map (delegate (self), this)
-    }; }
+    , reflect =
+        function (self) { return function (node) { return Array
+              .from (node.attributes)
+              .map (function (attr) { return attr.name; })
+              .filter (events)
+              .filter (function (name) { return this$1 [name] !== undefined; })
+              .map (reflection (node)); }; }
 
-    , delegate = function (self) { return function (name) {
-        self [name] = self
-          [(/{\s*(\w+)\s*}/.exec (self [name]) || Array (2)) [1]]
-            || this [name]
-      }; }
+    , reflection =
+        function (node) { return function (event) { node [event] = handle (node [event]) }; }
 
-    , implicit = events (Node)
-    , explicit = Array.from (node.attributes)
-        .map  (function (attr) { return attr.name; })
-        .filter (onevents)
+    [this]
+      .concat (children)
+      .filter (registered)
+      .map (reflect (this))
 
-    console.log(Node.onclick, explicit)
-
-    void [implicit.filter (subtract (explicit)), explicit]
-      .map ( reflect (this), Node )
+    return this
   };
-
-  // custom element reactions
-  anonymous.prototype.connectedCallback = function () {
-    void ( Node.prototype.constructor.onconnect
-      || Node.prototype.connectedCallback
-      || function noop () {}
-    ).call (this)
-
-    this.render ()
-  };
-
-  staticAccessors.observedAttributes.get = function () { return ['id'] };
-  anonymous.prototype.attributeChangedCallback = function (property, previous, next)
-    { console.warn ('['+property+'] ['+previous+'] to ['+next+']') };
-
-    Object.defineProperties( anonymous, staticAccessors );
 
     return anonymous;
-  }(Node))); }
+  }(prototype))); }
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 var Element = function (
@@ -228,7 +271,7 @@ var Element = function (
   return function // https://en.wikipedia.org/wiki/Higher-order_function
     (HTMLElement, self)
   {
-    if ( self === void 0 ) self = ! (this === window) ? this : {};
+    if ( self === void 0 ) self = this === window && this || {};
  // Should this be a class❓❓❓❓
 
     try
@@ -238,7 +281,7 @@ var Element = function (
       { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
 
     var HTMLCustomElement = (function (superclass) {
-      function HTMLCustomElement () { superclass.call (this) && superclass.prototype.initialize.call (this) }
+      function HTMLCustomElement () { superclass.call (this), superclass.prototype.initialize.call (this) }
 
       if ( superclass ) HTMLCustomElement.__proto__ = superclass;
       HTMLCustomElement.prototype = Object.create( superclass && superclass.prototype );
@@ -246,16 +289,27 @@ var Element = function (
 
       var prototypeAccessors = { context: {},templates: {} };
 
-      HTMLCustomElement.prototype.render = function () { this.tokens.bind (this.context) };
-
       prototypeAccessors.context.get = function () { return self };
       prototypeAccessors.context.set = function (value) { self = value };
       prototypeAccessors.templates.get = function () { return this.selectAll ('template') };
 
+      HTMLCustomElement.prototype.render = function () { this.tokens.bind (this.context) };
+
+      // custom element reactions
+      HTMLCustomElement.prototype.connectedCallback = function () {
+
+        void ( superclass.prototype.constructor.onconnect
+          || superclass.prototype.connectedCallback
+          || function noop () {}
+        ).call (this)
+
+        this.render ()
+      };
+
       Object.defineProperties( HTMLCustomElement.prototype, prototypeAccessors );
 
       return HTMLCustomElement;
-    }((GlobalEventHandlers (EventTarget (ParentNode (HTMLElement))))));
+    }(( ParentNode ( EventTarget ( GlobalEventHandlers ( HTMLElement ))))));
 
     try
       { CustomElementRegistry.define (tag, HTMLCustomElement) }
@@ -270,50 +324,4 @@ Element.prototype = ElementPrototype
   // http://2ality.com/2013/09/window.html
   // http://tobyho.com/2013/03/13/window-prop-vs-global-var
   // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
-var Template = function ( name ) {
-  if ( name === void 0 ) name = 'snuggsi';
-
-  return Object.assign (factory.apply (void 0, name), { bind: bind })
-
-  function bind (context) {
-    var this$1 = this;
-
-    context = (Array.isArray (context) ? context : [context])
-
-    var
-      tokens   = []
-    , rendered = context
-        .map (function (context) { return this$1.content.cloneNode (true); })
-        .map (collect, tokens)
-
-    this.innerHTML = ''
-    for (var i = 0, list = rendered; i < list.length; i += 1) {
-      var frame = list[i];
-
-      this$1.content.appendChild (frame)
-    }
-
-    return context.map(transfer, tokens) && this
-  }
-
-  function factory (name) {
-    return (
-       document.querySelector ('template[name='+name+']').cloneNode (true)
-    || document.createElement ('template')
-  )}
-
-  function collect (fragment) {
-    var objectify = function (tokens) { return tokens.reduce ( function (object, token) { return (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object; }
-      , {}); }
-
-    return this.push (objectify (tokenize (fragment))) && fragment
-  }
-
-  function transfer (context, index) {
-    var this$1 = this;
-
-    for (var property in context) { this$1 [index]
-      [property] && (this$1 [index] [property].textContent = context [property]) }
-  }
-}
 
