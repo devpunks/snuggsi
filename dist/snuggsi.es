@@ -1,3 +1,109 @@
+const Template = function ( name = 'snuggsi' ) {
+  return Object.assign (factory (...name), { bind })
+
+  function bind (context) {
+    context = (Array.isArray (context) ? context : [context])
+
+    const
+      tokens   = []
+    , rendered = context
+        .map (context => this.content.cloneNode (true))
+        .map (collect, tokens)
+
+    this.innerHTML = ''
+    for (const frame of rendered) this.content.appendChild (frame)
+
+    return context.map(transfer, tokens) && this
+  }
+
+  function factory (name) {
+    return (
+       document.querySelector ('template[name='+name+']').cloneNode (true)
+    || document.createElement ('template')
+  )}
+
+  function collect (fragment) {
+    const objectify = tokens =>
+      tokens.reduce ( (object, token) =>
+        (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object
+      , {})
+
+    return this.push (objectify (tokenize (fragment))) && fragment
+  }
+
+  function transfer (context, index) {
+    for (const property in context) this [index]
+      [property] && (this [index] [property].textContent = context [property])
+  }
+}
+const EventTarget = Node =>
+
+  // DOM Levels
+  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
+  //
+  // WHATWG Living Standard HTML5 EventTarget
+  // https://dom.spec.whatwg.org/#eventtarget
+  //
+  // MDN EventTarget
+  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
+  //
+  // DOM Level 3 EventTarget
+  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+  //
+  // DOM Level 2 EventTarget
+  // (AKA Str🎱  W3C #fockery) ➡️  https://annevankesteren.nl/2016/01/film-at-11
+  // 😕  https://w3c.github.io/uievents/DOM3-Events.html#interface-EventTarget
+  //❓❓ https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
+  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+  // Within https://w3c.github.io/uievents/#conf-interactive-ua
+  // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
+
+(class extends Node {
+
+  listen (event, listener = 'on' + this [event])
+
+    // MDN EventTarget.addEventListener
+    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+    //
+    // WHATWG Living Standard EventTarget.addEventListener
+    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+    //
+    // DOM Level 2 EventTarget.addEventListener
+    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
+
+    { this.addEventListener (event, listener) }
+
+//ignore (event, listener = 'on' + this [event])
+//  // MDN EventTarget.removeEventListener
+//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+//  //
+//  // WHATWG Living Standard EventTarget.removeEventListener
+//  // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+//  //
+//  // DOM Level 2 EventTarget.removeEventListener
+//  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
+
+//  { this.removeEventListener (event, listener) }
+
+//dispatch (event)
+//  // MDN EventTarget.dispatchEvent
+//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
+//  //
+//  // WHATWG Living Standard EventTarget.dispatchEvent
+//  // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
+//  //
+//  // DOM Level 2 EventTarget.dispatchEvent
+//  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
+
+//  { }
+
+//listenable (nodes) {
+//  return Array.prototype.map
+//    .call (nodes, node => Object.assign
+//      (node, {listen: this.listen.bind(this)})) // MUTATES!
+//  return nodes
+//}
+})
 class TokenList {
 
   constructor (nodes) {
@@ -102,75 +208,7 @@ const ParentNode = Node =>
 //    for (let node = parent.firstChild; node; node = node.nextSibling)
 //      comb (node)
 //}
-const EventTarget = Node =>
-
-  // DOM Levels
-  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-  //
-  // WHATWG Living Standard HTML5 EventTarget
-  // https://dom.spec.whatwg.org/#eventtarget
-  //
-  // MDN EventTarget
-  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
-  //
-  // DOM Level 3 EventTarget
-  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
-  //
-  // DOM Level 2 EventTarget
-  // (AKA Str🎱  W3C #fockery) ➡️  https://annevankesteren.nl/2016/01/film-at-11
-  // 😕  https://w3c.github.io/uievents/DOM3-Events.html#interface-EventTarget
-  //❓❓ https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
-  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
-  // Within https://w3c.github.io/uievents/#conf-interactive-ua
-  // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
-
-(class extends Node {
-
-  listen (event, listener = 'on' + this [event])
-
-    // MDN EventTarget.addEventListener
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-    //
-    // WHATWG Living Standard EventTarget.addEventListener
-    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
-    //
-    // DOM Level 2 EventTarget.addEventListener
-    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
-
-    { this.addEventListener (event, listener) }
-
-//ignore (event, listener = 'on' + this [event])
-//  // MDN EventTarget.removeEventListener
-//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
-//  //
-//  // WHATWG Living Standard EventTarget.removeEventListener
-//  // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
-//  //
-//  // DOM Level 2 EventTarget.removeEventListener
-//  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
-
-//  { this.removeEventListener (event, listener) }
-
-//dispatch (event)
-//  // MDN EventTarget.dispatchEvent
-//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
-//  //
-//  // WHATWG Living Standard EventTarget.dispatchEvent
-//  // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
-//  //
-//  // DOM Level 2 EventTarget.dispatchEvent
-//  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
-
-//  { }
-
-//listenable (nodes) {
-//  return Array.prototype.map
-//    .call (nodes, node => Object.assign
-//      (node, {listen: this.listen.bind(this)})) // MUTATES!
-//  return nodes
-//}
-})
-const GlobalEventHandlers = Node =>
+const GlobalEventHandlers = prototype =>
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -198,77 +236,80 @@ const GlobalEventHandlers = Node =>
   // Traditional Registration
   // http://www.quirksmode.org/js/events_tradmod.html
 
-(class extends Node {
+(class extends prototype {
 
   constructor () { super ()
-    this.register (this.querySelectorAll ('*'))
+
+    const
+      events =
+        event =>
+          /^on/.exec (event)
+
+    this
+      .register (events)
+      .mirror (events)
   }
 
-  register (nodes) {
-    console.log ('what', nodes)
+  mirror (events) {
 
-    const exclude =
-      ['template', 'link', 'style', 'script']
-
-    , blacklist = element =>
-        ! exclude.includes
-            (element.tagName.toLowerCase ())
-
-    var a = [this, ...(Array.from (nodes))]
-      .filter (blacklist)
-      .map (this.mirror, this)
+    Object
+      .getOwnPropertyNames (prototype)
+      .filter (events)
+      .forEach (handler => !!! this [handler] && (this [handler] = prototype [handler]))
 
     return this
   }
 
-  mirror (node) {
-    const
-      filter   = /^on/
-    , onevents = name => filter.exec (name)
-    , events   = prototype => introspect (prototype).filter (onevents)
+  register (events) {
 
-    , subtract = list =>
-        item => list.indexOf (item) < 0
+    let
+      nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
+        // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
+        // If we can do this we can only retrieve the elements that have a traditional inline event.
+        // This is theoretically more performant as most elements won't need traditional event registration.
+        ':not(script):not(template):not(style):not(link)' // remove metadata elements
 
-    , introspect = (prototype = Element) =>
-        Object.getOwnPropertyNames (prototype)
+    , children =
+        Array
+          .from (this.querySelectorAll (nodes))
 
-    , reflect = self => function (events) {
-        events
-          .filter (name => self [name] !== undefined)
-          .map (delegate (self), this)
-    }
+    , registered = node =>
+        Array.from (node.attributes)
+          .map (attr => attr.name)
+          .filter (events)
+          .length > 0
 
-    , delegate = self => function (name) {
-        self [name] = self
-          [(/{\s*(\w+)\s*}/.exec (self [name]) || Array (2)) [1]]
-            || this [name]
-      }
+    , handle =
+        (event, handler = (/{\s*(\w+)\s*}/.exec (event) || []) [1])  =>
 
-    , implicit = events (Node)
-    , explicit = Array.from (node.attributes)
-        .map  (attr => attr.name)
-        .filter (onevents)
+          handler
+            && prototype [ handler ]
+            || event
+            || null
 
-    console.log(Node.onclick, explicit)
+    , reflect =
+        self => // `this` closure
+          node =>
 
-    void [implicit.filter (subtract (explicit)), explicit]
-      .map ( reflect (this), Node )
+            Array
+              .from (node.attributes)
+              .map (attr => attr.name)
+              .filter (events)
+              .filter (name => this [name] !== undefined)
+              .map (reflection (node))
+
+    , reflection =
+        node => // closure
+          event =>
+            { node [event] = handle (node [event]) }
+
+    [this]
+      .concat (children)
+      .filter (registered)
+      .map (reflect (this))
+
+    return this
   }
-
-  // custom element reactions
-  connectedCallback () {
-    void ( super.constructor.onconnect
-      || super.connectedCallback
-      || function noop () {}
-    ).call (this)
-
-    this.render ()
-  }
-
-  static get observedAttributes () { return ['id'] }
-  attributeChangedCallback (property, previous, next)
-    { console.warn ('['+property+'] ['+previous+'] to ['+next+']') }
 })
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
@@ -287,7 +328,7 @@ const Element = function (
 ) {
 
   return function // https://en.wikipedia.org/wiki/Higher-order_function
-    (HTMLElement, self = ! (this === window) ? this : {})
+    (HTMLElement, self = this === window && this || {})
   { // Should this be a class❓❓❓❓
 
     try
@@ -297,16 +338,29 @@ const Element = function (
       { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
 
     class HTMLCustomElement extends // mixins
-      (GlobalEventHandlers (EventTarget (ParentNode (HTMLElement))))
+
+      ( ParentNode ( EventTarget ( GlobalEventHandlers ( HTMLElement ))))
+
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
-      constructor () { super () && super.initialize () }
-
-      render () { this.tokens.bind (this.context) }
+      constructor () { super (), super.initialize () }
 
       get context () { return self }
       set context (value) { self = value }
       get templates () { return this.selectAll ('template') }
+
+      render () { this.tokens.bind (this.context) }
+
+      // custom element reactions
+      connectedCallback () {
+
+        void ( super.constructor.onconnect
+          || super.connectedCallback
+          || function noop () {}
+        ).call (this)
+
+        this.render ()
+      }
     }
 
     try
@@ -322,41 +376,3 @@ Element.prototype = ElementPrototype
   // http://2ality.com/2013/09/window.html
   // http://tobyho.com/2013/03/13/window-prop-vs-global-var
   // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
-const Template = function ( name = 'snuggsi' ) {
-  return Object.assign (factory (...name), { bind })
-
-  function bind (context) {
-    context = (Array.isArray (context) ? context : [context])
-
-    const
-      tokens   = []
-    , rendered = context
-        .map (context => this.content.cloneNode (true))
-        .map (collect, tokens)
-
-    this.innerHTML = ''
-    for (const frame of rendered) this.content.appendChild (frame)
-
-    return context.map(transfer, tokens) && this
-  }
-
-  function factory (name) {
-    return (
-       document.querySelector ('template[name='+name+']').cloneNode (true)
-    || document.createElement ('template')
-  )}
-
-  function collect (fragment) {
-    const objectify = tokens =>
-      tokens.reduce ( (object, token) =>
-        (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object
-      , {})
-
-    return this.push (objectify (tokenize (fragment))) && fragment
-  }
-
-  function transfer (context, index) {
-    for (const property in context) this [index]
-      [property] && (this [index] [property].textContent = context [property])
-  }
-}
