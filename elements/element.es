@@ -1,3 +1,6 @@
+console.log ('wtf')
+console.warn ('Finally')
+
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 const Element = function (
@@ -18,11 +21,11 @@ const Element = function (
     (HTMLElement, self = this === window && this || {})
   { // Should this be a class❓❓❓❓
 
-    try
-      { return new CustomElementRegistry.get (tag) }
+//  try
+//    { return new CustomElementRegistry.get (tag) }
 
-    catch (_)
-      { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
+//  catch (_)
+//    { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
 
     class HTMLCustomElement extends // mixins
 
