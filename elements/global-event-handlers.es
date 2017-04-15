@@ -36,8 +36,8 @@ const GlobalEventHandlers = prototype =>
           /^on/.exec (event)
 
     this
-      .register (events)
-      .mirror (events)
+ //   .register (events)
+ //   .mirror (events)
   }
 
   mirror (events) {
