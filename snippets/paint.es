@@ -1,3 +1,6 @@
+// Snippet tool to determine the actual time taken from load to glass
+// https://developers.google.com/web/tools/chrome-devtools/snippets
+
 let
   load  = chrome.loadTimes ()
   , paint = load.firstPaintTime - load.startLoadTime
