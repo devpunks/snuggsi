@@ -17,10 +17,12 @@
   <h2>Infinity Calendar</h2>
 </hgroup>
 
-<infinity-calendar for=date onclick=what>
+<infinity-calendar for=date oninput=what>
   <header>{month} {year}</header>
 
-  <input>
+  <!-- bubbles up to oninput -->
+  <input placeholder='open console before typing'>
+
   <menu>
     <button onclick=onprevious>Previous</button>
     <button onclick=onnext>Next</button>

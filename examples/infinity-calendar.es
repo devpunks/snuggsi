@@ -2,9 +2,12 @@ Element `infinity-calendar`
 
 (class extends HTMLElement {
 
-  static onclick () { console.log ('onclick', event) }
+  static
+    // implicit. Notice not defined on element
+    onclick () { console.log ('onclick', event) }
 
-  static what () { console.log ('what', event) }
+  static
+    what () { console.warn (event.target.value) }
 
   static get date   () { return new Date }
   static get year   () { return this.date.getFullYear () }
