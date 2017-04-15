@@ -2,9 +2,9 @@ Element `infinity-calendar`
 
 (class extends HTMLElement {
 
-  static get onclick () { console.log (event) }
+  static onclick () { console.log ('onclick', event) }
 
-  static get onchange () { console.log (event) }
+  static what () { console.log ('what', event) }
 
   static get date   () { return new Date }
   static get year   () { return this.date.getFullYear () }
@@ -13,6 +13,16 @@ Element `infinity-calendar`
     return [
       'January', 'February', 'March', 'April', 'May',
       'June', 'July','August','September','October','December' ]
+  }
+
+  static onnext () {
+    event.preventDefault ()
+    console.log ('NEXT WORKED!', arguments) //, this)
+  }
+
+  static onprevious () {
+    event.preventDefault ()
+    console.log ('PREVIOUS WORKED!', arguments) //, this)
   }
 
   initialize () {

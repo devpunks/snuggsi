@@ -8,8 +8,8 @@
 <script src=../elements/template.es></script>
 
 <script src=../elements/global-event-handlers.es></script>
-<script src=../elements/parent-node.es></script>
 <script src=../elements/event-target.es></script>
+<script src=../elements/parent-node.es></script>
 <script src=../elements/element.es></script>
 
 <hgroup>
@@ -17,9 +17,10 @@
   <h2>Infinity Calendar</h2>
 </hgroup>
 
-<infinity-calendar for=date onchange=what>
+<infinity-calendar for=date onclick=what>
   <header>{month} {year}</header>
 
+  <input>
   <menu>
     <button onclick=onprevious>Previous</button>
     <button onclick=onnext>Next</button>
