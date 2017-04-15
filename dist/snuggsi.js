@@ -178,8 +178,8 @@ var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
         function (event) { return /^on/.exec (event); }
 
     this
-      .register (events)
-      .mirror (events)
+ //   .register (events)
+ //   .mirror (events)
   }
 
     if ( prototype ) anonymous.__proto__ = prototype;
@@ -249,6 +249,9 @@ var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
 
     return anonymous;
   }(prototype))); }
+console.log ('wtf')
+console.warn ('Finally')
+
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 var Element = function (
@@ -274,11 +277,11 @@ var Element = function (
     if ( self === void 0 ) self = this === window && this || {};
  // Should this be a class❓❓❓❓
 
-    try
-      { return new CustomElementRegistry.get (tag) }
+//  try
+//    { return new CustomElementRegistry.get (tag) }
 
-    catch (_)
-      { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
+//  catch (_)
+//    { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
 
     var HTMLCustomElement = (function (superclass) {
       function HTMLCustomElement () { superclass.call (this), superclass.prototype.initialize.call (this) }
