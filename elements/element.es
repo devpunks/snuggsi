@@ -15,7 +15,7 @@ const Element = function (
 ) {
 
   return function // https://en.wikipedia.org/wiki/Higher-order_function
-    (HTMLElement, self = ! (this === window) ? this : {})
+    (HTMLElement, self = this === window && this || {})
   { // Should this be a class❓❓❓❓
 
     try
@@ -25,16 +25,29 @@ const Element = function (
       { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
 
     class HTMLCustomElement extends // mixins
-      (EventTarget (ParentNode (GlobalEventHandlers (HTMLElement))))
+
+      ( ParentNode ( EventTarget ( GlobalEventHandlers ( HTMLElement ))))
+
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
-      constructor () { super () && super.initialize () }
-
-      render () { this.tokens.bind (this.context) }
+      constructor () { super (), super.initialize () }
 
       get context () { return self }
       set context (value) { self = value }
       get templates () { return this.selectAll ('template') }
+
+      render () { this.tokens.bind (this.context) }
+
+      // custom element reactions
+      connectedCallback () {
+
+        void ( super.constructor.onconnect
+          || super.connectedCallback
+          || function noop () {}
+        ).call (this)
+
+        this.render ()
+      }
     }
 
     try
