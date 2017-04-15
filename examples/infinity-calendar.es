@@ -2,11 +2,17 @@ Element `infinity-calendar`
 
 (class extends HTMLElement {
 
-  static
+  static onclick ()
     // implicit. Notice not defined on element
     // MDN on* Events
     // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
-    onclick () { console.log ('onclick', event) }
+    { console.log ('onclick', event) }
+
+  static onnext ()
+    { console.log ('NEXT WORKED!', this, arguments) }
+
+  static onprevious ()
+    { console.log ('PREVIOUS WORKED!', this, arguments) }
 
   static
     // explicitly registered to `oninput`
@@ -19,16 +25,6 @@ Element `infinity-calendar`
     return [
       'January', 'February', 'March', 'April', 'May',
       'June', 'July','August','September','October','December' ]
-  }
-
-  static onnext () {
-    event.preventDefault ()
-    console.log ('NEXT WORKED!', arguments) //, this)
-  }
-
-  static onprevious () {
-    event.preventDefault ()
-    console.log ('PREVIOUS WORKED!', arguments) //, this)
   }
 
   initialize () {
