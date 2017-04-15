@@ -4,9 +4,12 @@ Element `infinity-calendar`
 
   static
     // implicit. Notice not defined on element
+    // MDN on* Events
+    // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
     onclick () { console.log ('onclick', event) }
 
   static
+    // explicitly registered to `oninput`
     what () { console.warn (event.target.value) }
 
   static get date   () { return new Date }
