@@ -1,24 +1,15 @@
-console.log ('wtf')
-console.warn ('Finally')
-
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
-const Element = function (
-  // Custom elements polyfill
-  // https://github.com/webcomponents/custom-elements/blob/master/src/custom-elements.js
+const Element = function
+  //https://gist.github.com/allenwb/53927e46b31564168a1d
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
-  // Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
-  //https://gist.github.com/allenwb/53927e46b31564168a1d
 
-  tag = Array.isArray
-    (arguments [0]) ? arguments [0][0] : arguments [0]
-
-, CustomElementRegistry = window.customElements
-) {
+ ( tag, CustomElementRegistry = window.customElements )
+{ tag = tag [0]
 
   return function // https://en.wikipedia.org/wiki/Higher-order_function
-    (HTMLElement, self = this === window && this || {})
+    (HTMLElement, self = this === window ? this : {})
   { // Should this be a class❓❓❓❓
 
 //  try
@@ -29,21 +20,29 @@ const Element = function (
 
     class HTMLCustomElement extends // mixins
 
-      ( ParentNode ( EventTarget ( GlobalEventHandlers ( HTMLElement ))))
+      EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement )))
 
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
-      constructor () { super (), super.initialize () }
+      constructor () { super ()
+        super.initialize && super.initialize ()
+      }
 
-      get context () { return self }
-      set context (value) { self = value }
-      get templates () { return this.selectAll ('template') }
+      get context ()
+        { return self }
 
-      render () { this.tokens.bind (this.context) }
+      set context (value)
+        { self = value }
+
+      get templates ()
+        { return this.selectAll ('template') }
+
+      render () {
+        this.tokens.bind (this)
+      }
 
       // custom element reactions
       connectedCallback () {
-
         void ( super.constructor.onconnect
           || super.connectedCallback
           || function noop () {}
@@ -53,11 +52,15 @@ const Element = function (
       }
     }
 
-    try
-      { CustomElementRegistry.define (tag, HTMLCustomElement) }
+//  try
+//    {
+        CustomElementRegistry.define (tag, HTMLCustomElement)
+//    }
 
-    finally
-      { return CustomElementRegistry.get (tag) }
+//  finally
+//    {
+        return CustomElementRegistry.get (tag)
+//    }
   }
 }
 
