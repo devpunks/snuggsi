@@ -1,28 +1,30 @@
 class TokenList {
 
   constructor (nodes) {
+
     const
-      symbolize = symbol =>
+      textify = node =>
+        (node.text = node.data, node)
+
+    , symbolize = symbol =>
         symbol.match (/(\w+)/g) [0]
 
     , insert = token =>
         symbol => this [symbol] = token
 
     , tokenize = token =>
-        token.textContent.match (/{(\w+)}/g)
-          .map (symbolize)
-          .map (insert (token))
-
-    , textify = node =>
-        (node.text = node.data) && node
+        token.textContent
+          .match (/{(\w+)}/g)
+            .map (symbolize)
+            .map (insert (token))
 
     nodes
       .map (textify)
       .map (tokenize)
   }
 
-
   bind (context, node) {
+    console.log ('foo', context)
 
     for (const property in this)
       node = this [property]
@@ -37,7 +39,8 @@ class TokenList {
   }
 }
 
-const ParentNode = Node =>
+const ParentNode = prototype =>
+
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
   //
@@ -50,7 +53,7 @@ const ParentNode = Node =>
   // ElementTraversal interface
   // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
 
-(class extends Node {
+(class extends prototype {
   // http://jsfiddle.net/zaqtg/10
   // https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
@@ -58,16 +61,16 @@ const ParentNode = Node =>
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
   // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
 
-  selectAll (selector) {
-    return this.listenable
-      (this.querySelectorAll (selector))
-  }
+  selectAll (selector)
+    { return this.querySelectorAll (selector) }
 
-  // watch out for clobbering `HTMLInputElement.select ()`
-  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-  select (selector) { return this.selectAll (selector) [0] }
+  select (selector)
+    // watch out for clobbering `HTMLInputElement.select ()`
+    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
+    { return this.selectAll (selector) [0] }
 
   get texts () {
+
     const
       visit = (node, filter = /({\w+})/g) =>
         filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
@@ -88,8 +91,9 @@ const ParentNode = Node =>
   }
 
   get tokens () {
-    return this._tokens
-      || (this._tokens = new TokenList (this.texts))
+
+    return this._tokens =
+      this._tokens || new TokenList (this.texts)
   }
 })
 
