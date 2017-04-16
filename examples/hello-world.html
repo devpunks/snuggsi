@@ -10,6 +10,9 @@
   body
     { display: flex; flex-flow: column }
 
+  hello-world
+    { cursor: pointer }
+
 </style>
 
 <script src=./webcomponents-hi-ce.js></script>
@@ -42,13 +45,16 @@ Element `hello-world`
 
 (class extends HTMLElement {
 
+  static onclick () // autoregistering events
+    { alert (`snuggsi is out of this world ${ event } !`) }
+
   initialize ()
-    { this.append ('🌎 ') }
+    { this.append ('🌎') }
 
-  static get greeting ()
-    { return 'Hello' }
+  get greeting () // tokenized property
+    { return 'Bonjour' }
 
-  static get planet ()
+  get planet () // tokenized property
     { return 'from Mars 👽' }
 })
 
