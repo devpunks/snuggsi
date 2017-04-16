@@ -15,8 +15,8 @@
 
 </style>
 
-<script src=./webcomponents-hi-ce.js></script>
-<script src=../dist/snuggsi.es></script>
+<script async src=/examples/webcomponents-hi-ce.js></script>
+<script async src=../dist/snuggsi.es></script>
 
 <link rel=icon type=image/png href=../public/favicon-32x32.png sizes=32x32>
 <link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
@@ -45,7 +45,8 @@ Element `hello-world`
 
 (class extends HTMLElement {
 
-  static onclick () // autoregistering events
+  // Firefox doesn't handle the global event reference so it's explicitly passed.
+  static onclick (event) // autoregistering events
     { alert (`snuggsi is out of this world ${ event } !`) }
 
   initialize ()
