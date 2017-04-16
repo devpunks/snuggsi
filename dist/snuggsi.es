@@ -330,6 +330,8 @@ const Element = function (
 , CustomElementRegistry = window.customElements
 ) {
 
+  console.warn (arguments)
+
   return function // https://en.wikipedia.org/wiki/Higher-order_function
     (HTMLElement, self = this === window && this || {})
   { // Should this be a class❓❓❓❓
