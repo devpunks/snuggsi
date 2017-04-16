@@ -5,7 +5,7 @@
 
 module.exports = {
     "ui": false, // { "port": 8181, "weinre": { "port": 8080 } },
-    "files": ['./harness.html', './examples', '*.js', '*.es', 'elements/*.js', 'elements/*.es'],
+    "files": ['./dist/*', './harness.html', './examples', '*.js', '*.es', 'elements/*.js', 'elements/*.es'],
     "watchOptions": {
       ignored: '*.txt',
       ignoreInitial: true
@@ -13,7 +13,7 @@ module.exports = {
     "server": {
       baseDir: './',
       directory: false,
-      index: 'harness.html',
+      index: 'examples/hello-world.html',
       routes: {
         'browser-sync-client.js': 'node_modules/browser-sync-client/dist/index.min.js'
       }
