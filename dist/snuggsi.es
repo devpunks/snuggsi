@@ -107,28 +107,30 @@ const EventTarget = Node =>
 class TokenList {
 
   constructor (nodes) {
+
     const
-      symbolize = symbol =>
+      textify = node =>
+        (node.text = node.data, node)
+
+    , symbolize = symbol =>
         symbol.match (/(\w+)/g) [0]
 
     , insert = token =>
         symbol => this [symbol] = token
 
     , tokenize = token =>
-        token.textContent.match (/{(\w+)}/g)
-          .map (symbolize)
-          .map (insert (token))
-
-    , textify = node =>
-        (node.text = node.data) && node
+        token.textContent
+          .match (/{(\w+)}/g)
+            .map (symbolize)
+            .map (insert (token))
 
     nodes
       .map (textify)
       .map (tokenize)
   }
 
-
   bind (context, node) {
+    console.log ('foo', context)
 
     for (const property in this)
       node = this [property]
@@ -143,7 +145,8 @@ class TokenList {
   }
 }
 
-const ParentNode = Node =>
+const ParentNode = prototype =>
+
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
   //
@@ -156,7 +159,7 @@ const ParentNode = Node =>
   // ElementTraversal interface
   // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
 
-(class extends Node {
+(class extends prototype {
   // http://jsfiddle.net/zaqtg/10
   // https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
@@ -164,16 +167,16 @@ const ParentNode = Node =>
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
   // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
 
-  selectAll (selector) {
-    return this.listenable
-      (this.querySelectorAll (selector))
-  }
+  selectAll (selector)
+    { return this.querySelectorAll (selector) }
 
-  // watch out for clobbering `HTMLInputElement.select ()`
-  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-  select (selector) { return this.selectAll (selector) [0] }
+  select (selector)
+    // watch out for clobbering `HTMLInputElement.select ()`
+    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
+    { return this.selectAll (selector) [0] }
 
   get texts () {
+
     const
       visit = (node, filter = /({\w+})/g) =>
         filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
@@ -194,8 +197,9 @@ const ParentNode = Node =>
   }
 
   get tokens () {
-    return this._tokens
-      || (this._tokens = new TokenList (this.texts))
+
+    return this._tokens =
+      this._tokens || new TokenList (this.texts)
   }
 })
 
@@ -246,8 +250,8 @@ const GlobalEventHandlers = prototype =>
           /^on/.exec (event)
 
     this
- //   .register (events)
- //   .mirror (events)
+      .register (events)
+      .mirror (events)
   }
 
   mirror (events) {
@@ -311,29 +315,18 @@ const GlobalEventHandlers = prototype =>
     return this
   }
 })
-console.log ('wtf')
-console.warn ('Finally')
-
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
-const Element = function (
-  // Custom elements polyfill
-  // https://github.com/webcomponents/custom-elements/blob/master/src/custom-elements.js
+const Element = function
+  //https://gist.github.com/allenwb/53927e46b31564168a1d
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
-  // Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
-  //https://gist.github.com/allenwb/53927e46b31564168a1d
 
-  tag = Array.isArray
-    (arguments [0]) ? arguments [0][0] : arguments [0]
-
-, CustomElementRegistry = window.customElements
-) {
-
-  console.warn (arguments)
+ ( tag, CustomElementRegistry = window.customElements )
+{ tag = tag [0]
 
   return function // https://en.wikipedia.org/wiki/Higher-order_function
-    (HTMLElement, self = this === window && this || {})
+    (HTMLElement, self = this === window ? this : {})
   { // Should this be a class❓❓❓❓
 
 //  try
@@ -344,21 +337,29 @@ const Element = function (
 
     class HTMLCustomElement extends // mixins
 
-      ( ParentNode ( EventTarget ( GlobalEventHandlers ( HTMLElement ))))
+      EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement )))
 
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
-      constructor () { super (), super.initialize () }
+      constructor () { super ()
+        super.initialize && super.initialize ()
+      }
 
-      get context () { return self }
-      set context (value) { self = value }
-      get templates () { return this.selectAll ('template') }
+      get context ()
+        { return self }
 
-      render () { this.tokens.bind (this.context) }
+      set context (value)
+        { self = value }
+
+      get templates ()
+        { return this.selectAll ('template') }
+
+      render () {
+        this.tokens.bind (this)
+      }
 
       // custom element reactions
       connectedCallback () {
-
         void ( super.constructor.onconnect
           || super.connectedCallback
           || function noop () {}
@@ -368,11 +369,15 @@ const Element = function (
       }
     }
 
-    try
-      { CustomElementRegistry.define (tag, HTMLCustomElement) }
+//  try
+//    {
+        CustomElementRegistry.define (tag, HTMLCustomElement)
+//    }
 
-    finally
-      { return CustomElementRegistry.get (tag) }
+//  finally
+//    {
+        return CustomElementRegistry.get (tag)
+//    }
   }
 }
 
