@@ -75,26 +75,28 @@ var EventTarget = function (Node) { return ((function (Node) {
 var TokenList = function (nodes) {
   var this$1 = this;
 
+
   var
-    symbolize = function (symbol) { return symbol.match (/(\w+)/g) [0]; }
+    textify = function (node) { return (node.text = node.data, node); }
+
+  , symbolize = function (symbol) { return symbol.match (/(\w+)/g) [0]; }
 
   , insert = function (token) { return function (symbol) { return this$1 [symbol] = token; }; }
 
-  , tokenize = function (token) { return token.textContent.match (/{(\w+)}/g)
-        .map (symbolize)
-        .map (insert (token)); }
-
-  , textify = function (node) { return (node.text = node.data) && node; }
+  , tokenize = function (token) { return token.textContent
+        .match (/{(\w+)}/g)
+          .map (symbolize)
+          .map (insert (token)); }
 
   nodes
     .map (textify)
     .map (tokenize)
 };
 
-
 TokenList.prototype.bind = function (context, node) {
     var this$1 = this;
 
+//console.log (arguments)
 
   for (var property in this$1)
     { node = this$1 [property]
@@ -108,27 +110,27 @@ TokenList.prototype.bind = function (context, node) {
   return this
 };
 
-var ParentNode = function (Node) { return ((function (Node) {
+var ParentNode = function (prototype) { return ((function (prototype) {
     function anonymous () {
-      Node.apply(this, arguments);
+      prototype.apply(this, arguments);
     }
 
-    if ( Node ) anonymous.__proto__ = Node;
-    anonymous.prototype = Object.create( Node && Node.prototype );
+    if ( prototype ) anonymous.__proto__ = prototype;
+    anonymous.prototype = Object.create( prototype && prototype.prototype );
     anonymous.prototype.constructor = anonymous;
 
     var prototypeAccessors = { texts: {},tokens: {} };
 
-    anonymous.prototype.selectAll = function (selector) {
-    return this.listenable
-      (this.querySelectorAll (selector))
-  };
+    anonymous.prototype.selectAll = function (selector)
+    { return this.querySelectorAll (selector) };
 
-  // watch out for clobbering `HTMLInputElement.select ()`
-  // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-  anonymous.prototype.select = function (selector) { return this.selectAll (selector) [0] };
+  anonymous.prototype.select = function (selector)
+    // watch out for clobbering `HTMLInputElement.select ()`
+    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
+    { return this.selectAll (selector) [0] };
 
   prototypeAccessors.texts.get = function () {
+
     var
       visit = function (node, filter) {
           if ( filter === void 0 ) filter = /({\w+})/g;
@@ -152,14 +154,15 @@ var ParentNode = function (Node) { return ((function (Node) {
   };
 
   prototypeAccessors.tokens.get = function () {
-    return this._tokens
-      || (this._tokens = new TokenList (this.texts))
+
+    return this._tokens =
+      this._tokens || new TokenList (this.texts)
   };
 
     Object.defineProperties( anonymous.prototype, prototypeAccessors );
 
     return anonymous;
-  }(Node))); }
+  }(prototype))); }
 
 //function comb
 //  // ElementTraversal interface
@@ -249,34 +252,22 @@ var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
 
     return anonymous;
   }(prototype))); }
-console.log ('wtf')
-console.warn ('Finally')
-
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
-var Element = function (
-  // Custom elements polyfill
-  // https://github.com/webcomponents/custom-elements/blob/master/src/custom-elements.js
+var Element = function
+  //https://gist.github.com/allenwb/53927e46b31564168a1d
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
-  // Function.name - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Function/name#Examples
-  //https://gist.github.com/allenwb/53927e46b31564168a1d
 
-  tag
-
-, CustomElementRegistry
-) {
-  if ( tag === void 0 ) tag = Array.isArray
-    (arguments [0]) ? arguments [0][0] : arguments [0];
-  if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
-
-
-  console.warn (arguments)
+ ( tag, CustomElementRegistry )
+{
+if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
+ tag = tag [0]
 
   return function // https://en.wikipedia.org/wiki/Higher-order_function
     (HTMLElement, self)
   {
-    if ( self === void 0 ) self = this === window && this || {};
+    if ( self === void 0 ) self = this === window ? this : {};
  // Should this be a class❓❓❓❓
 
 //  try
@@ -286,7 +277,9 @@ var Element = function (
 //    { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
 
     var HTMLCustomElement = (function (superclass) {
-      function HTMLCustomElement () { superclass.call (this), superclass.prototype.initialize.call (this) }
+      function HTMLCustomElement () { superclass.call (this)
+        superclass.prototype.initialize && superclass.prototype.initialize.call (this)
+      }
 
       if ( superclass ) HTMLCustomElement.__proto__ = superclass;
       HTMLCustomElement.prototype = Object.create( superclass && superclass.prototype );
@@ -298,11 +291,12 @@ var Element = function (
       prototypeAccessors.context.set = function (value) { self = value };
       prototypeAccessors.templates.get = function () { return this.selectAll ('template') };
 
-      HTMLCustomElement.prototype.render = function () { this.tokens.bind (this.context) };
+      HTMLCustomElement.prototype.render = function () {
+     // this.tokens.bind (this.context)
+      };
 
       // custom element reactions
       HTMLCustomElement.prototype.connectedCallback = function () {
-
         void ( superclass.prototype.constructor.onconnect
           || superclass.prototype.connectedCallback
           || function noop () {}
@@ -314,13 +308,17 @@ var Element = function (
       Object.defineProperties( HTMLCustomElement.prototype, prototypeAccessors );
 
       return HTMLCustomElement;
-    }(( ParentNode ( EventTarget ( GlobalEventHandlers ( HTMLElement ))))));
+    }(ParentNode ( EventTarget ( GlobalEventHandlers ( HTMLElement )))));
 
-    try
-      { CustomElementRegistry.define (tag, HTMLCustomElement) }
+//  try
+//    {
+        CustomElementRegistry.define (tag, HTMLCustomElement)
+//    }
 
-    finally
-      { return CustomElementRegistry.get (tag) }
+//  finally
+//    {
+        return CustomElementRegistry.get (tag)
+//    }
   }
 }
 
