@@ -1,16 +1,19 @@
-<title>snuggsi - Infinity Calendar</title>
-
-<script>
-console.log ('Hello world')
-</script>
+<title>snuggsi - Hello World</title>
 
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
 
 <link rel=stylesheet href=http://www.devpunks.com/typography.css>
 
+<style>
+
+  body
+    { display: flex; flex-flow: column }
+
+</style>
+
 <script src=./webcomponents-hi-ce.js></script>
-<script src=../dist/snuggsi.min.js></script>
+<script src=../dist/snuggsi.es></script>
 
 <link rel=icon type=image/png href=../public/favicon-32x32.png sizes=32x32>
 <link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
@@ -18,11 +21,37 @@ console.log ('Hello world')
 <h1>snuggsi ツ</h1>
 
 <hello-world>
-  hello world
+  Hello World
 </hello-world>
 
 <hello-world>
-  hello world
+  {greeting} World
 </hello-world>
+
+<hello-world>
+  Hello {planet}
+</hello-world>
+
+<hello-world>
+  {greeting} {planet}
+</hello-world>
+
+<script>
+
+Element `hello-world`
+
+(class extends HTMLElement {
+
+  initialize ()
+    { this.append ('🌎 ') }
+
+  static get greeting ()
+    { return 'Hello' }
+
+  static get planet ()
+    { return 'from Mars 👽' }
+})
+
+</script>
 
 <script src=../../vendor/browser-sync.es></script>
