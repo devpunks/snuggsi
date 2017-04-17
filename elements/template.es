@@ -4,16 +4,16 @@ const Template = function ( name = 'snuggsi' ) {
   function bind (context) {
     context = (Array.isArray (context) ? context : [context])
 
-    const
-      tokens   = []
-    , rendered = context
-        .map (context => this.content.cloneNode (true))
-        .map (collect, tokens)
+//  const
+//    tokens   = []
+//  , rendered = context
+//      .map (context => this.content.cloneNode (true))
+//      .map (collect, tokens)
 
-    this.innerHTML = ''
-    for (const frame of rendered) this.content.appendChild (frame)
+//  this.innerHTML = ''
+//  for (const frame of rendered) this.content.appendChild (frame)
 
-    return context.map(transfer, tokens) && this
+//  return context.map(transfer, tokens) && this
   }
 
   function factory (name) {
@@ -21,18 +21,4 @@ const Template = function ( name = 'snuggsi' ) {
        document.querySelector ('template[name='+name+']').cloneNode (true)
     || document.createElement ('template')
   )}
-
-  function collect (fragment) {
-    const objectify = tokens =>
-      tokens.reduce ( (object, token) =>
-        (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object
-      , {})
-
-    return this.push (objectify (tokenize (fragment))) && fragment
-  }
-
-  function transfer (context, index) {
-    for (const property in context) this [index]
-      [property] && (this [index] [property].textContent = context [property])
-  }
 }
