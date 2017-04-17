@@ -2,59 +2,60 @@ Element `infinity-calendar`
 
 (class extends HTMLElement {
 
-  static onclick ()
-    // implicit. Notice not defined on element
-    // MDN on* Events
-    // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
-    { console.log ('onclick', event) }
+  initialize () {
+     this.context.date = new Date
 
-  static onnext ()
-    { console.log ('NEXT WORKED!', this, arguments) }
+    this.select ('menu button:first-of-type')
+      .addEventListener ('click', this.onprevious.bind (this))
 
-  static onprevious ()
-    { console.log ('PREVIOUS WORKED!', this, arguments) }
+    this.select ('menu button:last-of-type')
+      .addEventListener ('click', this.onnext.bind (this))
+   }
 
-  static
-    // explicitly registered to `oninput`
-    what () { console.warn (event.target.value) }
+  static onnext () {
+    this.date_from_month (+1)
+    this.render ()
+  }
 
-  static get date   () { return new Date }
-  static get year   () { return this.date.getFullYear () }
-  static get month  () { return this.months [this.date.getMonth ()] }
-  static get months () {
+  static onprevious () {
+    this.date_from_month (-1)
+    this.render ()
+  }
+
+  get year ()
+    { return this.context.date.getFullYear () }
+
+  get month ()
+    { return this.months [this.context.date.getMonth ()] }
+
+  get months () {
     return [
       'January', 'February', 'March', 'April', 'May',
       'June', 'July','August','September','October','December' ]
   }
 
-  initialize () {
-    this.context = {
-      month: this.constructor.month,
-      year:  this.constructor.year
-    }
-
-    this
-      .querySelector ('menu button:first-of-type')
-      .addEventListener ('click', this.onprevious)
-  }
-
   get days () {
     const
       dates = []
-    , date =
-        new Date (
-          this.context.date.getYear ()
-        , this.context.date.getMonth () + 1
-        , 0
-        )
 
-    , days  =  day => { day: new Date(day).getDate () }
+    , daily = undefined
 
-    for (let day=1; day <= date.getDate (); day++){
-      let daily = new Date (date.getTime ())
-      dates.push (daily.setDate (day))
-    }
+    , days = day =>
+        { return { day: day } }
+
+    , date  =
+        new Date ( this.year , this.context.date.getMonth () + 1 , 0)
+
+    for (let day=1; day <= date.getDate (); day++)
+      dates.push (day)
 
     return dates.map (days)
   }
+
+  date_from_month (change) {
+
+    this.context.date = new Date
+      (this.context.date.setMonth (this.context.date.getMonth () + change))
+  }
+
 })
