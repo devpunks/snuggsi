@@ -8,9 +8,10 @@ const Element = function
  ( tag, CustomElementRegistry = window.customElements )
 { tag = tag [0]
 
-  return function // https://en.wikipedia.org/wiki/Higher-order_function
-    (HTMLElement, self = this === window ? this : {})
+  return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
+
+    const context = this === window ? {} : this
 
 //  try
 //    { return new CustomElementRegistry.get (tag) }
@@ -25,6 +26,8 @@ const Element = function
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
       constructor () { super ()
+        this.context = context
+
         super.initialize && super.initialize ()
       }
 
@@ -35,10 +38,13 @@ const Element = function
         { self = value }
 
       get templates ()
-        { return this.selectAll ('template') }
+        { return Array.from (this.selectAll ('template[name]')) }
 
       render () {
         this.tokens.bind (this)
+
+        for (const template of this.templates)
+          console.log (template.bind)
       }
 
       // custom element reactions
