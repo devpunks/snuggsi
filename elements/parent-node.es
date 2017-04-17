@@ -24,8 +24,6 @@ class TokenList {
   }
 
   bind (context, node) {
-    console.log ('foo', context)
-
     for (const property in this)
       node = this [property]
       , node.data = node.text

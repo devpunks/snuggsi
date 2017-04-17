@@ -1,0 +1,45 @@
+<title>snuggsi - Input / Output</title>
+
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+
+<script async src=/examples/webcomponents-hi-ce.js></script>
+<script async src=../dist/snuggsi.es></script>
+
+<link rel=icon type=image/png href=../public/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
+
+<h1>snuggsi ツ</h1>
+
+<input-output>
+
+<style>
+  input-output output {
+    display: block;
+    margin-bottom: 1em;
+  }
+</style>
+
+<!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output -->
+<output for=message>{echo}</output>
+
+<input id=message placeholder='HELLO...hello...'>
+
+<script>
+Element `input-output`
+
+(class extends HTMLElement {
+
+  static oninput () // autoregistration of inline events
+    { this.render () }
+
+  get echo () // tokenized property
+    { return this.select ('input#message').value || '…' }
+})
+</script>
+
+</input-output>
+
+<script src=../../vendor/browser-sync.es></script>
