@@ -41,10 +41,15 @@ const Element = function
         { return Array.from (this.selectAll ('template[name]')) }
 
       render () {
+        // template = super.render ()
+        // Where should this insert?
+        // What about the meta elements (i.e. script, style, meta)
+
         this.tokens.bind (this)
 
         for (const template of this.templates)
-          console.log (template.bind)
+          Template ([template.getAttribute ('name')])
+            .bind (this [template.getAttribute ('name')])
       }
 
       // custom element reactions
