@@ -4,16 +4,16 @@ const Template = function ( name = 'snuggsi' ) {
   function bind (context) {
     context = (Array.isArray (context) ? context : [context])
 
-    const
-      tokens   = []
-    , rendered = context
-        .map (context => this.content.cloneNode (true))
-        .map (collect, tokens)
+//  const
+//    tokens   = []
+//  , rendered = context
+//      .map (context => this.content.cloneNode (true))
+//      .map (collect, tokens)
 
-    this.innerHTML = ''
-    for (const frame of rendered) this.content.appendChild (frame)
+//  this.innerHTML = ''
+//  for (const frame of rendered) this.content.appendChild (frame)
 
-    return context.map(transfer, tokens) && this
+//  return context.map(transfer, tokens) && this
   }
 
   function factory (name) {
@@ -21,20 +21,6 @@ const Template = function ( name = 'snuggsi' ) {
        document.querySelector ('template[name='+name+']').cloneNode (true)
     || document.createElement ('template')
   )}
-
-  function collect (fragment) {
-    const objectify = tokens =>
-      tokens.reduce ( (object, token) =>
-        (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object
-      , {})
-
-    return this.push (objectify (tokenize (fragment))) && fragment
-  }
-
-  function transfer (context, index) {
-    for (const property in context) this [index]
-      [property] && (this [index] [property].textContent = context [property])
-  }
 }
 const EventTarget = Node =>
 
@@ -325,9 +311,10 @@ const Element = function
  ( tag, CustomElementRegistry = window.customElements )
 { tag = tag [0]
 
-  return function // https://en.wikipedia.org/wiki/Higher-order_function
-    (HTMLElement, self = this === window ? this : {})
+  return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
+
+    const context = this === window ? {} : this
 
 //  try
 //    { return new CustomElementRegistry.get (tag) }
@@ -342,6 +329,8 @@ const Element = function
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
       constructor () { super ()
+        this.context = context
+
         super.initialize && super.initialize ()
       }
 
@@ -352,10 +341,13 @@ const Element = function
         { self = value }
 
       get templates ()
-        { return this.selectAll ('template') }
+        { return Array.from (this.selectAll ('template[name]')) }
 
       render () {
         this.tokens.bind (this)
+
+        for (const template of this.templates)
+          console.log (template.bind)
       }
 
       // custom element reactions

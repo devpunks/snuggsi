@@ -6,24 +6,18 @@ var Template = function ( name ) {
   return Object.assign (factory.apply (void 0, name), { bind: bind })
 
   function bind (context) {
-    var this$1 = this;
-
     context = (Array.isArray (context) ? context : [context])
 
-    var
-      tokens   = []
-    , rendered = context
-        .map (function (context) { return this$1.content.cloneNode (true); })
-        .map (collect, tokens)
+//  const
+//    tokens   = []
+//  , rendered = context
+//      .map (context => this.content.cloneNode (true))
+//      .map (collect, tokens)
 
-    this.innerHTML = ''
-    for (var i = 0, list = rendered; i < list.length; i += 1) {
-      var frame = list[i];
+//  this.innerHTML = ''
+//  for (const frame of rendered) this.content.appendChild (frame)
 
-      this$1.content.appendChild (frame)
-    }
-
-    return context.map(transfer, tokens) && this
+//  return context.map(transfer, tokens) && this
   }
 
   function factory (name) {
@@ -31,20 +25,6 @@ var Template = function ( name ) {
        document.querySelector ('template[name='+name+']').cloneNode (true)
     || document.createElement ('template')
   )}
-
-  function collect (fragment) {
-    var objectify = function (tokens) { return tokens.reduce ( function (object, token) { return (object [token.textContent.match (/{(.+)}/) [1]]  = token) && object; }
-      , {}); }
-
-    return this.push (objectify (tokenize (fragment))) && fragment
-  }
-
-  function transfer (context, index) {
-    var this$1 = this;
-
-    for (var property in context) { this$1 [index]
-      [property] && (this$1 [index] [property].textContent = context [property]) }
-  }
 }
 var EventTarget = function (Node) { return ((function (Node) {
     function anonymous () {
@@ -96,7 +76,7 @@ var TokenList = function (nodes) {
 TokenList.prototype.bind = function (context, node) {
     var this$1 = this;
 
-//console.log (arguments)
+  console.log ('foo', context)
 
   for (var property in this$1)
     { node = this$1 [property]
@@ -181,8 +161,8 @@ var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
         function (event) { return /^on/.exec (event); }
 
     this
- //   .register (events)
- //   .mirror (events)
+      .register (events)
+      .mirror (events)
   }
 
     if ( prototype ) anonymous.__proto__ = prototype;
@@ -264,11 +244,10 @@ var Element = function
 if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
  tag = tag [0]
 
-  return function // https://en.wikipedia.org/wiki/Higher-order_function
-    (HTMLElement, self)
-  {
-    if ( self === void 0 ) self = this === window ? this : {};
- // Should this be a class❓❓❓❓
+  return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
+  { // Should this be a class❓❓❓❓
+
+    var context = this === window ? {} : this
 
 //  try
 //    { return new CustomElementRegistry.get (tag) }
@@ -278,6 +257,8 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
 
     var HTMLCustomElement = (function (superclass) {
       function HTMLCustomElement () { superclass.call (this)
+        this.context = context
+
         superclass.prototype.initialize && superclass.prototype.initialize.call (this)
       }
 
@@ -287,12 +268,26 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
 
       var prototypeAccessors = { context: {},templates: {} };
 
-      prototypeAccessors.context.get = function () { return self };
-      prototypeAccessors.context.set = function (value) { self = value };
-      prototypeAccessors.templates.get = function () { return this.selectAll ('template') };
+      prototypeAccessors.context.get = function ()
+        { return self };
+
+      prototypeAccessors.context.set = function (value)
+        { self = value };
+
+      prototypeAccessors.templates.get = function ()
+        { return Array.from (this.selectAll ('template[name]')) };
 
       HTMLCustomElement.prototype.render = function () {
-     // this.tokens.bind (this.context)
+        var this$1 = this;
+
+        this.tokens.bind (this)
+
+        for (var i = 0, list = this$1.templates; i < list.length; i += 1)
+          {
+          var template = list[i];
+
+          console.log (template.bind)
+        }
       };
 
       // custom element reactions
@@ -308,7 +303,7 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
       Object.defineProperties( HTMLCustomElement.prototype, prototypeAccessors );
 
       return HTMLCustomElement;
-    }(ParentNode ( EventTarget ( GlobalEventHandlers ( HTMLElement )))));
+    }(EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement )))));
 
 //  try
 //    {
