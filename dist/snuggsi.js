@@ -1,31 +1,41 @@
 
 var this$1 = this;
+// INTERESTING! Converting `Template` to a class increases size by ~16 octets
+
+//class Template {
+
+//  constructor ( name = 'snuggsi' ) {
+//    return Object.assign (this.factory (...name), { bind: this.bind })
+//  }
+
+//  bind (context) {
+//    context = Array.isArray (context) ? context : [context]
+//  }
+
+//  factory (name) {
+//    return (
+//      document.querySelector ('template[name='+name+']').cloneNode (true)
+//        || document.createElement ('template'))
+//  }
+//}
+
 var Template = function ( name ) {
   if ( name === void 0 ) name = 'snuggsi';
 
   return Object.assign (factory.apply (void 0, name), { bind: bind })
 
   function bind (context) {
-    context = (Array.isArray (context) ? context : [context])
-
-//  const
-//    tokens   = []
-//  , rendered = context
-//      .map (context => this.content.cloneNode (true))
-//      .map (collect, tokens)
-
-//  this.innerHTML = ''
-//  for (const frame of rendered) this.content.appendChild (frame)
-
-//  return context.map(transfer, tokens) && this
+    console.log ('binding', context)
+    context = Array.isArray (context) ? context : [context]
   }
 
   function factory (name) {
     return (
-       document.querySelector ('template[name='+name+']').cloneNode (true)
-    || document.createElement ('template')
-  )}
+      document.querySelector ('template[name='+name+']').cloneNode (true)
+        || document.createElement ('template'))
+  }
 }
+
 var EventTarget = function (Node) { return ((function (Node) {
     function anonymous () {
       Node.apply(this, arguments);
@@ -75,8 +85,6 @@ var TokenList = function (nodes) {
 
 TokenList.prototype.bind = function (context, node) {
     var this$1 = this;
-
-  console.log ('foo', context)
 
   for (var property in this$1)
     { node = this$1 [property]
@@ -286,7 +294,8 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
           {
           var template = list[i];
 
-          console.log (template.bind)
+          Template ([template.getAttribute ('name')])
+            .bind (this$1 [template.getAttribute ('name')])
         }
       };
 

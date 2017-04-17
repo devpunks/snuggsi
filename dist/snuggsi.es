@@ -1,27 +1,38 @@
+// INTERESTING! Converting `Template` to a class increases size by ~16 octets
+
+//class Template {
+
+//  constructor ( name = 'snuggsi' ) {
+//    return Object.assign (this.factory (...name), { bind: this.bind })
+//  }
+
+//  bind (context) {
+//    context = Array.isArray (context) ? context : [context]
+//  }
+
+//  factory (name) {
+//    return (
+//      document.querySelector ('template[name='+name+']').cloneNode (true)
+//        || document.createElement ('template'))
+//  }
+//}
+
 const Template = function ( name = 'snuggsi' ) {
+
   return Object.assign (factory (...name), { bind })
-
-  function bind (context) {
-    context = (Array.isArray (context) ? context : [context])
-
-//  const
-//    tokens   = []
-//  , rendered = context
-//      .map (context => this.content.cloneNode (true))
-//      .map (collect, tokens)
-
-//  this.innerHTML = ''
-//  for (const frame of rendered) this.content.appendChild (frame)
-
-//  return context.map(transfer, tokens) && this
-  }
 
   function factory (name) {
     return (
-       document.querySelector ('template[name='+name+']').cloneNode (true)
-    || document.createElement ('template')
-  )}
+      document.querySelector ('template[name='+name+']').cloneNode (true)
+        || document.createElement ('template'))
+  }
+
+  function bind (context) {
+    context = Array.isArray (context) ? context : [context]
+    console.log ('binding', context)
+  }
 }
+
 const EventTarget = Node =>
 
   // DOM Levels
@@ -116,8 +127,6 @@ class TokenList {
   }
 
   bind (context, node) {
-    console.log ('foo', context)
-
     for (const property in this)
       node = this [property]
       , node.data = node.text
@@ -344,10 +353,15 @@ const Element = function
         { return Array.from (this.selectAll ('template[name]')) }
 
       render () {
+        // template = super.render ()
+        // Where should this insert?
+        // What about the meta elements (i.e. script, style, meta)
+
         this.tokens.bind (this)
 
         for (const template of this.templates)
-          console.log (template.bind)
+          Template ([template.getAttribute ('name')])
+            .bind (this [template.getAttribute ('name')])
       }
 
       // custom element reactions
