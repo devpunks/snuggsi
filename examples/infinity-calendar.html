@@ -24,11 +24,8 @@
   <h2>Infinity Calendar</h2>
 </hgroup>
 
-<infinity-calendar for=date oninput=what>
+<infinity-calendar for=date>
   <header>{month} {year}</header>
-
-  <!-- bubbles up to oninput -->
-  <input placeholder='open console before typing'>
 
   <menu>
     <button>Previous</button>
@@ -43,7 +40,7 @@
 
   <!-- https://jakearchibald.com/2016/link-in-body -->
   <link rel=stylesheet href=./infinity-calendar.css>
-  <script type='text/javascript;version=1.8' src=infinity-calendar.js defer></script>
+  <script src=infinity-calendar.js defer></script>
 </infinity-calendar>
 
 <script src='../../vendor/browser-sync.es'></script>
