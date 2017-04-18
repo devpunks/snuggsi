@@ -1,0 +1,104 @@
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+<title>snuggsi - Flashy</title>
+
+<style>
+
+  body {
+    display: flex;
+    flex-flow: column;
+    background: #444;
+  }
+
+  x-flashy {
+    display: block;
+    position: absolute;
+    padding: 1em;
+    cursor: pointer;
+
+    transition-duration: 0.5s;
+    transition-property: top, left, color, background;
+    transition-timing-function: ease-in-out;
+
+    border-radius: 5px;
+    font-family: cursive;
+    font-size: 2rem;
+    line-height: 2rem;
+    box-shadow: 0.2em 0.2em 0.3em, -0.2em -0.2em 0.3em, 0.2em -0.2em 0.3em, -0.2em 0.2em 0.3em;
+  }
+</style>
+
+<script src=/examples/webcomponents-hi-ce.js></script>
+<script src=../dist/snuggsi.es></script>
+
+<link rel=icon type=image/png href=../public/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
+
+<x-flashy>
+  {greeting}
+</x-flashy>
+
+<script>
+
+Element `x-flashy`
+
+(class extends HTMLElement {
+
+  static get speed () { return 3000 }
+
+  static onclick (event) { console.log ('mole whacked') }
+
+  initialize () {
+
+    this.context.greeting = 'initial'
+
+    this.context.greetings = [
+      'Hello',
+      'Bonjour',
+      'Howdy',
+      'Snuggsi ツ',
+      'very component',
+      'such lightweight'
+    ]
+
+    this.randomize()
+    const intervalId = setInterval
+      (this.randomize.bind (this), this.constructor.speed)
+  }
+
+  get greeting () { return this.context.greeting }
+
+  randomize () {
+    this.style.color = this.randomLightColor
+    this.style.background = this.randomDarkColor
+    this.style.top = Math.floor(Math.random() * 300)
+    this.style.left = Math.floor(Math.random() * 300)
+
+    this.context.greeting = this.randomArrayElement(this.context.greetings)
+    this.render ()
+  }
+
+  get randomDarkColor () {
+    return this.randomColor('0123456')
+  }
+
+  get randomLightColor () {
+    return this.randomColor('9abcdef')
+  }
+
+  randomColor (hexRange) {
+    return '#' + hexRange.split('').
+                  map( (v,i,a) => {
+                    return i>5 ? null : this.randomArrayElement(hexRange.split('')) 
+                  }).join('')
+  }
+
+  randomArrayElement (arr) {
+    return arr[Math.floor(Math.random() * arr.length)]
+  }
+})
+
+</script>
+
+<script src=../../vendor/browser-sync.es></script>
+
