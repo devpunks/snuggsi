@@ -1,17 +1,30 @@
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
+<title>snuggsi - Flashy</title>
 
 <style>
 
-  body
-    { display: flex; flex-flow: column }
+  body {
+    display: flex;
+    flex-flow: column;
+    background: #444;
+  }
 
   x-flashy {
     display: block;
     position: absolute;
     padding: 1em;
-  }
 
+    transition-duration: 0.5s;
+    transition-property: top, left, color, background;
+    transition-timing-function: ease-in-out;
+
+    border-radius: 5px;
+    font-family: cursive;
+    font-size: 2rem;
+    line-height: 2rem;
+    box-shadow: 0.2em 0.2em 0.3em, -0.2em -0.2em 0.3em, 0.2em -0.2em 0.3em, -0.2em 0.2em 0.3em;
+  }
 </style>
 
 <script src=/examples/webcomponents-hi-ce.js></script>
@@ -37,11 +50,15 @@ Element `x-flashy`
     this.context.greeting = 'initial'
 
     this.context.greetings = [
-      'hello',
-      'bonjour',
-      'howdy'
+      'Hello',
+      'Bonjour',
+      'Howdy',
+      'Snuggsi ツ',
+      'very component',
+      'such lightweight'
     ]
 
+    this.randomize()
     const intervalId = setInterval
       (this.randomize.bind (this), this.constructor.speed)
   }
@@ -49,23 +66,36 @@ Element `x-flashy`
   get greeting () { return this.context.greeting }
 
   randomize () {
-    this.context.greeting = this.context.greetings
-      [ Math.floor( Math.random() * this.context.greetings.length ) ]
-
-    this.style.color = this.randomColor
-    this.style.background = this.randomColor
+    this.style.color = this.randomLightColor
+    this.style.background = this.randomDarkColor
     this.style.top = Math.floor(Math.random() * 300)
     this.style.left = Math.floor(Math.random() * 300)
 
+    this.context.greeting = this.randomArrayElement(this.context.greetings)
     this.render ()
   }
 
-  get randomColor () {
-    return '#'+'0123456789abcdef'.split('').map(function(v,i,a){
-        return i>5 ? null : a[Math.floor(Math.random()*16)] }).join('')
+  get randomDarkColor () {
+    return this.randomColor('0123456')
+  }
+
+  get randomLightColor () {
+    return this.randomColor('9abcdef')
+  }
+
+  randomColor (hexRange) {
+    return '#' + hexRange.split('').
+                  map( (v,i,a) => {
+                    return i>5 ? null : this.randomArrayElement(hexRange.split('')) 
+                  }).join('')
+  }
+
+  randomArrayElement (arr) {
+    return arr[Math.floor(Math.random() * arr.length)]
   }
 })
 
 </script>
 
 <script src=../../vendor/browser-sync.es></script>
+
