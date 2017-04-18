@@ -1,0 +1,71 @@
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<style>
+
+  body
+    { display: flex; flex-flow: column }
+
+  x-flashy {
+    display: block;
+    position: absolute;
+    padding: 1em;
+  }
+
+</style>
+
+<script src=/examples/webcomponents-hi-ce.js></script>
+<script src=../dist/snuggsi.es></script>
+
+<link rel=icon type=image/png href=../public/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
+
+<x-flashy>
+  {greeting}
+</x-flashy>
+
+<script>
+
+Element `x-flashy`
+
+(class extends HTMLElement {
+
+  static get speed () { return 3000 }
+
+  initialize () {
+
+    this.context.greeting = 'initial'
+
+    this.context.greetings = [
+      'hello',
+      'bonjour',
+      'howdy'
+    ]
+
+    const intervalId = setInterval
+      (this.randomize.bind (this), this.constructor.speed)
+  }
+
+  get greeting () { return this.context.greeting }
+
+  randomize () {
+    this.context.greeting = this.context.greetings
+      [ Math.floor( Math.random() * this.context.greetings.length ) ]
+
+    this.style.color = this.randomColor
+    this.style.background = this.randomColor
+    this.style.top = Math.floor(Math.random() * 300)
+    this.style.left = Math.floor(Math.random() * 300)
+
+    this.render ()
+  }
+
+  get randomColor () {
+    return '#'+'0123456789abcdef'.split('').map(function(v,i,a){
+        return i>5 ? null : a[Math.floor(Math.random()*16)] }).join('')
+  }
+})
+
+</script>
+
+<script src=../../vendor/browser-sync.es></script>
