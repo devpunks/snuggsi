@@ -4,20 +4,17 @@
 <meta name=viewport content=width=device-width,initial-scale=1>
 
 <link rel=stylesheet href=http://www.devpunks.com/typography.css>
-
 <style>
 
-  body
-    { display: flex; flex-flow: column }
+  infinity-calendar a
+    { line-height: 2em }
 
 </style>
 
-<script src=./webcomponents-hi-ce.js></script>
-<script src=../dist/snuggsi.es></script>
+<script src=webcomponents-hi-ce.js></script>
+<script src=../dist/snuggsi.es defer></script>
 
-<link rel=icon type=image/png href=../public/favicon-32x32.png sizes=32x32>
 <link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
-
 
 <hgroup>
   <h1>snuggsi ツ</h1>
@@ -34,13 +31,14 @@
 
   <template name='days'>
     <a href=#{day}>
-      <time datetime>{day}</time>
+      <time datetime>Day {day}</time>
     </a>
   </template>
 
   <!-- https://jakearchibald.com/2016/link-in-body -->
-  <link rel=stylesheet href=./infinity-calendar.css>
+  <link rel=stylesheet href=infinity-calendar.css>
   <script src=infinity-calendar.js defer></script>
 </infinity-calendar>
 
-<script src='../../vendor/browser-sync.es'></script>
+
+<script src=../../vendor/browser-sync.es></script>

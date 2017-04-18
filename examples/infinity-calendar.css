@@ -24,7 +24,7 @@ infinity-calendar a {
   border-radius: 4rem;
   display: flex;
   text-align: center;
-  line-height: 4rem;
+  /* line-height: 4rem; */
 }
 
 infinity-calendar {
