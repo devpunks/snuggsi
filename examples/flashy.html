@@ -10,6 +10,7 @@
     display: block;
     position: absolute;
     padding: 1em;
+    cursor: pointer;
   }
 
 </style>
@@ -31,6 +32,8 @@ Element `x-flashy`
 (class extends HTMLElement {
 
   static get speed () { return 3000 }
+
+  static onclick (event) { console.log ('mole whacked') }
 
   initialize () {
 
