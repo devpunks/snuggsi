@@ -23,7 +23,8 @@ var Template = function ( name ) {
   if ( name === void 0 ) name = 'snuggsi';
 
 
-  return tokenized ( clone (name) ) //Object.assign (factory (...name), { bind })
+  return Object.assign
+    (document.querySelector ('template[name='+name+']'), { bind: bind } )
 
   function tokenized (template) {
     var
@@ -48,19 +49,32 @@ var Template = function ( name ) {
     return nodes
   }
 
-  function clone (name) {
-    return document.querySelector
-      ('template[name='+name+']')
-        .cloneNode (true)
-  }
+  function bind (context) {
+    var this$1 = this;
 
-  Template.prototype.bind = function (context) {
     context = Array.isArray (context) ? context : [context]
-    console.log ('binding', new TokenList ([this.content]))
+
+    var records = []
+
+    console.time ()
+    for (var i = 0, list = context; i < list.length; i += 1) {
+      var item = list[i];
+
+      var clone  = this$1.cloneNode (true)
+      var tokens = (new TokenList (tokenized (clone) ))
+
+      tokens.bind (item)
+      records.push (clone.content)
+    }
+
+      (ref = this).after.apply (ref, records)
+
+    console.timeEnd ()
+
+    return this
+    var ref;
   }
 }
-
-console.log ('My template', new Template('days').content)
 var EventTarget = function (Node) { return ((function (Node) {
     function anonymous () {
       Node.apply(this, arguments);
@@ -311,21 +325,22 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
         { return Array.from (this.selectAll ('template[name]')) };
 
       HTMLCustomElement.prototype.render = function () {
-        var this$1 = this;
-
         // template = super.render ()
         // Where should this insert?
         // What about the meta elements (i.e. script, style, meta)
 
         this.tokens.bind (this)
 
-        for (var i = 0, list = this$1.templates; i < list.length; i += 1)
-          {
-          var template = list[i];
+        templatize.call (this, this.templates)
 
-          Template ([template.getAttribute ('name')])
+        function templatize (templates) {
+          var this$1 = this;
+
+          templates.forEach (function (template) {
+            (new Template ([template.getAttribute ('name')]))
+              .bind (this$1 [template.getAttribute ('name')] || [])
+          })
         }
-//          .bind (this [template.getAttribute ('name')])
       };
 
       // custom element reactions

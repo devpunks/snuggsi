@@ -19,7 +19,8 @@
 
 const Template = function ( name = 'snuggsi' ) {
 
-  return Object.assign (name, { bind } )
+  return Object.assign
+    (document.querySelector ('template[name='+name+']'), { bind } )
 
   function tokenized (template) {
     const
@@ -38,28 +39,28 @@ const Template = function ( name = 'snuggsi' ) {
     while (node = walker.nextNode ())
       nodes.push (node)
 
-    console.log (nodes)
     return nodes
   }
 
   function bind (context) {
     context = Array.isArray (context) ? context : [context]
 
-    console.log (context)
+    const records = []
 
-    return this
-//  console.log ('binding', new TokenList ([this.content]))
+    for (const item of context) {
+      let
+        clone  = this.cloneNode (true)
+      , tokens = (new TokenList (tokenized (clone) ))
 
-    function clone (name) {
-      return document.querySelector
-        ('template[name='+name+']')
-          .cloneNode (true)
+      tokens.bind (item)
+      records.push (clone.content)
     }
 
+    this.after (...records)
+
+    return this
   }
 }
-
-console.dir (new Template('days').bind ({}))
 const EventTarget = Node =>
 
   // DOM Levels
@@ -386,9 +387,14 @@ const Element = function
 
         this.tokens.bind (this)
 
-        for (const template of this.templates)
-          Template ([template.getAttribute ('name')])
-//          .bind (this [template.getAttribute ('name')])
+        templatize.call (this, this.templates)
+
+        function templatize (templates) {
+          templates.forEach (template => {
+            (new Template ([template.getAttribute ('name')]))
+              .bind (this [template.getAttribute ('name')] || [])
+          })
+        }
       }
 
       // custom element reactions
