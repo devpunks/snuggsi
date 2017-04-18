@@ -216,48 +216,6 @@ Web Worker Harness
 https://testdrive-archive.azurewebsites.net/HTML5/WebWorkerTest262
 
 
-## Ruby
-[![Gem Version](https://badge.fury.io/rb/snuggsi.svg)](http://badge.fury.io/rb/snuggsi)
-
-*WIP*
-
-- [ ] Sprockets bindings
-- [ ] Rails engine
-
-### Installation
-
-Add this line to your application's Gemfile:
-```ruby
-gem "snuggsi"
-```
-
-Remove the following gems from Gemfile ([YAGNI](https://en.wikipedia.org/wiki/You_aren't_gonna_need_it))
-```ruby
-gem "uglifier" # We don't have to worry about this anymore!
-gem "sass-rails" # We use SugarSS. No worries! looks like SASS.
-gem "jquery-rails" # YES you won't need this anymore
-gem "coffee-rails" # Coffeescript is out. ECMAScript is in!
-```
-
-And then execute:
-```bash
-$ bundle
-```
-
-Or install it yourself as:
-```bash
-$ gem install snuggsi
-```
-
-### Dependencies
-  - [Minitest](https://github.com/seattlerb/minitest)
-  - [Sprockets](https://github.com/rails/sprockets)
-
-### Testing
-```bash
-$ rake test
-```
-
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/snuggsi/fork )
