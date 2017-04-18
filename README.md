@@ -350,67 +350,6 @@ $ gem install snuggsi
 $ rake test
 ```
 
-### Notes
-Taken from [SASSC-ruby](https://github.com/sass/sassc-ruby)
-  - http://blog.sass-lang.com/posts/1022316-announcing-dart-sass
-
-warning: "Ruby Sass, on the other hand, will eventually go away unless a new maintainer appears. We don't want to make the transition sudden and risk fracturing the ecosystem: Chris and I are committed to maintaining it for one year, which includes keeping the language in sync with any new additions in Dart Sass. If anyone is interested in volunteering as a maintainer after that period, we'd be thrilled to mentor them and teach them the codebase over the coming year. But if no one steps up, Ruby Sass will be officially considered deprecated and unmaintained.
-
-I want to emphasize that we aren't making the decision to stop developing Ruby Sass lightly. This is a big change, and it's not an easy one for me—I've worked on Ruby Sass continuously for almost ten years now, and it's difficult to let that history go. But Chris and I have discussed this thoroughly, and we're convinced this is the right move. We only have so much time to devote to Sass, and it no longer makes sense to put that time into an implementation that's so slow as to be infeasible for many of our largest users."
-
-_Supports > Rails 5.x_
-
-If you’re lucky enough to be starting with a brand new application, you can use the `--skip-sprockets` option when you create the app.
-```bash
-$ rails new AwesomeApp --skip-sprockets # 🎉Yay🎉
-```
-
-#### Turbolinks
-  - https://sevos.io/2017/02/27/turbolinks-lifecycle-explained.html
-  - Why you **shouldn't** bind events directly to `document`
-    - http://stackoverflow.com/questions/12824549/should-all-jquery-events-be-bound-to-document#answers-header
-
-  - http requests - https://github.com/turbolinks/turbolinks/blob/c73e134731ad12b2ee987080f4c905aaacdebba1/src/turbolinks/http_request.coffee#L20-L22
-  - https://github.com/turbolinks/turbolinks/issues/152
-  - https://gist.github.com/snuggs/f24303a6d3ce584e7582672f8b40c54f
-
-#### Configuring Rails Assets
-Blade sprockets testing - https://github.com/javan/blade
-
-  - template streaming - https://github.com/rails/rails/issues/23828
-Default Raw template handling
-  - https://github.com/rails/rails/commit/8bea607265a2c9bb9bb2188b0a79089ca373b814
-  - https://github.com/rails/rails/commit/4be859f0fdf7b3059a28d03c279f03f5938efc80
-
-Relies on ActionController::Renderer to render templates
-  - https://github.com/rails/rails/pull/18546
-  - http://guides.rubyonrails.org/5_0_release_notes.html#action-pack-notable-changes
-
-Template lookup for I18n
-  - https://github.com/rails/rails/commit/ecb1981b
-
-  - configuring-assets
-
-#### Why a New Asset Pipeline ?
-  - https://corcoran.io/2014/05/27/moving-past-rails-asset-pipeline/
-
-#### Why a Rack skeleton server ?
-https://news.ycombinator.com/item?id=4517021
-"Rails" is a collection of libraries and conventions, just as "Sinatra + ActiveRecord" is. There's nothing inherent in it that makes it "worse" than Sinatra (which I love, by the way) for JSON APIs.
-
-Use Rack, pick your favorite gems, and go to town. Why mess with all the other Sinatra junk when you can have a simple config.ru for your app and just write a simple call method and you're good to go?
-
-You don't need all the ceremony and structure of Sinatra to write a JSON API, you just don't.
-
-#### Deployment to Heroku
-https://github.com/sass/sassc-rails
-
-Due to LibSass compilation requirements, you must upgrade to the
-[Heroku Cedar-14 Stack](https://devcenter.heroku.com/articles/cedar-14-migration)
-in order to successfully install this gem.
-
-Upgrading to Cedar-14 is usually a painless process.
-
 ## Contributing
 
 1. Fork it ( https://github.com/[my-github-username]/snuggsi/fork )
