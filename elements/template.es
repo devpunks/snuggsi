@@ -19,17 +19,45 @@
 
 const Template = function ( name = 'snuggsi' ) {
 
-  return Object.assign (factory (...name), { bind })
+  return Object.assign
+    (document.querySelector ('template[name='+name+']'), { bind } )
 
-  function factory (name) {
-    return (
-      document.querySelector ('template[name='+name+']').cloneNode (true)
-        || document.createElement ('template'))
+  function tokenized (template) {
+    const
+      visit = (node, filter = /({\w+})/g) =>
+        filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+          && NodeFilter.FILTER_ACCEPT
+
+    , walker = document.createNodeIterator
+        (template.content, NodeFilter.SHOW_TEXT, visit)
+        // by default breaks on template YAY! 🎉
+
+    let
+      node
+    , nodes = []
+
+    while (node = walker.nextNode ())
+      nodes.push (node)
+
+    return nodes
   }
 
   function bind (context) {
     context = Array.isArray (context) ? context : [context]
-    console.log ('binding', context)
+
+    const records = []
+
+    for (const item of context) {
+      let
+        clone  = this.cloneNode (true)
+      , tokens = (new TokenList (tokenized (clone) ))
+
+      tokens.bind (item)
+      records.push (clone.content)
+    }
+
+    this.after (...records)
+
+    return this
   }
 }
-

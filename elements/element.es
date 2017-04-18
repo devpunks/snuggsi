@@ -47,9 +47,14 @@ const Element = function
 
         this.tokens.bind (this)
 
-        for (const template of this.templates)
-          Template ([template.getAttribute ('name')])
-            .bind (this [template.getAttribute ('name')])
+        templatize.call (this, this.templates)
+
+        function templatize (templates) {
+          templates.forEach (template => {
+            (new Template ([template.getAttribute ('name')]))
+              .bind (this [template.getAttribute ('name')] || [])
+          })
+        }
       }
 
       // custom element reactions
