@@ -56,7 +56,10 @@
       "node --use_strict index.test.es"
 
   , "compile":
-      "npm run bundle && node ./transpile.es > ./dist/snuggsi.js && npm run uglify && npm run gzip && npm run weigh"
+      "npm run transpile && npm run uglify && npm run gzip && npm run weigh"
+
+  , "transpile":
+      "npm run bundle && node ./transpile.es > ./dist/snuggsi.js"
 
   , "bundle":
       "cat elements/template.es elements/event-target.es elements/parent-node.es elements/global-event-handlers.es elements/element.es > dist/snuggsi.es"
