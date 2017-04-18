@@ -89,55 +89,6 @@ document
 */
 ```
 
-## Polyfills
-
-### [Text](/elements/text.es)
-
-`bind`ing for `textContent` mutations between two `Nodes`.
-`Text` nodes are portable and can be used freely throughout code.
-Best use case is when you need to keep track of element changes
-without touching the DOM, or worse causing a reflow / repaint _(i.e. `append()`, `appendChild()`, `.innerText`, `.innerHTML`)_
-
-#### Must Know
-  - `Text` - https://github.com/snuggs/snuggsi#text-1
-  - `Node.textContent` - https://github.com/snuggs/snuggsi#nodetextcontent
-  - `Document.querySelector ()` - https://developer.mozilla.org/en-US/docs/Web/API/Document/querySelector
-
-Copy & pasta dependency from the following link into developer console.
-
-https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/text.es
-
-_[Console](https://developer.chrome.com/devtools#console) example snippet_
-```Javascript
-const name = new Text ('devPunks')
-name.textContent // "devPunks"
-
-const h1 = document.querySelector ('h1')
-h1.textContent  // "Default Header"
-
-// now let's bind text to a DOM node
-// Text node takes precedence over element contents
-name.bind (h1) // Now we're sync'd
-
-// Any changes to either in memory text or HTML element
-// will be relayed to its tandem
-h1.textContent  // "devPunks"
-name.textContent === h1.textContent // true
-
-// now let's update the DOM node
-// (which will implicitly update `Text` node)
-h1.textContent = 'So RAD!'
-name.textContent  // "So RAD!"
-name.textContent === h1.textContent // true
-
-// 2 way text content binding!
-```
-
-
-### _(Coming Soon in v1)_ [State](/state.es)
-How to manage context state over time .
-
-
 ## Node
 ### Installation
 ```bash
