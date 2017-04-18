@@ -22,20 +22,45 @@ var this$1 = this;
 var Template = function ( name ) {
   if ( name === void 0 ) name = 'snuggsi';
 
-  return Object.assign (factory.apply (void 0, name), { bind: bind })
 
-  function bind (context) {
-    console.log ('binding', context)
-    context = Array.isArray (context) ? context : [context]
+  return tokenized ( clone (name) ) //Object.assign (factory (...name), { bind })
+
+  function tokenized (template) {
+    var
+      visit = function (node, filter) {
+          if ( filter === void 0 ) filter = /({\w+})/g;
+
+          return filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+          && NodeFilter.FILTER_ACCEPT;
+    }
+
+    , walker = document.createNodeIterator
+        (template.content, NodeFilter.SHOW_TEXT, visit)
+        // by default breaks on template YAY! 🎉
+
+    var
+      node
+    , nodes = []
+
+    while (node = walker.nextNode ())
+      { nodes.push (node) }
+
+    return nodes
   }
 
-  function factory (name) {
-    return (
-      document.querySelector ('template[name='+name+']').cloneNode (true)
-        || document.createElement ('template'))
+  function clone (name) {
+    return document.querySelector
+      ('template[name='+name+']')
+        .cloneNode (true)
+  }
+
+  Template.prototype.bind = function (context) {
+    context = Array.isArray (context) ? context : [context]
+    console.log ('binding', new TokenList ([this.content]))
   }
 }
 
+console.log ('My template', new Template('days').content)
 var EventTarget = function (Node) { return ((function (Node) {
     function anonymous () {
       Node.apply(this, arguments);
@@ -288,6 +313,10 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
       HTMLCustomElement.prototype.render = function () {
         var this$1 = this;
 
+        // template = super.render ()
+        // Where should this insert?
+        // What about the meta elements (i.e. script, style, meta)
+
         this.tokens.bind (this)
 
         for (var i = 0, list = this$1.templates; i < list.length; i += 1)
@@ -295,8 +324,8 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
           var template = list[i];
 
           Template ([template.getAttribute ('name')])
-            .bind (this$1 [template.getAttribute ('name')])
         }
+//          .bind (this [template.getAttribute ('name')])
       };
 
       // custom element reactions

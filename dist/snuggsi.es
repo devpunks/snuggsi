@@ -19,20 +19,47 @@
 
 const Template = function ( name = 'snuggsi' ) {
 
-  return Object.assign (factory (...name), { bind })
+  return Object.assign (name, { bind } )
 
-  function factory (name) {
-    return (
-      document.querySelector ('template[name='+name+']').cloneNode (true)
-        || document.createElement ('template'))
+  function tokenized (template) {
+    const
+      visit = (node, filter = /({\w+})/g) =>
+        filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+          && NodeFilter.FILTER_ACCEPT
+
+    , walker = document.createNodeIterator
+        (template.content, NodeFilter.SHOW_TEXT, visit)
+        // by default breaks on template YAY! 🎉
+
+    let
+      node
+    , nodes = []
+
+    while (node = walker.nextNode ())
+      nodes.push (node)
+
+    console.log (nodes)
+    return nodes
   }
 
   function bind (context) {
     context = Array.isArray (context) ? context : [context]
-    console.log ('binding', context)
+
+    console.log (context)
+
+    return this
+//  console.log ('binding', new TokenList ([this.content]))
+
+    function clone (name) {
+      return document.querySelector
+        ('template[name='+name+']')
+          .cloneNode (true)
+    }
+
   }
 }
 
+console.dir (new Template('days').bind ({}))
 const EventTarget = Node =>
 
   // DOM Levels
@@ -361,7 +388,7 @@ const Element = function
 
         for (const template of this.templates)
           Template ([template.getAttribute ('name')])
-            .bind (this [template.getAttribute ('name')])
+//          .bind (this [template.getAttribute ('name')])
       }
 
       // custom element reactions
