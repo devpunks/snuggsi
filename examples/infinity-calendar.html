@@ -25,12 +25,12 @@
   <header>{month} {year}</header>
 
   <menu>
-    <button>Previous</button>
-    <button>Next</button>
+    <button onclick=onprevious>Previous</button>
+    <button onclick=onnext>Next</button>
   </menu>
 
   <template name='days'>
-    <a href=#{day}>
+    <a onclick=ondayclick href=#{day}>
       <time datetime>Day {day}</time>
     </a>
   </template>

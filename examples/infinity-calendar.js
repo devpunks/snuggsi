@@ -2,15 +2,8 @@ Element `infinity-calendar`
 
 (class extends HTMLElement {
 
-  initialize () {
-     this.context.date = new Date
-
-    this.select ('menu button:first-of-type')
-      .addEventListener ('click', this.onprevious.bind (this))
-
-    this.select ('menu button:last-of-type')
-      .addEventListener ('click', this.onnext.bind (this))
-   }
+  initialize ()
+    { this.context.date = new Date }
 
   static onnext () {
     this.date_from_month (+1)
@@ -21,6 +14,9 @@ Element `infinity-calendar`
     this.date_from_month (-1)
     this.render ()
   }
+
+  static ondayclick (event)
+    { alert (event.target.textContent) }
 
   get year ()
     { return this.context.date.getFullYear () }
@@ -37,10 +33,9 @@ Element `infinity-calendar`
   get days () {
     const
       dates = []
-
     , daily = undefined
 
-    , days = day =>
+    , days  = day =>
         { return { day: day } }
 
     , date  =
@@ -53,9 +48,7 @@ Element `infinity-calendar`
   }
 
   date_from_month (change) {
-
     this.context.date = new Date
       (this.context.date.setMonth (this.context.date.getMonth () + change))
   }
-
 })
