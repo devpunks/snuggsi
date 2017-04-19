@@ -22,6 +22,7 @@ var this$1 = this;
 var Template = function ( name ) {
   if ( name === void 0 ) name = 'snuggsi';
 
+  this.dependents = []
 
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind: bind } )
@@ -52,24 +53,34 @@ var Template = function ( name ) {
   function bind (context) {
     var this$1 = this;
 
+    this.dependents = this.dependents || []
+
+    this.dependents
+      .map (function (node) { return node.remove (); })
+
+
     context = Array.isArray (context) ? context : [context]
 
-    var records = []
+    var
+      records = []
 
-    console.time ()
     for (var i = 0, list = context; i < list.length; i += 1) {
       var item = list[i];
 
-      var clone  = this$1.cloneNode (true)
-      var tokens = (new TokenList (tokenized (clone) ))
+      var
+        clone  = this$1.cloneNode (true)
+      , tokens = (new TokenList (tokenized (clone) ))
 
       tokens.bind (item)
       records.push (clone.content)
     }
 
-      (ref = this).after.apply (ref, records)
+    records.map (function (record) {
+      (ref = this.dependents).push.apply (ref, record.childNodes)
+      var ref;
+    }, this)
 
-    console.timeEnd ()
+    (ref = this).after.apply (ref, records)
 
     return this
     var ref;
@@ -201,35 +212,17 @@ var ParentNode = function (prototype) { return ((function (prototype) {
 //      comb (node)
 //}
 var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
-    function anonymous () { prototype.call (this)
-
-    var
-      events =
-        function (event) { return /^on/.exec (event); }
-
-    this
-      .register (events)
-      .mirror (events)
-  }
+    function anonymous () {
+      prototype.apply(this, arguments);
+    }
 
     if ( prototype ) anonymous.__proto__ = prototype;
     anonymous.prototype = Object.create( prototype && prototype.prototype );
     anonymous.prototype.constructor = anonymous;
 
-  anonymous.prototype.mirror = function (events) {
+    anonymous.prototype.register = function (events) {
     var this$1 = this;
-
-
-    Object
-      .getOwnPropertyNames (prototype)
-      .filter (events)
-      .forEach (function (handler) { return !!! this$1 [handler] && (this$1 [handler] = prototype [handler]); })
-
-    return this
-  };
-
-  anonymous.prototype.register = function (events) {
-    var this$1 = this;
+    if ( events === void 0 ) events = function (event) { return /^on/.exec (event); };
 
 
     var
@@ -253,7 +246,7 @@ var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
             if ( handler === void 0 ) handler = (/{\s*(\w+)\s*}/.exec (event) || []) [1];
 
             return handler
-            && prototype [ handler ]
+            && prototype [ handler ].bind (this$1)
             || event
             || null;
     }
@@ -267,12 +260,22 @@ var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
               .map (reflection (node)); }; }
 
     , reflection =
-        function (node) { return function (event) { node [event] = handle (node [event]) }; }
+        function (node) { return function (event) {
+            node [event] = handle (node [event]) }; }
 
-    [this]
+    , mirror = function (handler){ return !!! this$1 [handler]
+        && (this$1 [handler] = prototype [handler].bind (this$1)); }
+
+
+    void [this]
       .concat (children)
       .filter (registered)
       .map (reflect (this))
+
+    Object
+      .getOwnPropertyNames (prototype)
+      .filter (events)
+      .map (mirror)
 
     return this
   };
@@ -341,6 +344,8 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
               .bind (this$1 [template.getAttribute ('name')] || [])
           })
         }
+
+        this.register ()
       };
 
       // custom element reactions
