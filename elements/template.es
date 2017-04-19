@@ -18,6 +18,7 @@
 //}
 
 const Template = function ( name = 'snuggsi' ) {
+  this.dependents = []
 
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind } )
@@ -43,9 +44,16 @@ const Template = function ( name = 'snuggsi' ) {
   }
 
   function bind (context) {
+    this.dependents = this.dependents || []
+
+    this.dependents
+      .map (node => node.remove ())
+
+
     context = Array.isArray (context) ? context : [context]
 
-    const records = []
+    const
+      records = []
 
     for (const item of context) {
       let
@@ -55,6 +63,10 @@ const Template = function ( name = 'snuggsi' ) {
       tokens.bind (item)
       records.push (clone.content)
     }
+
+    records.map (function (record) {
+      this.dependents.push (...record.childNodes)
+    }, this)
 
     this.after (...records)
 
