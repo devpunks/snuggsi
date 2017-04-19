@@ -46,14 +46,17 @@ const Template = function ( name = 'snuggsi' ) {
   function bind (context) {
     this.dependents = this.dependents || []
 
-    this.dependents
-      .map (node => node.remove ())
-
 
     context = Array.isArray (context) ? context : [context]
 
     const
-      records = []
+      records   = []
+    , dependant = undefined
+
+    while
+      (dependent = this.dependents.pop ())
+        dependent.remove ()
+
 
     for (const item of context) {
       let
@@ -64,9 +67,8 @@ const Template = function ( name = 'snuggsi' ) {
       records.push (clone.content)
     }
 
-    records.map (function (record) {
-      this.dependents.push (...record.childNodes)
-    }, this)
+    records.map
+      (function (record) { this.dependents.push (...record.childNodes) }, this)
 
     this.after (...records)
 
