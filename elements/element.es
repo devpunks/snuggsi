@@ -55,6 +55,8 @@ const Element = function
               .bind (this [template.getAttribute ('name')] || [])
           })
         }
+
+        this.register ()
       }
 
       // custom element reactions
