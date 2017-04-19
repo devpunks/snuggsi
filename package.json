@@ -70,6 +70,9 @@
   , "gzip":
       "gzip -k -9 -c -S=.js ./dist/*.min.js > ./dist/snuggsi.min.js.gz"
 
+  , "brotli":
+      "bro --quality 11 --repeat 1 --input ./dist/*.min.js > ./dist/snuggsi.min.js.br"
+
   , "weigh":
       "npm run bundle && echo $(gzip -9 -c -S=.js ./dist/*.min.js | wc -c) bytes"
 
