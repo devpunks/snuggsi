@@ -28,29 +28,7 @@ const GlobalEventHandlers = prototype =>
 
 (class extends prototype {
 
-  constructor () { super ()
-
-    const
-      events =
-        event =>
-          /^on/.exec (event)
-
-    this
-      .register (events)
-      .mirror (events)
-  }
-
-  mirror (events) {
-
-    Object
-      .getOwnPropertyNames (prototype)
-      .filter (events)
-      .forEach (handler => !!! this [handler] && (this [handler] = prototype [handler]))
-
-    return this
-  }
-
-  register (events) {
+  register (events = event => /^on/.exec (event)) {
 
     let
       nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
@@ -71,9 +49,8 @@ const GlobalEventHandlers = prototype =>
 
     , handle =
         (event, handler = (/{\s*(\w+)\s*}/.exec (event) || []) [1])  =>
-
           handler
-            && prototype [ handler ]
+            && prototype [ handler ].bind (this)
             || event
             || null
 
@@ -90,13 +67,23 @@ const GlobalEventHandlers = prototype =>
 
     , reflection =
         node => // closure
-          event =>
-            { node [event] = handle (node [event]) }
+          event => {
+            node [event] = handle (node [event]) }
 
-    [this]
+    , mirror = handler=>
+        !!! this [handler]
+        && (this [handler] = prototype [handler].bind (this))
+
+
+    void [this]
       .concat (children)
       .filter (registered)
       .map (reflect (this))
+
+    Object
+      .getOwnPropertyNames (prototype)
+      .filter (events)
+      .map (mirror)
 
     return this
   }
