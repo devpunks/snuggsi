@@ -5,6 +5,7 @@
   - `<to-do>` -
   - `<data-list>` - http://www.devpunks.com/examples/autocomplete.html
   - `<list-filter>` - http://www.devpunks.com/examples/filter.html
+  - `<valid-form>` -
   - `<infinity-calendar>` -
   - `<options-scanner>` -
   - `<x-flashy>` -
