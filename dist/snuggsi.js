@@ -7,7 +7,7 @@ var TokenList = function (node) {
   var
     textify = function (node) { return (node.text = node.data, node); }
 
-  , symbolize = function (symbol) { return symbol.match (/{(\w+)}/g) [0]; }
+  , symbolize = function (symbol) { return symbol.match (/(\w+)/g) [0]; }
 
   , insert = function (token) { return function (symbol) { return this$1 [symbol] = token; }; }
 
@@ -142,15 +142,14 @@ var Template = function ( name ) {
       records.push (clone.content)
     }
 
-    console.log ('context', records)
-
     records.map
       (function (record) { (ref = this.dependents).push.apply (ref, record.childNodes)
       var ref; }, this)
 
-//  this.after (...records)
+    (ref = this).after.apply (ref, records)
 
     return this
+    var ref;
   }
 }
 var EventTarget = function (Element) { return ((function (Element) {

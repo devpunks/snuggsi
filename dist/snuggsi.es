@@ -7,7 +7,7 @@ class TokenList {
         (node.text = node.data, node)
 
     , symbolize = symbol =>
-        symbol.match (/{(\w+)}/g) [0]
+        symbol.match (/(\w+)/g) [0]
 
     , insert = token =>
         symbol => this [symbol] = token
@@ -133,12 +133,10 @@ const Template = function ( name = 'snuggsi' ) {
       records.push (clone.content)
     }
 
-    console.log ('context', records)
-
     records.map
       (function (record) { this.dependents.push (...record.childNodes) }, this)
 
-//  this.after (...records)
+    this.after (...records)
 
     return this
   }
