@@ -61,12 +61,13 @@ class TokenList {
   }
 
 
-  zip (...elements) { const zipper = []
+  zip (...elements) {
 
-    , lock = (zipper, row) => [...zipper, ...row]
-    , pair = teeth  => // http://english.stackexchange.com/questions/121601/pair-or-couple
-      // thunk
-        (tooth, position) => [tooth, teeth [position]]
+    const
+      lock = (zipper, row) => [...zipper, ...row]
+    , pair = teeth => // http://english.stackexchange.com/questions/121601/pair-or-couple
+        (tooth, position) => // thunk
+          [tooth, teeth [position]]
 
     return elements [1]
       .map (pair (elements [0]))
@@ -75,7 +76,7 @@ class TokenList {
 
   slice (text) { const tokens  = []
 
-   , match     = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
+    , match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
     , replace  = token => (collect (token), '✂️')
     , collect  = token => tokens.push (token)
     , sections = text
