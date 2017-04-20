@@ -1,4 +1,4 @@
-const ParentNode = prototype =>
+const ParentNode = Element =>
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -12,7 +12,8 @@ const ParentNode = prototype =>
   // ElementTraversal interface
   // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
 
-(class extends prototype {
+(class extends Element {
+
   // http://jsfiddle.net/zaqtg/10
   // https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
