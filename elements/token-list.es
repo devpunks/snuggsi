@@ -25,6 +25,7 @@ class TokenList {
   }
 
   bind (context, node) {
+    console.log (context, this ['day'])
 
     for (const property in this)
       node = this [property]
