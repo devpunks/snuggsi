@@ -1,4 +1,4 @@
-# ツsnuggsi Easy DOM Components Examples
+# snuggsi ツ - Easy Web Components
 
   - `<hello-world>` -
   - `<add-subtract>` -
