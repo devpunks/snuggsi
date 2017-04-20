@@ -20,8 +20,8 @@ class TokenList {
 
     var a = this
       .sift (node)
-//    .map  (textify)
-//    .map  (tokenize)
+      .map  (textify)
+      .map  (tokenize)
 
   }
 
@@ -65,6 +65,7 @@ class TokenList {
 
     const
       lock = (zipper, row) => [...zipper, ...row]
+
     , pair = teeth => // http://english.stackexchange.com/questions/121601/pair-or-couple
         (tooth, position) => // thunk
           [tooth, teeth [position]]
@@ -74,9 +75,10 @@ class TokenList {
       .reduce (lock)
   }
 
-  slice (text) { const tokens  = []
+  slice (text, tokens = []) {
 
-    , match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
+    const
+      match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
     , replace  = token => (collect (token), '✂️')
     , collect  = token => tokens.push (token)
     , sections = text
