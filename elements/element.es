@@ -1,11 +1,12 @@
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 const Element = function
+  (tag, CustomElementRegistry = window.customElements )
+
   //https://gist.github.com/allenwb/53927e46b31564168a1d
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
- ( tag, CustomElementRegistry = window.customElements )
 { tag = tag [0]
 
   return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
@@ -31,15 +32,6 @@ const Element = function
         super.initialize && super.initialize ()
       }
 
-      get context ()
-        { return self }
-
-      set context (value)
-        { self = value }
-
-      get templates ()
-        { return Array.from (this.selectAll ('template[name]')) }
-
       render () {
         // template = super.render ()
         // Where should this insert?
@@ -47,14 +39,18 @@ const Element = function
 
         this.tokens.bind (this)
 
-        templatize.call (this, this.templates)
+        void (function (templates) {
+          const
+            bind = (template) => {
+              const name = template.getAttribute ('name')
 
-        function templatize (templates) {
-          templates.forEach (template => {
-            (new Template ([template.getAttribute ('name')]))
-              .bind (this [template.getAttribute ('name')] || [])
-          })
-        }
+              void (new Template (name))
+                .bind (this [name] || [])
+            }
+
+          templates.map (bind)
+        })
+        .call (this, Array.from (this.selectAll ('template[name]')))
 
         this.register ()
       }
