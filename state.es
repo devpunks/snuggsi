@@ -29,9 +29,10 @@ function State
 
   for (property in context)
     Object.defineProperty
-      // http://www.ecma-international.org/ecma-262/5.1/#sec-15.2.3.6
-      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
-      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
-      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
       (this, property, describe (property))
+
+    // http://www.ecma-international.org/ecma-262/5.1/#sec-15.2.3.6
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Working_with_Objects
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperty
+    // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/defineProperties
 }
