@@ -7,7 +7,7 @@ class TokenList {
         (node.text = node.data, node)
 
     , symbolize = symbol =>
-        symbol.match (/(\w+)/g) [0]
+        symbol.match (/{(\w+)}/g) [0]
 
     , insert = token =>
         symbol => this [symbol] = token
@@ -18,13 +18,14 @@ class TokenList {
             .map (symbolize)
             .map (insert (token))
 
-    this.text
-      .call (node)
+    this
+      .sift (node)
       .map  (textify)
       .map  (tokenize)
   }
 
   bind (context, node) {
+
     for (const property in this)
       node = this [property]
       , node.data = node.text
@@ -32,31 +33,54 @@ class TokenList {
     for (const property in this)
       node = this [property]
       , node.data = node.data
-        .replace ('{'+property+'}', context [property])
+          .replace ('{'+property+'}', context [property])
 
     return this
   }
 
-  text () {
+  sift (node, nodes = []) {
 
-    console.log ('this', this)
     const
-      visit = (node, filter = /({\w+})/g) =>
-        filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+      visit = node =>
+        /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
           && NodeFilter.FILTER_ACCEPT
 
-    , walker = document.createNodeIterator
-        (this, NodeFilter.SHOW_TEXT, visit)
-        // by default breaks on template YAY! 🎉
-
-    let
-      node
-    , nodes = []
+    , walker =
+        document.createNodeIterator
+          (node, NodeFilter.SHOW_TEXT, visit)
+          // by default breaks on template YAY! 🎉
 
     while (node = walker.nextNode ())
       nodes.push (node)
 
     return nodes
+  }
+
+
+  zip (...elements) { const zipper = []
+
+    , lock = (zipper, row) => [...zipper, ...row]
+    , pair = teeth  => // http://english.stackexchange.com/questions/121601/pair-or-couple
+      // thunk
+        (tooth, position) => [tooth, teeth [position]]
+
+    return elements [1]
+      .map (pair (elements [0]))
+      .reduce (lock)
+  }
+
+  slice (text) { const tokens  = []
+
+   , match     = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
+    , replace  = token => (collect (token), '✂️')
+    , collect  = token => tokens.push (token)
+    , sections = text
+        .replace (match, replace)
+          .split ('✂️')
+
+    return zip (tokens, sections)
+       .filter (element => element)
+          .map (element => new Text (element))
   }
 }
 
@@ -80,6 +104,7 @@ class TokenList {
 //}
 
 const Template = function ( name = 'snuggsi' ) {
+
   this.dependents = []
 
   return Object.assign
@@ -117,7 +142,7 @@ const Template = function ( name = 'snuggsi' ) {
     return this
   }
 }
-const EventTarget = Node =>
+const EventTarget = Element =>
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -139,9 +164,9 @@ const EventTarget = Node =>
   // Within https://w3c.github.io/uievents/#conf-interactive-ua
   // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
 
-(class extends Node {
+(class extends Element {
 
-  listen (event, listener = 'on' + this [event])
+  listen (event, listener = this [event])
 
     // MDN EventTarget.addEventListener
     // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -177,15 +202,8 @@ const EventTarget = Node =>
 //  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
 
 //  { }
-
-//listenable (nodes) {
-//  return Array.prototype.map
-//    .call (nodes, node => Object.assign
-//      (node, {listen: this.listen.bind(this)})) // MUTATES!
-//  return nodes
-//}
 })
-const ParentNode = prototype =>
+const ParentNode = Element =>
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -199,7 +217,8 @@ const ParentNode = prototype =>
   // ElementTraversal interface
   // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
 
-(class extends prototype {
+(class extends Element {
+
   // http://jsfiddle.net/zaqtg/10
   // https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
@@ -230,7 +249,7 @@ const ParentNode = prototype =>
 //    for (let node = parent.firstChild; node; node = node.nextSibling)
 //      comb (node)
 //}
-const GlobalEventHandlers = prototype =>
+const GlobalEventHandlers = Element =>
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -258,7 +277,7 @@ const GlobalEventHandlers = prototype =>
   // Traditional Registration
   // http://www.quirksmode.org/js/events_tradmod.html
 
-(class extends prototype {
+(class extends Element {
 
   register (events = event => /^on/.exec (event)) {
 
@@ -282,7 +301,7 @@ const GlobalEventHandlers = prototype =>
     , handle =
         (event, handler = (/{\s*(\w+)\s*}/.exec (event) || []) [1])  =>
           handler
-            && prototype [ handler ].bind (this)
+            && Element [ handler ].bind (this)
             || event
             || null
 
@@ -304,7 +323,7 @@ const GlobalEventHandlers = prototype =>
 
     , mirror = handler=>
         !!! this [handler]
-        && (this [handler] = prototype [handler].bind (this))
+        && (this [handler] = Element [handler].bind (this))
 
 
     void [this]
@@ -313,7 +332,7 @@ const GlobalEventHandlers = prototype =>
       .map (reflect (this))
 
     Object
-      .getOwnPropertyNames (prototype)
+      .getOwnPropertyNames (Element)
       .filter (events)
       .map (mirror)
 
