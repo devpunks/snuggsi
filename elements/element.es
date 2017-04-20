@@ -45,7 +45,7 @@ const Element = function
               const name = template.getAttribute ('name')
 
               void (new Template (name))
-                .bind (this [name] || [])
+                .bind (this [name])
             }
 
           templates.map (bind)
