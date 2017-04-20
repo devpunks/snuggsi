@@ -1,5 +1,67 @@
 
 var this$1 = this;
+var TokenList = function (node) {
+  var this$1 = this;
+
+
+  var
+    textify = function (node) { return (node.text = node.data, node); }
+
+  , symbolize = function (symbol) { return symbol.match (/(\w+)/g) [0]; }
+
+  , insert = function (token) { return function (symbol) { return this$1 [symbol] = token; }; }
+
+  , tokenize = function (token) { return token.textContent
+        .match (/{(\w+)}/g)
+          .map (symbolize)
+          .map (insert (token)); }
+
+  this.text
+    .call (node)
+    .map(textify)
+    .map(tokenize)
+};
+
+TokenList.prototype.bind = function (context, node) {
+    var this$1 = this;
+
+  for (var property in this$1)
+    { node = this$1 [property]
+    , node.data = node.text }
+
+  for (var property$1 in this$1)
+    { node = this$1 [property$1]
+    , node.data = node.data
+      .replace ('{'+property$1+'}', context [property$1]) }
+
+  return this
+};
+
+TokenList.prototype.text = function () {
+
+  console.log ('this', this)
+  var
+    visit = function (node, filter) {
+          if ( filter === void 0 ) filter = /({\w+})/g;
+
+          return filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+        && NodeFilter.FILTER_ACCEPT;
+    }
+
+  , walker = document.createNodeIterator
+      (this, NodeFilter.SHOW_TEXT, visit)
+      // by default breaks on template YAY! 🎉
+
+  var
+    node
+  , nodes = []
+
+  while (node = walker.nextNode ())
+    { nodes.push (node) }
+
+  return nodes
+};
+
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
 //class Template {
@@ -27,58 +89,37 @@ var Template = function ( name ) {
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind: bind } )
 
-  function tokenized (template) {
-    var
-      visit = function (node, filter) {
-          if ( filter === void 0 ) filter = /({\w+})/g;
-
-          return filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-          && NodeFilter.FILTER_ACCEPT;
-    }
-
-    , walker = document.createNodeIterator
-        (template.content, NodeFilter.SHOW_TEXT, visit)
-        // by default breaks on template YAY! 🎉
-
-    var
-      node
-    , nodes = []
-
-    while (node = walker.nextNode ())
-      { nodes.push (node) }
-
-    return nodes
-  }
-
   function bind (context) {
     var this$1 = this;
 
     this.dependents = this.dependents || []
 
-    this.dependents
-      .map (function (node) { return node.remove (); })
-
 
     context = Array.isArray (context) ? context : [context]
 
     var
-      records = []
+      records   = []
+    , dependant = undefined
+
+    while
+      (dependent = this.dependents.pop ())
+        { dependent.remove () }
+
 
     for (var i = 0, list = context; i < list.length; i += 1) {
       var item = list[i];
 
       var
         clone  = this$1.cloneNode (true)
-      , tokens = (new TokenList (tokenized (clone) ))
+      , tokens = (new TokenList (clone ))
 
       tokens.bind (item)
       records.push (clone.content)
     }
 
-    records.map (function (record) {
-      (ref = this.dependents).push.apply (ref, record.childNodes)
-      var ref;
-    }, this)
+    records.map
+      (function (record) { (ref = this.dependents).push.apply (ref, record.childNodes)
+      var ref; }, this)
 
     (ref = this).after.apply (ref, records)
 
@@ -112,42 +153,6 @@ var EventTarget = function (Node) { return ((function (Node) {
 
     return anonymous;
   }(Node))); }
-var TokenList = function (nodes) {
-  var this$1 = this;
-
-
-  var
-    textify = function (node) { return (node.text = node.data, node); }
-
-  , symbolize = function (symbol) { return symbol.match (/(\w+)/g) [0]; }
-
-  , insert = function (token) { return function (symbol) { return this$1 [symbol] = token; }; }
-
-  , tokenize = function (token) { return token.textContent
-        .match (/{(\w+)}/g)
-          .map (symbolize)
-          .map (insert (token)); }
-
-  nodes
-    .map (textify)
-    .map (tokenize)
-};
-
-TokenList.prototype.bind = function (context, node) {
-    var this$1 = this;
-
-  for (var property in this$1)
-    { node = this$1 [property]
-    , node.data = node.text }
-
-  for (var property$1 in this$1)
-    { node = this$1 [property$1]
-    , node.data = node.data
-      .replace ('{'+property$1+'}', context [property$1]) }
-
-  return this
-};
-
 var ParentNode = function (prototype) { return ((function (prototype) {
     function anonymous () {
       prototype.apply(this, arguments);
@@ -157,7 +162,7 @@ var ParentNode = function (prototype) { return ((function (prototype) {
     anonymous.prototype = Object.create( prototype && prototype.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    var prototypeAccessors = { texts: {},tokens: {} };
+    var prototypeAccessors = { tokens: {} };
 
     anonymous.prototype.selectAll = function (selector)
     { return this.querySelectorAll (selector) };
@@ -167,34 +172,9 @@ var ParentNode = function (prototype) { return ((function (prototype) {
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
     { return this.selectAll (selector) [0] };
 
-  prototypeAccessors.texts.get = function () {
-
-    var
-      visit = function (node, filter) {
-          if ( filter === void 0 ) filter = /({\w+})/g;
-
-          return filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-          && NodeFilter.FILTER_ACCEPT;
-    }
-
-    , walker = document.createNodeIterator
-        (this, NodeFilter.SHOW_TEXT, visit)
-        // by default breaks on template YAY! 🎉
-
-    var
-      node
-    , nodes = []
-
-    while (node = walker.nextNode ())
-      { nodes.push (node) }
-
-    return nodes
-  };
-
   prototypeAccessors.tokens.get = function () {
-
     return this._tokens =
-      this._tokens || new TokenList (this.texts)
+      this._tokens || new TokenList (this)
   };
 
     Object.defineProperties( anonymous.prototype, prototypeAccessors );

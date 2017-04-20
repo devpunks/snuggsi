@@ -1,3 +1,65 @@
+class TokenList {
+
+  constructor (node) {
+
+    const
+      textify = node =>
+        (node.text = node.data, node)
+
+    , symbolize = symbol =>
+        symbol.match (/(\w+)/g) [0]
+
+    , insert = token =>
+        symbol => this [symbol] = token
+
+    , tokenize = token =>
+        token.textContent
+          .match (/{(\w+)}/g)
+            .map (symbolize)
+            .map (insert (token))
+
+    this.text
+      .call (node)
+      .map  (textify)
+      .map  (tokenize)
+  }
+
+  bind (context, node) {
+    for (const property in this)
+      node = this [property]
+      , node.data = node.text
+
+    for (const property in this)
+      node = this [property]
+      , node.data = node.data
+        .replace ('{'+property+'}', context [property])
+
+    return this
+  }
+
+  text () {
+
+    console.log ('this', this)
+    const
+      visit = (node, filter = /({\w+})/g) =>
+        filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+          && NodeFilter.FILTER_ACCEPT
+
+    , walker = document.createNodeIterator
+        (this, NodeFilter.SHOW_TEXT, visit)
+        // by default breaks on template YAY! 🎉
+
+    let
+      node
+    , nodes = []
+
+    while (node = walker.nextNode ())
+      nodes.push (node)
+
+    return nodes
+  }
+}
+
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
 //class Template {
@@ -23,50 +85,32 @@ const Template = function ( name = 'snuggsi' ) {
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind } )
 
-  function tokenized (template) {
-    const
-      visit = (node, filter = /({\w+})/g) =>
-        filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-          && NodeFilter.FILTER_ACCEPT
-
-    , walker = document.createNodeIterator
-        (template.content, NodeFilter.SHOW_TEXT, visit)
-        // by default breaks on template YAY! 🎉
-
-    let
-      node
-    , nodes = []
-
-    while (node = walker.nextNode ())
-      nodes.push (node)
-
-    return nodes
-  }
-
   function bind (context) {
     this.dependents = this.dependents || []
-
-    this.dependents
-      .map (node => node.remove ())
 
 
     context = Array.isArray (context) ? context : [context]
 
     const
-      records = []
+      records   = []
+    , dependant = undefined
+
+    while
+      (dependent = this.dependents.pop ())
+        dependent.remove ()
+
 
     for (const item of context) {
       let
         clone  = this.cloneNode (true)
-      , tokens = (new TokenList (tokenized (clone) ))
+      , tokens = (new TokenList (clone ))
 
       tokens.bind (item)
       records.push (clone.content)
     }
 
-    records.map (function (record) {
-      this.dependents.push (...record.childNodes)
-    }, this)
+    records.map
+      (function (record) { this.dependents.push (...record.childNodes) }, this)
 
     this.after (...records)
 
@@ -141,45 +185,6 @@ const EventTarget = Node =>
 //  return nodes
 //}
 })
-class TokenList {
-
-  constructor (nodes) {
-
-    const
-      textify = node =>
-        (node.text = node.data, node)
-
-    , symbolize = symbol =>
-        symbol.match (/(\w+)/g) [0]
-
-    , insert = token =>
-        symbol => this [symbol] = token
-
-    , tokenize = token =>
-        token.textContent
-          .match (/{(\w+)}/g)
-            .map (symbolize)
-            .map (insert (token))
-
-    nodes
-      .map (textify)
-      .map (tokenize)
-  }
-
-  bind (context, node) {
-    for (const property in this)
-      node = this [property]
-      , node.data = node.text
-
-    for (const property in this)
-      node = this [property]
-      , node.data = node.data
-        .replace ('{'+property+'}', context [property])
-
-    return this
-  }
-}
-
 const ParentNode = prototype =>
 
   // DOM Levels
@@ -210,31 +215,9 @@ const ParentNode = prototype =>
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
     { return this.selectAll (selector) [0] }
 
-  get texts () {
-
-    const
-      visit = (node, filter = /({\w+})/g) =>
-        filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-          && NodeFilter.FILTER_ACCEPT
-
-    , walker = document.createNodeIterator
-        (this, NodeFilter.SHOW_TEXT, visit)
-        // by default breaks on template YAY! 🎉
-
-    let
-      node
-    , nodes = []
-
-    while (node = walker.nextNode ())
-      nodes.push (node)
-
-    return nodes
-  }
-
   get tokens () {
-
-    return this._tokens =
-      this._tokens || new TokenList (this.texts)
+    return this._tokens = // This is Janky
+      this._tokens || new TokenList (this)
   }
 })
 
