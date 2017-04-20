@@ -20,7 +20,6 @@ var TokenList = function (node) {
     .sift (node)
     .map(textify)
     .map(tokenize)
-
 };
 
 TokenList.prototype.bind = function (context, node) {
@@ -42,7 +41,6 @@ TokenList.prototype.bind = function (context, node) {
 
 TokenList.prototype.sift = function (node, nodes) {
     if ( nodes === void 0 ) nodes = [];
-
 
   var
     visit = function (node) { return /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
@@ -144,7 +142,7 @@ var Template = function ( name ) {
 
       var
         clone  = this$1.cloneNode (true)
-      , tokens = (new TokenList (clone ))
+      , tokens = (new TokenList (clone.content))
 
       tokens.bind (item)
       records.push (clone.content)
