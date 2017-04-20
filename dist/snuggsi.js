@@ -7,7 +7,7 @@ var TokenList = function (node) {
   var
     textify = function (node) { return (node.text = node.data, node); }
 
-  , symbolize = function (symbol) { return symbol.match (/(\w+)/g) [0]; }
+  , symbolize = function (symbol) { return symbol.match (/{(\w+)}/g) [0]; }
 
   , insert = function (token) { return function (symbol) { return this$1 [symbol] = token; }; }
 
@@ -16,14 +16,15 @@ var TokenList = function (node) {
           .map (symbolize)
           .map (insert (token)); }
 
-  this.text
-    .call (node)
+  this
+    .sift (node)
     .map(textify)
     .map(tokenize)
 };
 
 TokenList.prototype.bind = function (context, node) {
     var this$1 = this;
+
 
   for (var property in this$1)
     { node = this$1 [property]
@@ -32,34 +33,56 @@ TokenList.prototype.bind = function (context, node) {
   for (var property$1 in this$1)
     { node = this$1 [property$1]
     , node.data = node.data
-      .replace ('{'+property$1+'}', context [property$1]) }
+        .replace ('{'+property$1+'}', context [property$1]) }
 
   return this
 };
 
-TokenList.prototype.text = function () {
+TokenList.prototype.sift = function (node, nodes) {
+    if ( nodes === void 0 ) nodes = [];
 
-  console.log ('this', this)
-  var
-    visit = function (node, filter) {
-          if ( filter === void 0 ) filter = /({\w+})/g;
-
-          return filter.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-        && NodeFilter.FILTER_ACCEPT;
-    }
-
-  , walker = document.createNodeIterator
-      (this, NodeFilter.SHOW_TEXT, visit)
-      // by default breaks on template YAY! 🎉
 
   var
-    node
-  , nodes = []
+    visit = function (node) { return /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+        && NodeFilter.FILTER_ACCEPT; }
+
+  , walker =
+      document.createNodeIterator
+        (node, NodeFilter.SHOW_TEXT, visit)
+        // by default breaks on template YAY! 🎉
 
   while (node = walker.nextNode ())
     { nodes.push (node) }
 
   return nodes
+};
+
+
+TokenList.prototype.zip = function () {
+  var elements = [], len = arguments.length;
+  while ( len-- ) elements[ len ] = arguments[ len ];
+ var zipper = []
+
+  , lock = function (zipper, row) { return zipper.concat( row); }
+  , pair = function (teeth){ return function (tooth, position) { return [tooth, teeth [position]]; }; }
+
+  return elements [1]
+    .map (pair (elements [0]))
+    .reduce (lock)
+};
+
+TokenList.prototype.slice = function (text) { var tokens= []
+
+ , match   = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
+  , replace= function (token) { return (collect (token), '✂️'); }
+  , collect= function (token) { return tokens.push (token); }
+  , sections = text
+      .replace (match, replace)
+        .split ('✂️')
+
+  return zip (tokens, sections)
+     .filter (function (element) { return element; })
+        .map (function (element) { return new Text (element); })
 };
 
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
@@ -83,6 +106,7 @@ TokenList.prototype.text = function () {
 
 var Template = function ( name ) {
   if ( name === void 0 ) name = 'snuggsi';
+
 
   this.dependents = []
 
@@ -127,13 +151,13 @@ var Template = function ( name ) {
     var ref;
   }
 }
-var EventTarget = function (Node) { return ((function (Node) {
+var EventTarget = function (Element) { return ((function (Element) {
     function anonymous () {
-      Node.apply(this, arguments);
+      Element.apply(this, arguments);
     }
 
-    if ( Node ) anonymous.__proto__ = Node;
-    anonymous.prototype = Object.create( Node && Node.prototype );
+    if ( Element ) anonymous.__proto__ = Element;
+    anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
     anonymous.prototype.listen = function (event, listener)
@@ -148,18 +172,18 @@ var EventTarget = function (Node) { return ((function (Node) {
     // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
 
     {
-    if ( listener === void 0 ) listener = 'on' + this$1 [event];
+    if ( listener === void 0 ) listener = this$1 [event];
  this.addEventListener (event, listener) };
 
     return anonymous;
-  }(Node))); }
-var ParentNode = function (prototype) { return ((function (prototype) {
+  }(Element))); }
+var ParentNode = function (Element) { return ((function (Element) {
     function anonymous () {
-      prototype.apply(this, arguments);
+      Element.apply(this, arguments);
     }
 
-    if ( prototype ) anonymous.__proto__ = prototype;
-    anonymous.prototype = Object.create( prototype && prototype.prototype );
+    if ( Element ) anonymous.__proto__ = Element;
+    anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
     var prototypeAccessors = { tokens: {} };
@@ -173,14 +197,14 @@ var ParentNode = function (prototype) { return ((function (prototype) {
     { return this.selectAll (selector) [0] };
 
   prototypeAccessors.tokens.get = function () {
-    return this._tokens =
+    return this._tokens = // This is Janky
       this._tokens || new TokenList (this)
   };
 
     Object.defineProperties( anonymous.prototype, prototypeAccessors );
 
     return anonymous;
-  }(prototype))); }
+  }(Element))); }
 
 //function comb
 //  // ElementTraversal interface
@@ -191,13 +215,13 @@ var ParentNode = function (prototype) { return ((function (prototype) {
 //    for (let node = parent.firstChild; node; node = node.nextSibling)
 //      comb (node)
 //}
-var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
+var GlobalEventHandlers = function (Element) { return ((function (Element) {
     function anonymous () {
-      prototype.apply(this, arguments);
+      Element.apply(this, arguments);
     }
 
-    if ( prototype ) anonymous.__proto__ = prototype;
-    anonymous.prototype = Object.create( prototype && prototype.prototype );
+    if ( Element ) anonymous.__proto__ = Element;
+    anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
     anonymous.prototype.register = function (events) {
@@ -226,7 +250,7 @@ var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
             if ( handler === void 0 ) handler = (/{\s*(\w+)\s*}/.exec (event) || []) [1];
 
             return handler
-            && prototype [ handler ].bind (this$1)
+            && Element [ handler ].bind (this$1)
             || event
             || null;
     }
@@ -244,7 +268,7 @@ var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
             node [event] = handle (node [event]) }; }
 
     , mirror = function (handler){ return !!! this$1 [handler]
-        && (this$1 [handler] = prototype [handler].bind (this$1)); }
+        && (this$1 [handler] = Element [handler].bind (this$1)); }
 
 
     void [this]
@@ -253,7 +277,7 @@ var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
       .map (reflect (this))
 
     Object
-      .getOwnPropertyNames (prototype)
+      .getOwnPropertyNames (Element)
       .filter (events)
       .map (mirror)
 
@@ -261,7 +285,7 @@ var GlobalEventHandlers = function (prototype) { return ((function (prototype) {
   };
 
     return anonymous;
-  }(prototype))); }
+  }(Element))); }
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 var Element = function
