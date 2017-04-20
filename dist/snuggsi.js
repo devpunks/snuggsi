@@ -25,8 +25,6 @@ var TokenList = function (node) {
 TokenList.prototype.bind = function (context, node) {
     var this$1 = this;
 
-  console.log (context, this)
-
   for (var property in this$1)
     { node = this$1 [property]
     , node.data = node.text }
@@ -53,8 +51,6 @@ TokenList.prototype.sift = function (node, nodes) {
 
   while (node = walker.nextNode ())
     { nodes.push (node) }
-
-  console.log ('a', nodes)
 
   return nodes
 };
@@ -115,8 +111,6 @@ var Template = function ( name ) {
   if ( name === void 0 ) name = 'snuggsi';
 
 
-  this.dependents = []
-
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind: bind } )
 
@@ -125,17 +119,17 @@ var Template = function ( name ) {
 
     this.dependents = this.dependents || []
 
-
     context = Array.isArray (context) ? context : [context]
 
     var
-      records   = []
-    , dependant = undefined
+      dependent = undefined
+
+    var
+      records = []
 
     while
       (dependent = this.dependents.pop ())
         { dependent.remove () }
-
 
     for (var i = 0, list = context; i < list.length; i += 1) {
       var item = list[i];
@@ -148,14 +142,15 @@ var Template = function ( name ) {
       records.push (clone.content)
     }
 
+    console.log ('context', records)
+
     records.map
       (function (record) { (ref = this.dependents).push.apply (ref, record.childNodes)
       var ref; }, this)
 
-    (ref = this).after.apply (ref, records)
+//  this.after (...records)
 
     return this
-    var ref;
   }
 }
 var EventTarget = function (Element) { return ((function (Element) {
