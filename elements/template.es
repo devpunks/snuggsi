@@ -18,6 +18,7 @@
 //}
 
 const Template = function ( name = 'snuggsi' ) {
+
   this.dependents = []
 
   return Object.assign
