@@ -22,7 +22,6 @@ class TokenList {
       .sift (node)
       .map  (textify)
       .map  (tokenize)
-
   }
 
   bind (context, node) {
@@ -41,7 +40,6 @@ class TokenList {
   }
 
   sift (node, nodes = []) {
-
     const
       visit = node =>
         /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
