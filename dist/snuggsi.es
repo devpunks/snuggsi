@@ -18,14 +18,15 @@ class TokenList {
             .map (symbolize)
             .map (insert (token))
 
-    this
+    var a = this
       .sift (node)
-      .map  (textify)
-      .map  (tokenize)
+//    .map  (textify)
+//    .map  (tokenize)
+
   }
 
   bind (context, node) {
-    console.log (context, this ['day'])
+    console.log (context, this)
 
     for (const property in this)
       node = this [property]
@@ -53,6 +54,8 @@ class TokenList {
 
     while (node = walker.nextNode ())
       nodes.push (node)
+
+    console.log ('a', nodes)
 
     return nodes
   }
