@@ -289,11 +289,12 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 var Element = function
+  (tag, CustomElementRegistry )
+
   //https://gist.github.com/allenwb/53927e46b31564168a1d
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
- ( tag, CustomElementRegistry )
 {
 if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
  tag = tag [0]
@@ -320,17 +321,6 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
       HTMLCustomElement.prototype = Object.create( superclass && superclass.prototype );
       HTMLCustomElement.prototype.constructor = HTMLCustomElement;
 
-      var prototypeAccessors = { context: {},templates: {} };
-
-      prototypeAccessors.context.get = function ()
-        { return self };
-
-      prototypeAccessors.context.set = function (value)
-        { self = value };
-
-      prototypeAccessors.templates.get = function ()
-        { return Array.from (this.selectAll ('template[name]')) };
-
       HTMLCustomElement.prototype.render = function () {
         // template = super.render ()
         // Where should this insert?
@@ -338,16 +328,20 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
 
         this.tokens.bind (this)
 
-        templatize.call (this, this.templates)
-
-        function templatize (templates) {
+        void (function (templates) {
           var this$1 = this;
 
-          templates.forEach (function (template) {
-            (new Template ([template.getAttribute ('name')]))
-              .bind (this$1 [template.getAttribute ('name')] || [])
-          })
-        }
+          var
+            bind = function (template) {
+              var name = template.getAttribute ('name')
+
+              void (new Template (name))
+                .bind (this$1 [name] || [])
+            }
+
+          templates.map (bind)
+        })
+        .call (this, Array.from (this.selectAll ('template[name]')))
 
         this.register ()
       };
@@ -361,8 +355,6 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
 
         this.render ()
       };
-
-      Object.defineProperties( HTMLCustomElement.prototype, prototypeAccessors );
 
       return HTMLCustomElement;
     }(EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement )))));
