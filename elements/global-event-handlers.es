@@ -1,4 +1,4 @@
-const GlobalEventHandlers = prototype =>
+const GlobalEventHandlers = Element =>
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -26,7 +26,7 @@ const GlobalEventHandlers = prototype =>
   // Traditional Registration
   // http://www.quirksmode.org/js/events_tradmod.html
 
-(class extends prototype {
+(class extends Element {
 
   register (events = event => /^on/.exec (event)) {
 
@@ -50,7 +50,7 @@ const GlobalEventHandlers = prototype =>
     , handle =
         (event, handler = (/{\s*(\w+)\s*}/.exec (event) || []) [1])  =>
           handler
-            && prototype [ handler ].bind (this)
+            && Element [ handler ].bind (this)
             || event
             || null
 
@@ -72,7 +72,7 @@ const GlobalEventHandlers = prototype =>
 
     , mirror = handler=>
         !!! this [handler]
-        && (this [handler] = prototype [handler].bind (this))
+        && (this [handler] = Element [handler].bind (this))
 
 
     void [this]
@@ -81,7 +81,7 @@ const GlobalEventHandlers = prototype =>
       .map (reflect (this))
 
     Object
-      .getOwnPropertyNames (prototype)
+      .getOwnPropertyNames (Element)
       .filter (events)
       .map (mirror)
 
