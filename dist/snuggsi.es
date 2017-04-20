@@ -25,8 +25,6 @@ class TokenList {
   }
 
   bind (context, node) {
-    console.log (context, this)
-
     for (const property in this)
       node = this [property]
       , node.data = node.text
@@ -52,8 +50,6 @@ class TokenList {
 
     while (node = walker.nextNode ())
       nodes.push (node)
-
-    console.log ('a', nodes)
 
     return nodes
   }
@@ -110,25 +106,23 @@ class TokenList {
 
 const Template = function ( name = 'snuggsi' ) {
 
-  this.dependents = []
-
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind } )
 
   function bind (context) {
     this.dependents = this.dependents || []
 
-
     context = Array.isArray (context) ? context : [context]
 
+    let
+      dependent = undefined
+
     const
-      records   = []
-    , dependant = undefined
+      records = []
 
     while
       (dependent = this.dependents.pop ())
         dependent.remove ()
-
 
     for (const item of context) {
       let
@@ -139,10 +133,12 @@ const Template = function ( name = 'snuggsi' ) {
       records.push (clone.content)
     }
 
+    console.log ('context', records)
+
     records.map
       (function (record) { this.dependents.push (...record.childNodes) }, this)
 
-    this.after (...records)
+//  this.after (...records)
 
     return this
   }
