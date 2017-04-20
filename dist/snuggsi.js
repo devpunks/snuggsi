@@ -25,6 +25,7 @@ var TokenList = function (node) {
 TokenList.prototype.bind = function (context, node) {
     var this$1 = this;
 
+  console.log (context, this ['day'])
 
   for (var property in this$1)
     { node = this$1 [property]
@@ -336,7 +337,7 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
               var name = template.getAttribute ('name')
 
               void (new Template (name))
-                .bind (this$1 [name] || [])
+                .bind (this$1 [name])
             }
 
           templates.map (bind)
