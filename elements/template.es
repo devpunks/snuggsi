@@ -42,7 +42,7 @@ const Template = function ( name = 'snuggsi' ) {
     for (const item of context) {
       let
         clone  = this.cloneNode (true)
-      , tokens = (new TokenList (clone ))
+      , tokens = (new TokenList (clone.content))
 
       tokens.bind (item)
       records.push (clone.content)
