@@ -18,8 +18,8 @@ var TokenList = function (node) {
 
   var a = this
     .sift (node)
-//  .map(textify)
-//  .map(tokenize)
+    .map(textify)
+    .map(tokenize)
 
 };
 
@@ -69,6 +69,7 @@ TokenList.prototype.zip = function () {
 
   var
     lock = function (zipper, row) { return zipper.concat( row); }
+
   , pair = function (teeth) { return function (tooth, position) { return [tooth, teeth [position]]; }; }
 
   return elements [1]
@@ -76,9 +77,12 @@ TokenList.prototype.zip = function () {
     .reduce (lock)
 };
 
-TokenList.prototype.slice = function (text) { var tokens= []
+TokenList.prototype.slice = function (text, tokens) {
+    if ( tokens === void 0 ) tokens = [];
 
-  , match  = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
+
+  var
+    match  = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
   , replace= function (token) { return (collect (token), '✂️'); }
   , collect= function (token) { return tokens.push (token); }
   , sections = text
