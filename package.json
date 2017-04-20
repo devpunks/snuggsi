@@ -62,7 +62,7 @@
       "npm run bundle && node ./transpile.es > ./dist/snuggsi.js"
 
   , "bundle":
-      "cat elements/template.es elements/event-target.es elements/parent-node.es elements/global-event-handlers.es elements/element.es > dist/snuggsi.es"
+      "cat elements/token-list.es elements/template.es elements/event-target.es elements/parent-node.es elements/global-event-handlers.es elements/element.es > dist/snuggsi.es"
 
   , "uglify":
       "uglifyjs ./dist/snuggsi.js -c -m -o ./dist/snuggsi.min.js"
