@@ -84,6 +84,9 @@
 
   , "cover":
       "tap index.test.es --cov --coverage-report=lcov"
+
+  , "distribute":
+      "./distribute"
   },
 
   "devDependencies": {
