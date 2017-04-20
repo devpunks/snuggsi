@@ -25,8 +25,6 @@ class TokenList {
   }
 
   bind (context, node) {
-    console.log (context, this)
-
     for (const property in this)
       node = this [property]
       , node.data = node.text
@@ -52,8 +50,6 @@ class TokenList {
 
     while (node = walker.nextNode ())
       nodes.push (node)
-
-    console.log ('a', nodes)
 
     return nodes
   }
