@@ -16,16 +16,17 @@ var TokenList = function (node) {
           .map (symbolize)
           .map (insert (token)); }
 
-  this
+  var a = this
     .sift (node)
-    .map(textify)
-    .map(tokenize)
+//  .map(textify)
+//  .map(tokenize)
+
 };
 
 TokenList.prototype.bind = function (context, node) {
     var this$1 = this;
 
-  console.log (context, this ['day'])
+  console.log (context, this)
 
   for (var property in this$1)
     { node = this$1 [property]
@@ -54,6 +55,8 @@ TokenList.prototype.sift = function (node, nodes) {
 
   while (node = walker.nextNode ())
     { nodes.push (node) }
+
+  console.log ('a', nodes)
 
   return nodes
 };
