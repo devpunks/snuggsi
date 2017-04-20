@@ -22,7 +22,6 @@ class TokenList {
       .sift (node)
       .map  (textify)
       .map  (tokenize)
-
   }
 
   bind (context, node) {
@@ -41,7 +40,6 @@ class TokenList {
   }
 
   sift (node, nodes = []) {
-
     const
       visit = node =>
         /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
@@ -135,7 +133,7 @@ const Template = function ( name = 'snuggsi' ) {
     for (const item of context) {
       let
         clone  = this.cloneNode (true)
-      , tokens = (new TokenList (clone ))
+      , tokens = (new TokenList (clone.content))
 
       tokens.bind (item)
       records.push (clone.content)
