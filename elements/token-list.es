@@ -7,7 +7,7 @@ class TokenList {
         (node.text = node.data, node)
 
     , symbolize = symbol =>
-        symbol.match (/{(\w+)}/g) [0]
+        symbol.match (/(\w+)/g) [0]
 
     , insert = token =>
         symbol => this [symbol] = token

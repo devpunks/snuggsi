@@ -46,8 +46,6 @@ const Template = function ( name = 'snuggsi' ) {
       records.push (clone.content)
     }
 
-    console.log ('context', records)
-
     records.map
       (function (record) { this.dependents.push (...record.childNodes) }, this)
 
