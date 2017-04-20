@@ -1,4 +1,4 @@
-const EventTarget = Node =>
+const EventTarget = Element =>
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -20,9 +20,9 @@ const EventTarget = Node =>
   // Within https://w3c.github.io/uievents/#conf-interactive-ua
   // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
 
-(class extends Node {
+(class extends Element {
 
-  listen (event, listener = 'on' + this [event])
+  listen (event, listener = this [event])
 
     // MDN EventTarget.addEventListener
     // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -58,11 +58,4 @@ const EventTarget = Node =>
 //  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
 
 //  { }
-
-//listenable (nodes) {
-//  return Array.prototype.map
-//    .call (nodes, node => Object.assign
-//      (node, {listen: this.listen.bind(this)})) // MUTATES!
-//  return nodes
-//}
 })
