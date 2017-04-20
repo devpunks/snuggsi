@@ -9,9 +9,9 @@ Gem::Specification.new do |spec|
   spec.authors       = ["Snuggs"]
   spec.email         = ["rashaunstovall@gmail.com"]
 
-  spec.summary       = %q{Sane client side ruby front end}
-  spec.description   = %q{Sane client side ruby front end}
-  spec.homepage      = "http://github.com/snuggs/snuggsi"
+  spec.summary       = %q{snuggsi ツ - Easy Web Components}
+  spec.description   = %q{snuggsi ツ - Easy Web Components}
+  spec.homepage      = "https://github.com/devpunks/snuggsi"
   spec.license       = "MIT"
 
   # Prevent pushing this gem to RubyGems.org by setting 'allowed_push_host', or
