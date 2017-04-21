@@ -8,11 +8,11 @@ var TokenList = function (node) {
     textify = function (node) { return (node.text = node.textContent, node); }
 
   , tokenize = function (token) { return token.textContent
-        .match (/{\w+}/g)
+        .match (/{(\w+|#)}/g)
           .map (symbolize)
           .map (insert (token)); }
 
-  , symbolize = function (symbol) { return symbol.match (/(\w+)/g) [0]; }
+  , symbolize = function (symbol) { return symbol.match (/(\w+|#)/g) [0]; }
 
   , insert = function (token) { return function (symbol) { return (this$1 [symbol] = this$1 [symbol] || [])
           && this$1 [symbol].push (token); }; }
@@ -33,11 +33,11 @@ TokenList.prototype.sift = function (node) {
         : ELEMENT_NODE (node.attributes) && NodeFilter.FILTER_REJECT; }
 
   , TEXT_NODE = function (node) { return (node.nodeType === Node.TEXT_NODE)
-        && /{\w+}/.test (node.textContent); }
+        && /{(\w+|#)}/.test (node.textContent); }
 
   , ELEMENT_NODE = function (attributes) { return Array
         .from (attributes || [])
-        .filter (function (attr) { return /{\w+}/g.test (attr.textContent); })
+        .filter (function (attr) { return /{(\w+|#)}/g.test (attr.textContent); })
         .map (function (attribute) { return nodes.push (attribute); }); }
 
   , walker =
@@ -118,16 +118,21 @@ var Template = function ( name ) {
       (dependent = this.dependents.pop ())
         { dependent.remove () }
 
-    for (var i = 0, list = context; i < list.length; i += 1) {
-      var item = list[i];
-
+    context.forEach (function (item, index) {
       var
         clone  = this$1.cloneNode (true)
       , tokens = (new TokenList (clone.content))
 
-      tokens.bind (item)
+      item =
+        typeof item === 'object'
+          ? item
+          : { self: item }
+
+      item ['#'] = index
+
+      tokens.bind  (item)
       records.push (clone.content)
-    }
+    })
 
     records.map
       (function (record) { (ref = this.dependents).push.apply (ref, record.childNodes)
@@ -332,12 +337,13 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
         .call (this, Array.from (this.selectAll ('template[name]')))
 
         this.register ()
+
+        this.onready && this.onready ()
       };
 
       // custom element reactions
       HTMLCustomElement.prototype.connectedCallback = function () {
         void ( superclass.prototype.constructor.onconnect
-          || superclass.prototype.connectedCallback
           || function noop () {}
         ).call (this)
 
