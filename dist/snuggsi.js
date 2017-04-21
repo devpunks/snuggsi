@@ -25,14 +25,12 @@ var TokenList = function (node) {
 TokenList.prototype.bind = function (context, node) {
     var this$1 = this;
 
+
   for (var property in this$1)
     { node = this$1 [property]
-    , node.data = node.text }
-
-  for (var property$1 in this$1)
-    { node = this$1 [property$1]
+    , node.data = node.text
     , node.data = node.data
-        .replace ('{'+property$1+'}', context [property$1]) }
+        .replace ('{'+property+'}', context [property]) }
 
   return this
 };
@@ -41,52 +39,23 @@ TokenList.prototype.sift = function (node, nodes) {
     if ( nodes === void 0 ) nodes = [];
 
   var
-    visit = function (node) { return ! console.log ('foo', node)
-      && /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-        && NodeFilter.FILTER_ACCEPT; }
+    visit = function (node) { return ('attributes'in node
+        && Array.from (node.attributes)
+            .filter (function (attr) { return (!/^on/.test (attr.name)) && console.log (attr); })
+      )
+
+      || /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+      && NodeFilter.FILTER_ACCEPT; }
 
   , walker =
       document.createNodeIterator
-        (node, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT, visit)
+        (node, NodeFilter.SHOW_ALL, visit)
         // by default breaks on template YAY! 🎉
 
   while (node = walker.nextNode ())
     { nodes.push (node) }
 
   return nodes
-};
-
-
-TokenList.prototype.zip = function () {
-    var elements = [], len = arguments.length;
-    while ( len-- ) elements[ len ] = arguments[ len ];
-
-
-  var
-    lock = function (zipper, row) { return zipper.concat( row); }
-
-  , pair = function (teeth) { return function (tooth, position) { return [tooth, teeth [position]]; }; }
-
-  return elements [1]
-    .map (pair (elements [0]))
-    .reduce (lock)
-};
-
-TokenList.prototype.slice = function (text, tokens) {
-    if ( tokens === void 0 ) tokens = [];
-
-
-  var
-    match  = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
-  , replace= function (token) { return (collect (token), '✂️'); }
-  , collect= function (token) { return tokens.push (token); }
-  , sections = text
-      .replace (match, replace)
-        .split ('✂️')
-
-  return zip (tokens, sections)
-     .filter (function (element) { return element; })
-        .map (function (element) { return new Text (element); })
 };
 
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
