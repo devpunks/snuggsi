@@ -39,13 +39,12 @@ TokenList.prototype.sift = function (node, nodes) {
     if ( nodes === void 0 ) nodes = [];
 
   var
-    visit = function (node) { return ('attributes'in node
-        && Array.from (node.attributes)
-            .filter (function (attr) { return (!/^on/.test (attr.name)) && console.log (attr); })
-      )
+    visit = function (node) { return (attributed (node) || /({\w+})/g.test (node.data))
+        && NodeFilter.FILTER_ACCEPT; }
 
-      || /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-      && NodeFilter.FILTER_ACCEPT; }
+  , attributed = function (node) { return 'attributes' in node
+        && Array.from (node.attributes)
+            .filter (function (attr) { return !!! /^on/.test (attr.name) && /({\w+})/g.test (attr.value) && console.log (attr.textContent = 'foo'); }); }
 
   , walker =
       document.createNodeIterator
@@ -55,7 +54,9 @@ TokenList.prototype.sift = function (node, nodes) {
   while (node = walker.nextNode ())
     { nodes.push (node) }
 
-  return nodes
+ console.log ('nodes', nodes)
+ return []
+//return nodes
 };
 
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
