@@ -25,12 +25,10 @@ class TokenList {
   }
 
   bind (context, node) {
-    for (const property in this)
-      node = this [property]
-      , node.data = node.text
 
     for (const property in this)
       node = this [property]
+      , node.data = node.text
       , node.data = node.data
           .replace ('{'+property+'}', context [property])
 
@@ -40,13 +38,17 @@ class TokenList {
   sift (node, nodes = []) {
     const
       visit = node =>
-        ! console.log ('foo', node)
-        && /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-          && NodeFilter.FILTER_ACCEPT
+        ('attributes'  in node
+          && Array.from (node.attributes)
+              .filter (attr => (!/^on/.test (attr.name)) && console.log (attr))
+        )
+
+        || /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+        && NodeFilter.FILTER_ACCEPT
 
     , walker =
         document.createNodeIterator
-          (node, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT, visit)
+          (node, NodeFilter.SHOW_ALL, visit)
           // by default breaks on template YAY! 🎉
 
     while (node = walker.nextNode ())
@@ -56,34 +58,34 @@ class TokenList {
   }
 
 
-  zip (...elements) {
+//zip (...elements) {
 
-    const
-      lock = (zipper, row) => [...zipper, ...row]
+//  const
+//    lock = (zipper, row) => [...zipper, ...row]
 
-    , pair = teeth => // http://english.stackexchange.com/questions/121601/pair-or-couple
-        (tooth, position) => // thunk
-          [tooth, teeth [position]]
+//  , pair = teeth => // http://english.stackexchange.com/questions/121601/pair-or-couple
+//      (tooth, position) => // thunk
+//        [tooth, teeth [position]]
 
-    return elements [1]
-      .map (pair (elements [0]))
-      .reduce (lock)
-  }
+//  return elements [1]
+//    .map (pair (elements [0]))
+//    .reduce (lock)
+//}
 
-  slice (text, tokens = []) {
+//slice (text, tokens = []) {
 
-    const
-      match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
-    , replace  = token => (collect (token), '✂️')
-    , collect  = token => tokens.push (token)
-    , sections = text
-        .replace (match, replace)
-          .split ('✂️')
+//  const
+//    match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
+//  , replace  = token => (collect (token), '✂️')
+//  , collect  = token => tokens.push (token)
+//  , sections = text
+//      .replace (match, replace)
+//        .split ('✂️')
 
-    return zip (tokens, sections)
-       .filter (element => element)
-          .map (element => new Text (element))
-  }
+//  return zip (tokens, sections)
+//     .filter (element => element)
+//        .map (element => new Text (element))
+//}
 }
 
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
