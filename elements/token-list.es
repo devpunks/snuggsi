@@ -38,13 +38,13 @@ class TokenList {
   sift (node, nodes = []) {
     const
       visit = node =>
-        (attributed (node) || /({\w+})/g.test (node.data))
+        (attributed (node) || /({\w+})/g.test (node.textContent))
           && NodeFilter.FILTER_ACCEPT
 
     , attributed = node =>
         'attributes' in node
           && Array.from (node.attributes)
-              .filter (attr => !!! /^on/.test (attr.name) && /({\w+})/g.test (attr.value) && console.log (attr.textContent = 'foo'))
+              .filter (attr => !!! /^on/.test (attr.name) && /({\w+})/g.test (attr.textContent))
 
     , walker =
         document.createNodeIterator
@@ -54,7 +54,6 @@ class TokenList {
     while (node = walker.nextNode ())
       nodes.push (node)
 
-   console.log ('nodes', nodes)
    return []
 //  return nodes
   }

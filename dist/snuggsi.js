@@ -39,12 +39,12 @@ TokenList.prototype.sift = function (node, nodes) {
     if ( nodes === void 0 ) nodes = [];
 
   var
-    visit = function (node) { return (attributed (node) || /({\w+})/g.test (node.data))
+    visit = function (node) { return (attributed (node) || /({\w+})/g.test (node.textContent))
         && NodeFilter.FILTER_ACCEPT; }
 
   , attributed = function (node) { return 'attributes' in node
         && Array.from (node.attributes)
-            .filter (function (attr) { return !!! /^on/.test (attr.name) && /({\w+})/g.test (attr.value) && console.log (attr.textContent = 'foo'); }); }
+            .filter (function (attr) { return !!! /^on/.test (attr.name) && /({\w+})/g.test (attr.textContent); }); }
 
   , walker =
       document.createNodeIterator
@@ -54,7 +54,6 @@ TokenList.prototype.sift = function (node, nodes) {
   while (node = walker.nextNode ())
     { nodes.push (node) }
 
- console.log ('nodes', nodes)
  return []
 //return nodes
 };
