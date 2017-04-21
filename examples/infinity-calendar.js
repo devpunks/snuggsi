@@ -5,6 +5,16 @@ Element `infinity-calendar`
   initialize ()
     { this.context.date = new Date }
 
+  static onready () {
+    this.select
+      ('[name=month]').value = this.month
+
+    this.select
+      ('[name=year]').value = this.year
+
+  console.log ('onready')
+  }
+
   static onnext () {
     this.date_from_month (+1)
     this.render ()
@@ -22,7 +32,19 @@ Element `infinity-calendar`
     { return this.context.date.getFullYear () }
 
   get month ()
-    { return this.months [this.context.date.getMonth ()] }
+    { return this.context.date.getMonth () }
+
+  get years () {
+    const
+      deviation = 5
+    , years = new Array
+
+    for
+      (let year = this.year - deviation; year < this.year + deviation; year ++)
+        years.push (year)
+
+    return years
+  }
 
   get months () {
     return [
@@ -49,6 +71,6 @@ Element `infinity-calendar`
 
   date_from_month (change) {
     this.context.date = new Date
-      (this.context.date.setMonth (this.context.date.getMonth () + change))
+      (this.context.date.setMonth (this.month + change))
   }
 })
