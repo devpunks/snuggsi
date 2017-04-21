@@ -49,7 +49,7 @@ Element `infinity-calendar`
   get months () {
     return [
       'January', 'February', 'March', 'April', 'May',
-      'June', 'July','August','September','October','December' ]
+      'June', 'July','August','September','October','November','December' ]
   }
 
   get days () {
