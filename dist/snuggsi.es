@@ -40,12 +40,13 @@ class TokenList {
   sift (node, nodes = []) {
     const
       visit = node =>
-        /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+        ! console.log ('foo', node)
+        && /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
           && NodeFilter.FILTER_ACCEPT
 
     , walker =
         document.createNodeIterator
-          (node, NodeFilter.SHOW_TEXT, visit)
+          (node, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT, visit)
           // by default breaks on template YAY! 🎉
 
     while (node = walker.nextNode ())
