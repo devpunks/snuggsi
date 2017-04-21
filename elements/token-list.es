@@ -38,11 +38,13 @@ class TokenList {
   sift (node, nodes = []) {
     const
       visit = node =>
-        'attributes'  in node
-          && console.log
-            (Array.from (node.attributes).filter (attr => ! /^on/.test (attr.name)))
-          || /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-          && NodeFilter.FILTER_ACCEPT
+        ('attributes'  in node
+          && Array.from (node.attributes)
+              .filter (attr => (!/^on/.test (attr.name)) && console.log (attr))
+        )
+
+        || /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+        && NodeFilter.FILTER_ACCEPT
 
     , walker =
         document.createNodeIterator
@@ -56,33 +58,33 @@ class TokenList {
   }
 
 
-  zip (...elements) {
+//zip (...elements) {
 
-    const
-      lock = (zipper, row) => [...zipper, ...row]
+//  const
+//    lock = (zipper, row) => [...zipper, ...row]
 
-    , pair = teeth => // http://english.stackexchange.com/questions/121601/pair-or-couple
-        (tooth, position) => // thunk
-          [tooth, teeth [position]]
+//  , pair = teeth => // http://english.stackexchange.com/questions/121601/pair-or-couple
+//      (tooth, position) => // thunk
+//        [tooth, teeth [position]]
 
-    return elements [1]
-      .map (pair (elements [0]))
-      .reduce (lock)
-  }
+//  return elements [1]
+//    .map (pair (elements [0]))
+//    .reduce (lock)
+//}
 
-  slice (text, tokens = []) {
+//slice (text, tokens = []) {
 
-    const
-      match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
-    , replace  = token => (collect (token), '✂️')
-    , collect  = token => tokens.push (token)
-    , sections = text
-        .replace (match, replace)
-          .split ('✂️')
+//  const
+//    match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
+//  , replace  = token => (collect (token), '✂️')
+//  , collect  = token => tokens.push (token)
+//  , sections = text
+//      .replace (match, replace)
+//        .split ('✂️')
 
-    return zip (tokens, sections)
-       .filter (element => element)
-          .map (element => new Text (element))
-  }
+//  return zip (tokens, sections)
+//     .filter (element => element)
+//        .map (element => new Text (element))
+//}
 }
 
