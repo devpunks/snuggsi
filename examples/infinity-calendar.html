@@ -22,7 +22,19 @@
 </hgroup>
 
 <infinity-calendar for=date>
-  <header>{month} {year}</header>
+<header>
+  <select name=month>
+    <template name=months>
+      <option value={#}>{self}
+    </template>
+  </select>
+
+  <select name=year>
+    <template name=years>
+      <option value={self}>{self}
+    </template>
+  </select>
+</header>
 
   <menu>
     <button onclick=onprevious>Previous</button>
