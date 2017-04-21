@@ -53,12 +53,13 @@ const Element = function
         .call (this, Array.from (this.selectAll ('template[name]')))
 
         this.register ()
+
+        this.onready && this.onready ()
       }
 
       // custom element reactions
       connectedCallback () {
         void ( super.constructor.onconnect
-          || super.connectedCallback
           || function noop () {}
         ).call (this)
 
