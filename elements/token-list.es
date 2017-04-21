@@ -10,12 +10,12 @@ class TokenList {
         // String.prototype.match returns ALL capture groups!!!
         // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match
         token.textContent
-          .match (/{\w+}/g)
+          .match (/{(\w+|#)}/g)
             .map (symbolize)
             .map (insert (token))
 
     , symbolize = symbol =>
-        symbol.match (/(\w+)/g) [0]
+        symbol.match (/(\w+|#)/g) [0]
 
     , insert = token =>
         symbol =>
@@ -40,12 +40,12 @@ class TokenList {
 
     , TEXT_NODE = node =>
         (node.nodeType === Node.TEXT_NODE)
-          && /{\w+}/.test (node.textContent)
+          && /{(\w+|#)}/.test (node.textContent)
 
     , ELEMENT_NODE = attributes =>
         Array
           .from (attributes || [])
-          .filter (attr => /{\w+}/g.test (attr.textContent))
+          .filter (attr => /{(\w+|#)}/g.test (attr.textContent))
           .map (attribute => nodes.push (attribute))
 
     , walker =
