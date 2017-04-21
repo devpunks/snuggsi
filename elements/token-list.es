@@ -4,60 +4,86 @@ class TokenList {
 
     const
       textify = node =>
-        (node.text = node.data, node)
+        (node.text = node.textContent, node)
+
+    , tokenize = token =>
+        // String.prototype.match returns ALL capture groups!!!
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match
+        token.textContent
+          .match (/{\w+}/g)
+            .map (symbolize)
+            .map (insert (token))
 
     , symbolize = symbol =>
         symbol.match (/(\w+)/g) [0]
 
     , insert = token =>
-        symbol => this [symbol] = token
+        symbol =>
+          (this [symbol] = this [symbol] || [])
+            && this [symbol].push (token)
 
-    , tokenize = token =>
-        token.textContent
-          .match (/{(\w+)}/g)
-            .map (symbolize)
-            .map (insert (token))
-
-    var a = this
+    this
       .sift (node)
       .map  (textify)
       .map  (tokenize)
   }
 
-  bind (context, node) {
+  sift (node) {
 
-    for (const property in this)
-      node = this [property]
-      , node.data = node.text
-      , node.data = node.data
-          .replace ('{'+property+'}', context [property])
-
-    return this
-  }
-
-  sift (node, nodes = []) {
     const
-      visit = node =>
-        (attributed (node) || /({\w+})/g.test (node.textContent))
-          && NodeFilter.FILTER_ACCEPT
+      nodes = []
 
-    , attributed = node =>
-        'attributes' in node
-          && Array.from (node.attributes)
-              .filter (attr => !!! /^on/.test (attr.name) && /({\w+})/g.test (attr.textContent))
+    , visit = node =>
+        node.nodeType === Node.TEXT_NODE
+          ? (TEXT_NODE (node) && NodeFilter.FILTER_ACCEPT)
+          : ELEMENT_NODE (node.attributes) && NodeFilter.FILTER_REJECT
+
+    , TEXT_NODE = node =>
+        (node.nodeType === Node.TEXT_NODE)
+          && /{\w+}/.test (node.textContent)
+
+    , ELEMENT_NODE = attributes =>
+        Array
+          .from (attributes || [])
+          .filter (attr => /{\w+}/g.test (attr.textContent))
+          .map (attribute => nodes.push (attribute))
 
     , walker =
         document.createNodeIterator
-          (node, NodeFilter.SHOW_ALL, visit)
+          (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit)
           // by default breaks on template YAY! 🎉
 
-    while (node = walker.nextNode ())
-      nodes.push (node)
+    while
+      (node = walker.nextNode ())
+        nodes.push (node)
 
-   return []
-//  return nodes
+    return nodes
   }
 
+  bind (context, node) {
+
+    const
+      prepare = symbol =>
+        this [symbol]
+          .map (token => token.textContent = token.text)
+        && symbol
+
+    , replace = symbol =>
+        this [symbol]
+          .map (replacement (symbol))
+
+    , replacement = symbol =>
+        item =>
+          item.textContent = item.textContent
+            .replace ('{'+symbol+'}', context [symbol])
+
+    Object
+      .keys (this)
+      .map  (prepare)
+      .map  (replace)
+
+    return this
+  }
 
 //zip (...elements) {
 
