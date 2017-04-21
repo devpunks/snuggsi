@@ -38,13 +38,13 @@ class TokenList {
   sift (node, nodes = []) {
     const
       visit = node =>
-        ('attributes'  in node
-          && Array.from (node.attributes)
-              .filter (attr => (!/^on/.test (attr.name)) && console.log (attr))
-        )
+        (attributed (node) || /({\w+})/g.test (node.data))
+          && NodeFilter.FILTER_ACCEPT
 
-        || /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
-        && NodeFilter.FILTER_ACCEPT
+    , attributed = node =>
+        'attributes' in node
+          && Array.from (node.attributes)
+              .filter (attr => !!! /^on/.test (attr.name) && /({\w+})/g.test (attr.value) && console.log (attr.textContent = 'foo'))
 
     , walker =
         document.createNodeIterator
@@ -54,7 +54,9 @@ class TokenList {
     while (node = walker.nextNode ())
       nodes.push (node)
 
-    return nodes
+   console.log ('nodes', nodes)
+   return []
+//  return nodes
   }
 
 
