@@ -25,12 +25,10 @@ class TokenList {
   }
 
   bind (context, node) {
-    for (const property in this)
-      node = this [property]
-      , node.data = node.text
 
     for (const property in this)
       node = this [property]
+      , node.data = node.text
       , node.data = node.data
           .replace ('{'+property+'}', context [property])
 
@@ -40,13 +38,15 @@ class TokenList {
   sift (node, nodes = []) {
     const
       visit = node =>
-        ! console.log ('foo', node)
-        && /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
+        'attributes'  in node
+          && console.log
+            (Array.from (node.attributes).filter (attr => ! /^on/.test (attr.name)))
+          || /({\w+})/g.exec (node.data) // stored regex is faster https://jsperf.com/regexp-indexof-perf
           && NodeFilter.FILTER_ACCEPT
 
     , walker =
         document.createNodeIterator
-          (node, NodeFilter.SHOW_TEXT | NodeFilter.SHOW_ELEMENT, visit)
+          (node, NodeFilter.SHOW_ALL, visit)
           // by default breaks on template YAY! 🎉
 
     while (node = walker.nextNode ())
