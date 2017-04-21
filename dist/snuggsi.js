@@ -5,57 +5,74 @@ var TokenList = function (node) {
 
 
   var
-    textify = function (node) { return (node.text = node.data, node); }
-
-  , symbolize = function (symbol) { return symbol.match (/(\w+)/g) [0]; }
-
-  , insert = function (token) { return function (symbol) { return this$1 [symbol] = token; }; }
+    textify = function (node) { return (node.text = node.textContent, node); }
 
   , tokenize = function (token) { return token.textContent
-        .match (/{(\w+)}/g)
+        .match (/{\w+}/g)
           .map (symbolize)
           .map (insert (token)); }
 
-  var a = this
+  , symbolize = function (symbol) { return symbol.match (/(\w+)/g) [0]; }
+
+  , insert = function (token) { return function (symbol) { return (this$1 [symbol] = this$1 [symbol] || [])
+          && this$1 [symbol].push (token); }; }
+
+  this
     .sift (node)
     .map(textify)
     .map(tokenize)
+};
+
+TokenList.prototype.sift = function (node) {
+
+  var
+    nodes = []
+
+  , visit = function (node) { return node.nodeType === Node.TEXT_NODE
+        ? (TEXT_NODE (node) && NodeFilter.FILTER_ACCEPT)
+        : ELEMENT_NODE (node.attributes) && NodeFilter.FILTER_REJECT; }
+
+  , TEXT_NODE = function (node) { return (node.nodeType === Node.TEXT_NODE)
+        && /{\w+}/.test (node.textContent); }
+
+  , ELEMENT_NODE = function (attributes) { return Array
+        .from (attributes || [])
+        .filter (function (attr) { return /{\w+}/g.test (attr.textContent); })
+        .map (function (attribute) { return nodes.push (attribute); }); }
+
+  , walker =
+      document.createNodeIterator
+        (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit)
+        // by default breaks on template YAY! 🎉
+
+  while
+    (node = walker.nextNode ())
+      { nodes.push (node) }
+
+  return nodes
 };
 
 TokenList.prototype.bind = function (context, node) {
     var this$1 = this;
 
 
-  for (var property in this$1)
-    { node = this$1 [property]
-    , node.data = node.text
-    , node.data = node.data
-        .replace ('{'+property+'}', context [property]) }
+  var
+    prepare = function (symbol) { return this$1 [symbol]
+        .map (function (token) { return token.textContent = token.text; })
+      && symbol; }
+
+  , replace = function (symbol) { return this$1 [symbol]
+        .map (replacement (symbol)); }
+
+  , replacement = function (symbol) { return function (item) { return item.textContent = item.textContent
+          .replace ('{'+symbol+'}', context [symbol]); }; }
+
+  Object
+    .keys (this)
+    .map(prepare)
+    .map(replace)
 
   return this
-};
-
-TokenList.prototype.sift = function (node, nodes) {
-    if ( nodes === void 0 ) nodes = [];
-
-  var
-    visit = function (node) { return (attributed (node) || /({\w+})/g.test (node.textContent))
-        && NodeFilter.FILTER_ACCEPT; }
-
-  , attributed = function (node) { return 'attributes' in node
-        && Array.from (node.attributes)
-            .filter (function (attr) { return !!! /^on/.test (attr.name) && /({\w+})/g.test (attr.textContent); }); }
-
-  , walker =
-      document.createNodeIterator
-        (node, NodeFilter.SHOW_ALL, visit)
-        // by default breaks on template YAY! 🎉
-
-  while (node = walker.nextNode ())
-    { nodes.push (node) }
-
- return []
-//return nodes
 };
 
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
