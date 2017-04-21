@@ -11,8 +11,17 @@ Element `infinity-calendar`
 
     this.select
       ('[name=year]').value = this.year
+  }
 
-  console.log ('onready')
+  static onchange () {
+    const
+      month = this.select ('[name=month]').value
+    , year  = this.select ('[name=year]').value
+
+    this.context.date =
+      new Date (year, month, 1)
+
+    this.render ()
   }
 
   static onnext () {
