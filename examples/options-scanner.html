@@ -1,0 +1,114 @@
+<title>snuggsi ツ - Options Scanner</title>
+
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<link rel=stylesheet href=//www.devpunks.com/typography.css>
+
+<script src=../dist/snuggsi.es></script>
+<script src=webcomponents-hi-ce.js></script>
+
+<link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
+
+<style>
+nav {
+  display: flex;
+  justify-content: space-around;
+  background: var(--lightest-color);
+}
+</style>
+
+<hgroup>
+  <h1>snuggsi ツ</h1>
+  <h2>Options Scanner</h2>
+</hgroup>
+
+<nav>
+  <a title=Search href=#search>Search</a>
+  <a title=View href=#view>View</a>
+  <a title=Modify href=#modify>Modify</a>
+</nav>
+
+<p>Screen Options Trade based on several search preferences</p>
+
+<option-screener-settings id='search'>
+
+<label>IV</label>
+
+<select>
+<option>Select</option>
+
+<template name='options'>
+  <option value='#'>{option}
+</template>
+</select>
+
+
+<footer>
+  <button type=reset>Clear</button>
+  <button type=submit>Search</button>
+</footer>
+
+<script>
+Element `option-screener-settings`
+
+(class extends HTMLElement {
+  initialize ()
+    { this.append ('Setting') }
+})
+</script>
+
+</option-screener-settings>
+
+<options-scanner id=view>
+
+<table>
+  <thead>
+    <tr>
+      <td>Stock</td>
+      <td>Stock Price</td>
+      <td>Stock Volume</td>
+      <td>Short Leg</td>
+      <td>Time Value % of Stock</td>
+      <td>Implied Volatility</td>
+      <td>ROI <em>(If called)</em></td>
+    </tr>
+  </thead>
+</table>
+
+<style>
+/* https://jakearchibald.com/2016/link-in-body */
+options-scanner {
+  height: 100vh;
+  color: black;
+  display: flex;
+  flex-flow: column;
+  margin: 1em auto;
+  background: var(--lightest-color);
+}
+options-scanner table {
+  height: 40vh;
+  display: block;
+  background: red;
+}
+options-scanner table tr { background: yellow; width: 100vw; display: flex; }
+options-scanner table td { background: blue; display: inline-block; flex: 1; outline: 1px solid rgba(255,255,255,0.5); }
+</style>
+
+
+<script>
+
+Element `options-scanner`
+
+(class extends HTMLElement {
+
+  initialize ()
+    { this.append ('Hello World') }
+})
+
+</script>
+
+</options-scanner>
+
+<script src=../../vendor/browser-sync.es></script>
+
