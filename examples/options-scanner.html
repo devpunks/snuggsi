@@ -11,50 +11,37 @@
 
 <link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
 
+<hgroup>
+  <h1>snuggsi ツ</h1>
+  <h2>&lt;options-scanner&gt;</h2>
+</hgroup>
+
+<nav-view>
+
+  <a title=Search href=#search>🔎 Search</a>
+  <a title=View href=#view>📈 View</a>
+
 <style>
-nav {
+
+nav-view {
   display: flex;
   justify-content: space-around;
   background: var(--lightest-color);
 }
 
-*[view] {
-  height: 100vh;
-  color: black;
-  flex-flow: column;
-  margin: 1em auto;
-  background: var(--lightest-color);
-}
-:matches(:target) { color: purple }
+*[view]:not(:target)
+  { display: none }
 
-:any(#search, #view) ~ *[view] {
-  display: none
-}
-
-:any(#search, #view):target ~ *[view] {
-  display: flex
-}
+*[view]:target
+  { display: block }
 
 </style>
 
-<hgroup>
-  <h1>snuggsi ツ</h1>
-  <h2>Options Scanner</h2>
-</hgroup>
-
-<nav>
-  <a title=Search href=#search>Search</a>
-  <a title=View href=#view>View</a>
-</nav>
+</nav-view>
 
 
 
-
-
-
-
-<a id=search></a>
-<option-settings view>
+<option-settings view id=search>
 
   <p>Screen Options Trade based on several search preferences</p>
 
@@ -111,7 +98,7 @@ Element `option-settings`
 
 
 
-<options-scanner view id=search>
+<options-scanner view id=view>
 
 <table>
   <thead>
