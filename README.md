@@ -9,20 +9,14 @@ place the following in the `<head>` of `<html>` page
 ## Module Imports Installation
 ECMAscript module `import`s with backwards compatible custom elements support.
 
+See [ECMAScript Module Imorts](/wiki/ECMAScript)
+for more details.
+
 ```html
 <script nomodule    src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 <script nomodule    src=//unpkg.com/snuggsi/snuggsi.js></script>
 <script type=module src=//unpkg.com/snuggsi/snuggsi.es></script>
 ```
-  - https://blog.hospodarets.com/native-ecmascript-modules-new-features
-  - https://github.com/whatwg/html/pull/2261
-  - https://html.spec.whatwg.org/multipage/scripting.html#attr-script-nomodule
-  - https://trac.webkit.org/changeset/211078/webkit
-  - https://blog.hospodarets.com/native-ecmascript-modules-the-first-overview
-  - https://github.com/w3c/web-platform-tests/pull/4611
-  - https://www.iana.org/assignments/media-types/application/ecmascript
-  - https://www.iana.org/assignments/media-types/application/javascript
-  - https://github.com/tc39/ecma262/issues/322
 
 # Quick Tour
 
