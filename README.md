@@ -20,6 +20,8 @@ ECMAscript module `import`s with backwards compatible custom elements support.
   - https://trac.webkit.org/changeset/211078/webkit
   - https://blog.hospodarets.com/native-ecmascript-modules-the-first-overview
   - https://github.com/w3c/web-platform-tests/pull/4611
+  - https://www.iana.org/assignments/media-types/application/ecmascript
+  - https://www.iana.org/assignments/media-types/application/javascript
 
 # Quick Tour
 
