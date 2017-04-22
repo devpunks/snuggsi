@@ -41,8 +41,9 @@ const Element = function
 
         void (function (templates) {
           const
-            bind = (template) => {
-              const name = template.getAttribute ('name')
+            bind = template => {
+              const
+                name = template.getAttribute ('name')
 
               void (new Template (name))
                 .bind (this [name])
@@ -59,9 +60,8 @@ const Element = function
 
       // custom element reactions
       connectedCallback () {
-        void ( super.constructor.onconnect
-          || function noop () {}
-        ).call (this)
+        super.constructor.onconnect
+        && super.constructor.onconnect ()
 
         this.render ()
       }

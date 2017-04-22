@@ -326,7 +326,8 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
 
           var
             bind = function (template) {
-              var name = template.getAttribute ('name')
+              var
+                name = template.getAttribute ('name')
 
               void (new Template (name))
                 .bind (this$1 [name])
@@ -343,9 +344,8 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
 
       // custom element reactions
       HTMLCustomElement.prototype.connectedCallback = function () {
-        void ( superclass.prototype.constructor.onconnect
-          || function noop () {}
-        ).call (this)
+        superclass.prototype.constructor.onconnect
+        && superclass.prototype.constructor.onconnect ()
 
         this.render ()
       };
