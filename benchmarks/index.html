@@ -1,89 +1,37 @@
-<title>ツsnuggsi Easy DOM Components</title>
+<title>ツsnuggsi - Benchmark</title>
 
 <meta charset='UTF-8'>
 <meta name='viewport' content='width=device-width, initial-scale=1'>
-
-<link rel='stylesheet' href='http://www.devpunks.com/typography.css'>
-
-<script src='../context.es' defer></script>
-<script src='../elements/text.es' defer></script>
-<script src='../elements/template.polyfill.js' defer></script>
-<script src='../elements/tag.es' defer></script>
-<script src='../elements/tokenize.es' defer></script>
-<script src='../elements/template.es' defer></script>
-<script src='../elements/element.es' defer></script>
-
-<script src='../elements/component.es' defer></script>
-<script src='../notification.es' defer></script>
-<script src='../vendor/browser-sync.es'></script>
-<script src='../index.es' defer></script>
-
-<script src='../document.createElement.es' defer></script>
 
 <hgroup>
   <h1>ツsnuggsi</h1>
   <h2>Benchmark</h2>
 </hgroup>
 
-<div id='chart'></div>
+<nav>
+<a href=#mithril>Mithril.js</a>
+<a href=#svelte>Svelte.js</a>
+</nav>
+
+<section id=svelte>
+  <header>Svelte.js <em>(4kb)</em></header>
+
+  <a href=https://svelte.technology/repl?version=1.17.0&gist=98bc872a8c8cdc71944a45848bbb8e94>Github</a>
+
+  Angular (135kb)
+  Svelte (4kb)
+  Vue + Vue-Router + Vuex + fetch (40kb)
+  React + React-Router + Redux + fetch (64kb)
+</section>
+
+<section id=mithril>
+  <header>Mithril.js <em>(8kb)</em></header>
+
+  <a href=https://github.com/lhorie/mithril.js>Github</a>
+
+  Vue + Vue-Router + Vuex + fetch (40kb)
+  React + React-Router + Redux + fetch (64kb)
+  Angular (135kb)
+</section>
 
 <script type='text/javascript' src='https://cdnjs.cloudflare.com/ajax/libs/d3/3.5.10/d3.js'></script>
-
-<script id='settings' type='text/javascript'>
-// Set the dimensions of the canvas / graph
-var margin = { top: 30, right: 20, bottom: 30, left: 50 }
-  , width  = 1200 // - margin.left - margin.right
-  , height = 70 // - margin.top - margin.bottom
-
-var x = d3.time.scale().range([0, width])
-  , y = d3.scale.linear().range([height, 0])
-
-  , xAxis = d3.svg.axis().scale(x).orient("bottom").ticks(10)
-
-  , yAxis = d3.svg.axis().scale(y).orient("left").ticks(10)
-
-  , line = d3.svg.line()
-      .x(function(d) { console.log(d.index); return x(d.index); })
-      .y(function(d) { console.log(d.milliseconds); return y(d.milliseconds); })
-
-// Adds the svg canvas
-var svg = d3.select("div#chart")
-  .append("svg")
-      .attr("width", width + margin.left + margin.right)
-      .attr("height", height + margin.top + margin.bottom)
-  .append("g")
-      .attr("transform",
-            "translate(" + margin.left + "," + margin.top + ")");
-
-var index = 0
-var format = function(row) {
-console.log ('row', row)
-  return {
-    index: index++,
-    milliseconds: row.time
-  }
-}
-
-var plot = function(error, rows) {
-  x.domain(d3.extent(rows, function(d) { return d.index; }))
-  y.domain([0, d3.max(rows, function(d) { return d.milliseconds; })])
-
-  var path = svg.append("path");
-    path
-      .attr("class", "line")
-      .attr("d", line(rows));
-
-  // Add the X Axis
-  svg.append("g")
-    .attr("class", "x axis")
-    .attr("transform", "translate(0," + height + ")")
-    .call(xAxis);
-
-  // Add the Y Axis
-  svg.append("g")
-    .attr("class", "y axis")
-    .call(yAxis);
-}
-
-d3.csv("data.csv", format, plot)
-</script>
