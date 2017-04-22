@@ -40,11 +40,11 @@ Element `hello-world`
 
 (class extends HTMLElement {
 
+  static onclick ()
+    { alert (this.textContent) }
+
   get greeting ()
     { return 'world 🌎' }
-
-  initialize ()
-    { this.append ('Hello World') }
 })
 
 </script>
