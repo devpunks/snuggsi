@@ -5,8 +5,8 @@
 
 <link rel=stylesheet href=//www.devpunks.com/typography.css>
 
-<script src=../dist/snuggsi.es></script>
-<script src=webcomponents-hi-ce.js></script>
+<script src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script src=//unpkg.com/snuggsi/snuggsi.js></script>
 
 <link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
 
@@ -16,6 +16,23 @@ nav {
   justify-content: space-around;
   background: var(--lightest-color);
 }
+
+//
+*[view] {
+  height: 100vh;
+  color: black;
+  flex-flow: column;
+  margin: 1em auto;
+  background: var(--lightest-color);
+}
+:any(#search, #view) ~ *[view] {
+  display: none
+}
+
+:any(#search, #view):target ~ *[view] {
+  display: flex
+}
+
 </style>
 
 <hgroup>
@@ -26,41 +43,74 @@ nav {
 <nav>
   <a title=Search href=#search>Search</a>
   <a title=View href=#view>View</a>
-  <a title=Modify href=#modify>Modify</a>
 </nav>
 
-<p>Screen Options Trade based on several search preferences</p>
-
-<option-screener-settings id='search'>
-
-<label>IV</label>
-
-<select>
-<option>Select</option>
-
-<template name='options'>
-  <option value='#'>{option}
-</template>
-</select>
 
 
-<footer>
-  <button type=reset>Clear</button>
-  <button type=submit>Search</button>
-</footer>
+
+
+
+
+<a id=search></a>
+<option-settings view>
+
+  <p>Screen Options Trade based on several search preferences</p>
+
+  <form action=search>
+    <label>IV</label>
+
+    <select>
+      <option>Select</option>
+
+      <template name='options'>
+        <option value='#'>{option}
+      </template>
+    </select>
+
+
+    <footer>
+      <button type=reset>Clear</button>
+      <button type=submit>Search</button>
+    </footer>
+  </form>
 
 <script>
-Element `option-screener-settings`
+
+Element `option-settings`
 
 (class extends HTMLElement {
+
+  static onsubmit (event) {
+    event.preventDefault ()
+
+    console.log ('now you can shit')
+  }
+
   initialize ()
     { this.append ('Setting') }
 })
+
 </script>
 
-</option-screener-settings>
+</option-settings>
 
-<options-scanner id=view>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<a id=view></a>
+<options-scanner view>
 
 <table>
   <thead>
@@ -78,14 +128,6 @@ Element `option-screener-settings`
 
 <style>
 /* https://jakearchibald.com/2016/link-in-body */
-options-scanner {
-  height: 100vh;
-  color: black;
-  display: flex;
-  flex-flow: column;
-  margin: 1em auto;
-  background: var(--lightest-color);
-}
 options-scanner table {
   height: 40vh;
   display: block;
@@ -110,5 +152,5 @@ Element `options-scanner`
 
 </options-scanner>
 
-<script src=../../vendor/browser-sync.es></script>
+<script src=../vendor/browser-sync.es></script>
 
