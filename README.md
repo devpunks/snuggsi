@@ -9,7 +9,7 @@ place the following in the `<head>` of `<html>` page
 ## Module Imports Installation
 ECMAscript module `import`s with backwards compatible custom elements support.
 
-See [ECMAScript Module Imorts](/wiki/ECMAScript)
+See [ECMAScript Module Imorts](https://github.com/devpunks/snuggsi/wiki/ECMAScript)
 for more details.
 
 ```html
