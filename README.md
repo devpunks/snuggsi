@@ -36,7 +36,7 @@ for more details.
  Hello {greeting}
 </hello-world>
 
-<script>
+<script nomodule>
 
 // Definition ---------------
 
