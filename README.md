@@ -1,5 +1,11 @@
 # snuggsi ツ - Easy Web Components
 
+## Easy Installation
+place the following in the `<head>` of `<html>` page
+```html
+<script src=https://unpkg.com/snuggsi@0.4.21/snuggsi.js></script>
+```
+
 ## Syntactic DOM "Sugar"
 
 ## [Template](/elements/template.es)
