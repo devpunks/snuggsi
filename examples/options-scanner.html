@@ -5,8 +5,9 @@
 
 <link rel=stylesheet href=//www.devpunks.com/typography.css>
 
-<script src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
-<script src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule    src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script nomodule    src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script type=module src=//unpkg.com/snuggsi/snuggsi.es></script>
 
 <link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
 
@@ -17,7 +18,6 @@ nav {
   background: var(--lightest-color);
 }
 
-//
 *[view] {
   height: 100vh;
   color: black;
@@ -25,6 +25,8 @@ nav {
   margin: 1em auto;
   background: var(--lightest-color);
 }
+:matches(:target) { color: purple }
+
 :any(#search, #view) ~ *[view] {
   display: none
 }
