@@ -27,17 +27,33 @@ ECMAscript module `import`s with backwards compatible custom elements support.
 # Quick Tour
 
 ## [Element](/elements/element.es)
-``` html
-<hello-world></hello-world>
-```
+See [examples/hello-word.html](/examples/hello-world.html)
+for more details.
 
-``` javascript
+
+``` html
+<hello-world>
+ Hello {greeting}
+</hello-world>
+
+<script>
+
+// Definition ---------------
+
 Element `hello-world`
 
+// Description --------------
+
 (class extends HTMLElement {
+
+  get greeting ()
+    { return 'world 🌎' }
+
   initialize ()
     { this.append ('Hello World') }
 })
+
+</script>
 ```
 
 ## [Template](/elements/template.es)
