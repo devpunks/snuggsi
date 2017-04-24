@@ -7,6 +7,7 @@
      &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
      [support for every modern browser including Internet Explorer 11+ / Edge](https://github.com/webcomponents/webcomponentsjs#browser-support)
 
+
 ## Easy Installation
 place the following `<script>` in the `<head>` of `<html>` page
 ```html
@@ -30,6 +31,27 @@ for more details.
 <script nomodule    src=//unpkg.com/snuggsi/snuggsi.js></script>
 <script nomodule    src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 ```
+
+## Browser Support
+
+The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
+polyfills are intended to work in the latest versions of evergreen browsers.
+
+See below for complete browser support matrix:
+
+  | Polyfill   | IE11+ | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
+  | ---------- |:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
+  | Custom Elements | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
+  | HTML Imports |  ✓ | ✓ | ✓ | ✓| ✓| ✓ |
+  | Shady CSS/DOM |  ✓ | ✓ | ✓ | ✓ | ✓ | ✓ |
+
+  \*Indicates the current version of the browser
+
+  The polyfills may work in older browsers,
+  however require additional polyfills
+  (such as classList, or other [platform](https://github.com/webcomponents/webcomponents-platform) polyfills)
+  to be used. We cannot guarantee support for browsers outside of the compatibility matrix.
+
 
 # Quick Tour
 
