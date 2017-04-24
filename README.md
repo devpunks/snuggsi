@@ -21,8 +21,9 @@ for more details.
 # Quick Tour
 
 ## [Element](/elements/element.es)
-See [examples/hello-word.html](/examples/hello-world.html)
-for more details.
+[examples/hello-word.html](/examples/hello-world.html)
+
+_See [examples](/examples) for more details._
 
 
 ``` html
