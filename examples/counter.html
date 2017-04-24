@@ -1,23 +1,72 @@
-<script src=../elements/walkable.es></script>
-<script src=../elements/template.es></script>
-<script src=../elements/Global-Event-Handlers.es></script>
-<script src=../elements/element.es></script>
+<title>snuggsi ツ - Counter</title>
+
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+
+<script nomodule    src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script nomodule    src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script type=module src=//unpkg.com/snuggsi/snuggsi.es></script>
+
+<hgroup>
+  <h1>snuggsi ツ</h1>
+  <h2>Counter</h2>
+</hgroup>
 
 <counter-demo>
-  <output>
-  <button onclick=increment>+</button>
-  <button onclick=decrement>-</button>
-  <script defer>
+  <output>{count}</output>
 
-  Element `counter-demo`
+  <button title=Increment onclick=increment>+</button>
+  <button title=decrement onclick=decrement>-</button>
 
-  (class extends HTMLElement {
-    initialize () {
-      this.context.count = 0
-    }
+<style>
+  counter-demo {
+    width: auto;
+    display: block;
+  }
+  output {
+    font-size: 600%;
+    display: block;
+    text-align: center;
+    margin: 1em auto;
+  }
+  button {
+    color: var(--darkest-color);
+    background: var(--lightest-color);
+    border: none;
+    display: inline-block;
+    cursor: pointer;
+    width: 49%;
+    margin: 0;
+    padding: 0;
 
-    increment () { this.context.count ++ }
-    decrement () { this.context.count -- }
-  })
-  </script>
+    font-size: 300%;
+  }
+</style>
+
+<script defer>
+
+Element `counter-demo`
+
+(class extends HTMLElement {
+
+  static increment () {
+    this.context.count ++
+    this.render ()
+  }
+
+  static decrement () {
+    this.context.count --
+    this.render ()
+  }
+
+  initialize ()
+    { this.context.count = 0 }
+
+  get count ()
+    { return this.context.count }
+})
+
+</script>
 </counter-demo>
