@@ -157,8 +157,16 @@ document
 
 ## Developer Installation
 ```bash
-$ npm i snuggsi
+$ git clone https://github.com/devpunks/snuggsi.git
+$ cd snuggsi && npm i
+$ npm run browse
 ```
+
+## Dependencies
+  - [Tap](https://github.com/tapjs/node-tap)
+  - [Browser Sync](https://browsersync.io)
+  - [jsdom](https://github.com/tmpvar/jsdom)
+
 
 ## Scripts
 
@@ -233,8 +241,3 @@ _"Update April 2016: since writing this post, I've moved to using tap which spaw
 ```bash
 $ npm run cover
 ```
-
-## Dependencies
-  - [Tap](https://github.com/tapjs/node-tap)
-  - [Browser Sync](https://browsersync.io)
-  - [jsdom](https://github.com/tmpvar/jsdom)
