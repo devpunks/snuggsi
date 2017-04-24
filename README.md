@@ -147,14 +147,6 @@ document
 ```
 
 
-## Contributing
-
-1. Fork it ( https://github.com/devpunks/snuggsi/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
-
 ## Developer Installation
 ```bash
 $ git clone https://github.com/devpunks/snuggsi.git
@@ -242,3 +234,13 @@ _"Update April 2016: since writing this post, I've moved to using tap which spaw
 ```bash
 $ npm run cover
 ```
+
+
+## Contributing
+
+1. Fork it ( https://github.com/devpunks/snuggsi/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
+
