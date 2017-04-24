@@ -29,7 +29,12 @@ nav-view {
   background: var(--lightest-color);
 }
 
-*[view]:not(:target)
+*[view] {
+  background: blue;
+  height: 70vh;
+}
+
+[view]:not(:target)
   { display: none }
 
 *[view]:target
@@ -41,7 +46,7 @@ nav-view {
 
 
 
-<option-settings view id=search>
+<options-settings view id=search>
 
   <p>Screen Options Trade based on several search preferences</p>
 
@@ -51,7 +56,7 @@ nav-view {
     <select>
       <option>Select</option>
 
-      <template name='options'>
+      <template name='options' id='options'>
         <option value='#'>{option}
       </template>
     </select>
@@ -65,7 +70,7 @@ nav-view {
 
 <script>
 
-Element `option-settings`
+Element `options-settings`
 
 (class extends HTMLElement {
 
@@ -81,7 +86,7 @@ Element `option-settings`
 
 </script>
 
-</option-settings>
+</options-settings>
 
 
 
@@ -121,7 +126,7 @@ options-scanner table {
   display: block;
   background: red;
 }
-options-scanner table tr { background: yellow; width: 100vw; display: flex; }
+options-scanner table tr { background: yellow; display: flex; }
 options-scanner table td { background: blue; display: inline-block; flex: 1; outline: 1px solid rgba(255,255,255,0.5); }
 </style>
 
