@@ -16,7 +16,7 @@ Et Voila _(that's it!)_
 
 ## Module Imports Installation
 The [TC39 group process](https://tc39.github.io/process-document) has recently come to an agreement on module imports
-implmentation within the browser platforms. *snuggsi ツ* supports ECMAscript module `import`
+implementation within the browser platforms. *snuggsi ツ* supports ECMAscript module `import`
 with backwards compatible custom elements support.
 
 And so should you!
