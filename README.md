@@ -163,6 +163,36 @@ Watch ecmascripts routine. [watch.es](watch.es)
 ```bash
 $ npm run watch
 ```
+### Compile
+Run transpile, uglify, gzip, and weigh
+```bash
+$ npm run compile
+```
+
+### Transpile
+Run bundle, and Buble for transpilation from ECMAScript to Javascript
+```bash
+$ npm run transpile
+```
+
+### Bundle
+Simple con`cat` script for standalone ECMASCript modules
+```bash
+$ npm run bundle
+```
+
+### Uglify
+Run uglifyjs along with minification
+```bash
+$ npm run uglify
+```
+
+### Compress
+gzip total byte size of bundled ecmascripts
+```bash
+$ npm run compress
+```
+
 ### Weigh
 Weigh ecmascripts routine.
 _(gzip total byte size of bundled ecmascripts)_
