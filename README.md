@@ -30,16 +30,16 @@ _See [examples](/examples) for more details._
 <script src=//unpkg.com/snuggsi/snuggsi.js></script>
 
 <hello-world>
- Hello {greeting}
+ Hello {planet}
 </hello-world>
 
 <script nomodule>
 
-// Definition ---------------
+// Custom Eleement Definition ---------------
 
 Element `hello-world`
 
-// Description --------------
+// Class Description ------------------------
 
 (class extends HTMLElement {
 
