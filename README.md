@@ -33,13 +33,13 @@ _See [examples](/examples) for more details._
  Hello {planet}
 </hello-world>
 
-<script nomodule>
+<script nomodule> // <script type=module nomodule> support
 
-// Custom Eleement Definition ---------------
+// Custom Element Definition -----------------------------
 
 Element `hello-world`
 
-// Class Description ------------------------
+// Class Description -------------------------------------
 
 (class extends HTMLElement {
 
