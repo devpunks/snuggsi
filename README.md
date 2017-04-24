@@ -162,7 +162,8 @@ $ cd snuggsi && npm i
 $ npm run browse
 ```
 
-## Dependencies
+## Development Dependencies
+  - [Node.js](https://nodejs.org/en/download/)
   - [Tap](https://github.com/tapjs/node-tap)
   - [Browser Sync](https://browsersync.io)
   - [jsdom](https://github.com/tmpvar/jsdom)
