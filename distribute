@@ -13,3 +13,8 @@ git add dist/snuggsi.min.js.gz
 git commit -m":muscle: bump distribution for dist/snuggsi.min.js.gz"
 
 git push origin master
+
+npm version patch
+git push origin master
+npm publish
+
