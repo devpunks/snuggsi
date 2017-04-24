@@ -42,6 +42,7 @@ Element `hello-world`
 (class extends HTMLElement {
 
   static onclick ()
+    // for shits & giggles 💩 😆
     { alert (this.textContent) }
 
   get greeting ()
