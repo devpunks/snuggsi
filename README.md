@@ -1,13 +1,27 @@
 # snuggsi ツ - Easy Web Components
 
+## Why ?
+  1. With *snuggsi ツ* you don't need Node.js, Webpack, Babel, or Gulp to be productive. Just a browser and an HTML page.
+  2. Because [You (probably) don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
+  3. Web Components ARE [ready for productioan](https://twitter.com/WebReflection/status/761316429559922688).
+     &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
+     [support for every modern browser including Internet Explorer 11+ / Edge](https://github.com/webcomponents/webcomponentsjs#browser-support)
+
+https://toddmotto.com/web-components-concepts-shadow-dom-imports-templates-custom-elements/
+
 ## Easy Installation
-place the following in the `<head>` of `<html>` page
+place the following `<script>` in the `<head>` of `<html>` page
 ```html
 <script src=//unpkg.com/snuggsi/snuggsi.js></script>
 ```
+Et Voila _(that's it!)_
 
 ## Module Imports Installation
-ECMAscript module `import`s with backwards compatible custom elements support.
+The [TC39 group process](https://tc39.github.io/process-document) has recently come to an agreement on module imports
+implmentation within the browser platforms. *snuggsi ツ* supports ECMAscript module `import`
+with backwards compatible custom elements support.
+
+And so should you!
 
 See [ECMAScript Module Imorts](https://github.com/devpunks/snuggsi/wiki/ECMAScript)
 for more details.
@@ -195,30 +209,6 @@ $ npm run cover
   - [Tap](https://github.com/tapjs/node-tap)
   - [Browser Sync](https://browsersync.io/)
   - [jsdom](https://github.com/tmpvar/jsdom)
-
-### Notes
-Custom Elements v1
-- https://toddmotto.com/web-components-concepts-shadow-dom-imports-templates-custom-elements/
-
-```
-class MyDiv extends HTMLElement {
-  constructor(...args) {
-    super(...args);
-    this.addEventListener('click', console.log);
-  }
-  connectedCallback() {
-    this.textContent = 'Hello World';
-  }
-}
-
-customElements.define('my-div', MyDiv);
-
-document.body.appendChild(new MyDiv);
-```
-
-Web Worker Harness
-https://testdrive-archive.azurewebsites.net/HTML5/WebWorkerTest262
-
 
 ## Contributing
 
