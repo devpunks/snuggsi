@@ -78,7 +78,7 @@ You have a `<template>` in the DOM and you need to:
   - If `context` is an object `bind` a single `<template>`.
   - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
 
-### Object Template
+### Standalone Template
 
 _Must have following HTML `<template>` element within DOM_
 
@@ -120,12 +120,12 @@ document
 
 _Must have following HTML `<template>` element within DOM_
 ```html
-<ul></ul>
-
-<template name='item'>
-  <!-- `{title}` will bind to `context` property `name` -->
-  <li>Hello {title}!</li>
-</template>
+<ul>
+  <template name=item>
+    <!-- `{name}` will bind to `context` property `name` -->
+    <li>Hello {name}!</li>
+  </template>
+</ul>
 
 <script nomodule src=//unpkg.com/snuggsi/snuggsi.js></script>
 <script nomodule>
@@ -133,8 +133,7 @@ _Must have following HTML `<template>` element within DOM_
 // when context is a collection
 const
   template = Template `item`
-, context  =
-    [ {name: 'DevPunk'}, {name: 'Snuggsi'} ]
+, context  = [ {name: 'DevPunk'}, {name: 'Snuggsi'} ]
 
 template
    // render template for each item in context
