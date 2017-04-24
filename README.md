@@ -7,8 +7,6 @@
      &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
      [support for every modern browser including Internet Explorer 11+ / Edge](https://github.com/webcomponents/webcomponentsjs#browser-support)
 
-https://toddmotto.com/web-components-concepts-shadow-dom-imports-templates-custom-elements/
-
 ## Easy Installation
 place the following `<script>` in the `<head>` of `<html>` page
 ```html
