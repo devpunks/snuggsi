@@ -5,8 +5,9 @@
 
 <link rel='stylesheet' href='http://www.devpunks.com/typography.css'>
 
-<script src=./examples/webcomponents-hi-ce.js></script>
-<script src=./dist/snuggsi.es></script>
+<script type=module src=//unpkg.com/snuggsi/snuggsi.es></script>
+<script nomodule    src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule    src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 
 <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base -->
 <base href='//localhost:8181/examples/'>
@@ -16,15 +17,6 @@
   <h2>Easy DOM Components</h2>
 </hgroup>
 
-<x-foo>
-  <template id='date-calendar'>
-    <li>Hello {name}! <span> {john} </span></li>
-  </template>
-
-  {baz}<template name='days'>
-    <time datetime={date}>Day {day}</time>
-    {year} yas
-  </template>
-</x-foo>
+<x-foo></x-foo>
 
 <script src='./vendor/browser-sync.es'></script>
