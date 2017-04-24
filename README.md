@@ -34,20 +34,17 @@ for more details.
 
 ## Browser Support
 
-The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
-polyfills are intended to work in the latest versions of evergreen browsers.
-
-See below for complete browser support matrix:
-
-  | Polyfill   | IE11+ | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
-  | ---------- |:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
-  | Custom Elements | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
-  | Templates | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
+  | Feature    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
+  | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
+  | Custom Elements | ✓ | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
+  | Templates | ✓ | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
 
   _\*Indicates the current version of the browser_
 
-  The polyfills may work in older browsers,
-  however require additional polyfills
+  The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
+  polyfills are intended to work in the latest versions of evergreen browsers.
+
+  The polyfills may work in older browsers, however require additional polyfills
   (such as classList, or other [platform](https://github.com/webcomponents/webcomponents-platform) polyfills)
   to be used. We cannot guarantee support for browsers outside of the compatibility matrix.
 
