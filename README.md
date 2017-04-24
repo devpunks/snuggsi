@@ -40,13 +40,12 @@ _See [examples](/examples) for more details._
 
 
 ``` html
-<script nomodule src=//unpkg.com/snuggsi/snuggsi.js></script>
-
 <hello-world>
  Hello {planet}
 </hello-world>
 
-<script nomodule> // <script type=module nomodule> support
+<script nomodule src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule>
 
 // Custom Element Definition -----------------------------
 
