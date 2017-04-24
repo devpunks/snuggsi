@@ -10,7 +10,7 @@
 ## Easy Installation
 place the following `<script>` in the `<head>` of `<html>` page
 ```html
-<script src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule src=//unpkg.com/snuggsi/snuggsi.js></script>
 ```
 Et Voila _(that's it!)_
 
@@ -25,9 +25,10 @@ See [ECMAScript Module Imorts](https://github.com/devpunks/snuggsi/wiki/ECMAScri
 for more details.
 
 ```html
-<script nomodule    src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
-<script nomodule    src=//unpkg.com/snuggsi/snuggsi.js></script>
 <script type=module src=//unpkg.com/snuggsi/snuggsi.es></script>
+
+<script nomodule    src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule    src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 ```
 
 # Quick Tour
