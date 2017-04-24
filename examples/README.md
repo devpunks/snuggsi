@@ -2,23 +2,23 @@
 
 ## Standalone Web Components
 
-  - `<hello-world>` -
-  - `<add-subtract>` -
-  - `<to-do>` -
-  - `<data-list>` -
-  - `<list-filter>` -
-  - `<valid-form>` -
-  - `<infinity-calendar>` -
-  - `<x-flashy>` -
-  - `<whack-a-mole>` -
-  - `<audio-player>` -
-  - `<video-player>` -
-  - `<ping-pong>` -
+  - `<hello-world>`
+  - `<add-subtract>`
+  - `<to-do>`
+  - `<data-list>`
+  - `<list-filter>`
+  - `<valid-form>`
+  - `<infinity-calendar>`
+  - `<x-flashy>`
+  - `<whack-a-mole>`
+  - `<audio-player>`
+  - `<video-player>`
+  - `<ping-pong>`
 
 ## Multi-Component Applications
 
-  - `<skype-clone>` -
-  - `<options-scanner>` -
+  - `<skype-clone>`
+  - `<options-scanner>`
 
 ## Contributing
 
