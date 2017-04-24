@@ -80,8 +80,6 @@ You have a `<template>` in the DOM and you need to:
 
 ### Standalone Template
 
-_Must have following HTML `<template>` element within DOM_
-
 ```html
 <section id=lead></section>
 
@@ -117,7 +115,6 @@ document
 
 ### Collection Template
 
-_Must have following HTML `<template>` element within DOM_
 ```html
 <ul>
   <template name=item>
