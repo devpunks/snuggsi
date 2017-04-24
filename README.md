@@ -3,7 +3,7 @@
 ## Why ?
   1. With *snuggsi ツ* you don't need Node.js, Webpack, Babel, or Gulp to be productive. Just a browser and HTML
   2. Because [You (probably) don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
-  3. Web Components ARE [ready for productioan](https://twitter.com/WebReflection/status/761316429559922688)
+  3. Web Components ARE [ready for production](https://twitter.com/WebReflection/status/761316429559922688)
      &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
      [support for every modern browser including Internet Explorer 11+ / Edge](https://github.com/webcomponents/webcomponentsjs#browser-support)
 
