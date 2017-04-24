@@ -1,0 +1,88 @@
+<title>snuggsi ツ - Counter</title>
+
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+
+<script nomodule    src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script nomodule    src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script type=module src=//unpkg.com/snuggsi/snuggsi.es></script>
+
+<hgroup>
+  <h1>snuggsi ツ</h1>
+  <h2>Counter</h2>
+</hgroup>
+
+<add-subtract>
+  <output>{count}</output>
+
+  <menu>
+    <button title=Decrement onclick=decrement>-</button>
+    <button title=Increment onclick=increment>+</button>
+  <menu>
+
+<style>
+
+counter-demo {
+  width: auto;
+  display: block;
+}
+
+output {
+  display: block;
+  font-size: 5em;
+  margin: 1rem auto;
+  text-align: center;
+  line-height: 1.612em;
+  background: var(--darkest-color)
+}
+
+menu {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+}
+
+button {
+  margin: 0;
+  width: 50%;
+  padding: 0;
+  border: none;
+  cursor: pointer;
+  font-size: 300%;
+  display: inline-block;
+  color: var(--darkest-color);
+  background: var(--lightest-color)
+}
+
+</style>
+
+<script defer>
+
+Element `add-subtract`
+
+(class extends HTMLElement {
+
+  static increment () {
+    this.context.count ++
+    this.render ()
+  }
+
+  static decrement () {
+    this.context.count --
+    this.render ()
+  }
+
+  initialize ()
+    { this.context.count = 0 }
+
+  get count ()
+    { return this.context.count }
+})
+
+</script>
+
+</add-subtract>
+
+<script src=../../vendor/browser-sync.es></script>
