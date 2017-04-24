@@ -146,12 +146,30 @@ document
 */
 ```
 
+
+## Contributing
+
+1. Fork it ( https://github.com/devpunks/snuggsi/fork )
+2. Create your feature branch (`git checkout -b my-new-feature`)
+3. Commit your changes (`git commit -am 'Add some feature'`)
+4. Push to the branch (`git push origin my-new-feature`)
+5. Create a new Pull Request
+
 ## Developer Installation
 ```bash
 $ npm i snuggsi
 ```
 
 ## Scripts
+
+### Browse
+Watch files and hot inject browser assets on file change.
+See [watch.browser.es](watch.browser.es)
+& [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation.
+```bash
+$ npm run browse
+```
+
 ### Watch Tests
 Watch ecmascripts routine. [watch.es](watch.es)
 ```bash
@@ -194,14 +212,6 @@ _(gzip total byte size of bundled ecmascripts)_
 $ npm run weigh
 ```
 
-### Browse
-Watch files and hot inject browser assets on file change.
-See [watch.browser.es](watch.browser.es)
-& [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation.
-```bash
-$ npm run browse
-```
-
 ### Testing
 
 ```bash
@@ -228,11 +238,3 @@ $ npm run cover
   - [Tap](https://github.com/tapjs/node-tap)
   - [Browser Sync](https://browsersync.io)
   - [jsdom](https://github.com/tmpvar/jsdom)
-
-## Contributing
-
-1. Fork it ( https://github.com/devpunks/snuggsi/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
