@@ -78,64 +78,63 @@ You have a `<template>` in the DOM and you need to:
   - If `context` is an object `bind` a single `<template>`.
   - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
 
-_See [Templates](https://github.com/snuggs/snuggsi#templates) for an in depth explaination._
-
 ### Object Template
-Copy & pasta dependency from the following link into developer console.
-
-https://raw.githubusercontent.com/snuggs/snuggsi/master/elements/template.es
-
-_[Console](https://developer.chrome.com/devtools#console) example snippet_
 
 _Must have following HTML `<template>` element within DOM_
 
-```HTML5
-<section id='lead'></section>
+```html
+<section id=lead></section>
 
-<template name='developer'>
+<template name=developer>
   <h1>{name}</h1>
 </template>
-```
 
-```Javascript
-const context = { name: 'That Beast' }
-    , template = Template `developer`
+<script nomodule src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule>
+
+const
+  template = Template `developer`
+, context  = { name: 'That Beast' }
 
 // bind to context
 template
-  .bind (context)
-  .content // an appendable HTMLDocumentFragment
+  .bind (context) // Bind context for rendering
+  .content // returns an appendable HTMLDocumentFragment
   // see https://html.spec.whatwg.org/multipage/scripting.html#dom-template-content
 
 document
   // select element to append bound template
-  .querySelector ('#lead')
+  .getElementById ('lead')
   // notice template is still bound to context from earlier
   .append (template.content)
 
-// <section id='lead'><h1>That Beast</h1></h1></section>
+/*
+   <section id='lead'><h1>That Beast</h1></h1></section>
+*/
+
+</script>
 ```
 
 
 ### Collection Template
-_[Console](https://developer.chrome.com/devtools#console) example snippet_
 
 _Must have following HTML `<template>` element within DOM_
-```HTML5
+```html
 <ul></ul>
 
 <template name='item'>
   <!-- `{title}` will bind to `context` property `name` -->
   <li>Hello {title}!</li>
 </template>
-```
 
-```Javascript
+<script nomodule src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule>
+
 // when context is a collection
-const context = [
-  {name: 'DevPunk'}, {name: 'Snuggsi'}
-]
-const template = Template `item`
+const
+  template = Template `item`
+, context  =
+    [ {name: 'DevPunk'}, {name: 'Snuggsi'} ]
 
 template
    // render template for each item in context
@@ -154,26 +153,25 @@ document
 */
 ```
 
-## Node
-### Installation
+## Developer Installation
 ```bash
-$ npm install snuggsi
+$ npm i snuggsi
 ```
 
-### Scripts
-#### Watch Tests
+## Scripts
+### Watch Tests
 Watch ecmascripts routine. [watch.es](watch.es)
 ```bash
 $ npm run watch
 ```
-#### Weigh
+### Weigh
 Weigh ecmascripts routine.
 _(gzip total byte size of bundled ecmascripts)_
 ```bash
 $ npm run weigh
 ```
 
-#### Browse
+### Browse
 Watch files and hot inject browser assets on file change.
 See [watch.browser.es](watch.browser.es)
 & [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation.
@@ -181,7 +179,7 @@ See [watch.browser.es](watch.browser.es)
 $ npm run browse
 ```
 
-#### Testing
+### Testing
 
 ```bash
 $ npm test
@@ -198,19 +196,19 @@ _"Update April 2016: since writing this post, I've moved to using tap which spaw
   - https://remysharp.com/2015/12/14/my-node-test-strategy
   - https://remysharp.com/2016/02/08/testing-tape-vs-tap
 
-#### Test Coverage
+### Test Coverage
 ```bash
 $ npm run cover
 ```
 
-### Dependencies
+## Dependencies
   - [Tap](https://github.com/tapjs/node-tap)
-  - [Browser Sync](https://browsersync.io/)
+  - [Browser Sync](https://browsersync.io)
   - [jsdom](https://github.com/tmpvar/jsdom)
 
 ## Contributing
 
-1. Fork it ( https://github.com/[my-github-username]/snuggsi/fork )
+1. Fork it ( https://github.com/devpunks/snuggsi/fork )
 2. Create your feature branch (`git checkout -b my-new-feature`)
 3. Commit your changes (`git commit -am 'Add some feature'`)
 4. Push to the branch (`git push origin my-new-feature`)
