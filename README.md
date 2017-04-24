@@ -106,7 +106,9 @@ document
   // see https://html.spec.whatwg.org/multipage/scripting.html#dom-template-content
 
 /*
-   <section id='lead'><h1>That Beast</h1></h1></section>
+   <section id='lead'>
+     <h1>That Beast</h1>
+   </section>
 */
 
 </script>
