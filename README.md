@@ -48,6 +48,7 @@ Element `hello-world`
     { alert (this.textContent) }
 
   get greeting ()
+    // "automagic" token binding to class properties
     { return 'world 🌎' }
 })
 
