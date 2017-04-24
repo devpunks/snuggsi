@@ -1,6 +1,13 @@
 # snuggsi ツ - Easy Web Components
 
-## Standalone Web Components
+## The Template
+
+_See [MDN <template>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
+for more details_
+
+  - `<template>`
+
+## Custom Elements
 
   - `<hello-world>`
   - `<add-subtract>`
@@ -15,7 +22,7 @@
   - `<video-player>`
   - `<ping-pong>`
 
-## Multi-Component Applications
+## Web Components
 
   - `<skype-clone>`
   - `<options-scanner>`
