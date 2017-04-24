@@ -86,6 +86,7 @@ _Must have following HTML `<template>` element within DOM_
 <section id=lead></section>
 
 <template name=developer>
+  <!-- `{name}` will bind to `context` property `name` -->
   <h1>{name}</h1>
 </template>
 
@@ -96,17 +97,13 @@ const
   template = Template `developer`
 , context  = { name: 'That Beast' }
 
-// bind to context
 template
-  .bind (context) // Bind context for rendering
-  .content // returns an appendable HTMLDocumentFragment
-  // see https://html.spec.whatwg.org/multipage/scripting.html#dom-template-content
+  .bind (context)
 
 document
-  // select element to append bound template
-  .getElementById ('lead')
-  // notice template is still bound to context from earlier
-  .append (template.content)
+  .getElementById ('lead')   // select element to append bound template
+  .append (template.content) // .content returns an appendable HTMLDocumentFragment
+  // see https://html.spec.whatwg.org/multipage/scripting.html#dom-template-content
 
 /*
    <section id='lead'><h1>That Beast</h1></h1></section>
@@ -122,7 +119,6 @@ _Must have following HTML `<template>` element within DOM_
 ```html
 <ul>
   <template name=item>
-    <!-- `{name}` will bind to `context` property `name` -->
     <li>Hello {name}!</li>
   </template>
 </ul>
@@ -136,9 +132,8 @@ const
 , context  = [ {name: 'DevPunk'}, {name: 'Snuggsi'} ]
 
 template
-   // render template for each item in context
+   // internal template render for each item in context
   .bind (context)
-  .content // an appendable HTMLDocumentFragment
 
 document
   .querySelector ('ul')
