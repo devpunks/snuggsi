@@ -2,8 +2,8 @@
 
 ## The Template
 
-_See [MDN <template>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
-for more details_
+See [MDN import] (https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
+for more details
 
   - `<template>`
 
