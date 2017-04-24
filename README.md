@@ -27,6 +27,8 @@ _See [examples](/examples) for more details._
 
 
 ``` html
+<script src=//unpkg.com/snuggsi/snuggsi.js></script>
+
 <hello-world>
  Hello {greeting}
 </hello-world>
