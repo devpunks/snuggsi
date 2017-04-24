@@ -2,7 +2,7 @@
 
 ## The Template
 
-See [MDN import](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
+See [MDN <template>](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
 for more details
 
   - `<template>`
