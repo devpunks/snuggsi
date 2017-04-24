@@ -78,6 +78,9 @@ You have a `<template>` in the DOM and you need to:
   - If `context` is an object `bind` a single `<template>`.
   - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
 
+See [MDN &lt;template&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
+for more details
+
 ### Standalone Template
 
 ```html
