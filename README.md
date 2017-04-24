@@ -42,8 +42,9 @@ See below for complete browser support matrix:
   | Polyfill   | IE11+ | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
   | ---------- |:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
   | Custom Elements | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
+  | Templates | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
 
-  \*Indicates the current version of the browser
+  _\*Indicates the current version of the browser_
 
   The polyfills may work in older browsers,
   however require additional polyfills
