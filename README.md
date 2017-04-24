@@ -44,10 +44,10 @@ Element `hello-world`
 (class extends HTMLElement {
 
   static onclick ()
-    // for shits & giggles 💩 😆
-    { alert (this.textContent) }
+    // "automagic" event registration to static class methods
+    { alert (this.textContent) } // for shits & giggles 💩 😆
 
-  get greeting ()
+  get planet ()
     // "automagic" token binding to class properties
     { return 'world 🌎' }
 })
