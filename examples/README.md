@@ -20,6 +20,7 @@ for more details
   - `<whack-a-mole>`
   - `<audio-player>`
   - `<video-player>`
+  - `<drag-drop>`
   - `<ping-pong>`
 
 ## Web Components
