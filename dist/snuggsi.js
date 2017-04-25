@@ -94,7 +94,7 @@ TokenList.prototype.bind = function (context, node) {
 //  }
 //}
 
-var Template = function ( name ) {
+var Template = function (name) {
   if ( name === void 0 ) name = 'snuggsi';
 
 
