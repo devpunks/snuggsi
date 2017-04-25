@@ -3,42 +3,6 @@
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
 
-<!-- Load Snuggsi -->
-<script src=https://unpkg.com/snuggsi@0.4.35/snuggsi.js></script>
-
-<!-- Load Angular 2 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.3/es6-shim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.20/system-polyfills.js"></script>
-<script src="https://code.angularjs.org/2.0.0-beta.6/angular2-polyfills.js"></script>
-<script src="https://code.angularjs.org/tools/system.js"></script>
-<script src="https://code.angularjs.org/tools/typescript.js"></script>
-<script src="https://code.angularjs.org/2.0.0-beta.6/Rx.js"></script>
-<script src="https://code.angularjs.org/2.0.0-beta.6/angular2.dev.js"></script>
-<script>
-  System.config({
-    transpiler: 'typescript',
-    typescriptOptions: { emitDecoratorMetadata: true },
-    packages: {'app': {defaultExtension: 'ts'}},
-    map: { 'app': './angular2' }
-  });
-  System.import('app/properties-angular')
-        .then(null, console.error.bind(console));
-</script>
-
-<!-- Load Ember -->
-
-<!-- Load React -->
-
-<!-- Load Preact -->
-
-<!-- Load Aurela -->
-
-<!-- Load Polymer -->
-
-<!-- Load Svelte -->
-
-<!-- Load Mythril -->
-
 <style>
   section, label { display: block }
 </style>
@@ -50,6 +14,7 @@
 
 <p>Influenced off the following talk <em>"<a href=https://youtu.be/6I_GwgoGm1w target=external>Choosing a Javascript Framework"</a> -</em> <cite>Rob Eisenberg former Angular 2 core team member</cite>
 
+<p><a href=https://github.com/krausest/js-framework-benchmark>JS Framework Benchmark</a></p>
 <nav>
 <a href=#mithril>Mithril.js</a>
 <a href=#svelte>Svelte.js</a>
