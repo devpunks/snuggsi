@@ -155,6 +155,7 @@ const Template = function (name = 'snuggsi') {
         dependent.remove ()
 
     context.forEach ((item, index) => {
+
       let
         clone  = this.cloneNode (true)
       , tokens = (new TokenList (clone.content))
