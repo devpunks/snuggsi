@@ -1,6 +1,6 @@
-import { platformBrowserDynamic } from '@angular/platform-browser-dynamic';
-import { PropertiesModule } from 'app/properties';
+//main entry point
+import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {AppModule} from 'angular2/properties.component';
 
-platformBrowserDynamic()
-  .bootstrapModule(PropertiesModule)
+platformBrowserDynamic().bootstrapModule(AppModule)
 
