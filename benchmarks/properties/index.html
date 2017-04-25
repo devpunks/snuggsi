@@ -3,28 +3,6 @@
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
 
-<!-- Load Snuggsi -->
-<script src=https://unpkg.com/snuggsi@0.4.35/snuggsi.js></script>
-
-<!-- Load Angular 2 -->
-<script src="https://cdnjs.cloudflare.com/ajax/libs/es6-shim/0.33.3/es6-shim.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/systemjs/0.19.20/system-polyfills.js"></script>
-<script src="https://code.angularjs.org/2.0.0-beta.6/angular2-polyfills.js"></script>
-<script src="https://code.angularjs.org/tools/system.js"></script>
-<script src="https://code.angularjs.org/tools/typescript.js"></script>
-<script src="https://code.angularjs.org/2.0.0-beta.6/Rx.js"></script>
-<script src="https://code.angularjs.org/2.0.0-beta.6/angular2.dev.js"></script>
-<script>
-  System.config({
-    transpiler: 'typescript',
-    typescriptOptions: { emitDecoratorMetadata: true },
-    packages: {'app': {defaultExtension: 'ts'}},
-    map: { 'app': './angular2' }
-  });
-  System.import('app/main')
-        .then(null, console.error.bind(console));
-</script>
-
 <!-- Load Ember -->
 
 <!-- Load React -->
@@ -63,8 +41,11 @@
 
 
 <section id=properties>
+
   <section id=snuggsi>
   <header>snuggsi ツ</header>
+
+  <a rel=author>What</a>
 
   <pre>
   <code class=html>
@@ -106,6 +87,9 @@
       <label>Full Name  <output name=full for='first,last'>{full}</output></label>
     </form>
 
+
+  <!-- Load Snuggsi -->
+  <script nomodule src=https://unpkg.com/snuggsi@0.4.35/snuggsi.js></script>
   <script nomodule defer>
   Element `properties-snuggsi`
 
@@ -127,8 +111,29 @@
   </section>
 
   <section class=angular2>
-    <properties-angular2>Loading...</properties-angular2>
+    <header>Angular 2</header>
+
+    <p><em>Angular (135kb)</em></p>
+
+
+    <p><a href=https://thinkster.io/tutorials/angular-2-hello-world>Base Angular Configuration</a></p>
+
+    <my-app>Loading...</my-app>
+
+    <!-- Load Angular 2 -->
+    <script src=https://unpkg.com/core-js@2.4.1/client/shim.min.js></script>
+    <script src=https://unpkg.com/zone.js/dist/zone.js></script>
+    <script src=https://unpkg.com/zone.js/dist/long-stack-trace-zone.js></script>
+    <script src=https://unpkg.com/reflect-metadata@0.1.3/Reflect.js></script>
+    <script src=https://unpkg.com/systemjs@0.19.31/dist/system.js></script>
+    <script src=angular2/config.js></script>
+    <script>
+      System.import('app')
+        .catch(console.error.bind(console));
+    </script>
+
   </section>
+
 </section>
 
 <section id=svelte>
@@ -136,7 +141,6 @@
 
   <a href=https://svelte.technology/repl?version=1.17.0&gist=98bc872a8c8cdc71944a45848bbb8e94>Github</a>
 
-  Angular (135kb)
   Svelte (4kb)
   Vue + Vue-Router + Vuex + fetch (40kb)
   React + React-Router + Redux + fetch (64kb)
