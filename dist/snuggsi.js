@@ -138,7 +138,8 @@ var Template = function (name) {
       (function (record) { (ref = this.dependents).push.apply (ref, record.childNodes)
       var ref; }, this)
 
-    (ref = this).after.apply (ref, records)
+    (ref = this)
+      .after.apply (ref, records)
 
     return this
     var ref;
