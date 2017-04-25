@@ -173,7 +173,8 @@ const Template = function (name = 'snuggsi') {
     records.map
       (function (record) { this.dependents.push (...record.childNodes) }, this)
 
-    this.after (...records)
+    this
+      .after (...records)
 
     return this
   }
