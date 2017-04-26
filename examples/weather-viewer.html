@@ -1,0 +1,38 @@
+<title>snuggsi ツ - Weather-Viewer</title>
+
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+
+<script nomodule    src=http://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script nomodule    src=http://unpkg.com/snuggsi/snuggsi.js></script>
+<script type=module src=http://unpkg.com/snuggsi/snuggsi.es></script>
+
+<hgroup>
+  <h1>snuggsi ツ</h1>
+  <h2>Weather-Viewer</h2>
+</hgroup>
+
+<weather-viewer>
+    <ul>
+      <template name=cities>
+        <li>{name} {temp}</li>
+      </template>
+    </ul>
+</weather-viewer>
+
+<script defer>
+
+  var cities = [{ name: 'New York', temp: '75' }, {name: 'Seattle', temp: '65' }]
+  Element `weather-viewer`
+
+  (class extends HTMLElement {
+    initialize () { this.context.cities = cities}
+
+    get cities () { return this.context.cities }
+  })
+
+</script>
+
+<script src=../../vendor/browser-sync.es></script>
