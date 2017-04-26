@@ -7,7 +7,7 @@
     <img src=https://david-dm.org/devpunks/snuggsi/status.svg alt='dependency status'>
   </a>
 
-  <a href=https://github.com/devpunks/snuggsi/blob/master/LICENSE.md target=external>
+  <a href=https://github.com/devpunks/snuggsi/blob/master/LICENSE.txt target=external>
     <img src=https://img.shields.io/npm/l/snuggsi.svg alt=license>
   </a>
 
