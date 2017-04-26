@@ -1,0 +1,72 @@
+<title>snuggsi ツ - File Upload</title>
+
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+
+<script type=module src=//unpkg.com/snuggsi/snuggsi.es></script>
+
+<hgroup>
+  <h1>snuggsi ツ</h1>
+  <h2>File Upload</h2>
+</hgroup>
+
+<file-upload>
+
+  <input id=upload name=upload type=file>
+  <label for=upload>Click to upload file...</label>
+
+  <ul>
+    <template name=files>
+      <li>{name}</li>
+    </template>
+  </ul>
+
+<style>
+input[type=file] {
+  opacity: 0;
+  z-index: -1;
+  width: 0.1px;
+  height: 0.1px;
+  overflow: hidden;
+  position: absolute
+}
+input[type=file] + label {
+  display: block;
+  padding: 2em 0;
+  margin: 1em 20%;
+  cursor: pointer;
+  font-size: 1.25em;
+  text-align: center;
+  color: rgba(20,20,20,0.6);
+  background-color: rgba(240,240,240, 0.8)
+}
+
+input[type=file] + label:hover {
+    background-color: rgba(240,240,240, 1.0);
+}
+</style>
+
+<script>
+
+Element `file-upload`
+
+(class extends HTMLElement {
+  static onchange () {
+    if (!!! event.target.files) return
+
+    this.context.files
+      .push (event.target.files [0])
+  }
+
+  initialize ()
+    { this.context.files = [] }
+})
+
+</script>
+
+</file-upload>
+
+<script src=../../vendor/browser-sync.es></script>
+
