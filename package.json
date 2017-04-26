@@ -51,10 +51,10 @@
     "buble": "*",
     "uglifyjs": "*",
     "browser-sync": "*",
-    "devtools-terminal": "^0.1.3"
+    "devtools-terminal": "*"
   },
   "dependencies": {
-    "buble-tape": "^0.0.12",
-    "jsdom": "^9.9.1"
+    "buble-tape": "*",
+    "jsdom": "*"
   }
 }
