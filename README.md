@@ -2,12 +2,15 @@
   <a href=https://www.npmjs.com/package/snuggsi>
     <img src=https://img.shields.io/npm/v/snuggsi.svg alt='npm version'>
   </a>
-  <a href=https://github.com/devpunks/snuggsi/blob/master/LICENSE.md target=external>
-    <img src=https://img.shields.io/npm/l/snuggsi.svg alt=license>
-  </a>
+
   <a href=https://david-dm.org/devpunks/snuggsi target=external>
     <img src=https://david-dm.org/devpunks/snuggsi/status.svg alt='dependency status'>
   </a>
+
+  <a href=https://github.com/devpunks/snuggsi/blob/master/LICENSE.md target=external>
+    <img src=https://img.shields.io/npm/l/snuggsi.svg alt=license>
+  </a>
+
   <a href=https://codecov.io/github/rollup/rollup?branch=master target=external>
     <img src=https://codecov.io/gh/rollup/rollup/branch/master/graph/badge.svg alt='Coverage via Codecov' />
   </a>
