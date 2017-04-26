@@ -11,7 +11,7 @@
     <img src=https://img.shields.io/npm/l/snuggsi.svg alt=license>
   </a>
 
-  <a href=https://codecov.io/github/devpunks/snuggsi?branch=master target=external>
+  <a href='https://codecov.io/github/devpunks/snuggsi?branch=master' target=external>
     <img src=https://codecov.io/gh/devpunks/snuggsi/branch/master/graph/badge.svg alt='Coverage via Codecov'>
   </a>
 </p>
