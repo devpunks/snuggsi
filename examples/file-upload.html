@@ -16,13 +16,41 @@
 <file-upload>
 
   <input multiple id=files name=files[] type=file>
-  <label for=files>Click to upload file...</label>
+  <label for=files ondragover="event.preventDefault()" ondragenter=ondragstart ondragleave=ondragend ondrop=ondragdrop>
+    Click to upload file...
+  </label>
 
-  <ul>
-    <template name=files>
-      <li>{name}</li>
-    </template>
-  </ul>
+  <table style="width:300px">
+    <thead style="text-align: left">
+      <tr>
+        <th width="1%"></th>
+        <th>Name</th>
+        <th width="10%">Size</th>
+        <th width="1%"></th>
+      </tr>
+    </thead>
+    <tbody>
+      <template name=files>
+        <tr>
+
+          <td>
+            <img src={icon_url} alt={type} hidden={hidden} style="width: 1em; height: 1em">
+          </td>
+          <td>
+            {name}
+          </td>
+          <td>
+            {size}
+          </td>
+          <td style="cursor:pointer">
+            <a onclick=onremove data-index={#}>&times;</a>
+          </td>
+        </tr>
+      </template>
+    </tbody>
+  </table>
+
+  <a onclick=onclear>Clear</a>
 
 <style>
 
@@ -59,17 +87,91 @@ Element `file-upload`
   initialize ()
     { this.context.files = [] }
 
-  static onchange () {
+
+  static onchange (event) {
     if (!!! event.target.files) return
 
-    this.context.files =
-      this.context.files.concat (...event.target.files)
+    this.add_files(event.target.files)
 
     this.render ()
   }
 
-  get files ()
-    { return this.context.files }
+  static onremove (event) {
+    this.context.files.splice(event.target.dataset.index, 1)
+
+    this.render ()
+  }
+
+  static onclear (event) {
+    this.context.files = []
+
+    this.render ()
+  }
+
+  static ondragstart (event) {
+    event.target.innerHTML = 'Drop here!'
+
+    event.preventDefault ()
+  }
+
+  static ondragend (event) {
+    this.reset_label(event.target)
+  }
+
+  static ondragdrop (event) {
+    this.reset_label(event.target)
+
+    event.preventDefault ()
+
+    var files = event.dataTransfer.files
+
+    if (!!! files) return
+
+    this.add_files(files)
+
+    this.render ()
+  }
+
+  reset_label (label) {
+    label.innerHTML = 'Click to upload file...'
+  }
+
+  add_files (files) {
+    // Should have a sanity check.
+    // All `files` should be of class File
+    this.context.files =
+      this.context.files.concat (...files)
+  }
+
+  get files () {
+    return this.context.files
+      .map ((file, idx) => this.constructor.add_icon_url(file)) 
+  }
+
+
+  static add_icon_url (file) {
+    var icon_url = this.mimetype_icons[file.type]
+
+    file.icon_url = icon_url === undefined ? '' : icon_url
+    file.hidden_icon = icon_url === undefined ? 'hidden' : ''
+
+    return file
+  }
+
+
+  static get mimetype_icons () {
+    return {
+      'application/pdf': 'app-pdf.png',
+       'text/plain'    : 'txt-plain.png',
+       //'image/png'     : 'img-all.png',
+       'application/vnd.oasis.opendocument.text'       : 'app-word.png',
+       'application/vnd.oasis.opendocument.spreadsheet': 'app-excel.png',
+       'application/vnd.openxmlformats-officedocument.wordprocessingml.document': 'app-word.png',
+       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'      : 'app-excel.png'
+     }
+  }
+
+
 })
 
 </script>
@@ -77,4 +179,3 @@ Element `file-upload`
 </file-upload>
 
 <script src=../../vendor/browser-sync.es></script>
-
