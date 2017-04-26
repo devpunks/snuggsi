@@ -17,9 +17,9 @@
 </p>
 
 <p align=center>
-# snuggsi ツ - Easy Web Components
+<h1>snuggsi ツ - Easy Web Components</h1>
 
-_"Performance is the art of avoiding work"_ - #FreeJewelry :ring: :gem:
+<em>"Performance is the art of avoiding work"<em> - #FreeJewelry :ring: :gem:
 </p>
 
 ## Why ?
