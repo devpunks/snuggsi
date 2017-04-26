@@ -1,5 +1,20 @@
 # snuggsi ツ - Easy Web Components
 
+<p align=center>
+  <a href=https://www.npmjs.com/package/snuggsi>
+    <img src=https://img.shields.io/npm/v/snuggsi.svg alt='npm version'>
+  </a>
+  <a href=https://github.com/devpunks/snuggsi/blob/master/LICENSE.md target=external>
+    <img src=https://img.shields.io/npm/l/snuggsi.svg alt=license>
+  </a>
+  <a href=https://david-dm.org/devpunks/snuggsi target=external>
+    <img src=https://david-dm.org/devpunks/snuggsi/status.svg alt='dependency status'>
+  </a>
+  <a href=https://codecov.io/github/rollup/rollup?branch=master target=external>
+    <img src=https://codecov.io/gh/rollup/rollup/branch/master/graph/badge.svg alt='Coverage via Codecov' />
+  </a>
+</p>
+
 ## Why ?
   1. With *snuggsi ツ* you don't need Node.js, Webpack, Babel, or Gulp to be productive. Just a browser and HTML
   2. Because [You (probably) don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
