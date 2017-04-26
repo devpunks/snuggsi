@@ -3,6 +3,14 @@
     <img src=https://img.shields.io/npm/v/snuggsi.svg alt='npm version'>
   </a>
 
+  <a href=https://www.npmjs.com/package/snuggsi>
+    <img src=https://img.shields.io/npm/v/snuggsi.svg alt='npm version'>
+  </a>
+
+  <a href=https://npmjs.org/package/snuggsi>
+    <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat>
+  </a>
+
   <a href=https://david-dm.org/devpunks/snuggsi target=external>
     <img src=https://david-dm.org/devpunks/snuggsi/status.svg alt='dependency status'>
   </a>
@@ -17,9 +25,9 @@
 </p>
 
 <p align=center>
-<h1>snuggsi ツ - Easy Web Components</h1>
+  <h1>snuggsi ツ - Easy Web Components</h1>
 
-<em>"Performance is the art of avoiding work"<em> - #FreeJewelry :ring: :gem:
+  <em>"Performance is the art of avoiding work"<em> - #FreeJewelry :ring: :gem:
 </p>
 
 ## Why ?
