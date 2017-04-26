@@ -5,7 +5,8 @@
 
 <link rel=stylesheet href=http://www.devpunks.com/typography.css>
 
-<script type=module src=//unpkg.com/snuggsi/snuggsi.es></script>
+<script nomodule    src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule    src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 
 <hgroup>
   <h1>snuggsi ツ</h1>
@@ -24,6 +25,7 @@
   </ul>
 
 <style>
+
 input[type=file] {
   opacity: 0;
   z-index: -1;
@@ -43,9 +45,9 @@ input[type=file] + label {
   background-color: rgba(240,240,240, 0.8)
 }
 
-input[type=file] + label:hover {
-    background-color: rgba(240,240,240, 1.0);
-}
+input[type=file] + label:hover
+  { background-color: rgba(240,240,240, 1.0) }
+
 </style>
 
 <script>
@@ -53,15 +55,16 @@ input[type=file] + label:hover {
 Element `file-upload`
 
 (class extends HTMLElement {
+
+  initialize ()
+    { this.context.files = [] }
+
   static onchange () {
     if (!!! event.target.files) return
 
     this.context.files
       .push (event.target.files [0])
   }
-
-  initialize ()
-    { this.context.files = [] }
 })
 
 </script>
