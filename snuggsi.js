@@ -134,7 +134,7 @@ class TokenList {
 //  }
 //}
 
-const Template = function ( name = 'snuggsi' ) {
+const Template = function (name = 'snuggsi') {
 
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind } )
@@ -155,6 +155,7 @@ const Template = function ( name = 'snuggsi' ) {
         dependent.remove ()
 
     context.forEach ((item, index) => {
+
       let
         clone  = this.cloneNode (true)
       , tokens = (new TokenList (clone.content))
@@ -173,7 +174,8 @@ const Template = function ( name = 'snuggsi' ) {
     records.map
       (function (record) { this.dependents.push (...record.childNodes) }, this)
 
-    this.after (...records)
+    this
+      .after (...records)
 
     return this
   }
@@ -418,8 +420,9 @@ const Element = function
 
         void (function (templates) {
           const
-            bind = (template) => {
-              const name = template.getAttribute ('name')
+            bind = template => {
+              const
+                name = template.getAttribute ('name')
 
               void (new Template (name))
                 .bind (this [name])
@@ -436,9 +439,8 @@ const Element = function
 
       // custom element reactions
       connectedCallback () {
-        void ( super.constructor.onconnect
-          || function noop () {}
-        ).call (this)
+        super.constructor.onconnect
+        && super.constructor.onconnect ()
 
         this.render ()
       }
