@@ -18,13 +18,15 @@
   <input id=upload name=upload type=file>
   <label for=upload>Click to upload file...</label>
 
-  <template name=files>
-    <li>{name}</li>
-  </template>
+  <ul>
+    <template name=files>
+      <li>{name}</li>
+    </template>
+  </ul>
 
 <style>
 
-input[type=file] {
+file-upload input[type=file] {
   opacity: 0;
   z-index: -1;
   width: 0.1px;
@@ -32,7 +34,7 @@ input[type=file] {
   overflow: hidden;
   position: absolute
 }
-input[type=file] + label {
+file-upload input[type=file] + label {
   display: block;
   padding: 2em 0;
   margin: 1em 20%;
@@ -43,7 +45,7 @@ input[type=file] + label {
   background-color: rgba(240,240,240, 0.8)
 }
 
-input[type=file] + label:hover
+file-upload input[type=file] + label:hover
   { background-color: rgba(240,240,240, 1.0) }
 
 </style>
