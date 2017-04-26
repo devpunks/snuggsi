@@ -1,5 +1,3 @@
-# snuggsi ツ - Easy Web Components
-
 <p align=center>
   <a href=https://www.npmjs.com/package/snuggsi>
     <img src=https://img.shields.io/npm/v/snuggsi.svg alt='npm version'>
@@ -14,6 +12,8 @@
     <img src=https://codecov.io/gh/rollup/rollup/branch/master/graph/badge.svg alt='Coverage via Codecov' />
   </a>
 </p>
+
+# snuggsi ツ - Easy Web Components
 
 ## Why ?
   1. With *snuggsi ツ* you don't need Node.js, Webpack, Babel, or Gulp to be productive. Just a browser and HTML
