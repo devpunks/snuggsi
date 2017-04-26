@@ -16,9 +16,11 @@
   </a>
 </p>
 
+<p align=center>
 # snuggsi ツ - Easy Web Components
 
 _"Performance is the art of avoiding work"_ - #FreeJewelry :ring: :gem:
+</p>
 
 ## Why ?
   1. With *snuggsi ツ* you don't need Node.js, Webpack, Babel, or Gulp to be productive. Just a browser and HTML
