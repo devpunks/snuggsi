@@ -15,7 +15,7 @@
 
 <file-upload>
 
-  <input id=upload name=upload type=file>
+  <input multiple id=upload name=upload type=file>
   <label for=upload>Click to upload file...</label>
 
   <ul>
@@ -62,8 +62,8 @@ Element `file-upload`
   static onchange () {
     if (!!! event.target.files) return
 
-    this.context.files
-      .push (event.target.files [0])
+    this.context.files =
+      this.context.files.concat (...event.target.files)
 
     this.render ()
   }
