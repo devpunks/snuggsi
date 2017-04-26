@@ -1,9 +1,7 @@
 // https://github.com/ded/script.js
-// injects script @ `url` after current script
+// import script @ `url` after current script
 // http://stackoverflow.com/questions/5168451/javascript-require-on-client-side#answer-8536369
-function import (url, options) {
-  options = options || {}
-  
+function import (url, options = {}) {
   var script = document.createElement ('script')
 
   script.src = url.match (/\.js$/) ?
