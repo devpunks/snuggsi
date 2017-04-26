@@ -18,6 +18,8 @@
 
 # snuggsi ツ - Easy Web Components
 
+_"Performance is the art of avoiding work"_ - #FreeJewelry :ring: :gem:
+
 ## Why ?
   1. With *snuggsi ツ* you don't need Node.js, Webpack, Babel, or Gulp to be productive. Just a browser and HTML
   2. Because [You (probably) don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
