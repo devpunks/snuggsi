@@ -18,11 +18,9 @@
   <input id=upload name=upload type=file>
   <label for=upload>Click to upload file...</label>
 
-  <ul>
-    <template name=files>
-      <li>{name}</li>
-    </template>
-  </ul>
+  <template name=files>
+    <li>{name}</li>
+  </template>
 
 <style>
 
@@ -64,7 +62,12 @@ Element `file-upload`
 
     this.context.files
       .push (event.target.files [0])
+
+    this.render ()
   }
+
+  get files ()
+    { return this.context.files [0] }
 })
 
 </script>
