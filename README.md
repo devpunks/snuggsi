@@ -28,8 +28,8 @@ for more details.
 ```html
 <script type=module src=https://unpkg.com/snuggsi/snuggsi.es></script>
 
-<script nomodule    src=https://unpkg.com/snuggsi/snuggsi.js></script>
-<script nomodule    src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 ```
 
 ## Browser Support
