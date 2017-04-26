@@ -11,7 +11,7 @@
 ## Easy Installation
 place the following `<script>` in the `<head>` of `<html>` page
 ```html
-<script nomodule src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
 ```
 Et Voila _(that's it!)_
 
@@ -26,10 +26,10 @@ See [ECMAScript Module Imorts](https://github.com/devpunks/snuggsi/wiki/ECMAScri
 for more details.
 
 ```html
-<script type=module src=//unpkg.com/snuggsi/snuggsi.es></script>
+<script type=module src=https://unpkg.com/snuggsi/snuggsi.es></script>
 
-<script nomodule    src=//unpkg.com/snuggsi/snuggsi.js></script>
-<script nomodule    src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script nomodule    src=https://unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule    src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 ```
 
 ## Browser Support
@@ -62,7 +62,7 @@ _See [examples](/examples) for more details._
  Hello {planet}
 </hello-world>
 
-<script nomodule src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
 <script nomodule>
 
 // Custom Element Definition -----------------------------
@@ -109,7 +109,7 @@ for more details
   <h1>{name}</h1>
 </template>
 
-<script nomodule src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
 <script nomodule>
 
 const
@@ -143,7 +143,7 @@ document
   </template>
 </ul>
 
-<script nomodule src=//unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
 <script nomodule>
 
 // when context is a collection
