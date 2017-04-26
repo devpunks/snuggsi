@@ -119,6 +119,7 @@ var Template = function (name) {
         { dependent.remove () }
 
     context.forEach (function (item, index) {
+
       var
         clone  = this$1.cloneNode (true)
       , tokens = (new TokenList (clone.content))
