@@ -18,6 +18,8 @@
   <a href='https://codecov.io/github/devpunks/snuggsi?branch=master' target=external>
     <img src=https://codecov.io/gh/devpunks/snuggsi/branch/master/graph/badge.svg alt='Coverage via Codecov'>
   </a>
+
+  <img src=https://img.shields.io/badge/PRs-welcome-brightgreen.svg alt='Pull requests welcome!'>
 </p>
 
 <p align=center>
