@@ -15,8 +15,24 @@ Element `header-group`
 
 (class extends HTMLElement {
 
-  static onwtf () {
-    console.log ("WHATTT")
+  static onimportload (event) {
+    const template = event.target.import
+      .querySelector ('template')
+      .cloneNode(true)
+
+    this.slots = template.content.querySelectorAll ('slot')
+    this.namedslots = this.querySelectorAll ('[slot]')
+
+    for (let namedslot of this.namedslots)
+      Array.from (this.slots)
+        .filter (slot => {
+          if (slot.getAttribute ('name') === namedslot.getAttribute ('slot'))
+            slot.innerHTML = ''
+            , slot.appendChild (namedslot)
+        })
+
+    this.innerHTML = ''
+    this.append (template.content)
   }
 
   initialize () {
@@ -24,34 +40,7 @@ Element `header-group`
     const selector = `link[href='${tag}.html']`
 
     const link = document.querySelector (selector)
-
-    link.onload = this.constructor.onwtf
-    const template = link.import.querySelector ('template').cloneNode(true)
-
-    var container = document.querySelector('head')
-//  container.appendChild(template)
-
-    this.slots = template.content.querySelectorAll ('slot')
-    this.namedslots = this.querySelectorAll ('[slot]')
-    console.log (this.slots)
-    console.log (this.namedslots)
-
-    for (let namedslot of this.namedslots) {
-      const name = namedslot.getAttribute ('slot')
-      Array.from(this.slots)
-        .filter (slot=>{
-          if (slot.getAttribute ('name') === name) {
-            slot.innerHTML = ''
-            slot.appendChild (namedslot)
-          }
-        })
-    }
-
-    this.innerHTML = ''
-
-    console.log (template.content)
-
-    this.append (template.content)
+    link.onload = this.constructor.onimportload.bind (this)
   }
 
 })
