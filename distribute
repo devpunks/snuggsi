@@ -1,5 +1,8 @@
 #!/bin/bash
 
+cp dist/snuggsi.es ./snuggsi.js && git add ./snuggsi.js
+git commit -m":muscle: bump distribution for ./snuggsi.es"
+
 git add dist/snuggsi.es
 git commit -m":muscle: bump distribution for dist/snuggsi.es"
 
