@@ -17,11 +17,15 @@ Element `snuggsi-header`
 (class extends HTMLElement {
 
   static onwtf () {
-    console.log ('huh')
+    console.log ("WHATTT")
   }
 
-  initialize ()
-    { console.log (this) }
+  initialize () {
+    const link = document.querySelector ('link[rel=import]')
+
+    link.onload = this.onwtf
+    console.log (link)
+  }
 
 })
 
