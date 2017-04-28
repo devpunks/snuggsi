@@ -29,7 +29,6 @@
     "example": "examples"
   },
   "scripts": {
-    "postinstall": "[ \"$NODE_ENV\" != production ] && npm ln ../jsdom && npm ln ../buble-tape",
     "start": "./index.js",
     "package": "./package",
     "watch": "node watch.es",
