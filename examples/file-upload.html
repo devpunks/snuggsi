@@ -13,46 +13,58 @@
   <h2>File Upload</h2>
 </hgroup>
 
+<datalist id="file-upload-whitelist">
+  <option value="app-pdf.png"   label="application/pdf">
+  <option value="app-img.png"   label="image/png">
+  <option value="app-img.png"   label="image/jpeg">
+  <option value="txt-plain.png" label="text/plain">
+</datalist>
+
 <file-upload>
 
-  <input multiple id=files name=files[] type=file>
-  <label for=files ondragover="event.preventDefault()" ondragenter=ondragstart ondragleave=ondragend ondrop=ondragdrop>
-    Click to upload file...
-  </label>
+  <div class="file-upload-container">
+    <input multiple id=files name=files[] type=file>
+    <label for=files ondragover="event.preventDefault()" ondragenter=ondragstart ondragleave=ondragend ondrop=ondragdrop>
+      Click to upload files
+    </label>
 
-  <table style="width:300px">
-    <thead style="text-align: left">
-      <tr>
-        <th width="1%"></th>
-        <th>Name</th>
-        <th width="10%">Size</th>
-        <th width="1%"></th>
-      </tr>
-    </thead>
-    <tbody>
-      <template name=files>
+    <a class='file-upload-clear' onclick=onclear>Clear All</a>
+
+    <table class="file-upload-list">
+      <thead style="text-align: left">
         <tr>
-
-          <td>
-            <img src={icon_url} alt={type} hidden={hidden} style="width: 1em; height: 1em">
-          </td>
-          <td>
-            {name}
-          </td>
-          <td>
-            {size}
-          </td>
-          <td style="cursor:pointer">
-            <a onclick=onremove data-index={#}>&times;</a>
-          </td>
+          <th width="1%"></th>
+          <th>Name</th>
+          <th width="10%">Size</th>
+          <th width="1%"></th>
         </tr>
-      </template>
-    </tbody>
-  </table>
+      </thead>
+      <tbody>
+        <template name=files>
+          <tr>
 
-  <a onclick=onclear>Clear</a>
+            <td>
+              <img src={icon_url} alt={type} hidden={hidden} style="width: 1em; height: 1em">
+            </td>
+            <td>
+              {name}
+            </td>
+            <td>
+              {size}
+            </td>
+            <td class="file-remove-cell">
+              <a onclick=onremove data-index={#}>&times;</a>
+            </td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </div>
 
 <style>
+
+file-upload div.file-upload-container 
+  { margin: 1em 20%; }
 
 file-upload input[type=file] {
   opacity: 0;
@@ -62,10 +74,10 @@ file-upload input[type=file] {
   overflow: hidden;
   position: absolute
 }
+
 file-upload input[type=file] + label {
   display: block;
   padding: 2em 0;
-  margin: 1em 20%;
   cursor: pointer;
   font-size: 1.25em;
   text-align: center;
@@ -76,6 +88,36 @@ file-upload input[type=file] + label {
 file-upload input[type=file] + label:hover
   { background-color: rgba(240,240,240, 1.0) }
 
+file-upload table.file-upload-list
+  { width: 300px }
+
+file-upload table td.file-remove-cell {
+  cursor: pointer;
+  padding-left: 20px;
+  color: rgb(200, 0, 0);
+}
+
+file-upload table td.file-remove-cell:hover a
+  { color: rgb(240, 0, 0); }
+
+file-upload a.file-upload-clear {
+  cursor: pointer;
+  background-color: rgb(140, 0, 0);
+  color: rgb(200, 200, 200);
+  padding: 5px 20px;
+  font-size: 0.75em;
+}
+
+file-upload a.file-upload-clear:hover {
+ background-color: rgb(160, 0, 0);
+ color: rgb(240, 240, 240);
+}
+
+file-upload a.file-upload-clear:active {
+  color: rgba(120, 120, 120, 1);
+  border-bottom: none;
+}
+
 </style>
 
 <script>
@@ -84,8 +126,13 @@ Element `file-upload`
 
 (class extends HTMLElement {
 
-  initialize ()
-    { this.context.files = [] }
+  initialize () { 
+    this.context.files = []
+
+    this.whitelist = {}
+    this.generate_whitelist()
+  }
+
 
 
   static onchange (event) {
@@ -132,25 +179,38 @@ Element `file-upload`
     this.render ()
   }
 
+  generate_whitelist () {
+    var dataList = document.getElementById('file-upload-whitelist')
+
+    if (dataList) {
+      var whitelisted = dataList.children
+
+      for (var i = 0; i < whitelisted.length; i++) {
+        this.whitelist[whitelisted[i].label] = whitelisted[i].value
+      }
+    } else {
+      this.whitelist = this.constructor.default_whitelist
+    }
+  }
+
   reset_label (label) {
     label.innerHTML = 'Click to upload file...'
   }
 
   add_files (files) {
-    // Should have a sanity check.
-    // All `files` should be of class File
-    this.context.files =
-      this.context.files.concat (...files)
+    // Loop through the given list of new files and check if they're
+    // a valid key on the whitelist hash.
+    for (var i = 0; i < files.length; i++) {
+      if (this.whitelist[files[i].type]) {
+        this.add_icon_url(files[i])
+
+        this.context.files.push(files[i])
+      }
+    }
   }
 
-  get files () {
-    return this.context.files
-      .map ((file, idx) => this.constructor.add_icon_url(file)) 
-  }
-
-
-  static add_icon_url (file) {
-    var icon_url = this.mimetype_icons[file.type]
+  add_icon_url (file) {
+    var icon_url = this.whitelist[file.type]
 
     file.icon_url = icon_url === undefined ? '' : icon_url
     file.hidden_icon = icon_url === undefined ? 'hidden' : ''
@@ -158,19 +218,36 @@ Element `file-upload`
     return file
   }
 
-
-  static get mimetype_icons () {
-    return {
-      'application/pdf': 'app-pdf.png',
-       'text/plain'    : 'txt-plain.png',
-       //'image/png'     : 'img-all.png',
-       'application/vnd.oasis.opendocument.text'       : 'app-word.png',
-       'application/vnd.oasis.opendocument.spreadsheet': 'app-excel.png',
-       'application/vnd.openxmlformats-officedocument.wordprocessingml.document': 'app-word.png',
-       'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'      : 'app-excel.png'
-     }
+  set_whitelist(whitelist) {
+    this.whitelist = whitelist
   }
 
+  get files () {
+    return this.context.files
+  }
+
+
+  static get default_whitelist () {
+    return {
+      'text/plain': 'txt-plain.png',
+      'image/jpeg': 'app-img.png',
+      'image/png' : 'app-img.png',
+
+      'application/pdf': 'app-pdf.png',
+
+      'application/vnd.ms-powerpoint': 'app-ppt.png',
+      'application/vnd.ms-word'      : 'app-word.png',
+      'application/vnd.ms-excel'     : 'app-excel.png',
+
+      'application/vnd.oasis.opendocument.presentation': 'app-ppt.png',
+      'application/vnd.oasis.opendocument.text'        : 'app-word.png',
+      'application/vnd.oasis.opendocument.spreadsheet' : 'app-excel.png',
+
+      'application/vnd.openxmlformats-officedocument.presentationml.presentation': 'app-ppt.png',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'  : 'app-word.png',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'        : 'app-excel.png'
+     }
+  }
 
 })
 
