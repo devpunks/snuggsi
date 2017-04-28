@@ -268,7 +268,7 @@ Element `file-upload`
       // the label corresponds to the mimetype, and the value to the
       // type's icon's URL.
       for (var i = 0; i < dl_children.length; i++) {
-        this.whitelist[dl_children[i].label] = dl_children[i].value
+        whitelist[dl_children[i].label] = dl_children[i].value
       }
     } else {
       whitelist = this.constructor.default_whitelist
