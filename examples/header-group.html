@@ -12,7 +12,7 @@
 </template>
 
 <script>
-Element `snuggsi-header`
+Element `header-group`
 
 (class extends HTMLElement {
 
@@ -21,6 +21,7 @@ Element `snuggsi-header`
   }
 
   initialize () {
+    console.log ('foo')
     const link = document.querySelector ('link[rel=import]')
 
     link.onload = this.onwtf
