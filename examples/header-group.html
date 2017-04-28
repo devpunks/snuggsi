@@ -11,36 +11,54 @@
 </template>
 
 <script>
+const tag = `header-group`
+
 Element `header-group`
 
 (class extends HTMLElement {
 
   static onimportload (event) {
-    const template = event.target.import
+    const foo = event.target.import
       .querySelector ('template')
-      .cloneNode(true)
+      // possibly should be adopting node into document
 
-    this.slots = template.content.querySelectorAll ('slot')
-    this.namedslots = this.querySelectorAll ('[slot]')
+    const shadow = element => {
+      const template = foo.cloneNode (true)
 
-    for (let namedslot of this.namedslots)
-      Array.from (this.slots)
-        .filter (slot => {
-          if (slot.getAttribute ('name') === namedslot.getAttribute ('slot'))
+      template.slots =
+        Array.from (template.content.querySelectorAll ('slot'))
+
+      element.slots =
+        Array.from (element.querySelectorAll ('[slot]'))
+
+      element.slots.map (function (namedslot) {
+        template.slots
+          .filter (slot =>
+            (slot.getAttribute ('name') === namedslot.getAttribute ('slot'))
+          )
+          .map (slot => {
             slot.innerHTML = ''
             , slot.appendChild (namedslot)
-        })
+          })
+      })
 
-    this.innerHTML = ''
-    this.append (template.content)
+      element.innerHTML = ''
+      element.append (template.content)
+    }
+
+    Array.from
+      // should be using currentScript ?
+      (document.getElementsByTagName (tag))
+      .map (shadow)
   }
 
   initialize () {
-    const tag = `header-group`
-    const selector = `link[href='${tag}.html']`
+    const selector = `link#${tag}, link[href='${tag}.html']`
+    const link = document
+      .querySelector (selector)
 
-    const link = document.querySelector (selector)
-    link.onload = this.constructor.onimportload.bind (this)
+    ! link.onload &&
+    !! (link.onload = this.constructor.onimportload.bind (this))
   }
 
 })
