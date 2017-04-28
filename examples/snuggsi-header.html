@@ -7,11 +7,24 @@
 
   <hgroup>
     <h1><a href=/examples/index.html>snuggsi ツ</a></h1>
-    <h2><slot name=header>try an example</slot></h2>
+    <slot name=header><h2>try an example</h2></slot>
   </hgroup>
 </template>
 
 <script>
+Element `snuggsi-header`
+
+(class extends HTMLElement {
+
+  static onwtf () {
+    console.log ('huh')
+  }
+
+  initialize ()
+    { console.log (this) }
+
+})
+
 var me = document.currentScript.ownerDocument;
 var custom = me.querySelector('#snuggsi-header');
 var container = document.querySelector('head');
