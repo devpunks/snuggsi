@@ -30,6 +30,12 @@ Element `header-group`
 
     var container = document.querySelector('head')
 //  container.appendChild(template)
+
+    this.slots = template.content.querySelector ('slot')
+    this.namedslots = this.querySelector ('[slot]')
+    console.log (this.slots)
+    console.log (this.namedslots)
+
     this.innerHTML = ''
 
     console.log (template.content)
