@@ -9,6 +9,14 @@ const Element = function
 
 { tag = tag [0]
 
+      const
+        link = document
+          .querySelector // use CSS :any ?
+            ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
+
+      link &&
+        (link.onload = HTMLLinkElement.onload.bind (tag))
+
   return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
 
@@ -40,6 +48,7 @@ const Element = function
         this.tokens.bind (this)
 
         void (function (templates) {
+
           const
             bind = template => {
               const
