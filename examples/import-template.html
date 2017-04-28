@@ -5,14 +5,14 @@
 <link rel=stylesheet href=http://www.devpunks.com/typography.css>
 
 <script type=module src=https://unpkg.com/snuggsi/snuggsi.es></script>
-<script nomodule    src=https://unpkg.com/snuggsi/snuggsi.js></script>
-<script nomodule    src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script nomodule    src=../dist/snuggsi.es></script>
 
 <link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
 
-<link rel=import href=snuggsi-header.html>
 <snuggsi-header>
-  <h2 slot=page-heading>My Own Header</h2>
+  <link rel=import href=snuggsi-header.html>
+
+  <h2 slot=header>My Own Header</h2>
 </snuggsi-header>
 
 <script src=../../vendor/browser-sync.es></script>

@@ -1,19 +1,17 @@
 
-<template id=snuggsi-header name=snuggsi-header>
+<template id=snuggsi-header>
   <style>
     :root { border: 1px solid green; }
     hgroup { display: block; width: 100%; }
   </style>
 
   <hgroup>
-    <h1><a href='/examples/index.html'>snuggsi ツ</a></h1>
-    <h2><slot name=page-heading>try an example</slot></h2>
+    <h1><a href=/examples/index.html>snuggsi ツ</a></h1>
+    <h2><slot name=header>try an example</slot></h2>
   </hgroup>
 </template>
 
 <script>
-// MDN self-registering import snippet, would be nice
-// not to need this stuff
 var me = document.currentScript.ownerDocument;
 var custom = me.querySelector('#snuggsi-header');
 var container = document.querySelector('head');
