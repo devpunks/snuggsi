@@ -50,10 +50,19 @@ Element `header-group`
           .filter (slot =>
             (slot.getAttribute ('name') === namedslot.getAttribute ('slot'))
           )
-          .map (slot => {
-            slot.innerHTML = ''
-            , slot.appendChild (namedslot)
-          })
+          .map (slot =>
+            // Replace slot due to uncertainty
+            // https://github.com/devpunks/snuggsi/pull/23/files#r113990636
+
+            // prefer to use replaceWith however support is sparse
+            // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+            // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
+            // https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
+            // https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
+
+            slot.parentNode
+              .replaceChild (namedslot, slot)
+          )
       })
 
       element.innerHTML = ''
