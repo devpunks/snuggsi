@@ -131,6 +131,9 @@ Element `file-upload`
 
     this.whitelist = {}
     this.generate_whitelist()
+
+    this.default_text = 'Click to upload files'
+    this.on_drag_text = 'Drop here!'
   }
 
 
@@ -156,7 +159,7 @@ Element `file-upload`
   }
 
   static ondragstart (event) {
-    event.target.innerHTML = 'Drop here!'
+    event.target.innerHTML = this.on_drag_text
 
     event.preventDefault ()
   }
@@ -194,7 +197,7 @@ Element `file-upload`
   }
 
   reset_label (label) {
-    label.innerHTML = 'Click to upload file...'
+    label.innerHTML = this.default_text
   }
 
   add_files (files) {
@@ -202,9 +205,7 @@ Element `file-upload`
     // a valid key on the whitelist hash.
     for (var i = 0; i < files.length; i++) {
       if (this.whitelist[files[i].type]) {
-        this.add_icon_url(files[i])
-
-        this.context.files.push(files[i])
+        this.context.files.push(this.add_icon_url(files[i]))
       }
     }
   }
@@ -220,6 +221,11 @@ Element `file-upload`
 
   set_whitelist(whitelist) {
     this.whitelist = whitelist
+  }
+
+  set_label(default_text, on_drag_text) {
+    this.default_text = default_text
+    this.on_drag_text = on_drag_text
   }
 
   get files () {
