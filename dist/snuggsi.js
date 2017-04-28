@@ -1,5 +1,49 @@
 
 var this$1 = this;
+var HTMLLinkElement = (function () {
+  function HTMLLinkElement () {}
+
+  HTMLLinkElement.onload = function (event) {
+    var template = event.target.import
+      .querySelector ('template')
+
+    var shadow = function (element) {
+      var fragment = template.content.cloneNode (true)
+
+      fragment.slots =
+        Array.from (fragment.querySelectorAll ('slot'))
+
+      element.slots =
+        Array.from (element.querySelectorAll ('[slot]'))
+
+      element.slots.map (function (namedslot) {
+        fragment.slots
+          .filter (function (slot) { return (slot.getAttribute ('name') === namedslot.getAttribute ('slot')); }
+          )
+          .map (function (slot) { return slot
+              // prefer to use replaceWith however support is sparse
+              // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+              // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
+              // https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
+              // https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
+              .parentNode
+              .replaceChild (namedslot, slot); }
+          )
+      })
+
+      element.innerHTML = ''
+      element.append (fragment)
+    }
+
+    Array.from
+      // should be using currentScript ?
+      (document.getElementsByTagName (this))
+      .map (shadow)
+  };
+
+  return HTMLLinkElement;
+}())
+
 var TokenList = function (node) {
   var this$1 = this;
 
@@ -294,6 +338,14 @@ var Element = function
 if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
  tag = tag [0]
 
+      var
+        link = document
+          .querySelector // use CSS :any ?
+            ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
+
+      link &&
+        (link.onload = HTMLLinkElement.onload.bind (tag))
+
   return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
 
@@ -325,6 +377,7 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
 
         void (function (templates) {
           var this$1 = this;
+
 
           var
             bind = function (template) {
