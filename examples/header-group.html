@@ -22,9 +22,13 @@ Element `header-group`
 
   initialize () {
     console.log ('foo')
-    const link = document.querySelector ('link[rel=import]')
+    const tag = `header-group`
+    const selector = `link[href='${tag}.html']`
 
-    console.log (this.constructor.onwtf)
+    console.log (selector)
+
+    const link = document.querySelector (selector)
+
     link.onload = this.constructor.onwtf
     console.log (link.import.querySelector ('template'))
   }
