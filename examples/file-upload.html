@@ -5,8 +5,8 @@
 
 <link rel=stylesheet href=http://www.devpunks.com/typography.css>
 
-<script nomodule    src=https://unpkg.com/snuggsi/snuggsi.js></script>
-<script nomodule    src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 
 <hgroup>
   <h1>snuggsi ツ</h1>
@@ -126,18 +126,35 @@ Element `file-upload`
 
 (class extends HTMLElement {
 
+  /**
+   * Initializes the element, setting the files list to []
+   * and generating a file types' whitelist from a datalist
+   * of ID 'file-upload-whitelist'. If no datalist with
+   * such ID is found, it defaults to <code>default_whitelist</code>.
+   *
+   * Also initializes the default values for the label, which
+   * can be changed via <code>set_label</code>.
+   *
+   * @see generate_whitelist
+   * @see default_whitelist
+   * @see set_label
+   */
   initialize () { 
     this.context.files = []
 
-    this.whitelist = {}
-    this.generate_whitelist()
+    this.whitelist = this.generate_whitelist()
 
     this.default_text = 'Click to upload files'
     this.on_drag_text = 'Drop here!'
   }
 
 
-
+  /**
+   * Listens for changes in the file field, essentially
+   * processing new non-dragged files.
+   *
+   * @param event {Event} The event that has been triggered.
+   */
   static onchange (event) {
     if (!!! event.target.files) return
 
@@ -146,29 +163,60 @@ Element `file-upload`
     this.render ()
   }
 
+  /**
+   * Listens for the event of a user removing a file
+   * via the button on the file's entry's row.
+   *
+   * @param event {MouseEvent} The event that has been triggered. 
+   */
   static onremove (event) {
     this.context.files.splice(event.target.dataset.index, 1)
 
     this.render ()
   }
 
+  /**
+   * Listens for the event of a user clicking on the 'Clear All'
+   * button, and removes all the files accordingly.
+   *
+   * @param event {MouseEvent} The event that has been triggered.
+   */
   static onclear (event) {
     this.context.files = []
 
     this.render ()
   }
 
+  /**
+   * Listens for the event of a dragged object ENTERING the
+   * label's area.
+   *
+   * @param event {DragEvent} The event that has been triggered. 
+   */
   static ondragstart (event) {
     event.target.innerHTML = this.on_drag_text
 
     event.preventDefault ()
   }
 
+  /**
+   * Listens for the event of a dragged object LEAVING the
+   * label's area.
+   *
+   * @param event {DragEvent} The event that has been triggered.
+   */
   static ondragend (event) {
     this.reset_label(event.target)
   }
 
+  /**
+   * Listens for the event of the dragged object being dropped
+   * within the label's area.
+   *
+   * @param event {DragEvent} The event that has been triggered.
+   */
   static ondragdrop (event) {
+
     this.reset_label(event.target)
 
     event.preventDefault ()
@@ -182,12 +230,42 @@ Element `file-upload`
     this.render ()
   }
 
+  /**
+   * Generates a whitelist of accepted file mimetypes from a 
+   * <code>datalist</code> with ID 'file-upload-whitelist'. 
+   * It must be formed by a list of <code>option</code>
+   * elements, each with a valid mimetype as <code>label</code>
+   * and the corresponding icon as its <code>value</code>.
+   * Example:
+   *
+   *  <datalist id="file-upload-whitelist">
+   *    <option value="app-pdf.png"   label="application/pdf">
+   *    <option value="app-img.png"   label="image/png">
+   *    <option value="app-img.png"   label="image/jpeg">
+   *    <option value="txt-plain.png" label="text/plain">
+   *  </datalist>
+   *
+   * If no <code>datalist</code> with such ID is found, it will
+   * default to use <code>default_whitelist</code> to generate
+   * the element's whitelist.
+   *
+   * Whitelists can also be programatically set with
+   * <code>set_whitelist</code>
+   *
+   * @see default_whitelist
+   * @see set_whitelist
+   *
+   * @returns {Object} The whitelist.
+   */
   generate_whitelist () {
     var dataList = document.getElementById('file-upload-whitelist')
 
     if (dataList) {
       var whitelisted = dataList.children
 
+      // Add all {label: value} pairs to the whitelist, where
+      // the label corresponds to the mimetype, and the value to the
+      // type's icon's URL.
       for (var i = 0; i < whitelisted.length; i++) {
         this.whitelist[whitelisted[i].label] = whitelisted[i].value
       }
@@ -196,10 +274,23 @@ Element `file-upload`
     }
   }
 
+  /**
+   * Resets the whitelist's text to its default value.
+   * This default value can be changed via <code>set_label</code>.
+   *
+   * @param label {Element} The label's DOM Element.
+   *
+   * @see set_label
+   */
   reset_label (label) {
     label.innerHTML = this.default_text
   }
 
+  /**
+   * Adds the given files to the list.
+   *
+   * @param files {FileList} The files to be added.
+   */
   add_files (files) {
     // Loop through the given list of new files and check if they're
     // a valid key on the whitelist hash.
@@ -210,29 +301,59 @@ Element `file-upload`
     }
   }
 
+  /**
+   * Adds an icon URL to the given file, corresponding to the
+   * file's mimetype. The URL is taken from the whitelist hash.
+   *
+   * It also gives the file a <code>hidden_icon</code> flag to hide
+   * the icon if no URL was found. (It's set to an empty string if
+   * the URL is valid)
+   *
+   * @param file {File} The file to add the icon URL to.
+   * 
+   * @returns {File} The file, for chaining purposes.
+   */
   add_icon_url (file) {
     var icon_url = this.whitelist[file.type]
 
     file.icon_url = icon_url === undefined ? '' : icon_url
+    // Also add a flag to hide the icon if the URL is invalid.
     file.hidden_icon = icon_url === undefined ? 'hidden' : ''
 
     return file
   }
 
+  /**
+   * Sets the valid file types / type icons whitelist to the given
+   * object.
+   *
+   * @param whitelist {Object} The new whitelist to use.
+   */
   set_whitelist(whitelist) {
     this.whitelist = whitelist
   }
 
+  /**
+   * Sets the label's defaults.
+   *
+   * @param default_text {String} The default text for the label.
+   * @param on_drag_text {String} The text to use on the label
+   *   when an object is being dragged over said label.
+   */
   set_label(default_text, on_drag_text) {
     this.default_text = default_text
     this.on_drag_text = on_drag_text
+
+    // Re-render the element to reflect changes made.
+    this.render ()
   }
 
+  /** The list of files currently saved. */
   get files () {
     return this.context.files
   }
 
-
+  /** The default whitelist object, with names for icons for each type. */ 
   static get default_whitelist () {
     return {
       'text/plain': 'txt-plain.png',
