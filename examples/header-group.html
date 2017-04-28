@@ -31,10 +31,21 @@ Element `header-group`
     var container = document.querySelector('head')
 //  container.appendChild(template)
 
-    this.slots = template.content.querySelector ('slot')
-    this.namedslots = this.querySelector ('[slot]')
+    this.slots = template.content.querySelectorAll ('slot')
+    this.namedslots = this.querySelectorAll ('[slot]')
     console.log (this.slots)
     console.log (this.namedslots)
+
+    for (let namedslot of this.namedslots) {
+      const name = namedslot.getAttribute ('slot')
+      Array.from(this.slots)
+        .filter (slot=>{
+          if (slot.getAttribute ('name') === name) {
+            slot.innerHTML = ''
+            slot.appendChild (namedslot)
+          }
+        })
+    }
 
     this.innerHTML = ''
 
