@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<title>snuggsi - examples</title>
+
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+
+<style>
+
+  body
+    { display: flex; flex-flow: column }
+
+</style>
+
+<script type=module src=https://unpkg.com/snuggsi/snuggsi.es></script>
+<script nomodule src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
+
+<link rel=icon type=image/png href=../public/favicon-32x32.png sizes=32x32>
+<link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
+
+
+  <header-group>
+    <h2 slot=header>Look at these examples</h2>
+  </header-group>
+  <!-- import works inline body -->
+  <link rel=import href=header-group.html>
+
+  <ul>
+    <li>
+      <a href=hello-world.html>Hello World</a>
+    </li>
+    <li>
+      <a href=flashy.html>flashy</a>
+    </li>
+    <li>
+      <a href=add-subtract.html>add subtract</a>
+    </li>
+    <li>
+      <a href=infinity-calendar.html>infinity calendar</a>
+    </li>
+    <li>
+      <a href=filter.html>filter</a>
+    </li>
+    <li>
+      <a href=input-output.html>input output</a>
+    </li>
+    <li>
+      <a href=autocomplete.html>autocomplete</a>
+    </li>
+    <li>
+      <a href=party-line.html>party-line</a>
+    </li>
+  </ul>
+
+<script src=../../vendor/browser-sync.es></script>
+</html>

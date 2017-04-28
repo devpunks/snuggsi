@@ -9,10 +9,12 @@
 <script nomodule    src=http://unpkg.com/snuggsi/snuggsi.js></script>
 <script type=module src=http://unpkg.com/snuggsi/snuggsi.es></script>
 
-<hgroup>
-  <h1>snuggsi ツ</h1>
-  <h2>Counter</h2>
-</hgroup>
+<header-group>
+  <h2 slot=header>Counter</h2>
+</header-group>
+<!-- import works inline body -->
+<link rel=import href=header-group.html>
+
 
 <add-subtract>
   <output>{count}</output>
