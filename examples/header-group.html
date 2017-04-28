@@ -1,13 +1,21 @@
 <template id=header-group>
-  <style>
-    :root { border: 1px solid green; }
-    hgroup { display: block; width: 100%; }
-  </style>
 
-  <hgroup>
-    <h1><a href=/examples/index.html>snuggsi ツ</a></h1>
-    <slot name=header><h2>try an example</h2></slot>
-  </hgroup>
+<style>
+
+  header-group
+    { display: block }
+
+  header-group
+    hgroup
+      { background: #bada55; color: var(--darkest-color) }
+
+</style>
+
+<hgroup>
+  <h1><a href=/examples/index.html>snuggsi ツ</a></h1>
+  <slot name=header><h2>try an example</h2></slot>
+</hgroup>
+
 </template>
 
 <script>
@@ -18,21 +26,27 @@ Element `header-group`
 (class extends HTMLElement {
 
   static onimportload (event) {
-    const foo = event.target.import
+    let template = event.target.import
       .querySelector ('template')
+
+      document
+        .querySelector('head')
+        .appendChild (template)
+
       // possibly should be adopting node into document
+      // and should do it on DOMContentLoaded hook up onimportload
 
-    const shadow = element => {
-      const template = foo.cloneNode (true)
+    const shadow = function (element) {
+      let fragment = template.content.cloneNode (true)
 
-      template.slots =
-        Array.from (template.content.querySelectorAll ('slot'))
+      fragment.slots =
+        Array.from (fragment.querySelectorAll ('slot'))
 
       element.slots =
         Array.from (element.querySelectorAll ('[slot]'))
 
       element.slots.map (function (namedslot) {
-        template.slots
+        fragment.slots
           .filter (slot =>
             (slot.getAttribute ('name') === namedslot.getAttribute ('slot'))
           )
@@ -43,7 +57,7 @@ Element `header-group`
       })
 
       element.innerHTML = ''
-      element.append (template.content)
+      element.append (fragment)
     }
 
     Array.from
@@ -60,7 +74,7 @@ Element `header-group`
     ! link.onload &&
     !! (link.onload = this.constructor.onimportload.bind (this))
   }
-
 })
+
 </script>
 
