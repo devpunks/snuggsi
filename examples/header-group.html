@@ -29,13 +29,6 @@ Element `header-group`
     let template = event.target.import
       .querySelector ('template')
 
-      document
-        .querySelector('head')
-        .appendChild (template)
-
-      // possibly should be adopting node into document
-      // and should do it on DOMContentLoaded hook up onimportload
-
     const shadow = function (element) {
       let fragment = template.content.cloneNode (true)
 
