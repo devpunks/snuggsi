@@ -24,8 +24,9 @@ Element `header-group`
     console.log ('foo')
     const link = document.querySelector ('link[rel=import]')
 
-    link.onload = this.onwtf
-    console.log (link)
+    console.log (this.constructor.onwtf)
+    link.onload = this.constructor.onwtf
+    console.log (link.import.querySelector ('template'))
   }
 
 })
