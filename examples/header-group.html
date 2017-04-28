@@ -26,14 +26,17 @@ Element `header-group`
     const link = document.querySelector (selector)
 
     link.onload = this.constructor.onwtf
-    const template = link.import.querySelector ('template')
+    const template = link.import.querySelector ('template').cloneNode(true)
+
+    var container = document.querySelector('head')
+//  container.appendChild(template)
+    this.innerHTML = ''
+
+    console.log (template.content)
+
+    this.append (template.content)
   }
 
 })
-
-var me = document.currentScript.ownerDocument;
-var custom = me.querySelector('#snuggsi-header');
-var container = document.querySelector('head');
-container.appendChild(custom.cloneNode(true));
 </script>
 
