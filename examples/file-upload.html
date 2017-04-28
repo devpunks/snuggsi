@@ -258,20 +258,23 @@ Element `file-upload`
    * @returns {Object} The whitelist.
    */
   generate_whitelist () {
+    var whitelist = {}
     var dataList = document.getElementById('file-upload-whitelist')
 
     if (dataList) {
-      var whitelisted = dataList.children
+      var dl_children = dataList.children
 
       // Add all {label: value} pairs to the whitelist, where
       // the label corresponds to the mimetype, and the value to the
       // type's icon's URL.
-      for (var i = 0; i < whitelisted.length; i++) {
-        this.whitelist[whitelisted[i].label] = whitelisted[i].value
+      for (var i = 0; i < dl_children.length; i++) {
+        this.whitelist[dl_children[i].label] = dl_children[i].value
       }
     } else {
-      this.whitelist = this.constructor.default_whitelist
+      whitelist = this.constructor.default_whitelist
     }
+    
+    return whitelist
   }
 
   /**
