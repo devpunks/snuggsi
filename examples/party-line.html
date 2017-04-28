@@ -8,11 +8,15 @@
 <script nomodule    src=https://unpkg.com/snuggsi/snuggsi.js></script>
 <script nomodule    src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 
-<hgroup>
-  <h1>snuggsi ツ</h1>
-  <h2>Party Line</h2>
-  <h2>Skype / Hangouts Clone</h2>
-</hgroup>
+<header-group>
+  <h2 slot=header>
+    Party Line
+    <br/>
+    Skype / Hangouts Clone
+  </h2>
+</header-group>
+<!-- import works inline body -->
+<link rel=import href=header-group.html>
 
 <party-line>
   <section id=messages>

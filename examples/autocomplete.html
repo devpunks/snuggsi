@@ -9,10 +9,12 @@
 <script nomodule src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 <script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
 
-<hgroup>
-  <h1>snuggsi ツ</h1>
-  <h2>Autocomplete Dropdown</h2>
-</hgroup>
+<header-group>
+  <h2 slot=header>Autocomplete Dropdown</h2>
+</header-group>
+<!-- import works inline body -->
+<link rel=import href=header-group.html>
+
 
 <p>
   This is a refactor of
