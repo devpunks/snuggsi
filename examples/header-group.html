@@ -67,7 +67,7 @@ Element `header-group`
   }
 
   initialize () {
-    const selector = `link#${tag}, link[href='${tag}.html']`
+    const selector = `link#${tag}, link[href*='${tag}']`
     const link = document
       .querySelector (selector)
 
