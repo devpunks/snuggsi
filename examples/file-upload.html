@@ -10,13 +10,21 @@
 </datalist>
 
 
-<input multiple id=files name=files[] type=file>
+<form>
 
-<label for=files ondragover="event.preventDefault()" ondragenter=ondragstart ondragleave=ondragend ondrop=ondragdrop>
-  Click to upload files
-</label>
+  <label
+    for=files
+    ondrop=ondragdrop
+    ondragleave=ondragend
+    ondragenter=ondragstart
+    ondragover='event.preventDefault()'>
+      Click to upload files
+  </label>
 
-<a class='file-upload-clear' onclick=onclear>Clear All</a>
+  <input multiple id=files name=files[] type=file>
+
+  <button type=reset>Clear All</button>
+</form>
 
 <table class="file-upload-list">
   <thead style="text-align: left">
