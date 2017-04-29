@@ -2,60 +2,57 @@
 
 <style>
 
-file-upload div.file-upload-container
-  { margin: 1em 20%; }
+  file-upload input[type=file] {
+    opacity: 0;
+    z-index: -1;
+    width: 0.1px;
+    height: 0.1px;
+    overflow: hidden;
+    position: absolute
+  }
 
-file-upload input[type=file] {
-  opacity: 0;
-  z-index: -1;
-  width: 0.1px;
-  height: 0.1px;
-  overflow: hidden;
-  position: absolute
-}
+  file-upload input[type=file] + label {
+    display: block;
+    padding: 2em 0;
+    cursor: pointer;
+    font-size: 1.25em;
+    text-align: center;
+    color: rgba(20,20,20,0.6);
+    background-color: rgba(240,240,240, 0.8)
+  }
 
-file-upload input[type=file] + label {
-  display: block;
-  padding: 2em 0;
-  cursor: pointer;
-  font-size: 1.25em;
-  text-align: center;
-  color: rgba(20,20,20,0.6);
-  background-color: rgba(240,240,240, 0.8)
-}
+  file-upload input[type=file] + label:hover
+    { background-color: rgba(240,240,240, 1.0) }
 
-file-upload input[type=file] + label:hover
-  { background-color: rgba(240,240,240, 1.0) }
+  file-upload table.file-upload-list
+    { width: 300px }
 
-file-upload table.file-upload-list
-  { width: 300px }
+  file-upload table td.file-remove-cell {
+    cursor: pointer;
+    padding-left: 20px;
+    color: rgb(200, 0, 0);
+  }
 
-file-upload table td.file-remove-cell {
-  cursor: pointer;
-  padding-left: 20px;
-  color: rgb(200, 0, 0);
-}
+  file-upload table td.file-remove-cell:hover a
+    { color: rgb(240, 0, 0); }
 
-file-upload table td.file-remove-cell:hover a
-  { color: rgb(240, 0, 0); }
+  file-upload a.file-upload-clear {
+    cursor: pointer;
+    background-color: rgb(140, 0, 0);
+    color: rgb(200, 200, 200);
+    padding: 5px 20px;
+    font-size: 0.75em;
+  }
 
-file-upload a.file-upload-clear {
-  cursor: pointer;
-  background-color: rgb(140, 0, 0);
-  color: rgb(200, 200, 200);
-  padding: 5px 20px;
-  font-size: 0.75em;
-}
+  file-upload a.file-upload-clear:hover {
+   background-color: rgb(160, 0, 0);
+   color: rgb(240, 240, 240);
+  }
 
-file-upload a.file-upload-clear:hover {
- background-color: rgb(160, 0, 0);
- color: rgb(240, 240, 240);
-}
-
-file-upload a.file-upload-clear:active {
-  color: rgba(120, 120, 120, 1);
-  border-bottom: none;
-}
+  file-upload a.file-upload-clear:active {
+    color: rgba(120, 120, 120, 1);
+    border-bottom: none;
+  }
 
 </style>
 
@@ -66,44 +63,44 @@ file-upload a.file-upload-clear:active {
   <option value="txt-plain.png" label="text/plain">
 </datalist>
 
-  <div class="file-upload-container">
-    <input multiple id=files name=files[] type=file>
-    <label for=files ondragover="event.preventDefault()" ondragenter=ondragstart ondragleave=ondragend ondrop=ondragdrop>
-      Click to upload files
-    </label>
 
-    <a class='file-upload-clear' onclick=onclear>Clear All</a>
+<input multiple id=files name=files[] type=file>
 
-    <table class="file-upload-list">
-      <thead style="text-align: left">
-        <tr>
-          <th width="1%"></th>
-          <th>Name</th>
-          <th width="10%">Size</th>
-          <th width="1%"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <template name=files>
-          <tr>
+<label for=files ondragover="event.preventDefault()" ondragenter=ondragstart ondragleave=ondragend ondrop=ondragdrop>
+  Click to upload files
+</label>
 
-            <td>
-              <img src={icon_url} alt={type} hidden={hidden} style="width: 1em; height: 1em">
-            </td>
-            <td>
-              {name}
-            </td>
-            <td>
-              {size}
-            </td>
-            <td class="file-remove-cell">
-              <a onclick=onremove data-index={#}>&times;</a>
-            </td>
-          </tr>
-        </template>
-      </tbody>
-    </table>
-  </div>
+<a class='file-upload-clear' onclick=onclear>Clear All</a>
+
+<table class="file-upload-list">
+  <thead style="text-align: left">
+    <tr>
+      <th width="1%"></th>
+      <th>Name</th>
+      <th width="10%">Size</th>
+      <th width="1%"></th>
+    </tr>
+  </thead>
+  <tbody>
+    <template name=files>
+      <tr>
+
+        <td>
+          <img src={icon_url} alt={type} hidden={hidden} style="width: 1em; height: 1em">
+        </td>
+        <td>
+          {name}
+        </td>
+        <td>
+          {size}
+        </td>
+        <td class="file-remove-cell">
+          <a onclick=onremove data-index={#}>&times;</a>
+        </td>
+      </tr>
+    </template>
+  </tbody>
+</table>
 
 </template>
 
@@ -126,7 +123,7 @@ Element `file-upload`
    * @see default_whitelist
    * @see set_label
    */
-  initialize () { 
+  initialize () {
     this.context.files = []
 
     this.whitelist = this.generate_whitelist()
@@ -193,6 +190,7 @@ Element `file-upload`
    * @param event {DragEvent} The event that has been triggered.
    */
   static ondragend (event) {
+    console.log ('drag starting')
     this.reset_label(event.target)
   }
 
@@ -260,7 +258,7 @@ Element `file-upload`
     } else {
       whitelist = this.constructor.default_whitelist
     }
-    
+
     return whitelist
   }
 
