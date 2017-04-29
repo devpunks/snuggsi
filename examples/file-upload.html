@@ -114,12 +114,18 @@ Element `file-upload`
   }
 
   /**
-   * Listens for the event of a user clicking on the 'Clear All'
-   * button, and removes all the files accordingly.
+   * Listens for the event of a user clicking `<button type=reset>`,
+   * and removes all the files accordingly.
    *
    * @param event {MouseEvent} The event that has been triggered.
+   *
+   * Further reading:
+   * - Reset Event
+   *   - https://developer.mozilla.org/en-US/docs/Web/Events/reset
+   * - GlobalEventHandlers.onreset
+   *   - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onreset
    */
-  static onclear (event) {
+  static onreset (event) {
     this.context.files = []
 
     this.render ()
