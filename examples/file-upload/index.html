@@ -25,13 +25,15 @@
   -->
 
   <datalist>
-    <option value=app-pdf.png   label=application/pdf>
-    <option value=app-img.png   label=image/png>
-    <option value=app-img.png   label=image/jpeg>
+    <option text=PNG  value=image-png.png  label=image/png>
+    <option text=JPEG value=image-jpeg.png label=image/jpeg>
+    <option text=PDF  value=application-pdf.png label=application/pdf>
 
     <!-- restricted list -->
-    <option value=txt-plain.png label=text/plain>
+    <option text=TEXT value=text-plain.png label=text/plain disabled>
   </datalist>
 
 </file-upload>
+
+<script src=../../vendor/browser-sync.es></script>
 
