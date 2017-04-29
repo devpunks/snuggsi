@@ -1,11 +1,12 @@
+<!-- minimal custom element registration -->
 <script>
   Element `header-group`
 </script>
 
 <template>
 
+<!-- optionally batteries-included -->
 <style>
-
 header-group {
   display: block;
   line-height: 3em;
@@ -16,6 +17,7 @@ header-group {
 <hgroup>
   <h1><a href=/examples/index.html>snuggsi ツ</a></h1>
   <slot name=header><h2>try an example</h2></slot>
+  <slot name=subheader></slot>
 </hgroup>
 
 </template>
