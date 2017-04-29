@@ -22,15 +22,12 @@
     `<option>` - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
     `HTMLOptionElement` - https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement
     `Option ()` Constructor - https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement/Option
+    `HTTP/MIME` types - https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
   -->
 
-  <datalist>
-    <option text=PNG  value=image-png.png  label=image/png>
-    <option text=JPEG value=image-jpeg.png label=image/jpeg>
-    <option text=PDF  value=application-pdf.png label=application/pdf>
-
+  <datalist slot=mimetypes>
     <!-- restricted list -->
-    <option text=TEXT value=text-plain.png label=text/plain disabled>
+    <option value=text/plain,text/html,text/css,text/javascript label=text-plain.png disabled> txt
   </datalist>
 
 </file-upload>
