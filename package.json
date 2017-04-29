@@ -36,7 +36,7 @@
     "compile": "npm run transpile && npm run uglify && npm run compress && npm run weigh",
     "transpile": "npm run bundle && node ./transpile.es > ./dist/snuggsi.js",
     "bundle": "cat elements/html-link-element.es elements/token-list.es elements/template.es elements/event-target.es elements/parent-node.es elements/global-event-handlers.es elements/element.es > dist/snuggsi.es",
-    "uglify": "uglifyjs ./dist/snuggsi.js -c -m -o ./dist/snuggsi.min.js",
+    "uglify": "uglifyjs ./dist/snuggsi.js -c -m -o ./dist/snuggsi.min.js && uglifyjs ./dist/snuggsi.es -c -m -o ./dist/snuggsi.min.es",
     "compress": "gzip -k -9 -c -S=.js ./dist/*.min.js > ./dist/snuggsi.min.js.gz && npm run brotli",
     "brotli": "bro --quality 11 --repeat 1 --input ./dist/*.min.js > ./dist/snuggsi.min.js.br",
     "weigh": "npm run bundle && echo $(gzip -9 -c -S=.js ./dist/*.min.js | wc -c) bytes && echo $(ls -al ./dist/snuggsi.min.js.br) octets bytes",
