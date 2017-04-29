@@ -35,34 +35,24 @@
 
 <aside>
 
-  <table class="file-upload-list">
-    <thead style="text-align: left">
+  <table>
+    <thead>
       <tr>
-        <th width="1%"></th>
-        <th>Name</th>
-        <th width="10%">Size</th>
-        <th width="1%"></th>
-      </tr>
-    </thead>
+        <th colspan=2>Name
+        <th colspan=2>Size
+
     <tbody>
       <template name=files>
         <tr>
+          <td><img src={icon_url} alt={type} hidden={hidden}>
 
-          <td>
-            <img src={icon_url} alt={type} hidden={hidden} style="width: 1em; height: 1em">
-          </td>
-          <td>
-            {name}
-          </td>
-          <td>
-            {size}
-          </td>
-          <td class="file-remove-cell">
-            <a onclick=onremove data-index={#}>&times;</a>
-          </td>
-        </tr>
+          <td>{name}
+
+          <td>{size}
+
+          <td><a onclick=onremove data-index={#}>Remove</a>
       </template>
-    </tbody>
+
   </table>
 </aside>
 
