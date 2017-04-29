@@ -196,23 +196,23 @@ document
 ```
 
 
-## Developer Installation
+## Contributor Installation
 ```bash
 $ git clone https://github.com/devpunks/snuggsi.git
 $ cd snuggsi && npm i
 $ npm run browse
 ```
 
-## Development Dependencies
+### Development Dependencies
   - [Node.js](https://nodejs.org/en/download/)
   - [Tap](https://github.com/tapjs/node-tap)
   - [Browser Sync](https://browsersync.io)
   - [jsdom](https://github.com/tmpvar/jsdom)
 
 
-## Scripts
+### Scripts
 
-### Browse
+#### Browse
 Watch files and hot inject browser assets on file change.
 See [watch.browser.es](watch.browser.es)
 & [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation.
@@ -220,49 +220,49 @@ See [watch.browser.es](watch.browser.es)
 $ npm run browse
 ```
 
-### Watch Tests
+#### Watch Tests
 Watch ecmascripts routine. [watch.es](watch.es)
 ```bash
 $ npm run watch
 ```
-### Compile
+#### Compile
 Run transpile, uglify, gzip, and weigh
 ```bash
 $ npm run compile
 ```
 
-### Transpile
+#### Transpile
 Run bundle, and Buble for transpilation from ECMAScript to Javascript
 ```bash
 $ npm run transpile
 ```
 
-### Bundle
+#### Bundle
 Simple con`cat` script for standalone ECMASCript modules
 ```bash
 $ npm run bundle
 ```
 
-### Uglify
+#### Uglify
 Run uglifyjs along with minification
 ```bash
 $ npm run uglify
 ```
 
-### Compress
+#### Compress
 gzip total byte size of bundled ecmascripts
 ```bash
 $ npm run compress
 ```
 
-### Weigh
+#### Weigh
 Weigh ecmascripts routine.
 _(gzip total byte size of bundled ecmascripts)_
 ```bash
 $ npm run weigh
 ```
 
-### Testing
+#### Testing
 
 ```bash
 $ npm test
@@ -279,7 +279,7 @@ _"Update April 2016: since writing this post, I've moved to using tap which spaw
   - https://remysharp.com/2015/12/14/my-node-test-strategy
   - https://remysharp.com/2016/02/08/testing-tape-vs-tap
 
-### Test Coverage
+#### Test Coverage
 ```bash
 $ npm run cover
 ```
