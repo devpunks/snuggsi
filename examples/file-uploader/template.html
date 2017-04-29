@@ -1,36 +1,40 @@
-<link rel=stylesheet href=style.css>
-
 <script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
 <script nomodule src=script.es></script>
 
+<link rel=stylesheet href=style.css>
+
 <template>
 
-<label
-  ondrop=ondragdrop
-  ondragleave=ondragend
-  ondragenter=ondragstart
-  title='Click to upload files'
-  ondragover='event.preventDefault()'>
+<!-- form needed for backwards compatibility & for `<button type=reset>` -->
+<form action=#>
+
+  <label title='Click to upload files'>
+
     Click to upload files
 
-  <!--
-  `<input type=file list=datalist.id>`
-    https://www.w3.org/TR/2011/WD-html-markup-20110525/input.file.html
-  -->
-  <input multiple list=mimetypes name=files[] type=file required>
-</label>
+    <!--
+    `<input type=file list=datalist.id>`
+      https://www.w3.org/TR/2011/WD-html-markup-20110525/input.file.html
+    -->
+    <input multiple list=mimetypes name=files[] type=file required>
 
-<slot name=mimetypes>
-  <datalist id=mimetypes>
-    <option value=image/jpeg label=image-jpeg.png> jpg
-    <option value=image/png  label=image-png.png selected> png
-    <option value=application/pdf label=application-pdf.png> pdf
-  </datalist>
-</slot>
+  </label>
 
-<button type=reset>Clear All</button>
+  <slot name=mimetypes>
+
+    <datalist id=mimetypes>
+      <option value=image/jpeg label=image-jpeg.png> jpg
+      <option value=image/png  label=image-png.png selected> png
+      <option value=application/pdf label=application-pdf.png> pdf
+    </datalist>
+  </slot>
+
+  <button title='Upload Files' type=submit>Upload</button>
+  <button title='Clear All' type=reset>Clear All</button>
+</form>
 
 <aside>
+
   <table class="file-upload-list">
     <thead style="text-align: left">
       <tr>

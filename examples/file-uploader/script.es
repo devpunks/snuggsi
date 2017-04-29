@@ -18,38 +18,26 @@ Element `file-upload`
   initialize () {
     this.context.files = []
 
-    this.whitelist = this.generate_whitelist()
+//  this.whitelist = this.generate_whitelist()
 
-    this.default_text = 'Click to upload files'
-    this.on_drag_text = 'Drop here!'
-  }
-
-
-  /**
-   * Listens for changes in the file field, essentially
-   * processing new non-dragged files.
-   *
-   * @param event {Event} The event that has been triggered.
-   */
-  static onchange (event) {
-    if (!!! event.target.files) return
-
-    this.add_files(event.target.files)
-
-    this.render ()
+//  this.default_text = 'Click to upload files'
+//  this.on_drag_text = 'Drop here!'
   }
 
   /**
-   * Listens for the event of a user removing a file
-   * via the button on the file's entry's row.
+   * Listens for the event of a user clicking `<button type=submit>`,
+   * and "submit"s files accordingly.
    *
-   * @param event {MouseEvent} The event that has been triggered. 
+   * @param event {MouseEvent} The event that has been triggered.
+   *
+   * Further reading:
+   * - Submit Event
+   *   - https://developer.mozilla.org/en-US/docs/Web/Events/submit
+   * - GlobalEventHandlers.onsubmit
+   *   - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onsubmit
    */
-  static onremove (event) {
-    this.context.files.splice(event.target.dataset.index, 1)
-
-    this.render ()
-  }
+  static onsubmit (event)
+    { event.preventDefault () }
 
   /**
    * Listens for the event of a user clicking `<button type=reset>`,
@@ -70,26 +58,29 @@ Element `file-upload`
   }
 
   /**
-   * Listens for the event of a dragged object ENTERING the
-   * label's area.
+   * Listens for changes in the file field, essentially
+   * processing new non-dragged files.
    *
-   * @param event {DragEvent} The event that has been triggered. 
+   * @param event {Event} The event that has been triggered.
    */
-  static ondragstart (event) {
-    event.target.innerHTML = this.on_drag_text
+  static onchange (event) {
+    if (!!! event.target.files) return
 
-    event.preventDefault ()
+    this.add_files (event.target.files)
+
+    this.render ()
   }
 
   /**
-   * Listens for the event of a dragged object LEAVING the
-   * label's area.
+   * Listens for the event of a user removing a file
+   * via the button on the file's entry's row.
    *
-   * @param event {DragEvent} The event that has been triggered.
+   * @param event {MouseEvent} The event that has been triggered. 
    */
-  static ondragend (event) {
-    console.log ('drag starting')
-    this.reset_label(event.target)
+  static onremove (event) {
+    this.context.files.splice(event.target.dataset.index, 1)
+
+    this.render ()
   }
 
   /**
@@ -98,19 +89,53 @@ Element `file-upload`
    *
    * @param event {DragEvent} The event that has been triggered.
    */
-  static ondragdrop (event) {
-
-    this.reset_label(event.target)
-
-    event.preventDefault ()
-
-    var files = event.dataTransfer.files
+  static ondrop (event) {
+    const
+      files =
+        event.dataTransfer &&
+        event.dataTransfer.files
 
     if (!!! files) return
 
-    this.add_files(files)
+    event.preventDefault ()
+
+//  this.reset_label(event.target)
+
+    this.add_files (files)
 
     this.render ()
+  }
+
+  /**
+   * Listens for the event of a dragged object LEAVING the
+   * label's area.
+   *
+   * @param event {DragEvent} The event that has been triggered.
+   */
+  static ondragleave (event) {
+//  this.reset_label(event.target)
+  }
+
+  /**
+   * Listens for the event of a dragged object ENTERING the
+   * label's area.
+   *
+   * @param event {DragEvent} The event that has been triggered. 
+   */
+  static ondragenter (event) {
+    event.target.innerHTML = this.on_drag_text
+
+    event.preventDefault ()
+  }
+
+  /**
+   * Listens for the event of a dragged object ENTERING the
+   * label's area.
+   *
+   * @param event {DragEvent} The event that has been triggered. 
+   */
+  static ondragover (event) {
+    event.preventDefault ()
   }
 
   /**
