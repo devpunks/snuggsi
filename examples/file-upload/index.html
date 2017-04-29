@@ -1,0 +1,37 @@
+<title>snuggsi ツ - File Upload</title>
+
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+
+<link rel=import href=../header-group.html>
+<link rel=import id=file-upload href=template.html>
+
+
+
+<header-group>
+  <h2 slot=header>&lt;file-uploader&gt;</h2>
+</header-group>
+
+
+
+<file-upload>
+
+  <!--
+    `<option>` - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
+    `HTMLOptionElement` - https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement
+    `Option ()` Constructor - https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement/Option
+  -->
+
+  <datalist>
+    <option value=app-pdf.png   label=application/pdf>
+    <option value=app-img.png   label=image/png>
+    <option value=app-img.png   label=image/jpeg>
+
+    <!-- restricted list -->
+    <option value=txt-plain.png label=text/plain>
+  </datalist>
+
+</file-upload>
+
