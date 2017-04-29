@@ -22,7 +22,14 @@ Element `file-upload`
 
 //  this.default_text = 'Click to upload files'
 //  this.on_drag_text = 'Drop here!'
+      console.log ('Foo', this.constructor.label)
   }
+
+  static get label ()
+    {
+      return 'shazam!'
+   //   return this.getAttribute ('label') || 'Default' 
+    }
 
   /**
    * Listens for the event of a user clicking `<button type=submit>`,
