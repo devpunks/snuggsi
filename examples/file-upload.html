@@ -1,69 +1,8 @@
-<title>snuggsi ツ - File Upload</title>
-
-<meta charset=UTF-8>
-<meta name=viewport content=width=device-width,initial-scale=1>
-
-<link rel=stylesheet href=http://www.devpunks.com/typography.css>
-
-<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
-<script nomodule src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
-
-<hgroup>
-  <h1>snuggsi ツ</h1>
-  <h2>File Upload</h2>
-</hgroup>
-
-<datalist id="file-upload-whitelist">
-  <option value="app-pdf.png"   label="application/pdf">
-  <option value="app-img.png"   label="image/png">
-  <option value="app-img.png"   label="image/jpeg">
-  <option value="txt-plain.png" label="text/plain">
-</datalist>
-
-<file-upload>
-
-  <div class="file-upload-container">
-    <input multiple id=files name=files[] type=file>
-    <label for=files ondragover="event.preventDefault()" ondragenter=ondragstart ondragleave=ondragend ondrop=ondragdrop>
-      Click to upload files
-    </label>
-
-    <a class='file-upload-clear' onclick=onclear>Clear All</a>
-
-    <table class="file-upload-list">
-      <thead style="text-align: left">
-        <tr>
-          <th width="1%"></th>
-          <th>Name</th>
-          <th width="10%">Size</th>
-          <th width="1%"></th>
-        </tr>
-      </thead>
-      <tbody>
-        <template name=files>
-          <tr>
-
-            <td>
-              <img src={icon_url} alt={type} hidden={hidden} style="width: 1em; height: 1em">
-            </td>
-            <td>
-              {name}
-            </td>
-            <td>
-              {size}
-            </td>
-            <td class="file-remove-cell">
-              <a onclick=onremove data-index={#}>&times;</a>
-            </td>
-          </tr>
-        </template>
-      </tbody>
-    </table>
-  </div>
+<template>
 
 <style>
 
-file-upload div.file-upload-container 
+file-upload div.file-upload-container
   { margin: 1em 20%; }
 
 file-upload input[type=file] {
@@ -119,6 +58,54 @@ file-upload a.file-upload-clear:active {
 }
 
 </style>
+
+<datalist id="file-upload-whitelist">
+  <option value="app-pdf.png"   label="application/pdf">
+  <option value="app-img.png"   label="image/png">
+  <option value="app-img.png"   label="image/jpeg">
+  <option value="txt-plain.png" label="text/plain">
+</datalist>
+
+  <div class="file-upload-container">
+    <input multiple id=files name=files[] type=file>
+    <label for=files ondragover="event.preventDefault()" ondragenter=ondragstart ondragleave=ondragend ondrop=ondragdrop>
+      Click to upload files
+    </label>
+
+    <a class='file-upload-clear' onclick=onclear>Clear All</a>
+
+    <table class="file-upload-list">
+      <thead style="text-align: left">
+        <tr>
+          <th width="1%"></th>
+          <th>Name</th>
+          <th width="10%">Size</th>
+          <th width="1%"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <template name=files>
+          <tr>
+
+            <td>
+              <img src={icon_url} alt={type} hidden={hidden} style="width: 1em; height: 1em">
+            </td>
+            <td>
+              {name}
+            </td>
+            <td>
+              {size}
+            </td>
+            <td class="file-remove-cell">
+              <a onclick=onremove data-index={#}>&times;</a>
+            </td>
+          </tr>
+        </template>
+      </tbody>
+    </table>
+  </div>
+
+</template>
 
 <script>
 
@@ -383,6 +370,3 @@ Element `file-upload`
 
 </script>
 
-</file-upload>
-
-<script src=../../vendor/browser-sync.es></script>
