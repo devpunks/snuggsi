@@ -7,7 +7,7 @@
     position: absolute
   }
 
-  file-upload label[for=files] {
+  file-upload > label:first-of-type {
     display: block;
     padding: 2em 0;
     cursor: pointer;
@@ -17,7 +17,7 @@
     background-color: rgba(240,240,240, 0.8)
   }
 
-  file-upload label[for=files]:hover
+  file-upload > label:first-of-type:hover
     { background-color: rgba(240,240,240, 1.0) }
 
   file-upload table.file-upload-list

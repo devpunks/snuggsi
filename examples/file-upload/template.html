@@ -1,65 +1,66 @@
-<link rel=stylesheet href=./style.css>
+<link rel=stylesheet href=style.css>
 
 <script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
 <script nomodule src=script.es></script>
 
 <template>
 
-<slot name=mimetypes>
+<label
+  ondrop=ondragdrop
+  ondragleave=ondragend
+  ondragenter=ondragstart
+  title='Click to upload files'
+  ondragover='event.preventDefault()'>
+    Click to upload files
 
-  <datalist slot=mimetypes>
+  <!--
+  `<input type=file list=datalist.id>`
+    https://www.w3.org/TR/2011/WD-html-markup-20110525/input.file.html
+  -->
+  <input multiple list=mimetypes name=files[] type=file required>
+</label>
+
+<slot name=mimetypes>
+  <datalist id=mimetypes>
     <option value=image/jpeg label=image-jpeg.png> jpg
     <option value=image/png  label=image-png.png selected> png
     <option value=application/pdf label=application-pdf.png> pdf
   </datalist>
 </slot>
 
+<button type=reset>Clear All</button>
 
-<form>
-
-  <label
-    for=files
-    ondrop=ondragdrop
-    ondragleave=ondragend
-    ondragenter=ondragstart
-    ondragover='event.preventDefault()'>
-      Click to upload files
-  </label>
-
-  <input multiple id=files name=files[] type=file>
-
-  <button type=reset>Clear All</button>
-</form>
-
-<table class="file-upload-list">
-  <thead style="text-align: left">
-    <tr>
-      <th width="1%"></th>
-      <th>Name</th>
-      <th width="10%">Size</th>
-      <th width="1%"></th>
-    </tr>
-  </thead>
-  <tbody>
-    <template name=files>
+<aside>
+  <table class="file-upload-list">
+    <thead style="text-align: left">
       <tr>
-
-        <td>
-          <img src={icon_url} alt={type} hidden={hidden} style="width: 1em; height: 1em">
-        </td>
-        <td>
-          {name}
-        </td>
-        <td>
-          {size}
-        </td>
-        <td class="file-remove-cell">
-          <a onclick=onremove data-index={#}>&times;</a>
-        </td>
+        <th width="1%"></th>
+        <th>Name</th>
+        <th width="10%">Size</th>
+        <th width="1%"></th>
       </tr>
-    </template>
-  </tbody>
-</table>
+    </thead>
+    <tbody>
+      <template name=files>
+        <tr>
+
+          <td>
+            <img src={icon_url} alt={type} hidden={hidden} style="width: 1em; height: 1em">
+          </td>
+          <td>
+            {name}
+          </td>
+          <td>
+            {size}
+          </td>
+          <td class="file-remove-cell">
+            <a onclick=onremove data-index={#}>&times;</a>
+          </td>
+        </tr>
+      </template>
+    </tbody>
+  </table>
+</aside>
 
 </template>
 

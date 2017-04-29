@@ -9,28 +9,29 @@
 <link rel=import id=file-upload href=template.html>
 
 
-
 <header-group>
   <h2 slot=header>&lt;file-uploader&gt;</h2>
 </header-group>
 
+<!-- form needed for backwards compatibility & for `<button type=reset>` -->
+<form action=#>
 
+  <file-upload>
 
-<file-upload>
+    <!--
+      `<option>` - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
+      `HTMLOptionElement` - https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement
+      `Option ()` Constructor - https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement/Option
+      `HTTP/MIME` types - https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+    -->
 
-  <!--
-    `<option>` - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
-    `HTMLOptionElement` - https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement
-    `Option ()` Constructor - https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement/Option
-    `HTTP/MIME` types - https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
-  -->
+    <datalist slot=mimetypes id=mimetypes>
+      <!-- restricted list -->
+      <option value=text/plain,text/html,text/css,text/javascript label=text-plain.png disabled> txt
+    </datalist>
 
-  <datalist slot=mimetypes>
-    <!-- restricted list -->
-    <option value=text/plain,text/html,text/css,text/javascript label=text-plain.png disabled> txt
-  </datalist>
-
-</file-upload>
+  </file-upload>
+</form>
 
 <script src=../../vendor/browser-sync.es></script>
 
