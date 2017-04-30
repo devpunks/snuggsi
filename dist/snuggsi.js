@@ -338,8 +338,6 @@ var Element = function
 if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
  tag = tag [0]
 
-  console.warn (tag, 'foo', this)
-
       var
         link = document
           .querySelector // use CSS :any ?
