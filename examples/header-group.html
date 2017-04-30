@@ -1,9 +1,9 @@
-<!-- minimal custom element registration -->
-<script>
-  Element `header-group`
-</script>
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
 
-<template>
+<title>&lt;header-group&gt;</title>
+
+<script nomodule src=../snuggsi.js></script>
 
 <!-- optionally batteries-included -->
 <style>
@@ -14,11 +14,52 @@ header-group {
 }
 </style>
 
-<hgroup>
-  <h1><a href=/examples/index.html>snuggsi ツ</a></h1>
-  <slot name=header><h2>try an example</h2></slot>
-  <slot name=subheader></slot>
-</hgroup>
+<!-- minimal custom element registration -->
+<script>
+  Element `header-group`
+</script>
+
+<template>
+
+  <hgroup>
+    <h1><a href=/examples/index.html>snuggsi ツ</a></h1>
+    <slot name=header><h2>try an example</h2></slot>
+    <slot name=subheader></slot>
+  </hgroup>
 
 </template>
 
+<h1>&lt;header-group&gt;</h1>
+
+<p>Custom <a rel=external target=mdn href=https://developer.mozilla.org/en-US/docs/Web/HTML/Element/hgroup><code>&lt;hgroup&gt;</code></a> element</p>
+
+<h2>Slots</h2>
+
+<dl>
+  <dt id=header>
+    <strong>header</strong>
+
+  <dd>
+    A header element
+    <em>(<strong>default:</strong> An &lt;h2&gt;)</em>
+
+  <dt>
+    <strong id=subheader>subheader</strong>
+
+  <dd>
+    Any subheading content after
+    <strong><a href=#header>header</a></strong>
+
+</dl>
+
+
+<h2>Example</h2>
+
+<code>
+<pre>
+&lt;header-group&gt;
+  &lt;h2 slot=header&gt;My Custom Headere&lt;/h2&gt;&lt;/h2&gt;
+  &lt;p slot=subheader&gt;It Just Works&trade;&lt;/p&gt;
+&lt;/header-group&gt;
+</pre>
+</code>
