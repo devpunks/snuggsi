@@ -431,6 +431,8 @@ const Element = function
 
 { tag = tag [0]
 
+  console.warn (tag, 'foo', this)
+
       const
         link = document
           .querySelector // use CSS :any ?
