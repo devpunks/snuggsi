@@ -5,15 +5,15 @@
 
 module.exports = {
     "ui": false, // { "port": 8181, "weinre": { "port": 8080 } },
-    "files": ['./dist/*', './benchmarks/*', './harness.html', './examples'],
+    "files": ['./dist/*', './benchmarks/*', './harness.html', './examples/**/*'],
     "watchOptions": {
       ignored: '*.txt',
       ignoreInitial: true
     },
     "server": {
       baseDir: './',
-      directory: false,
-      index: 'examples/hello-world.html',
+      directory: true,
+      index: 'examples/index.html',
       routes: {
         'browser-sync-client.js': 'node_modules/browser-sync-client/dist/index.min.js'
       }
