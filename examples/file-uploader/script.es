@@ -22,7 +22,6 @@ Element `file-upload`
 
 //  this.default_text = 'Click to upload files'
 //  this.on_drag_text = 'Drop here!'
-      console.log ('Foo', this.constructor.label)
   }
 
   static get label ()

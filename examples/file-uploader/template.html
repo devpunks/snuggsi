@@ -1,16 +1,13 @@
-<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
-<script nomodule src=script.es></script>
-
 <link rel=stylesheet href=style.css>
 
-<template>
+<script nomodule src=../../snuggsi.js></script>
+<script nomodule src=script.es></script>
+
+<template onclick=foo>
 
 <!-- form needed for backwards compatibility & for `<button type=reset>` -->
 <form action=#>
-
-  <label title={label}>
-
-    {label}
+  <label title={label}> {label}
 
     <!--
     `<input type=file list=datalist.id>`
@@ -21,7 +18,6 @@
   </label>
 
   <slot name=mimetypes>
-
     <datalist id=mimetypes>
       <option value=image/jpeg label=image-jpeg.png> jpg
       <option value=image/png  label=image-png.png selected> png
@@ -29,12 +25,13 @@
     </datalist>
   </slot>
 
-  <button title='Upload Files' type=submit>Upload</button>
-  <button title='Clear All' type=reset>Clear All</button>
+  <menu>
+    <button title='Upload Files' type=submit>Upload</button>
+    <button title='Clear All' type=reset>Clear All</button>
+  </menu>
 </form>
 
 <aside>
-
   <table>
     <thead>
       <tr>
@@ -51,6 +48,7 @@
           <td>{size}
 
           <td><a onclick=onremove data-index={#}>Remove</a>
+
       </template>
 
   </table>
