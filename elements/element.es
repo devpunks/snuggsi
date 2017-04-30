@@ -9,6 +9,8 @@ const Element = function
 
 { tag = tag [0]
 
+  console.log ('hello world', tag)
+
       const
         link = document
           .querySelector // use CSS :any ?
