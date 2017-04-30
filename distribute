@@ -15,6 +15,9 @@ git commit -m":muscle: bump distribution for dist/snuggsi.min.js"
 git add dist/snuggsi.min.js.gz
 git commit -m":muscle: bump distribution for dist/snuggsi.min.js.gz"
 
+git add dist/snuggsi.min.js.br
+git commit -m":muscle: bump distribution for dist/snuggsi.min.js.br"
+
 git push origin master
 
 npm version patch
