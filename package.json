@@ -33,7 +33,7 @@
     "package": "./package",
     "watch": "node watch.es",
     "test": "node --use_strict index.test.es",
-    "compile": "npm run truncate && npm run transpile && npm run minify && npm run compress && npm run weigh",
+    "compile": "npm run transpile && npm run minify && npm run compress && npm run weigh",
     "transpile": "npm run bundle && node ./transpile.es > ./dist/snuggsi.js",
     "bundle": "cat elements/html-link-element.es elements/token-list.es elements/template.es elements/event-target.es elements/parent-node.es elements/global-event-handlers.es elements/element.es > dist/snuggsi.es",
     "minify": "npm run uglify && npm run gcc",
