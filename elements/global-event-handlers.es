@@ -29,7 +29,7 @@ const GlobalEventHandlers = Element =>
 (class extends Element {
 
   register (events = event => /^on/.exec (event)) {
-    let
+    const
       nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
         // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
         // If we can do this we can only retrieve the elements that have a traditional inline event.
