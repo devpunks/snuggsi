@@ -9,15 +9,10 @@ const Element = function
 
 { tag = tag [0]
 
-  console.log ('hello world', tag)
-
-      const
-        link = document
-          .querySelector // use CSS :any ?
-            ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
-
-      link &&
-        (link.onload = HTMLLinkElement.onload.bind (tag))
+  const
+    link = document
+      .querySelector // use CSS :any ?
+        ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
 
   return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
@@ -71,6 +66,10 @@ const Element = function
 
       // custom element reactions
       connectedCallback () {
+
+        link &&
+          (link.onload = HTMLLinkElement.onload.bind (this))
+
         super.constructor.onconnect
         && super.constructor.onconnect ()
 

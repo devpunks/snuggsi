@@ -5,7 +5,16 @@ const HTMLLinkElement = class {
       .querySelector ('template')
 
     const shadow = function (element) {
-      let fragment = template.content.cloneNode (true)
+      let
+        attributes = template.attributes
+      , fragment   = template.content.cloneNode (true)
+
+      , register = attribute =>
+          (this.setAttribute (attribute.name, attribute.value))
+
+      Array
+        .from (attributes)
+        .map  (register)
 
       fragment.slots =
         Array.from (fragment.querySelectorAll ('slot'))
@@ -36,8 +45,8 @@ const HTMLLinkElement = class {
 
     Array.from
       // should be using currentScript ?
-      (document.getElementsByTagName (this))
-      .map (shadow)
+      (document.getElementsByTagName (this.tagName.toLowerCase ()))
+      .map (shadow, this)
   }
 }
 
