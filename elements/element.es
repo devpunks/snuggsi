@@ -17,7 +17,10 @@ const Element = function
   return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
 
-    const context = this === window ? {} : this
+    const
+      context =
+        this === window ?
+          {} : this
 
 //  try
 //    { return new CustomElementRegistry.get (tag) }
@@ -27,7 +30,10 @@ const Element = function
 
     class HTMLCustomElement extends // mixins
 
-      EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement )))
+      EventTarget
+        ( ParentNode
+          ( GlobalEventHandlers
+            ( HTMLElement )))
 
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
