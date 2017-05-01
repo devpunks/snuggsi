@@ -43,7 +43,7 @@
     "gzip": "gzip -k -9 -c -S=.js ./dist/*.min.js > ./dist/snuggsi.min.js.gz && gzip -k -9 -c -S=.js ./dist/*.min.es > ./dist/snuggsi.min.es.gz",
     "brotli":
       "bro --quality 11 --repeat 1 --input ./dist/*.min.js > ./dist/snuggsi.min.js.br && bro --quality 11 --repeat 1 --input ./dist/*.min.es > ./dist/snuggsi.min.es.br",
-    "weigh": "npm run bundle && echo $(gzip -9 -c -S=.js ./dist/*.min.js | wc -c) bytes && echo $(ls -al ./dist/snuggsi.min.js.br) octets bytes",
+    "weigh": "ls -al ./dist",
     "copy": "pbcopy < ./dist/snuggsi.js",
     "browse": "npm run watch & browser-sync start --config=./watch.browser.es",
     "cover": "tap index.test.es --cov --coverage-report=lcov",
