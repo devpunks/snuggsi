@@ -22,4 +22,6 @@ const out =
        console.log(out.errors)
        throw new Error(`Minification failed`);
    }
+
 console.log(out.compiledCode)
+

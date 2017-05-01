@@ -27,3 +27,4 @@ var result = buble.transform (contents,
 ) // { code: ..., map: ... }
 
 console.log (result.code)
+
