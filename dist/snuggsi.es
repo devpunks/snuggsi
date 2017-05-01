@@ -370,7 +370,6 @@ const GlobalEventHandlers = Element =>
 (class extends Element {
 
   register (events = event => /^on/.exec (event)) {
-
     let
       nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
         // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
@@ -398,7 +397,6 @@ const GlobalEventHandlers = Element =>
     , reflect =
         self => // `this` closure
           node =>
-
             Array
               .from (node.attributes)
               .map (attr => attr.name)
@@ -411,10 +409,9 @@ const GlobalEventHandlers = Element =>
           event => {
             node [event] = handle (node [event]) }
 
-    , mirror = handler=>
-        !!! this [handler]
-        && (this [handler] = Element [handler].bind (this))
-
+    , mirror = handler =>
+        !!! this [handler] == undefined &&
+           (this [handler] = Element [handler].bind (this))
 
     void [this]
       .concat (children)
