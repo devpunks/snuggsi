@@ -277,7 +277,6 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     var this$1 = this;
     if ( events === void 0 ) events = function (event) { return /^on/.exec (event); };
 
-
     var
       nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
         // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
@@ -316,9 +315,8 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
         function (node) { return function (event) {
             node [event] = handle (node [event]) }; }
 
-    , mirror = function (handler){ return !!! this$1 [handler]
-        && (this$1 [handler] = Element [handler].bind (this$1)); }
-
+    , mirror = function (handler) { return !!! this$1 [handler] == undefined &&
+           (this$1 [handler] = Element [handler].bind (this$1)); }
 
     void [this]
       .concat (children)
