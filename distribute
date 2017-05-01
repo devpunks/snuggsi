@@ -1,13 +1,22 @@
 #!/bin/bash
 
+git add dist/snuggsi.es
+git commit -m":muscle: bump distribution for dist/snuggsi.es"
+
 cp dist/snuggsi.es ./snuggsi.js && git add ./snuggsi.js
 git commit -m":muscle: bump distribution for ./snuggsi.js"
 
 git add dist/snuggsi.min.es
 git commit -m":muscle: bump distribution for dist/snuggsi.min.es"
 
-git add dist/snuggsi.es
-git commit -m":muscle: bump distribution for dist/snuggsi.es"
+cp dist/snuggsi.min.es ./snuggsi.js && git add ./snuggsi.min.js
+git commit -m":muscle: bump distribution for ./snuggsi.min.js"
+
+git add dist/snuggsi.min.es.gz
+git commit -m":muscle: bump distribution for dist/snuggsi.min.es.gz"
+
+git add dist/snuggsi.min.es.br
+git commit -m":muscle: bump distribution for dist/snuggsi.min.es.br"
 
 git add dist/snuggsi.js
 git commit -m":muscle: bump distribution for dist/snuggsi.js"
@@ -20,12 +29,6 @@ git commit -m":muscle: bump distribution for dist/snuggsi.min.js.gz"
 
 git add dist/snuggsi.min.js.br
 git commit -m":muscle: bump distribution for dist/snuggsi.min.js.br"
-
-git add dist/snuggsi.min.es.gz
-git commit -m":muscle: bump distribution for dist/snuggsi.min.es.gz"
-
-git add dist/snuggsi.min.es.br
-git commit -m":muscle: bump distribution for dist/snuggsi.min.es.br"
 
 git push origin master
 
