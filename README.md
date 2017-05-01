@@ -252,10 +252,13 @@ Simple con`cat` script for standalone ECMASCript modules
 $ npm run bundle
 ```
 
-#### Uglify
+#### Minify
 Run uglifyjs along with minification
+
+(experimental) [Google Closure Compiler](https://github.com/google/closure-compiler-js)
+
 ```bash
-$ npm run uglify
+$ npm run minify
 ```
 
 #### Compress

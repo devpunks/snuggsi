@@ -1,47 +1,52 @@
 const HTMLLinkElement = class {
 
   static onload (event) {
-    let template = event.target.import
-      .querySelector ('template')
 
-    const shadow = function (element) {
-      let
-        attributes = template.attributes
-      , fragment   = template.content.cloneNode (true)
+    console.log ('wat',event.target)
 
-      , register = attribute =>
-          (this.setAttribute (attribute.name, attribute.value))
+    let
+      template = event.target.import
+        .querySelector ('template')
 
-      Array
-        .from (attributes)
-        .map  (register)
+    const
+      shadow = function(element) {
+        let
+          attributes = template.attributes
+        , fragment   = template.content.cloneNode (true)
 
-      fragment.slots =
-        Array.from (fragment.querySelectorAll ('slot'))
+        , register = attribute =>
+            (this.setAttribute (attribute.name, attribute.value))
 
-      element.slots =
-        Array.from (element.querySelectorAll ('[slot]'))
+        Array
+          .from (attributes)
+          .map  (register)
 
-      element.slots.map (function (namedslot) {
-        fragment.slots
-          .filter (slot =>
-            (slot.getAttribute ('name') === namedslot.getAttribute ('slot'))
-          )
-          .map (slot =>
-            slot
-              // prefer to use replaceWith however support is sparse
-              // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-              // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
-              // https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
-              // https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
-              .parentNode
-              .replaceChild (namedslot, slot)
-          )
-      })
+        fragment.slots =
+          Array.from (fragment.querySelectorAll ('slot'))
 
-      element.innerHTML = ''
-      element.append (fragment)
-    }
+        element.slots =
+          Array.from (element.querySelectorAll ('[slot]'))
+
+        element.slots.map (function (namedslot) {
+          fragment.slots
+            .filter (slot =>
+              (slot.getAttribute ('name') === namedslot.getAttribute ('slot'))
+            )
+            .map (slot =>
+              slot
+                // prefer to use replaceWith however support is sparse
+                // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+                // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
+                // https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
+                // https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
+                .parentNode
+                .replaceChild (namedslot, slot)
+            )
+        })
+
+        element.innerHTML = ''
+        element.append (fragment)
+      }
 
     Array.from
       // should be using currentScript ?
@@ -446,7 +451,10 @@ const Element = function
   return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
 
-    const context = this === window ? {} : this
+    const
+      context =
+        this === window ?
+          {} : this
 
 //  try
 //    { return new CustomElementRegistry.get (tag) }
@@ -456,7 +464,10 @@ const Element = function
 
     class HTMLCustomElement extends // mixins
 
-      EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement )))
+      EventTarget
+        ( ParentNode
+          ( GlobalEventHandlers
+            ( HTMLElement )))
 
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
