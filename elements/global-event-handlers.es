@@ -1,4 +1,4 @@
-const GlobalEventHandlers = Element =>
+const GlobalEventHandlers = Element => {
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -86,3 +86,4 @@ const GlobalEventHandlers = Element =>
   }
 })
 
+}

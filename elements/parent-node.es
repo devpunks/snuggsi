@@ -1,4 +1,4 @@
-const ParentNode = Element =>
+const ParentNode = Element => {
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -44,3 +44,4 @@ const ParentNode = Element =>
 //    for (let node = parent.firstChild; node; node = node.nextSibling)
 //      comb (node)
 //}
+}

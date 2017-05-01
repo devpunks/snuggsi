@@ -77,7 +77,7 @@ const Element = function
           (link.onload = HTMLLinkElement.onload.bind (this))
 
         super.constructor.onconnect
-        && super.constructor.onconnect ()
+          && super.constructor.onconnect ()
 
         this.render ()
       }
