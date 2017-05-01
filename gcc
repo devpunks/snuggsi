@@ -5,10 +5,5 @@
 # TODO: FIX ERRORS
 exec 2>/dev/null # Because errors
 
-./node_modules/.bin/google-closure-compiler-js --env=BROWSER --warningLevel VERBOSE --compilationLevel=ADVANCED ./dist/snuggsi.es
-# --languageOut=ES5 \
-# --env=CUSTOM \  # BROWSER, CUSTOM $$$$
-# --warningLevel VERBOSE #\ # QUIET, DEFAULT, VERBOSE
-#./dist/snuggsi.es #\
-# --compilationLevel=SIMPLE \ # WHITESPACE_ONLY, SIMPLE, ADVANCED
+./node_modules/.bin/google-closure-compiler-js --env=BROWSER --warningLevel VERBOSE --compilationLevel=ADVANCED --languageOut=ECMASCRIPT5 ./dist/snuggsi.es
 
