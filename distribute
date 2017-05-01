@@ -9,7 +9,7 @@ git commit -m":muscle: bump distribution for ./snuggsi.js"
 git add dist/snuggsi.min.es
 git commit -m":muscle: bump distribution for dist/snuggsi.min.es"
 
-cp dist/snuggsi.min.es ./snuggsi.js && git add ./snuggsi.min.js
+cp dist/snuggsi.min.es ./snuggsi.min.js && git add ./snuggsi.min.js
 git commit -m":muscle: bump distribution for ./snuggsi.min.js"
 
 git add dist/snuggsi.min.es.gz
