@@ -5,7 +5,16 @@ const HTMLLinkElement = class {
       .querySelector ('template')
 
     const shadow = function (element) {
-      let fragment = template.content.cloneNode (true)
+      let
+        attributes = template.attributes
+      , fragment   = template.content.cloneNode (true)
+
+      , register = attribute =>
+          (this.setAttribute (attribute.name, attribute.value))
+
+      Array
+        .from (attributes)
+        .map  (register)
 
       fragment.slots =
         Array.from (fragment.querySelectorAll ('slot'))
@@ -36,8 +45,8 @@ const HTMLLinkElement = class {
 
     Array.from
       // should be using currentScript ?
-      (document.getElementsByTagName (this))
-      .map (shadow)
+      (document.getElementsByTagName (this.tagName.toLowerCase ()))
+      .map (shadow, this)
   }
 }
 
@@ -420,6 +429,7 @@ const GlobalEventHandlers = Element =>
     return this
   }
 })
+
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 const Element = function
@@ -431,13 +441,10 @@ const Element = function
 
 { tag = tag [0]
 
-      const
-        link = document
-          .querySelector // use CSS :any ?
-            ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
-
-      link &&
-        (link.onload = HTMLLinkElement.onload.bind (tag))
+  const
+    link = document
+      .querySelector // use CSS :any ?
+        ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
 
   return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
@@ -491,6 +498,10 @@ const Element = function
 
       // custom element reactions
       connectedCallback () {
+
+        link &&
+          (link.onload = HTMLLinkElement.onload.bind (this))
+
         super.constructor.onconnect
         && super.constructor.onconnect ()
 
