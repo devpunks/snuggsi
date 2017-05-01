@@ -8,7 +8,17 @@ var HTMLLinkElement = (function () {
       .querySelector ('template')
 
     var shadow = function (element) {
-      var fragment = template.content.cloneNode (true)
+      var this$1 = this;
+
+      var
+        attributes = template.attributes
+      , fragment   = template.content.cloneNode (true)
+
+      , register = function (attribute) { return (this$1.setAttribute (attribute.name, attribute.value)); }
+
+      Array
+        .from (attributes)
+        .map  (register)
 
       fragment.slots =
         Array.from (fragment.querySelectorAll ('slot'))
@@ -37,8 +47,8 @@ var HTMLLinkElement = (function () {
 
     Array.from
       // should be using currentScript ?
-      (document.getElementsByTagName (this))
-      .map (shadow)
+      (document.getElementsByTagName (this.tagName.toLowerCase ()))
+      .map (shadow, this)
   };
 
   return HTMLLinkElement;
@@ -325,6 +335,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
     return anonymous;
   }(Element))); }
+
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 var Element = function
@@ -338,13 +349,10 @@ var Element = function
 if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
  tag = tag [0]
 
-      var
-        link = document
-          .querySelector // use CSS :any ?
-            ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
-
-      link &&
-        (link.onload = HTMLLinkElement.onload.bind (tag))
+  var
+    link = document
+      .querySelector // use CSS :any ?
+        ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
 
   return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
@@ -399,6 +407,10 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
 
       // custom element reactions
       HTMLCustomElement.prototype.connectedCallback = function () {
+
+        link &&
+          (link.onload = HTMLLinkElement.onload.bind (this))
+
         superclass.prototype.constructor.onconnect
         && superclass.prototype.constructor.onconnect ()
 
