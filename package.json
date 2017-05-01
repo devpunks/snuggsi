@@ -1,6 +1,6 @@
 {
   "name": "snuggsi",
-  "version": "0.4.59",
+  "version": "0.5.1",
   "author": "Snuggs",
   "description": "Easy Web Components in 1KB",
   "license": "MIT",
@@ -41,7 +41,8 @@
     "uglify": "uglifyjs ./dist/snuggsi.js -c -m -o ./dist/snuggsi.min.js",
     "compress": " npm run gzip && npm run brotli",
     "gzip": "gzip -k -9 -c -S=.js ./dist/*.min.js > ./dist/snuggsi.min.js.gz && gzip -k -9 -c -S=.js ./dist/*.min.es > ./dist/snuggsi.min.es.gz",
-    "brotli": "bro --quality 11 --repeat 1 --input ./dist/*.min.js > ./dist/snuggsi.min.js.br && bro --quality 11 --repeat 1 --input ./dist/*.min.es > ./dist/snuggsi.min.es.br",
+    "brotli":
+      "bro --quality 11 --repeat 1 --input ./dist/*.min.js > ./dist/snuggsi.min.js.br && bro --quality 11 --repeat 1 --input ./dist/*.min.es > ./dist/snuggsi.min.es.br",
     "weigh": "ls -al ./dist",
     "copy": "pbcopy < ./dist/snuggsi.js",
     "browse": "npm run watch & browser-sync start --config=./watch.browser.es",
