@@ -237,7 +237,7 @@ const Template = function (name = 'snuggsi') {
     return this
   }
 }
-const EventTarget = Element =>
+const EventTarget = (Element) => { // why buble
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -298,7 +298,9 @@ const EventTarget = Element =>
 
 //  { }
 })
-const ParentNode = Element =>
+
+}
+const ParentNode = Element => {
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -344,7 +346,8 @@ const ParentNode = Element =>
 //    for (let node = parent.firstChild; node; node = node.nextSibling)
 //      comb (node)
 //}
-const GlobalEventHandlers = Element =>
+}
+const GlobalEventHandlers = Element => {
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -432,6 +435,7 @@ const GlobalEventHandlers = Element =>
   }
 })
 
+}
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 const Element = function
@@ -511,7 +515,7 @@ const Element = function
           (link.onload = HTMLLinkElement.onload.bind (this))
 
         super.constructor.onconnect
-        && super.constructor.onconnect ()
+          && super.constructor.onconnect ()
 
         this.render ()
       }
