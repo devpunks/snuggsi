@@ -37,7 +37,7 @@
     "transpile": "npm run bundle && node ./transpile.es > ./dist/snuggsi.js",
     "bundle": "cat elements/html-link-element.es elements/token-list.es elements/template.es elements/event-target.es elements/parent-node.es elements/global-event-handlers.es elements/element.es > dist/snuggsi.es",
     "minify": "npm run uglify && npm run gcc",
-    "gcc": "./gcc > ./dist/snuggsi.min.es",
+    "gcc": "node ./gcc > ./dist/snuggsi.min.es",
     "uglify": "uglifyjs ./dist/snuggsi.js -c -m -o ./dist/snuggsi.min.js",
     "compress": " npm run gzip && npm run brotli",
     "gzip": "gzip -k -9 -c -S=.js ./dist/*.min.js > ./dist/snuggsi.min.js.gz && gzip -k -9 -c -S=.js ./dist/*.min.es > ./dist/snuggsi.min.es.gz",
