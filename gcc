@@ -1,27 +1,14 @@
-const
-  contents =
-    require ('fs')
-      .readFileSync
-         ('./dist/snuggsi.es', {encoding: 'UTF-8'})
+#!/bin/bash
 
-const
-  compile =
-    require ('google-closure-compiler-js').compile
+# https://developers.google.com/closure/compiler/docs/limitations
 
-const flags = {
-    jsCode: [{src: contents }],
-//  languageIn: 'ES6',
-    compilationLevel: 'ADVANCED_OPTIMIZATIONS
-    // https://developers.google.com/closure/compiler/docs/limitations
-}
+# TODO: FIX ERRORS
+exec 2>/dev/null # Because errors
 
-const out =
-  compile (flags)
-
-   if (out.errors && out.errors.length) {
-       console.log(out.errors)
-       throw new Error(`Minification failed`);
-   }
-
-console.log(out.compiledCode)
+./node_modules/.bin/google-closure-compiler-js --env=BROWSER --warningLevel VERBOSE --compilationLevel=ADVANCED ./dist/snuggsi.es
+# --languageOut=ES5 \
+# --env=CUSTOM \  # BROWSER, CUSTOM $$$$
+# --warningLevel VERBOSE #\ # QUIET, DEFAULT, VERBOSE
+#./dist/snuggsi.es #\
+# --compilationLevel=SIMPLE \ # WHITESPACE_ONLY, SIMPLE, ADVANCED
 
