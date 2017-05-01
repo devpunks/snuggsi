@@ -17,9 +17,14 @@ header-group {
 <!-- minimal custom element registration -->
 <script>
   Element `header-group`
+
+  (class extends HTMLElement {
+    intialize ()
+      { console.warn ('Whatever') }
+  })
 </script>
 
-<template>
+<template onclick=onfoo>
 
   <hgroup>
     <h1><a href=/examples/index.html>snuggsi ツ</a></h1>
