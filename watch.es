@@ -3,6 +3,7 @@ const
 , clear  = 'tput reset'
     // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , bundle = 'npm run bundle'
+, reload = './node_modules/.bin/browser-sync reload --port 8181'
 , minify = 'npm run gcc'
 , list   = 'ls -al ./dist/*.es'
 
@@ -10,7 +11,7 @@ const
 , echo    = `echo "${message}"`
 
 , exec = require ('child_process').exec
-, command = [bundle, minify, clear, echo, list].join (' && ')
+, command = [bundle, minify, clear, echo, list,  reload].join (' && ')
 
 require ('fs').watch (dir, { recursive: true },
   (event, file) => {
