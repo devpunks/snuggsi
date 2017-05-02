@@ -154,8 +154,6 @@ TokenList.prototype.bind = function (context, node) {
 //}
 
 var Template = function (name) {
-  if ( name === void 0 ) name = 'snuggsi';
-
 
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind: bind } )
@@ -205,38 +203,16 @@ var Template = function (name) {
     var ref;
   }
 }
-var EventTarget = function (Element) { // why buble
+var EventTarget = function (Element) { return ((function (Element) {
+    function anonymous () {
+      Element.apply(this, arguments);
+    }
 
-  // DOM Levels
-  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-  //
-  // WHATWG Living Standard HTML5 EventTarget
-  // https://dom.spec.whatwg.org/#eventtarget
-  //
-  // MDN EventTarget
-  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
-  //
-  // DOM Level 3 EventTarget
-  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
-  //
-  // DOM Level 2 EventTarget
-  // (AKA Str🎱  W3C #fockery) ➡️  https://annevankesteren.nl/2016/01/film-at-11
-  // 😕  https://w3c.github.io/uievents/DOM3-Events.html#interface-EventTarget
-  //❓❓ https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
-  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
-  // Within https://w3c.github.io/uievents/#conf-interactive-ua
-  // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
+    if ( Element ) anonymous.__proto__ = Element;
+    anonymous.prototype = Object.create( Element && Element.prototype );
+    anonymous.prototype.constructor = anonymous;
 
-((function (Element) {
-  function anonymous () {
-    Element.apply(this, arguments);
-  }
-
-  if ( Element ) anonymous.__proto__ = Element;
-  anonymous.prototype = Object.create( Element && Element.prototype );
-  anonymous.prototype.constructor = anonymous;
-
-  anonymous.prototype.listen = function (event, listener)
+    anonymous.prototype.listen = function (event, listener)
 
     // MDN EventTarget.addEventListener
     // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -251,36 +227,21 @@ var EventTarget = function (Element) { // why buble
     if ( listener === void 0 ) listener = this$1 [event];
  this.addEventListener (event, listener) };
 
-  return anonymous;
-}(Element)))
+    return anonymous;
+  }(Element))); }
 
-}
-var ParentNode = function (Element) {
+var ParentNode = function (Element) { return ((function (Element) {
+    function anonymous () {
+      Element.apply(this, arguments);
+    }
 
-  // DOM Levels
-  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-  //
-  // Living Standard HTML5 ParentNode
-  // https://dom.spec.whatwg.org/#parentnode
-  //
-  // MDN ParentNode
-  // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode
-  //
-  // ElementTraversal interface
-  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
+    if ( Element ) anonymous.__proto__ = Element;
+    anonymous.prototype = Object.create( Element && Element.prototype );
+    anonymous.prototype.constructor = anonymous;
 
-((function (Element) {
-  function anonymous () {
-    Element.apply(this, arguments);
-  }
+    var prototypeAccessors = { tokens: {} };
 
-  if ( Element ) anonymous.__proto__ = Element;
-  anonymous.prototype = Object.create( Element && Element.prototype );
-  anonymous.prototype.constructor = anonymous;
-
-  var prototypeAccessors = { tokens: {} };
-
-  anonymous.prototype.selectAll = function (selector)
+    anonymous.prototype.selectAll = function (selector)
     { return this.querySelectorAll (selector) };
 
   anonymous.prototype.select = function (selector)
@@ -293,10 +254,10 @@ var ParentNode = function (Element) {
       this._tokens || new TokenList (this)
   };
 
-  Object.defineProperties( anonymous.prototype, prototypeAccessors );
+    Object.defineProperties( anonymous.prototype, prototypeAccessors );
 
-  return anonymous;
-}(Element)))
+    return anonymous;
+  }(Element))); }
 
 //function comb
 //  // ElementTraversal interface
@@ -307,45 +268,17 @@ var ParentNode = function (Element) {
 //    for (let node = parent.firstChild; node; node = node.nextSibling)
 //      comb (node)
 //}
-}
-var GlobalEventHandlers = function (Element) {
 
-  // DOM Levels
-  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-  //
-  // Living Standard HTML5 GlobalEventHandlers
-  // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
-  //
-  // MDN GlobalEventHandlers
-  // https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
-  //
-  // MDN on* Events
-  // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
-  //
-  // DOM Level 0
-  // This event handling model was introduced by Netscape Navigator,
-  // and remains the most cross-browser model as of 2005
-  // https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#DOM_Level_0
-  //
-  // Inline Model
-  // https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#Inline_model
-  //
-  // Traditional Model
-  // https://en.wikipedia.org/wiki/DOM_events#Traditional_model
-  //
-  // Traditional Registration
-  // http://www.quirksmode.org/js/events_tradmod.html
+var GlobalEventHandlers = function (Element) { return ((function (Element) {
+    function anonymous () {
+      Element.apply(this, arguments);
+    }
 
-((function (Element) {
-  function anonymous () {
-    Element.apply(this, arguments);
-  }
+    if ( Element ) anonymous.__proto__ = Element;
+    anonymous.prototype = Object.create( Element && Element.prototype );
+    anonymous.prototype.constructor = anonymous;
 
-  if ( Element ) anonymous.__proto__ = Element;
-  anonymous.prototype = Object.create( Element && Element.prototype );
-  anonymous.prototype.constructor = anonymous;
-
-  anonymous.prototype.register = function (events) {
+    anonymous.prototype.register = function (events) {
     var this$1 = this;
     if ( events === void 0 ) events = function (event) { return /^on/.exec (event); };
 
@@ -403,10 +336,9 @@ var GlobalEventHandlers = function (Element) {
     return this
   };
 
-  return anonymous;
-}(Element)))
+    return anonymous;
+  }(Element))); }
 
-}
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 var Element = function
