@@ -191,7 +191,7 @@ class TokenList {
 //  }
 //}
 
-const Template = function (name = 'snuggsi') {
+const Template = function (name) {
 
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind } )
@@ -237,7 +237,7 @@ const Template = function (name = 'snuggsi') {
     return this
   }
 }
-const EventTarget = Element =>
+const EventTarget = (Element) => // why buble
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -298,6 +298,7 @@ const EventTarget = Element =>
 
 //  { }
 })
+
 const ParentNode = Element =>
 
   // DOM Levels
@@ -344,6 +345,7 @@ const ParentNode = Element =>
 //    for (let node = parent.firstChild; node; node = node.nextSibling)
 //      comb (node)
 //}
+
 const GlobalEventHandlers = Element =>
 
   // DOM Levels
@@ -511,7 +513,7 @@ const Element = function
           (link.onload = HTMLLinkElement.onload.bind (this))
 
         super.constructor.onconnect
-        && super.constructor.onconnect ()
+          && super.constructor.onconnect ()
 
         this.render ()
       }
