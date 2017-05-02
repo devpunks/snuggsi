@@ -45,7 +45,7 @@
     "weigh": "ls -al ./dist",
     "copy": "pbcopy < ./dist/snuggsi.js",
     "truncate": "rm ./dist/*",
-    "browse": "npm run watch & browser-sync start --config=./watch.browser.es",
+    "browse": "browser-sync start --config=./watch.browser.es",
     "cover": "tap index.test.es --cov --coverage-report=lcov",
     "distribute": "./distribute"
   },
