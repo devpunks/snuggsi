@@ -15,6 +15,8 @@ var HTMLLinkElement = (function () {
       shadow = function(element) {
         var this$1 = this;
 
+        console.log ('template', template)
+
         var
           attributes = template.attributes
         , fragment   = template.content.cloneNode (true)
@@ -96,7 +98,7 @@ TokenList.prototype.sift = function (node) {
 
   , ELEMENT_NODE = function (attributes) { return Array
         .from (attributes || [])
-        .filter (function (attr) { return /{(\w+|#)}/g.test (attr.textContent); })
+        .filter (function (attr) { return /{(\w+|#)}/g.test (attr.value); })
         .map (function (attribute) { return nodes.push (attribute); }); }
 
   , walker =
@@ -408,17 +410,17 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
 
         this.register ()
 
-        this.onready && this.onready ()
+        this.constructor.onready &&
+          this.constructor.onready.call (this)
       };
 
       // custom element reactions
       HTMLCustomElement.prototype.connectedCallback = function () {
 
-        link &&
-          (link.onload = HTMLLinkElement.onload.bind (this))
+        link
+        && (link.onload = HTMLLinkElement.onload.bind (this))
 
-        superclass.prototype.constructor.onconnect
-          && superclass.prototype.constructor.onconnect ()
+        console.log (tag, link)
 
         this.render ()
       };

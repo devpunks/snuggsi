@@ -10,6 +10,8 @@ const HTMLLinkElement = class {
 
     const
       shadow = function(element) {
+        console.log ('template', template)
+
         let
           attributes = template.attributes
         , fragment   = template.content.cloneNode (true)
@@ -102,7 +104,7 @@ class TokenList {
     , ELEMENT_NODE = attributes =>
         Array
           .from (attributes || [])
-          .filter (attr => /{(\w+|#)}/g.test (attr.textContent))
+          .filter (attr => /{(\w+|#)}/g.test (attr.value))
           .map (attribute => nodes.push (attribute))
 
     , walker =
@@ -503,17 +505,17 @@ const Element = function
 
         this.register ()
 
-        this.onready && this.onready ()
+        this.constructor.onready &&
+          this.constructor.onready.call (this)
       }
 
       // custom element reactions
       connectedCallback () {
 
-        link &&
-          (link.onload = HTMLLinkElement.onload.bind (this))
+        link
+        && (link.onload = HTMLLinkElement.onload.bind (this))
 
-        super.constructor.onconnect
-          && super.constructor.onconnect ()
+        console.log (tag, link)
 
         this.render ()
       }
