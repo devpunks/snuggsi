@@ -17,7 +17,7 @@
 //  }
 //}
 
-const Template = function (name = 'snuggsi') {
+const Template = function (name) {
 
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind } )
