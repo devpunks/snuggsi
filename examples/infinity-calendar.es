@@ -14,9 +14,15 @@ Element `infinity-calendar`
   }
 
   static onchange () {
+
     const
-      month = this.select ('[name=month]').value
-    , year  = this.select ('[name=year]').value
+      month =
+        this.select
+          ('[name=month]').value
+
+    , year =
+        this.select
+          ('[name=year]').value
 
     this.context.date =
       new Date (year, month, 1)
