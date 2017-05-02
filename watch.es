@@ -5,13 +5,14 @@ const
 , bundle = 'npm run bundle'
 , reload = './node_modules/.bin/browser-sync reload --port 8181'
 , minify = 'npm run gcc'
+, copy   = 'cp ./dist/snuggsi.min.es ./snuggsi.min.js'
 , list   = 'ls -al ./dist/*.es'
 
 , message = `\n Watching => ${dir}🔎 👀 \n`
 , echo    = `echo "${message}"`
 
 , exec = require ('child_process').exec
-, command = [bundle, minify, clear, echo, list,  reload].join (' && ')
+, command = [bundle, minify, copy, reload, clear, echo, list].join (' && ')
 
 require ('fs').watch (dir, { recursive: true },
   (event, file) => {
