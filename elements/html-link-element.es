@@ -10,6 +10,8 @@ const HTMLLinkElement = class {
 
     const
       shadow = function(element) {
+        console.log ('template', template)
+
         let
           attributes = template.attributes
         , fragment   = template.content.cloneNode (true)

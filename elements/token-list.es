@@ -45,7 +45,7 @@ class TokenList {
     , ELEMENT_NODE = attributes =>
         Array
           .from (attributes || [])
-          .filter (attr => /{(\w+|#)}/g.test (attr.textContent))
+          .filter (attr => /{(\w+|#)}/g.test (attr.value))
           .map (attribute => nodes.push (attribute))
 
     , walker =

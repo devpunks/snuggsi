@@ -67,17 +67,17 @@ const Element = function
 
         this.register ()
 
-        this.onready && this.onready ()
+        this.constructor.onready &&
+          this.constructor.onready.call (this)
       }
 
       // custom element reactions
       connectedCallback () {
 
-        link &&
-          (link.onload = HTMLLinkElement.onload.bind (this))
+        link
+        && (link.onload = HTMLLinkElement.onload.bind (this))
 
-        super.constructor.onconnect
-          && super.constructor.onconnect ()
+        console.log (tag, link)
 
         this.render ()
       }
