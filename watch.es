@@ -12,7 +12,7 @@ const
 , echo    = `echo "${message}"`
 
 , exec = require ('child_process').exec
-, command = [bundle, minify, copy, reload, clear, echo, list].join (' && ')
+, command = [bundle, reload, minify, copy, clear, echo, list].join (' && ')
 
 require ('fs').watch (dir, { recursive: true },
   (event, file) => {
