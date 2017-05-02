@@ -1,4 +1,4 @@
-var ElementPrototype = window.Element.prototype // see bottom of this file
+const ElementPrototype = window.Element.prototype // see bottom of this file
 
 const Element = function
   (tag, CustomElementRegistry = window.customElements )
@@ -38,9 +38,10 @@ const Element = function
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
       constructor () { super ()
+        console.log ('constructor', this.selectAll ('*'))
         this.context = context
 
-        super.initialize && super.initialize ()
+        this.initialize && this.initialize ()
       }
 
       render () {
@@ -73,11 +74,11 @@ const Element = function
 
       // custom element reactions
       connectedCallback () {
+        console.log ('connected', this.querySelectorAll ('*'))
 
-        link
-        && (link.onload = HTMLLinkElement.onload.bind (this))
-
-        console.log (tag, link)
+        link &&
+          document.addEventListener
+            ('HTMLImportsLoaded', HTMLLinkElement.onload.bind (this))
 
         this.render ()
       }
