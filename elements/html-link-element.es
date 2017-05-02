@@ -1,3 +1,4 @@
+
 const HTMLLinkElement = class {
 
   static onload (event) {
