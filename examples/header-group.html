@@ -3,8 +3,6 @@
 
 <title>&lt;header-group&gt;</title>
 
-<script nomodule src=../dist/snuggsi.min.es></script>
-
 <!-- optionally batteries-included -->
 <style>
 header-group {
@@ -19,6 +17,10 @@ header-group {
   Element `header-group`
 
   (class extends HTMLElement {
+    constructor () { super ()
+      console.log ('shazam')
+    }
+
     static onfoo (event) {
       console.log (event)
     }
