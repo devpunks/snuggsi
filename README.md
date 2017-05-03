@@ -37,7 +37,7 @@
 
 
 ## Easy Installation
-place the following `<script>` in the `<head>` of `<html>` page
+place the following `<script>` in your webpage
 ```html
 <script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
 ```
