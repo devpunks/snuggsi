@@ -1,58 +1,27 @@
-const HTMLLinkElement = class {
+const HTMLLinkElement = function (tag) {
+  console.log (tag)
 
-  static onload (event) {
+  const
+    link =
+      document
+        .querySelector // use CSS :any ?
+          ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
+    || {}
 
-    console.log ('wat',event.target)
+  Object
+    .defineProperty (link, 'onimport', {
+      set (handler) {
 
-    let
-      template = event.target.import
-        .querySelector ('template')
+        !!! HTMLImports.useNative
+          ? !!! console.warn ('foo') &&
 
-    const
-      shadow = function(element) {
-        let
-          attributes = template.attributes
-        , fragment   = template.content.cloneNode (true)
-
-        , register = attribute =>
-            (this.setAttribute (attribute.name, attribute.value))
-
-        Array
-          .from (attributes)
-          .map  (register)
-
-        fragment.slots =
-          Array.from (fragment.querySelectorAll ('slot'))
-
-        element.slots =
-          Array.from (element.querySelectorAll ('[slot]'))
-
-        element.slots.map (function (namedslot) {
-          fragment.slots
-            .filter (slot =>
-              (slot.getAttribute ('name') === namedslot.getAttribute ('slot'))
-            )
-            .map (slot =>
-              slot
-                // prefer to use replaceWith however support is sparse
-                // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-                // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
-                // https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
-                // https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
-                .parentNode
-                .replaceChild (namedslot, slot)
-            )
-        })
-
-        element.innerHTML = ''
-        element.append (fragment)
+      document.addEventListener
+            ('HTMLImportsLoaded', _ => handler ({ target: link }))
+          : handler ({ target: link })
       }
+    })
 
-    Array.from
-      // should be using currentScript ?
-      (document.getElementsByTagName (this.tagName.toLowerCase ()))
-      .map (shadow, this)
-  }
+  return link
 }
 
 class TokenList {
@@ -102,7 +71,7 @@ class TokenList {
     , ELEMENT_NODE = attributes =>
         Array
           .from (attributes || [])
-          .filter (attr => /{(\w+|#)}/g.test (attr.textContent))
+          .filter (attr => /{(\w+|#)}/g.test (attr.value))
           .map (attribute => nodes.push (attribute))
 
     , walker =
@@ -434,7 +403,7 @@ const GlobalEventHandlers = Element =>
   }
 })
 
-var ElementPrototype = window.Element.prototype // see bottom of this file
+const ElementPrototype = window.Element.prototype // see bottom of this file
 
 const Element = function
   (tag, CustomElementRegistry = window.customElements )
@@ -444,11 +413,6 @@ const Element = function
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
 { tag = tag [0]
-
-  const
-    link = document
-      .querySelector // use CSS :any ?
-        ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
 
   return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
@@ -474,9 +438,10 @@ const Element = function
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
       constructor () { super ()
+
         this.context = context
 
-        super.initialize && super.initialize ()
+        this.initialize && this.initialize ()
       }
 
       render () {
@@ -503,20 +468,82 @@ const Element = function
 
         this.register ()
 
-        this.onready && this.onready ()
+        this.constructor.onready &&
+          this.constructor.onready.call (this)
       }
 
       // custom element reactions
       connectedCallback () {
+        const
+          link = new HTMLLinkElement (tag)
 
-        link &&
-          (link.onload = HTMLLinkElement.onload.bind (this))
+          link.onimport = this.clone.bind (this)
+      }
 
-        super.constructor.onconnect
-          && super.constructor.onconnect ()
+      clone (event) {
+        console.log ('cloning', event.target)
+        console.log ('wat', this, event.target)
+
 
         this.render ()
       }
+
+//_onload (event) {
+
+//  return
+
+//  let
+//    template = event.target.import
+//      .querySelector ('template')
+
+//  const
+//    shadow = function(element) {
+//      console.log ('template', template)
+
+//      let
+//        attributes = template.attributes
+//      , fragment   = template.content.cloneNode (true)
+
+//      , register = attribute =>
+//          (this.setAttribute (attribute.name, attribute.value))
+
+//      Array
+//        .from (attributes)
+//        .map  (register)
+
+//      fragment.slots =
+//        Array.from (fragment.querySelectorAll ('slot'))
+
+//      element.slots =
+//        Array.from (element.querySelectorAll ('[slot]'))
+
+//      element.slots.map (function (namedslot) {
+//        fragment.slots
+//          .filter (slot =>
+//            (slot.getAttribute ('name') === namedslot.getAttribute ('slot'))
+//          )
+//          .map (slot =>
+//            slot
+//              // prefer to use replaceWith however support is sparse
+//              // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+//              // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
+//              // https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
+//              // https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
+//              .parentNode
+//              .replaceChild (namedslot, slot)
+//          )
+//      })
+
+//      element.innerHTML = ''
+//      element.append (fragment)
+//    }
+
+//  Array.from
+//    // should be using currentScript ?
+//    (document.getElementsByTagName (this.tagName.toLowerCase ()))
+//    .map (shadow, this)
+//}
+
     }
 
 //  try
