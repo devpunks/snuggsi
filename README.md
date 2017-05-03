@@ -72,9 +72,9 @@ Just insert the following ` polyfill <script> *before* snuggsiツ for classic br
 
   | Feature    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
-  | Custom Elements | ✓ | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
-  | Templates | ✓ | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
-  | HTML Imports | ✓ | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
+  | Custom Elements | ✅ | ✅ | ✅ | ✅ | ✅ | ✅| ✅ |
+  | Templates | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+  | HTML Imports | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
 
   _\*Indicates the current version of the browser_
 
