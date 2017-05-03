@@ -73,10 +73,6 @@ for more details.
   The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
   polyfills are intended to work in the latest versions of evergreen browsers.
 
-  The polyfills may work in older browsers, however require additional polyfills
-  (such as classList, or other [platform](https://github.com/webcomponents/webcomponents-platform) polyfills)
-  to be used. We cannot guarantee support for browsers outside of the compatibility matrix.
-
 
 # Quick Tour
 
