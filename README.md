@@ -24,7 +24,7 @@
 
 <p align=center>
   <h1>snuggsi ツ - Easy Web Components in
-    <a href=https://github.com/devpunks/snuggsi/dist#readme>1Kb</a>
+    <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>1Kb</a>
   </h1>
 
   <em>"Performance is the art of avoiding work"<em> - #FreeJewelry :ring: :gem:
@@ -201,7 +201,7 @@ document
 Snuggsi is able to use modern compression algorithms to create
 bundles as small as *~1500 OCTETS* _(or one 1500byte Ethernet packet frame)_
 
-[Read More](https://github.com/devpunks/snuggsi/dist#readme)
+[Read More](https://github.com/devpunks/snuggsi/tree/master/dist#readme)
 
 
 ### Browse Examples
