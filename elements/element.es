@@ -72,7 +72,8 @@ const Element = function
         const
           link = new HTMLLinkElement (tag)
 
-          link.onimport = this.clone.bind (this)
+        link.onimport =
+          this.clone.bind (this)
       }
 
       clone (event) {

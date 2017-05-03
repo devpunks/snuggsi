@@ -10,13 +10,13 @@ const HTMLLinkElement = function (tag) {
 
   Object
     .defineProperty (link, 'onimport', {
+
       set (handler) {
 
         !!! HTMLImports.useNative
-          ? !!! console.warn ('foo') &&
-
-      document.addEventListener
-            ('HTMLImportsLoaded', _ => handler ({ target: link }))
+          ? HTMLImports.whenReady // eww
+            // https://github.com/webcomponents/html-imports#htmlimports
+            ( _ => handler ({ target: link }) )
           : handler ({ target: link })
       }
     })
