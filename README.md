@@ -204,20 +204,20 @@ bundles as small as *~1500 OCTETS* _(or one 1500byte Ethernet packet frame)_
 [Read More](https://github.com/devpunks/snuggsi/tree/master/dist#readme)
 
 
-### Browse Examples
+## Browse Examples
 ```bash
 $ git clone https://github.com/devpunks/snuggsi.git
 $ cd snuggsi && npm i
 $ npm run browse
 ```
 
-### Development Dependencies
+### Installation Dependencies
   - [Node.js](https://nodejs.org/en/download/)
   - [Tap](https://github.com/tapjs/node-tap)
   - [Browser Sync](https://browsersync.io)
   - [jsdom](https://github.com/tmpvar/jsdom)
 
-### Testing
+## Testing
 
 ```bash
 $ npm test
