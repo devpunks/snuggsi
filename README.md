@@ -98,12 +98,12 @@ Element `hello-world`
 
 (class extends HTMLElement {
 
-  static onclick ()
-    // "automagic" event registration to static class methods
-    { alert (this.textContent) } // for shits & giggles 💩 😆
+  static onclick () // for shits & giggles 💩 😆
+    // "automagic" event registration
+    { alert (this.textContent) }
 
   get planet ()
-    // "automagic" token binding to class properties
+    // "automagic" token binding
     { return 'world 🌎' }
 })
 
