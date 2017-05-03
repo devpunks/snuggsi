@@ -1,65 +1,30 @@
 
 var this$1 = this;
-var HTMLLinkElement = (function () {
-  function HTMLLinkElement () {}
+var HTMLLinkElement = function (tag) {
+  console.log (tag)
 
-  HTMLLinkElement.onload = function (event) {
+  var
+    link =
+      document
+        .querySelector // use CSS :any ?
+          ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
+    || {}
 
-    console.log ('wat',event.target)
+  Object
+    .defineProperty (link, 'onimport', {
+      set: function (handler) {
 
-    var
-      template = event.target.import
-        .querySelector ('template')
+        !!! HTMLImports.useNative
+          ? !!! console.warn ('foo') &&
 
-    var
-      shadow = function(element) {
-        var this$1 = this;
-
-        console.log ('template', template)
-
-        var
-          attributes = template.attributes
-        , fragment   = template.content.cloneNode (true)
-
-        , register = function (attribute) { return (this$1.setAttribute (attribute.name, attribute.value)); }
-
-        Array
-          .from (attributes)
-          .map  (register)
-
-        fragment.slots =
-          Array.from (fragment.querySelectorAll ('slot'))
-
-        element.slots =
-          Array.from (element.querySelectorAll ('[slot]'))
-
-        element.slots.map (function (namedslot) {
-          fragment.slots
-            .filter (function (slot) { return (slot.getAttribute ('name') === namedslot.getAttribute ('slot')); }
-            )
-            .map (function (slot) { return slot
-                // prefer to use replaceWith however support is sparse
-                // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-                // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
-                // https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
-                // https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
-                .parentNode
-                .replaceChild (namedslot, slot); }
-            )
-        })
-
-        element.innerHTML = ''
-        element.append (fragment)
+      document.addEventListener
+            ('HTMLImportsLoaded', function (_) { return handler ({ target: link }); })
+          : handler ({ target: link })
       }
+    })
 
-    Array.from
-      // should be using currentScript ?
-      (document.getElementsByTagName (this.tagName.toLowerCase ()))
-      .map (shadow, this)
-  };
-
-  return HTMLLinkElement;
-}())
+  return link
+}
 
 var TokenList = function (node) {
   var this$1 = this;
@@ -354,11 +319,6 @@ var Element = function
 if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
  tag = tag [0]
 
-  var
-    link = document
-      .querySelector // use CSS :any ?
-        ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
-
   return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
 
@@ -375,9 +335,10 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
 
     var HTMLCustomElement = (function (superclass) {
       function HTMLCustomElement () { superclass.call (this)
+
         this.context = context
 
-        superclass.prototype.initialize && superclass.prototype.initialize.call (this)
+        this.initialize && this.initialize ()
       }
 
       if ( superclass ) HTMLCustomElement.__proto__ = superclass;
@@ -416,11 +377,16 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
 
       // custom element reactions
       HTMLCustomElement.prototype.connectedCallback = function () {
+        var
+          link = new HTMLLinkElement (tag)
 
-        link
-        && (link.onload = HTMLLinkElement.onload.bind (this))
+          link.onimport = this.clone.bind (this)
+      };
 
-        console.log (tag, link)
+      HTMLCustomElement.prototype.clone = function (event) {
+        console.log ('cloning', event.target)
+        console.log ('wat', this, event.target)
+
 
         this.render ()
       };
