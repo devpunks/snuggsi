@@ -69,20 +69,21 @@ const Element = function
 
       // custom element reactions
       connectedCallback () {
+        const
+          link = new HTMLLinkElement (tag)
 
-        (new HTMLLinkElement (tag))
-          .onload = this.clone.bind (this)
+          link.onimport = this.clone.bind (this)
       }
 
       clone (event) {
         console.log ('cloning', event.target)
+        console.log ('wat', this, event.target)
+
 
         this.render ()
       }
 
 //_onload (event) {
-
-//  console.log ('wat', this, event.target)
 
 //  return
 
