@@ -90,21 +90,21 @@ _See [examples](/examples) for more details._
 <script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
 <script nomodule>
 
-// Custom Element Definition -----------------------------
+// Element Definition -----------------------------
 
 Element `hello-world`
 
-// Class Description -------------------------------------
+// Class Description ------------------------------
 
 (class extends HTMLElement {
-
-  static onclick () // for shits & giggles 💩 😆
-    // "automagic" event registration
-    { alert (this.textContent) }
 
   get planet ()
     // "automagic" token binding
     { return 'world 🌎' }
+
+  static onclick ()
+    // "automagic" event registration
+    { alert (this) }
 })
 
 </script>
