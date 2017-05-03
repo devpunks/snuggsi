@@ -1,9 +1,42 @@
 
 const HTMLLinkElement = class {
 
-  static onload (event) {
+  constructor (tag) {
+    const
+      link = document
+        .querySelector // use CSS :any ?
+          ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
+      || {}
 
-    console.log ('wat',event.target)
+    Object.defineProperty (link, 'onload',
+      {
+        enumerable: true
+      , set (handler) {
+          this.tagName
+            ? handler
+            : handler ({ target: this })
+        }
+      }
+    )
+
+    return link
+  }
+
+  set onload (handler) {
+
+    console.log ('handling', link)
+//  link &&
+//    document.addEventListener
+//      ('HTMLImportsLoaded', _ => this.onload.call (element))
+
+  console.log ('link', link)
+  }
+
+  _onload (event) {
+
+    console.log ('wat', this, event.target)
+
+    return
 
     let
       template = event.target.import
@@ -448,11 +481,6 @@ const Element = function
 
 { tag = tag [0]
 
-  const
-    link = document
-      .querySelector // use CSS :any ?
-        ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
-
   return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
 
@@ -477,7 +505,7 @@ const Element = function
     { // exotic object - https://github.com/whatwg/html/issues/1704
 
       constructor () { super ()
-        console.log ('constructor', this.selectAll ('*'))
+
         this.context = context
 
         this.initialize && this.initialize ()
@@ -513,13 +541,16 @@ const Element = function
 
       // custom element reactions
       connectedCallback () {
-        console.log ('connected', this.querySelectorAll ('*'))
 
-        link &&
-          document.addEventListener
-            ('HTMLImportsLoaded', HTMLLinkElement.onload.bind (this))
+        (new HTMLLinkElement (tag))
+          .onload = this.clone.bind (this)
 
-        this.render ()
+//      this.render ()
+
+      }
+
+      clone (event) {
+        console.log ('cloning')
       }
     }
 
