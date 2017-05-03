@@ -41,11 +41,13 @@ Uses uglify
 
 #### Brotli Compression _(*.min.br)_
 
-https://blogs.akamai.com/2016/02/understanding-brotlis-potential.html
-
 `snuggsi.min.es` ➡️  `snuggsi.min.es.br`
 
 `snuggsi.min.js` ➡️  `snuggsi.min.js.br`
+
+Links
+- https://blogs.akamai.com/2016/02/understanding-brotlis-potential.html
+- https://en.wikipedia.org/wiki/Brotli
 
 Server Support
 - Ruby _(brotli)_ - https://github.com/miyucy/brotli
@@ -53,7 +55,6 @@ Server Support
 - NGINX _(ngx_brotli)_ - https://github.com/google/ngx_brotli
 - Apache _(mod_brotli)_ - https://httpd.apache.org/docs/trunk/mod/mod_brotli.html
 - IIS _(IIS Brotli)_ - https://www.iis.net/downloads/community/2016/03/iis-brotli
-- https://en.wikipedia.org/wiki/Brotli
 
 Browser Support
 - http://caniuse.com/#search=brotli
