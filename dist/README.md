@@ -33,6 +33,7 @@ Mime Type : `application/javascript`
 Uses uglify
 
 `snuggsi.es` ➡️  `snuggsi.min.es`
+
 `snuggsi.js` ➡️  `snuggsi.min.js`
 
 
@@ -43,6 +44,7 @@ Uses uglify
 https://blogs.akamai.com/2016/02/understanding-brotlis-potential.html
 
 `snuggsi.min.es` ➡️  `snuggsi.min.es.br`
+
 `snuggsi.min.js` ➡️  `snuggsi.min.js.br`
 
 Server Support
@@ -66,6 +68,7 @@ Browser Support
 - http://caniuse.com/#search=gzip
 
 `snuggsi.min.es` ➡️  `snuggsi.min.es.gz`
+
 `snuggsi.min.js` ➡️  `snuggsi.min.js.gz`
 
 Server Support
