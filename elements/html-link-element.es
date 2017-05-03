@@ -8,7 +8,16 @@ const HTMLLinkElement = class {
           ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
       || {}
 
-    Object.assign (link, { onl)
+    Object.defineProperty (link, 'onload',
+      {
+        enumerable: true
+      , set (handler) {
+          this.tagName
+            ? handler
+            : handler ({ target: this })
+        }
+      }
+    )
 
     return link
   }
