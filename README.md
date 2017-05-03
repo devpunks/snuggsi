@@ -31,8 +31,8 @@
 </p>
 
 ## Why ?
-  1. With *snuggsiツ* all you need is a browser and basic knowledge of HTML to be productive.
-  2. Because [You (probably) don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
+  1. Because [You (probably) don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
+  2. With *snuggsiツ* all you need is a browser and basic knowledge of HTML to be productive.
   3. Web Components ARE [ready for production](https://twitter.com/WebReflection/status/761316429559922688)
      &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
      [support for every modern browser including Internet Explorer 11+ / Edge](https://github.com/webcomponents/webcomponentsjs#browser-support)
