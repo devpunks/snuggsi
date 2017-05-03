@@ -77,8 +77,7 @@ for more details.
 # Quick Tour
 
 ## [Element](/elements/element.es)
-[examples/hello-word.html](/examples/hello-world.html)
-
+The following snippet is from [examples/hello-word.html](/examples/hello-world.html)
 _See [examples](/examples) for more details._
 
 
