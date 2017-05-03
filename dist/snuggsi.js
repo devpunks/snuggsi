@@ -10,18 +10,17 @@ var HTMLLinkElement = function (tag) {
           ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
     || {}
 
-  Object
-    .defineProperty (link, 'onimport', {
-      set: function (handler) {
+    Object
+      .defineProperty (link, 'onload', {
 
-        !!! HTMLImports.useNative
-          ? !!! console.warn ('foo') &&
-
-      document.addEventListener
-            ('HTMLImportsLoaded', function (_) { return handler ({ target: link }); })
+        set: function (handler) {
+          (!!! HTMLImports.useNative) ?
+              HTMLImports.whenReady // eww
+              // https://github.com/webcomponents/html-imports#htmlimports
+              ( function (_) { return handler ({ target: link }); } )
           : handler ({ target: link })
-      }
-    })
+        }
+      })
 
   return link
 }
@@ -306,6 +305,82 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     return anonymous;
   }(Element))); }
 
+var Component = function (Element) { return ((function (superclass) {
+    function anonymous () { superclass.call (this)
+
+    this.context = {}
+
+    this.initialize && this.initialize ()
+  }
+
+    if ( superclass ) anonymous.__proto__ = superclass;
+    anonymous.prototype = Object.create( superclass && superclass.prototype );
+    anonymous.prototype.constructor = anonymous;
+
+  anonymous.prototype.render = function () {
+    // template = super.render ()
+    // Where should this insert?
+    // What about the meta elements (i.e. script, style, meta)
+
+    console.log ('rendering', this)
+
+    this.tokens.bind (this)
+
+    void (function (templates) {
+      var this$1 = this;
+
+
+      var
+        bind = function (template) {
+          var
+            name = template.getAttribute ('name')
+
+          void (new Template (name))
+            .bind (this$1 [name])
+        }
+
+      templates.map (bind)
+    })
+    .call (this, Array.from (this.selectAll ('template[name]')))
+
+    this.register ()
+
+    this.constructor.onready &&
+      this.constructor.onready.call (this)
+  };
+
+  // custom element reactions
+  anonymous.prototype.connectedCallback = function () {
+
+    var
+      link =
+        new HTMLLinkElement
+          (this.tagName.toLowerCase ())
+
+    link.onload =
+      this.clone.bind (this)
+  };
+
+  anonymous.prototype.clone = function (event) {
+    console.log ('cloning', event.target)
+    console.log ('wat', this, event.target)
+
+    var
+      d = event.target.import
+    , template =
+        d && d.children[0]
+
+    console.log ('document', this, template )
+
+    this.render ()
+  };
+
+    return anonymous;
+  }((EventTarget
+  ( ParentNode
+    ( GlobalEventHandlers
+      ( Element ))))))); }
+
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
 var Element = function
@@ -333,73 +408,11 @@ if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customEle
 //  catch (_)
 //    { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
 
-    var HTMLCustomElement = (function (superclass) {
-      function HTMLCustomElement () { superclass.call (this)
-
-        this.context = context
-
-        this.initialize && this.initialize ()
-      }
-
-      if ( superclass ) HTMLCustomElement.__proto__ = superclass;
-      HTMLCustomElement.prototype = Object.create( superclass && superclass.prototype );
-      HTMLCustomElement.prototype.constructor = HTMLCustomElement;
-
-      HTMLCustomElement.prototype.render = function () {
-        // template = super.render ()
-        // Where should this insert?
-        // What about the meta elements (i.e. script, style, meta)
-
-        this.tokens.bind (this)
-
-        void (function (templates) {
-          var this$1 = this;
-
-
-          var
-            bind = function (template) {
-              var
-                name = template.getAttribute ('name')
-
-              void (new Template (name))
-                .bind (this$1 [name])
-            }
-
-          templates.map (bind)
-        })
-        .call (this, Array.from (this.selectAll ('template[name]')))
-
-        this.register ()
-
-        this.constructor.onready &&
-          this.constructor.onready.call (this)
-      };
-
-      // custom element reactions
-      HTMLCustomElement.prototype.connectedCallback = function () {
-        var
-          link = new HTMLLinkElement (tag)
-
-          link.onimport = this.clone.bind (this)
-      };
-
-      HTMLCustomElement.prototype.clone = function (event) {
-        console.log ('cloning', event.target)
-        console.log ('wat', this, event.target)
-
-
-        this.render ()
-      };
-
-      return HTMLCustomElement;
-    }(EventTarget
-        ( ParentNode
-          ( GlobalEventHandlers
-            ( HTMLElement )))));
 
 //  try
 //    {
-        CustomElementRegistry.define (tag, HTMLCustomElement)
+        CustomElementRegistry.define
+          (tag, Component (HTMLElement))
 //    }
 
 //  finally
