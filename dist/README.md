@@ -113,7 +113,7 @@ $ npm run transpile
 ```
 
 #### Bundle
-Simple con`cat` script for standalone ECMASCript modules
+Simple `cat` script for standalone ECMASCript modules
 ```bash
 $ npm run bundle
 ```
