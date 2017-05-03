@@ -8,18 +8,17 @@ const HTMLLinkElement = function (tag) {
           ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
     || {}
 
-  Object
-    .defineProperty (link, 'onimport', {
-      set (handler) {
+    Object
+      .defineProperty (link, 'onload', {
 
-        !!! HTMLImports.useNative
-          ? !!! console.warn ('foo') &&
-
-      document.addEventListener
-            ('HTMLImportsLoaded', _ => handler ({ target: link }))
+        set (handler) {
+          (!!! HTMLImports.useNative) ?
+              HTMLImports.whenReady // eww
+              // https://github.com/webcomponents/html-imports#htmlimports
+              ( _ => handler ({ target: link }) )
           : handler ({ target: link })
-      }
-    })
+        }
+      })
 
   return link
 }
@@ -403,98 +402,85 @@ const GlobalEventHandlers = Element =>
   }
 })
 
-const ElementPrototype = window.Element.prototype // see bottom of this file
+const Component = Element => // why buble
 
-const Element = function
-  (tag, CustomElementRegistry = window.customElements )
+  // exotic object - https://github.com/whatwg/html/issues/1704
 
-  //https://gist.github.com/allenwb/53927e46b31564168a1d
-  // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
-  // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
+(class extends
+// interfaces
+(EventTarget
+  ( ParentNode
+    ( GlobalEventHandlers
+      ( Element ))))
 
-{ tag = tag [0]
+{
 
-  return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
-  { // Should this be a class❓❓❓❓
+  constructor () { super ()
+
+    this.context = {}
+
+    this.initialize && this.initialize ()
+  }
+
+  render () {
+    // template = super.render ()
+    // Where should this insert?
+    // What about the meta elements (i.e. script, style, meta)
+
+    console.log ('rendering', this)
+
+    this.tokens.bind (this)
+
+    void (function (templates) {
+
+      const
+        bind = template => {
+          const
+            name = template.getAttribute ('name')
+
+          void (new Template (name))
+            .bind (this [name])
+        }
+
+      templates.map (bind)
+    })
+    .call (this, Array.from (this.selectAll ('template[name]')))
+
+    this.register ()
+
+    this.constructor.onready &&
+      this.constructor.onready.call (this)
+  }
+
+  // custom element reactions
+  connectedCallback () {
 
     const
-      context =
-        this === window ?
-          {} : this
+      link =
+        new HTMLLinkElement
+          (this.tagName.toLowerCase ())
 
-//  try
-//    { return new CustomElementRegistry.get (tag) }
+    link.onload =
+      this.clone.bind (this)
+  }
 
-//  catch (_)
-//    { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
+  clone (event) {
+    console.log ('cloning', event.target)
+    console.log ('wat', this, event.target)
 
-    class HTMLCustomElement extends // mixins
+    const
+      d = event.target.import
+    , template =
+        d && d.children[0]
 
-      EventTarget
-        ( ParentNode
-          ( GlobalEventHandlers
-            ( HTMLElement )))
+    console.log ('document', this, template )
 
-    { // exotic object - https://github.com/whatwg/html/issues/1704
-
-      constructor () { super ()
-
-        this.context = context
-
-        this.initialize && this.initialize ()
-      }
-
-      render () {
-        // template = super.render ()
-        // Where should this insert?
-        // What about the meta elements (i.e. script, style, meta)
-
-        this.tokens.bind (this)
-
-        void (function (templates) {
-
-          const
-            bind = template => {
-              const
-                name = template.getAttribute ('name')
-
-              void (new Template (name))
-                .bind (this [name])
-            }
-
-          templates.map (bind)
-        })
-        .call (this, Array.from (this.selectAll ('template[name]')))
-
-        this.register ()
-
-        this.constructor.onready &&
-          this.constructor.onready.call (this)
-      }
-
-      // custom element reactions
-      connectedCallback () {
-        const
-          link = new HTMLLinkElement (tag)
-
-          link.onimport = this.clone.bind (this)
-      }
-
-      clone (event) {
-        console.log ('cloning', event.target)
-        console.log ('wat', this, event.target)
-
-
-        this.render ()
-      }
+    this.render ()
+  }
 
 //_onload (event) {
 
 //  return
-
-//  let
-//    template = event.target.import
-//      .querySelector ('template')
 
 //  const
 //    shadow = function(element) {
@@ -544,11 +530,38 @@ const Element = function
 //    .map (shadow, this)
 //}
 
-    }
+})
+
+const ElementPrototype = window.Element.prototype // see bottom of this file
+
+const Element = function
+  (tag, CustomElementRegistry = window.customElements )
+
+  //https://gist.github.com/allenwb/53927e46b31564168a1d
+  // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
+  // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
+
+{ tag = tag [0]
+
+  return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
+  { // Should this be a class❓❓❓❓
+
+    const
+      context =
+        this === window ?
+          {} : this
+
+//  try
+//    { return new CustomElementRegistry.get (tag) }
+
+//  catch (_)
+//    { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
+
 
 //  try
 //    {
-        CustomElementRegistry.define (tag, HTMLCustomElement)
+        CustomElementRegistry.define
+          (tag, Component (HTMLElement))
 //    }
 
 //  finally
