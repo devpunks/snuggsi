@@ -3,8 +3,8 @@
 Snuggsi size is 1500 octets
 
 ## Glossary
-Octet - https://en.wikipedia.org/wiki/Octet_(computing)
-(Ethernet) Packet - https://en.wikipedia.org/wiki/Ethernet_frame
+  - Octet - https://en.wikipedia.org/wiki/Octet_(computing)
+  - (Ethernet) Packet - https://en.wikipedia.org/wiki/Ethernet_frame
 
 ## ECMAScript Bundle (snuggsi.es)
 Mime Type : `application/ecmascript`
