@@ -70,8 +70,8 @@ const Element = function
       // custom element reactions
       connectedCallback () {
 
-        console.log ((new HTMLLinkElement (tag)).onload = 'foo')
-//        .onload = this.clone.bind (this)
+        (new HTMLLinkElement (tag))
+          .onload = this.clone.bind (this)
 
 //      this.render ()
 
