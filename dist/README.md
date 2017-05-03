@@ -39,41 +39,47 @@ Uses uglify
 ### Compression
 
 #### Brotli Compression _(*.min.br)_
-`snuggsi.min.es` ➡️  `snuggsi.min.es.br`
-`snuggsi.min.js` ➡️  `snuggsi.min.js.br`
 
-Server Support
-  - http://caniuse.com/#search=brotli
-  - NGINX _(ngx_brotli)_ - https://github.com/google/ngx_brotli
-  - Apache _(mod_brotli)_ - https://httpd.apache.org/docs/trunk/mod/mod_brotli.html
-  - IIS _(IIS Brotli)_ - https://www.iis.net/downloads/community/2016/03/iis-brotli
-  - https://en.wikipedia.org/wiki/Brotli
+  https://blogs.akamai.com/2016/02/understanding-brotlis-potential.html
 
-Browser Support
-  - Google Chrome has supported Brotli since version 49
-  - Microsoft Edge supports Brotli since version 15
-  - Mozilla Firefox implemented Brotli in version 44
-  - Opera supports Brotli since version 36
-  - Safari supports Brotli as of version 10, released September 20, 2016
+  `snuggsi.min.es` ➡️  `snuggsi.min.es.br`
+  `snuggsi.min.js` ➡️  `snuggsi.min.js.br`
+
+  Server Support
+    - Ruby _(brotli)_ - https://github.com/miyucy/brotli
+    - Node _(brotli)_ - https://www.npmjs.com/package/brotli
+    - NGINX _(ngx_brotli)_ - https://github.com/google/ngx_brotli
+    - Apache _(mod_brotli)_ - https://httpd.apache.org/docs/trunk/mod/mod_brotli.html
+    - IIS _(IIS Brotli)_ - https://www.iis.net/downloads/community/2016/03/iis-brotli
+    - https://en.wikipedia.org/wiki/Brotli
+
+  Browser Support
+    - http://caniuse.com/#search=brotli
+    - Google Chrome has supported Brotli since version 49
+    - Microsoft Edge supports Brotli since version 15
+    - Mozilla Firefox implemented Brotli in version 44
+    - Opera supports Brotli since version 36
+    - Safari supports Brotli as of version 10, released September 20, 2016
 
 
 #### GZip Compression _(*.min.gz)_
   - http://caniuse.com/#search=gzip
 
-`snuggsi.min.es` ➡️  `snuggsi.min.es.gz`
-`snuggsi.min.js` ➡️  `snuggsi.min.js.gz`
+  `snuggsi.min.es` ➡️  `snuggsi.min.es.gz`
+  `snuggsi.min.js` ➡️  `snuggsi.min.js.gz`
 
-Server Support
-  - http://www.gzip.org
+  Server Support
+    - http://www.gzip.org
 
-Browser Support
-  - Netscape 6+ (Netscape 4-5 does, but with some bugs)
-  - Internet Explorer 5.5+ (July 2000) and IE 4 if set to HTTP/1.1
-  - Opera 5+ (June 2000)
-  - Lynx 2.6+ (some time before 1999)
-  - Firefox 0.9.5+ (October 2001)
-  - Chrome since forever
-  - Safari since forever (as far as I can tell)
+  Browser Support
+    - http://schroepl.net/projekte/mod_gzip/browser.htm
+    - Netscape 6+ (Netscape 4-5 does, but with some bugs)
+    - Internet Explorer 5.5+ (July 2000) and IE 4 if set to HTTP/1.1
+    - Opera 5+ (June 2000)
+    - Lynx 2.6+ (some time before 1999)
+    - Firefox 0.9.5+ (October 2001)
+    - Chrome since forever
+    - Safari since forever (as far as I can tell)
 
 ### Scripts
 
