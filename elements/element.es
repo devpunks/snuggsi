@@ -72,7 +72,7 @@ const Element = function
         const
           link = new HTMLLinkElement (tag)
 
-        link.onimport =
+        link.onload =
           this.clone.bind (this)
       }
 
@@ -80,17 +80,18 @@ const Element = function
         console.log ('cloning', event.target)
         console.log ('wat', this, event.target)
 
+        const
+          d = event.target.import
+        , template =
+            d && d.querySelectorAll ('*')
 
+        console.log ('document', template )
         this.render ()
       }
 
 //_onload (event) {
 
 //  return
-
-//  let
-//    template = event.target.import
-//      .querySelector ('template')
 
 //  const
 //    shadow = function(element) {

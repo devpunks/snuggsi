@@ -8,18 +8,17 @@ const HTMLLinkElement = function (tag) {
           ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
     || {}
 
-  Object
-    .defineProperty (link, 'onimport', {
+  !!! HTMLImports.useNative &&
+    Object
+      .defineProperty (link, 'onload', {
 
-      set (handler) {
+        set (handler) {
 
-        !!! HTMLImports.useNative
-          ? HTMLImports.whenReady // eww
-            // https://github.com/webcomponents/html-imports#htmlimports
-            ( _ => handler ({ target: link }) )
-          : handler ({ target: link })
-      }
-    })
+            HTMLImports.whenReady // eww
+              // https://github.com/webcomponents/html-imports#htmlimports
+              ( _ => handler ({ target: link }) )
+        }
+      })
 
   return link
 }
