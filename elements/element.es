@@ -12,28 +12,23 @@ const Element = function
   return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
 
-    const
-      context =
-        this === window ?
-          {} : this
+    //try
+    //  { return new CustomElementRegistry.get (tag) }
 
-//  try
-//    { return new CustomElementRegistry.get (tag) }
-
-//  catch (_)
-//    { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
+    //catch (_)
+    //  { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
 
 
-//  try
-//    {
-        CustomElementRegistry.define
-          (tag, Component (HTMLElement))
-//    }
+    //try
+    //  {
+          CustomElementRegistry.define
+            (tag, Component (HTMLElement))
+    //  }
 
-//  finally
-//    {
-        return CustomElementRegistry.get (tag)
-//    }
+    //finally
+    //  {
+    //    return CustomElementRegistry.get (tag)
+    //  }
   }
 }
 
