@@ -66,6 +66,7 @@ for more details.
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
   | Custom Elements | ✓ | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
   | Templates | ✓ | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
+  | HTML Imports | ✓ | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
 
   _\*Indicates the current version of the browser_
 
