@@ -48,7 +48,7 @@ Simply place the following `<script>` anywhere in your webpage
 
 Et Voila _(that's it!)_
 
-See [ECMAScript Module Imorts](https://github.com/devpunks/snuggsi/wiki/ECMAScript)
+See [ECMAScript Module Imorts](https://github.com/devpunks/snuggsi/wiki/Modle-Imports)
 for more details.
 
 
