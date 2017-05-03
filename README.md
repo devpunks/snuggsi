@@ -23,44 +23,52 @@
 </p>
 
 <p align=center>
-  <h1>snuggsi ツ - Easy Web Components</h1>
+  <h1>snuggsi ツ - Easy Web Components in
+    <a href=https://github.com/devpunks/snuggsi/dist#readme>1Kb</a>
+  </h1>
 
   <em>"Performance is the art of avoiding work"<em> - #FreeJewelry :ring: :gem:
 </p>
 
 ## Why ?
-  1. With *snuggsiツ* you won't  need Node.js, Webpack, Babel, or Gulp to be productive. Just a browser and basic knowledge of HTML
+  1. With *snuggsiツ* all you need is a browser and basic knowledge of HTML to be productive.
   2. Because [You (probably) don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
   3. Web Components ARE [ready for production](https://twitter.com/WebReflection/status/761316429559922688)
      &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
      [support for every modern browser including Internet Explorer 11+ / Edge](https://github.com/webcomponents/webcomponentsjs#browser-support)
 
-
 ## Easy Installation
-place the following `<script>` in your webpage
+Node.js, Webpack, Babel, or Gulp can be used but is not a requirement.
+
+Simply place the following `<script>` anywhere in your webpage
 ```html
 <script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
+<script type=module src=https://unpkg.com/snuggsi/snuggsi.es></script>
 ```
+
 Et Voila _(that's it!)_
-
-## Module Imports Installation
-The [TC39 group process](https://tc39.github.io/process-document) has recently come to an agreement on module imports
-implementation within the browser platforms. *snuggsi ツ* supports ECMAscript module `import`
-with backwards compatible custom elements support.
-
-And so should you!
 
 See [ECMAScript Module Imorts](https://github.com/devpunks/snuggsi/wiki/ECMAScript)
 for more details.
 
-```html
-<script type=module src=https://unpkg.com/snuggsi/snuggsi.es></script>
-
-<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
-<script nomodule src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
-```
 
 ## Browser Support
+
+  The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
+  polyfills are intended to work in the latest versions of evergreen browsers.
+  
+Just insert the following ` polyfill <script> *before* snuggsiツ for classic browser support.
+
+```html
+<!-- webcomponents polyfill -->
+<script src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+
+<!-- snuggsi (modern) -->
+<script type=module src=https://unpkg.com/snuggsi/snuggsi.es></script>
+
+<!-- snuggsi (classic) -->
+<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
+```
 
   | Feature    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
@@ -69,9 +77,6 @@ for more details.
   | HTML Imports | ✓ | ✓ | ✓ | ✓ | ✓ | ✓| ✓ |
 
   _\*Indicates the current version of the browser_
-
-  The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
-  polyfills are intended to work in the latest versions of evergreen browsers.
 
 
 # Quick Tour
@@ -191,17 +196,15 @@ document
 */
 ```
 
+## Build Process
 
-## Contributions
+Snuggsi is able to use modern compression algorithms to create
+bundles as small as *~1500 OCTETS* _(or one 1500byte Ethernet packet frame)_
 
-1. Fork it ( https://github.com/devpunks/snuggsi/fork )
-2. Create your feature branch (`git checkout -b my-new-feature`)
-3. Commit your changes (`git commit -am 'Add some feature'`)
-4. Push to the branch (`git push origin my-new-feature`)
-5. Create a new Pull Request
+[Read More](https://github.com/devpunks/snuggsi/dist#readme)
 
 
-### Contributor Installation
+### Browse Examples
 ```bash
 $ git clone https://github.com/devpunks/snuggsi.git
 $ cd snuggsi && npm i
@@ -214,63 +217,7 @@ $ npm run browse
   - [Browser Sync](https://browsersync.io)
   - [jsdom](https://github.com/tmpvar/jsdom)
 
-
-### Scripts
-
-#### Browse
-Watch files and hot inject browser assets on file change.
-See [watch.browser.es](watch.browser.es)
-& [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation.
-```bash
-$ npm run browse
-```
-
-#### Watch Tests
-Watch ecmascripts routine. [watch.es](watch.es)
-```bash
-$ npm run watch
-```
-#### Compile
-Run transpile, uglify, gzip, and weigh
-```bash
-$ npm run compile
-```
-
-#### Transpile
-Run bundle, and Buble for transpilation from ECMAScript to Javascript
-```bash
-$ npm run transpile
-```
-
-#### Bundle
-Simple con`cat` script for standalone ECMASCript modules
-```bash
-$ npm run bundle
-```
-
-#### Minify
-Run uglifyjs along with minification
-
-(experimental) [Google Closure Compiler](https://github.com/google/closure-compiler-js)
-
-```bash
-$ npm run minify
-```
-
-#### Compress
-gzip total byte size of bundled ecmascripts
-```bash
-$ npm run compress
-```
-
-#### Weigh
-Weigh ecmascripts routine.
-_(gzip total byte size of bundled ecmascripts)_
-```bash
-$ npm run weigh
-```
-
-#### Testing
+### Testing
 
 ```bash
 $ npm test
@@ -287,7 +234,7 @@ _"Update April 2016: since writing this post, I've moved to using tap which spaw
   - https://remysharp.com/2015/12/14/my-node-test-strategy
   - https://remysharp.com/2016/02/08/testing-tape-vs-tap
 
-#### Test Coverage
+### Test Coverage
 ```bash
 $ npm run cover
 ```
