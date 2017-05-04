@@ -1,5 +1,4 @@
 const HTMLLinkElement = function (tag) {
-  console.log (tag)
 
   const
     link =

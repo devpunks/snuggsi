@@ -65,19 +65,20 @@ const GlobalEventHandlers = Element =>
 
     , reflection =
         node => // closure
-          event => {
-            node [event] = handle (node [event]) }
+          event =>
+            node [event] = handle (node [event])
 
     , mirror = handler =>
-        !!! this [handler] == undefined &&
-           (this [handler] = Element [handler].bind (this))
+        !!! console.log (handler, (this [handler] === null)) &&
+          (this [handler] === null) && // ensure W3C on event
+            (this [handler] = Element [handler].bind (this))
 
     void [this]
       .concat (children)
       .filter (registered)
       .map (reflect (this))
 
-    Object
+    Object // mirror class events to element
       .getOwnPropertyNames (Element)
       .filter (events)
       .map (mirror)

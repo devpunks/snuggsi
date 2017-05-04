@@ -22,8 +22,6 @@ const Component = Element => // why buble
     // Where should this insert?
     // What about the meta elements (i.e. script, style, meta)
 
-    console.log ('rendering', this)
-
     this.tokens.bind (this)
 
     void (function (templates) {
@@ -43,20 +41,16 @@ const Component = Element => // why buble
 
     this.register ()
 
-    this.constructor.onidle &&
-      this.constructor.onidle.call (this)
+    this.constructor.onidle && // dispatch
+      this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   }
 
   clone (event) {
-    console.log ('cloning', event.target)
-    console.log ('wat', this, event.target)
 
     const
       d = event.target.import
     , template =
         d && d.children[0]
-
-    console.log ('document', this, template )
 
     this.render ()
   }
