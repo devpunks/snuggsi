@@ -1,5 +1,4 @@
 const HTMLLinkElement = function (tag) {
-  console.log (tag)
 
   const
     link =
@@ -229,6 +228,22 @@ const EventTarget = (Element) => // why buble
 
 (class extends Element {
 
+  // custom element reactions
+  connectedCallback () {
+
+    const
+      link =
+        new HTMLLinkElement
+          (this.tagName.toLowerCase ())
+
+    'addEventListener' in link &&
+    link.addEventListener ('load', event => console.warn ('WTF THIS WORKED?', event))
+
+    link.onload =
+      this.clone.bind (this)
+  }
+
+
   listen (event, listener = this [event])
 
     // MDN EventTarget.addEventListener
@@ -345,6 +360,18 @@ const GlobalEventHandlers = Element =>
 (class extends Element {
 
   register (events = event => /^on/.exec (event)) {
+
+    const
+      mirror = handler =>
+        (this [handler] === null) && // ensure W3C on event
+          (this [handler] = Element [handler].bind (this))
+
+    Object // mirror class events to element
+      .getOwnPropertyNames (Element)
+      .filter (events)
+      .map (mirror)
+
+
     const
       nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
         // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
@@ -356,49 +383,38 @@ const GlobalEventHandlers = Element =>
         Array
           .from (this.querySelectorAll (nodes))
 
-    , registered = node =>
-        Array.from (node.attributes)
-          .map (attr => attr.name)
-          .filter (events)
-          .length > 0
-
-    , handle =
-        (event, handler = (/{\s*(\w+)\s*}/.exec (event) || []) [1])  =>
-          handler
-            && Element [ handler ].bind (this)
-            || event
-            || null
+    , registered =
+        node =>
+          Array
+            .from (node.attributes)
+            .map (attr => attr.name)
+            .filter (events)
+            .length > 0
 
     , reflect =
-        self => // `this` closure
-          node =>
-            Array
-              .from (node.attributes)
-              .map (attr => attr.name)
-              .filter (events)
-              .filter (name => this [name] !== undefined)
-              .map (reflection (node))
+        node =>
+          Array
+            .from (node.attributes)
+            .map  (attr => attr.name)
+            .filter (events)
+            .map (reflection (node))
 
     , reflection =
         node => // closure
-          event => {
-            node [event] = handle (node [event]) }
+          event =>
+            (node [event] = handle (node [event]))
 
-    , mirror = handler =>
-        !!! this [handler] == undefined &&
-           (this [handler] = Element [handler].bind (this))
+    , handle =
+        (handler, [_, event] = (/{\s*(\w+)\s*}/.exec (handler) || []))  =>
+          handler
+            && Element [event].bind (this)
+            || event // existing event
+            || null  // default for W3C on* event handlers
 
     void [this]
       .concat (children)
       .filter (registered)
-      .map (reflect (this))
-
-    Object
-      .getOwnPropertyNames (Element)
-      .filter (events)
-      .map (mirror)
-
-    return this
+      .map (reflect)
   }
 })
 
@@ -412,7 +428,6 @@ const Component = Element => // why buble
   ( ParentNode
     ( GlobalEventHandlers
       ( Element ))))
-
 {
 
   constructor () { super ()
@@ -426,8 +441,6 @@ const Component = Element => // why buble
     // template = super.render ()
     // Where should this insert?
     // What about the meta elements (i.e. script, style, meta)
-
-    console.log ('rendering', this)
 
     this.tokens.bind (this)
 
@@ -448,32 +461,16 @@ const Component = Element => // why buble
 
     this.register ()
 
-    this.constructor.onready &&
-      this.constructor.onready.call (this)
-  }
-
-  // custom element reactions
-  connectedCallback () {
-
-    const
-      link =
-        new HTMLLinkElement
-          (this.tagName.toLowerCase ())
-
-    link.onload =
-      this.clone.bind (this)
+    this.constructor.onidle && // dispatch
+      this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   }
 
   clone (event) {
-    console.log ('cloning', event.target)
-    console.log ('wat', this, event.target)
 
     const
       d = event.target.import
     , template =
         d && d.children[0]
-
-    console.log ('document', this, template )
 
     this.render ()
   }
@@ -541,13 +538,10 @@ const Element = function
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-{ tag = tag [0]
-
-  return function (Element) // https://en.wikipedia.org/wiki/Higher-order_function
-  { // Should this be a class❓❓❓❓
-
+{
+  return function (Element) { // https://en.wikipedia.org/wiki/Higher-order_function
     CustomElementRegistry.define
-      (tag, Component (Element))
+      ( ...tag, Component (Element))
   }
 }
 
@@ -556,3 +550,4 @@ Element.prototype = ElementPrototype
   // http://2ality.com/2013/09/window.html
   // http://tobyho.com/2013/03/13/window-prop-vs-global-var
   // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
+
