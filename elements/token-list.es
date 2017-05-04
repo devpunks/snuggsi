@@ -4,7 +4,7 @@ class TokenList {
 
     const
       textify = node =>
-        (node.text = node.textContent, node)
+        (node.text = node.textContent) && node
 
     , tokenize = token =>
         // String.prototype.match returns ALL capture groups!!!
