@@ -360,6 +360,18 @@ const GlobalEventHandlers = Element =>
 (class extends Element {
 
   register (events = event => /^on/.exec (event)) {
+
+    const
+      mirror = handler =>
+        (this [handler] === null) && // ensure W3C on event
+          (this [handler] = Element [handler].bind (this))
+
+    Object // mirror class events to element
+      .getOwnPropertyNames (Element)
+      .filter (events)
+      .map (mirror)
+
+
     const
       nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
         // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
@@ -371,50 +383,38 @@ const GlobalEventHandlers = Element =>
         Array
           .from (this.querySelectorAll (nodes))
 
-    , registered = node =>
-        Array.from (node.attributes)
-          .map (attr => attr.name)
-          .filter (events)
-          .length > 0
-
-    , handle =
-        (event, handler = (/{\s*(\w+)\s*}/.exec (event) || []) [1])  =>
-          handler
-            && Element [ handler ].bind (this)
-            || event
-            || null
+    , registered =
+        node =>
+          Array
+            .from (node.attributes)
+            .map (attr => attr.name)
+            .filter (events)
+            .length > 0
 
     , reflect =
-        self => // `this` closure
-          node =>
-            Array
-              .from (node.attributes)
-              .map (attr => attr.name)
-              .filter (events)
-              .filter (name => this [name] !== undefined)
-              .map (reflection (node))
+        node =>
+          Array
+            .from (node.attributes)
+            .map  (attr => attr.name)
+            .filter (events)
+            .map (reflection (node))
 
     , reflection =
         node => // closure
           event =>
-            node [event] = handle (node [event])
+            (node [event] = handle (node [event]))
 
-    , mirror = handler =>
-        !!! console.log (handler, (this [handler] === null)) &&
-          (this [handler] === null) && // ensure W3C on event
-            (this [handler] = Element [handler].bind (this))
+    , handle =
+        (handler, [_, event] = (/{\s*(\w+)\s*}/.exec (handler) || []))  =>
+          handler
+            && Element [event].bind (this)
+            || event // existing event
+            || null  // default for W3C on* event handlers
 
     void [this]
       .concat (children)
       .filter (registered)
-      .map (reflect (this))
-
-    Object // mirror class events to element
-      .getOwnPropertyNames (Element)
-      .filter (events)
-      .map (mirror)
-
-    return this
+      .map (reflect)
   }
 })
 
