@@ -541,13 +541,11 @@ const Element = function
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-{ tag = tag [0]
-
-  return function (Element) // https://en.wikipedia.org/wiki/Higher-order_function
-  { // Should this be a class❓❓❓❓
+{
+  return function (Element) { // https://en.wikipedia.org/wiki/Higher-order_function
 
     CustomElementRegistry.define
-      (tag, Component (Element))
+      (tag [0], Component (Element))
   }
 }
 
