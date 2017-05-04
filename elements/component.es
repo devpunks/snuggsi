@@ -8,7 +8,6 @@ const Component = Element => // why buble
   ( ParentNode
     ( GlobalEventHandlers
       ( Element ))))
-
 {
 
   constructor () { super ()
@@ -46,18 +45,6 @@ const Component = Element => // why buble
 
     this.constructor.onready &&
       this.constructor.onready.call (this)
-  }
-
-  // custom element reactions
-  connectedCallback () {
-
-    const
-      link =
-        new HTMLLinkElement
-          (this.tagName.toLowerCase ())
-
-    link.onload =
-      this.clone.bind (this)
   }
 
   clone (event) {

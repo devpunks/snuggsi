@@ -22,6 +22,22 @@ const EventTarget = (Element) => // why buble
 
 (class extends Element {
 
+  // custom element reactions
+  connectedCallback () {
+
+    const
+      link =
+        new HTMLLinkElement
+          (this.tagName.toLowerCase ())
+
+    'addEventListener' in link &&
+    link.addEventListener ('load', event => console.warn ('WTF THIS WORKED?', event))
+
+    link.onload =
+      this.clone.bind (this)
+  }
+
+
   listen (event, listener = this [event])
 
     // MDN EventTarget.addEventListener

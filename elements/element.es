@@ -19,3 +19,4 @@ Element.prototype = ElementPrototype
   // http://2ality.com/2013/09/window.html
   // http://tobyho.com/2013/03/13/window-prop-vs-global-var
   // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
+
