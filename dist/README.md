@@ -46,8 +46,9 @@ Uses uglify
 `snuggsi.min.js` ➡️  `snuggsi.min.js.br`
 
 Links
-- https://blogs.akamai.com/2016/02/understanding-brotlis-potential.html
 - https://en.wikipedia.org/wiki/Brotli
+- https://certsimple.com/blog/nginx-brotli
+- https://blogs.akamai.com/2016/02/understanding-brotlis-potential.html
 
 Server Support
 - Ruby _(brotli)_ - https://github.com/miyucy/brotli
