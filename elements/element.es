@@ -9,26 +9,11 @@ const Element = function
 
 { tag = tag [0]
 
-  return function (HTMLElement) // https://en.wikipedia.org/wiki/Higher-order_function
+  return function (Element) // https://en.wikipedia.org/wiki/Higher-order_function
   { // Should this be a class❓❓❓❓
 
-    //try
-    //  { return new CustomElementRegistry.get (tag) }
-
-    //catch (_)
-    //  { /* console.warn('Defining Element `'+tag+'` (class {})') */ }
-
-
-    //try
-    //  {
-          CustomElementRegistry.define
-            (tag, Component (HTMLElement))
-    //  }
-
-    //finally
-    //  {
-    //    return CustomElementRegistry.get (tag)
-    //  }
+    CustomElementRegistry.define
+      (tag, Component (Element))
   }
 }
 
