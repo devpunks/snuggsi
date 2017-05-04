@@ -1,25 +1,33 @@
-const HTMLLinkElement = function (tag) {
+const HTMLLinkElement = function
+
+  // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
+
+(tag) {
 
   const
-    link =
+    proxy = {}
+  , link  =
       document
         .querySelector // use CSS :any ?
           ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
-    || {}
 
     Object
-      .defineProperty (link, 'onload', {
+      .defineProperty (proxy, 'onload', {
 
         set (handler) {
-          (!!! HTMLImports.useNative) ?
-              HTMLImports.whenReady // eww
-              // https://github.com/webcomponents/html-imports#htmlimports
-              ( _ => handler ({ target: link }) )
-          : handler ({ target: link })
+          !!! link
+            ? handler ({ target: proxy })
+
+            : (HTMLImports.useNative)
+                ? link.onload = handler
+
+                : HTMLImports.whenReady // eww
+                  // https://github.com/webcomponents/html-imports#htmlimports
+                  ( _ => handler ({ target: link }) )
         }
       })
 
-  return link
+  return proxy
 }
 
 class TokenList {
@@ -466,6 +474,7 @@ const Component = Element => // why buble
     , template =
         d && d.children[0]
 
+    console.log (template)
     this.render ()
   }
 

@@ -52,6 +52,7 @@ const Component = Element => // why buble
     , template =
         d && d.children[0]
 
+    console.log (template)
     this.render ()
   }
 
