@@ -54,6 +54,14 @@ for more details.
 
 ## Browser Support
 
+  | Feature    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
+  | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
+  | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | Templates |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | HTML Imports |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+
+  _\*Indicates the current version of the browser_
+
   The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
   polyfills are intended to work in the latest versions of evergreen browsers.
   
@@ -69,14 +77,6 @@ Just insert the following polyfill `<script>` *before* snuggsiツ for classic br
 <!-- snuggsi (classic) -->
 <script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
 ```
-
-  | Feature    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
-  | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
-  | Custom Elements | ✅ | ✅ | ✅ | ✅ | ✅ | ✅| ✅ |
-  | Templates | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-  | HTML Imports | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-
-  _\*Indicates the current version of the browser_
 
 
 # Quick Tour
