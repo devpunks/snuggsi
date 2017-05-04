@@ -463,8 +463,8 @@ const Component = Element => // why buble
 
     this.register ()
 
-    this.constructor.onready &&
-      this.constructor.onready.call (this)
+    this.constructor.onidle &&
+      this.constructor.onidle.call (this)
   }
 
   clone (event) {
