@@ -1,7 +1,6 @@
 
 var this$1 = this;
 var HTMLLinkElement = function (tag) {
-  console.log (tag)
 
   var
     link =
@@ -178,7 +177,22 @@ var EventTarget = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.listen = function (event, listener)
+    anonymous.prototype.connectedCallback = function () {
+
+    var
+      link =
+        new HTMLLinkElement
+          (this.tagName.toLowerCase ())
+
+    'addEventListener' in link &&
+    link.addEventListener ('load', function (event) { return console.warn ('WTF THIS WORKED?', event); })
+
+    link.onload =
+      this.clone.bind (this)
+  };
+
+
+  anonymous.prototype.listen = function (event, listener)
 
     // MDN EventTarget.addEventListener
     // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -248,6 +262,17 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     var this$1 = this;
     if ( events === void 0 ) events = function (event) { return /^on/.exec (event); };
 
+
+    var
+      mirror = function (handler) { return (this$1 [handler] === null) && // ensure W3C on event
+          (this$1 [handler] = Element [handler].bind (this$1)); }
+
+    Object // mirror class events to element
+      .getOwnPropertyNames (Element)
+      .filter (events)
+      .map (mirror)
+
+
     var
       nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
         // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
@@ -259,47 +284,39 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
         Array
           .from (this.querySelectorAll (nodes))
 
-    , registered = function (node) { return Array.from (node.attributes)
-          .map (function (attr) { return attr.name; })
-          .filter (events)
-          .length > 0; }
-
-    , handle =
-        function (event, handler)  {
-            if ( handler === void 0 ) handler = (/{\s*(\w+)\s*}/.exec (event) || []) [1];
-
-            return handler
-            && Element [ handler ].bind (this$1)
-            || event
-            || null;
-    }
+    , registered =
+        function (node) { return Array
+            .from (node.attributes)
+            .map (function (attr) { return attr.name; })
+            .filter (events)
+            .length > 0; }
 
     , reflect =
-        function (self) { return function (node) { return Array
-              .from (node.attributes)
-              .map (function (attr) { return attr.name; })
-              .filter (events)
-              .filter (function (name) { return this$1 [name] !== undefined; })
-              .map (reflection (node)); }; }
+        function (node) { return Array
+            .from (node.attributes)
+            .map  (function (attr) { return attr.name; })
+            .filter (events)
+            .map (reflection (node)); }
 
     , reflection =
-        function (node) { return function (event) {
-            node [event] = handle (node [event]) }; }
+        function (node) { return function (event) { return (node [event] = handle (node [event])); }; }
 
-    , mirror = function (handler) { return !!! this$1 [handler] == undefined &&
-           (this$1 [handler] = Element [handler].bind (this$1)); }
+    , handle =
+        function (handler, ref)  {
+            if ( ref === void 0 ) ref = (/{\s*(\w+)\s*}/.exec (handler) || []);
+            var _ = ref[0];
+            var event = ref[1];
+
+            return handler
+            && Element [event].bind (this$1)
+            || event // existing event
+            || null;
+    }  // default for W3C on* event handlers
 
     void [this]
       .concat (children)
       .filter (registered)
-      .map (reflect (this))
-
-    Object
-      .getOwnPropertyNames (Element)
-      .filter (events)
-      .map (mirror)
-
-    return this
+      .map (reflect)
   };
 
     return anonymous;
@@ -322,8 +339,6 @@ var Component = function (Element) { return ((function (superclass) {
     // Where should this insert?
     // What about the meta elements (i.e. script, style, meta)
 
-    console.log ('rendering', this)
-
     this.tokens.bind (this)
 
     void (function (templates) {
@@ -345,32 +360,16 @@ var Component = function (Element) { return ((function (superclass) {
 
     this.register ()
 
-    this.constructor.onready &&
-      this.constructor.onready.call (this)
-  };
-
-  // custom element reactions
-  anonymous.prototype.connectedCallback = function () {
-
-    var
-      link =
-        new HTMLLinkElement
-          (this.tagName.toLowerCase ())
-
-    link.onload =
-      this.clone.bind (this)
+    this.constructor.onidle && // dispatch
+      this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   };
 
   anonymous.prototype.clone = function (event) {
-    console.log ('cloning', event.target)
-    console.log ('wat', this, event.target)
 
     var
       d = event.target.import
     , template =
         d && d.children[0]
-
-    console.log ('document', this, template )
 
     this.render ()
   };
@@ -404,4 +403,5 @@ Element.prototype = ElementPrototype
   // http://2ality.com/2013/09/window.html
   // http://tobyho.com/2013/03/13/window-prop-vs-global-var
   // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
+
 
