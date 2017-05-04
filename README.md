@@ -27,7 +27,7 @@
     <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>1Kb</a>
   </h1>
 
-  <em>"Performance is the art of avoiding work"<em> - #FreeJewelry :ring: :gem:
+  <em>"Performance is the art of avoiding work" - #FreeJewelry :ring: :gem:<em>
 </p>
 
 ## Why ?
