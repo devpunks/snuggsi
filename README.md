@@ -57,7 +57,7 @@ for more details.
   The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
   polyfills are intended to work in the latest versions of evergreen browsers.
   
-Just insert the following ` polyfill <script> *before* snuggsiツ for classic browser support.
+Just insert the following polyfill `<script>` *before* snuggsiツ for classic browser support.
 
 ```html
 <!-- webcomponents polyfill -->
