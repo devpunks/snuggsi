@@ -391,14 +391,11 @@ var Element = function
   // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
 {
-if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
- tag = tag [0]
+  if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
 
-  return function (Element) // https://en.wikipedia.org/wiki/Higher-order_function
-  { // Should this be a class❓❓❓❓
-
-    CustomElementRegistry.define
-      (tag, Component (Element))
+  return function (Element) { // https://en.wikipedia.org/wiki/Higher-order_function
+    CustomElementRegistry.define.apply
+      ( CustomElementRegistry, tag.concat( [Component (Element)] ))
   }
 }
 

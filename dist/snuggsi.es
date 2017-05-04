@@ -229,6 +229,22 @@ const EventTarget = (Element) => // why buble
 
 (class extends Element {
 
+  // custom element reactions
+  connectedCallback () {
+
+    const
+      link =
+        new HTMLLinkElement
+          (this.tagName.toLowerCase ())
+
+    'addEventListener' in link &&
+    link.addEventListener ('load', event => console.warn ('WTF THIS WORKED?', event))
+
+    link.onload =
+      this.clone.bind (this)
+  }
+
+
   listen (event, listener = this [event])
 
     // MDN EventTarget.addEventListener
@@ -412,7 +428,6 @@ const Component = Element => // why buble
   ( ParentNode
     ( GlobalEventHandlers
       ( Element ))))
-
 {
 
   constructor () { super ()
@@ -450,18 +465,6 @@ const Component = Element => // why buble
 
     this.constructor.onready &&
       this.constructor.onready.call (this)
-  }
-
-  // custom element reactions
-  connectedCallback () {
-
-    const
-      link =
-        new HTMLLinkElement
-          (this.tagName.toLowerCase ())
-
-    link.onload =
-      this.clone.bind (this)
   }
 
   clone (event) {
@@ -553,3 +556,4 @@ Element.prototype = ElementPrototype
   // http://2ality.com/2013/09/window.html
   // http://tobyho.com/2013/03/13/window-prop-vs-global-var
   // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
+
