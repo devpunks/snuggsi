@@ -45,7 +45,7 @@ const Component = Element => // why buble
       this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   }
 
-  clone (event) {
+  import (event) {
 
     const
       d = event.target.import

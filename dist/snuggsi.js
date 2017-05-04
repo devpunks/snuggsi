@@ -184,9 +184,6 @@ var EventTarget = function (Element) { return ((function (Element) {
         new HTMLLinkElement
           (this.tagName.toLowerCase ())
 
-    'addEventListener' in link &&
-    link.addEventListener ('load', function (event) { return console.warn ('WTF THIS WORKED?', event); })
-
     link.onload =
       this.clone.bind (this)
   };

@@ -228,19 +228,13 @@ const EventTarget = (Element) => // why buble
 
 (class extends Element {
 
-  // custom element reactions
   connectedCallback () {
 
-    const
-      link =
-        new HTMLLinkElement
-          (this.tagName.toLowerCase ())
+    new HTMLLinkElement
+      (this.tagName.toLowerCase ())
 
-    'addEventListener' in link &&
-    link.addEventListener ('load', event => console.warn ('WTF THIS WORKED?', event))
-
-    link.onload =
-      this.clone.bind (this)
+      .onload = this.import
+      .bind (this)
   }
 
 
@@ -465,7 +459,7 @@ const Component = Element => // why buble
       this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   }
 
-  clone (event) {
+  import (event) {
 
     const
       d = event.target.import
