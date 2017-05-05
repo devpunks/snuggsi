@@ -35,23 +35,26 @@ Element `file-upload`
   static get mimetypes () {
 
     return {
-      'text/plain': 'txt-plain.png',
-      'image/jpeg': 'app-img.png',
-      'image/png' : 'app-img.png',
+      'application/pdf': 'pdf.png',
 
-      'application/pdf': 'app-pdf.png',
+      'audio/*'   : 'audio.png',
+      'video/*'   : 'video.png',
+      'image/jpeg': 'jpeg.png',
+      'image/png' : 'png.png',
+      'image/jpeg': 'jpeg.png',
+      'text/plain': 'plain.png',
 
-      'application/vnd.ms-powerpoint': 'app-ppt.png',
-      'application/vnd.ms-word'      : 'app-word.png',
-      'application/vnd.ms-excel'     : 'app-excel.png',
+      'application/vnd.ms-powerpoint': 'ppt.png',
+      'application/vnd.ms-word'      : 'word.png',
+      'application/vnd.ms-excel'     : 'excel.png',
 
-      'application/vnd.oasis.opendocument.presentation': 'app-ppt.png',
-      'application/vnd.oasis.opendocument.text'        : 'app-word.png',
-      'application/vnd.oasis.opendocument.spreadsheet' : 'app-excel.png',
+      'application/vnd.oasis.opendocument.presentation': 'ppt.png',
+      'application/vnd.oasis.opendocument.text'        : 'word.png',
+      'application/vnd.oasis.opendocument.spreadsheet' : 'excel.png',
 
-      'application/vnd.openxmlformats-officedocument.presentationml.presentation': 'app-ppt.png',
-      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'  : 'app-word.png',
-      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'        : 'app-excel.png'
+      'application/vnd.openxmlformats-officedocument.presentationml.presentation': 'ppt.png',
+      'application/vnd.openxmlformats-officedocument.wordprocessingml.document'  : 'word.png',
+      'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet'        : 'excel.png'
      }
   }
 
