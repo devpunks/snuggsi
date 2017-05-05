@@ -12,24 +12,6 @@ header-group {
 }
 </style>
 
-<!-- minimal custom element registration -->
-<script>
-  Element `header-group`
-
-  (class extends HTMLElement {
-    constructor () { super ()
-      console.log ('shazam')
-    }
-
-    static onfoo (event) {
-      console.log ('onfoo', event)
-    }
-
-    intialize ()
-      { console.warn ('Whatever') }
-  })
-</script>
-
 <template onclick=onfoo>
 
   <hgroup>
@@ -39,6 +21,14 @@ header-group {
   </hgroup>
 
 </template>
+
+<!-- minimal custom element registration -->
+<script>
+
+Element `header-group`
+(class extends HTMLElement { })
+
+</script>
 
 <h1>&lt;header-group&gt;</h1>
 
