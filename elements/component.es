@@ -13,26 +13,19 @@ const Component = Element => // why buble
 
     this.context = {}
 
-    this.initialize && this.initialize ()
+    this.initialize
+      && this.initialize ()
   }
 
   render () {
-    this.tokens.bind (this)
 
-    void (function (templates) {
+    this.tokens
+      .bind (this)
 
-      const
-        bind = template => {
-          const
-            name = template.getAttribute ('name')
-
-          void (new Template (name))
-            .bind (this [name])
-        }
-
-      templates.map (bind)
-    })
-    .call (this, Array.from (this.selectAll ('template[name]')))
+    Array // of templates with `name` attribute
+      .from (this.selectAll ('template[name]'))
+      .map  (template => new Template (template.getAttribute ('name')))
+      .map  (template => template.bind (this [template.attributes.name.value]))
 
     this.register ()
 
@@ -53,16 +46,20 @@ const Component = Element => // why buble
     this.render ()
   }
 
+  // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
   clone (template) {
+
     let
       fragment =
-        template.content.cloneNode (true)
+        template
+          .content
+          .cloneNode (true)
 
     , slots =
         Array.from (fragment.querySelectorAll ('slot'))
 
     , replacements =
-      Array.from (this.querySelectorAll ('[slot]'))
+        Array.from (this.querySelectorAll ('[slot]'))
 
      , register = attribute =>
          (this.setAttribute (attribute.name, attribute.value))
