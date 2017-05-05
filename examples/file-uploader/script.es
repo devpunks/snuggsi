@@ -24,11 +24,10 @@ Element `file-upload`
 //  this.on_drag_text = 'Drop here!'
   }
 
-  static get label ()
-    {
-      return 'shazam!'
-   //   return this.getAttribute ('label') || 'Default' 
-    }
+  get label () {
+    return this.getAttribute
+      ('label') || 'Default'
+  }
 
   /**
    * Listens for the event of a user clicking `<button type=submit>`,
