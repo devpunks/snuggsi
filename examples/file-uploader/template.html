@@ -1,34 +1,35 @@
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<title>&lt;file-uploader&gt;</title>
+
 <link rel=stylesheet href=style.css>
 
 <script nomodule src=script.es></script>
 
 <template>
 
-<!-- form needed for backwards compatibility & for `<button type=reset>` -->
-<form action=#>
-  <label title={label}> {label}
+<label title={label}> {label}
 
-    <!--
-    `<input type=file list=datalist.id>`
-      https://www.w3.org/TR/2011/WD-html-markup-20110525/input.file.html
-    -->
-    <input multiple list=mimetypes name=files[] type=file required>
+  <!--
+  `<input type=file list=datalist.id>`
+    https://www.w3.org/TR/2011/WD-html-markup-20110525/input.file.html
+  -->
+  <input multiple list=mimetypes name=files[] type=file required>
 
-  </label>
+</label>
 
-  <slot name=mimetypes>
-    <datalist id=mimetypes>
-      <option value=image/jpeg label=image-jpeg.png> jpg
-      <option value=image/png  label=image-png.png selected> png
-      <option value=application/pdf label=application-pdf.png> pdf
-    </datalist>
-  </slot>
+<slot name=mimetypes>
+  <datalist id=mimetypes>
+    <option accept=image/jpeg label=image-jpeg.png> jpg
+    <option accept=image/png  label=image-png.png selected> png
+    <option accept=application/pdf label=application-pdf.png> pdf
+  </datalist>
+</slot>
 
-  <menu>
-    <button title='Upload Files' type=submit>Upload</button>
-    <button title='Clear All' type=reset>Clear All</button>
-  </menu>
-</form>
+<menu>
+  <button title='Clear All' onclick=onclear>Clear All</button>
+</menu>
 
 <aside>
   <table>
@@ -54,4 +55,37 @@
 </aside>
 
 </template>
+
+<h1>&lt;file-uploader&gt;</h1>
+
+<p>Custom <a rel=external target=mdn href=https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input><code>&lt;input type=file&gt;</code></a> element</p>
+
+<h2>Slots</h2>
+
+<dl>
+  <dt id=header>
+    <strong>mimetypes</strong>
+
+  <dd>
+    A list of acceptable mimetypes
+    <em>(<strong>default:</strong> A &lt;datalist&gt;)</em>
+
+</dl>
+
+
+<h2>Example</h2>
+
+<code>
+<pre>
+&lt;file-uploader&gt;
+
+  &lt;datalist slot=mimetypes&gt;
+    &lt;option accept=image/jpeg label=image-jpeg.png&gt; jpg
+    &lt;option accept=image/png  label=image-png.png selected&gt; png
+    &lt;option accept=application/pdf label=application-pdf.png&gt; pdf
+  &lt;/datalist&gt;
+
+&lt;/file-uploader&gt;
+</pre>
+</code>
 
