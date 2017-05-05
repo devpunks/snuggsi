@@ -5,7 +5,7 @@ Element `infinity-calendar`
   initialize ()
     { this.context.date = new Date }
 
-  static onready () {
+  static onidle () {
     this.select
       ('[name=month]').value = this.month
 
