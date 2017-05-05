@@ -22,7 +22,9 @@
   <!-- Remove <datalist> for png support -->
   <datalist slot=mimetypes id=mimetypes>
     <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept -->
-    <option capture accept=image/jpg label=JPEG>
+    <option label=JPEG value=image/jpeg>
+    <option label=PNG  value=image/png>
+    <option label=PDF  value=application/pdf>
   </datalist>
 
 </file-upload>

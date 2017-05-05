@@ -11,9 +11,7 @@ Element `file-upload`
    * Also initializes the default values for the label, which
    * can be changed via <code>set_label</code>.
    *
-   * @see generate_whitelist
-   * @see default_whitelist
-   * @see set_label
+   * @see get mimetypes
    */
 
    initialize ()
@@ -85,28 +83,38 @@ Element `file-upload`
    * @returns {Object} The mimetypes.
    */
 
-  generate_mimetypes () {
+  get mimetypes () {
+
+    let
+      mimetypes = {}
 
     const
-      mimetypes = {}
-    , dataList  = this.select ('datalist#mimetypes')
+      datalist =
+        this.select ('datalist#mimetypes')
 
-    if ( !!! dataList ) return this.constructor.mimetypes
+    , options = datalist &&
+        datalist.querySelectorAll ('option')
 
-    var dl_children = dataList.children
+    , accept = option =>
+        mimetypes [option.value] =
+          this.constructor.mimetypes [option.value]
 
-    // Add all {label: value} pairs to the whitelist, where
+    // Add all { mimetype: icon } pairs to the whitelist, where
     // the label corresponds to the mimetype, and the value to the
     // type's icon's URL.
-    for (var i = 0; i < dl_children.length; i++) {
-      mimetypes[dl_children[i].label] = dl_children[i].value
-    }
+
+
+    void ( !!! options )
+      ? this.constructor.mimetypes
+      : Array
+          .from (options)
+          .map (accept)
 
     return mimetypes
   }
 
   static onconnect () {
-    console.log (this.constructor.mimetypes)
+    console.log (this.mimetypes)
   }
 
   /**
@@ -229,32 +237,6 @@ Element `file-upload`
       }
     }
   }
-
-  /**
-   * Adds an icon URL to the given file, corresponding to the
-   * file's mimetype. The URL is taken from the whitelist hash.
-   *
-   * It also gives the file a <code>hidden_icon</code> flag to hide
-   * the icon if no URL was found. (It's set to an empty string if
-   * the URL is valid)
-   *
-   * @param file {File} The file to add the icon URL to.
-   * 
-   * @returns {File} The file, for chaining purposes.
-   */
-
-  add_icon_url (file) {
-
-    const
-      icon_url = this.whitelist[file.type]
-
-    file.icon_url = icon_url === undefined ? '' : icon_url
-    // Also add a flag to hide the icon if the URL is invalid.
-    file.hidden_icon = icon_url === undefined ? 'hidden' : ''
-
-    return file
-  }
-
 
 })
 

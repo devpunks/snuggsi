@@ -16,21 +16,16 @@
     https://www.w3.org/TR/2011/WD-html-markup-20110525/input.file.html
     https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
   -->
-  <input multiple list=mimetypes name=files[] type=file required>
+  <input multiple list=mimetypes name=files type=file required accept={types}>
 
 </label>
 
 <slot name=mimetypes>
-  <datalist id=mimetypes>
-    <!--
-      Media Accepts - https://www.wufoo.com/html5/attributes/07-accept.html
-      Media Capture - https://www.w3.org/TR/html-media-capture
-      Accept Attribute - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept
-    -->
-    <option capture accept=image/jpg label=image-jpeg.png> jpg
-    <option capture accept=image/png label=image-png.png selected> png
-    <option accept=application/pdf label=application-pdf.png> pdf
-  </datalist>
+  <!--
+    Media Accepts - https://www.wufoo.com/html5/attributes/07-accept.html
+    Media Capture - https://www.w3.org/TR/html-media-capture
+    Accept Attribute - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept
+  -->
 </slot>
 
 <menu>
