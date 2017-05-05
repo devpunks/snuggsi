@@ -22,9 +22,12 @@ const Component = Element => // why buble
       .tokens.bind (this)
 
     Array // of templates with `name` attribute
-      .from (this.selectAll ('template[name]'))
-      .map (template => new Template (template.getAttribute ('name')))
-      .map (template => template.bind (this [template.attributes.name.value]))
+      .from
+        (this.selectAll ('template[name]'))
+      .map
+        (template => new Template (template.getAttribute ('name')))
+      .map
+        (template => template.bind (this [template.attributes.name.value]))
 
     this.register ()
 
@@ -57,7 +60,7 @@ const Component = Element => // why buble
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
   clone (template) {
 
-    let
+    const
       fragment =
         template
           .content
