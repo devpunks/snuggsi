@@ -41,8 +41,12 @@ Element `file-upload`
    * - GlobalEventHandlers.onsubmit
    *   - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onsubmit
    */
-  static onsubmit (event)
-    { event.preventDefault () }
+  static onclear (event) {
+    event.preventDefault ()
+
+    // http://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
+    this.context.files = []
+  }
 
   /**
    * Listens for the event of a user clicking `<button type=reset>`,
