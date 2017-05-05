@@ -195,7 +195,7 @@ var EventTarget = function (Element) { return ((function (Element) {
     new HTMLLinkElement
       (this.tagName.toLowerCase ())
 
-      .onload = this.import
+      .onload = this.onimport
       .bind (this)
   };
 
@@ -336,6 +336,8 @@ var Component = function (Element) { return ( (function (superclass) {
 
     this.context = {}
 
+    // dispatch `initialize`
+    // and captured from `EventTarget`
     this.initialize
       && this.initialize ()
   }
@@ -348,21 +350,23 @@ var Component = function (Element) { return ( (function (superclass) {
     var this$1 = this;
 
 
-    this.tokens
-      .bind (this)
+    this
+      .tokens.bind (this)
 
     Array // of templates with `name` attribute
       .from (this.selectAll ('template[name]'))
-      .map  (function (template) { return new Template (template.getAttribute ('name')); })
-      .map  (function (template) { return template.bind (this$1 [template.attributes.name.value]); })
+      .map (function (template) { return new Template (template.getAttribute ('name')); })
+      .map (function (template) { return template.bind (this$1 [template.attributes.name.value]); })
 
     this.register ()
 
+    // dispatch `idle`
+    // and captured from `EventTarget`
     this.constructor.onidle && // dispatch idle event
       this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   };
 
-  anonymous.prototype.import = function (event) {
+  anonymous.prototype.onimport = function (event) {
 
     var
       document = event.target.import
@@ -372,6 +376,13 @@ var Component = function (Element) { return ( (function (superclass) {
     template
       && this.clone (template)
 
+    // dispatch `import`
+    // and captured from `EventTarget`
+    this.constructor.onconnect &&
+      this.constructor.onconnect.call (this)
+
+    // dispatch `render`
+    // and captured from `EventTarget`
     this.render ()
   };
 
@@ -420,10 +431,7 @@ var Component = function (Element) { return ( (function (superclass) {
   };
 
     return anonymous;
-  }(( EventTarget
-  ( ParentNode
-    ( GlobalEventHandlers
-      ( Element ))))))); }
+  }(( EventTarget ( ParentNode ( GlobalEventHandlers ( Element ))))))); }
 
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
