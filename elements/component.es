@@ -2,9 +2,8 @@ const Component = Element => // why buble
 
   // exotic object - https://github.com/whatwg/html/issues/1704
 
-(class extends
-// interfaces
-(EventTarget
+( class extends // interfaces
+( EventTarget
   ( ParentNode
     ( GlobalEventHandlers
       ( Element ))))
@@ -18,10 +17,6 @@ const Component = Element => // why buble
   }
 
   render () {
-    // template = super.render ()
-    // Where should this insert?
-    // What about the meta elements (i.e. script, style, meta)
-
     this.tokens.bind (this)
 
     void (function (templates) {
@@ -41,7 +36,7 @@ const Component = Element => // why buble
 
     this.register ()
 
-    this.constructor.onidle && // dispatch
+    this.constructor.onidle && // dispatch idle event
       this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   }
 
@@ -63,47 +58,42 @@ const Component = Element => // why buble
       fragment =
         template.content.cloneNode (true)
 
+    , slots =
+        Array.from (fragment.querySelectorAll ('slot'))
+
+    , replacements =
+      Array.from (this.querySelectorAll ('[slot]'))
+
      , register = attribute =>
          (this.setAttribute (attribute.name, attribute.value))
 
-    Array
+    , replace = replacement =>
+        slots
+          .filter (match (replacement))
+          .map (exchange (replacement))
+
+    , match = replacement => slot =>
+        replacement.getAttribute ('slot')
+          === slot.getAttribute  ('name')
+
+    , exchange = replacement =>
+        slot => slot
+          // prefer to use replaceWith however support is sparse
+          // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+          // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
+          .parentNode
+          .replaceChild (replacement, slot)
+
+    Array // map attributes from template
       .from (template.attributes)
       .map  (register)
+
+    replacements
+      .map (replace)
 
     this.innerHTML = ''
     this.append (fragment)
   }
-
-//_onload (event) {
-
-//  const
-//    shadow = function(element) {
-
-//      fragment.slots =
-//        Array.from (fragment.querySelectorAll ('slot'))
-
-//      element.slots =
-//        Array.from (element.querySelectorAll ('[slot]'))
-
-//      element.slots.map (function (namedslot) {
-//        fragment.slots
-//          .filter (slot =>
-//            (slot.getAttribute ('name') === namedslot.getAttribute ('slot'))
-//          )
-//          .map (slot =>
-//            slot
-//              // prefer to use replaceWith however support is sparse
-//              // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-//              // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
-//              // https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
-//              // https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
-//              .parentNode
-//              .replaceChild (namedslot, slot)
-//          )
-//      })
-
-//    }
-//}
 
 })
 
