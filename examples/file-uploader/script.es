@@ -19,13 +19,13 @@ Element `file-upload`
    initialize ()
      { this.context.files = [] }
 
-  static get label () {
+  get label () {
 
     return this.getAttribute
       ('label') || 'Drag files here'
   }
 
-  static get title () {
+  get title () {
 
     return this.getAttribute
       ('title') || 'Drop files'
@@ -58,6 +58,23 @@ Element `file-upload`
   static onconnect () { }
 
   /**
+   * Listens for changes in the file field, essentially
+   * processing new non-dragged files.
+   *
+   * @param event {Event} The event that has been triggered.
+   */
+
+  static onchange (event) {
+    console.log ('change')
+
+    if (!!! event.target.files) return
+
+    this.add_files (event.target.files)
+
+    this.render ()
+  }
+
+  /**
    * Listens for the event of a user clicking `<button onclick=onclear>`,
    * and "submit"s files accordingly.
    *
@@ -70,30 +87,6 @@ Element `file-upload`
    *   - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onsubmit
    */
 
-  static onclear (event) {
-
-    // http://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
-    this.context.files = []
-
-    this.render ()
-  }
-
-  /**
-   * Listens for changes in the file field, essentially
-   * processing new non-dragged files.
-   *
-   * @param event {Event} The event that has been triggered.
-   */
-
-  static onchange (event) {
-
-    if (!!! event.target.files) return
-
-    this.add_files (event.target.files)
-
-    this.render ()
-  }
-
   /**
    * Listens for the event of a user removing a file
    * via the button on the file's entry's row.
@@ -103,9 +96,16 @@ Element `file-upload`
 
   static onremove (event) {
 
-    this.context
-      .files
-      .splice (event.target.dataset.index, 1)
+    // http://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
+    this.context.files = []
+
+    this.render ()
+  }
+
+  static onclear (event) {
+
+    // http://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
+    this.context.files = []
 
     this.render ()
   }
@@ -120,7 +120,7 @@ Element `file-upload`
   static ondragleave (event) {
 
     this.select ('label')
-      .textContent = this.constructor.label
+      .textContent = this.label
   }
 
   /**
@@ -133,7 +133,7 @@ Element `file-upload`
   static ondragenter (event) {
 
     this.select ('label')
-      .textContent = this.constructor.title
+      .textContent = this.title
   }
 
   /**
@@ -144,6 +144,7 @@ Element `file-upload`
    */
 
   static ondrop (event) {
+  console.log ('drop')
 
     const
       files =
