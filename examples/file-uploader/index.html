@@ -6,7 +6,7 @@
 <link rel=stylesheet href=http://www.devpunks.com/typography.css>
 
 <script src=http://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
-<script nomodule src=http://unpkg.com/snuggsi/snuggsi.min.js></script>
+<script nomodule src=../../snuggsi.min.js></script>
 
 <link rel=import href=../header-group.html>
 <link rel=import id=file-upload href=./template.html>
@@ -14,20 +14,15 @@
 
 <header-group>
   <h2 slot=header>&lt;file-uploader&gt;</h2>
+  <em slot=subheader>With Drag-n-Drop support!</em>
 </header-group>
 
-<file-upload label='Click to upload files'>
-
-  <!--
-    `<option>` - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option
-    `HTMLOptionElement` - https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement
-    `Option ()` Constructor - https://developer.mozilla.org/en-US/docs/Web/API/HTMLOptionElement/Option
-    `HTTP/MIME` types - https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
-  -->
+<file-upload label='Click to upload files' title='Drop files here'>
 
   <!-- Remove <datalist> for png support -->
   <datalist slot=mimetypes id=mimetypes>
-    <option accept=image/jpg label=JPEG Files>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept -->
+    <option capture accept=image/jpg label=JPEG>
   </datalist>
 
 </file-upload>

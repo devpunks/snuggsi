@@ -14,6 +14,7 @@
   <!--
   `<input type=file list=datalist.id>`
     https://www.w3.org/TR/2011/WD-html-markup-20110525/input.file.html
+    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input/file
   -->
   <input multiple list=mimetypes name=files[] type=file required>
 
@@ -21,8 +22,13 @@
 
 <slot name=mimetypes>
   <datalist id=mimetypes>
-    <option accept=image/jpeg label=image-jpeg.png> jpg
-    <option accept=image/png  label=image-png.png selected> png
+    <!--
+      Media Accepts - https://www.wufoo.com/html5/attributes/07-accept.html
+      Media Capture - https://www.w3.org/TR/html-media-capture
+      Accept Attribute - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept
+    -->
+    <option capture accept=image/jpg label=image-jpeg.png> jpg
+    <option capture accept=image/png label=image-png.png selected> png
     <option accept=application/pdf label=application-pdf.png> pdf
   </datalist>
 </slot>
@@ -60,6 +66,17 @@
 
 <p>Custom <a rel=external target=mdn href=https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input><code>&lt;input type=file&gt;</code></a> element</p>
 
+<h2>Settings</h2>
+
+<dl>
+  <dt id=label>
+    <strong>label</strong>
+
+  <dd>
+    Default text for label
+
+</dl>
+
 <h2>Slots</h2>
 
 <dl>
@@ -75,17 +92,48 @@
 
 <h2>Example</h2>
 
+<h3>CSS Styling</h3>
+
+<code>
+<pre>
+&lt;style&gt;
+  file-uploader {}
+  file-uploader label {}
+  file-uploader table {}
+  file-uploader menu button {}
+&lt;/style&gt;
+</pre>
+</code>
+
+
+<h3>HTML Markup</h3>
+
 <code>
 <pre>
 &lt;file-uploader&gt;
 
-  &lt;datalist slot=mimetypes&gt;
-    &lt;option accept=image/jpeg label=image-jpeg.png&gt; jpg
-    &lt;option accept=image/png  label=image-png.png selected&gt; png
-    &lt;option accept=application/pdf label=application-pdf.png&gt; pdf
+  &lt;datalist slot=mimetypes id=mimetypes&gt;
+    &lt;option capture label=PNG accept=image/png selected&gt;
+    &lt;option capture label=PDF accept=application/pdf&gt;
+    &lt;option capture label=JPG accept=image/jpg&gt;
   &lt;/datalist&gt;
 
 &lt;/file-uploader&gt;
 </pre>
 </code>
+
+<footer>
+
+  <h3>Links</h3>
+
+  <li>
+    <a href=https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept>Accept Attribute</a>
+
+  <li>
+    <a href=https://www.wufoo.com/html5/attributes/07-accept.html>Media Accept</a>
+
+  <li>
+    <a href=https://www.w3.org/TR/html-media-capture>Media Capture</a>
+
+</footer>
 

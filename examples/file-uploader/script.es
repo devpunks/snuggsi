@@ -15,6 +15,7 @@ Element `file-upload`
    * @see default_whitelist
    * @see set_label
    */
+
   initialize () {
     this.context.files = []
 
@@ -24,9 +25,21 @@ Element `file-upload`
 //  this.on_drag_text = 'Drop here!'
   }
 
+  static onconnect () {
+
+    console.log (this.querySelectorAll ('*'))
+
+    console.log ('connected')
+  }
+
   get label () {
     return this.getAttribute
-      ('label') || 'Default'
+      ('label') || 'Drag files here'
+  }
+
+  get title () {
+    return this.getAttribute
+      ('title') || 'Drop files'
   }
 
   /**
@@ -42,10 +55,10 @@ Element `file-upload`
    *   - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onsubmit
    */
   static onclear (event) {
-    event.preventDefault ()
-
     // http://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
     this.context.files = []
+
+    this.render ()
   }
 
   /**
@@ -268,10 +281,9 @@ Element `file-upload`
     this.render ()
   }
 
-  /** The list of files currently saved. */
-  get files () {
-    return this.context.files
-  }
+  /** The list of files currently in queue. */
+  get files ()
+    { return this.context.files }
 
   /** The default whitelist object, with names for icons for each type. */ 
   static get default_whitelist () {
