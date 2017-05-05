@@ -48,32 +48,36 @@ const Component = Element => // why buble
   import (event) {
 
     const
-      d = event.target.import
-    , template =
-        d && d.children[0]
+      document = event.target.import
+    , template = document &&
+        document.querySelector ('template')
 
-    console.log (template)
+    template
+      && this.clone (template)
+
     this.render ()
+  }
+
+  clone (template) {
+    let
+      fragment =
+        template.content.cloneNode (true)
+
+     , register = attribute =>
+         (this.setAttribute (attribute.name, attribute.value))
+
+    Array
+      .from (template.attributes)
+      .map  (register)
+
+    this.innerHTML = ''
+    this.append (fragment)
   }
 
 //_onload (event) {
 
-//  return
-
 //  const
 //    shadow = function(element) {
-//      console.log ('template', template)
-
-//      let
-//        attributes = template.attributes
-//      , fragment   = template.content.cloneNode (true)
-
-//      , register = attribute =>
-//          (this.setAttribute (attribute.name, attribute.value))
-
-//      Array
-//        .from (attributes)
-//        .map  (register)
 
 //      fragment.slots =
 //        Array.from (fragment.querySelectorAll ('slot'))
@@ -98,14 +102,7 @@ const Component = Element => // why buble
 //          )
 //      })
 
-//      element.innerHTML = ''
-//      element.append (fragment)
 //    }
-
-//  Array.from
-//    // should be using currentScript ?
-//    (document.getElementsByTagName (this.tagName.toLowerCase ()))
-//    .map (shadow, this)
 //}
 
 })

@@ -11,20 +11,26 @@ const HTMLLinkElement = function
         .querySelector // use CSS :any ?
           ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
 
+  , register = handler =>
+      (HTMLImports.useNative)
+        ? link.onload = handler
+        : HTMLImports.whenReady // eww
+          // https://github.com/webcomponents/html-imports#htmlimports
+          ( _ => handler ({ target: link }) )
+
     Object
-      .defineProperty (proxy, 'onload', {
+      .defineProperties (proxy, {
+        'onload': {
+          set (handler) {
 
-        set (handler) {
-          !!! link
-            ? handler ({ target: proxy })
-
-            : (HTMLImports.useNative)
-                ? link.onload = handler
-
-                : HTMLImports.whenReady // eww
-                  // https://github.com/webcomponents/html-imports#htmlimports
-                  ( _ => handler ({ target: link }) )
+            !!! link
+              ? handler ({ target: proxy })
+              : register (handler)
+          }
         }
+
+      , 'onerror': // TODO: definition for onerror
+          { set (handler){ } }
       })
 
   return proxy
