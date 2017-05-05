@@ -75,9 +75,10 @@ const GlobalEventHandlers = Element =>
 
     , handle =
         (handler, [_, event] = (/{\s*(\w+)\s*}/.exec (handler) || []))  =>
-          handler
+          event
+            && Element [event]
             && Element [event].bind (this)
-            || event // existing event
+            || handler // existing handler
             || null  // default for W3C on* event handlers
 
     void [this]
