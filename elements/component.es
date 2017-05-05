@@ -3,37 +3,38 @@ const Component = Element => // why buble
   // exotic object - https://github.com/whatwg/html/issues/1704
 
 ( class extends // interfaces
-( EventTarget
-  ( ParentNode
-    ( GlobalEventHandlers
-      ( Element ))))
+  ( EventTarget ( ParentNode ( GlobalEventHandlers ( Element ))))
 {
 
   constructor () { super ()
 
     this.context = {}
 
+    // dispatch `initialize`
+    // and captured from `EventTarget`
     this.initialize
       && this.initialize ()
   }
 
   render () {
 
-    this.tokens
-      .bind (this)
+    this
+      .tokens.bind (this)
 
     Array // of templates with `name` attribute
       .from (this.selectAll ('template[name]'))
-      .map  (template => new Template (template.getAttribute ('name')))
-      .map  (template => template.bind (this [template.attributes.name.value]))
+      .map (template => new Template (template.getAttribute ('name')))
+      .map (template => template.bind (this [template.attributes.name.value]))
 
     this.register ()
 
+    // dispatch `idle`
+    // and captured from `EventTarget`
     this.constructor.onidle && // dispatch idle event
       this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   }
 
-  import (event) {
+  onimport (event) {
 
     const
       document = event.target.import
@@ -43,6 +44,13 @@ const Component = Element => // why buble
     template
       && this.clone (template)
 
+    // dispatch `import`
+    // and captured from `EventTarget`
+    this.constructor.onconnect &&
+      this.constructor.onconnect.call (this)
+
+    // dispatch `render`
+    // and captured from `EventTarget`
     this.render ()
   }
 

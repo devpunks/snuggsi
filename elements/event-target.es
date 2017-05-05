@@ -27,7 +27,7 @@ const EventTarget = (Element) => // why buble
     new HTMLLinkElement
       (this.tagName.toLowerCase ())
 
-      .onload = this.import
+      .onload = this.onimport
       .bind (this)
   }
 
