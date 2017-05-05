@@ -73,7 +73,13 @@
     <strong>label</strong>
 
   <dd>
-    Default text for label
+    Default text
+
+  <dt id=title>
+    <strong>title</strong>
+
+  <dd>
+    Default dragenter &amp; mouseover text
 
 </dl>
 
@@ -85,7 +91,10 @@
 
   <dd>
     A list of acceptable mimetypes
-    <em>(<strong>default:</strong> A &lt;datalist&gt;)</em>
+    <em>
+      (<strong>default:</strong> A
+      <a rel=external target=mdn title=&lt;datalist&gt; href=https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist>&lt;datalist&gt;</a>)
+    </em>
 
 </dl>
 
@@ -110,7 +119,12 @@
 
 <code>
 <pre>
-&lt;file-uploader&gt;
+&lt;file-uploader
+
+  label='Default text'
+  title='Default dragenter &amp; mouseover text'&gt;
+
+  &lt;!-- optional mimetypes list --&gt;
 
   &lt;datalist slot=mimetypes id=mimetypes&gt;
     &lt;option capture label=PNG accept=image/png selected&gt;
@@ -124,16 +138,22 @@
 
 <footer>
 
-  <h3>Links</h3>
+  <h3>Further Learning</h3>
 
   <li>
-    <a href=https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept>Accept Attribute</a>
+    <a rel=external target=mdn href=https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input><code>&lt;input type=file&gt;</code></a>
 
   <li>
-    <a href=https://www.wufoo.com/html5/attributes/07-accept.html>Media Accept</a>
+    <a rel=external target=mdn title=&lt;datalist&gt; href=https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist>&lt;datalist&gt;</a>
 
   <li>
-    <a href=https://www.w3.org/TR/html-media-capture>Media Capture</a>
+    <a rel=external target=mdn href=https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept>Accept Attribute</a>
+
+  <li>
+    <a rel=external target=mdn href=https://www.wufoo.com/html5/attributes/07-accept.html>Media Accept</a>
+
+  <li>
+    <a rel=external target=mdn href=https://www.w3.org/TR/html-media-capture>Media Capture</a>
 
 </footer>
 

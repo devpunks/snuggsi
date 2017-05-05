@@ -31,8 +31,8 @@ Element `file-upload`
       ('title') || 'Drop files'
   }
 
-  /** The default whitelist object, with names for icons for each type. */ 
-  static get default_whitelist () {
+  /** The default mimetypes object, with names for icons for each type. */ 
+  static get mimetypes () {
 
     return {
       'text/plain': 'txt-plain.png',
@@ -55,7 +55,56 @@ Element `file-upload`
      }
   }
 
-  static onconnect () { }
+  /**
+   * Generates a whitelist of accepted file mimetypes from a 
+   * <code>datalist</code> with ID 'file-upload-whitelist'. 
+   * It must be formed by a list of <code>option</code>
+   * elements, each with a valid mimetype as <code>label</code>
+   * and the corresponding icon as its <code>value</code>.
+   * Example:
+   *
+   *  <datalist id="file-upload-whitelist">
+   *    <option value=app-pdf.png   label=application/pdf>
+   *    <option value=app-img.png   label=image/png>
+   *    <option value=app-img.png   label=image/jpeg>
+   *    <option value=txt-plain.png label=text/plain>
+   *  </datalist>
+   *
+   * If no <code>datalist</code> with such ID is found, it will
+   * default to use <code>mimetypes</code> to generate
+   * the element's whitelist.
+   *
+   * Whitelists can also be programatically set with
+   * <code>set_whitelist</code>
+   *
+   * @see mimetypes
+   *
+   * @returns {Object} The mimetypes.
+   */
+
+  generate_mimetypes () {
+
+    const
+      mimetypes = {}
+    , dataList  = this.select ('datalist#mimetypes')
+
+    if ( !!! dataList ) return this.constructor.mimetypes
+
+    var dl_children = dataList.children
+
+    // Add all {label: value} pairs to the whitelist, where
+    // the label corresponds to the mimetype, and the value to the
+    // type's icon's URL.
+    for (var i = 0; i < dl_children.length; i++) {
+      mimetypes[dl_children[i].label] = dl_children[i].value
+    }
+
+    return mimetypes
+  }
+
+  static onconnect () {
+    console.log (this.constructor.mimetypes)
+  }
 
   /**
    * Listens for changes in the file field, essentially
@@ -176,54 +225,6 @@ Element `file-upload`
         this.context.files.push(this.add_icon_url(files[i]))
       }
     }
-  }
-
-  /**
-   * Generates a whitelist of accepted file mimetypes from a 
-   * <code>datalist</code> with ID 'file-upload-whitelist'. 
-   * It must be formed by a list of <code>option</code>
-   * elements, each with a valid mimetype as <code>label</code>
-   * and the corresponding icon as its <code>value</code>.
-   * Example:
-   *
-   *  <datalist id="file-upload-whitelist">
-   *    <option value="app-pdf.png"   label="application/pdf">
-   *    <option value="app-img.png"   label="image/png">
-   *    <option value="app-img.png"   label="image/jpeg">
-   *    <option value="txt-plain.png" label="text/plain">
-   *  </datalist>
-   *
-   * If no <code>datalist</code> with such ID is found, it will
-   * default to use <code>default_whitelist</code> to generate
-   * the element's whitelist.
-   *
-   * Whitelists can also be programatically set with
-   * <code>set_whitelist</code>
-   *
-   * @see default_whitelist
-   * @see set_whitelist
-   *
-   * @returns {Object} The whitelist.
-   */
-
-  generate_whitelist () {
-    var whitelist = {}
-    var dataList = document.getElementById('file-upload-whitelist')
-
-    if (dataList) {
-      var dl_children = dataList.children
-
-      // Add all {label: value} pairs to the whitelist, where
-      // the label corresponds to the mimetype, and the value to the
-      // type's icon's URL.
-      for (var i = 0; i < dl_children.length; i++) {
-        whitelist[dl_children[i].label] = dl_children[i].value
-      }
-    } else {
-      whitelist = this.constructor.default_whitelist
-    }
-
-    return whitelist
   }
 
   /**
