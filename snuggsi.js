@@ -1,25 +1,39 @@
-const HTMLLinkElement = function (tag) {
+const HTMLLinkElement = function
+
+  // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
+
+(tag) {
 
   const
-    link =
+    proxy = {}
+  , link  =
       document
         .querySelector // use CSS :any ?
           ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
-    || {}
+
+  , register = handler =>
+      (HTMLImports.useNative)
+        ? link.onload = handler
+        : HTMLImports.whenReady // eww
+          // https://github.com/webcomponents/html-imports#htmlimports
+          ( _ => handler ({ target: link }) )
 
     Object
-      .defineProperty (link, 'onload', {
+      .defineProperties (proxy, {
+        'onload': {
+          set (handler) {
 
-        set (handler) {
-          (!!! HTMLImports.useNative) ?
-              HTMLImports.whenReady // eww
-              // https://github.com/webcomponents/html-imports#htmlimports
-              ( _ => handler ({ target: link }) )
-          : handler ({ target: link })
+            !!! link
+              ? handler ({ target: proxy })
+              : register (handler)
+          }
         }
+
+      , 'onerror': // TODO: definition for onerror
+          { set (handler){ } }
       })
 
-  return link
+  return proxy
 }
 
 class TokenList {
@@ -28,7 +42,7 @@ class TokenList {
 
     const
       textify = node =>
-        (node.text = node.textContent, node)
+        (node.text = node.textContent) && node
 
     , tokenize = token =>
         // String.prototype.match returns ALL capture groups!!!
@@ -228,19 +242,13 @@ const EventTarget = (Element) => // why buble
 
 (class extends Element {
 
-  // custom element reactions
   connectedCallback () {
 
-    const
-      link =
-        new HTMLLinkElement
-          (this.tagName.toLowerCase ())
+    new HTMLLinkElement
+      (this.tagName.toLowerCase ())
 
-    'addEventListener' in link &&
-    link.addEventListener ('load', event => console.warn ('WTF THIS WORKED?', event))
-
-    link.onload =
-      this.clone.bind (this)
+      .onload = this.import
+      .bind (this)
   }
 
 
@@ -406,9 +414,10 @@ const GlobalEventHandlers = Element =>
 
     , handle =
         (handler, [_, event] = (/{\s*(\w+)\s*}/.exec (handler) || []))  =>
-          handler
+          event
+            && Element [event]
             && Element [event].bind (this)
-            || event // existing event
+            || handler // existing handler
             || null  // default for W3C on* event handlers
 
     void [this]
@@ -422,9 +431,8 @@ const Component = Element => // why buble
 
   // exotic object - https://github.com/whatwg/html/issues/1704
 
-(class extends
-// interfaces
-(EventTarget
+( class extends // interfaces
+( EventTarget
   ( ParentNode
     ( GlobalEventHandlers
       ( Element ))))
@@ -434,98 +442,84 @@ const Component = Element => // why buble
 
     this.context = {}
 
-    this.initialize && this.initialize ()
+    this.initialize
+      && this.initialize ()
   }
 
   render () {
-    // template = super.render ()
-    // Where should this insert?
-    // What about the meta elements (i.e. script, style, meta)
 
-    this.tokens.bind (this)
+    this.tokens
+      .bind (this)
 
-    void (function (templates) {
-
-      const
-        bind = template => {
-          const
-            name = template.getAttribute ('name')
-
-          void (new Template (name))
-            .bind (this [name])
-        }
-
-      templates.map (bind)
-    })
-    .call (this, Array.from (this.selectAll ('template[name]')))
+    Array // of templates with `name` attribute
+      .from (this.selectAll ('template[name]'))
+      .map  (template => new Template (template.getAttribute ('name')))
+      .map  (template => template.bind (this [template.attributes.name.value]))
 
     this.register ()
 
-    this.constructor.onidle && // dispatch
+    this.constructor.onidle && // dispatch idle event
       this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   }
 
-  clone (event) {
+  import (event) {
 
     const
-      d = event.target.import
-    , template =
-        d && d.children[0]
+      document = event.target.import
+    , template = document &&
+        document.querySelector ('template')
+
+    template
+      && this.clone (template)
 
     this.render ()
   }
 
-//_onload (event) {
+  // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
+  clone (template) {
 
-//  return
+    let
+      fragment =
+        template
+          .content
+          .cloneNode (true)
 
-//  const
-//    shadow = function(element) {
-//      console.log ('template', template)
+    , slots =
+        Array.from (fragment.querySelectorAll ('slot'))
 
-//      let
-//        attributes = template.attributes
-//      , fragment   = template.content.cloneNode (true)
+    , replacements =
+        Array.from (this.querySelectorAll ('[slot]'))
 
-//      , register = attribute =>
-//          (this.setAttribute (attribute.name, attribute.value))
+     , register = attribute =>
+         (this.setAttribute (attribute.name, attribute.value))
 
-//      Array
-//        .from (attributes)
-//        .map  (register)
+    , replace = replacement =>
+        slots
+          .filter (match (replacement))
+          .map (exchange (replacement))
 
-//      fragment.slots =
-//        Array.from (fragment.querySelectorAll ('slot'))
+    , match = replacement => slot =>
+        replacement.getAttribute ('slot')
+          === slot.getAttribute  ('name')
 
-//      element.slots =
-//        Array.from (element.querySelectorAll ('[slot]'))
+    , exchange = replacement =>
+        slot => slot
+          // prefer to use replaceWith however support is sparse
+          // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+          // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
+          .parentNode
+          .replaceChild (replacement, slot)
 
-//      element.slots.map (function (namedslot) {
-//        fragment.slots
-//          .filter (slot =>
-//            (slot.getAttribute ('name') === namedslot.getAttribute ('slot'))
-//          )
-//          .map (slot =>
-//            slot
-//              // prefer to use replaceWith however support is sparse
-//              // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-//              // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
-//              // https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
-//              // https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
-//              .parentNode
-//              .replaceChild (namedslot, slot)
-//          )
-//      })
+    Array // map attributes from template
+      .from (template.attributes)
+      .map  (register)
 
-//      element.innerHTML = ''
-//      element.append (fragment)
-//    }
+    replacements
+      .map (replace)
 
-//  Array.from
-//    // should be using currentScript ?
-//    (document.getElementsByTagName (this.tagName.toLowerCase ()))
-//    .map (shadow, this)
-//}
+    this.innerHTML = ''
+    this.append (fragment)
+  }
 
 })
 
