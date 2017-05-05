@@ -106,6 +106,7 @@ TokenList.prototype.bind = function (context, node) {
 
   Object
     .keys (this)
+    .filter (function (key) { return context [key]; })
     .map(prepare)
     .map(replace)
 
