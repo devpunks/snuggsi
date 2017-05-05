@@ -1,27 +1,40 @@
 
 var this$1 = this;
-var HTMLLinkElement = function (tag) {
+var HTMLLinkElement = function
+
+  // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
+
+(tag) {
 
   var
-    link =
+    proxy = {}
+  , link  =
       document
         .querySelector // use CSS :any ?
           ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
-    || {}
+
+  , register = function (handler) { return (HTMLImports.useNative)
+        ? link.onload = handler
+        : HTMLImports.whenReady // eww
+          // https://github.com/webcomponents/html-imports#htmlimports
+          ( function (_) { return handler ({ target: link }); } ); }
 
     Object
-      .defineProperty (link, 'onload', {
+      .defineProperties (proxy, {
+        'onload': {
+          set: function (handler) {
 
-        set: function (handler) {
-          (!!! HTMLImports.useNative) ?
-              HTMLImports.whenReady // eww
-              // https://github.com/webcomponents/html-imports#htmlimports
-              ( function (_) { return handler ({ target: link }); } )
-          : handler ({ target: link })
+            !!! link
+              ? handler ({ target: proxy })
+              : register (handler)
+          }
         }
+
+      , 'onerror': // TODO: definition for onerror
+          { set: function (handler){ } }
       })
 
-  return link
+  return proxy
 }
 
 var TokenList = function (node) {
@@ -29,7 +42,7 @@ var TokenList = function (node) {
 
 
   var
-    textify = function (node) { return (node.text = node.textContent, node); }
+    textify = function (node) { return (node.text = node.textContent) && node; }
 
   , tokenize = function (token) { return token.textContent
         .match (/{(\w+|#)}/g)
@@ -179,13 +192,11 @@ var EventTarget = function (Element) { return ((function (Element) {
 
     anonymous.prototype.connectedCallback = function () {
 
-    var
-      link =
-        new HTMLLinkElement
-          (this.tagName.toLowerCase ())
+    new HTMLLinkElement
+      (this.tagName.toLowerCase ())
 
-    link.onload =
-      this.clone.bind (this)
+      .onload = this.import
+      .bind (this)
   };
 
 
@@ -304,9 +315,10 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
             var _ = ref[0];
             var event = ref[1];
 
-            return handler
+            return event
+            && Element [event]
             && Element [event].bind (this$1)
-            || event // existing event
+            || handler // existing handler
             || null;
     }  // default for W3C on* event handlers
 
@@ -319,12 +331,13 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     return anonymous;
   }(Element))); }
 
-var Component = function (Element) { return ((function (superclass) {
+var Component = function (Element) { return ( (function (superclass) {
     function anonymous () { superclass.call (this)
 
     this.context = {}
 
-    this.initialize && this.initialize ()
+    this.initialize
+      && this.initialize ()
   }
 
     if ( superclass ) anonymous.__proto__ = superclass;
@@ -332,47 +345,82 @@ var Component = function (Element) { return ((function (superclass) {
     anonymous.prototype.constructor = anonymous;
 
   anonymous.prototype.render = function () {
-    // template = super.render ()
-    // Where should this insert?
-    // What about the meta elements (i.e. script, style, meta)
-
-    this.tokens.bind (this)
-
-    void (function (templates) {
-      var this$1 = this;
+    var this$1 = this;
 
 
-      var
-        bind = function (template) {
-          var
-            name = template.getAttribute ('name')
+    this.tokens
+      .bind (this)
 
-          void (new Template (name))
-            .bind (this$1 [name])
-        }
-
-      templates.map (bind)
-    })
-    .call (this, Array.from (this.selectAll ('template[name]')))
+    Array // of templates with `name` attribute
+      .from (this.selectAll ('template[name]'))
+      .map  (function (template) { return new Template (template.getAttribute ('name')); })
+      .map  (function (template) { return template.bind (this$1 [template.attributes.name.value]); })
 
     this.register ()
 
-    this.constructor.onidle && // dispatch
+    this.constructor.onidle && // dispatch idle event
       this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   };
 
-  anonymous.prototype.clone = function (event) {
+  anonymous.prototype.import = function (event) {
 
     var
-      d = event.target.import
-    , template =
-        d && d.children[0]
+      document = event.target.import
+    , template = document &&
+        document.querySelector ('template')
+
+    template
+      && this.clone (template)
 
     this.render ()
   };
 
+  // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
+  anonymous.prototype.clone = function (template) {
+    var this$1 = this;
+
+
+    var
+      fragment =
+        template
+          .content
+          .cloneNode (true)
+
+    , slots =
+        Array.from (fragment.querySelectorAll ('slot'))
+
+    , replacements =
+        Array.from (this.querySelectorAll ('[slot]'))
+
+     , register = function (attribute) { return (this$1.setAttribute (attribute.name, attribute.value)); }
+
+    , replace = function (replacement) { return slots
+          .filter (match (replacement))
+          .map (exchange (replacement)); }
+
+    , match = function (replacement) { return function (slot) { return replacement.getAttribute ('slot')
+          === slot.getAttribute  ('name'); }; }
+
+    , exchange = function (replacement) { return function (slot) { return slot
+          // prefer to use replaceWith however support is sparse
+          // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+          // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
+          .parentNode
+          .replaceChild (replacement, slot); }; }
+
+    Array // map attributes from template
+      .from (template.attributes)
+      .map  (register)
+
+    replacements
+      .map (replace)
+
+    this.innerHTML = ''
+    this.append (fragment)
+  };
+
     return anonymous;
-  }((EventTarget
+  }(( EventTarget
   ( ParentNode
     ( GlobalEventHandlers
       ( Element ))))))); }
