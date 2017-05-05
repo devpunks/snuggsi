@@ -354,9 +354,12 @@ var Component = function (Element) { return ( (function (superclass) {
       .tokens.bind (this)
 
     Array // of templates with `name` attribute
-      .from (this.selectAll ('template[name]'))
-      .map (function (template) { return new Template (template.getAttribute ('name')); })
-      .map (function (template) { return template.bind (this$1 [template.attributes.name.value]); })
+      .from
+        (this.selectAll ('template[name]'))
+      .map
+        (function (template) { return new Template (template.getAttribute ('name')); })
+      .map
+        (function (template) { return template.bind (this$1 [template.attributes.name.value]); })
 
     this.register ()
 
