@@ -117,6 +117,7 @@ class TokenList {
 
     Object
       .keys (this)
+      .filter (key => context [key])
       .map  (prepare)
       .map  (replace)
 
