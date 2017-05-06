@@ -31,11 +31,13 @@ Element `infinity-calendar`
   }
 
   static onnext () {
+
     this.date_from_month (+1)
     this.render ()
   }
 
   static onprevious () {
+
     this.date_from_month (-1)
     this.render ()
   }
@@ -50,6 +52,7 @@ Element `infinity-calendar`
     { return this.context.date.getMonth () }
 
   get years () {
+
     const
       deviation = 5
     , years = new Array
@@ -62,12 +65,14 @@ Element `infinity-calendar`
   }
 
   get months () {
+
     return [
       'January', 'February', 'March', 'April', 'May',
       'June', 'July','August','September','October','November','December' ]
   }
 
   get days () {
+
     const
       dates = []
     , daily = undefined
