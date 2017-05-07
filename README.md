@@ -86,6 +86,7 @@ The following snippet is from [examples/hello-word.html](/examples/hello-world.h
 _See [examples](/examples) for more details._
 
 
+Play [Hello World Demo](https://jsfiddle.net/ns3ckhxv)
 ``` html
 <hello-world>
  Hello {planet}
