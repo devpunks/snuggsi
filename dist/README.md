@@ -11,30 +11,35 @@
 ### ECMAScript Bundle (snuggsi.es)
 Mime Type : `application/ecmascript`
 
-#### snuggsi.es
-  - Uses .es file extension
+#### snuggsi.es _(bundled)_
+  - Uses [cat](https://en.wikipedia.org/wiki/Cat_(Unix)) command
+for creating [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript) bundle.
 
 `elements/*.es` ➡️  `snuggsi.es`
 
 
 ### ECMAScript 5 Transpilation (.js)
-Mime Type : `application/javascript`
+Mime Type : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2)_
+
+File Extension: `.js`
 
 #### snuggsi.js
-  - Uses buble.js
-  - Uses .js file extension
+  - Uses [buble.js](http://buble.surge.sh)
 
 `snuggsi.es` ➡️  `snuggsi.js`
 
 
-### Minification _(*.min.js)_
-Mime Type : `application/javascript`
+### Minification _(snuggsi.min.es)_ && _(snuggsi.min.js)_ 
+Mime Type : `application/ecmascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-8.2)_
 
-Uses uglify
+Mime Type : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2)_
+
 
 `snuggsi.es` ➡️  `snuggsi.min.es`
+_(Uses [GOOGLE Closure Compiler JS](https://github.com/google/closure-compiler-js))_
 
 `snuggsi.js` ➡️  `snuggsi.min.js`
+_(Uses [UglifyJS](https://github.com/mishoo/UglifyJS))_
 
 
 ### Compression
