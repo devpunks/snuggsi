@@ -19,7 +19,7 @@ for creating [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript) bundle.
 
 
 ### ECMAScript 5 Transpilation (.js)
-Mime Type : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2)_
+Mime Type : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2))_
 
 File Extension: `.js`
 
@@ -30,9 +30,9 @@ File Extension: `.js`
 
 
 ### Minification _(snuggsi.min.es)_ && _(snuggsi.min.js)_ 
-Mime Type : `application/ecmascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-8.2)_
+Mime Type : `application/ecmascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-8.2))_
 
-Mime Type : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2)_
+Mime Type : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2))_
 
 
 `snuggsi.es` ➡️  `snuggsi.min.es`
