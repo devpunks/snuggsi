@@ -195,6 +195,8 @@ document
   <li>Hello Snuggsi!</li>
 </ul>
 */
+
+</script>
 ```
 
 ## Build Process
