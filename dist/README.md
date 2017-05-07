@@ -92,6 +92,14 @@ Browser Support
 
 ### Scripts
 
+_Run the following scripts after cloning repository_
+
+```bash
+$ git clone https://github.com/devpunks/snuggsi.git
+$ cd snuggsi && npm i
+```
+
+
 #### Browse
 Watch files and hot inject browser assets on file change.
 See [watch.browser.es](watch.browser.es)
