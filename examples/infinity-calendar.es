@@ -94,3 +94,4 @@ Element `infinity-calendar`
       (this.context.date.setMonth (this.month + change))
   }
 })
+
