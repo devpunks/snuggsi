@@ -72,8 +72,6 @@ Browser Support
 
 
 #### GZip Compression _(snuggsi.min.gz)_
-- http://caniuse.com/#search=gzip
-
 `snuggsi.min.es` ➡️  `snuggsi.min.es.gz`
 
 `snuggsi.min.js` ➡️  `snuggsi.min.js.gz`
@@ -82,14 +80,15 @@ Server Support
   - http://www.gzip.org
 
 Browser Support
-- http://schroepl.net/projekte/mod_gzip/browser.htm
-- Netscape 6+ (Netscape 4-5 does, but with some bugs)
-- Internet Explorer 5.5+ (July 2000) and IE 4 if set to HTTP/1.1
-- Opera 5+ (June 2000)
-- Lynx 2.6+ (some time before 1999)
-- Firefox 0.9.5+ (October 2001)
-- Chrome since forever
-- Safari since forever (as far as I can tell)
+  - http://caniuse.com/#search=gzip
+  - http://schroepl.net/projekte/mod_gzip/browser.htm
+  - Netscape 6+ (Netscape 4-5 does, but with some bugs)
+  - Internet Explorer 5.5+ (July 2000) and IE 4 if set to HTTP/1.1
+  - Opera 5+ (June 2000)
+  - Lynx 2.6+ (some time before 1999)
+  - Firefox 0.9.5+ (October 2001)
+  - Chrome since forever
+  - Safari since forever (as far as I can tell)
 
 ### Scripts
 
