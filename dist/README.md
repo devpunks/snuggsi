@@ -102,22 +102,28 @@ $ cd snuggsi && npm i
 
 #### Browse
 Watch files and hot inject browser assets on file change.
-See [watch.browser.es](watch.browser.es)
-& [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation.
+
+_See [watch.browser.es](watch.browser.es)
+&amp; [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation._
+
 ```bash
 $ npm run browse
 ```
+
 
 #### Watch Tests
 Watch ecmascripts routine. [watch.es](watch.es)
 ```bash
 $ npm run watch
 ```
+
+
 #### Compile
 Run transpile, uglify, gzip, and weigh
 ```bash
 $ npm run compile
 ```
+
 
 #### Transpile
 Run bundle, and Buble for transpilation from ECMAScript to Javascript
@@ -131,6 +137,7 @@ Simple `cat` script for standalone ECMASCript modules
 $ npm run bundle
 ```
 
+
 #### Minify
 Run uglifyjs along with minification
 
@@ -140,11 +147,13 @@ Run uglifyjs along with minification
 $ npm run minify
 ```
 
+
 #### Compress
 gzip total byte size of bundled ecmascripts
 ```bash
 $ npm run compress
 ```
+
 
 #### Weigh
 Weigh ecmascripts routine.
@@ -152,3 +161,4 @@ _(gzip total byte size of bundled ecmascripts)_
 ```bash
 $ npm run weigh
 ```
+
