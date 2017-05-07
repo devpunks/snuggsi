@@ -29,7 +29,7 @@
 
   <strong>With snuggsiツ all you need is a browser and basic knowledge of HTML & Javascript to be productive!</strong>
 
-  <em>"Performance is the art of avoiding work" - #FreeJewelry :ring: :gem:<em>
+  <em>"Performance is the art of avoiding work" - #FreeJewelry :ring: :gem:</em>
 </p>
 
 ## Why ?
