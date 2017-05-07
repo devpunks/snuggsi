@@ -1,4 +1,14 @@
-<p align=center>
+<p align="center">
+  <h1>snuggsi ツ - Easy Web Components in
+    <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>1Kb</a>
+  </h1>
+
+  <strong>All you need is a browser and basic knowledge of HTML &amp; Javascript to be productive!</strong>
+
+  <em>"Performance is the art of avoiding work" - #FreeJewelry :ring: :gem:</em>
+</p>
+
+<p align="center">
   <a href=https://npmjs.org/package/snuggsi>
     <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat>
   </a>
@@ -20,16 +30,6 @@
   </a>
 
   <img src=https://img.shields.io/badge/PRs-welcome-brightgreen.svg alt='Pull requests welcome!'>
-</p>
-
-<p align=center>
-  <h1>snuggsi ツ - Easy Web Components in
-    <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>1Kb</a>
-  </h1>
-
-  <strong>All you need is a browser and basic knowledge of HTML &amp; Javascript to be productive!</strong>
-
-  <em>"Performance is the art of avoiding work" - #FreeJewelry :ring: :gem:</em>
 </p>
 
 ## Why ?
