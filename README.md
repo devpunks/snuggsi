@@ -82,7 +82,7 @@ Just insert the following polyfill `<script>` *before* snuggsiツ for classic br
 # Quick Tour
 
 ## [Element](/elements/element.es)
-The following snippet is from [examples/hello-word.html](/examples/hello-world.html)
+The following is a snippet from [examples/hello-word.html](/examples/hello-world.html)
 _See [examples](/examples) for more details._
 
 
