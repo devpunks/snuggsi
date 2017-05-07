@@ -29,7 +29,7 @@ File Extension: `.js`
 `snuggsi.es` ➡️  `snuggsi.js`
 
 
-### Minification _(snuggsi.min.es)_ && _(snuggsi.min.js)_ 
+### Minification _(snuggsi.min.es)_ &amp; _(snuggsi.min.js)_ 
 Mime Type : `application/ecmascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-8.2))_
 
 Mime Type : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2))_
