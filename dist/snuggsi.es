@@ -450,8 +450,8 @@ const Component = Element => // why buble
     this
       .tokens.bind (this)
 
-    Array // of templates with `name` attribute
-      .from
+    Array
+      .from // templates with `name` attribute
         (this.selectAll ('template[name]'))
       .map
         (template => new Template (template.getAttribute ('name')))
@@ -462,19 +462,21 @@ const Component = Element => // why buble
 
     // dispatch `idle`
     // and captured from `EventTarget`
-    this.constructor.onidle && // dispatch idle event
+    this.constructor.onidle &&
       this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   }
 
   onimport (event) {
 
     const
-      document = event.target.import
+      document =
+        event.target.import
+
     , template = document &&
         document.querySelector ('template')
 
-    template
-      && this.clone (template)
+    template &&
+      this.clone (template)
 
     // dispatch `import`
     // and captured from `EventTarget`
