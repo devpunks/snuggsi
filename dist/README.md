@@ -18,7 +18,7 @@ for creating [ECMAScript](https://en.wikipedia.org/wiki/ECMAScript) bundle.
 `elements/*.es` ➡️  `snuggsi.es`
 
 
-### ECMAScript 5 Transpilation (.js)
+### ECMAScript 5 Transpilation (snuggsi.js)
 Mime Type : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2))_
 
 File Extension: `.js`
@@ -44,7 +44,7 @@ _(Uses [UglifyJS](https://github.com/mishoo/UglifyJS))_
 
 ### Compression
 
-#### Brotli Compression _(*.min.br)_
+#### Brotli Compression _(snuggsi.min.br)_
 
 `snuggsi.min.es` ➡️  `snuggsi.min.es.br`
 
@@ -71,7 +71,7 @@ Browser Support
 - Safari supports Brotli as of version 10, released September 20, 2016
 
 
-#### GZip Compression _(*.min.gz)_
+#### GZip Compression _(snuggsi.min.gz)_
 - http://caniuse.com/#search=gzip
 
 `snuggsi.min.es` ➡️  `snuggsi.min.es.gz`
