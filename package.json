@@ -50,15 +50,15 @@
     "distribute": "./distribute"
   },
   "devDependencies": {
-    "tap": "*",
-    "buble": "*",
-    "uglifyjs": "*",
-    "browser-sync": "*",
     "devtools-terminal": "*"
   },
   "dependencies": {
-    "google-closure-compiler-js": "*",
-    "buble-tape": "*",
+    "tap": "*",
     "jsdom": "*"
+    "buble": "*",
+    "uglifyjs": "*",
+    "buble-tape": "*",
+    "browser-sync": "*",
+    "google-closure-compiler-js": "*",
   }
 }
