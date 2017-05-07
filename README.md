@@ -36,7 +36,6 @@
   3. Web Components ARE [ready for production](https://twitter.com/WebReflection/status/761316429559922688)
 
      &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
-
      [support for every modern browser including Internet Explorer 11+ / Edge](https://github.com/webcomponents/webcomponentsjs#browser-support)
 
 With *snuggsiツ* all you need is a browser and basic knowledge of HTML to be productive.
