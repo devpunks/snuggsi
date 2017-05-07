@@ -353,8 +353,8 @@ var Component = function (Element) { return ( (function (superclass) {
     this
       .tokens.bind (this)
 
-    Array // of templates with `name` attribute
-      .from
+    Array
+      .from // templates with `name` attribute
         (this.selectAll ('template[name]'))
       .map
         (function (template) { return new Template (template.getAttribute ('name')); })
@@ -365,19 +365,21 @@ var Component = function (Element) { return ( (function (superclass) {
 
     // dispatch `idle`
     // and captured from `EventTarget`
-    this.constructor.onidle && // dispatch idle event
+    this.constructor.onidle &&
       this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   };
 
   anonymous.prototype.onimport = function (event) {
 
     var
-      document = event.target.import
+      document =
+        event.target.import
+
     , template = document &&
         document.querySelector ('template')
 
-    template
-      && this.clone (template)
+    template &&
+      this.clone (template)
 
     // dispatch `import`
     // and captured from `EventTarget`
