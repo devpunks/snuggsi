@@ -27,6 +27,8 @@
     <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>1Kb</a>
   </h1>
 
+  <strong>With snuggsiツ all you need is a browser and basic knowledge of HTML & Javascript to be productive!</strong>
+
   <em>"Performance is the art of avoiding work" - #FreeJewelry :ring: :gem:<em>
 </p>
 
@@ -38,7 +40,6 @@
      &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
      [support for every modern browser including Internet Explorer 11+ / Edge](https://github.com/webcomponents/webcomponentsjs#browser-support)
 
-With *snuggsiツ* all you need is a browser and basic knowledge of HTML to be productive.
 
 ## Easy Installation
 Node.js, Webpack, Babel, or Gulp can be used but is not a requirement.
