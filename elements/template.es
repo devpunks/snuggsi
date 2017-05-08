@@ -23,9 +23,12 @@ const Template = function (name) {
     (document.querySelector ('template[name='+name+']'), { bind } )
 
   function bind (context) {
-    this.dependents = this.dependents || []
 
-    context = Array.isArray (context) ? context : [context]
+    this.dependents =
+      this.dependents || []
+
+    context =
+      Array.isArray (context) ? context : [context]
 
     let
       dependent = undefined
@@ -62,3 +65,4 @@ const Template = function (name) {
     return this
   }
 }
+
