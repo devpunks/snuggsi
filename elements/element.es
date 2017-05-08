@@ -9,6 +9,7 @@ const Element = function
 
 {
   return function (Element) { // https://en.wikipedia.org/wiki/Higher-order_function
+
     CustomElementRegistry.define
       ( ...tag, Component (Element))
   }
