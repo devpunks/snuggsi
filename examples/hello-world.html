@@ -13,6 +13,17 @@
   hello-world
     { cursor: pointer }
 
+#sand-box {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#sand-box iframe {
+  width: 49%;
+  margin: 0 0.5%;
+  min-height: 90vh;
+}
+
 </style>
 
 <script src=http://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
@@ -26,6 +37,10 @@
 <header-group>
   <h2 slot=header>&lt;hello-world&gt;</h2>
 </header-group>
+
+<section id=sand-box>
+<script src=http://jsfiddle.net/uq4457pd/embed/html/dark/></script>
+<script src=http://jsfiddle.net/uq4457pd/embed/result/dark/></script>
 
 <hello-world>
   Hello World
@@ -42,6 +57,8 @@
 <hello-world>
   {greeting} {planet}
 </hello-world>
+
+</section>
 
 <script>
 
