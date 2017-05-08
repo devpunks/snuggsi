@@ -66,8 +66,8 @@ const Template = function (name) {
       .map (record => record.innerHTML)
       .join ('')
 
-    fragment.innerHTML = a
-    this.after ( fragment.content )
+    document.querySelector ('menu').innerHTML = a
+//  this.after ( fragment.content )
 
     return this
   }
