@@ -35,11 +35,11 @@ class TokenList {
 
     , visit = node =>
         node.nodeType === Node.TEXT_NODE
-          ? (TEXT_NODE (node) && NodeFilter.FILTER_ACCEPT)
+          ? TEXT_NODE (node) && NodeFilter.FILTER_ACCEPT
           : ELEMENT_NODE (node.attributes) && NodeFilter.FILTER_REJECT
 
     , TEXT_NODE = node =>
-        (node.nodeType === Node.TEXT_NODE)
+        node.nodeType === Node.TEXT_NODE
           && /{(\w+|#)}/.test (node.textContent)
 
     , ELEMENT_NODE = attributes =>
@@ -72,10 +72,11 @@ class TokenList {
         this [symbol]
           .map (replacement (symbol))
 
-    , replacement = symbol =>
-        item =>
-          item.textContent = item.textContent
-            .replace ('{'+symbol+'}', context [symbol])
+    , replacement =
+        symbol =>
+          item =>
+            item.textContent = item.textContent
+              .replace ('{'+symbol+'}', context [symbol])
 
     Object
       .keys (this)
