@@ -54,22 +54,20 @@ const Template = function (name) {
       item ['#'] = index
 
       tokens.bind  (item)
-      records.push (clone.content)
+      records.push (clone)
     })
 
     records.map
-      (function (record) { this.dependents.push (...record.childNodes) }, this)
+      (function (record) { this.dependents.push (...record.content.childNodes) }, this)
 
-    let fragment = document.createDocumentFragment ()
+    let fragment = document.createElement ('template')
 
     let a = records
-      .map (record => record.outerHTML)
+      .map (record => record.innerHTML)
       .join ('')
 
     fragment.innerHTML = a
-    console.log ('what', records[0].outerHTML)
-
-    this.after ( fragment )
+    this.after ( fragment.content )
 
     return this
   }
