@@ -6,6 +6,7 @@ const HTMLLinkElement = function
 
   const
     proxy = {}
+
   , link  =
       document
         .querySelector // use CSS :any ?
@@ -73,11 +74,11 @@ class TokenList {
 
     , visit = node =>
         node.nodeType === Node.TEXT_NODE
-          ? (TEXT_NODE (node) && NodeFilter.FILTER_ACCEPT)
+          ? TEXT_NODE (node) && NodeFilter.FILTER_ACCEPT
           : ELEMENT_NODE (node.attributes) && NodeFilter.FILTER_REJECT
 
     , TEXT_NODE = node =>
-        (node.nodeType === Node.TEXT_NODE)
+        node.nodeType === Node.TEXT_NODE
           && /{(\w+|#)}/.test (node.textContent)
 
     , ELEMENT_NODE = attributes =>
@@ -110,10 +111,11 @@ class TokenList {
         this [symbol]
           .map (replacement (symbol))
 
-    , replacement = symbol =>
-        item =>
-          item.textContent = item.textContent
-            .replace ('{'+symbol+'}', context [symbol])
+    , replacement =
+        symbol =>
+          item =>
+            item.textContent = item.textContent
+              .replace ('{'+symbol+'}', context [symbol])
 
     Object
       .keys (this)
@@ -179,9 +181,12 @@ const Template = function (name) {
     (document.querySelector ('template[name='+name+']'), { bind } )
 
   function bind (context) {
-    this.dependents = this.dependents || []
 
-    context = Array.isArray (context) ? context : [context]
+    this.dependents =
+      this.dependents || []
+
+    context =
+      Array.isArray (context) ? context : [context]
 
     let
       dependent = undefined
@@ -218,7 +223,8 @@ const Template = function (name) {
     return this
   }
 }
-const EventTarget = (Element) => // why buble
+
+const EventTarget = Element => // why buble
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -325,6 +331,7 @@ const ParentNode = Element =>
     return this._tokens = // This is Janky
       this._tokens || new TokenList (this)
   }
+
 })
 
 //function comb
@@ -388,8 +395,7 @@ const GlobalEventHandlers = Element =>
         ':not(script):not(template):not(style):not(link)' // remove metadata elements
 
     , children =
-        Array
-          .from (this.querySelectorAll (nodes))
+        Array.from (this.querySelectorAll (nodes))
 
     , registered =
         node =>
@@ -413,7 +419,7 @@ const GlobalEventHandlers = Element =>
             (node [event] = handle (node [event]))
 
     , handle =
-        (handler, [_, event] = (/{\s*(\w+)\s*}/.exec (handler) || []))  =>
+        (handler, [_, event] = (/{\s*(\w+)\s*}/.exec (handler) || [])) =>
           event
             && Element [event]
             && Element [event].bind (this)
@@ -547,6 +553,7 @@ const Element = function
 
 {
   return function (Element) { // https://en.wikipedia.org/wiki/Higher-order_function
+
     CustomElementRegistry.define
       ( ...tag, Component (Element))
   }
