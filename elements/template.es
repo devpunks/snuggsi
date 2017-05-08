@@ -40,22 +40,22 @@ const Template = function (name) {
       (dependent = this.dependents.pop ())
         dependent.remove ()
 
-    context.forEach ((item, index) => {
+    for (let index = 0; index < context.length; index ++ ) {
 
       let
         clone  = this.cloneNode (true)
       , tokens = (new TokenList (clone.content))
 
-      item =
-        typeof item === 'object'
-          ? item
-          : { self: item }
+      context [index]  =
+        typeof context [index]  === 'object'
+          ? context [index]
+          : { self: context [index] }
 
-      item ['#'] = index
+      context [index] ['#'] = index
 
-      tokens.bind  (item)
+      tokens.bind  (context [index])
       records.push (clone)
-    })
+    }
 
     records.map
       (function (record) { this.dependents.push (...record.content.childNodes) }, this)
