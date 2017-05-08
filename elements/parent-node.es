@@ -33,6 +33,7 @@ const ParentNode = Element =>
     return this._tokens = // This is Janky
       this._tokens || new TokenList (this)
   }
+
 })
 
 //function comb
