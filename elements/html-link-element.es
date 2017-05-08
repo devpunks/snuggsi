@@ -6,6 +6,7 @@ const HTMLLinkElement = function
 
   const
     proxy = {}
+
   , link  =
       document
         .querySelector // use CSS :any ?
