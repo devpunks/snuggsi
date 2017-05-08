@@ -218,7 +218,16 @@ const Template = function (name) {
     records.map
       (function (record) { this.dependents.push (...record.childNodes) }, this)
 
-    this.after ( ...records )
+    let fragment = document.createDocumentFragment ()
+
+    let a = records
+      .map (record => record.outerHTML)
+      .join ('')
+
+    fragment.innerHTML = a
+    console.log ('what', records[0].outerHTML)
+
+    this.after ( fragment )
 
     return this
   }
