@@ -8,6 +8,7 @@ var HTMLLinkElement = function
 
   var
     proxy = {}
+
   , link  =
       document
         .querySelector // use CSS :any ?
@@ -66,10 +67,10 @@ TokenList.prototype.sift = function (node) {
     nodes = []
 
   , visit = function (node) { return node.nodeType === Node.TEXT_NODE
-        ? (TEXT_NODE (node) && NodeFilter.FILTER_ACCEPT)
+        ? TEXT_NODE (node) && NodeFilter.FILTER_ACCEPT
         : ELEMENT_NODE (node.attributes) && NodeFilter.FILTER_REJECT; }
 
-  , TEXT_NODE = function (node) { return (node.nodeType === Node.TEXT_NODE)
+  , TEXT_NODE = function (node) { return node.nodeType === Node.TEXT_NODE
         && /{(\w+|#)}/.test (node.textContent); }
 
   , ELEMENT_NODE = function (attributes) { return Array
@@ -101,8 +102,9 @@ TokenList.prototype.bind = function (context, node) {
   , replace = function (symbol) { return this$1 [symbol]
         .map (replacement (symbol)); }
 
-  , replacement = function (symbol) { return function (item) { return item.textContent = item.textContent
-          .replace ('{'+symbol+'}', context [symbol]); }; }
+  , replacement =
+      function (symbol) { return function (item) { return item.textContent = item.textContent
+            .replace ('{'+symbol+'}', context [symbol]); }; }
 
   Object
     .keys (this)
@@ -140,9 +142,12 @@ var Template = function (name) {
   function bind (context) {
     var this$1 = this;
 
-    this.dependents = this.dependents || []
 
-    context = Array.isArray (context) ? context : [context]
+    this.dependents =
+      this.dependents || []
+
+    context =
+      Array.isArray (context) ? context : [context]
 
     var
       dependent = undefined
@@ -181,6 +186,7 @@ var Template = function (name) {
     var ref;
   }
 }
+
 var EventTarget = function (Element) { return ((function (Element) {
     function anonymous () {
       Element.apply(this, arguments);
@@ -289,8 +295,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
         ':not(script):not(template):not(style):not(link)' // remove metadata elements
 
     , children =
-        Array
-          .from (this.querySelectorAll (nodes))
+        Array.from (this.querySelectorAll (nodes))
 
     , registered =
         function (node) { return Array
@@ -310,7 +315,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
         function (node) { return function (event) { return (node [event] = handle (node [event])); }; }
 
     , handle =
-        function (handler, ref)  {
+        function (handler, ref) {
             if ( ref === void 0 ) ref = (/{\s*(\w+)\s*}/.exec (handler) || []);
             var _ = ref[0];
             var event = ref[1];
@@ -451,6 +456,7 @@ var Element = function
   if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
 
   return function (Element) { // https://en.wikipedia.org/wiki/Higher-order_function
+
     CustomElementRegistry.define.apply
       ( CustomElementRegistry, tag.concat( [Component (Element)] ))
   }
