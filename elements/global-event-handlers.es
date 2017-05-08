@@ -49,8 +49,7 @@ const GlobalEventHandlers = Element =>
         ':not(script):not(template):not(style):not(link)' // remove metadata elements
 
     , children =
-        Array
-          .from (this.querySelectorAll (nodes))
+        Array.from (this.querySelectorAll (nodes))
 
     , registered =
         node =>
@@ -74,7 +73,7 @@ const GlobalEventHandlers = Element =>
             (node [event] = handle (node [event]))
 
     , handle =
-        (handler, [_, event] = (/{\s*(\w+)\s*}/.exec (handler) || []))  =>
+        (handler, [_, event] = (/{\s*(\w+)\s*}/.exec (handler) || [])) =>
           event
             && Element [event]
             && Element [event].bind (this)
