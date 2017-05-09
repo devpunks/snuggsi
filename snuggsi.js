@@ -198,27 +198,37 @@ const Template = function (name) {
       (dependent = this.dependents.pop ())
         dependent.remove ()
 
-    context.forEach ((item, index) => {
+    let index = context.length
+
+    while (index--) {
 
       let
         clone  = this.cloneNode (true)
       , tokens = (new TokenList (clone.content))
 
-      item =
-        typeof item === 'object'
-          ? item
-          : { self: item }
+      context [index]  =
+        typeof context [index]  === 'object'
+          ? context [index]
+          : { self: context [index] }
 
-      item ['#'] = index
+      context [index]
+        ['#'] = index
 
-      tokens.bind  (item)
-      records.push (clone.content)
-    })
+      tokens.bind  (context [index])
+      records.push (clone)
+    }
 
     records.map
-      (function (record) { this.dependents.push (...record.childNodes) }, this)
+      (function (record) { this.dependents.push (...record.content.childNodes) }, this)
 
-    this.after ( ...records )
+    let fragment = document.createElement ('template')
+
+    let a = records
+      .map (record => record.innerHTML)
+      .join ('')
+
+    document.querySelector ('menu').innerHTML = a
+//  this.after ( fragment.content )
 
     return this
   }
@@ -459,8 +469,10 @@ const Component = Element => // why buble
     Array
       .from // templates with `name` attribute
         (this.selectAll ('template[name]'))
+
       .map
         (template => new Template (template.getAttribute ('name')))
+
       .map
         (template => template.bind (this [template.attributes.name.value]))
 
