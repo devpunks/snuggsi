@@ -147,7 +147,8 @@ var Template = function (name) {
       this.dependents || []
 
     context =
-      Array.isArray (context) ? context : [context]
+      (Array.isArray (context) ? context : [context])
+      .reverse ()
 
     var
       dependent = undefined
@@ -183,14 +184,20 @@ var Template = function (name) {
       (function (record) { (ref = this.dependents).push.apply (ref, record.content.childNodes)
       var ref; }, this)
 
-    var fragment = document.createElement ('template')
+    var template = document.createElement ('template')
 
     var a = records
       .map (function (record) { return record.innerHTML; })
       .join ('')
 
-    document.querySelector ('menu').innerHTML = a
-//  this.after ( fragment.content )
+    var b = this
+      .closest ('infinity-calendar')
+      .querySelector ('slot[name='+this.getAttribute ('name')+']')
+
+//  console.log (b)
+//  b = a
+    template.innerHTML = a
+    this.after ( template.content )
 
     return this
   }
