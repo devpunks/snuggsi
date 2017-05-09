@@ -28,7 +28,8 @@ const Template = function (name) {
       this.dependents || []
 
     context =
-      Array.isArray (context) ? context : [context]
+      (Array.isArray (context) ? context : [context])
+      .reverse ()
 
     let
       dependent = undefined
@@ -63,14 +64,20 @@ const Template = function (name) {
     records.map
       (function (record) { this.dependents.push (...record.content.childNodes) }, this)
 
-    let fragment = document.createElement ('template')
+    let template = document.createElement ('template')
 
     let a = records
       .map (record => record.innerHTML)
       .join ('')
 
-    document.querySelector ('menu').innerHTML = a
-//  this.after ( fragment.content )
+    let b = this
+      .closest ('infinity-calendar')
+      .querySelector ('slot[name='+this.getAttribute ('name')+']')
+
+//  console.log (b)
+//  b = a
+    template.innerHTML = a
+    this.after ( template.content )
 
     return this
   }
