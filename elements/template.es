@@ -40,7 +40,9 @@ const Template = function (name) {
       (dependent = this.dependents.pop ())
         dependent.remove ()
 
-    for (let index = 0; index < context.length; index ++ ) {
+    let index = context.length
+
+    while (index--) {
 
       let
         clone  = this.cloneNode (true)
@@ -51,7 +53,8 @@ const Template = function (name) {
           ? context [index]
           : { self: context [index] }
 
-      context [index] ['#'] = index
+      context [index]
+        ['#'] = index
 
       tokens.bind  (context [index])
       records.push (clone)
