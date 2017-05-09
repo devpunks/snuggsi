@@ -159,31 +159,40 @@ var Template = function (name) {
       (dependent = this.dependents.pop ())
         { dependent.remove () }
 
-    context.forEach (function (item, index) {
+    var index = context.length
+
+    while (index--) {
 
       var
         clone  = this$1.cloneNode (true)
       , tokens = (new TokenList (clone.content))
 
-      item =
-        typeof item === 'object'
-          ? item
-          : { self: item }
+      context [index]  =
+        typeof context [index]  === 'object'
+          ? context [index]
+          : { self: context [index] }
 
-      item ['#'] = index
+      context [index]
+        ['#'] = index
 
-      tokens.bind  (item)
-      records.push (clone.content)
-    })
+      tokens.bind  (context [index])
+      records.push (clone)
+    }
 
     records.map
-      (function (record) { (ref = this.dependents).push.apply (ref, record.childNodes)
+      (function (record) { (ref = this.dependents).push.apply (ref, record.content.childNodes)
       var ref; }, this)
 
-    (ref = this).after.apply ( ref, records )
+    var fragment = document.createElement ('template')
+
+    var a = records
+      .map (function (record) { return record.innerHTML; })
+      .join ('')
+
+    document.querySelector ('menu').innerHTML = a
+//  this.after ( fragment.content )
 
     return this
-    var ref;
   }
 }
 
@@ -361,8 +370,10 @@ var Component = function (Element) { return ( (function (superclass) {
     Array
       .from // templates with `name` attribute
         (this.selectAll ('template[name]'))
+
       .map
         (function (template) { return new Template (template.getAttribute ('name')); })
+
       .map
         (function (template) { return template.bind (this$1 [template.attributes.name.value]); })
 
