@@ -24,8 +24,10 @@ const Component = Element => // why buble
     Array
       .from // templates with `name` attribute
         (this.selectAll ('template[name]'))
+
       .map
         (template => new Template (template.getAttribute ('name')))
+
       .map
         (template => template.bind (this [template.attributes.name.value]))
 
