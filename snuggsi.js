@@ -175,7 +175,7 @@ class TokenList {
 //  }
 //}
 
-const Template = function (name) {
+const HTMLTemplateElement = Template = function (name) {
 
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind } )
