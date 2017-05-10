@@ -3,7 +3,32 @@
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
 
-<script nomodule src=../dist/snuggsi.es></script>
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+<style>
+
+  infinity-calendar a
+    { line-height: 2em }
+
+</style>
+
+<script nomodule src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script nomodule src=https://unpkg.com/snuggsi></script>
+
+<!-- import works inline body -->
+<link rel=import href=header-group.html>
+
+<link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
+
+<header-group>
+  <h2 slot=header>&lt;Infinity-Calendar&gt;</h2>
+  <ul slot=subheader>
+    <li>
+      <a target=external href=http://jessewolgamott.com/react-calendar-table-example>react-calendar-table-example</a>
+    <li>
+      <a target=external href=http://teuxdeux.com>http://teudeux.com</a>
+  </ul>
+</header-group>
+
 
 <infinity-calendar>
 
@@ -37,4 +62,6 @@
 
   <script src=infinity-calendar.es defer></script>
 </infinity-calendar>
+
+<script src=../../vendor/browser-sync.es></script>
 
