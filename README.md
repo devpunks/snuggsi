@@ -54,8 +54,7 @@ Node.js, Webpack, Babel, or Gulp can be used but is not a requirement.
 
 Simply place the following `<script>` anywhere in your webpage
 ```html
-<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
-<script type=module src=https://unpkg.com/snuggsi/snuggsi.es></script>
+<script nomodule src=https://unpkg.com/snuggsi></script>
 ```
 
 Et Voila _(that's it!)_
@@ -84,7 +83,7 @@ Just insert the following polyfill `<script>` *before* snuggsiツ for classic br
 <script src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 
 <!-- snuggsi (modern) -->
-<script type=module src=https://unpkg.com/snuggsi/snuggsi.es></script>
+<script type=module type=module src=https://unpkg.com/snuggsi></script>
 
 <!-- snuggsi (classic) -->
 <script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
