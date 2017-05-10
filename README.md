@@ -9,12 +9,12 @@
     <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat>
   </a>
 
-  <a href=https://www.npmjs.com/package/snuggsi>
-    <img src=https://img.shields.io/npm/v/snuggsi.svg alt='npm version'>
-  </a>
-
   <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>
     <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-1Kb-brightgreen.svg>
+  </a>
+
+  <a href=https://www.npmjs.com/package/snuggsi>
+    <img src=https://img.shields.io/npm/v/snuggsi.svg alt='npm version'>
   </a>
 
   <a href=https://david-dm.org/devpunks/snuggsi target=external>
