@@ -103,7 +103,8 @@ Play [Hello World Demo](https://jsfiddle.net/uq4457pd/)
  Hello {planet}
 </hello-world>
 
-<script nomodule src=https://unpkg.com/snuggsi></script>
+<!-- provide http(s): protocol running locally -->
+<script nomodule src=//unpkg.com/snuggsi></script>
 <script nomodule>
 
 // Element Definition -----------------------------
