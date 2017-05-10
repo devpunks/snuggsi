@@ -32,11 +32,14 @@
   <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>
     <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-1Kb-brightgreen.svg>
   </a>
+</p>
 
+<p align=center>
   <strong align="center">All you need is a browser and basic knowledge of HTML &amp; Javascript to be productive!</strong>
 
   <em align="center">"Performance is the art of avoiding work" - #FreeJewelry :ring: :gem:</em>
 </p>
+
 
 ## Why ?
   1. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
