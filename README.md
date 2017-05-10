@@ -70,12 +70,13 @@ for more details.
   | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | Templates |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | HTML Imports |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | Shadow Dom | | |✅ |✅ | | | |
 
   _\*Indicates the current version of the browser_
 
   The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
   polyfills are intended to work in the latest versions of evergreen browsers.
-  
+
 Just insert the following polyfill `<script>` *before* snuggsiツ for classic browser support.
 
 ```html
