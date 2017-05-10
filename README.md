@@ -13,6 +13,10 @@
     <img src=https://img.shields.io/npm/v/snuggsi.svg alt='npm version'>
   </a>
 
+  <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>
+    <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-1Kb-brightgreen.svg>
+  </a>
+
   <a href=https://david-dm.org/devpunks/snuggsi target=external>
     <img src=https://david-dm.org/devpunks/snuggsi/status.svg alt='dependency status'>
   </a>
@@ -27,10 +31,6 @@
 
   <a href=https://github.com/devpunks/snuggsi/issues target=external>
     <img src=https://img.shields.io/badge/PRs-welcome-brightgreen.svg alt='Pull requests welcome!'>
-  </a>
-
-  <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>
-    <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-1Kb-brightgreen.svg>
   </a>
 
 <p align=center>
