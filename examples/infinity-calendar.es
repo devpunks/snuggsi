@@ -83,7 +83,7 @@ Element `infinity-calendar`
     , date  =
         new Date ( this.year , this.context.date.getMonth () + 1 , 0)
 
-    for (let day=1; day <= 1000; day++)
+    for (let day=1; day <= date.getDate (); day++)
       dates.push (day)
 
     return dates.map (days)
