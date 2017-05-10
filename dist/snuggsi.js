@@ -134,7 +134,7 @@ TokenList.prototype.bind = function (context, node) {
 //  }
 //}
 
-var Template = function (name) {
+var HTMLTemplateElement = Template = function (name) {
 
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind: bind } )
