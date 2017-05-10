@@ -152,7 +152,7 @@ for more details
   <h1>{name}</h1>
 </template>
 
-<script nomodule src=https://unpkg.com/snuggsi></script>
+<script nomodule src=//unpkg.com/snuggsi></script>
 <script nomodule>
 
 const
@@ -186,7 +186,7 @@ document
   </template>
 </ul>
 
-<script nomodule src=https://unpkg.com/snuggsi></script>
+<script nomodule src=//unpkg.com/snuggsi></script>
 <script nomodule>
 
 // when context is a collection
