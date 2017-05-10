@@ -24,7 +24,7 @@
     "templates"
   ],
   "main": "snuggsi.min.js",
-  "bin": "./bin/snuggsi.es",
+  "bin": "bin/snuggsi.es",
   "directories": {
     "doc": "docs",
     "example": "examples"
