@@ -86,7 +86,7 @@ Just insert the following polyfill `<script>` *before* snuggsiツ for classic br
 <script type=module type=module src=https://unpkg.com/snuggsi></script>
 
 <!-- snuggsi (classic) -->
-<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule src=https://unpkg.com/snuggsi/snuggsi.min.js></script>
 ```
 
 
@@ -103,7 +103,7 @@ Play [Hello World Demo](https://jsfiddle.net/uq4457pd/)
  Hello {planet}
 </hello-world>
 
-<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule src=https://unpkg.com/snuggsi></script>
 <script nomodule>
 
 // Element Definition -----------------------------
@@ -150,7 +150,7 @@ for more details
   <h1>{name}</h1>
 </template>
 
-<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule src=https://unpkg.com/snuggsi></script>
 <script nomodule>
 
 const
@@ -184,7 +184,7 @@ document
   </template>
 </ul>
 
-<script nomodule src=https://unpkg.com/snuggsi/snuggsi.js></script>
+<script nomodule src=https://unpkg.com/snuggsi></script>
 <script nomodule>
 
 // when context is a collection
