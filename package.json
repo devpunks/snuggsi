@@ -24,6 +24,7 @@
     "templates"
   ],
   "main": "index.es",
+  "bin": "./bin/snuggsi.es",
   "directories": {
     "doc": "docs",
     "example": "examples"
