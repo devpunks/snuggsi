@@ -21,11 +21,17 @@
     <img src=https://img.shields.io/npm/l/snuggsi.svg alt=license>
   </a>
 
-  <a href='https://codecov.io/github/devpunks/snuggsi?branch=master' target=external>
+  <a href=https://codecov.io/github/devpunks/snuggsi?branch=master target=external>
     <img src=https://codecov.io/gh/devpunks/snuggsi/branch/master/graph/badge.svg alt='Coverage via Codecov'>
   </a>
 
-  <img src=https://img.shields.io/badge/PRs-welcome-brightgreen.svg alt='Pull requests welcome!'>
+  <a href=https://github.com/devpunks/snuggsi/issues target=external>
+    <img src=https://img.shields.io/badge/PRs-welcome-brightgreen.svg alt='Pull requests welcome!'>
+  </a>
+
+  <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>
+    <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-1Kb-brightgreen.svg>
+  </a>
 
   <strong align="center">All you need is a browser and basic knowledge of HTML &amp; Javascript to be productive!</strong>
 
