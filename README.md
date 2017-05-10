@@ -128,7 +128,7 @@ Element `hello-world`
 </script>
 ```
 
-## [Template](/elements/template.es)
+## [Template](/elements/html-template-element.es)
 
 `<template>` to appendable `DocumentFragment`.
 
