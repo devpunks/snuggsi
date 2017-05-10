@@ -83,10 +83,10 @@ Just insert the following polyfill `<script>` *before* snuggsiツ for classic br
 <!-- webcomponents polyfill -->
 <script src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 
-<!-- snuggsi (modern) -->
+<!-- snuggsiツ (modern) -->
 <script type=module src=//unpkg.com/snuggsi></script>
 
-<!-- snuggsi (classic) -->
+<!-- snuggsiツ (classic) -->
 <script nomodule src=//unpkg.com/snuggsi/snuggsi.min.js></script>
 ```
 
