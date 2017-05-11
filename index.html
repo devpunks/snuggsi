@@ -3,11 +3,6 @@
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
 
-<style>
-// enough inline styles to paint to fold
-// Japanese colors - https://en.wikipedia.org/wiki/Traditional_colors_of_Japan#Red.2FViolet_series
-</style>
-
 <link
   as=font
   crossorigin
@@ -43,6 +38,8 @@
 </script>
 
 <link rel=preload as=script href=https://unpkg.com/snuggsi@0.5.46>
+<link async rel=import href=header-group.html>
+
 
 <script nomodule src=https://unpkg.com/snuggsi@0.5.46></script>
 <script nomodule>
@@ -52,15 +49,21 @@ console.log ('nomodule')
 <link rel=icon type=image/png href=/favicon-16x16.png sizes=16x16>
 
 
+<!-- should this go high or low? -->
+<style>
+// enough inline styles to paint to fold
+// Japanese colors - https://en.wikipedia.org/wiki/Traditional_colors_of_Japan#Red.2FViolet_series
+</style>
+
 <!-- https://www.speedshop.co/2015/10/21/hacking-head-tags-for-speed-and-profit.html -->
 
 <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base -->
 <!--<base href=//localhost:8181>-->
 
-<hgroup>
-  <h1>snuggsi ツ</h1>
+<header-group>
+  <h1>snuggsi<sub>.es</sub>ツ</h1>
   <h2>Easy Web Components</h2>
-</hgroup>
+</header-group>
 
 <nav>
 <!-- https://skatejs.gitbooks.io/skatejs/content -->
