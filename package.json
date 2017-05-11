@@ -54,6 +54,7 @@
     "devtools-terminal": "*"
   },
   "dependencies": {
+    "koa": "*",
     "tap": "*",
     "jsdom": "*",
     "buble": "*",
