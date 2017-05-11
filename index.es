@@ -1,8 +1,6 @@
 const
-  app    = new require ('koa')
-, static = new require
-    ('koa-static')
-    ('public')
+  app    = new (require ('koa'))
+, static = require ('koa-static') ('public')
 
 app.use ( static )
 console.log ('listening')
