@@ -1,6 +1,6 @@
 {
   "name": "snuggsi",
-  "version": "0.5.44",
+  "version": "0.5.45",
   "author": "Snuggs",
   "description": "Easy Web Components in 1KB",
   "license": "MIT",
@@ -57,7 +57,6 @@
   "dependencies": {
     "koa": "*",
     "koa-static": "*",
-
     "tap": "*",
     "jsdom": "*",
     "buble": "*",
