@@ -30,7 +30,7 @@
     "example": "examples"
   },
   "scripts": {
-    "start": "npm run browse -- --port=80",
+    "start": "node --harmony ./index.es",
     "package": "./package",
     "watch": "node watch.es",
     "test": "node --use_strict index.test.es",
