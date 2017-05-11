@@ -62,9 +62,18 @@ console.log ('nomodule')
 <!--<base href=//localhost:8181>-->
 
 <link rel=import href=/examples/header-group.html>
+<style>
+header-group a:link {
+  text-decoration: none;
+  border: none;
+}
+header-group a span {
+  opacity: 0.60;
+  font-size: 90%
+}
+</style>
 <header-group>
-  <h1 slot=header>snuggsi<sub>.es</sub>ツ</h1>
-  <h2 slot=subheader>Easy Web Components</h2>
+  <h2 slot=header>Easy Web Components</h2>
 </header-group>
 
 <nav>
