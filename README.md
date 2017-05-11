@@ -54,7 +54,8 @@ Node.js, Webpack, Babel, or Gulp can be used but is not a requirement.
 
 Simply place the following `<script>` anywhere in your webpage
 ```html
-<script nomodule src=https://unpkg.com/snuggsi></script>
+<!-- http(s): protocol required locally -->
+<script nomodule src=//unpkg.com/snuggsi></script>
 ```
 
 Et Voila _(that's it!)_
@@ -104,7 +105,7 @@ Play [Hello World Demo](https://jsfiddle.net/uq4457pd/)
  Hello {planet}
 </hello-world>
 
-<!-- provide http(s): protocol running locally -->
+<!-- http(s): protocol required locally -->
 <script nomodule src=//unpkg.com/snuggsi></script>
 <script nomodule>
 
