@@ -95,12 +95,13 @@ Just insert the following polyfill `<script>` *before* snuggsiツ for classic br
 # Quick Tour
 
 ## [Element](/elements/element.es)
-The following is a snippet from [examples/hello-word.html](/examples/hello-world.html)
-
-_See [examples](/examples#readme) for more details._
-
 
 Play [Hello World Demo](https://jsfiddle.net/rmv8e2vz/)
+
+The following is a snippet from [examples/hello-word.html](/examples/hello-world.html)
+
+_See [examples](/examples#readme) for more details_
+
 ``` html
 <hello-world>
  Hello {planet}
