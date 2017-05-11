@@ -55,7 +55,7 @@ Node.js, Webpack, Babel, or Gulp can be used but is not a requirement.
 Simply place the following `<script>` anywhere in your webpage
 ```html
 <!-- http(s): protocol required locally -->
-<script nomodule src=//unpkg.com/snuggsi></script>
+<script async nomodule src=//unpkg.com/snuggsi></script>
 ```
 
 Et Voila _(that's it!)_
@@ -96,10 +96,11 @@ Just insert the following polyfill `<script>` *before* snuggsiツ for classic br
 
 ## [Element](/elements/element.es)
 The following is a snippet from [examples/hello-word.html](/examples/hello-world.html)
+
 _See [examples](/examples#readme) for more details._
 
 
-Play [Hello World Demo](https://jsfiddle.net/uq4457pd/)
+Play [Hello World Demo](https://jsfiddle.net/rmv8e2vz/)
 ``` html
 <hello-world>
  Hello {planet}
@@ -107,7 +108,7 @@ Play [Hello World Demo](https://jsfiddle.net/uq4457pd/)
 
 <!-- http(s): protocol required locally -->
 <script nomodule src=//unpkg.com/snuggsi></script>
-<script nomodule>
+<script nomodule async defer>
 
 // Element Definition -----------------------------
 
