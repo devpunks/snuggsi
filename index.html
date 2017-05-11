@@ -30,8 +30,6 @@
   onload="this.rel='stylesheet'"
   href=http://www.devpunks.com/typography.css>
 
-<link rel=import href=/examples/header-group.html>
-
 <link rel=preload as=script href=https://unpkg.com/snuggsi@0.5.46/snuggsi.min.js>
 
 <script type=module>
@@ -39,6 +37,7 @@
 
   console.warn ('Element', Element)
 </script>
+
 
 <script src=https://unpkg.com/snuggsi></script>
 <script nomodule>
@@ -59,6 +58,7 @@ console.log ('nomodule')
 <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/base -->
 <!--<base href=//localhost:8181>-->
 
+<link rel=import href=/examples/header-group.html>
 <header-group>
   <h1 slot=header>snuggsi<sub>.es</sub>ツ</h1>
   <h2 slot=subheader>Easy Web Components</h2>
