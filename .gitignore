@@ -16,3 +16,5 @@ snuggsi.gemspec
 notification.es
 NOTES
 .DS_Store
+public/index.html
+public/examples
