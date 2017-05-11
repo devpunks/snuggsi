@@ -10,6 +10,7 @@ module.exports = {
       ignored: '*.txt',
       ignoreInitial: true
     },
+/*
     "server": {
       baseDir: './',
       directory: true,
@@ -18,8 +19,9 @@ module.exports = {
         'browser-sync-client.js': 'node_modules/browser-sync-client/dist/index.min.js'
       }
     },
+*/
     "port": 8181,
-    "proxy": false,
+    "proxy": 'http://localhost:3000',
     "middleware": false,
     "serveStatic": [],
     "ghostMode": {
