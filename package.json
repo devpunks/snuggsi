@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "node --harmony ./index.es",
-    "postinstall": "ln -s ./index.html ./public/index.html && ln -s ./examples ./public/examples",
+    "postinstall": "cp ./index.html ./public && cp ./examples ./public",
     "package": "./package",
     "watch": "node watch.es",
     "test": "node --use_strict index.test.es",
