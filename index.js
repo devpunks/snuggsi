@@ -1,9 +1,9 @@
-const Koa = require ('koa')
-const app = new Koa ()
+const
+  app    = new require ('koa')
+, static = new require
+    ('koa-static')
+    ('public')
 
-app.use (ctx => {
-  ctx.body = 'Hello World'
-})
-
+app.use ( static )
 console.log ('listening')
 app.listen (process.env.PORT || 80)
