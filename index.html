@@ -8,7 +8,32 @@
 // Japanese colors - https://en.wikipedia.org/wiki/Traditional_colors_of_Japan#Red.2FViolet_series
 </style>
 
-<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+<link
+  as=font
+  crossorigin
+  rel=preload
+  type=font/woff2
+  href='https://fonts.googleapis.com/css?family=Ubuntu:300,300i,400,400i,500,500i,700,700i' as=font type=font/woff2 crossorigin>
+
+<link
+  as=font
+  crossorigin
+  rel=preload
+  type=font/woff2
+  href='https://fonts.gstatic.com/s/ubuntu/v9/zvCUQcxqeoKhyOlbifSAaevvDin1pK8aKteLpeZ5c0A.woff2' as=font type='font/woff2' crossorigin>
+
+<link
+  as=font
+  crossorigin
+  rel=preload
+  type=font/woff2
+  href='https://fonts.gstatic.com/s/ubuntu/v9/0ihfXUL2emPh0ROJezvraJBw1xU1rKptJj_0jans920.woff2' as=font type='font/woff2' crossorigin>
+
+<link
+  as="style"
+  rel="preload"
+  onload="this.rel='stylesheet'"
+  href=http://www.devpunks.com/typography.css>
 
 <script type=module>
   import {Element} from './elements/index.js'
@@ -16,7 +41,9 @@
   console.warn ('Element', Element)
 </script>
 
-<script nomodule src=//unpkg.com/snuggsi></script>
+<link rel=preload as=script href=https://unpkg.com/snuggsi@0.5.46>
+
+<script nomodule src=https://unpkg.com/snuggsi@0.5.46></script>
 <script nomodule>
 console.log ('nomodule')
 </script>
