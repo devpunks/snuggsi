@@ -55,6 +55,8 @@
   },
   "dependencies": {
     "koa": "*",
+    "koa-static": "*",
+
     "tap": "*",
     "jsdom": "*",
     "buble": "*",
