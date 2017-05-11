@@ -61,7 +61,7 @@ Simply place the following `<script>` anywhere in your webpage
 Et Voila _(that's it!)_
 
 See [ECMAScript Module Imorts](https://github.com/devpunks/snuggsi/wiki/Module-Imports)
-for `<script type=module>` usage.
+for `<script type=module>` support!
 
 
 ## Browser Support
