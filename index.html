@@ -30,18 +30,17 @@
   onload="this.rel='stylesheet'"
   href=http://www.devpunks.com/typography.css>
 
-<link rel=preload as=script href=./elements/index.js>
+<link async rel=import href=header-group.html>
+
+<link rel=preload as=script href=https://unpkg.com/snuggsi@0.5.46/snuggsi.min.js>
+
 <script type=module>
-  import {Element} from './elements/index.js'
+  import {Element} from 'https://unpkg.com/snuggsi@0.5.46/snuggsi.min.js'
 
   console.warn ('Element', Element)
 </script>
 
-<link rel=preload as=script href=https://unpkg.com/snuggsi@0.5.46>
-<link async rel=import href=header-group.html>
-
-
-<script nomodule src=https://unpkg.com/snuggsi@0.5.46></script>
+<script src=https://unpkg.com/snuggsi></script>
 <script nomodule>
 console.log ('nomodule')
 </script>
