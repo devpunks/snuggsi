@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "node --harmony ./index.es",
-    "prestart": "cp ./index.html ./public",
+    "postinstall": "cp ./index.html ./public",
     "package": "./package",
     "watch": "node watch.es",
     "test": "node --use_strict index.test.es",
