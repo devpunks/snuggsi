@@ -8,8 +8,15 @@
 <link rel=icon type=image/png href=../public/favicon-32x32.png sizes=32x32>
 <link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
 
-<script src=http://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
-<script nomodule src=http://unpkg.com/snuggsi/snuggsi.min.js></script>
+<script src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script type=module src=//unpkg.com/snuggsi/elements/index.es></script>
+<script nomodule src=//unpkg.com/snuggsi></script>
+<script nomodule>
+console.log ('nomodule')
+</script>
+<script type=module>
+console.log ('module')
+</script>
 
 <link async rel=import href=header-group.html>
 
