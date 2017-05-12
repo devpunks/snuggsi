@@ -1,5 +1,5 @@
 const
-  dir    = './elements'
+  dir    = './'
 , clear  = 'tput reset'
     // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , bundle = 'npm run bundle'
