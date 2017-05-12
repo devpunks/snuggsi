@@ -1,3 +1,5 @@
+module.exports = require ('./watch.browser.es')
+
 const
   dir     = './'
 , bundle  = 'npm run bundle'
