@@ -7,8 +7,8 @@ const
 , reload = './node_modules/.bin/browser-sync reload --port 8181'
 , list   = 'ls -al ./dist/*.es'
 
-, echo    = `echo "${message}"`
 , message = `\n Watching => ${dir}🔎 👀 \n`
+, echo    = `echo "${message}"`
 , exec    = require ('child_process').exec
 , command = [bundle, copy, clear, reload, echo, list]
     .join (' && ')
