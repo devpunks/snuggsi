@@ -5,14 +5,13 @@ const
 , bundle = 'npm run bundle'
 , reload = './node_modules/.bin/browser-sync reload --port 8181'
 , copy   = 'npm run copy'
-, minify = 'npm run gcc'
 , list   = 'ls -al ./dist/*.es'
 
 , message = `\n Watching => ${dir}🔎 👀 \n`
 , echo    = `echo "${message}"`
 
 , exec = require ('child_process').exec
-, command = [bundle, copy, reload, minify, html, clear, echo, list].join (' && ')
+, command = [bundle, copy, reload, clear, echo, list].join (' && ')
 
 require ('fs').watch (dir, { recursive: true },
   (event, file) => {
