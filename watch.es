@@ -2,17 +2,16 @@ const
   dir    = './elements'
 , clear  = 'tput reset'
     // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
-, bundle = 'npm run bundle'
+, bundle = 'npm run bundle && npm run copy'
 , reload = './node_modules/.bin/browser-sync reload --port 8181'
-, minify = 'npm run gcc'
-, copy   = 'cp ./dist/snuggsi.min.es ./snuggsi.min.js'
+, copy   = 'npm run copy'
 , list   = 'ls -al ./dist/*.es'
 
 , message = `\n Watching => ${dir}🔎 👀 \n`
 , echo    = `echo "${message}"`
 
 , exec = require ('child_process').exec
-, command = [bundle, reload, minify, copy, clear, echo, list].join (' && ')
+, command = [bundle, copy, clear, reload, echo, list].join (' && ')
 
 require ('fs').watch (dir, { recursive: true },
   (event, file) => {
