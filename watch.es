@@ -15,8 +15,6 @@ const
 require ('fs').watch (dir, { recursive: true },
   (event, file) => {
 
-  console.log (, file)
-
   // Vim causes tmp file update `4913`
   // https://github.com/bevry/watchr/issues/33
   // specific to .es files. Can remove line for all files
