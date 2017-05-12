@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "node --harmony ./index.es",
-    "postinstall": "cp ./index.html ./public && cp -r ./examples ./public",
+    "postinstall": "npm run copy",
     "package": "./package",
     "watch": "node watch.es",
     "test": "node --use_strict index.test.es",
@@ -48,7 +48,8 @@
     "truncate": "rm ./dist/*",
     "browse": "npm run postinstall && PORT=3000 npm run start & npm run watch & browser-sync start --config=./watch.browser.es",
     "cover": "tap index.test.es --cov --coverage-report=lcov",
-    "distribute": "./distribute"
+    "distribute": "./distribute",
+    "copy": "cp -f ./index.html ./public/index.html && cp -fr ./examples ./public"
   },
   "devDependencies": {
     "devtools-terminal": "*"
