@@ -4,12 +4,16 @@
  */
 
 module.exports = {
-    "ui": false, // { "port": 8181, "weinre": { "port": 8080 } },
-    "files": ['./benchmarks/*', './harness.html', './examples/**/*'],
-    "watchOptions": {
-      ignored: '*.txt',
-      ignoreInitial: true
-    },
+
+  "ui": false, // { "port": 8181, "weinre": { "port": 8080 } },
+  "port": 3001,
+
+  "files": ['public'],
+
+  "watchOptions": {
+    ignored: '',
+    ignoreInitial: true
+  },
 /*
     "server": {
       baseDir: './',
@@ -20,21 +24,20 @@ module.exports = {
       }
     },
 */
-    "port": 8181,
     "proxy": 'http://localhost:3000',
     "middleware": false,
     "serveStatic": [],
     "ghostMode": {
-        "clicks": true,
-        "scroll": true,
-        "forms": {
-            "submit": true,
-            "inputs": true,
-            "toggles": true
-        }
+      "clicks": true,
+      "scroll": true,
+      "forms": {
+        "submit": true,
+        "inputs": true,
+        "toggles": true
+      }
     },
     "logLevel": "info",
-    "logPrefix": "BS",
+    "logPrefix": "snuggsiツ",
     "logConnections": false,
     "logFileChanges": true,
     "logSnippet": true,
@@ -63,37 +66,37 @@ module.exports = {
     "codeSync": true,
     "timestamps": true,
     "clientEvents": [
-        "scroll",
-        "scroll:element",
-        "input:text",
-        "input:toggles",
-        "form:submit",
-        "form:reset",
-        "click"
+      "scroll",
+      "scroll:element",
+      "input:text",
+      "input:toggles",
+      "form:submit",
+      "form:reset",
+      "click"
     ],
     "socket": {
-        "socketIoOptions": {
-            "log": false
-        },
-        "socketIoClientConfig": {
-            "reconnectionAttempts": 50
-        },
-        "path": "/browser-sync/socket.io",
-        "clientPath": "/browser-sync",
-        "namespace": "/browser-sync",
-        "clients": {
-            "heartbeatTimeout": 5000
-        }
+      "socketIoOptions": {
+          "log": false
+      },
+      "socketIoClientConfig": {
+          "reconnectionAttempts": 50
+      },
+      "path": "/browser-sync/socket.io",
+      "clientPath": "/browser-sync",
+      "namespace": "/browser-sync",
+      "clients": {
+          "heartbeatTimeout": 5000
+      }
     },
     "tagNames": {
-        "less": "link",
-        "scss": "link",
-        "css": "link",
-        "jpg": "img",
-        "jpeg": "img",
-        "png": "img",
-        "svg": "img",
-        "gif": "img",
-        "js": "script"
+      "less": "link",
+      "scss": "link",
+      "css": "link",
+      "jpg": "img",
+      "jpeg": "img",
+      "png": "img",
+      "svg": "img",
+      "gif": "img",
+      "js": "script"
     }
 };
