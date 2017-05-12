@@ -1,17 +1,17 @@
 const
-  dir    = './'
-, clear  = 'tput reset'
-    // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
+  dir = './'
+
 , bundle = 'npm run bundle'
-, reload = './node_modules/.bin/browser-sync reload --port 8181'
 , copy   = 'npm run copy'
+, clear  = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
+, reload = './node_modules/.bin/browser-sync reload --port 8181'
 , list   = 'ls -al ./dist/*.es'
 
-, message = `\n Watching => ${dir}🔎 👀 \n`
 , echo    = `echo "${message}"`
-
-, exec = require ('child_process').exec
-, command = [bundle, copy, clear, reload, echo, list].join (' && ')
+, message = `\n Watching => ${dir}🔎 👀 \n`
+, exec    = require ('child_process').exec
+, command = [bundle, copy, clear, reload, echo, list]
+    .join (' && ')
 
 require ('fs').watch (dir, { recursive: true },
   (event, file) => {
