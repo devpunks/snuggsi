@@ -1,17 +1,18 @@
 const
-  dir = './'
-
+  dir    = './elements'
+, clear  = 'tput reset'
+    // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , bundle = 'npm run bundle'
-, copy   = 'npm run copy'
-, clear  = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , reload = './node_modules/.bin/browser-sync reload --port 8181'
+, copy   = 'npm run copy'
+, minify = 'npm run gcc'
 , list   = 'ls -al ./dist/*.es'
 
 , message = `\n Watching => ${dir}🔎 👀 \n`
 , echo    = `echo "${message}"`
-, exec    = require ('child_process').exec
-, command = [bundle, copy, clear, reload, echo, list]
-    .join (' && ')
+
+, exec = require ('child_process').exec
+, command = [bundle, copy, reload, minify, html, clear, echo, list].join (' && ')
 
 require ('fs').watch (dir, { recursive: true },
   (event, file) => {
@@ -19,7 +20,7 @@ require ('fs').watch (dir, { recursive: true },
   // Vim causes tmp file update `4913`
   // https://github.com/bevry/watchr/issues/33
   // specific to .es files. Can remove line for all files
-  if ( ! file.match (/\.es$/) ) return
+  if ( ! file.match (/\.{es,html}$/) ) return
 
   exec (command, (error, stdout, stderr) => {
       error
