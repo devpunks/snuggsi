@@ -22,8 +22,6 @@ require ('fs').watch (dir, { recursive: true },
   // specific to .es files. Can remove line for all files
   if ( ! /.+\.(html|es)$/.test (file) ) return
 
-  console.log (file)
-
   exec (command, (error, stdout, stderr) => {
       error
         ? console.error (`exec error: ${error}`)
