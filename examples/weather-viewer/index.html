@@ -1,0 +1,40 @@
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<template>
+
+  <h1>Today in {name} the temperature is <strong>{temp}</strong></h1>
+  <img src={image} alt=foo>
+
+</template>
+
+<script defer>
+
+  var cities = [{ name: 'New York', temp: '75' }, {name: 'Seattle', temp: '65' }]
+
+  Element `weather-viewer`
+
+  (class extends HTMLElement {
+    get cities () { return this.context.cities }
+  })
+
+</script>
+
+<h1>&lt;weather-viewer&gt;</h1>
+
+<p>Custom <a rel=external target=google href=https://developers.google.com/maps/documentation/geocoding/intro#geocoding>Geocode</a>&#32;element</p>
+
+<p>Choose your prefered weather api</p>
+
+<p>Custom <a rel=external target=google href=https://developers.google.com/maps/documentation/javascript/geolocation>Geolocation</a>&#32;element</p>
+
+
+<h2>Slots</h2>
+
+<dl>
+  <dt id=location>
+    <strong>location</strong>
+
+  <dd>
+    A location settings
+</dl>
