@@ -54,9 +54,12 @@
     "devtools-terminal": "*"
   },
   "dependencies": {
+    "brotli": "*",
+    "http2server": "*",
+
     "koa": "*",
     "koa-static": "*",
-    "http2server", "*",
+
     "tap": "*",
     "jsdom": "*",
     "buble": "*",
@@ -66,3 +69,4 @@
     "google-closure-compiler-js": "*"
   }
 }
+
