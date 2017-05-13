@@ -57,6 +57,7 @@
   "dependencies": {
     "koa": "*",
     "koa-static": "*",
+    "http2server", "*",
     "tap": "*",
     "jsdom": "*",
     "buble": "*",
