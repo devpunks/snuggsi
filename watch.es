@@ -4,14 +4,14 @@ const
   dir     = './'
 , bundle  = 'npm run bundle'
 , copy    = 'npm run copy'
-, reload  = './node_modules/.bin/browser-sync reload --port 8181'
+, reload  = './node_modules/.bin/browser-sync reload --port PORT'
 , clear   = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , message = `\n Watching => ${dir}🔎 👀 \n`
 , echo    = `printf "${message}" && echo "Last Update $(date)"`
 , list    = 'ls -al ./dist/*.es'
 
 , exec = require ('child_process').exec
-, command = [bundle, copy, reload, clear, echo, list]
+, command = [bundle, copy, echo, reload, list]
      .join (' && ')
 
 require ('fs').watch (dir, { recursive: true },
