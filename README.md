@@ -129,7 +129,7 @@ Element `hello-world`
 
   static onclick ()
     // "automagic" event registration
-    { alert (this) }
+    { alert (this.textContent) }
 })
 
 </script>
