@@ -7,7 +7,7 @@ const
 , copy    = 'npm run copy'
 , reload  = './node_modules/.bin/browser-sync reload --port PORT'
 , clear   = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
-, message = `\n Watching => ${dir}🔎 👀 \n`
+, message = `\n Watching => ${path}🔎 👀 \n`
 , echo    = `printf "${message}" && echo "Last Update $(date)"`
 , list    = 'ls -al ./dist/*.es'
 
