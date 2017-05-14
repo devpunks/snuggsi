@@ -9,7 +9,7 @@
 ## Pipeline
 
 ### ECMAScript Bundle (snuggsi.es)
-Mime Type : `application/ecmascript`
+Mime Type : `application/ecmascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-8.2))_
 
 #### snuggsi.es _(bundled)_
   - Uses [cat](https://en.wikipedia.org/wiki/Cat_(Unix)) command
