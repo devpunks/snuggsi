@@ -37,7 +37,7 @@
   <strong align="center">All you need is a browser and basic knowledge of HTML &amp; Javascript to be productive!</strong>
 
 <p align=center>
-  "Performance is the art of avoiding work" - #FreeJewelry :ring: :gem:
+  "Performance is the art of avoiding work" - #FreeJewelry 💍 💎
 </p>
 
 
