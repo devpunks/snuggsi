@@ -6,45 +6,31 @@
 <link rel=stylesheet href=http://www.devpunks.com/typography.css>
 
 <script src=http://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
-<script nomodule src=http://unpkg.com/snuggsi/snuggsi.min.js></script>
-
-<header-group>
-  <h2 slot=header>&lt;add-subtract&gt;</h2>
-</header-group>
-<!-- import works inline body -->
-<link rel=import href=header-group.html>
-
-<add-subtract>
-  <output>{count}</output>
-
-  <menu>
-    <button title=Decrement onclick=decrement>-</button>
-    <button title=Increment onclick=increment>+</button>
-  <menu>
+<script src=//unpkg.com/snuggsi></script>
 
 <style>
 
-counter-demo {
+add-subtract {
   width: auto;
-  display: block;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
 }
 
-output {
-  display: block;
+add-subtract output {
   font-size: 5em;
-  margin: 1rem auto;
   text-align: center;
   line-height: 1.612em;
   background: var(--darkest-color)
 }
 
-menu {
+add-subtract menu {
   display: flex;
   align-items: stretch;
   justify-content: space-around;
 }
 
-button {
+add-subtract button {
   margin: 0;
   padding: 0;
   width: 50%;
