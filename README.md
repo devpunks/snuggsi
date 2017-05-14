@@ -55,7 +55,7 @@ Node.js, Webpack, Babel, or Gulp can be used but is not a requirement.
 Simply place the following `<script>` anywhere in your webpage
 ```html
 <!-- http(s): protocol required locally -->
-<script async nomodule src=//unpkg.com/snuggsi></script>
+<script nomodule src=//unpkg.com/snuggsi></script>
 ```
 
 Et Voila _(that's it!)_
