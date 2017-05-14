@@ -1,12 +1,21 @@
+<title>&lt;weather-viewer&gt;</title>
+
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
+
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
 
 <template>
 
   <h1>Today in {name} the temperature is <strong>{temp}</strong></h1>
   <img src={image} alt=foo>
 
+
 </template>
+
+<script src=http://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script nomodule src=http://unpkg.com/snuggsi/snuggsi.min.js></script>
+<script type=module src=http://unpkg.com/snuggsi></script>
 
 <script defer>
 
@@ -26,10 +35,7 @@
 
 <p>Choose your prefered weather api</p>
 
-<p>Custom <a rel=external target=google href=https://developers.google.com/maps/documentation/javascript/geolocation>Geolocation</a>&#32;element</p>
-
-
-<h2>Slots</h2>
+<h2>Settings</h2>
 
 <dl>
   <dt id=location>
@@ -38,3 +44,6 @@
   <dd>
     A location settings
 </dl>
+
+<script src=/browser-sync.es></script>
+
