@@ -80,9 +80,10 @@ for `<script type=module>` support!
   _\*Indicates the current version of the browser_
 
   The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
-  polyfills are intended to work in the latest versions of evergreen browsers.
+  polyfills are intended to work in the latest versions of browsers.
 
-Place `<script name=polyfill>` *before* snuggsiツ for cross-browser support.
+Place `<script name=polyfill>` *before* snuggsiツ for
+[evergreen cross-browser](https://www.techopedia.com/definition/31094/evergreen-browser) support.
 
 ```html
 <!-- webcomponents polyfill -->
