@@ -82,18 +82,34 @@ for `<script type=module>` support!
   The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
   polyfills are intended to work in the latest versions of evergreen browsers.
 
-Just insert the following polyfill `<script>` *before* snuggsiツ for classic browser support.
+Place `<script name=polyfill>` *before* snuggsiツ for cross-browser support.
 
 ```html
 <!-- webcomponents polyfill -->
-<script src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+<script
+  name=polyfill
+  src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js>
+</script>
 
 <!-- snuggsiツ (modern) -->
-<script type=module src=//unpkg.com/snuggsi></script>
+<script
+  name=snuggsi
+  type=module src=//unpkg.com/snuggsi>
+</script>
 
 <!-- snuggsiツ (classic) -->
-<script nomodule src=//unpkg.com/snuggsi/snuggsi.min.js></script>
+<script
+  nomodule
+  name=classic
+  src=//unpkg.com/snuggsi/snuggsi.min.js>
+</script>
 ```
+
+**⚠️  Warning ⚠️l** _snuggsiツ (classic) will support back to Internet Explorer 11+.
+However, we shall provide our best effort to support IE through
+[EOL](https://en.wikipedia.org/wiki/End-of-life_(product)#Computing)
+
+[Please read Microsoft Internet Explorer end-of-life announcement for further details.](https://www.microsoft.com/en-us/windowsforbusiness/end-of-ie-support)_
 
 
 # Quick Tour
