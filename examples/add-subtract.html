@@ -65,6 +65,9 @@ Element `add-subtract`
 
 (class extends HTMLElement {
 
+  initialize ()
+    { this.context.count = 0 }
+
   static increment () {
     this.context.count ++
     this.render ()
@@ -74,9 +77,6 @@ Element `add-subtract`
     this.context.count --
     this.render ()
   }
-
-  initialize ()
-    { this.context.count = 0 }
 
   get count ()
     { return this.context.count }
