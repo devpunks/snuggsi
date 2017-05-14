@@ -50,15 +50,16 @@
 
 
 ## Easy Installation
-Node.js, Webpack, Babel, or Gulp can be used but is not a requirement.
+No need for Node.js, Webpack, Babel, or Gulp.
+snuggsi works in production or on a plain 'ol HTML page.
 
-Simply place the following `<script>` within your webpage ツ
+Simply place the following `<script>` within your webpage
 ```html
 <!-- http(s): protocol required locally -->
 <script nomodule src=//unpkg.com/snuggsi></script>
 ```
 
-Et Voila _(that's it!)_
+Et Voila _(that's it!)_ ツ
 
 See [ECMAScript Module Imorts](https://github.com/devpunks/snuggsi/wiki/Module-Imports)
 for `<script type=module>` support!
