@@ -51,7 +51,8 @@
 
 ## Easy Installation
 No need for Node.js, Webpack, Babel, or Gulp.
-snuggsi works in production or on a plain 'ol HTML page.
+
+snuggsiツ works in production or on a plain 'ol HTML page.
 
 Simply place the following `<script>` within your webpage
 ```html
