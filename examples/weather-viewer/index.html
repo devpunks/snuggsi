@@ -5,13 +5,12 @@
 
 <link rel=stylesheet href=http://www.devpunks.com/typography.css>
 
-<template>
+<weather-viewer>
 
-  <h1>Today in {name} the temperature is <strong>{temp}</strong></h1>
-  <img src={image} alt=foo>
+  <img src={image} alt={name}>
+  <h1>Today in {name} the temperature is <strong>{temperature}</strong></h1>
 
-
-</template>
+</weather-viewer>
 
 <script src=http://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 <script nomodule src=http://unpkg.com/snuggsi/snuggsi.min.js></script>
@@ -19,12 +18,24 @@
 
 <script defer>
 
-  var cities = [{ name: 'New York', temp: '75' }, {name: 'Seattle', temp: '65' }]
-
   Element `weather-viewer`
 
   (class extends HTMLElement {
-    get cities () { return this.context.cities }
+
+    initialize () {
+      this.context.city =
+        { name: 'New York', temperature: '75' }
+    }
+
+    get name ()
+      { return this.context.city.name }
+
+    get temperature ()
+      { return `${this.context.city.temperature}°F` }
+
+    get image ()
+      { return 'https://cache-graphicslib.viator.com/graphicslib/destination/new-york-city-154345.jpg' }
+
   })
 
 </script>
@@ -43,6 +54,7 @@
 
   <dd>
     A location settings
+
 </dl>
 
 <script src=/browser-sync.es></script>
