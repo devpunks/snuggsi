@@ -1,7 +1,7 @@
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
 
-<title>snuggsi - Hello World</title>
+<title>&lt;hello-world&gt;</title>
 
 <link rel=stylesheet href=http://www.devpunks.com/typography.css>
 
@@ -13,12 +13,12 @@
   hello-world
     { cursor: pointer }
 
-#sand-box {
+figure {
   display: flex;
   flex-flow: row wrap;
 }
 
-#sand-box iframe {
+figure iframe {
   position: absolute;
   right: 0;
   width: 30vw;
@@ -26,7 +26,7 @@
   margin: 0 14vw 0 0
 }
 
-#sand-box iframe:first-of-type {
+figure iframe:first-of-type {
   left: 0;
   width: 42vw;
   margin: 0 0 0 14vw
@@ -48,10 +48,11 @@
   <a  slot=subheader Title='See more componentexamples' href=./>See more component examples</a>
 </header-group>
 
-<section id=sand-box>
+<figure>
  <iframe src=//jsfiddle.net/snuggs/3zwkj9wg/embedded/html,css/dark/?fontColor=ffffff&accentColor=9696f0&bodyColor=3b3b3b&menuColor=3b3b3b frameborder=0></iframe>
 
 <iframe src=//jsfiddle.net/snuggs/3zwkj9wg/embedded/result/dark/?fontColor=ffffff&accentColor=9696f0&menuColor=3b3b3b frameborder=0></iframe>
+</figure>
 
 <script src=/browser-sync.es></script>
 
