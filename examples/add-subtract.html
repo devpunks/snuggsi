@@ -44,6 +44,27 @@ add-subtract button {
 
 </style>
 
+<header-group>
+  <h2 slot=header>&lt;add-subtract&gt;</h2>
+</header-group>
+<!-- import works inline body -->
+<link rel=import href=header-group.html>
+
+<add-subtract>
+  <output>{count}</output>
+
+  <menu>
+    <button title=Decrement onclick=decrement>-</button>
+    <button title=Increment onclick=increment>+</button>
+  </menu>
+
+  <footer>
+    <a href=https://github.com/adrianmcli/omg-counters>OMG</a>
+    <a href=https://gist.github.com/srdjan/1d10cbd42a2d695f696dee6b47fdc5e0>Counters</a>
+  </footer>
+
+</add-subtract>
+
 <script defer>
 
 Element `add-subtract`
@@ -69,9 +90,5 @@ Element `add-subtract`
 
 </script>
 
-</add-subtract>
-
-<a href=https://github.com/adrianmcli/omg-counters>OMG</a>
-<a href=https://gist.github.com/srdjan/1d10cbd42a2d695f696dee6b47fdc5e0>Counters</a>
-
 <script src=/browser-sync.es></script>
+
