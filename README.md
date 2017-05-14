@@ -38,6 +38,7 @@
 
 <p align=center>
   "Performance is the art of avoiding work" - #FreeJewelry :ring: :gem:
+</p>
 
 
 ## Why ?
