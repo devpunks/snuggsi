@@ -52,7 +52,7 @@
 ## Easy Installation
 Node.js, Webpack, Babel, or Gulp can be used but is not a requirement.
 
-Simply place the following `<script>` anywhere in your webpage
+Simply place the following `<script>` within your webpage ツ
 ```html
 <!-- http(s): protocol required locally -->
 <script nomodule src=//unpkg.com/snuggsi></script>
