@@ -131,7 +131,7 @@ _See [examples](/examples#readme) for more details_
 
 <!-- http(s): protocol required locally -->
 <script nomodule src=//unpkg.com/snuggsi></script>
-<script nomodule async defer>
+<script nomodule defer>
 
 // Element Definition -----------------------------
 
