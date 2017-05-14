@@ -105,9 +105,9 @@ Place `<script name=polyfill>` *before* snuggsiツ for cross-browser support.
 </script>
 ```
 
-**⚠️  Warning ⚠️** _**snuggsiツ (classic)** will back support to Internet Explorer 11+.
+**⚠️  Warning ⚠️** _**snuggsiツ (classic)** will back support to Internet Explorer 11+._
 
-We shall provide our best effort to support IE 11+ through
+_We shall provide our best effort to support IE 11+ through
 [EOL](https://en.wikipedia.org/wiki/End-of-life_(product)#Computing)_
 
 _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.microsoft.com/en-us/windowsforbusiness/end-of-ie-support) for further details._
