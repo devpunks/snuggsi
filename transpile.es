@@ -1,32 +1,26 @@
 var
-  contents = require('fs').readFileSync
+  buble    = require ('buble')
+, contents = require('fs').readFileSync
     ('./dist/snuggsi.es', {encoding: 'UTF-8'})
 
-var options = {
-  source: './dist/snuggsi.src',
-  file: './dist/snuggsi.src',
+, options = {
+    file:   './dist/snuggsi.src',
+    source: './dist/snuggsi.src',
 
-  transforms: {
-    arrow: true,
-    modules: false,
-    templateString: false,
-    dangerousForOf: true
-  },
+    transforms: {
+      arrow: true,
+      modules: false,
+      dangerousForOf: true,
+      templateString: false
+    },
 
-  // custom JSX pragma (see below)
-//jsx: 'NotReact.createElement',
+    // prevent function expressions generated from class methods
+    // from being given names – needed to prevent scope leak in IE8
+    namedFunctionExpressions: false
+  }
 
-  // custom `Object.assign` (used in object spread)
-//objectAssign: 'angular.extend',
-
-  // prevent function expressions generated from class methods
-  // from being given names – needed to prevent scope leak in IE8
-  namedFunctionExpressions: false
-}
-var buble = require ('buble')
-var result = buble.transform (contents,
-  options
-) // { code: ..., map: ... }
+, result = buble.transform
+    (contents, options)
 
 console.log (result.code)
 
