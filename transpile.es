@@ -1,5 +1,5 @@
-var contents =
-  require('fs').readFileSync
+var
+  contents = require('fs').readFileSync
     ('./dist/snuggsi.es', {encoding: 'UTF-8'})
 
 var options = {
