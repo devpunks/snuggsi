@@ -1,7 +1,8 @@
 module.exports = require ('./watch.browser.es')
 
 const
-  dir     = './'
+  path = './'
+
 , bundle  = 'npm run bundle'
 , copy    = 'npm run copy'
 , reload  = './node_modules/.bin/browser-sync reload --port PORT'
@@ -14,7 +15,7 @@ const
 , command = [bundle, copy, echo, reload, list]
      .join (' && ')
 
-require ('fs').watch (dir, { recursive: true },
+require ('fs').watch (path, { recursive: true },
 
   // Vim causes tmp file update `4913`
   // https://github.com/bevry/watchr/issues/33
