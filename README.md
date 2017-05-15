@@ -1,6 +1,6 @@
 <p align="center">
   <h1 align="center">snuggsi ツ - Easy Web Components in
-    <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>1Kb</a>
+    <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>1Kilobyte</a>
   </h1>
 </p>
 
