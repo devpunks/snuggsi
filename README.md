@@ -53,12 +53,13 @@
 ## Easy Installation
 No need for Node.js, Webpack, Babel, or Gulp.
 
-Simply place the following `<script>` within your webpage.
+Simply place the following scripts within your webpage.
 
 **snuggsiツ** works in production or in a plain 'ol HTML file!
 
 ```html
-<script nomodule src=//unpkg.com/snuggsi></script>
+<script type=module src=//unpkg.com/snuggsi></script>
+<script nomodule src=//unpkg.com/snuggsi/snuggsi.min.js></script>
 ```
 
 Et Voila _(that's it!)_ ツ
