@@ -58,7 +58,6 @@ Simply place the following `<script>` within your webpage.
 **snuggsiツ** works in production or in a plain 'ol HTML file!
 
 ```html
-<!-- http(s): protocol required locally -->
 <script nomodule src=//unpkg.com/snuggsi></script>
 ```
 
