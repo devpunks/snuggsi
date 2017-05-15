@@ -94,15 +94,16 @@ Place `<script name=polyfill>` *before* snuggsiツ for
 
 <!-- snuggsiツ (modern) -->
 <script
+  type=module
   name=snuggsi
-  type=module src=//unpkg.com/snuggsi>
+  src =//unpkg.com/snuggsi>
 </script>
 
 <!-- snuggsiツ (classic) -->
 <script
   nomodule
   name=classic
-  src=//unpkg.com/snuggsi/snuggsi.min.js>
+  src =//unpkg.com/snuggsi/snuggsi.min.js>
 </script>
 ```
 
