@@ -1,10 +1,10 @@
-<p align="center">
-  <h1 align="center">snuggsi ツ - Easy Web Components in
+<p align=center>
+  <h1 align=center>snuggsi ツ - Easy Web Components in
     <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>~1Kilobyte</a>
   </h1>
 </p>
 
-<p align="center">
+<p align=center>
   <a href=https://npmjs.org/package/snuggsi>
     <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat>
   </a>
@@ -34,7 +34,7 @@
   </a>
 
 <p align=center>
-  <strong align="center">All you need is a browser and basic knowledge of HTML &amp; Javascript to be productive!</strong>
+  <strong align=center>All you need is a browser and basic knowledge of HTML &amp; Javascript to be productive!</strong>
 
 <p align=center>
   "Performance is the art of avoiding work" - #FreeJewelry 💍 💎
