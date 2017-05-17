@@ -1,0 +1,52 @@
+  file-upload input[type=file] {
+    opacity: 0;
+    z-index: -1;
+    width: 0.1px;
+    height: 0.1px;
+    overflow: hidden;
+    position: absolute
+  }
+
+  file-upload > label:first-of-type {
+    display: block;
+    padding: 2em 0;
+    cursor: pointer;
+    font-size: 1.25em;
+    text-align: center;
+    color: rgba(20,20,20,0.6);
+    background-color: rgba(240,240,240, 0.8)
+  }
+
+  file-upload > label:first-of-type:hover
+    { background-color: rgba(240,240,240, 1.0) }
+
+  file-upload table.file-upload-list
+    { width: 300px }
+
+  file-upload table td.file-remove-cell {
+    cursor: pointer;
+    padding-left: 20px;
+    color: rgb(200, 0, 0);
+  }
+
+  file-upload table td.file-remove-cell:hover a
+    { color: rgb(240, 0, 0); }
+
+  file-upload button[type=reset] {
+    border: none;
+    cursor: pointer;
+    padding: 5px 20px;
+    font-size: 0.75em;
+    color: rgb(200, 200, 200);
+    background-color: rgb(140, 0, 0)
+  }
+
+  file-upload  button[type=reset]:hover {
+   color: rgb(240, 240, 240);
+   background-color: rgb(160, 0, 0)
+  }
+
+  file-upload button[type=reset]:active {
+    color: rgba(120, 120, 120, 1)
+  }
+
