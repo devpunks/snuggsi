@@ -1,0 +1,40 @@
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<title>&lt;file-upload&gt;</title>
+
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+
+<script
+  name=polyfill
+  src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js>
+</script>
+
+<script
+  name=snuggsi
+  src =//unpkg.com/snuggsi>
+</script>
+
+<link rel=import href=../header-group.html>
+<link rel=import id=file-upload href=/examples/file-upload>
+
+
+<header-group>
+  <h2 slot=header>&lt;file-upload&gt;</h2>
+  <em slot=subheader>With Drag-n-Drop support!</em>
+</header-group>
+
+<file-upload label='Click to upload files' title='Drop files here'>
+
+  <!-- Remove <datalist> for png support -->
+  <datalist slot=mimetypes id=mimetypes>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/input#attr-accept -->
+    <option label=JPEG value=image/jpeg>
+    <option label=PNG  value=image/png>
+    <option label=PDF  value=application/pdf>
+  </datalist>
+
+</file-upload>
+
+<script src=/browser-sync.es></script>
+
