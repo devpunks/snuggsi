@@ -5,7 +5,7 @@
 
 <link rel=stylesheet href=http://www.devpunks.com/typography.css>
 
-<weather-viewer>
+<weather-viewer latitude={latitude} longitude={longitude}>
 
   <img src={image} alt={name}>
   <h1>Today in {name} the temperature is <strong>{temperature}</strong></h1>
@@ -26,7 +26,7 @@
       { return '40.7128° N' }
 
     static get longitude ()
-      { return '74.0059° W'}
+      { return '74.0059° W' }
 
     initialize () {
       this.context.city =
@@ -63,6 +63,9 @@
   })
 
 </script>
+
+
+<!-- documentation -->
 
 <h1>&lt;weather-viewer&gt;</h1>
 
