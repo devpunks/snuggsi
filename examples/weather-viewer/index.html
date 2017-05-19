@@ -22,6 +22,12 @@
 
   (class extends HTMLElement {
 
+    static get latitude ()
+      { return '40.7128° N' }
+
+    static get longitude ()
+      { return '74.0059° W'}
+
     initialize () {
       this.context.city =
         { name: 'New York', temperature: '75' }
