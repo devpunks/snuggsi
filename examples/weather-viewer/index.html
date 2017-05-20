@@ -55,21 +55,20 @@
       { return 'https://cache-graphicslib.viator.com/graphicslib/destination/new-york-city-154345.jpg' }
 
     locate () {
-
-      navigator.geolocation
+      navigator
+        .geolocation
         .getCurrentPosition
-          (onlocate, error => alert (error))
+          (this.onlocate, error => alert (error))
     }
 
     onlocate (position) {
+      console.log (position)
+
       position.coords
         .latitude
 
       position.coords
         .longitude
-
-      position.coords
-        .altitude
     }
 
   })
