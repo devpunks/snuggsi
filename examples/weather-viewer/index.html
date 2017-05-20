@@ -3,6 +3,9 @@
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
 
+<script nomodule src=//unpkg.com/snuggsi></script>
+<script src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
+
 <link rel=stylesheet href=http://www.devpunks.com/typography.css>
 
 <weather-viewer latitude={latitude} longitude={longitude}>
@@ -12,10 +15,7 @@
 
 </weather-viewer>
 
-<script src=http://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
-<script nomodule src=http://unpkg.com/snuggsi/snuggsi.min.js></script>
-<script type=module src=http://unpkg.com/snuggsi></script>
-
+<script src=weatherman.js></script>
 <script defer>
 
   Element `weather-viewer`
