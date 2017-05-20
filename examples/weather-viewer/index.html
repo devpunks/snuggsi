@@ -6,9 +6,7 @@
 <script nomodule src=//unpkg.com/snuggsi></script>
 <script src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 
-<link rel=stylesheet href=http://www.devpunks.com/typography.css>
-
-<weather-viewer latitude={latitude} longitude={longitude}>
+<weather-viewer onclick='alert ("snugs")'  latitude=40.79 longitude=-73.97>
 
   <img slot=image src={image} alt={name}>
   <h1  slot=description>Today in {name} the temperature is <strong>{temperature}</strong></h1>
@@ -22,37 +20,27 @@
 
   (class extends HTMLElement {
 
-    static get key () // from openweathermap.org
-      { return '62b74592e7bde09ede21693bce86460a' }
-
-    static get latitude ()
-      { return '40.7128° N' }
-
-    get latitude () {
-      return this.getAttribute ('latitude')
-        && this.getAttribute ('latitude').value
-        || this.constructor.latitude
-    }
-
-    static get longitude ()
-      { return '74.0059° W' }
-
-    get longitude () {
-      return this.getAttribute ('longitude')
-        && this.getAttribute ('longitude').value
-        || this.constructor.longitude
-    }
-
     initialize () {
-      this.context.city =
-        { name: 'New York', temperature: '75' }
+      this.context.city = {}
+
+      this.locate ()
+
+      void (new Weather)
+        .locate (this.latitude, this.longitude)
+        .then (this.onforecast.bind (this))
     }
+
+    get latitude ()
+      { return this.getAttribute ('latitude') }
+
+    get longitude ()
+      { return this.getAttribute ('longitude') }
 
     get name ()
       { return this.context.city.name }
 
     get temperature ()
-      { return `${this.context.city.temperature}°F` }
+      { return this.context.city.temperature }
 
     get image ()
       { return 'https://cache-graphicslib.viator.com/graphicslib/destination/new-york-city-154345.jpg' }
@@ -64,9 +52,16 @@
           (this.onlocate, error => alert (error))
     }
 
-    onlocate (position) {
-      console.log (position)
+    onforecast (weather) {
+      console.log (weather)
 
+      this.context.city =
+        { name: weather.name, temperature: weather.main.temp }
+
+      this.render ()
+    }
+
+    onlocate (position) {
       position.coords
         .latitude
 
@@ -87,7 +82,7 @@
 
 <p>Choose your prefered weather api</p>
 <p><strong><a target=external href=http://openweathermap.org>OpenWeatherMap.org</a></strong> <em>(Default)</em></p>
-<p><em><a target=external href=http://openweathermap.org/appid>subscribe for Free API key</a></p>
+<p><em><a target=external href=http://openweathermap.org/appid>subscribe for Free API key</a></em></p>
 
 <h2>Settings</h2>
 
@@ -118,7 +113,12 @@
   <pre>
     &lt;weather-view&gt;
       &lt;img slot=image&gt;
-      &lt;h1  slot=description&gt;Today in {name} the temperature is &lt;strong&gt;{temperature}&lt;/strong&gt;&lt;/h1&gt;
+
+      &lt;h1 slot=description&gt;
+        Today in {name} the temperature is
+        &lt;strong&gt;{temperature}&lt;/strong&gt;
+      &lt;/h1&gt;
+
     &lt;/weather-view&gt;
   </pre>
 </code>
