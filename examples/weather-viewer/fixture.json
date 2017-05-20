@@ -1,0 +1,43 @@
+{  
+   "coord":{  
+      "lon":-73.97,
+      "lat":40.79
+   },
+   "weather":[
+      {  
+         "id":701,
+         "main":"Mist",
+         "description":"mist",
+         "icon":"50d"
+      }
+   ],
+   "base":"stations",
+   "main":{  
+      "temp":62.08,
+      "pressure":1027,
+      "humidity":51,
+      "temp_min":57.2,
+      "temp_max":66.2
+   },
+   "visibility":16093,
+   "wind":{  
+      "speed":3.83,
+      "deg":145
+   },
+   "clouds":{  
+      "all":90
+   },
+   "dt":1495314900,
+   "sys":{  
+      "type":1,
+      "id":1969,
+      "message":0.0053,
+      "country":"US",
+      "sunrise":1495272798,
+      "sunset":1495325532
+   },
+   "id":5125771,
+   "name":"Manhattan",
+   "cod":200
+}
+
