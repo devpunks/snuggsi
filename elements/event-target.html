@@ -1,2 +1,21 @@
+<script src='../dist/snuggsi.min.es'></script>
+<script
+  name=polyfill
+  src=https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js>
+</script>
+
 <h1>EventTarget</h1>
 
+<foo-bar></foo-bar>
+
+<script>
+
+Element `foo-bar`
+
+(class extends HTMLElement {
+  initialize () {
+    console.log ('initializing', this)
+  }
+})
+
+</script>
