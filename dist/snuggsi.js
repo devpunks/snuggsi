@@ -216,9 +216,7 @@ var EventTarget = function (Element) { return ((function (Element) {
 
     new HTMLLinkElement
       (this.tagName.toLowerCase ())
-
-      .onload = this.onimport
-      .bind (this)
+        .onload = this.onimport.bind (this)
   };
 
   anonymous.prototype.listen = function (event, listener)
@@ -287,7 +285,29 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.register = function (events) {
+    anonymous.prototype.onimport = function (event) {
+
+    var
+      document =
+        event.target.import
+
+    , template = document &&
+        document.querySelector ('template')
+
+    template &&
+      this.clone (template)
+
+    // dispatch `import`
+    // and captured from `EventTarget`
+    this.constructor.onconnect &&
+      this.constructor.onconnect.call (this)
+
+    // dispatch `render`
+    // and captured from `EventTarget`
+    this.render ()
+  };
+
+  anonymous.prototype.register = function (events) {
     var this$1 = this;
     if ( events === void 0 ) events = function (event) { return /^on/.exec (event); };
 
@@ -389,28 +409,6 @@ var Component = function (Element) { return ( (function (superclass) {
     // and captured from `EventTarget`
     this.constructor.onidle &&
       this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
-  };
-
-  anonymous.prototype.onimport = function (event) {
-
-    var
-      document =
-        event.target.import
-
-    , template = document &&
-        document.querySelector ('template')
-
-    template &&
-      this.clone (template)
-
-    // dispatch `import`
-    // and captured from `EventTarget`
-    this.constructor.onconnect &&
-      this.constructor.onconnect.call (this)
-
-    // dispatch `render`
-    // and captured from `EventTarget`
-    this.render ()
   };
 
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
