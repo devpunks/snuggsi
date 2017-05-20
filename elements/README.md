@@ -4,6 +4,9 @@
 
 ## GlobalEventHandlers
 
+Enhancements to `HTMLLinkElement` interface
+
+
 ### Registration
   - `on*` events
 
