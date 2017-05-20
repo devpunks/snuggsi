@@ -11,7 +11,7 @@
 <weather-viewer latitude={latitude} longitude={longitude}>
 
   <img slot=image src={image} alt={name}>
-  <h1>Today in {name} the temperature is <strong>{temperature}</strong></h1>
+  <h1  slot=description>Today in {name} the temperature is <strong>{temperature}</strong></h1>
 
 </weather-viewer>
 
@@ -108,6 +108,17 @@
     location longitude
 
 </dl>
+
+<h2>Example</h2>
+
+<code>
+  <pre>
+    &lt;weather-view&gt;
+      &lt;img slot=image&gt;
+      &lt;h1  slot=description&gt;Today in {name} the temperature is &lt;strong&gt;{temperature}&lt;/strong&gt;&lt;/h1&gt;
+    &lt;/weather-view&gt;
+  </pre>
+</code>
 
 <script src=/browser-sync.es></script>
 
