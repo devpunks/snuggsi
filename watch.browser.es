@@ -26,7 +26,10 @@ module.exports = {
 */
     "proxy": 'http://localhost:3000',
     "middleware": false,
-    "serveStatic": [],
+    "serveStatic": [{
+        route: '/snuggsi',
+        dir: '.'
+    }],
     "ghostMode": {
       "clicks": true,
       "scroll": true,
