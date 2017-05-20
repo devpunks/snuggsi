@@ -2,6 +2,8 @@
 
 ## Element
 
+Enhancements to `Element` interface
+
 ## GlobalEventHandlers
 
 Enhancements to `HTMLLinkElement` interface
