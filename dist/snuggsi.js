@@ -221,7 +221,6 @@ var EventTarget = function (Element) { return ((function (Element) {
       .bind (this)
   };
 
-
   anonymous.prototype.listen = function (event, listener)
 
     // MDN EventTarget.addEventListener
