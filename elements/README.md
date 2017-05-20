@@ -16,6 +16,8 @@
 
 ## HTMLLinkElement
 
+Enhancements to `HTMLLinkElement` interface
+
 ## HTMLParentNode
 
 ## HTMLTemplateElement
