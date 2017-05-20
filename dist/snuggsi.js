@@ -9,30 +9,29 @@ var HTMLLinkElement = function
   var
     proxy = {}
 
-  , link  =
-      document
-        .querySelector // use CSS :any ?
-          ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
+  , link = document.querySelector // use CSS :any ?
+      ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
 
-  , register = function (handler) { return (HTMLImports.useNative)
-        ? link.onload = handler
-        : HTMLImports.whenReady // eww
-          // https://github.com/webcomponents/html-imports#htmlimports
-          ( function (_) { return handler ({ target: link }); } ); }
+  , register = function (event, handler) { return (HTMLImports && !!! HTMLImports.useNative)
+        // https://github.com/webcomponents/html-imports#htmlimports
+        ? HTMLImports.whenReady ( function (_) { return handler ({ target: link }); } ) // eww
+        : link.addEventListener (event, handler); }
 
     Object
       .defineProperties (proxy, {
-        'onload': {
-          set: function (handler) {
 
+        'addEventListener': {
+          writable: false,
+
+          value: function (event, handler) {
             !!! link
               ? handler ({ target: proxy })
-              : register (handler)
+              : register (event, handler)
           }
         }
 
       , 'onerror': // TODO: definition for onerror
-          { set: function (handler){ } }
+          { set: function (handler) {} }
       })
 
   return proxy
@@ -216,7 +215,8 @@ var EventTarget = function (Element) { return ((function (Element) {
 
     new HTMLLinkElement
       (this.tagName.toLowerCase ())
-        .onload = this.onimport.bind (this)
+        .addEventListener
+          ('load', this.onimport.bind (this))
   };
 
   anonymous.prototype.listen = function (event, listener)

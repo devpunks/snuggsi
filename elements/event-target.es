@@ -26,7 +26,8 @@ const EventTarget = Element => // why buble
 
     new HTMLLinkElement
       (this.tagName.toLowerCase ())
-        .onload = this.onimport.bind (this)
+        .addEventListener
+          ('load', this.onimport.bind (this))
   }
 
   listen (event, listener = this [event])

@@ -7,31 +7,30 @@ const HTMLLinkElement = function
   const
     proxy = {}
 
-  , link  =
-      document
-        .querySelector // use CSS :any ?
-          ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
+  , link = document.querySelector // use CSS :any ?
+      ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
 
-  , register = handler =>
-      (HTMLImports.useNative)
-        ? link.onload = handler
-        : HTMLImports.whenReady // eww
-          // https://github.com/webcomponents/html-imports#htmlimports
-          ( _ => handler ({ target: link }) )
+  , register = (event, handler) =>
+      (HTMLImports && !!! HTMLImports.useNative)
+        // https://github.com/webcomponents/html-imports#htmlimports
+        ? HTMLImports.whenReady ( _ => handler ({ target: link }) ) // eww
+        : link.addEventListener (event, handler)
 
     Object
       .defineProperties (proxy, {
-        'onload': {
-          set (handler) {
 
+        'addEventListener': {
+          writable: false,
+
+          value: function (event, handler) {
             !!! link
               ? handler ({ target: proxy })
-              : register (handler)
+              : register (event, handler)
           }
         }
 
       , 'onerror': // TODO: definition for onerror
-          { set (handler){ } }
+          { set (handler) {} }
       })
 
   return proxy
