@@ -10,7 +10,7 @@ const {test, beforeEach} = require ('tap')
 
 beforeEach ((done) => {
   JSDOM
-    .fromFile ('./elements/event-target.html')
+    .fromFile ('./elements/event-target.html', { runScripts: 'dangerously', resources: 'usable' })
     .then (dom => (document = dom.window.document) && done ())
 })
 
