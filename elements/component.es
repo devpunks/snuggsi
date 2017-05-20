@@ -39,28 +39,6 @@ const Component = Element => // why buble
       this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
   }
 
-  onimport (event) {
-
-    const
-      document =
-        event.target.import
-
-    , template = document &&
-        document.querySelector ('template')
-
-    template &&
-      this.clone (template)
-
-    // dispatch `import`
-    // and captured from `EventTarget`
-    this.constructor.onconnect &&
-      this.constructor.onconnect.call (this)
-
-    // dispatch `render`
-    // and captured from `EventTarget`
-    this.render ()
-  }
-
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
   clone (template) {
 
