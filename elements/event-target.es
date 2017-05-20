@@ -31,7 +31,6 @@ const EventTarget = Element => // why buble
       .bind (this)
   }
 
-
   listen (event, listener = this [event])
 
     // MDN EventTarget.addEventListener
