@@ -20,6 +20,8 @@ Enhancements to `HTMLLinkElement` interface
 
 ## HTMLParentNode
 
+Enhancements to `HTMLParentElement` interface
+
 ## HTMLTemplateElement
 
 ### .content
