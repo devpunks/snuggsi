@@ -1,6 +1,6 @@
 {
   "name": "snuggsi",
-  "version": "0.5.70",
+  "version": "0.5.71",
   "author": "Snuggs",
   "description": "Easy Web Components in 1KB",
   "license": "MIT",
@@ -66,4 +66,3 @@
     "google-closure-compiler-js": "*"
   }
 }
-
