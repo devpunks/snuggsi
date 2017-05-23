@@ -1,0 +1,42 @@
+<script nomodule src=/snuggsi.es></script>
+<script nomodule src=https://unpkg.com/rxjs/bundles/Rx.min.js></script>
+<script nomodule src="rxr.js"></script>
+
+<user-list>
+  <h1>User list:</h1>
+  <input type=button value="Load users">
+  <ul>
+    <template name=users>
+      <li>{name}</li>
+    </template>
+  </ul>
+</user-list>
+
+<script src=reactive.js></script>
+
+<script nomodule async defer>  
+
+Element `user-list`
+
+(class extends Reactive (HTMLElement) {
+  initialize () {
+    this.state = initialState
+  }
+
+  static onclick ()
+  { 
+    messageStreams.userClick()
+  }
+
+  static onstatechange (state) {
+    this.state = state
+    this.render()
+  }
+
+  get users()
+  {
+    return this.state.users
+  }
+})   
+
+</script>
