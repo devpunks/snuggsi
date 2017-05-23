@@ -227,12 +227,6 @@ const HTMLTemplateElement = Template = function (name) {
       .map (record => record.innerHTML)
       .join ('')
 
-    let b = this
-      .closest ('infinity-calendar')
-      .querySelector ('slot[name='+this.getAttribute ('name')+']')
-
-//  console.log (b)
-//  b = a
     template.innerHTML = a
     this.after ( template.content )
 
