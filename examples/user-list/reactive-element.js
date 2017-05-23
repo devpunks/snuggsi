@@ -46,6 +46,9 @@ const
 
       this.stream =
         this.state$
+        // immutable conventions allow for 
+        // standard comparison operator.
+        .distinctUntilChanged((x, y) => (x == y))
         // reduce state into selected scope
         .map(this.selector)
         .subscribe(target.bind(this))
