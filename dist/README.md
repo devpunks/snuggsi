@@ -1,6 +1,6 @@
 # Build Process
 
-`snuggsi.min.es.br` weighs 1500 octets _(1.5kilobytes)_
+`snuggsi.min.js.br` weighs 1500 octets _(1.5kilobytes)_
 
 ## Glossary
   - Octet - https://en.wikipedia.org/wiki/Octet_(computing)
