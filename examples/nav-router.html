@@ -1,0 +1,33 @@
+<script nomodule src=/snuggsi.es></script>
+
+<div id="view"></div>
+
+<template name="main">
+  <greeting-message>
+    <template name="username">
+        <p>Welcome to main, {self}</p>
+    </template>
+  </greeting-message>
+</template>
+
+<template name="home">
+  <greeting-message>
+    <template name="username">
+        <p>Welcome to the home page, {self}</p>
+    </template>
+  </greeting-message>
+</template>
+
+<script>
+
+  route('/', 'main')
+  route('home', 'home')
+
+  Element `greeting-message`
+  (class extends HTMLElement {
+    get username () {
+      return 'rob'
+    }
+  })
+
+</script>
