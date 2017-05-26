@@ -18,8 +18,6 @@ const Component = Element => // why buble
 
   render () {
 
-    console.log ("I'm rendering")
-
     this
       .tokens.bind (this)
 
@@ -27,20 +25,20 @@ const Component = Element => // why buble
       .from // templates with `name` attribute
         (this.selectAll ('template[name]'))
 
-//    .map (template => console.log (template) && template)
+      .map (template => !!! console.log (template) && template)
 
       .map
-        (template => new Template (template.getAttribute ('name')))
+        (template => template.getAttribute ('name'))
 
       .map
-        (template => template.bind (this [template.attributes.name.value]))
+        (name => (new Template (name)).bind (this [name]))
 
     this.register ()
 
     // dispatch `idle`
     // and captured from `EventTarget`
-    this.constructor.onidle &&
-      this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
+    Element.onidle &&
+      Element.onidle.call (this) // TODO: Migrate to `EventTarget`
   }
 
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
