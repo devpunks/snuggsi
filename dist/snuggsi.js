@@ -116,23 +116,6 @@ TokenList.prototype.bind = function (context, node) {
 
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
-//class Template {
-
-//  constructor ( name = 'snuggsi' ) {
-//    return Object.assign (this.factory (...name), { bind: this.bind })
-//  }
-
-//  bind (context) {
-//    context = Array.isArray (context) ? context : [context]
-//  }
-
-//  factory (name) {
-//    return (
-//      document.querySelector ('template[name='+name+']').cloneNode (true)
-//        || document.createElement ('template'))
-//  }
-//}
-
 var HTMLTemplateElement = Template = function (name) {
 
   return Object.assign
@@ -141,58 +124,37 @@ var HTMLTemplateElement = Template = function (name) {
   function bind (context) {
     var this$1 = this;
 
-
-    this.dependents =
-      this.dependents || []
-
-    context =
-      (Array.isArray (context) ? context : [context])
-      .reverse ()
+    contexts = (ref = []).concat.apply ( ref, [context] )
 
     var
-      dependent = undefined
+      clone
+    , template = document.createElement ('template')
 
-    var
-      records = []
+    void (this.dependents || [])
+      .map (function (dependent) { return dependent.remove (); })
 
-    while
-      (dependent = this.dependents.pop ())
-        { dependent.remove () }
+    this.dependents = []
 
-    var index = context.length
+    template.innerHTML =
+    contexts.map (function (context, index) {
+      context = (typeof context  === 'object') ? context : { self: context }
+      context ['#'] = index
 
-    while (index--) {
+      clone  = this$1.cloneNode (true)
 
-      var
-        clone  = this$1.cloneNode (true)
-      , tokens = (new TokenList (clone.content))
+      void (new TokenList (clone.content))
+        .bind (context)
 
-      context [index]  =
-        typeof context [index]  === 'object'
-          ? context [index]
-          : { self: context [index] }
+      return clone.innerHTML
+    })
+    .join ('')
 
-      context [index]
-        ['#'] = index
-
-      tokens.bind  (context [index])
-      records.push (clone)
-    }
-
-    records.map
-      (function (record) { (ref = this.dependents).push.apply (ref, record.content.childNodes)
-      var ref; }, this)
-
-    var template = document.createElement ('template')
-
-    var a = records
-      .map (function (record) { return record.innerHTML; })
-      .join ('')
-
-    template.innerHTML = a
+    (ref$1 = this.dependents).push.apply (ref$1, template.content.childNodes)
     this.after ( template.content )
 
     return this
+    var ref;
+    var ref$1;
   }
 }
 
@@ -359,7 +321,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     void [this]
       .concat (children)
       .filter (registered)
-      .map (reflect)
+      .map    (reflect)
   };
 
     return anonymous;
@@ -392,17 +354,17 @@ var Component = function (Element) { return ( (function (superclass) {
         (this.selectAll ('template[name]'))
 
       .map
-        (function (template) { return new Template (template.getAttribute ('name')); })
+        (function (template) { return template.getAttribute ('name'); })
 
       .map
-        (function (template) { return template.bind (this$1 [template.attributes.name.value]); })
+        (function (name) { return (new Template (name)).bind (this$1 [name]); })
 
     this.register ()
 
     // dispatch `idle`
     // and captured from `EventTarget`
-    this.constructor.onidle &&
-      this.constructor.onidle.call (this) // TODO: Migrate to `EventTarget`
+    Element.onidle &&
+      Element.onidle.call (this) // TODO: Migrate to `EventTarget`
   };
 
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
