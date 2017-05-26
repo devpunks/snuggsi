@@ -167,49 +167,32 @@ const HTMLTemplateElement = Template = function (name) {
 
     let
       clone
-    , tokens
-    , fragments = []
-    , dependent = undefined
     , template = document.createElement ('template')
 
-    this.dependents =
-      this.dependents || []
+    void (this.dependents || [])
+      .map (dependent => dependent.remove ())
 
-    while
-      (dependent = this.dependents.pop ())
-        dependent.remove ()
-
+    this.dependents = []
 
     template.innerHTML =
-    contexts.map ((c, index) => {
-      console.log (c, index)
-
-      contexts [index] =
-        typeof contexts [index]  === 'object'
-          ? contexts [index]
-          : { self: contexts [index] }
-
-      contexts [index]
-        ['#'] = index
+    contexts.map ((context, index) => {
+      context = (typeof context  === 'object') ? context : { self: context }
+      context ['#'] = index
 
       clone  = this.cloneNode (true)
-      tokens = (new TokenList (clone.content))
 
-      tokens.bind (contexts [index])
-      return clone
+      void (new TokenList (clone.content))
+        .bind (context)
+
+      return clone.innerHTML
     })
-
-    .map
-      (function (fragment) { this.dependents.push (...fragment.content.childNodes); return fragment }, this)
-
-    .map (record => record.innerHTML)
     .join ('')
 
+    this.dependents.push (...template.content.childNodes)
     this.after ( template.content )
 
     return this
   }
-
 }
 
 const EventTarget = Element => // why buble
