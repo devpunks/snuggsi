@@ -13,6 +13,7 @@ const HTMLTemplateElement = Template = function (name) {
     , tokens
     , fragments = []
     , dependent = undefined
+    , template = document.createElement ('template')
 
     this.dependents =
       this.dependents || []
@@ -21,11 +22,10 @@ const HTMLTemplateElement = Template = function (name) {
       (dependent = this.dependents.pop ())
         dependent.remove ()
 
+
+    template.innerHTML =
     contexts.map ((c, index) => {
       console.log (c, index)
-
-      clone  = this.cloneNode (true)
-      tokens = (new TokenList (clone.content))
 
       contexts [index] =
         typeof contexts [index]  === 'object'
@@ -35,22 +35,18 @@ const HTMLTemplateElement = Template = function (name) {
       contexts [index]
         ['#'] = index
 
+      clone  = this.cloneNode (true)
+      tokens = (new TokenList (clone.content))
+
       tokens.bind (contexts [index])
-      fragments.push (clone)
+      return clone
     })
 
-    fragments.map
-      (function (fragment) { this.dependents.push (...fragment.content.childNodes) }, this)
+    .map
+      (function (fragment) { this.dependents.push (...fragment.content.childNodes); return fragment }, this)
 
-    let template = document.createElement ('template')
-
-    let a = fragments
-      .map (record => record.innerHTML)
-      .join ('')
-
-    template.innerHTML = a
-
-    console.log (template.content.childNodes)
+    .map (record => record.innerHTML)
+    .join ('')
 
     this.after ( template.content )
 
