@@ -8,7 +8,7 @@ module.exports = {
   "ui": false, // { "port": 8181, "weinre": { "port": 8080 } },
   "port": 3001,
 
-  "files": ['public'], // ['public'] since we explicitly fire reload from watch
+  "files": [], // ['public'] since we explicitly fire reload from watch
 
   "watchOptions": {
     ignored: '',
