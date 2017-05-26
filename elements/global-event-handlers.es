@@ -105,7 +105,7 @@ const GlobalEventHandlers = Element =>
     void [this]
       .concat (children)
       .filter (registered)
-      .map (reflect)
+      .map    (reflect)
   }
 })
 

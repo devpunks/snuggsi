@@ -18,12 +18,16 @@ const Component = Element => // why buble
 
   render () {
 
+    console.log ("I'm rendering")
+
     this
       .tokens.bind (this)
 
     Array
       .from // templates with `name` attribute
         (this.selectAll ('template[name]'))
+
+//    .map (template => console.log (template) && template)
 
       .map
         (template => new Template (template.getAttribute ('name')))
