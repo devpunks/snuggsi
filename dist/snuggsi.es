@@ -163,14 +163,13 @@ const HTMLTemplateElement = Template = function (name) {
     (document.querySelector ('template[name='+name+']'), { bind } )
 
   function bind (context) {
-    contexts = [].concat (...[context])
-    console.log ('contexts', contexts)
+    contexts = [].concat ( ... [context] )
 
     let
-      dependent = undefined
-
-    const
-      fragments = []
+      clone
+    , tokens
+    , fragments = []
+    , dependent = undefined
 
     this.dependents =
       this.dependents || []
@@ -179,29 +178,30 @@ const HTMLTemplateElement = Template = function (name) {
       (dependent = this.dependents.pop ())
         dependent.remove ()
 
-    let index = context.length
-
     contexts.map ((c, index) => {
       console.log (c, index)
+
+      clone  = this.cloneNode (true)
+      tokens = (new TokenList (clone.content))
     })
 
-    while (index--) {
+//  while (index--) {
 
-      let
-        clone  = this.cloneNode (true)
-      , tokens = (new TokenList (clone.content))
+//    let
+//      clone  = this.cloneNode (true)
+//    , tokens = (new TokenList (clone.content))
 
-      contexts [index] =
-        typeof contexts [index]  === 'object'
-          ? contexts [index]
-          : { self: contexts [index] }
+//    contexts [index] =
+//      typeof contexts [index]  === 'object'
+//        ? contexts [index]
+//        : { self: contexts [index] }
 
-      contexts [index]
-        ['#'] = index
+//    contexts [index]
+//      ['#'] = index
 
-      tokens.bind (contexts [index])
-      fragments.push (clone)
-    }
+//    tokens.bind (contexts [index])
+//    fragments.push (clone)
+//  }
 
     fragments.map
       (function (fragment) { this.dependents.push (...fragment.content.childNodes) }, this)
