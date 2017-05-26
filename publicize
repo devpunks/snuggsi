@@ -1,6 +1,6 @@
 #!/bin/bash
 
-rm -rf ./public/*
+rm -rf ./public/examples/*
 cp -f  ./snippets/browser-sync.es ./public
 cp -f  ./index.html ./public/index.html
 cp -fr ./examples ./public
