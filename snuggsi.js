@@ -163,54 +163,32 @@ const HTMLTemplateElement = Template = function (name) {
     (document.querySelector ('template[name='+name+']'), { bind } )
 
   function bind (context) {
-
-    this.dependents =
-      this.dependents || []
-
-    context =
-      (Array.isArray (context) ? context : [context])
-      .reverse ()
+    contexts = [].concat ( ... [context] )
 
     let
-      dependent = undefined
+      clone
+    , template = document.createElement ('template')
 
-    const
-      records = []
+    void (this.dependents || [])
+      .map (dependent => dependent.remove ())
 
-    while
-      (dependent = this.dependents.pop ())
-        dependent.remove ()
+    this.dependents = []
 
-    let index = context.length
+    template.innerHTML =
+    contexts.map ((context, index) => {
+      context = (typeof context  === 'object') ? context : { self: context }
+      context ['#'] = index
 
-    while (index--) {
+      clone  = this.cloneNode (true)
 
-      let
-        clone  = this.cloneNode (true)
-      , tokens = (new TokenList (clone.content))
+      void (new TokenList (clone.content))
+        .bind (context)
 
-      context [index]  =
-        typeof context [index]  === 'object'
-          ? context [index]
-          : { self: context [index] }
+      return clone.innerHTML
+    })
+    .join ('')
 
-      context [index]
-        ['#'] = index
-
-      tokens.bind  (context [index])
-      records.push (clone)
-    }
-
-    records.map
-      (function (record) { this.dependents.push (...record.content.childNodes) }, this)
-
-    let template = document.createElement ('template')
-
-    let a = records
-      .map (record => record.innerHTML)
-      .join ('')
-
-    template.innerHTML = a
+    this.dependents.push (...template.content.childNodes)
     this.after ( template.content )
 
     return this
@@ -472,8 +450,6 @@ const Component = Element => // why buble
     Array
       .from // templates with `name` attribute
         (this.selectAll ('template[name]'))
-
-      .map (template => !!! console.log (template) && template)
 
       .map
         (template => template.getAttribute ('name'))
