@@ -1,5 +1,7 @@
 #!/bin/bash
 
+rm -rf ./public/*
+cp -f ./snippets/browser-sync.es ./public
 cp -f ./index.html ./public/index.html
 cp -fr ./examples ./public
 cp -f ./dist/snuggsi.es ./snuggsi.js
