@@ -1,6 +1,18 @@
 # Build Process
 
-`snuggsi.min.js.br` weighs 1500 octets _(1.5kilobytes)_
+## `snuggsi.min.es.br`
+
+*Mime Type* : `application/ecmascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-8.2))_
+
+*Weight* : ~ 1,500 octets _(1.5kilobytes)_
+
+
+## `snuggsi.min.js.br`
+
+*Mime Type* : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2))_
+
+*Weight* : ~ 1,400 octets _(1.4kilobytes)_
+
 
 ## Glossary
   - Octet - https://en.wikipedia.org/wiki/Octet_(computing)
