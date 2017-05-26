@@ -25,8 +25,6 @@ const Component = Element => // why buble
       .from // templates with `name` attribute
         (this.selectAll ('template[name]'))
 
-      .map (template => !!! console.log (template) && template)
-
       .map
         (template => template.getAttribute ('name'))
 
