@@ -1,0 +1,6 @@
+#!/bin/bash
+
+cp -f ./index.html ./public/index.html
+cp -fr ./examples ./public
+cp -f ./dist/snuggsi.es ./snuggsi.js
+
