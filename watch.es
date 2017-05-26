@@ -5,7 +5,7 @@ const
 
 , bundle  = 'npm run bundle'
 , copy    = './publicize'
-, reload  = './node_modules/.bin/browser-sync reload --port PORT'
+, reload  = './node_modules/.bin/browser-sync reload --port 3001'
 , clear   = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , message = `\n Watching => ${path}🔎 👀 \n`
 , echo    = `printf "${message}" && echo "Last Update $(date)"`
