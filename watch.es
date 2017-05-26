@@ -4,7 +4,7 @@ const
   path = './'
 
 , bundle  = 'npm run bundle'
-, copy    = 'npm run copy'
+, copy    = './publicize'
 , reload  = './node_modules/.bin/browser-sync reload --port PORT'
 , clear   = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , message = `\n Watching => ${path}🔎 👀 \n`
