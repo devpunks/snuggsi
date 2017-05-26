@@ -14,12 +14,14 @@ const Component = Element => // why buble
     // and captured from `EventTarget`
     this.initialize
       && this.initialize ()
+
+    this.tokens = new TokenList (this)
   }
 
   render () {
 
-    this
-      .tokens.bind (this)
+    this.tokens
+      .bind (this)
 
     Array
       .from // templates with `name` attribute
@@ -83,11 +85,6 @@ const Component = Element => // why buble
 
     this.innerHTML = ''
     this.append (fragment)
-  }
-
-  get tokens () {
-    return this._tokens = // This is Janky
-      this._tokens || new TokenList (this)
   }
 
 })

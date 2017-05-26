@@ -202,8 +202,6 @@ var ParentNode = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    var prototypeAccessors = { tokens: {} };
-
     anonymous.prototype.selectAll = function (selector)
     { return this.querySelectorAll (selector) };
 
@@ -211,13 +209,6 @@ var ParentNode = function (Element) { return ((function (Element) {
     // watch out for clobbering `HTMLInputElement.select ()`
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
     { return this.selectAll (selector) [0] };
-
-  prototypeAccessors.tokens.get = function () {
-    return this._tokens = // This is Janky
-      this._tokens || new TokenList (this)
-  };
-
-    Object.defineProperties( anonymous.prototype, prototypeAccessors );
 
     return anonymous;
   }(Element))); }
@@ -336,6 +327,8 @@ var Component = function (Element) { return ( (function (superclass) {
     // and captured from `EventTarget`
     this.initialize
       && this.initialize ()
+
+    this.tokens = new TokenList (this)
   }
 
     if ( superclass ) anonymous.__proto__ = superclass;
@@ -346,8 +339,8 @@ var Component = function (Element) { return ( (function (superclass) {
     var this$1 = this;
 
 
-    this
-      .tokens.bind (this)
+    this.tokens
+      .bind (this)
 
     Array
       .from // templates with `name` attribute
