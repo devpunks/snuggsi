@@ -6,15 +6,8 @@ const HTMLTemplateElement = Template = function (name) {
     (document.querySelector ('template[name='+name+']'), { bind } )
 
   function bind (context) {
-
-    console.log ('what')
-
-    this.dependents =
-      this.dependents || []
-
-    context =
-      (Array.isArray (context) ? context : [context])
-      .reverse ()
+    contexts = [].concat (...[context])
+    console.log ('contexts', contexts)
 
     let
       dependent = undefined
@@ -22,11 +15,18 @@ const HTMLTemplateElement = Template = function (name) {
     const
       fragments = []
 
+    this.dependents =
+      this.dependents || []
+
     while
       (dependent = this.dependents.pop ())
         dependent.remove ()
 
     let index = context.length
+
+    contexts.map ((c, index) => {
+      console.log (c, index)
+    })
 
     while (index--) {
 
@@ -34,20 +34,20 @@ const HTMLTemplateElement = Template = function (name) {
         clone  = this.cloneNode (true)
       , tokens = (new TokenList (clone.content))
 
-      context [index]  =
-        typeof context [index]  === 'object'
-          ? context [index]
-          : { self: context [index] }
+      contexts [index] =
+        typeof contexts [index]  === 'object'
+          ? contexts [index]
+          : { self: contexts [index] }
 
-      context [index]
+      contexts [index]
         ['#'] = index
 
-      tokens.bind  (context [index])
+      tokens.bind (contexts [index])
       fragments.push (clone)
     }
 
     fragments.map
-      (function (record) { this.dependents.push (...record.content.childNodes) }, this)
+      (function (fragment) { this.dependents.push (...fragment.content.childNodes) }, this)
 
     let template = document.createElement ('template')
 
@@ -56,9 +56,13 @@ const HTMLTemplateElement = Template = function (name) {
       .join ('')
 
     template.innerHTML = a
+
+    console.log (template.content.childNodes)
+
     this.after ( template.content )
 
     return this
   }
+
 }
 
