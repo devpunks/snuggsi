@@ -6,6 +6,8 @@ Element `infinity-calendar`
     { this.context.date = new Date }
 
   static onidle () {
+    console.log ('idling')
+
     this.select
       ('[name=month]').value = this.month
 

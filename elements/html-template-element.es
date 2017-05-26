@@ -7,6 +7,8 @@ const HTMLTemplateElement = Template = function (name) {
 
   function bind (context) {
 
+    console.log ('what')
+
     this.dependents =
       this.dependents || []
 
@@ -18,7 +20,7 @@ const HTMLTemplateElement = Template = function (name) {
       dependent = undefined
 
     const
-      records = []
+      fragments = []
 
     while
       (dependent = this.dependents.pop ())
@@ -41,15 +43,15 @@ const HTMLTemplateElement = Template = function (name) {
         ['#'] = index
 
       tokens.bind  (context [index])
-      records.push (clone)
+      fragments.push (clone)
     }
 
-    records.map
+    fragments.map
       (function (record) { this.dependents.push (...record.content.childNodes) }, this)
 
     let template = document.createElement ('template')
 
-    let a = records
+    let a = fragments
       .map (record => record.innerHTML)
       .join ('')
 
