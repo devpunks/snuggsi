@@ -14,12 +14,18 @@
 <script nomodule src=https://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 <script nomodule src=https://unpkg.com/snuggsi></script>
 
+<script src=/examples/infinity-calendar/infinity-calendar.es defer></script>
+
 <link rel=import href=/examples/header-group>
+
+<!-- https://jakearchibald.com/2016/link-in-body -->
+<link rel=stylesheet href=/examples/infinity-calendar/infinity-calendar.css>
 
 <link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
 
 <header-group>
   <h2 slot=header>&lt;Infinity-Calendar&gt;</h2>
+
   <ul slot=subheader>
     <li>
       <a Title='See more componentexamples' href=/examples>See more component examples</a>
@@ -31,6 +37,7 @@
       <a target=external href=http://teuxdeux.com>http://teudeux.com</a>
 
   </ul>
+
 </header-group>
 
 
@@ -61,10 +68,6 @@
     </a>
   </template>
 
-  <!-- https://jakearchibald.com/2016/link-in-body -->
-  <link rel=stylesheet href=infinity-calendar.css>
-
-  <script src=infinity-calendar.es defer></script>
 </infinity-calendar>
 
 <script src=/browser-sync.es></script>
