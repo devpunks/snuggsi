@@ -357,8 +357,8 @@ const GlobalEventHandlers = Element =>
 
     // dispatch `import`
     // and captured from `EventTarget`
-    this.constructor.onconnect &&
-      this.constructor.onconnect.call (this)
+    Element.onconnect &&
+      Element.onconnect.call (this)
 
     // dispatch `render`
     // and captured from `EventTarget`
