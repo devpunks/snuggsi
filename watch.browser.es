@@ -57,7 +57,7 @@ module.exports = {
     "scrollRestoreTechnique": "window.name",
     "scrollElements": [],
     "scrollElementMapping": [],
-    "reloadDelay": 0,
+    "reloadDelay": 2,
     "reloadDebounce": 0,
     "reloadThrottle": 0,
     "plugins": [],
