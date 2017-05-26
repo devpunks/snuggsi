@@ -87,9 +87,7 @@ Element `infinity-calendar`
     for (let day=1; day <= date.getDate (); day++)
       dates.push (day)
 
-    return [1,2,3,4]
-
-//  return dates.map (days)
+    return dates.map (days)
   }
 
   date_from_month (change) {
