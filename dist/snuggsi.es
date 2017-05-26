@@ -183,25 +183,18 @@ const HTMLTemplateElement = Template = function (name) {
 
       clone  = this.cloneNode (true)
       tokens = (new TokenList (clone.content))
+
+      contexts [index] =
+        typeof contexts [index]  === 'object'
+          ? contexts [index]
+          : { self: contexts [index] }
+
+      contexts [index]
+        ['#'] = index
+
+      tokens.bind (contexts [index])
+      fragments.push (clone)
     })
-
-//  while (index--) {
-
-//    let
-//      clone  = this.cloneNode (true)
-//    , tokens = (new TokenList (clone.content))
-
-//    contexts [index] =
-//      typeof contexts [index]  === 'object'
-//        ? contexts [index]
-//        : { self: contexts [index] }
-
-//    contexts [index]
-//      ['#'] = index
-
-//    tokens.bind (contexts [index])
-//    fragments.push (clone)
-//  }
 
     fragments.map
       (function (fragment) { this.dependents.push (...fragment.content.childNodes) }, this)
