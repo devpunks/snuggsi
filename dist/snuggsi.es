@@ -296,11 +296,6 @@ const ParentNode = Element =>
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
     { return this.selectAll (selector) [0] }
 
-  get tokens () {
-    return this._tokens = // This is Janky
-      this._tokens || new TokenList (this)
-  }
-
 })
 
 //function comb
@@ -509,6 +504,11 @@ const Component = Element => // why buble
 
     this.innerHTML = ''
     this.append (fragment)
+  }
+
+  get tokens () {
+    return this._tokens = // This is Janky
+      this._tokens || new TokenList (this)
   }
 
 })

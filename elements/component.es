@@ -85,5 +85,10 @@ const Component = Element => // why buble
     this.append (fragment)
   }
 
+  get tokens () {
+    return this._tokens = // This is Janky
+      this._tokens || new TokenList (this)
+  }
+
 })
 
