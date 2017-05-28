@@ -101,7 +101,7 @@ Place `<script name=polyfill>` before **snuggsiツ** for
 
 <!-- snuggsiツ (classic) -->
 <script
-  f
+  nomodule
   name=classic
   src =//unpkg.com/snuggsi/snuggsi.min.js>
 </script>
