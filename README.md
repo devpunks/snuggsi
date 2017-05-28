@@ -101,7 +101,7 @@ Place `<script name=polyfill>` before **snuggsiツ** for
 
 <!-- snuggsiツ (classic) -->
 <script
-  nomodule
+  f
   name=classic
   src =//unpkg.com/snuggsi/snuggsi.min.js>
 </script>
@@ -132,7 +132,7 @@ _See [examples](/examples#readme) for more details_
 
 <!-- http(s): protocol required locally -->
 <script nomodule src=//unpkg.com/snuggsi></script>
-<script nomodule defer>
+<script defer>
 
 // Element Definition -----------------------------
 
