@@ -42,7 +42,7 @@ Element `input-output`
     { this.render () }
 
   get echo () // tokenized property
-    { return this.select ('input#message').value }
+    { return this.select ('input#message').value || '…' }
 })
 
 </script>
