@@ -41,19 +41,13 @@ class TokenList {
   constructor (node) {
 
     const
-      textify = node =>
-        (node.text = node.textContent) && node
+      tokenize = node =>
+        (node.text = node.textContent)
 
-    , tokenize = token =>
-        // String.prototype.match returns ALL capture groups!!!
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/match
-        token.textContent
-          .match (/{(\w+|#)}/g)
-            .map (symbolize)
-            .map (insert (token))
-
-    , symbolize = symbol =>
-        symbol.match (/(\w+|#)/g) [0]
+        && node.textContent
+            .match (/{(\w+|#)}/g)
+              .map (symbol => symbol.match (/(\w+|#)/g) [0])
+              .map (insert (node))
 
     , insert = token =>
         symbol =>
@@ -62,7 +56,6 @@ class TokenList {
 
     this
       .sift (node)
-      .map  (textify)
       .map  (tokenize)
   }
 
