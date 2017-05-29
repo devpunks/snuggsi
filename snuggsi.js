@@ -98,31 +98,28 @@ class TokenList {
     return nodes
   }
 
-  bind (context, node) {
+  bind (context) {
 
     const
-      prepare = symbol =>
+      replace = symbol =>
         this [symbol]
           .map (token => token.textContent = token.text)
-        && symbol
 
-    , replace = symbol =>
-        this [symbol]
+        && this [symbol]
           .map (replacement (symbol))
 
-    , replacement =
-        symbol =>
-          item =>
-            item.textContent = item.textContent
-              .replace ('{'+symbol+'}', context [symbol])
+    , replacement = symbol =>
+        item => // thunk
+          item.textContent = item.textContent
+            .replace ('{'+symbol+'}', context [symbol])
 
     Object
       .keys (this)
-      .filter (key => context [key])
-      .map  (prepare)
-      .map  (replace)
 
-    return this
+      .filter
+        (key => context [key] !== undefined)
+
+      .map (replace)
   }
 
 //zip (...elements) {

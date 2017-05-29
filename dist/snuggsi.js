@@ -89,29 +89,27 @@ TokenList.prototype.sift = function (node) {
   return nodes
 };
 
-TokenList.prototype.bind = function (context, node) {
+TokenList.prototype.bind = function (context) {
     var this$1 = this;
 
 
   var
-    prepare = function (symbol) { return this$1 [symbol]
+    replace = function (symbol) { return this$1 [symbol]
         .map (function (token) { return token.textContent = token.text; })
-      && symbol; }
 
-  , replace = function (symbol) { return this$1 [symbol]
+      && this$1 [symbol]
         .map (replacement (symbol)); }
 
-  , replacement =
-      function (symbol) { return function (item) { return item.textContent = item.textContent
-            .replace ('{'+symbol+'}', context [symbol]); }; }
+  , replacement = function (symbol) { return function (item) { return item.textContent = item.textContent
+          .replace ('{'+symbol+'}', context [symbol]); }; }
 
   Object
     .keys (this)
-    .filter (function (key) { return context [key]; })
-    .map(prepare)
-    .map(replace)
 
-  return this
+    .filter
+      (function (key) { return context [key] !== undefined; })
+
+    .map (replace)
 };
 
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
