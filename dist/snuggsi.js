@@ -42,21 +42,18 @@ var TokenList = function (node) {
 
 
   var
-    textify = function (node) { return (node.text = node.textContent) && node; }
+    tokenize = function (node) { return (node.text = node.textContent)
 
-  , tokenize = function (token) { return token.textContent
-        .match (/{(\w+|#)}/g)
-          .map (symbolize)
-          .map (insert (token)); }
-
-  , symbolize = function (symbol) { return symbol.match (/(\w+|#)/g) [0]; }
+      && node.textContent
+          .match (/{(\w+|#)}/g)
+            .map (function (symbol) { return symbol.match (/(\w+|#)/g) [0]; })
+            .map (insert (node)); }
 
   , insert = function (token) { return function (symbol) { return (this$1 [symbol] = this$1 [symbol] || [])
           && this$1 [symbol].push (token); }; }
 
   this
     .sift (node)
-    .map(textify)
     .map(tokenize)
 };
 
@@ -83,8 +80,7 @@ TokenList.prototype.sift = function (node) {
         // by default breaks on template YAY! 🎉
 
   while
-    (node = walker.nextNode ())
-      { nodes.push (node) }
+    ((node = walker.nextNode ()) && nodes.push (node)) {}
 
   return nodes
 };
