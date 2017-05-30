@@ -400,21 +400,12 @@ var Component = function (Element) { return ( (function (superclass) {
 
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
-var Element = function
-  (tag, CustomElementRegistry )
+var Element =
+  function (tag, CustomElementRegistry ) {
+      if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
 
-  //https://gist.github.com/allenwb/53927e46b31564168a1d
-  // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
-  // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
-
-{
-  if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
-
-  return function (Element) { // https://en.wikipedia.org/wiki/Higher-order_function
-
-    CustomElementRegistry.define.apply
-      ( CustomElementRegistry, tag.concat( [Component (Element)] ))
-  }
+      return function (Element) { return CustomElementRegistry.define.apply
+        ( CustomElementRegistry, tag.concat( [Component (Element)] )); };
 }
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
