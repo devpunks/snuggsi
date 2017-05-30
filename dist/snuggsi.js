@@ -1,5 +1,3 @@
-
-var this$1 = this;
 var HTMLLinkElement = function
 
   // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
@@ -173,7 +171,7 @@ var EventTarget = function (Element) { return ((function (Element) {
           ('load', this.onimport.bind (this))
   };
 
-  anonymous.prototype.listen = function (event, listener)
+  anonymous.prototype.on = function (event, listener)
 
     // MDN EventTarget.addEventListener
     // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -184,9 +182,7 @@ var EventTarget = function (Element) { return ((function (Element) {
     // DOM Level 2 EventTarget.addEventListener
     // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
 
-    {
-    if ( listener === void 0 ) listener = this$1 [event];
- this.addEventListener (event, listener) };
+    { this.addEventListener (event, listener) };
 
     return anonymous;
   }(Element))); }
