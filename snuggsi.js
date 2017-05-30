@@ -220,7 +220,7 @@ const EventTarget = Element => // why buble
           ('load', this.onimport.bind (this))
   }
 
-  listen (event, listener = this [event])
+  on ( ... event_handler )
 
     // MDN EventTarget.addEventListener
     // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -231,7 +231,7 @@ const EventTarget = Element => // why buble
     // DOM Level 2 EventTarget.addEventListener
     // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
 
-    { this.addEventListener (event, listener) }
+    { this.addEventListener ( ... event_handler ) }
 
 //ignore (event, listener = 'on' + this [event])
 //  // MDN EventTarget.removeEventListener
