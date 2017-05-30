@@ -24,13 +24,14 @@ const HTMLLinkElement = function
 
           value: function (event, handler) {
             !!! link
-              ? handler ({ target: proxy })
+              ? handler  ({ target: proxy })
               : register (event, handler)
           }
         }
 
-      , 'onerror': // TODO: definition for onerror
-          { set (handler) {} }
+// TODO: definition for onerror
+//    , 'onerror':
+//        { set (handler) {} }
       })
 
   return proxy

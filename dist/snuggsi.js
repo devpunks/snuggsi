@@ -245,23 +245,16 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     this.render ()
   };
 
-  anonymous.prototype.register = function (events) {
+  anonymous.prototype.register = function (onevents) {
     var this$1 = this;
-    if ( events === void 0 ) events = function (event) { return /^on/.exec (event); };
+    if ( onevents === void 0 ) onevents = function (attr) { return /^on/.test (attr.name || attr); };
 
 
     var
       mirror = function (handler) { return (this$1 [handler] === null) && // ensure W3C on event
           (this$1 [handler] = Element [handler].bind (this$1)); }
 
-    Object // mirror class events to element
-      .getOwnPropertyNames (Element)
-      .filter (events)
-      .map (mirror)
-
-
-    var
-      nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
+    , nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
         // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
         // If we can do this we can only retrieve the elements that have a traditional inline event.
         // This is theoretically more performant as most elements won't need traditional event registration.
@@ -272,16 +265,13 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
     , registered =
         function (node) { return Array
-            .from (node.attributes)
-            .map (function (attr) { return attr.name; })
-            .filter (events)
-            .length > 0; }
+            .from   (node.attributes)
+            .filter (onevents); }
 
     , reflect =
         function (node) { return Array
-            .from (node.attributes)
-            .map  (function (attr) { return attr.name; })
-            .filter (events)
+            .from   (node.attributes)
+            .filter (onevents)
             .map (reflection (node)); }
 
     , reflection =
@@ -300,10 +290,16 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
             || null;
     }  // default for W3C on* event handlers
 
+
+    Object // mirror class events to element
+      .getOwnPropertyNames (Element)
+      .filter (onevents)
+      .map (mirror)
+
     void [this]
       .concat (children)
       .filter (registered)
-      .map    (reflect)
+      .map (reflect)
   };
 
     return anonymous;
