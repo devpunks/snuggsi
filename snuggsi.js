@@ -59,6 +59,7 @@ class TokenList {
       .map  (tokenize)
   }
 
+
   sift (node) {
 
     const
@@ -66,16 +67,18 @@ class TokenList {
 
     , visit = node =>
         node.nodeType === Node.TEXT_NODE
-          ? TEXT_NODE (node) && NodeFilter.FILTER_ACCEPT
-          : ELEMENT_NODE (node.attributes) && NodeFilter.FILTER_REJECT
+          ? TEXT_NODE (node)
+            && NodeFilter.FILTER_ACCEPT // Accept TEXT_NODEs
+
+          : ELEMENT_NODE (node.attributes)
+            && NodeFilter.FILTER_REJECT // reject ELEMENT_NODEs
 
     , TEXT_NODE = node =>
-        node.nodeType === Node.TEXT_NODE
-          && /{(\w+|#)}/.test (node.textContent)
+        /{(\w+|#)}/.test (node.textContent)
 
     , ELEMENT_NODE = attributes =>
         Array
-          .from (attributes || [])
+          .from (attributes)
           .filter (attr => /{(\w+|#)}/g.test (attr.value))
           .map (attribute => nodes.push (attribute))
 
@@ -456,46 +459,40 @@ const Component = Element => // why buble
   clone (template) {
 
     const
-      fragment =
-        template
-          .content
-          .cloneNode (true)
+      fragment = template.content
+        .cloneNode (true)
 
     , slots =
         Array.from (fragment.querySelectorAll ('slot'))
-
-    , replacements =
-        Array.from (this.querySelectorAll ('[slot]'))
-
-     , register = attribute =>
-         (this.setAttribute (attribute.name, attribute.value))
 
     , replace = replacement =>
         slots
           .filter (match (replacement))
           .map (exchange (replacement))
 
-    , match = replacement => slot =>
-        replacement.getAttribute ('slot')
-          === slot.getAttribute  ('name')
+    , match = replacement =>
+        slot =>
+          replacement.getAttribute ('slot')
+            === slot.getAttribute  ('name')
 
     , exchange = replacement =>
-        slot => slot
-          // prefer to use replaceWith however support is sparse
-          // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-          // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
-          .parentNode
-          .replaceChild (replacement, slot)
+        slot =>
+          slot
+            // prefer to use replaceWith however support is sparse
+            // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+            // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
+            .parentNode
+            .replaceChild (replacement, slot)
 
     Array // map attributes from template
       .from (template.attributes)
-      .map  (register)
+      .map  (attribute => this.setAttribute (attribute.name, attribute.value))
 
-    replacements
-      .map (replace)
+    Array // map slots from template
+      .from (this.querySelectorAll ('[slot]'))
+      .map  (replace)
 
-    this.innerHTML = ''
-    this.append (fragment)
+    this.innerHTML = template.innerHTML
   }
 
 })
