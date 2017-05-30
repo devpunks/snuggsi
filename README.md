@@ -82,7 +82,7 @@ for `<script type=module>` support!
   The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
   polyfills are intended to work in the latest versions of browsers.
 
-Place the `<script name=polyfill …>` below before **snuggsiツ** for
+Place the `<script name=polyfill … >` below before **snuggsiツ** for
 [evergreen cross-browser](https://www.techopedia.com/definition/31094/evergreen-browser) support.
 
 ```html
