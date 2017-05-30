@@ -28,17 +28,12 @@ const GlobalEventHandlers = Element =>
 
 (class extends Element {
 
-  onimport (event) {
+  onimport (event, root = event.target.import) {
 
-    const
-      document =
-        event.target.import
+    root &&
+      this.clone
+        (root.querySelector ('template'))
 
-    , template = document &&
-        document.querySelector ('template')
-
-    template &&
-      this.clone (template)
 
     // dispatch `import`
     // and captured from `EventTarget`
