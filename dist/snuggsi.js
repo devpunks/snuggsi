@@ -57,20 +57,23 @@ var TokenList = function (node) {
     .map(tokenize)
 };
 
+
 TokenList.prototype.sift = function (node) {
 
   var
     nodes = []
 
   , visit = function (node) { return node.nodeType === Node.TEXT_NODE
-        ? TEXT_NODE (node) && NodeFilter.FILTER_ACCEPT
-        : ELEMENT_NODE (node.attributes) && NodeFilter.FILTER_REJECT; }
+        ? TEXT_NODE (node)
+          && NodeFilter.FILTER_ACCEPT // Accept TEXT_NODEs
 
-  , TEXT_NODE = function (node) { return node.nodeType === Node.TEXT_NODE
-        && /{(\w+|#)}/.test (node.textContent); }
+        : ELEMENT_NODE (node.attributes)
+          && NodeFilter.FILTER_REJECT; } // reject ELEMENT_NODEs
+
+  , TEXT_NODE = function (node) { return /{(\w+|#)}/.test (node.textContent); }
 
   , ELEMENT_NODE = function (attributes) { return Array
-        .from (attributes || [])
+        .from (attributes)
         .filter (function (attr) { return /{(\w+|#)}/g.test (attr.value); })
         .map (function (attribute) { return nodes.push (attribute); }); }
 
@@ -80,7 +83,8 @@ TokenList.prototype.sift = function (node) {
         // by default breaks on template YAY! 🎉
 
   while
-    ((node = walker.nextNode ()) && nodes.push (node)) {}
+    (node = walker.nextNode ())
+      { nodes.push (node) }
 
   return nodes
 };
@@ -360,42 +364,35 @@ var Component = function (Element) { return ( (function (superclass) {
 
 
     var
-      fragment =
-        template
-          .content
-          .cloneNode (true)
+      fragment = template.content
+        .cloneNode (true)
 
     , slots =
         Array.from (fragment.querySelectorAll ('slot'))
-
-    , replacements =
-        Array.from (this.querySelectorAll ('[slot]'))
-
-     , register = function (attribute) { return (this$1.setAttribute (attribute.name, attribute.value)); }
 
     , replace = function (replacement) { return slots
           .filter (match (replacement))
           .map (exchange (replacement)); }
 
     , match = function (replacement) { return function (slot) { return replacement.getAttribute ('slot')
-          === slot.getAttribute  ('name'); }; }
+            === slot.getAttribute  ('name'); }; }
 
     , exchange = function (replacement) { return function (slot) { return slot
-          // prefer to use replaceWith however support is sparse
-          // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-          // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
-          .parentNode
-          .replaceChild (replacement, slot); }; }
+            // prefer to use replaceWith however support is sparse
+            // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+            // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
+            .parentNode
+            .replaceChild (replacement, slot); }; }
 
     Array // map attributes from template
       .from (template.attributes)
-      .map  (register)
+      .map  (function (attribute) { return this$1.setAttribute (attribute.name, attribute.value); })
 
-    replacements
-      .map (replace)
+    Array // map slots from template
+      .from (this.querySelectorAll ('[slot]'))
+      .map  (replace)
 
-    this.innerHTML = ''
-    this.append (fragment)
+    this.innerHTML = template.innerHTML
   };
 
     return anonymous;
