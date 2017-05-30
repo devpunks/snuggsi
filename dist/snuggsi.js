@@ -130,28 +130,28 @@ var HTMLTemplateElement = Template = function (name) {
     void (this.dependents || [])
       .map (function (dependent) { return dependent.remove (); })
 
-    this.dependents = []
-
     template.innerHTML =
     contexts.map (function (context, index) {
-      (context = (typeof context  === 'object') ? context : { self: context })
-        ['#'] = index
+
+      context =
+        (typeof context  === 'object') ? context : { self: context }
+
+      context ['#'] = index
 
       clone  = this$1.cloneNode (true)
 
       void (new TokenList (clone.content))
         .bind (context)
 
-      return clone.innerHTML
+      return clone.innerHTML // immutable snapshot
     })
     .join ('')
 
-    (ref$1 = this.dependents).push.apply (ref$1, template.content.childNodes)
+    this.dependents = Array.from(template.content.childNodes)
     this.after ( template.content )
 
     return this
     var ref;
-    var ref$1;
   }
 }
 
