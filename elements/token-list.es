@@ -21,6 +21,7 @@ class TokenList {
       .map  (tokenize)
   }
 
+
   sift (node) {
 
     const
@@ -28,16 +29,18 @@ class TokenList {
 
     , visit = node =>
         node.nodeType === Node.TEXT_NODE
-          ? TEXT_NODE (node) && NodeFilter.FILTER_ACCEPT
-          : ELEMENT_NODE (node.attributes) && NodeFilter.FILTER_REJECT
+          ? TEXT_NODE (node)
+            && NodeFilter.FILTER_ACCEPT // Accept TEXT_NODEs
+
+          : ELEMENT_NODE (node.attributes)
+            && NodeFilter.FILTER_REJECT // reject ELEMENT_NODEs
 
     , TEXT_NODE = node =>
-        node.nodeType === Node.TEXT_NODE
-          && /{(\w+|#)}/.test (node.textContent)
+        /{(\w+|#)}/.test (node.textContent)
 
     , ELEMENT_NODE = attributes =>
         Array
-          .from (attributes || [])
+          .from (attributes)
           .filter (attr => /{(\w+|#)}/g.test (attr.value))
           .map (attribute => nodes.push (attribute))
 
