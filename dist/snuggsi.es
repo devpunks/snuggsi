@@ -166,23 +166,24 @@ const HTMLTemplateElement = Template = function (name) {
     void (this.dependents || [])
       .map (dependent => dependent.remove ())
 
-    this.dependents = []
-
     template.innerHTML =
     contexts.map ((context, index) => {
-      (context = (typeof context  === 'object') ? context : { self: context })
-        ['#'] = index
+
+      context =
+        (typeof context  === 'object') ? context : { self: context }
+
+      context ['#'] = index
 
       clone  = this.cloneNode (true)
 
       void (new TokenList (clone.content))
         .bind (context)
 
-      return clone.innerHTML
+      return clone.innerHTML // immutable snapshot
     })
     .join ('')
 
-    this.dependents.push (...template.content.childNodes)
+    this.dependents = Array.from(template.content.childNodes)
     this.after ( template.content )
 
     return this
