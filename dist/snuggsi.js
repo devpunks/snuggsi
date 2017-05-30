@@ -125,7 +125,7 @@ var HTMLTemplateElement = Template = function (name) {
 
     var
       clone
-    , template = document.createElement ('template')
+    , template = this.cloneNode (false)
 
     void (this.dependents || [])
       .map (function (dependent) { return dependent.remove (); })
@@ -134,8 +134,8 @@ var HTMLTemplateElement = Template = function (name) {
 
     template.innerHTML =
     contexts.map (function (context, index) {
-      context = (typeof context  === 'object') ? context : { self: context }
-      context ['#'] = index
+      (context = (typeof context  === 'object') ? context : { self: context })
+        ['#'] = index
 
       clone  = this$1.cloneNode (true)
 

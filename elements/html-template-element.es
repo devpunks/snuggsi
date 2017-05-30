@@ -1,6 +1,6 @@
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
-const HTMLTemplateElement = Template = name => {
+const HTMLTemplateElement = Template = function (name) {
 
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind } )
