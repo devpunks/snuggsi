@@ -1,8 +1,5 @@
 const GlobalEventHandlers = Element =>
 
-  // DOM Levels
-  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-  //
   // Living Standard HTML5 GlobalEventHandlers
   // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
   //
@@ -45,21 +42,14 @@ const GlobalEventHandlers = Element =>
     this.render ()
   }
 
-  register (events = event => /^on/.exec (event)) {
+  register (onevents = attr => /^on/.test (attr.name || attr)) {
 
     const
       mirror = handler =>
         (this [handler] === null) && // ensure W3C on event
           (this [handler] = Element [handler].bind (this))
 
-    Object // mirror class events to element
-      .getOwnPropertyNames (Element)
-      .filter (events)
-      .map (mirror)
-
-
-    const
-      nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
+    , nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
         // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
         // If we can do this we can only retrieve the elements that have a traditional inline event.
         // This is theoretically more performant as most elements won't need traditional event registration.
@@ -71,17 +61,14 @@ const GlobalEventHandlers = Element =>
     , registered =
         node =>
           Array
-            .from (node.attributes)
-            .map (attr => attr.name)
-            .filter (events)
-            .length > 0
+            .from   (node.attributes)
+            .filter (onevents)
 
     , reflect =
         node =>
           Array
-            .from (node.attributes)
-            .map  (attr => attr.name)
-            .filter (events)
+            .from   (node.attributes)
+            .filter (onevents)
             .map (reflection (node))
 
     , reflection =
@@ -97,10 +84,16 @@ const GlobalEventHandlers = Element =>
             || handler // existing handler
             || null  // default for W3C on* event handlers
 
+
+    Object // mirror class events to element
+      .getOwnPropertyNames (Element)
+      .filter (onevents)
+      .map (mirror)
+
     void [this]
       .concat (children)
       .filter (registered)
-      .map    (reflect)
+      .map (reflect)
   }
 })
 
