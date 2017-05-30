@@ -226,17 +226,14 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.onimport = function (event) {
+    anonymous.prototype.onimport = function (event, root) {
+    if ( root === void 0 ) root = event.target.import;
 
-    var
-      document =
-        event.target.import
 
-    , template = document &&
-        document.querySelector ('template')
+    root &&
+      this.clone
+        (root.querySelector ('template'))
 
-    template &&
-      this.clone (template)
 
     // dispatch `import`
     // and captured from `EventTarget`
