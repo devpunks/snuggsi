@@ -1,6 +1,6 @@
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
-const HTMLTemplateElement = Template = function (name) {
+const HTMLTemplateElement = Template = name => {
 
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind } )
@@ -10,7 +10,7 @@ const HTMLTemplateElement = Template = function (name) {
 
     let
       clone
-    , template = document.createElement ('template')
+    , template = this.cloneNode (false)
 
     void (this.dependents || [])
       .map (dependent => dependent.remove ())
@@ -19,8 +19,8 @@ const HTMLTemplateElement = Template = function (name) {
 
     template.innerHTML =
     contexts.map ((context, index) => {
-      context = (typeof context  === 'object') ? context : { self: context }
-      context ['#'] = index
+      (context = (typeof context  === 'object') ? context : { self: context })
+        ['#'] = index
 
       clone  = this.cloneNode (true)
 
