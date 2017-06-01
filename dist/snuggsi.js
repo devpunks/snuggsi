@@ -324,19 +324,21 @@ var Component = function (Element) { return ( (function (superclass) {
     anonymous.prototype.constructor = anonymous;
 
   anonymous.prototype.render = function () {
+    var this$1 = this;
+
 
     this.tokens
       .bind (this)
 
-//  Array
-//    .from // templates with `name` attribute
-//      (this.selectAll ('template[name]'))
+    Array
+      .from // templates with `name` attribute
+        (this.selectAll ('template[name]'))
 
-//    .map
-//      (template => template.getAttribute ('name'))
+      .map
+        (function (template) { return template.getAttribute ('name'); })
 
-//    .map
-//      (name => (new Template (name)).bind (this [name]))
+      .map
+        (function (name) { return (new Template (name)).bind (this$1 [name]); })
 
     this.register ()
 
