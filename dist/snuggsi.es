@@ -441,8 +441,8 @@ const Component = Element => // why buble
 
     // dispatch `idle`
     // and captured from `EventTarget`
-    Element.onidle &&
-      Element.onidle.call (this) // TODO: Migrate to `EventTarget`
+    Element.onidle
+//    Element.onidle.call (this) // TODO: Migrate to `EventTarget`
   }
 
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
