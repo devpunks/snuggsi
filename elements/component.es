@@ -33,7 +33,7 @@ const Component = Element => // why buble
       .map
         (name => (new Template (name)).bind (this [name]))
 
-    this.register ()
+//  this.register ()
 
     // dispatch `idle`
     // and captured from `EventTarget`
