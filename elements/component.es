@@ -33,12 +33,12 @@ const Component = Element => // why buble
       .map
         (name => (new Template (name)).bind (this [name]))
 
-//  this.register ()
+    this.register ()
 
     // dispatch `idle`
     // and captured from `EventTarget`
-    Element.onidle
-//    Element.onidle.call (this) // TODO: Migrate to `EventTarget`
+    Element.onidle &&
+      Element.onidle.call (this) // TODO: Migrate to `EventTarget`
   }
 
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
