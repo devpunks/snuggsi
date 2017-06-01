@@ -23,15 +23,15 @@ const Component = Element => // why buble
     this.tokens
       .bind (this)
 
-//  Array
-//    .from // templates with `name` attribute
-//      (this.selectAll ('template[name]'))
+    Array
+      .from // templates with `name` attribute
+        (this.selectAll ('template[name]'))
 
-//    .map
-//      (template => template.getAttribute ('name'))
+      .map
+        (template => template.getAttribute ('name'))
 
-//    .map
-//      (name => (new Template (name)).bind (this [name]))
+      .map
+        (name => (new Template (name)).bind (this [name]))
 
     this.register ()
 
