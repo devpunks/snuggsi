@@ -340,12 +340,12 @@ var Component = function (Element) { return ( (function (superclass) {
       .map
         (function (name) { return (new Template (name)).bind (this$1 [name]); })
 
-//  this.register ()
+    this.register ()
 
     // dispatch `idle`
     // and captured from `EventTarget`
-    Element.onidle
-//    Element.onidle.call (this) // TODO: Migrate to `EventTarget`
+    Element.onidle &&
+      Element.onidle.call (this) // TODO: Migrate to `EventTarget`
   };
 
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
