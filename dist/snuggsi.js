@@ -340,7 +340,7 @@ var Component = function (Element) { return ( (function (superclass) {
       .map
         (function (name) { return (new Template (name)).bind (this$1 [name]); })
 
-    this.register ()
+//  this.register ()
 
     // dispatch `idle`
     // and captured from `EventTarget`
