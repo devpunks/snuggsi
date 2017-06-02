@@ -14,7 +14,7 @@ const HTMLTemplateElement = Template = function (name) {
 
     template.innerHTML =
     contexts
-      .map (context
+      .map (context => context)
       .map ((context, index) => {
 
       context =
