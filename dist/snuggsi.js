@@ -130,11 +130,10 @@ var HTMLTemplateElement = Template = function (name) {
       clone
     , template = this.cloneNode (false)
 
-    void (this.dependents || [])
-      .map (function (dependent) { return dependent.remove (); })
-
     template.innerHTML =
-    contexts.map (function (context, index) {
+    contexts
+      .map (function (context) { return context; })
+      .map (function (context, index) {
 
       context =
         (typeof context  === 'object') ? context : { self: context }
@@ -150,7 +149,13 @@ var HTMLTemplateElement = Template = function (name) {
     })
     .join ('')
 
-    this.dependents = Array.from(template.content.childNodes)
+    void (this.dependents || [])
+      .map (function (dependent) { return dependent.remove (); })
+
+    this.dependents =
+      Array.from
+        (template.content.childNodes)
+
     this.after ( template.content )
 
     return this

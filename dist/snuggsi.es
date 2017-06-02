@@ -167,11 +167,10 @@ const HTMLTemplateElement = Template = function (name) {
       clone
     , template = this.cloneNode (false)
 
-    void (this.dependents || [])
-      .map (dependent => dependent.remove ())
-
     template.innerHTML =
-    contexts.map ((context, index) => {
+    contexts
+      .map (context => context)
+      .map ((context, index) => {
 
       context =
         (typeof context  === 'object') ? context : { self: context }
@@ -187,7 +186,13 @@ const HTMLTemplateElement = Template = function (name) {
     })
     .join ('')
 
-    this.dependents = Array.from(template.content.childNodes)
+    void (this.dependents || [])
+      .map (dependent => dependent.remove ())
+
+    this.dependents =
+      Array.from
+        (template.content.childNodes)
+
     this.after ( template.content )
 
     return this
