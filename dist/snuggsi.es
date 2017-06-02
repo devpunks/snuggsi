@@ -10,11 +10,15 @@ const HTMLLinkElement = function
   , link = document.querySelector // use CSS :any ?
       ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
 
-  , register = (event, handler) =>
+  , register = (event, handler) => // https://github.com/webcomponents/html-imports#htmlimports
+
       (HTMLImports && !!! HTMLImports.useNative)
-        // https://github.com/webcomponents/html-imports#htmlimports
-        ? HTMLImports.whenReady ( _ => handler ({ target: link }) ) // eww
-        : link.addEventListener (event, handler)
+        ? HTMLImports.whenReady
+            ( _ => handler ({ target: link }) ) // eww
+
+        : link.addEventListener
+            (event, handler)
+
 
     Object
       .defineProperties (proxy, {
@@ -497,8 +501,8 @@ const Element =
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
     Element => // https://en.wikipedia.org/wiki/Higher-order_function
-      CustomElementRegistry.define
-        ( ...tag, Component (Element))
+      CustomElementRegistry
+        .define ( ...tag, Component (Element))
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 Element.prototype = ElementPrototype

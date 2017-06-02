@@ -11,9 +11,12 @@ var HTMLLinkElement = function
       ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
 
   , register = function (event, handler) { return (HTMLImports && !!! HTMLImports.useNative)
-        // https://github.com/webcomponents/html-imports#htmlimports
-        ? HTMLImports.whenReady ( function (_) { return handler ({ target: link }); } ) // eww
-        : link.addEventListener (event, handler); }
+        ? HTMLImports.whenReady
+            ( function (_) { return handler ({ target: link }); } ) // eww
+
+        : link.addEventListener
+            (event, handler); }
+
 
     Object
       .defineProperties (proxy, {
@@ -394,8 +397,8 @@ var Element =
   function (tag, CustomElementRegistry ) {
       if ( CustomElementRegistry === void 0 ) CustomElementRegistry = window.customElements;
 
-      return function (Element) { return CustomElementRegistry.define.apply
-        ( CustomElementRegistry, tag.concat( [Component (Element)] )); };
+      return function (Element) { return CustomElementRegistry
+        .define.apply ( CustomElementRegistry, tag.concat( [Component (Element)] )); };
 }
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
