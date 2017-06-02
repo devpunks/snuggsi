@@ -10,11 +10,15 @@ const HTMLLinkElement = function
   , link = document.querySelector // use CSS :any ?
       ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
 
-  , register = (event, handler) =>
+  , register = (event, handler) => // https://github.com/webcomponents/html-imports#htmlimports
+
       (HTMLImports && !!! HTMLImports.useNative)
-        // https://github.com/webcomponents/html-imports#htmlimports
-        ? HTMLImports.whenReady ( _ => handler ({ target: link }) ) // eww
-        : link.addEventListener (event, handler)
+        ? HTMLImports.whenReady
+            ( _ => handler ({ target: link }) ) // eww
+
+        : link.addEventListener
+            (event, handler)
+
 
     Object
       .defineProperties (proxy, {
