@@ -1,0 +1,7 @@
+#!/bin/bash
+
+# Thank TOM for ./crank
+npm run compile
+npm run distribute
+./deploy
+
