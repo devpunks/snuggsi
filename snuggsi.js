@@ -10,11 +10,15 @@ const HTMLLinkElement = function
   , link = document.querySelector // use CSS :any ?
       ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
 
-  , register = (event, handler) =>
+  , register = (event, handler) => // https://github.com/webcomponents/html-imports#htmlimports
+
       (HTMLImports && !!! HTMLImports.useNative)
-        // https://github.com/webcomponents/html-imports#htmlimports
-        ? HTMLImports.whenReady ( _ => handler ({ target: link }) ) // eww
-        : link.addEventListener (event, handler)
+        ? HTMLImports.whenReady
+            ( _ => handler ({ target: link }) ) // eww
+
+        : link.addEventListener
+            (event, handler)
+
 
     Object
       .defineProperties (proxy, {
@@ -163,11 +167,10 @@ const HTMLTemplateElement = Template = function (name) {
       clone
     , template = this.cloneNode (false)
 
-    void (this.dependents || [])
-      .map (dependent => dependent.remove ())
-
     template.innerHTML =
-    contexts.map ((context, index) => {
+    contexts
+      .map (context => context)
+      .map ((context, index) => {
 
       context =
         (typeof context  === 'object') ? context : { self: context }
@@ -183,7 +186,13 @@ const HTMLTemplateElement = Template = function (name) {
     })
     .join ('')
 
-    this.dependents = Array.from(template.content.childNodes)
+    void (this.dependents || [])
+      .map (dependent => dependent.remove ())
+
+    this.dependents =
+      Array.from
+        (template.content.childNodes)
+
     this.after ( template.content )
 
     return this
@@ -497,8 +506,8 @@ const Element =
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
     Element => // https://en.wikipedia.org/wiki/Higher-order_function
-      CustomElementRegistry.define
-        ( ...tag, Component (Element))
+      CustomElementRegistry
+        .define ( ...tag, Component (Element))
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 Element.prototype = ElementPrototype
