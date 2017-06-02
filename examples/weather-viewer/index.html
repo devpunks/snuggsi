@@ -7,6 +7,7 @@
 <script src=//unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
 
 <weather-viewer onclick='alert ("snugs")'  latitude=40.79 longitude=-73.97>
+  <link rel=alternate type=application/json href=/weather-viewer>
 
   <img slot=image src={image} alt={name}>
   <h1  slot=description>Today in {name} the temperature is <strong>{temperature}</strong></h1>
