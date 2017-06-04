@@ -66,6 +66,7 @@ Links
 - https://en.wikipedia.org/wiki/Brotli
 - https://certsimple.com/blog/nginx-brotli
 - https://blogs.akamai.com/2016/02/understanding-brotlis-potential.html
+- https://hacks.mozilla.org/2015/11/better-than-gzip-compression-with-brotli
 
 Server Support
 - Ruby _(brotli)_ - https://github.com/miyucy/brotli
