@@ -235,13 +235,10 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.onimport = function (event, root) {
-    if ( root === void 0 ) root = event.target.import;
+    anonymous.prototype.onimport = function (event, document) {
 
-
-    root &&
-      this.clone
-        (root.querySelector ('template'))
+    (document = event.target.import)
+      && this.clone (document.querySelector ('template'))
 
 
     // dispatch `import`
@@ -254,27 +251,27 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     this.render ()
   };
 
-  anonymous.prototype.register = function (onevents) {
+  anonymous.prototype.register = function () {
     var this$1 = this;
-    if ( onevents === void 0 ) onevents = function (attr) { return /^on/.test (attr); };
 
 
     var
-      mirror = function (handler) { return onevents (handler) &&
+      onevents =
+        function (attr) { return /^on/.test (attr); }
+
+    , mirror = function (handler) { return onevents (handler) &&
         (this$1 [handler] === null) && // ensure W3C on event
         (this$1 [handler] = Element [handler].bind (this$1)); }
 
-    , nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
+//  , nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
         // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
         // If we can do this we can only retrieve the elements that have a traditional inline event.
         // This is theoretically more performant as most elements won't need traditional event registration.
 
 //      ':not(script):not(template):not(style):not(link)' // remove metadata elements
 
-    '*'
-
     , children =
-        Array.from (this.querySelectorAll (nodes))
+        Array.from (this.querySelectorAll ('*'))
 
     , reflect = function (node) { return Array
           .from (node.attributes)
@@ -282,14 +279,10 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
           .filter (onevents)
           .map (reflection (node)); }
 
-    , reflection =
-        function (node) { return function (event) { return node [event] =
-              /{\s*(\w+)\s*}/.exec (node [event])
-              && Element [event]
-              && Element [event].bind (this$1)
-              || node [event] // existing handler
-              || null; }; }  // default for W3C on* event handlers
-
+    , reflection = function (node) { return function (event, handler) { return (handler = /{\s*(\w+)\s*}/.exec (node [event]))
+            && ( handler = (handler || []) [1] )
+            && ( handler = Element [handler] )
+            && ( node [event] = handler.bind (this$1) ); }; }
 
     Object // mirror instance events to element
       .getOwnPropertyNames (Element)
