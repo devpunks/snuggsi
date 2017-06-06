@@ -27,6 +27,8 @@ const GlobalEventHandlers = Element =>
 
   onimport (event, document) {
 
+    void console.warn ('event doc', event, document);
+
     (document = event.target.import)
       && this.clone (document.querySelector ('template'))
 
