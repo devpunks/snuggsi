@@ -272,16 +272,10 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     , children =
         Array.from (this.querySelectorAll (nodes))
 
-    , registered =
-        function (node) { return Array
-            .from   (node.attributes)
-            .filter (onevents); }
-
-    , reflect =
-        function (node) { return Array
-            .from   (node.attributes)
-            .filter (onevents)
-            .map (reflection (node)); }
+    , reflect = function (node) { return Array
+          .from (node.attributes)
+          .filter (onevents)
+          .map (reflection (node)); }
 
     , reflection =
         function (node) { return function (event) { return (node [event] = handle (node [event])); }; }
@@ -300,14 +294,13 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     }  // default for W3C on* event handlers
 
 
-    Object // mirror class events to element
+    Object // mirror instance events to element
       .getOwnPropertyNames (Element)
       .filter (onevents)
       .map (mirror)
 
-    void [this]
+    void [this] // reflect events from Element
       .concat (children)
-      .filter (registered)
       .map (reflect)
   };
 

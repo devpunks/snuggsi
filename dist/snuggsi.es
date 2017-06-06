@@ -356,59 +356,53 @@ const GlobalEventHandlers = Element =>
     this.render ()
   }
 
-  register (onevents = attr => /^on/.test (attr.name || attr)) {
+  register (onevents = attr => /^on/.test (attr)) {
 
     const
       mirror = handler =>
+        onevents (handler) &&
         (this [handler] === null) && // ensure W3C on event
-          (this [handler] = Element [handler].bind (this))
+        (this [handler] = Element [handler].bind (this))
 
     , nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
         // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
         // If we can do this we can only retrieve the elements that have a traditional inline event.
         // This is theoretically more performant as most elements won't need traditional event registration.
-        ':not(script):not(template):not(style):not(link)' // remove metadata elements
+
+//      ':not(script):not(template):not(style):not(link)' // remove metadata elements
+
+    '*'
 
     , children =
         Array.from (this.querySelectorAll (nodes))
 
-    , registered =
-        node =>
-          Array
-            .from   (node.attributes)
-            .filter (onevents)
-
-    , reflect =
-        node =>
-          Array
-            .from   (node.attributes)
-            .filter (onevents)
-            .map (reflection (node))
+    , reflect = node =>
+        Array
+          .from (node.attributes)
+          .map  (attr => attr.name)
+          .filter (onevents)
+          .map (reflection (node))
 
     , reflection =
         node => // closure
           event =>
-            (node [event] = handle (node [event]))
-
-    , handle =
-        (handler, [_, event] = (/{\s*(\w+)\s*}/.exec (handler) || [])) =>
-          event
-            && Element [event]
-            && Element [event].bind (this)
-            || handler // existing handler
-            || null  // default for W3C on* event handlers
+            node [event] =
+              /{\s*(\w+)\s*}/.exec (node [event])
+              && Element [event]
+              && Element [event].bind (this)
+              || node [event] // existing handler
+              || null  // default for W3C on* event handlers
 
 
-    Object // mirror class events to element
+    Object // mirror instance events to element
       .getOwnPropertyNames (Element)
-      .filter (onevents)
       .map (mirror)
 
-    void [this]
+    void [this] // reflect events from Element
       .concat (children)
-      .filter (registered)
       .map (reflect)
   }
+
 })
 
 const Component = Element => // why buble
