@@ -341,8 +341,6 @@ const GlobalEventHandlers = Element =>
 
   onimport (event, document) {
 
-    void console.warn ('event doc', event, document);
-
     (document = event.target.import)
       && this.clone (document.querySelector ('template'))
 
@@ -389,7 +387,7 @@ const GlobalEventHandlers = Element =>
         (event, handler) =>
           (handler = /{\s*(\w+)\s*}/.exec (node [event]))
             && ( handler = (handler || []) [1] )
-            && ( handler = Element [handler] )
+            && ( handler = Element [handler] ) // change to this [handler] for `static` removal
             && ( node [event] = handler.bind (this) )
 
     Object // mirror instance events to element
