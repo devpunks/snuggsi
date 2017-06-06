@@ -237,6 +237,8 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
     anonymous.prototype.onimport = function (event, document) {
 
+    void console.warn ('event doc', event, document);
+
     (document = event.target.import)
       && this.clone (document.querySelector ('template'))
 
