@@ -58,18 +58,11 @@ const GlobalEventHandlers = Element =>
     , children =
         Array.from (this.querySelectorAll (nodes))
 
-    , registered =
-        node =>
-          Array
-            .from   (node.attributes)
-            .filter (onevents)
-
-    , reflect =
-        node =>
-          Array
-            .from   (node.attributes)
-            .filter (onevents)
-            .map (reflection (node))
+    , reflect = node =>
+        Array
+          .from (node.attributes)
+          .filter (onevents)
+          .map (reflection (node))
 
     , reflection =
         node => // closure
@@ -85,15 +78,15 @@ const GlobalEventHandlers = Element =>
             || null  // default for W3C on* event handlers
 
 
-    Object // mirror class events to element
+    Object // mirror instance events to element
       .getOwnPropertyNames (Element)
       .filter (onevents)
       .map (mirror)
 
-    void [this]
+    void [this] // reflect events from Element
       .concat (children)
-      .filter (registered)
       .map (reflect)
   }
+
 })
 
