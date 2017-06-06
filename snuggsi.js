@@ -339,11 +339,10 @@ const GlobalEventHandlers = Element =>
 
 (class extends Element {
 
-  onimport (event, root = event.target.import) {
+  onimport (event, document) {
 
-    root &&
-      this.clone
-        (root.querySelector ('template'))
+    (document = event.target.import)
+      && this.clone (document.querySelector ('template'))
 
 
     // dispatch `import`
@@ -356,25 +355,26 @@ const GlobalEventHandlers = Element =>
     this.render ()
   }
 
-  register (onevents = attr => /^on/.test (attr)) {
+  register () {
 
     const
-      mirror = handler =>
+      onevents =
+        attr => /^on/.test (attr)
+
+    , mirror = handler =>
         onevents (handler) &&
         (this [handler] === null) && // ensure W3C on event
         (this [handler] = Element [handler].bind (this))
 
-    , nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
+//  , nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
         // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
         // If we can do this we can only retrieve the elements that have a traditional inline event.
         // This is theoretically more performant as most elements won't need traditional event registration.
 
 //      ':not(script):not(template):not(style):not(link)' // remove metadata elements
 
-    '*'
-
     , children =
-        Array.from (this.querySelectorAll (nodes))
+        Array.from (this.querySelectorAll ('*'))
 
     , reflect = node =>
         Array
@@ -383,16 +383,12 @@ const GlobalEventHandlers = Element =>
           .filter (onevents)
           .map (reflection (node))
 
-    , reflection =
-        node => // closure
-          event =>
-            node [event] =
-              /{\s*(\w+)\s*}/.exec (node [event])
-              && Element [event]
-              && Element [event].bind (this)
-              || node [event] // existing handler
-              || null  // default for W3C on* event handlers
-
+    , reflection = node => // closure
+        (event, handler) =>
+          (handler = /{\s*(\w+)\s*}/.exec (node [event]))
+            && ( handler = (handler || []) [1] )
+            && ( handler = Element [handler] )
+            && ( node [event] = handler.bind (this) )
 
     Object // mirror instance events to element
       .getOwnPropertyNames (Element)
