@@ -1,25 +1,27 @@
 const
-  send   = require ('koa-send')
-, static = require ('koa-static') ('public')
+  root   = process.cwd ()
+, dist   = `${root}/dist`
+, lib    = 'snuggsi.min.es'
+, path   = `${dist}/${lib}`
+, send   = require ('koa-send')
+, assets = require ('koa-static') (`${root}/public`)
 
 , headers = {
 
   }
 
-, configuration = {
-    root: `${__dirname}/dist`,
-
+, configuration = { root,
   //gzip:   true, // default
   //brotli: true, // default
   }
 
 async function compress (context) {
-  if ('/' === context.path) {
-    console.log (context.path)
-    await send (context, '/dist/snuggsi.min.es', configuration)
-  }
+  if ('/' !== context.path) return
+
+  console.log (dist, context.path, path)
+  await send (context, path, configuration)
 }
 
 module.exports = {
-  compress, static
+  compress, assets
 }

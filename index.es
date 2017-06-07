@@ -5,7 +5,7 @@ const
 app
   .use ( snuggsi.compress )
 
-  .use ( snuggsi.static )
+  .use ( snuggsi.assets )
 
   .listen (process.env.PORT || 80)
 
