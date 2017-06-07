@@ -55,7 +55,7 @@ No need for Node.js, Webpack, Babel, or Gulp.
 
 **snuggsiツ** works in production or in a plain 'ol HTML file!
 
-Simply place the following scripts within your webpage:
+Simply place the following script within your webpage:
 
 ```html
 <!-- http(s): protocol required to run locally -->
