@@ -11,17 +11,17 @@ const
   }
 
 , configuration = { root,
+  index: 'index.html'
   //gzip:   true, // default
   //brotli: true, // default
   }
 
-async function compress (context) {
+const compress = async context => {
   if ('/' !== context.path) return
 
-  console.log (dist, context.path, path)
-  await send (context, path, configuration)
+  await send (context, context.path)
+  console.log (dist, context.type, path)
 }
 
-module.exports = {
-  compress, assets
-}
+module.exports = { compress, assets }
+
