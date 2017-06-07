@@ -58,6 +58,7 @@ No need for Node.js, Webpack, Babel, or Gulp.
 Simply place the following scripts within your webpage:
 
 ```html
+<!-- http(s): protocol required to run locally -->
 <script nomodule src=//unpkg.com/snuggsi></script>
 ```
 
