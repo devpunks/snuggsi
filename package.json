@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "koa": "*",
+    "koa-send": "*",
     "koa-static": "*",
 
     "tap": "*",
