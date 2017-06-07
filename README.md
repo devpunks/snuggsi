@@ -130,8 +130,7 @@ _See [examples](/examples#readme) for more details_
  Hello {planet}
 </hello-world>
 
-<!-- http(s): protocol required to run locally -->
-<script src=//unpkg.com/snuggsi></script>
+<script src=https://unpkg.com/snuggsi></script>
 <script defer>
 
 // Element Definition -----------------------------
