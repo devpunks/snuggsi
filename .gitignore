@@ -18,3 +18,5 @@ NOTES
 .DS_Store
 public/index.html
 public/examples
+public/*.es
+
