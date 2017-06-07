@@ -237,8 +237,6 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
     anonymous.prototype.onimport = function (event, document) {
 
-    void console.warn ('event doc', event, document);
-
     (document = event.target.import)
       && this.clone (document.querySelector ('template'))
 
@@ -283,7 +281,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
     , reflection = function (node) { return function (event, handler) { return (handler = /{\s*(\w+)\s*}/.exec (node [event]))
             && ( handler = (handler || []) [1] )
-            && ( handler = Element [handler] )
+            && ( handler = Element [handler] ) // change to this [handler] for `static` removal
             && ( node [event] = handler.bind (this$1) ); }; }
 
     Object // mirror instance events to element
