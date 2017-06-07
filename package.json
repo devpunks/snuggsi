@@ -54,9 +54,6 @@
     "devtools-terminal": "*"
   },
   "dependencies": {
-    "brotli": "*",
-    "http2server": "*",
-
     "koa": "*",
     "koa-static": "*",
 
