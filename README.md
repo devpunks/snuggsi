@@ -58,8 +58,7 @@ No need for Node.js, Webpack, Babel, or Gulp.
 Simply place the following scripts within your webpage:
 
 ```html
-<script type=module src=//unpkg.com/snuggsi></script>
-<script nomodule src=//unpkg.com/snuggsi/snuggsi.min.js></script>
+<script nomodule src=//unpkg.com/snuggsi></script>
 ```
 
 Et Voila _(that's it!)_ ツ
@@ -130,8 +129,8 @@ _See [examples](/examples#readme) for more details_
  Hello {planet}
 </hello-world>
 
-<!-- http(s): protocol required locally -->
-<script nomodule src=//unpkg.com/snuggsi></script>
+<!-- http(s): protocol required to run locally -->
+<script src=//unpkg.com/snuggsi></script>
 <script defer>
 
 // Element Definition -----------------------------
