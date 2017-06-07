@@ -141,13 +141,13 @@ Element `hello-world`
 
 (class extends HTMLElement {
 
-  get planet ()
-    // "automagic" token binding
-    { return 'world 🌎' }
-
   static onclick ()
     // "automagic" event registration
     { alert (this.textContent) }
+
+  get planet ()
+    // "automagic" token binding
+    { return 'world 🌎' }
 })
 
 </script>
