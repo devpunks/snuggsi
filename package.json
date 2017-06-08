@@ -1,6 +1,6 @@
 {
   "name": "snuggsi",
-  "version": "0.6.15",
+  "version": "0.6.16",
   "author": "Snuggs",
   "description": "Easy Web Components in 1KB",
   "license": "MIT",
@@ -57,7 +57,6 @@
     "koa": "*",
     "koa-send": "*",
     "koa-static": "*",
-
     "tap": "*",
     "jsdom": "*",
     "buble": "*",
@@ -67,4 +66,3 @@
     "google-closure-compiler-js": "*"
   }
 }
-
