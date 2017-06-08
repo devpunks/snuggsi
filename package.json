@@ -1,6 +1,6 @@
 {
   "name": "snuggsi",
-  "version": "0.6.15",
+  "version": "0.6.16",
   "author": "Snuggs",
   "description": "Easy Web Components in 1KB",
   "license": "MIT",
@@ -31,7 +31,7 @@
   },
   "scripts": {
     "start": "node --harmony ./index.es",
-    "postinstall": "./publicize",
+    "postinstall": "./publish",
     "package": "./package",
     "watch": "node watch.es",
     "test": "node --use_strict index.test.es",
@@ -55,6 +55,7 @@
   },
   "dependencies": {
     "koa": "*",
+    "koa-send": "*",
     "koa-static": "*",
     "tap": "*",
     "jsdom": "*",

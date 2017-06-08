@@ -3,6 +3,7 @@
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
 
+<!--
 <link
   as=font
   crossorigin
@@ -33,24 +34,20 @@
 <link rel=preload as=script href=https://unpkg.com/snuggsi@0.5.46/snuggsi.min.js>
 <link rel=preload as=script href=https://unpkg.com/snuggsi@0.5.46/examples/webcomponents-hi-ce.js>
 
-<script type=module>
-  import {Element} from 'https://unpkg.com/snuggsi@0.5.46/snuggsi.min.js'
-
-  console.warn ('Element', Element)
-</script>
-
-
-<script nomodule src=https://unpkg.com/snuggsi@0.5.46/examples/webcomponents-hi-ce.js></script>
-
-<script src=https://unpkg.com/snuggsi></script>
-<script nomodule>
-console.log ('nomodule')
-</script>
-
 <link rel=icon type=image/png href=/favicon-16x16.png sizes=16x16>
+-->
+
+<script src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
+
+<script src=/></script>
 
 
-<!-- should this go high or low? -->
+<link
+  as=style
+  rel=preload
+  onload=this.rel='stylesheet'
+  href=http://www.devpunks.com/typography.css>
+
 <style>
 // enough inline styles to paint to fold
 // Japanese colors - https://en.wikipedia.org/wiki/Traditional_colors_of_Japan#Red.2FViolet_series
@@ -189,4 +186,6 @@ header-group a span {
 <aside></aside>
 
 <footer></footer>
+
+<script src=/browser-sync.es></script>
 
