@@ -1,8 +1,8 @@
 const
-  dist   = 'dist'
-, lib    = 'snuggsi.min.es'
-, path   = `${dist}/${lib}`
-, send   = require ('koa-send')
+  dist = 'dist'
+, lib  = 'snuggsi.min.js'
+, path = `${dist}/${lib}`
+, send = require ('koa-send')
 
 , configuration = { dist,
   //gzip:   true, // default
@@ -10,7 +10,7 @@ const
   }
 
 
-module.exports = async context => {
+module.exports = async (context, next) => {
   const
     mime = /application\/javascript/
 

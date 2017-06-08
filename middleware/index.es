@@ -1,9 +1,12 @@
 const
-  dir = 'public'
-, assets = require ('koa-static') (dir)
-, compressor = require ('./compressor.es')
+  root = 'public'
 
 , headers = { }
+
+, assets = require ('koa-static')
+    (root, {defer: true})
+
+, compressor = require ('./compressor.es')
 
 module.exports = { compressor, assets }
 
