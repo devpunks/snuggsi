@@ -3,7 +3,7 @@ const
 , snuggsi = require ('./middleware/index.es')
 
 app
-  .use ( snuggsi.compress )
+  .use ( snuggsi.compressor )
 
   .use ( snuggsi.assets )
 
