@@ -1,6 +1,6 @@
 const
   dist = 'dist'
-, lib  = 'snuggsi.min.js'
+, lib  = 'snuggsi.min.es'
 , path = `${dist}/${lib}`
 , send = require ('koa-send')
 
@@ -11,8 +11,10 @@ const
 
 
 module.exports = async (context, next) => {
+  console.log (context)
+
   const
-    mime = /application\/javascript/
+    mime = /^\*\/\*$/
 
   , script = mime.test
       (context.request.header.accept)
