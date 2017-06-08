@@ -9,8 +9,7 @@ const
   //brotli: true, // default
   }
 
-
-module.exports = async (context, next) => {
+module.exports = async context => {
   console.log (context)
 
   const
