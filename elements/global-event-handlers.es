@@ -50,14 +50,13 @@ const GlobalEventHandlers = Element =>
     , mirror = handler =>
         onevents (handler) &&
         (this [handler] === null) && // ensure W3C on event
-        (this [handler] = Element [handler].bind (this))
+        (this [handler] = render (Element [handler]))
 
-//  , nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
-        // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
-        // If we can do this we can only retrieve the elements that have a traditional inline event.
-        // This is theoretically more performant as most elements won't need traditional event registration.
-
-//      ':not(script):not(template):not(style):not(link)' // remove metadata elements
+    , render = handle =>
+        (event, render = true) =>
+          (event.prevent = _ => render = null)
+            && handle (event) !== false // for `return false`
+            && render && this.render () // check render availability
 
     , children =
         Array.from (this.querySelectorAll ('*'))
@@ -65,7 +64,7 @@ const GlobalEventHandlers = Element =>
     , reflect = node =>
         Array
           .from (node.attributes)
-          .map  (attr => attr.name)
+          .map (attr => attr.name)
           .filter (onevents)
           .map (reflection (node))
 
