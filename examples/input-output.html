@@ -37,8 +37,9 @@ Element `input-output`
 
 (class extends HTMLElement {
 
-  static oninput () // autoregistration of inline events
-    { this.render () }
+  static oninput (event) {
+    console.dir (event.target)
+  }
 
   get echo () // tokenized property
     { return this.select ('input#message').value || '…' }
@@ -49,3 +50,4 @@ Element `input-output`
 </input-output>
 
 <script src=/browser-sync.es></script>
+
