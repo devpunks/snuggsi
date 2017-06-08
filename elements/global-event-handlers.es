@@ -55,7 +55,7 @@ const GlobalEventHandlers = Element =>
     , render = handle =>
         (event, render = true) =>
           (event.prevent = _ => render = null)
-            && handle (event) !== false // for `return false`
+            && handle.call (this, event) !== false // for `return false`
             && render && this.render () // check render availability
 
     , children =
