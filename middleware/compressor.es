@@ -10,7 +10,7 @@ const
   }
 
 
-const compressor = async context => {
+module.exports = async context => {
   const
     mime = /application\/javascript/
 
@@ -21,6 +21,4 @@ const compressor = async context => {
   if (script) return await
     send (context, path, configuration)
 }
-
-module.exports = compressor
 
