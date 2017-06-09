@@ -14,6 +14,9 @@ const GlobalEventHandlers = Element =>
   // and remains the most cross-browser model as of 2005
   // https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#DOM_Level_0
   //
+  // All Event Handling Models
+  // https://en.wikipedia.org/wiki/DOM_events#Event_handling_models
+  //
   // Inline Model
   // https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#Inline_model
   //
@@ -30,18 +33,11 @@ const GlobalEventHandlers = Element =>
     (document = event.target.import)
       && this.clone (document.querySelector ('template'))
 
+    super.onconnect
+      && super.onconnect.call (this)
 
-    // dispatch `import`
-    // and captured from `EventTarget`
-    super.onconnect &&
-      super.onconnect.call (this)
-
-  console.log ('foo')
-    // dispatch `render`
-    // and captured from `EventTarget`
     this.render ()
   }
-
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
   // Type Introspection - https://en.wikipedia.org/wiki/Type_introspection
