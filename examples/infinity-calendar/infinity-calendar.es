@@ -24,7 +24,7 @@ Element `infinity-calendar`
 
     , year =
         this.select
-          `[name=year]`value
+          `[name=year]`.value
 
     this.context.date =
       new Date (year, month, 1)
