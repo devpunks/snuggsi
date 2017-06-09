@@ -8,10 +8,11 @@ Element `infinity-calendar`
   static onidle () {
 
     this.select
-      ('[name=month]').value = this.month
+      `[name=month]`.value = this.month
 
     this.select
-      ('[name=year]').value = this.year
+      `[name=year]`.value = this.year
+
   }
 
   static onchange () {
@@ -19,11 +20,11 @@ Element `infinity-calendar`
     const
       month =
         this.select
-          ('[name=month]').value
+          `[name=month]`.value
 
     , year =
         this.select
-          ('[name=year]').value
+          `[name=year]`value
 
     this.context.date =
       new Date (year, month, 1)
