@@ -261,21 +261,22 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
     , mirror = function (handler) { return onevents (handler) &&
         (this$1 [handler] === null) && // ensure W3C on event
-        (this$1 [handler] = Element [handler].bind (this$1)); }
+        (this$1 [handler] = render (Element [handler])); }
 
-//  , nodes = // CSS :not negation https://developer.mozilla.org/en-US/docs/Web/CSS/:not
-        // How can we select elements with on* attribute? (i.e. <... onclick=foo onblur=bar>)
-        // If we can do this we can only retrieve the elements that have a traditional inline event.
-        // This is theoretically more performant as most elements won't need traditional event registration.
+    , render = function (handle) { return function (event, render) {
+            if ( render === void 0 ) render = true;
 
-//      ':not(script):not(template):not(style):not(link)' // remove metadata elements
+            return (event.prevent = function (_) { return (render = null) && event.preventDefault (); })
+            && handle.call (this$1, event) !== false // for `return false`
+            && render && this$1.render ();
+; }          } // check render availability
 
     , children =
         Array.from (this.querySelectorAll ('*'))
 
     , reflect = function (node) { return Array
           .from (node.attributes)
-          .map  (function (attr) { return attr.name; })
+          .map (function (attr) { return attr.name; })
           .filter (onevents)
           .map (reflection (node)); }
 
