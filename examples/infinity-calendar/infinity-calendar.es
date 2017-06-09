@@ -27,20 +27,16 @@ Element `infinity-calendar`
 
     this.context.date =
       new Date (year, month, 1)
-
-    this.render ()
   }
 
   static onnext () {
 
     this.date_from_month (+1)
-    this.render ()
   }
 
   static onprevious () {
 
     this.date_from_month (-1)
-    this.render ()
   }
 
   static ondayclick (event)
