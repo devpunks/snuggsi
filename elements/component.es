@@ -18,6 +18,13 @@ const Component = Element => // why buble
     this.tokens = new TokenList (this)
   }
 
+  connectedCallback () {
+
+    new HTMLLinkElement
+      (this.tagName.toLowerCase ())
+        .addEventListener ('load', this.onconnect)
+  }
+
   render () {
 
     this.tokens

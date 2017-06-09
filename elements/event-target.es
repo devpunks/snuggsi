@@ -22,14 +22,6 @@ const EventTarget = Element => // why buble
 
 (class extends Element {
 
-  connectedCallback () {
-
-    new HTMLLinkElement
-      (this.tagName.toLowerCase ())
-        .addEventListener
-          ('load', this.onimport.bind (this))
-  }
-
   on ( event, handler )
 
     // MDN EventTarget.addEventListener
