@@ -30,15 +30,11 @@ Element `infinity-calendar`
       new Date (year, month, 1)
   }
 
-  static onnext () {
+  static onnext ()
+    { this.date_from_month (+1) }
 
-    this.date_from_month (+1)
-  }
-
-  static onprevious () {
-
-    this.date_from_month (-1)
-  }
+  static onprevious ()
+    { this.date_from_month (-1) }
 
   static ondayclick (event)
     { alert (event.target.textContent) }
