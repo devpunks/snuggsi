@@ -35,7 +35,7 @@ const EventTarget = Element => // why buble
 
     { this.addEventListener ( event, handler ) }
 
-//ignore (event, listener = 'on' + this [event])
+//off (event, listener = 'on' + this [event])
 //  // MDN EventTarget.removeEventListener
 //  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
 //  //
