@@ -79,7 +79,6 @@ const GlobalEventHandlers = Element =>
 
     , render = handle =>
         (event, render = true) =>
-          console.log ('woohoo') &&
           (event.prevent = _ => (render = null) && event.preventDefault ())
             && handle.call (this, event) !== false // for `return false`
             && render && this.render () // check render availability
