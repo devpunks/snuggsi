@@ -172,15 +172,7 @@ var EventTarget = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.connectedCallback = function () {
-
-    new HTMLLinkElement
-      (this.tagName.toLowerCase ())
-        .addEventListener
-          ('load', this.onimport.bind (this))
-  };
-
-  anonymous.prototype.on = function ( event, handler )
+    anonymous.prototype.on = function ( event, handler )
 
     // MDN EventTarget.addEventListener
     // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -235,33 +227,38 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.onimport = function (event, document) {
+    anonymous.prototype.onconnect = function (event, document) {
 
     (document = event.target.import)
       && this.clone (document.querySelector ('template'))
 
+    Element.prototype.onconnect
+      && Element.prototype.onconnect.call (this)
 
-    // dispatch `import`
-    // and captured from `EventTarget`
-    Element.onconnect &&
-      Element.onconnect.call (this)
-
-    // dispatch `render`
-    // and captured from `EventTarget`
     this.render ()
   };
 
-  anonymous.prototype.register = function () {
+  // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
+  // Type Introspection - https://en.wikipedia.org/wiki/Type_introspection
+  //
+  // In computing, type introspection is the ability of a program
+  // to examine the type or properties of an object at runtime.
+  // Some programming languages possess this capability.
+  //
+  // Introspection should not be confused with reflection,
+  // which goes a step further and is the ability for a program to manipulate the values,
+  // meta-data, properties and/or functions of an object at runtime.
+
+  anonymous.prototype.introspect = function () {
     var this$1 = this;
 
 
     var
-      onevents =
-        function (attr) { return /^on/.test (attr); }
+      onevents = function (attr) { return /^on/.test (attr); }
 
-    , mirror = function (handler) { return onevents (handler) &&
-        (this$1 [handler] === null) && // ensure W3C on event
-        (this$1 [handler] = render (Element [handler])); }
+    , introspect = function (handler) { return onevents (handler)
+        && (this$1 [handler] === null) // ensure W3C on event
+        && (this$1 [handler] = render (Element [handler])); }
 
     , render = function (handle) { return function (event, render) {
             if ( render === void 0 ) render = true;
@@ -271,27 +268,36 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
             && render && this$1.render ();
 ; }          } // check render availability
 
-    , children =
-        Array.from (this.querySelectorAll ('*'))
+    Object
+      .getOwnPropertyNames (Element)
+      .map (introspect)
+  };
 
-    , reflect = function (node) { return Array
+  anonymous.prototype.reflect = function () {
+    var this$1 = this;
+
+
+    var
+      onevents = function (attr) { return /^on/.test (attr); }
+
+    , examine = function (node) { return Array
           .from (node.attributes)
           .map (function (attr) { return attr.name; })
-          .filter (onevents)
-          .map (reflection (node)); }
+          .filter (onevents); }
 
-    , reflection = function (node) { return function (event, handler) { return (handler = /{\s*(\w+)\s*}/.exec (node [event]))
+    , register = function (node) { return function (event, handler) { return (handler = /{\s*(\w+)\s*}/.exec (node [event]))
             && ( handler = (handler || []) [1] )
-            && ( handler = Element [handler] ) // change to this [handler] for `static` removal
+            && ( handler = Element [handler] ) // change to `this [handler]` for `static` removal
             && ( node [event] = handler.bind (this$1) ); }; }
 
-    Object // mirror instance events to element
-      .getOwnPropertyNames (Element)
-      .map (mirror)
 
-    void [this] // reflect events from Element
-      .concat (children)
-      .map (reflect)
+    this.introspect ()
+
+    Array
+      .from (this.querySelectorAll ('*'))
+      .concat ([this])
+      .map (examine)
+      .map (register (node))
   };
 
     return anonymous;
@@ -313,6 +319,13 @@ var Component = function (Element) { return ( (function (superclass) {
     if ( superclass ) anonymous.__proto__ = superclass;
     anonymous.prototype = Object.create( superclass && superclass.prototype );
     anonymous.prototype.constructor = anonymous;
+
+  anonymous.prototype.connectedCallback = function () {
+
+    new HTMLLinkElement
+      (this.tagName.toLowerCase ())
+        .addEventListener ('load', this.onconnect)
+  };
 
   anonymous.prototype.render = function () {
     var this$1 = this;
