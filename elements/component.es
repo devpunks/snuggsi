@@ -53,7 +53,7 @@ const Component = Element => // why buble
   }
 
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
-  clone (template) {
+  parse (template) {
 
     const
       fragment = template.content
