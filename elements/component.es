@@ -31,9 +31,6 @@ const Component = Element => // why buble
 
   render () {
 
-    this.tokens
-      .bind (this)
-
     Array
       .from // templates with `name` attribute
         (this.selectAll ('template[name]'))
@@ -43,6 +40,9 @@ const Component = Element => // why buble
 
       .map
         (name => (new Template (name)).bind (this [name]))
+
+    this.tokens
+      .bind (this)
 
     this.reflect ()
 
