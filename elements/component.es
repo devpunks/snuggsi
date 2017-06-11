@@ -91,6 +91,5 @@ const Component = Element => // why buble
 
     this.innerHTML = template.innerHTML
   }
-
 })
 
