@@ -10,7 +10,7 @@
   </a>
 
   <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>
-    <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-1Kb-brightgreen.svg>
+    <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-~-1Kb-brightgreen.svg>
   </a>
 
   <a href=https://www.npmjs.com/package/snuggsi>
