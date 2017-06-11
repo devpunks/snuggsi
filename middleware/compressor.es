@@ -1,6 +1,6 @@
 const
   root   = 'dist'
-, bundle = 'snuggsi.min.es'
+, bundle = '/snuggsi.min.es'
 , send   = require ('koa-send')
 
 , configuration = { root,
@@ -9,18 +9,20 @@ const
   }
 
 module.exports = async context => {
-  console.log (context)
 
   const
     mime = /^\*\/\*$/
+  , filter = /^\/(snuggsi.*\.es)*$/g
 
-    // Default bundle if no resource specified (i.e. `/`)
-    // Otherwise use ECMASCript path resource  (i.e. `/snuggsi.es`)
-  , [ _, resource=bundle ] =
-      context.path.match (/^\/(snuggsi.*\.es)*$/)
+  , matches  = context.path.match (filter)
+  , compress = mime.test (context.request.header.accept)
 
-  , compress =
-      mime.test (context.request.header.accept)
+    // Use ECMASCript path resource  (i.e. `/snuggsi.es`)
+    // Otherwise default bundle (i.e. `/` => `/snuggsi.min.es`)
+  , resource =
+      matches && matches [0] !== '/'
+        ? matches [0]
+        : bundle
 
   return compress && await
     send (context, resource, configuration)
