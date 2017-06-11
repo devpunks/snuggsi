@@ -22,7 +22,7 @@ const Component = Element => // why buble
 
     new HTMLLinkElement
       (this.tagName.toLowerCase ())
-        .addEventListener ('load', this.onconnect)
+        .addEventListener ('load', this.onconnect.bind (this))
   }
 
   render () {
@@ -40,7 +40,7 @@ const Component = Element => // why buble
       .map
         (name => (new Template (name)).bind (this [name]))
 
-    this.register ()
+    this.reflect ()
 
     // dispatch `idle`
     // and captured from `EventTarget`

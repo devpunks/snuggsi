@@ -53,11 +53,8 @@ const GlobalEventHandlers = Element =>
   introspect () {
 
     const
-      onevents = attr =>
-        /^on/.test (attr)
-
-    , introspect = handler =>
-        onevents (handler)
+      introspect = handler =>
+        /^on/.test (handler)
         && (this [handler] === null) // ensure W3C on event
         && (this [handler] = render (Element [handler]))
 
@@ -75,14 +72,12 @@ const GlobalEventHandlers = Element =>
   reflect () {
 
     const
-      onevents = attr =>
-        /^on/.test (attr)
-
-    , examine = node =>
+      reflect = node =>
         Array
           .from (node.attributes)
           .map (attr => attr.name)
-          .filter (onevents)
+          .filter (name => /^on/.test (name))
+          .map (register (node))
 
     , register = node =>
         (event, handler) =>
@@ -91,15 +86,10 @@ const GlobalEventHandlers = Element =>
             && ( handler = Element [handler] ) // change to `this [handler]` for `static` removal
             && ( node [event] = handler.bind (this) )
 
-
-    this.introspect ()
-
     Array
       .from (this.querySelectorAll ('*'))
       .concat ([this])
-      .map (examine)
-      .map (register (node))
+      .map (reflect)
   }
-
 })
 
