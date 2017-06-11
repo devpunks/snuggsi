@@ -14,12 +14,13 @@ module.exports = async context => {
 
   const
     mime = /^\*\/\*$/
+  , resource = /^\/(snuggsi.*\.es)*$/
 
-  , script = mime.test
-      (context.request.header.accept)
-        && context.path === '/'
+  , bundle =
+      mime.test (context.request.header.accept)
+      && resource.test (context.path) || undefined
 
-  if (script) return await
+  return bundle && await
     send (context, path, configuration)
 }
 
