@@ -254,9 +254,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
 
     var
-      onevents = function (attr) { return /^on/.test (attr); }
-
-    , introspect = function (handler) { return onevents (handler)
+      introspect = function (handler) { return /^on/.test (handler)
         && (this$1 [handler] === null) // ensure W3C on event
         && (this$1 [handler] = render (Element [handler])); }
 
@@ -278,26 +276,21 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
 
     var
-      onevents = function (attr) { return /^on/.test (attr); }
-
-    , examine = function (node) { return Array
+      reflect = function (node) { return Array
           .from (node.attributes)
           .map (function (attr) { return attr.name; })
-          .filter (onevents); }
+          .filter (function (name) { return /^on/.test (name); })
+          .map (register (node)); }
 
     , register = function (node) { return function (event, handler) { return (handler = /{\s*(\w+)\s*}/.exec (node [event]))
             && ( handler = (handler || []) [1] )
             && ( handler = Element [handler] ) // change to `this [handler]` for `static` removal
             && ( node [event] = handler.bind (this$1) ); }; }
 
-
-    this.introspect ()
-
     Array
       .from (this.querySelectorAll ('*'))
       .concat ([this])
-      .map (examine)
-      .map (register (node))
+      .map (reflect)
   };
 
     return anonymous;
@@ -324,7 +317,7 @@ var Component = function (Element) { return ( (function (superclass) {
 
     new HTMLLinkElement
       (this.tagName.toLowerCase ())
-        .addEventListener ('load', this.onconnect)
+        .addEventListener ('load', this.onconnect.bind (this))
   };
 
   anonymous.prototype.render = function () {
@@ -344,7 +337,7 @@ var Component = function (Element) { return ( (function (superclass) {
       .map
         (function (name) { return (new Template (name)).bind (this$1 [name]); })
 
-    this.register ()
+    this.reflect ()
 
     // dispatch `idle`
     // and captured from `EventTarget`
