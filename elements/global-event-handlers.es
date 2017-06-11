@@ -60,6 +60,7 @@ const GlobalEventHandlers = Element =>
 
     , render = handle =>
         (event, render = true) =>
+        !!! console.log ('woohoo') &&
           (event.prevent = _ => (render = null) && event.preventDefault ())
             && handle.call (this, event) !== false // for `return false`
             && render && this.render () // check render availability
@@ -84,7 +85,14 @@ const GlobalEventHandlers = Element =>
           (handler = /{\s*(\w+)\s*}/.exec (node [event]))
             && ( handler = (handler || []) [1] )
             && ( handler = Element [handler] ) // change to `this [handler]` for `static` removal
-            && ( node [event] = handler.bind (this) )
+            && ( node [event] = render (handler) )
+
+    , render = handle =>
+        (event, render = true) =>
+          console.log ('woohoo') &&
+          (event.prevent = _ => (render = null) && event.preventDefault ())
+            && handle.call (this, event) !== false // for `return false`
+            && render && this.render () // check render availability
 
     Array
       .from (this.querySelectorAll ('*'))
