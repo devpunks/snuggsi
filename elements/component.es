@@ -10,12 +10,16 @@ const Component = Element => // why buble
 
     this.context = {}
 
+    this.tokens = new TokenList (this)
+
+    Object
+      .getOwnPropertyNames (Element.prototype)
+      .map (this.introspect, this)
+
     // dispatch `initialize`
     // and captured from `EventTarget`
     this.initialize
       && this.initialize ()
-
-    this.tokens = new TokenList (this)
   }
 
   connectedCallback () {
