@@ -50,7 +50,7 @@ const GlobalEventHandlers = Element =>
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  reflect () {
+  introspect () {
 
     const
       onevents = attr =>
@@ -67,22 +67,32 @@ const GlobalEventHandlers = Element =>
             && handle.call (this, event) !== false // for `return false`
             && render && this.render () // check render availability
 
+    Object
+      .getOwnPropertyNames (Element)
+      .map (introspect)
+  }
+
+  reflect () {
+
+    const
+      onevents = attr =>
+        /^on/.test (attr)
+
     , examine = node =>
         Array
           .from (node.attributes)
           .map (attr => attr.name)
           .filter (onevents)
 
-    , register = node => // closure
+    , register = node =>
         (event, handler) =>
           (handler = /{\s*(\w+)\s*}/.exec (node [event]))
             && ( handler = (handler || []) [1] )
-            && ( handler = Element [handler] ) // change to this [handler] for `static` removal
+            && ( handler = Element [handler] ) // change to `this [handler]` for `static` removal
             && ( node [event] = handler.bind (this) )
 
-    Object
-      .getOwnPropertyNames (Element)
-      .map (introspect)
+
+    this.introspect ()
 
     Array
       .from (this.querySelectorAll ('*'))
