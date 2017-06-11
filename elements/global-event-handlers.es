@@ -34,7 +34,7 @@ const GlobalEventHandlers = Element =>
       && this.parse (document.querySelector ('template'))
 
     super.onconnect
-      && super.onconnect.call (this)
+      && super.onconnect ()
 
     this.render ()
   }
