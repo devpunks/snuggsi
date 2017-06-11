@@ -50,24 +50,14 @@ const GlobalEventHandlers = Element =>
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  introspect () {
+  introspect (handler, name) {
+    ( name = ( handler.match (/^on(.+)$/) || [] ) [1] )
 
-    const
-      introspect = handler =>
-        /^on/.test (handler)
-        && (this [handler] === null) // ensure W3C on event
-        && (this [handler] = render (Element [handler]))
+    && Object.keys // ensure W3C on event
+     ( HTMLElement.prototype )
+       .includes ( handler )
 
-    , render = handle =>
-        (event, render = true) =>
-        !!! console.log ('woohoo') &&
-          (event.prevent = _ => (render = null) && event.preventDefault ())
-            && handle.call (this, event) !== false // for `return false`
-            && render && this.render () // check render availability
-
-    Object
-      .getOwnPropertyNames (Element)
-      .map (introspect)
+    && this.on (name, this [handler])
   }
 
   reflect () {
