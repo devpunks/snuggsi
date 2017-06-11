@@ -1,10 +1,9 @@
 const
-  dist = 'dist'
-, lib  = 'snuggsi.min.es'
-, path = `${dist}/${lib}`
-, send = require ('koa-send')
+  root   = 'dist'
+, bundle = 'snuggsi.min.es'
+, send   = require ('koa-send')
 
-, configuration = { dist,
+, configuration = { root,
   //gzip:   true, // default
   //brotli: true, // default
   }
@@ -14,13 +13,16 @@ module.exports = async context => {
 
   const
     mime = /^\*\/\*$/
-  , resource = /^\/(snuggsi.*\.es)*$/
 
-  , bundle =
+    // Default bundle if no resource specified (i.e. `/`)
+    // Otherwise use ECMASCript path resource  (i.e. `/snuggsi.es`)
+  , [ _, resource=bundle ] =
+      context.path.match (/^\/(snuggsi.*\.es)*$/)
+
+  , compress =
       mime.test (context.request.header.accept)
-      && resource.test (context.path) || undefined
 
-  return bundle && await
-    send (context, path, configuration)
+  return compress && await
+    send (context, resource, configuration)
 }
 
