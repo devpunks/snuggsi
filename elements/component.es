@@ -31,6 +31,8 @@ const Component = Element => // why buble
 
   render () {
 
+    this.tokens.bind (this)
+
     Array
       .from // templates with `name` attribute
         (this.selectAll ('template[name]'))
@@ -41,15 +43,16 @@ const Component = Element => // why buble
       .map
         (name => (new Template (name)).bind (this [name]))
 
-    this.tokens
-      .bind (this)
+    Array
+      .from (this.selectAll ('*'))
 
-    this.reflect ()
+      .concat ([this])
+
+      .map (this.reflect, this)
 
     // dispatch `idle`
     // and captured from `EventTarget`
-    super.onidle &&
-      super.onidle () // TODO: Migrate to `EventTarget`
+    super.onidle && super.onidle ()
   }
 
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
@@ -91,5 +94,6 @@ const Component = Element => // why buble
 
     this.innerHTML = template.innerHTML
   }
+
 })
 
