@@ -10,12 +10,16 @@ const Component = Element => // why buble
 
     this.context = {}
 
+    this.tokens = new TokenList (this)
+
+    Object
+      .getOwnPropertyNames (Element.prototype)
+      .map (this.introspect, this)
+
     // dispatch `initialize`
     // and captured from `EventTarget`
     this.initialize
       && this.initialize ()
-
-    this.tokens = new TokenList (this)
   }
 
   connectedCallback () {
@@ -27,8 +31,7 @@ const Component = Element => // why buble
 
   render () {
 
-    this.tokens
-      .bind (this)
+    this.tokens.bind (this)
 
     Array
       .from // templates with `name` attribute
@@ -40,16 +43,20 @@ const Component = Element => // why buble
       .map
         (name => (new Template (name)).bind (this [name]))
 
-    this.reflect ()
+    Array
+      .from (this.selectAll ('*'))
+
+      .concat ([this])
+
+      .map (this.reflect, this)
 
     // dispatch `idle`
     // and captured from `EventTarget`
-    Element.onidle &&
-      Element.onidle.call (this) // TODO: Migrate to `EventTarget`
+    super.onidle && super.onidle ()
   }
 
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
-  clone (template) {
+  parse (template) {
 
     const
       fragment = template.content

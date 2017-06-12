@@ -76,12 +76,12 @@ Element `add-subtract`
   initialize ()
     { this.context.count = 0 }
 
-  static increment () {
+  increment () {
     this.context.count ++
     this.render ()
   }
 
-  static decrement () {
+  decrement () {
     this.context.count --
     this.render ()
   }

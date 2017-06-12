@@ -31,10 +31,10 @@ const GlobalEventHandlers = Element =>
   onconnect (event, document) {
 
     (document = event.target.import)
-      && this.clone (document.querySelector ('template'))
+      && this.parse (document.querySelector ('template'))
 
     super.onconnect
-      && super.onconnect.call (this)
+      && super.onconnect ()
 
     this.render ()
   }
@@ -50,46 +50,29 @@ const GlobalEventHandlers = Element =>
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  introspect () {
+  introspect (handler, name) {
+    ( name = ( handler.match (/^on(.+)$/) || [] ) [1] )
 
-    const
-      introspect = handler =>
-        /^on/.test (handler)
-        && (this [handler] === null) // ensure W3C on event
-        && (this [handler] = render (Element [handler]))
+    && Object.keys // ensure W3C on event
+     ( HTMLElement.prototype )
+       .includes ( handler )
 
-    , render = handle =>
-        (event, render = true) =>
-          (event.prevent = _ => (render = null) && event.preventDefault ())
-            && handle.call (this, event) !== false // for `return false`
-            && render && this.render () // check render availability
-
-    Object
-      .getOwnPropertyNames (Element)
-      .map (introspect)
+    && this.on (name, this [handler])
   }
 
-  reflect () {
-
+  reflect (node) {
     const
-      reflect = node =>
-        Array
-          .from (node.attributes)
-          .map (attr => attr.name)
-          .filter (name => /^on/.test (name))
-          .map (register (node))
+      register = (event, handler) =>
+        (handler = /{\s*(\w+)\s*}/.exec (node [event]))
 
-    , register = node =>
-        (event, handler) =>
-          (handler = /{\s*(\w+)\s*}/.exec (node [event]))
-            && ( handler = (handler || []) [1] )
-            && ( handler = Element [handler] ) // change to `this [handler]` for `static` removal
-            && ( node [event] = handler.bind (this) )
+        && ( handler = this [ (handler || []) [1] ] )
+        && ( node [event] = this.renderable (handler) )
 
     Array
-      .from (this.querySelectorAll ('*'))
-      .concat ([this])
-      .map (reflect)
+      .from (node.attributes)
+      .map (attr => attr.name)
+      .filter (name => /^on/.test (name))
+      .map (register)
   }
 })
 

@@ -22,18 +22,32 @@ const EventTarget = Element => // why buble
 
 (class extends Element {
 
-  on ( event, handler )
+  // MDN EventTarget.addEventListener
+  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+  //
+  // WHATWG Living Standard EventTarget.addEventListener
+  // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+  //
+  // DOM Level 2 EventTarget.addEventListener
+  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
 
-    // MDN EventTarget.addEventListener
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-    //
-    // WHATWG Living Standard EventTarget.addEventListener
-    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
-    //
-    // DOM Level 2 EventTarget.addEventListener
-    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
 
-    { this.addEventListener ( event, handler ) }
+  on ( event, handler ) {
+
+    this.addEventListener
+      (event, this.renderable (handler))
+  }
+
+  renderable ( handler ) {
+
+    return (event, render = true) =>
+      (event.prevent = _ =>
+         (render = false) && event.preventDefault ())
+
+      && handler.call (this, event) !== false // for `return false`
+
+      && render && this.render () // check render availability
+  }
 
 //off (event, listener = 'on' + this [event])
 //  // MDN EventTarget.removeEventListener

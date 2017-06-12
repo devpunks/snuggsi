@@ -5,18 +5,15 @@ Element `infinity-calendar`
   initialize ()
     { this.context.date = new Date }
 
-  static onidle () {
-
+  onidle () {
     this.select
       `[name=month]`.value = this.month
 
     this.select
       `[name=year]`.value = this.year
-
   }
 
-  static onchange () {
-
+  onchange () {
     const
       month =
         this.select
@@ -30,13 +27,13 @@ Element `infinity-calendar`
       new Date (year, month, 1)
   }
 
-  static onnext ()
+  onnext ()
     { this.date_from_month (+1) }
 
-  static onprevious ()
+  onprevious ()
     { this.date_from_month (-1) }
 
-  static ondayclick (event)
+  ondayclick (event)
     { alert (event.target.textContent) }
 
   get year ()
@@ -46,7 +43,6 @@ Element `infinity-calendar`
     { return this.context.date.getMonth () }
 
   get years () {
-
     const
       deviation = 5
     , years = new Array
@@ -59,14 +55,12 @@ Element `infinity-calendar`
   }
 
   get months () {
-
     return [
       'January', 'February', 'March', 'April', 'May',
       'June', 'July','August','September','October','November','December' ]
   }
 
   get days () {
-
     const
       dates = []
     , daily = undefined
@@ -87,6 +81,5 @@ Element `infinity-calendar`
     this.context.date = new Date
       (this.context.date.setMonth (this.month + change))
   }
-
 })
 
