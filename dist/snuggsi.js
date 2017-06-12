@@ -172,18 +172,26 @@ var EventTarget = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.on = function ( event, handler )
+    anonymous.prototype.on = function ( event, handler ) {
 
-    // MDN EventTarget.addEventListener
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-    //
-    // WHATWG Living Standard EventTarget.addEventListener
-    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
-    //
-    // DOM Level 2 EventTarget.addEventListener
-    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
+    this.addEventListener
+      (event, this.renderable (handler))
+  };
 
-    { this.addEventListener ( event, handler ) };
+  anonymous.prototype.renderable = function ( handler ) {
+    var this$1 = this;
+
+
+    return function (event, render) {
+        if ( render === void 0 ) render = true;
+
+        return (event.prevent = function (_) { return (render = false) && event.preventDefault (); })
+
+      && handler.call (this$1, event) !== false // for `return false`
+
+      && render && this$1.render ();
+    } // check render availability
+  };
 
     return anonymous;
   }(Element))); }
@@ -230,7 +238,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     anonymous.prototype.onconnect = function (event, document) {
 
     (document = event.target.import)
-      && this.clone (document.querySelector ('template'))
+      && this.parse (document.querySelector ('template'))
 
     Element.prototype.onconnect
       && Element.prototype.onconnect.call (this)
@@ -249,48 +257,30 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  anonymous.prototype.introspect = function () {
-    var this$1 = this;
+  anonymous.prototype.introspect = function (handler, name) {
+    ( name = ( handler.match (/^on(.+)$/) || [] ) [1] )
 
+    && Object.keys // ensure W3C on event
+     ( HTMLElement.prototype )
+       .includes ( handler )
 
-    var
-      introspect = function (handler) { return /^on/.test (handler)
-        && (this$1 [handler] === null) // ensure W3C on event
-        && (this$1 [handler] = render (Element [handler])); }
-
-    , render = function (handle) { return function (event, render) {
-            if ( render === void 0 ) render = true;
-
-            return (event.prevent = function (_) { return (render = null) && event.preventDefault (); })
-            && handle.call (this$1, event) !== false // for `return false`
-            && render && this$1.render ();
-; }          } // check render availability
-
-    Object
-      .getOwnPropertyNames (Element)
-      .map (introspect)
+    && this.on (name, this [handler])
   };
 
-  anonymous.prototype.reflect = function () {
+  anonymous.prototype.reflect = function (node) {
     var this$1 = this;
 
-
     var
-      reflect = function (node) { return Array
-          .from (node.attributes)
-          .map (function (attr) { return attr.name; })
-          .filter (function (name) { return /^on/.test (name); })
-          .map (register (node)); }
+      register = function (event, handler) { return (handler = /{\s*(\w+)\s*}/.exec (node [event]))
 
-    , register = function (node) { return function (event, handler) { return (handler = /{\s*(\w+)\s*}/.exec (node [event]))
-            && ( handler = (handler || []) [1] )
-            && ( handler = Element [handler] ) // change to `this [handler]` for `static` removal
-            && ( node [event] = handler.bind (this$1) ); }; }
+        && ( handler = this$1 [ (handler || []) [1] ] )
+        && ( node [event] = this$1.renderable (handler) ); }
 
     Array
-      .from (this.querySelectorAll ('*'))
-      .concat ([this])
-      .map (reflect)
+      .from (node.attributes)
+      .map (function (attr) { return attr.name; })
+      .filter (function (name) { return /^on/.test (name); })
+      .map (register)
   };
 
     return anonymous;
@@ -301,12 +291,16 @@ var Component = function (Element) { return ( (function (superclass) {
 
     this.context = {}
 
+    this.tokens = new TokenList (this)
+
+    Object
+      .getOwnPropertyNames (Element.prototype)
+      .map (this.introspect, this)
+
     // dispatch `initialize`
     // and captured from `EventTarget`
     this.initialize
       && this.initialize ()
-
-    this.tokens = new TokenList (this)
   }
 
     if ( superclass ) anonymous.__proto__ = superclass;
@@ -324,8 +318,7 @@ var Component = function (Element) { return ( (function (superclass) {
     var this$1 = this;
 
 
-    this.tokens
-      .bind (this)
+    this.tokens.bind (this)
 
     Array
       .from // templates with `name` attribute
@@ -337,16 +330,20 @@ var Component = function (Element) { return ( (function (superclass) {
       .map
         (function (name) { return (new Template (name)).bind (this$1 [name]); })
 
-    this.reflect ()
+    Array
+      .from (this.selectAll ('*'))
+
+      .concat ([this])
+
+      .map (this.reflect, this)
 
     // dispatch `idle`
     // and captured from `EventTarget`
-    Element.onidle &&
-      Element.onidle.call (this) // TODO: Migrate to `EventTarget`
+    superclass.prototype.onidle && superclass.prototype.onidle.call (this)
   };
 
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
-  anonymous.prototype.clone = function (template) {
+  anonymous.prototype.parse = function (template) {
     var this$1 = this;
 
 

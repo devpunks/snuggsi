@@ -223,18 +223,32 @@ const EventTarget = Element => // why buble
 
 (class extends Element {
 
-  on ( event, handler )
+  // MDN EventTarget.addEventListener
+  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+  //
+  // WHATWG Living Standard EventTarget.addEventListener
+  // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+  //
+  // DOM Level 2 EventTarget.addEventListener
+  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
 
-    // MDN EventTarget.addEventListener
-    // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
-    //
-    // WHATWG Living Standard EventTarget.addEventListener
-    // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
-    //
-    // DOM Level 2 EventTarget.addEventListener
-    // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
 
-    { this.addEventListener ( event, handler ) }
+  on ( event, handler ) {
+
+    this.addEventListener
+      (event, this.renderable (handler))
+  }
+
+  renderable ( handler ) {
+
+    return (event, render = true) =>
+      (event.prevent = _ =>
+         (render = false) && event.preventDefault ())
+
+      && handler.call (this, event) !== false // for `return false`
+
+      && render && this.render () // check render availability
+  }
 
 //off (event, listener = 'on' + this [event])
 //  // MDN EventTarget.removeEventListener
@@ -337,10 +351,10 @@ const GlobalEventHandlers = Element =>
   onconnect (event, document) {
 
     (document = event.target.import)
-      && this.clone (document.querySelector ('template'))
+      && this.parse (document.querySelector ('template'))
 
     super.onconnect
-      && super.onconnect.call (this)
+      && super.onconnect ()
 
     this.render ()
   }
@@ -356,46 +370,29 @@ const GlobalEventHandlers = Element =>
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  introspect () {
+  introspect (handler, name) {
+    ( name = ( handler.match (/^on(.+)$/) || [] ) [1] )
 
-    const
-      introspect = handler =>
-        /^on/.test (handler)
-        && (this [handler] === null) // ensure W3C on event
-        && (this [handler] = render (Element [handler]))
+    && Object.keys // ensure W3C on event
+     ( HTMLElement.prototype )
+       .includes ( handler )
 
-    , render = handle =>
-        (event, render = true) =>
-          (event.prevent = _ => (render = null) && event.preventDefault ())
-            && handle.call (this, event) !== false // for `return false`
-            && render && this.render () // check render availability
-
-    Object
-      .getOwnPropertyNames (Element)
-      .map (introspect)
+    && this.on (name, this [handler])
   }
 
-  reflect () {
-
+  reflect (node) {
     const
-      reflect = node =>
-        Array
-          .from (node.attributes)
-          .map (attr => attr.name)
-          .filter (name => /^on/.test (name))
-          .map (register (node))
+      register = (event, handler) =>
+        (handler = /{\s*(\w+)\s*}/.exec (node [event]))
 
-    , register = node =>
-        (event, handler) =>
-          (handler = /{\s*(\w+)\s*}/.exec (node [event]))
-            && ( handler = (handler || []) [1] )
-            && ( handler = Element [handler] ) // change to `this [handler]` for `static` removal
-            && ( node [event] = handler.bind (this) )
+        && ( handler = this [ (handler || []) [1] ] )
+        && ( node [event] = this.renderable (handler) )
 
     Array
-      .from (this.querySelectorAll ('*'))
-      .concat ([this])
-      .map (reflect)
+      .from (node.attributes)
+      .map (attr => attr.name)
+      .filter (name => /^on/.test (name))
+      .map (register)
   }
 })
 
@@ -411,12 +408,16 @@ const Component = Element => // why buble
 
     this.context = {}
 
+    this.tokens = new TokenList (this)
+
+    Object
+      .getOwnPropertyNames (Element.prototype)
+      .map (this.introspect, this)
+
     // dispatch `initialize`
     // and captured from `EventTarget`
     this.initialize
       && this.initialize ()
-
-    this.tokens = new TokenList (this)
   }
 
   connectedCallback () {
@@ -428,8 +429,7 @@ const Component = Element => // why buble
 
   render () {
 
-    this.tokens
-      .bind (this)
+    this.tokens.bind (this)
 
     Array
       .from // templates with `name` attribute
@@ -441,16 +441,20 @@ const Component = Element => // why buble
       .map
         (name => (new Template (name)).bind (this [name]))
 
-    this.reflect ()
+    Array
+      .from (this.selectAll ('*'))
+
+      .concat ([this])
+
+      .map (this.reflect, this)
 
     // dispatch `idle`
     // and captured from `EventTarget`
-    Element.onidle &&
-      Element.onidle.call (this) // TODO: Migrate to `EventTarget`
+    super.onidle && super.onidle ()
   }
 
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
-  clone (template) {
+  parse (template) {
 
     const
       fragment = template.content
