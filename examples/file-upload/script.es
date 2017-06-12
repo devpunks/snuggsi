@@ -113,7 +113,7 @@ Element `file-upload`
     return mimetypes
   }
 
-  static onconnect () {
+  onconnect () {
     console.log (this.mimetypes)
   }
 
@@ -124,7 +124,7 @@ Element `file-upload`
    * @param event {Event} The event that has been triggered.
    */
 
-  static onchange (event) {
+  onchange (event) {
     console.log ('change')
 
     if (!!! event.target.files) return
@@ -154,7 +154,7 @@ Element `file-upload`
    * @param event {MouseEvent} The event that has been triggered. 
    */
 
-  static onremove (event) {
+  onremove (event) {
 
     // http://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
     this.context.files = []
@@ -162,7 +162,7 @@ Element `file-upload`
     this.render ()
   }
 
-  static onclear (event) {
+  onclear (event) {
 
     // http://stackoverflow.com/questions/1232040/how-do-i-empty-an-array-in-javascript
     this.context.files = []
@@ -177,7 +177,7 @@ Element `file-upload`
    * @param event {DragEvent} The event that has been triggered.
    */
 
-  static ondragleave (event) {
+  ondragleave (event) {
 
     this.select ('label')
       .textContent = this.label
@@ -190,7 +190,7 @@ Element `file-upload`
    * @param event {DragEvent} The event that has been triggered. 
    */
 
-  static ondragenter (event) {
+  ondragenter (event) {
 
     this.select ('label')
       .textContent = this.title
@@ -203,7 +203,7 @@ Element `file-upload`
    * @param event {DragEvent} The event that has been triggered.
    */
 
-  static ondrop (event) {
+  ondrop (event) {
   console.log ('drop')
 
     const
