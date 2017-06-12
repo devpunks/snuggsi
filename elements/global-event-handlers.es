@@ -60,33 +60,19 @@ const GlobalEventHandlers = Element =>
     && this.on (name, this [handler])
   }
 
-  reflect () {
-
+  reflect (node) {
     const
-      reflect = node =>
-        Array
-          .from (node.attributes)
-          .map (attr => attr.name)
-          .filter (name => /^on/.test (name))
-          .map (register (node))
+      register = (event, handler) =>
+        (handler = /{\s*(\w+)\s*}/.exec (node [event]))
 
-    , register = node =>
-        (event, handler) =>
-          (handler = /{\s*(\w+)\s*}/.exec (node [event]))
-            && ( handler = (handler || []) [1] )
-            && ( handler = Element [handler] ) // change to `this [handler]` for `static` removal
-            && ( node [event] = render (handler) )
-
-    , render = handle =>
-        (event, render = true) =>
-          (event.prevent = _ => (render = null) && event.preventDefault ())
-            && handle.call (this, event) !== false // for `return false`
-            && render && this.render () // check render availability
+        && ( handler = this [ (handler || []) [1] ] )
+        && ( node [event] = this.renderable (handler) )
 
     Array
-      .from (this.querySelectorAll ('*'))
-      .concat ([this])
-      .map (reflect)
+      .from (node.attributes)
+      .map (attr => attr.name)
+      .filter (name => /^on/.test (name))
+      .map (register)
   }
 })
 
