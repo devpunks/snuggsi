@@ -141,7 +141,7 @@ Element `hello-world`
 
 (class extends HTMLElement {
 
-  static onclick ()
+  onclick ()
     // "automagic" event registration
     { alert (this.textContent) }
 
