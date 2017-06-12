@@ -14,7 +14,6 @@ Element `infinity-calendar`
   }
 
   onchange () {
-    console.log ('what', this)
     const
       month =
         this.select
