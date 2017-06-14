@@ -16,8 +16,8 @@ Enhancements to `HTMLLinkElement` interface
   - initialize - context, events?
   - render - Event driven reflow / repaint (called every frame)
 
-  - static _on_connected -> `Element` is now ready for usage
-  - static _on_idle      -> After render frame callback
+  - onconnect -> `Element` is now ready for usage
+  - onidle      -> After render frame callback
 
 ## HTMLLinkElement
 
