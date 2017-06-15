@@ -9,15 +9,15 @@ const Component = Element => // why buble
   constructor () { super ()
 
     this.context = {}
-
-    this.tokens = new TokenList (this)
+    this.tokens  = new TokenList (this)
 
     Object
-      .getOwnPropertyNames (Element.prototype)
-      .map (this.introspect, this)
+      .getOwnPropertyNames
+         (Element.prototype)
 
-    // dispatch `initialize`
-    // and captured from `EventTarget`
+      .map
+         (this.introspect, this)
+
     this.initialize
       && this.initialize ()
   }
@@ -50,43 +50,41 @@ const Component = Element => // why buble
 
       .map (this.reflect, this)
 
-    // dispatch `idle`
-    // and captured from `EventTarget`
-    super.onidle && super.onidle ()
+    super.onidle
+      && super.onidle ()
   }
 
   // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
   parse (template) {
 
     const
-      fragment = template.content
+      content = template.content
         .cloneNode (true)
 
-    , slots =
-        Array.from (fragment.querySelectorAll ('slot'))
-
     , replace = replacement =>
-        slots
-          .filter (match (replacement))
-          .map (exchange (replacement))
+        Array
+          .from (content.querySelectorAll ('slot'))
+//        .filter (match (replacement))
+//        .map (exchange (replacement))
 
     , match = replacement =>
         slot =>
+          console.log (replacement, slot,
           replacement.getAttribute ('slot')
-            === slot.getAttribute  ('name')
+            === slot.getAttribute  ('name'))
 
     , exchange = replacement =>
-        slot =>
-          slot
-            // prefer to use replaceWith however support is sparse
-            // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-            // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
-            .parentNode
-            .replaceChild (replacement, slot)
+        slot => slot
+          // prefer to use replaceWith however support is sparse
+          // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+          // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
+          .parentNode
+          .replaceChild (replacement, slot)
 
     Array // map attributes from template
       .from (template.attributes)
       .map  (attribute => this.setAttribute (attribute.name, attribute.value))
+
 
     Array // map slots from template
       .from (this.querySelectorAll ('[slot]'))
