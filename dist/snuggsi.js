@@ -290,17 +290,13 @@ var Component = function (Element) { return ( (function (superclass) {
     function anonymous () { superclass.call (this)
 
     this.context = {}
-
-    this.tokens = new TokenList (this)
+    this.tokens  = new TokenList (this)
 
     Object
       .getOwnPropertyNames (Element.prototype)
       .map (this.introspect, this)
 
-    // dispatch `initialize`
-    // and captured from `EventTarget`
-    this.initialize
-      && this.initialize ()
+    this.initialize && this.initialize ()
   }
 
     if ( superclass ) anonymous.__proto__ = superclass;
@@ -309,7 +305,7 @@ var Component = function (Element) { return ( (function (superclass) {
 
   anonymous.prototype.connectedCallback = function () {
 
-    new HTMLLinkElement
+    HTMLLinkElement
       (this.tagName.toLowerCase ())
         .addEventListener ('load', this.onconnect.bind (this))
   };
@@ -337,44 +333,36 @@ var Component = function (Element) { return ( (function (superclass) {
 
       .map (this.reflect, this)
 
-    // dispatch `idle`
-    // and captured from `EventTarget`
     superclass.prototype.onidle && superclass.prototype.onidle.call (this)
   };
 
-  // This doesn't go here. Perhaps SlotList / Template / TokenList (in that order)
-  anonymous.prototype.parse = function (template) {
+  anonymous.prototype.parse = function (template, insert) {
     var this$1 = this;
 
 
-    var
-      fragment = template.content
-        .cloneNode (true)
+    template = template.cloneNode (true)
 
-    , slots =
-        Array.from (fragment.querySelectorAll ('slot'))
+    insert = function (replacement, name, slot) { return (name = replacement.getAttribute ('slot')) &&
+      (slot = template.content.querySelector ('slot[name='+name+']'))
+         // prefer to use replaceWith however support is sparse
+         // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+         // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
+         .parentNode
+         .replaceChild (replacement, slot); }
 
-    , replace = function (replacement) { return slots
-          .filter (match (replacement))
-          .map (exchange (replacement)); }
+    for (var i = 0, list = this$1.selectAll ('[slot]'); i < list.length; i += 1)
+      {
+      var node = list[i];
 
-    , match = function (replacement) { return function (slot) { return replacement.getAttribute ('slot')
-            === slot.getAttribute  ('name'); }; }
+      insert (node)
+    }
 
-    , exchange = function (replacement) { return function (slot) { return slot
-            // prefer to use replaceWith however support is sparse
-            // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-            // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
-            .parentNode
-            .replaceChild (replacement, slot); }; }
+    for (var i$1 = 0, list$1 = template.attributes; i$1 < list$1.length; i$1 += 1)
+      {
+      var attr = list$1[i$1];
 
-    Array // map attributes from template
-      .from (template.attributes)
-      .map  (function (attribute) { return this$1.setAttribute (attribute.name, attribute.value); })
-
-    Array // map slots from template
-      .from (this.querySelectorAll ('[slot]'))
-      .map  (replace)
+      this$1.setAttribute (attr.name, attr.value)
+    }
 
     this.innerHTML = template.innerHTML
   };
