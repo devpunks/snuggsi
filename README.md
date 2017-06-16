@@ -121,7 +121,7 @@ _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.
 
 Play [Hello World Demo](https://jsfiddle.net/rmv8e2vz/)
 
-The following is a snippet from [examples/hello-word.html](/examples/hello-world.html)
+The following is a snippet from [examples/hello-word](/examples/hello-world/index.html)
 
 _See [examples](/examples#readme) for more details_
 
