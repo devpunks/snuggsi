@@ -1,0 +1,98 @@
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<title>&lt;hello-world&gt;</title>
+
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+
+<style>
+
+  body
+    { display: flex; flex-flow: column }
+
+  hello-world
+    { cursor: pointer }
+
+figure {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+figure iframe {
+  position: absolute;
+  right: 0;
+  width: 30vw;
+  min-height: 60vh;
+  margin: 0 14vw 0 0
+}
+
+figure iframe:first-of-type {
+  left: 0;
+  width: 42vw;
+  margin: 0 0 0 14vw
+}
+
+</style>
+
+<script name=polyfill src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
+<script src=/snuggsi.es></script>
+
+<!-- import works inline body -->
+<link rel=import href=/examples/header-group>
+
+<link rel=icon type=image/png href=../public/favicon-32x32.png sizes=32x32>
+
+<header-group>
+  <h2 slot=header>&lt;hello-world&gt;</h2>
+  <a  slot=subheader Title='See more componentexamples' href=./>See more component examples</a>
+</header-group>
+
+<hello-world>
+  Hello {planet}
+</hello-world>
+
+<hello-world>
+  {greeting} World
+</hello-world>
+
+<hello-world>
+  {greeting} {planet}
+</hello-world>
+
+<script defer>
+
+// Element Definition -----------------------------
+
+Element `hello-world`
+
+// Class Description ------------------------------
+
+(class extends HTMLElement {
+
+  initialize ()
+    { this.append `🌎 ` }
+    
+  onclick ()
+    // "automagic" event registration
+    { alert (this.textContent) }
+
+  get planet ()
+    // "automagic" token binding
+    { return 'from Mars 👽' }
+    
+  get greeting ()
+    // "automagic" token binding
+    { return 'Bonjour' }
+})
+
+</script>
+<figure>
+   <iframe src=//jsfiddle.net/snuggs/3zwkj9wg/embedded/html,css/dark/?fontColor=ffffff&accentColor=9696f0&bodyColor=3b3b3b&menuColor=3b3b3b frameborder=0></iframe>
+ </figure>
+
+<figure>
+  <iframe src=//jsfiddle.net/snuggs/3zwkj9wg/embedded/result/dark/?fontColor=ffffff&accentColor=9696f0&menuColor=3b3b3b frameborder=0></iframe>
+</figure>
+
+<script src=/browser-sync.es></script>
+
