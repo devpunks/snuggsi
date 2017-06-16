@@ -357,12 +357,9 @@ var Component = function (Element) { return ( (function (superclass) {
       insert (node)
     }
 
-    for (var i$1 = 0, list$1 = template.attributes; i$1 < list$1.length; i$1 += 1)
-      {
-      var attr = list$1[i$1];
-
-      this$1.setAttribute (attr.name, attr.value)
-    }
+    Array
+      .from (template.attributes)
+      .map  (function (attr) { return this$1.setAttribute (attr.name, attr.value); })
 
     this.innerHTML = template.innerHTML
   };
