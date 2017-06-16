@@ -65,8 +65,9 @@ const Component = Element => // why buble
     for (let node of this.selectAll ('[slot]'))
       insert (node)
 
-    for (let attr of template.attributes)
-      this.setAttribute (attr.name, attr.value)
+    Array
+      .from (template.attributes)
+      .map  (attr => this.setAttribute (attr.name, attr.value))
 
     this.innerHTML = template.innerHTML
   }
