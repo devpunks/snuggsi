@@ -62,6 +62,7 @@
     "buble": "*",
     "uglifyjs": "*",
     "uglify-js": "*",
+    "uglify-es": "*",
     "buble-tape": "*",
     "browser-sync": "*",
     "google-closure-compiler-js": "*"
