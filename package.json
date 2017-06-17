@@ -61,6 +61,7 @@
     "jsdom": "*",
     "buble": "*",
     "uglifyjs": "*",
+    "uglify-js": "*",
     "buble-tape": "*",
     "browser-sync": "*",
     "google-closure-compiler-js": "*"
