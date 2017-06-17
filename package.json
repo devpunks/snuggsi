@@ -23,7 +23,7 @@
     "routing",
     "templates"
   ],
-  "main": "./dist/snuggsi.min.es",
+  "main": "./dist/snuggsi.min.es.js",
   "bin": "bin/snuggsi.es",
   "directories": {
     "doc": "docs",
