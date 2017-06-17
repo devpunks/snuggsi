@@ -4,14 +4,14 @@
 
 *Mime Type* : `application/ecmascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-8.2))_
 
-*Weight* : ~ 1,500 octets _(1.5kilobytes)_
+*Weight* : ~ 1,200 octets _(1.5kilobytes)_
 
 
 ## `snuggsi.min.js.br`
 
 *Mime Type* : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2))_
 
-*Weight* : ~ 1,400 octets _(1.4kilobytes)_
+*Weight* : ~ 1,300 octets _(1.4kilobytes)_
 
 
 ## Glossary
@@ -47,10 +47,10 @@ Mime Type : `application/ecmascript` _([Specification](https://tools.ietf.org/ht
 Mime Type : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2))_
 
 
-`snuggsi.es` ➡️  `snuggsi.min.es`
-_(Uses [GOOGLE Closure Compiler JS](https://github.com/google/closure-compiler-js))_
+#### `snuggsi.es` ➡️  `snuggsi.min.es`
+_(Uses [Uses `uglify-es`](https://github.com/mishoo/UglifyJS2/tree/harmony))_
 
-`snuggsi.js` ➡️  `snuggsi.min.js`
+#### `snuggsi.js` ➡️  `snuggsi.min.js`
 _(Uses [UglifyJS](https://github.com/mishoo/UglifyJS))_
 
 
@@ -155,9 +155,9 @@ $ npm run bundle
 
 
 #### Minify
-Run uglifyjs along with minification
 
-(experimental) [Google Closure Compiler](https://github.com/google/closure-compiler-js)
+Run `uglify-js` and `uglify-es` along with minification
+
 
 ```bash
 $ npm run minify
