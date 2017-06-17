@@ -67,9 +67,9 @@ class TokenList {
 
     keys.map (reset)
 
-    for (let token in this)
-      this [token]
-        .map (replace (token))
+    for (let symbol in this)
+      this [symbol]
+        .map (replace (symbol))
   }
 
 //zip (...elements) {
