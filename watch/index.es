@@ -1,4 +1,4 @@
-module.exports = require ('./watch.browser.es')
+module.exports = require ('./browser.es')
 
 const
   path = './'
