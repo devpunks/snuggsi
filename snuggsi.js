@@ -45,56 +45,50 @@ class TokenList {
 
   constructor (node) {
 
-    const
-      tokenize = node =>
-        (node.text = node.textContent)
-
-        && node.textContent
-            .match (/{(\w+|#)}/g)
-              .map (symbol => symbol.match (/(\w+|#)/g) [0])
-              .map (insert (node))
-
-    , insert = token =>
-        symbol =>
-          (this [symbol] = this [symbol] || [])
-            && this [symbol].push (token)
-
     this
       .sift (node)
-      .map  (tokenize)
+      .map  (this.tokenize, this)
   }
 
+  tokenize (node) {
+
+    const
+      insert = node =>
+        symbol =>
+          (this [symbol] = this [symbol] || []).push (node)
+
+    void (node.text = node.textContent)
+      .match (/([^{]*?)\w(?=\})/g)
+      .map (insert (node))
+  }
 
   sift (node) {
 
     const
       nodes = []
+    , expression = /{(\w+|#)}/
 
     , visit = node =>
         node.nodeType === Node.TEXT_NODE
           ? TEXT_NODE (node)
-            && NodeFilter.FILTER_ACCEPT // Accept TEXT_NODEs
-
           : ELEMENT_NODE (node.attributes)
-            && NodeFilter.FILTER_REJECT // reject ELEMENT_NODEs
+        && NodeFilter.FILTER_REJECT // We don't need 'em
 
     , TEXT_NODE = node =>
-        /{(\w+|#)}/.test (node.textContent)
+        expression.test (node.textContent)
+        && nodes.push (node)
 
-    , ELEMENT_NODE = attributes =>
+    , ELEMENT_NODE = attrs =>
         Array
-          .from (attributes)
-          .filter (attr => /{(\w+|#)}/g.test (attr.value))
-          .map (attribute => nodes.push (attribute))
+          .from (attrs)
+          .map  (attr => expression.test (attr.value) && nodes.push (attr))
 
     , walker =
         document.createNodeIterator
           (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit)
           // by default breaks on template YAY! 🎉
 
-    while
-      (node = walker.nextNode ())
-        nodes.push (node)
+    while (walker.nextNode ()) 0 // Walk all nodes and do nothing.
 
     return nodes
   }
@@ -102,32 +96,28 @@ class TokenList {
   bind (context) {
 
     const
-      replace = symbol =>
-        this [symbol]
-          .map (token => token.textContent = token.text)
+      keys = Object.keys (this)
 
-        && this [symbol]
-          .map (replacement (symbol))
+    , reset = symbol =>
+        this [symbol].map
+          (node => (node.textContent = node.text) && symbol)
 
-    , replacement = symbol =>
-        item => // thunk
-          item.textContent = item.textContent
-            .replace ('{'+symbol+'}', context [symbol])
+    , replace =
+        (symbol, token = '{'+symbol+'}') =>
+          item =>
+            item.textContent = item.textContent
+              .replace (token, context [symbol] || token)
 
-    Object
-      .keys (this)
+    keys.map (reset)
 
-      .filter
-        (key => context [key] !== undefined)
-
-      .map (replace)
+    for (let symbol in this)
+      this [symbol]
+        .map (replace (symbol))
   }
 
 //zip (...elements) {
-
 //  const
 //    lock = (zipper, row) => [...zipper, ...row]
-
 //  , pair = teeth => // http://english.stackexchange.com/questions/121601/pair-or-couple
 //      (tooth, position) => // thunk
 //        [tooth, teeth [position]]
@@ -138,7 +128,6 @@ class TokenList {
 //}
 
 //slice (text, tokens = []) {
-
 //  const
 //    match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
 //  , replace  = token => (collect (token), '✂️')
@@ -148,8 +137,7 @@ class TokenList {
 //        .split ('✂️')
 
 //  return zip (tokens, sections)
-//     .filter (element => element)
-//        .map (element => new Text (element))
+//        .map (element => element && new Text (element))
 //}
 }
 
