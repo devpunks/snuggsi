@@ -119,7 +119,7 @@ $ cd snuggsi && npm i
 #### Browse
 Watch files and hot inject browser assets on file change.
 
-_See [watch.browser.es](watch.browser.es)
+_See [watch/browser.es](watch/browser.es)
 &amp; [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation._
 
 ```bash
@@ -128,7 +128,7 @@ $ npm run browse
 
 
 #### Watch Tests
-Watch ecmascripts routine. [watch.es](watch.es)
+Watch ecmascripts routine. [watch/index.es](watch/index.es)
 ```bash
 $ npm run watch
 ```
