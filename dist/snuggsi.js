@@ -40,53 +40,48 @@ var HTMLLinkElement = function
 }
 
 var TokenList = function (node) {
-  var this$1 = this;
-
-
-  var
-    tokenize = function (node) { return (node.text = node.textContent)
-
-      && node.textContent
-          .match (/{(\w+|#)}/g)
-            .map (function (symbol) { return symbol.match (/(\w+|#)/g) [0]; })
-            .map (insert (node)); }
-
-  , insert = function (token) { return function (symbol) { return (this$1 [symbol] = this$1 [symbol] || [])
-          && this$1 [symbol].push (token); }; }
 
   this
     .sift (node)
-    .map(tokenize)
+    .map(this.tokenize, this)
 };
 
+TokenList.prototype.tokenize = function (node) {
+    var this$1 = this;
+
+
+  var
+    insert = function (node) { return function (symbol) { return (this$1 [symbol] = this$1 [symbol] || []).push (node); }; }
+
+  void (node.text = node.textContent)
+    .match (/([^{]*?)\w(?=\})/g)
+    .map (insert (node))
+};
 
 TokenList.prototype.sift = function (node) {
 
   var
     nodes = []
+  , expression = /{(\w+|#)}/
 
   , visit = function (node) { return node.nodeType === Node.TEXT_NODE
         ? TEXT_NODE (node)
-          && NodeFilter.FILTER_ACCEPT // Accept TEXT_NODEs
-
         : ELEMENT_NODE (node.attributes)
-          && NodeFilter.FILTER_REJECT; } // reject ELEMENT_NODEs
+      && NodeFilter.FILTER_REJECT; } // We don't need 'em
 
-  , TEXT_NODE = function (node) { return /{(\w+|#)}/.test (node.textContent); }
+  , TEXT_NODE = function (node) { return expression.test (node.textContent)
+      && nodes.push (node); }
 
-  , ELEMENT_NODE = function (attributes) { return Array
-        .from (attributes)
-        .filter (function (attr) { return /{(\w+|#)}/g.test (attr.value); })
-        .map (function (attribute) { return nodes.push (attribute); }); }
+  , ELEMENT_NODE = function (attrs) { return Array
+        .from (attrs)
+        .map(function (attr) { return expression.test (attr.value) && nodes.push (attr); }); }
 
   , walker =
       document.createNodeIterator
         (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit)
         // by default breaks on template YAY! 🎉
 
-  while
-    (node = walker.nextNode ())
-      { nodes.push (node) }
+  while (walker.nextNode ()) { 0 } // Walk all nodes and do nothing.
 
   return nodes
 };
@@ -96,22 +91,24 @@ TokenList.prototype.bind = function (context) {
 
 
   var
-    replace = function (symbol) { return this$1 [symbol]
-        .map (function (token) { return token.textContent = token.text; })
+    keys = Object.keys (this)
 
-      && this$1 [symbol]
-        .map (replacement (symbol)); }
+  , reset = function (symbol) { return this$1 [symbol].map
+        (function (node) { return (node.textContent = node.text) && symbol; }); }
 
-  , replacement = function (symbol) { return function (item) { return item.textContent = item.textContent
-          .replace ('{'+symbol+'}', context [symbol]); }; }
+  , replace =
+      function (symbol, token) {
+            if ( token === void 0 ) token = '{'+symbol+'}';
 
-  Object
-    .keys (this)
+            return function (item) { return item.textContent = item.textContent
+            .replace (token, context [symbol] || token); };
+    }
 
-    .filter
-      (function (key) { return context [key] !== undefined; })
+  keys.map (reset)
 
-    .map (replace)
+  for (var symbol$1 in this$1)
+    { this$1 [symbol$1]
+      .map (replace (symbol$1)) }
 };
 
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
