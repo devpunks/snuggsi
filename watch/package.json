@@ -1,0 +1,17 @@
+{
+  "name": "knee-jerk",
+  "version": "0.1.0",
+  "description": "auto reloader",
+  "main": "./index.es",
+  "author": "snuggsi",
+  "license": "MIT",
+
+  "engines": {
+    "npm": "4.2.0",
+    "node": "7.8.x"
+  },
+
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
+}
