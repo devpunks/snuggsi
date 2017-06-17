@@ -1,9 +1,0 @@
-#!/bin/bash
-
-# https://developers.google.com/closure/compiler/docs/limitations
-
-# TODO: FIX ERRORS
-exec 2>/dev/null # Because errors
-
-./node_modules/.bin/google-closure-compiler-js --env=BROWSER --warningLevel VERBOSE --compilationLevel=ADVANCED --languageOut=ECMASCRIPT5 ./dist/snuggsi.es
-
