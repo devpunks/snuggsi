@@ -1,0 +1,22 @@
+hello-world
+  { cursor: pointer }
+
+figure {
+  display: flex;
+  flex-flow: row wrap;
+}
+
+figure iframe {
+  position: absolute;
+  right: 0;
+  width: 30vw;
+  min-height: 60vh;
+  margin: 0 14vw 0 0
+}
+
+figure iframe:first-of-type {
+  left: 0;
+  width: 42vw;
+  margin: 0 0 0 14vw
+}
+
