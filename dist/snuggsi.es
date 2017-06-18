@@ -105,8 +105,7 @@ class TokenList {
     , replace =
         (symbol, token = '{'+symbol+'}') =>
           item =>
-            item.textContent = item.textContent
-              .replace (token, context [symbol] || token)
+            (item.textContent = item.textContent.replace (token, context [symbol]))
 
     keys.map (reset)
 
