@@ -81,5 +81,6 @@ Element `infinity-calendar`
     this.context.date = new Date
       (this.context.date.setMonth (this.month + change))
   }
+
 })
 
