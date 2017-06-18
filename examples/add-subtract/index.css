@@ -1,0 +1,33 @@
+add-subtract {
+  width: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+add-subtract output {
+  font-size: 5em;
+  text-align: center;
+  line-height: 1.612em;
+  background: var(--darkest-color)
+}
+
+add-subtract menu {
+  display: flex;
+  align-items: stretch;
+  justify-content: space-around;
+}
+
+add-subtract button {
+  margin: 0;
+  padding: 0;
+  width: 50%;
+  border: none;
+  cursor: pointer;
+  font-size: 300%;
+  display: inline-block;
+  color: var(--darkest-color);
+  background: var(--lightest-color)
+}
+
+
