@@ -15,7 +15,7 @@ class TokenList {
           (this [symbol] = this [symbol] || []).push (node)
 
     void (node.text = node.textContent)
-      .match (/([^{]*?)\w(?=\})/g)
+      .match (/([^{]*?)(\w|#)(?=\})/g)
       .map (insert (node))
   }
 
