@@ -5,8 +5,8 @@
 
 <link rel=stylesheet href=http://www.devpunks.com/typography.css>
 
-<script src=http://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
-<script src=//unpkg.com/snuggsi></script>
+<script src=/snuggsi.es></script>
+<script name=polyfill src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
 
 <style>
 
@@ -76,18 +76,15 @@ Element `add-subtract`
   initialize ()
     { this.context.count = 0 }
 
-  increment () {
-    this.context.count ++
-    this.render ()
-  }
+  decrement ()
+    { this.context.count -- }
 
-  decrement () {
-    this.context.count --
-    this.render ()
-  }
+  increment ()
+    { this.context.count ++ }
 
   get count ()
     { return this.context.count }
+
 })
 
 </script>
