@@ -100,8 +100,7 @@ TokenList.prototype.bind = function (context) {
       function (symbol, token) {
             if ( token === void 0 ) token = '{'+symbol+'}';
 
-            return function (item) { return item.textContent = item.textContent
-            .replace (token, context [symbol] || token); };
+            return function (item) { return (item.textContent = item.textContent.replace (token, context [symbol])); };
     }
 
   keys.map (reset)
