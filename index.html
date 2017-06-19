@@ -67,14 +67,7 @@ body {
   padding: 0;
 }
 
-h1 a:link {
-  text-decoration: none;
-  border: none
-}
-
 #badges {
-  width: 60vw;
-  margin: 0 20vw;
 }
 
 #badges img
@@ -116,6 +109,15 @@ body > aside {
 
 header-group {
   height: 20vh;
+  display: flex;
+}
+
+header-group h1, header-group h2
+  { display: inline-block }
+
+header-group h1 a:link {
+  text-decoration: none;
+  border: none
 }
 
 header-group a span {
