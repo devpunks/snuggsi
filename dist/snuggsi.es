@@ -393,6 +393,13 @@ const Component = Element => // why buble
 
   constructor () { super ()
 
+    let blacklist = ['constructor', 'initialize']
+
+    Object
+      .getOwnPropertyNames (Element.prototype)
+      .filter (property => !!! blacklist.includes (property))
+      .map (property => console.log (property))
+
     this.context = {}
     this.tokens  = new TokenList (this)
 
