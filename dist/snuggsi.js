@@ -114,6 +114,9 @@ TokenList.prototype.bind = function (context) {
 
 var HTMLTemplateElement = Template = function (name) {
 
+  // create shallow clone using `.getOwnPropertyDescriptors`
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors#Examples
+  // https://docs.microsoft.com/en-us/scripting/javascript/reference/object-getownpropertydescriptor-function-javascript
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind: bind } )
 
@@ -283,14 +286,21 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
   }(Element))); }
 
 var Component = function (Element) { return ( (function (superclass) {
-    function anonymous () { superclass.call (this)
+    function anonymous () {
+  var this$1 = this;
+ superclass.call (this)
 
-    var blacklist = ['constructor', 'initialize']
+    var
+      descriptions = Object
+      .getOwnPropertyDescriptors (Element.prototype)
+
+    , bind = function (key) { return !!! ['constructor', 'initialize'].includes (key) // possibly can remove
+        && 'function' === typeof descriptions [key].value
+        && (this$1 [key] = this$1 [key].bind (this$1)); }
 
     Object
-      .getOwnPropertyNames (Element.prototype)
-      .filter (function (property) { return !!! blacklist.includes (property); })
-      .map (function (property) { return console.log (property); })
+      .keys (descriptions)
+      .map (bind)
 
     this.context = {}
     this.tokens  = new TokenList (this)
