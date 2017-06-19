@@ -285,6 +285,13 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 var Component = function (Element) { return ( (function (superclass) {
     function anonymous () { superclass.call (this)
 
+    var blacklist = ['constructor', 'initialize']
+
+    Object
+      .getOwnPropertyNames (Element.prototype)
+      .filter (function (property) { return !!! blacklist.includes (property); })
+      .map (function (property) { return console.log (property); })
+
     this.context = {}
     this.tokens  = new TokenList (this)
 
