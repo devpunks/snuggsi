@@ -9,11 +9,12 @@ const Component = Element => // why buble
   constructor () { super ()
 
     let blacklist = ['constructor', 'initialize']
+    , description = Object
+      .getOwnPropertyDescriptors (Element.prototype)
 
-    Object
-      .getOwnPropertyNames (Element.prototype)
-      .filter (property => !!! blacklist.includes (property))
-      .map (property => console.log (property))
+  console.log (description)
+//    .filter (property => !!! blacklist.includes (property))
+//    .map (property => console.log (property))
 
     this.context = {}
     this.tokens  = new TokenList (this)
