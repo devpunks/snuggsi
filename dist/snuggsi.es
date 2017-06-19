@@ -396,12 +396,18 @@ const Component = Element => // why buble
 
   constructor () { super ()
 
-    let blacklist = ['constructor', 'initialize']
+    let
+      descriptions = Object
+      .getOwnPropertyDescriptors (Element.prototype)
+
+    , bind = key =>
+        !!! ['constructor', 'initialize'].includes (key) // possibly can remove
+        && 'function' === typeof descriptions [key].value
+        && (this [key] = this [key].bind (this))
 
     Object
-      .getOwnPropertyNames (Element.prototype)
-      .filter (property => !!! blacklist.includes (property))
-      .map (property => console.log (property))
+      .keys (descriptions)
+      .map (bind)
 
     this.context = {}
     this.tokens  = new TokenList (this)
