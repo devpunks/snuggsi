@@ -120,12 +120,16 @@ nav ul {
 
 body > main {
   margin: 0 20vw;
-  background: red;
 }
 
 [view] {
-  background: pink;
   height: 82vh;
+  display: block;
+}
+
+[view]:not(:target) {
+  height: 82vh;
+  display: none;
 }
 
 body > aside {
