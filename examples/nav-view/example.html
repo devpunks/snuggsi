@@ -1,0 +1,42 @@
+<title>&lt;nav-view&gt;</title>
+
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+
+<script src=/snuggsi.es></script>
+<script nomodule src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
+
+<link rel=import href=/examples/header-group>
+<link rel=import href=/examples/nav-view>
+
+<header-group>
+  <h2 slot=header>&lt;nav-view&gt;</h2>
+  <a  slot=subheader Title='See more componentexamples' href=/examples>See more component examples</a>
+</header-group>
+
+<nav-view for=first,second,third>
+  This is content inside the nav-view.
+</nav-view>
+
+<main view id=first role=main title='First View'>
+  <h1>First View</h1>
+
+  <p>Welcome to home.</p>
+</main>
+
+<main view id=second role=main title='Second View'>
+  <h1>Second View</h1>
+
+  <p>Welcome to another view.</p>
+</main>
+
+<main view id=third role=main title='Third View'>
+  <h1>Third View</h1>
+
+  <p>You've come a long way baby!</p>
+</main>
+
+<script src=/browser-sync.es></script>
+
