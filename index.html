@@ -85,14 +85,8 @@ body {
   border-bottom: none
 }
 
-body > aside a:link,
 body > nav a:link {
   border-bottom: none;
-}
-
-body > aside a:hover,
-body > nav a:hover {
-  border-bottom: 2px solid;
 }
 
 body > aside header,
@@ -118,9 +112,22 @@ nav ul {
   list-style-position: inside;
 }
 
-body > main {
-  margin: 0 20vw;
+body > nav header { margin-top: 1em }
+
+body > nav details { }
+
+body > nav li { display: block }
+
+body > nav li a {
+  margin-left: 1em;
+  display: inline-block;
 }
+
+body > nav details li a { margin-left: 2em }
+
+body > nav summary a { margin-left: 0em }
+
+body > main { margin: 0 20vw }
 
 [view] {
   height: 82vh;
@@ -132,9 +139,7 @@ body > main {
   display: none;
 }
 
-body > main h1 {
-  text-align: center;
-}
+body > main h1 { text-align: center }
 
 body > aside {
   right: 0;
