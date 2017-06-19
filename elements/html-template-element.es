@@ -2,6 +2,8 @@
 
 const HTMLTemplateElement = Template = function (name) {
 
+  // create shallow clone using `.getOwnPropertyDescriptors`
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors#Examples
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind } )
 
