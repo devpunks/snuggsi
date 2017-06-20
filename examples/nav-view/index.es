@@ -1,5 +1,3 @@
-console.log ('snuggs')
-
 Element `nav-view`
 
 (class extends HTMLElement {
