@@ -164,10 +164,13 @@ You have a `<template>` in the DOM and you need to:
   - If `context` is an object `bind` a single `<template>`.
   - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
 
+3. or use default `<template>` from an HTML Import.
+
 See [MDN &lt;template&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
 for more details
 
-### Standalone Template
+
+### `<template>` With `Object` Context
 
 ```html
 <section id=lead></section>
@@ -202,7 +205,7 @@ document
 ```
 
 
-### Collection Template
+### `<template>` With `Array` Context
 
 ```html
 <ul>
@@ -236,6 +239,69 @@ document
 
 </script>
 ```
+
+### Default `<template>` _(HTML Custom Element Import)_
+
+#### foo-bar.html
+
+```html
+<template onclick=onfoo>
+  <h1>foo-bar custom element</h1>
+
+  <slot name=content>Some Default Content</slot>
+
+  <ul>
+
+  <template name=bat>
+    <li>Item {#} - Value {self}
+  </template>
+
+  </ul>
+
+</template>
+
+<script>
+
+Element `foo-bar`
+
+(class extends HTMLElement {
+
+  onfoo (event) { alert `Registered on foo-bar` }
+
+  get bat ()
+    { return ['football', 'soccer', 'baseball']}
+})
+
+</script>
+```
+
+#### index.html
+```html
+<script src=//unpkg.com/snuggsi></script>
+
+<link rel=import name=foo-bar href=foo-bar.html>
+
+<!-- <foo-bar onclick=onfoo></foo-bar> -->
+<foo-bar>
+  <p slot=content>The quick brown fox jumped over the lazy dog
+</foo-bar>
+
+<!-- After import
+
+<foo-bar onclick=onfoo>
+  <h1>foo-bar custom element</h1>
+
+  <p slot=content>The quick brown fox jumped over the lazy dog
+
+  <ul>
+    <li>Item 0 - Value football
+    <li>Item 1 - Value soccer
+    <li>Item 2 - Value baseball
+  </ul>
+</foo-bar>
+-->
+```
+
 
 ## Build Process
 
