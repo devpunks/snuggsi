@@ -1,19 +1,26 @@
+console.log ('snuggs')
+
 Element `nav-view`
 
 (class extends HTMLElement {
 
   initialize () {
+
     /comp|inter|loaded/.test (document.readyState)
       ? this.onloaded ()
       : document.addEventListener
-          ('DOMContentLoaded', this.onloaded)
+          ('DOMContentLoaded', this.onload)
   }
 
-  onloaded () {
+  onload () {
+
     (this.context.views = Array.from
       (document.body.querySelectorAll `[view]`))
+      .map (this.hide)
 
         && (this.context.views [0].hidden = false)
+
+      // what's the difference between `hidden`ing and `display: none`
 
     this.render ()
   }
@@ -38,9 +45,7 @@ Element `nav-view`
   }
 
   get anchors () {
-    return this.context.views
-      // what's the difference between `hidden`ing and `display: none`
-      .map (this.hide)
+    return (this.context.views || [])
       .map (view => ({ href: `#${view.id}`, text: view.title }))
   }
 
