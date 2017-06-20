@@ -157,14 +157,14 @@ Element `hello-world`
 
 `<template>` to appendable `DocumentFragment`.
 
-You have a `<template>` in the DOM and you need to:
+We have a `<template>` in the DOM and need to:
 
 1. Bind a context (or Javascript object) to the template
 2. Append rendered template to the document.
   - If `context` is an object `bind` a single `<template>`.
   - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
 
-3. or use default `<template>` from an HTML Import.
+3. or use default `<template>` from within an HTML Import.
 
 See [MDN &lt;template&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
 for more details
