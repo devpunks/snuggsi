@@ -3,22 +3,17 @@ Element `nav-view`
 (class extends HTMLElement {
 
   initialize () {
-    document.addEventListener
-      ('DOMContentLoaded', this.onloaded)
+    /comp|inter|loaded/.test (document.readyState)
+      ? this.onloaded ()
+      : document.addEventListener
+          ('DOMContentLoaded', this.onloaded)
   }
 
   onloaded () {
-    this.context.views = Array.from
-      (document.body.querySelectorAll `[view]`)
+    (this.context.views = Array.from
+      (document.body.querySelectorAll `[view]`))
 
-    this.context.anchors =
-        this.context.views
-          // what's the difference between `hidden`ing and `display: none`
-          .map (this.hide)
-          .map (view => ({ href: `#${view.id}`, text: view.title }))
-
-    this.context.views
-      && (this.context.views [0].hidden = false)
+        && (this.context.views [0].hidden = false)
 
     this.render ()
   }
@@ -42,8 +37,12 @@ Element `nav-view`
       (anchor.href.match (/#(.+)$/)[1])
   }
 
-  get anchors ()
-    { return this.context.anchors }
+  get anchors () {
+    return this.context.views
+      // what's the difference between `hidden`ing and `display: none`
+      .map (this.hide)
+      .map (view => ({ href: `#${view.id}`, text: view.title }))
+  }
 
 })
 
