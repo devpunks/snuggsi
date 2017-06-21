@@ -5,7 +5,7 @@ Element `nav-view`
   initialize () {
 
     /comp|inter|loaded/.test (document.readyState)
-      ? this.onloaded ()
+      ? this.onload ()
       : document.addEventListener
           ('DOMContentLoaded', this.onload)
   }
