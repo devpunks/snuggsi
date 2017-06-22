@@ -54,7 +54,7 @@ Element `x-flashy`
 
 (class extends HTMLElement {
 
-  static get speed () { return 3000 }
+  get speed () { return 3000 }
 
   onclick (event)
     { console.log ('mole whacked') }
@@ -74,7 +74,7 @@ Element `x-flashy`
 
     this.randomize()
     const intervalId = setInterval
-      (this.randomize.bind (this), this.constructor.speed)
+      (this.randomize.bind (this), this.speed)
   }
 
   get greeting () { return this.context.greeting }
