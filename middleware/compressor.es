@@ -2,11 +2,12 @@ const
   gzip   = true
 , brotli = true
 
+, root   = '/'
 , dist   = 'dist'
 , bundle = '/snuggsi.min.es'
 , send   = require ('koa-send')
 
-, configuration = { dist: root, gzip, brotli }
+, configuration = { root: dist, gzip, brotli }
 
 module.exports =async context => {
   const
@@ -20,7 +21,7 @@ module.exports =async context => {
     // Use ECMASCript path resource  (i.e. `/snuggsi.es`)
     // Otherwise default bundle (i.e. `/` => `/snuggsi.min.es`)
   , resource =
-      (context.path === '/')
+      (context.path === root)
         ? bundle : context.path
 
   return compress && await
