@@ -2,11 +2,11 @@ const
   gzip   = true
 , brotli = true
 
-, root   = 'dist'
+, dist   = 'dist'
 , bundle = '/snuggsi.min.es'
 , send   = require ('koa-send')
 
-, configuration = { root, gzip, brotli }
+, configuration = { dist: root, gzip, brotli }
 
 module.exports =async context => {
   const
