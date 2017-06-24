@@ -27,13 +27,13 @@ Element `infinity-calendar`
       new Date (year, month, 1)
   }
 
-  onnext ()
+  next ()
     { this.date_from_month (+1) }
 
-  onprevious ()
+  previous ()
     { this.date_from_month (-1) }
 
-  ondayclick (event)
+  dayclick (event)
     { alert (event.target.textContent) }
 
   get year ()
