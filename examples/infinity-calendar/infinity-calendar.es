@@ -62,19 +62,14 @@ Element `infinity-calendar`
 
   get days () {
     const
-      dates = []
-    , daily = undefined
+      next_month = this.month + 1
+    , date = new Date (this.year , next_month, 0)
+    , length = { length: date.getDate () }
+    , days = (_, index) => ({ day: index +1 })
 
-    , days  = day =>
-        { return { day: day } }
-
-    , date  =
-        new Date ( this.year , this.context.date.getMonth () + 1 , 0)
-
-    for (let day=1; day <= date.getDate (); day++)
-      dates.push (day)
-
-    return dates.map (days)
+    return Array
+      .apply (null, length)
+      .map (days)
   }
 
   date_from_month (change) {
