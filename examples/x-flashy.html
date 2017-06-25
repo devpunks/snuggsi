@@ -1,8 +1,10 @@
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
-<title>snuggsi - Flashy</title>
 
-<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+<title>&lt;x-flashy&gt;</title>
+
+<link rel=stylesheet href=//www.devpunks.com/typography.css>
+
 <style>
 
   body {
@@ -29,11 +31,10 @@
   }
 </style>
 
-<script src=http://unpkg.com/snuggsi/examples/webcomponents-hi-ce.js></script>
-<script nomodule src=http://unpkg.com/snuggsi/snuggsi.min.js></script>
+<script src=/></script>
+<script name=polyfill src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
 
-<link rel=icon type=image/png href=../public/favicon-32x32.png sizes=32x32>
-<link rel=icon type=image/png href=../public/favicon-16x16.png sizes=16x16>
+<link rel=icon type=image/png href=/favicon-32x32.png sizes=32x32>
 
 <header-group>
   <h2 slot=header>&lt;x-flashy&gt;</h2>
@@ -53,7 +54,7 @@ Element `x-flashy`
 
 (class extends HTMLElement {
 
-  static get speed () { return 3000 }
+  get speed () { return 3000 }
 
   onclick (event)
     { console.log ('mole whacked') }
@@ -73,7 +74,7 @@ Element `x-flashy`
 
     this.randomize()
     const intervalId = setInterval
-      (this.randomize.bind (this), this.constructor.speed)
+      (this.randomize.bind (this), this.speed)
   }
 
   get greeting () { return this.context.greeting }
@@ -109,6 +110,4 @@ Element `x-flashy`
 })
 
 </script>
-
-<script src=../../vendor/browser-sync.es></script>
 
