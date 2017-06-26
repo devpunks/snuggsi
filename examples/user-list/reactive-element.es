@@ -10,10 +10,14 @@ const
   userActions = rxr.createMessageStreams ([ 'userClick' ])
 
 , assign = value => state => {
-    let
-      users = [{'name': 'rob'}, {'name': 'dan'}]
 
-    return Object.assign ( {}, state, {users} )
+    const
+      users =
+        [{'name': 'rob'}, {'name': 'dan'}]
+
+    , spawn = Object.assign ( {}, state, {users} )
+
+    return spawn
   }
 
 , userClickReducer = userActions
