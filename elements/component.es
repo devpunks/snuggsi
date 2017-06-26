@@ -1,16 +1,15 @@
-const Component = Element => // why buble
-
-  // exotic object - https://github.com/whatwg/html/issues/1704
+const Component = HTMLElement => // why buble
 
 ( class extends // interfaces
-  ( EventTarget ( ParentNode ( GlobalEventHandlers ( Element ))))
+  ( EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement ))))
 {
 
-  constructor () { super ()
+  constructor (context) { super ()
 
     let
-      descriptions = Object
-      .getOwnPropertyDescriptors (Element.prototype)
+      descriptions =
+        Object.getOwnPropertyDescriptors
+          (HTMLElement.prototype)
 
     , bind = key =>
         !!! ['constructor', 'initialize'].includes (key) // possibly can remove

@@ -386,19 +386,18 @@ const GlobalEventHandlers = Element =>
   }
 })
 
-const Component = Element => // why buble
-
-  // exotic object - https://github.com/whatwg/html/issues/1704
+const Component = HTMLElement => // why buble
 
 ( class extends // interfaces
-  ( EventTarget ( ParentNode ( GlobalEventHandlers ( Element ))))
+  ( EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement ))))
 {
 
-  constructor () { super ()
+  constructor (context) { super ()
 
     let
-      descriptions = Object
-      .getOwnPropertyDescriptors (Element.prototype)
+      descriptions =
+        Object.getOwnPropertyDescriptors
+          (HTMLElement.prototype)
 
     , bind = key =>
         !!! ['constructor', 'initialize'].includes (key) // possibly can remove
@@ -409,15 +408,15 @@ const Component = Element => // why buble
       .keys (descriptions)
       .map (bind)
 
-    this.context = {}
-    this.tokens  = new TokenList (this)
-
     Object
-      .getOwnPropertyNames (Element.prototype)
+      .getOwnPropertyNames (HTMLElement.prototype)
       .map (this.introspect, this)
 
+    this.context     = this.context || {}
+    this.tokens      = new TokenList (this)
     this.initialize && this.initialize ()
   }
+
 
   connectedCallback () {
 
