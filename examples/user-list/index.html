@@ -1,7 +1,3 @@
-<script nomodule src=//unpkg.com/snuggsi></script>
-<script nomodule src=https://unpkg.com/rxjs/bundles/Rx.min.js></script>
-<script nomodule src=rxr.js></script>
-
 <user-list>
   <h1>User list:</h1>
   <input type=button value="Load users">
@@ -12,9 +8,12 @@
   </ul>
 </user-list>
 
-<script src=reactive-element.js></script>
-<script src=state.js></script>
-<script nomodule async defer>
+<script src=//unpkg.com/snuggsi></script>
+<script src=https://unpkg.com/rxjs/bundles/Rx.min.js></script>
+<script src=user-list/rxr.js></script>
+<script src=user-list/reactive-element.js></script>
+<script src=user-list/state.js></script>
+<script defer>
 
 Element `user-list`
 (class extends Reactive 
