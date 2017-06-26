@@ -15,7 +15,8 @@ const
       users =
         [{'name': 'rob'}, {'name': 'dan'}]
 
-    , spawn = Object.assign ( {}, state, {users} )
+    , spawn =
+        Object.assign ( {}, state, {users} )
 
     return spawn
   }
@@ -41,8 +42,8 @@ class extends Element {
   // configure streams within onidle,
   // avoids blocking the first paint.
   onconnect () {
-    let
-      target = this.onstatechange
+
+    let target = this.onstatechange
 
     this.stream =
       this.store.state$
