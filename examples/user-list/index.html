@@ -23,16 +23,26 @@ Element `user-list`
 
 (class extends Reactive ( HTMLElement ) {
 
-  onclick ()
-    { this.actions.onclick () }
+  initialize () {
+    console.warn ('Element Initialize', this.context)
+  }
+
+  onclick () {
+
+    console.log (this.actions)
+
+//  this.actions.onclick$ ()
+  }
 
   onstatechange (state) {
-    this.state = state
+    this.context = state
+
+    console.warn ('state change', this.context)
     this.render ()
   }
 
   get users ()
-    { return this.state.users }
+    { return this.context.users }
 
 })
 
