@@ -1,4 +1,4 @@
-const Reactive = (Element) =>
+const Reactive = Element =>
 
   /*
     HTMLElement mixin which provides abstractions
