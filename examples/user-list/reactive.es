@@ -51,16 +51,17 @@ class extends Element {
   // configure streams within onidle,
   // avoids blocking the first paint.
   onconnect () {
-    let store = this.store
 
-    store.state$
+    this.store
+
+      .state$
 
       // immutable conventions allow for
       // standard comparison operator.
       .distinctUntilChanged ((x, y) => (x == y))
 
       // reduce state into selected scope
-      .map (store.selector)
+      .map (this.store.selector)
 
       .subscribe (this.onstatechange)
   }
