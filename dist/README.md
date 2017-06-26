@@ -16,7 +16,10 @@
 
 ## Glossary
   - Octet - https://en.wikipedia.org/wiki/Octet_(computing)
-  - (Ethernet) Packet - https://en.wikipedia.org/wiki/Ethernet_frame
+  - MTU (Maximum Transmission Unit) - https://en.wikipedia.org/wiki/Maximum_transmission_unit
+
+  - Difference between Ethernet frame and Packet - https://www.youtube.com/watch?v=wcSee63SIlg
+  - (Ethernet) Frame - https://en.wikipedia.org/wiki/Ethernet_frame
 
 ## Pipeline
 
