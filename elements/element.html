@@ -20,6 +20,20 @@
 
 <script>
 
+// failure
+
+test (() => {
+
+  Element `foo-bar`
+    (class CustomElementWithInferredTagName extends HTMLElement {})
+
+  assert_throws
+    ({'name': 'TypeError'}, function () { new SomeCustomElement; })
+
+}, 'HTMLElement constructor must throw TypeError when it has not been defined by customElements.define')
+
+// success
+
 test (() => {
 
   Element `foo-bar` (class CustomElementWithInferredTagName extends HTMLElement {})
