@@ -12,20 +12,20 @@
 </user-list>
 
 <script src=//unpkg.com/snuggsi></script>
-<script src=https://unpkg.com/rxjs/bundles/Rx.min.js></script>
+<script src=//unpkg.com/rxjs/bundles/Rx.min.js></script>
+<script src=user-list/reactive-element.es></script>
 <script src=user-list/rxr.js></script>
-<script src=user-list/reactive-element.js></script>
-<script src=user-list/state.js></script>
+<script src=user-list/state.es></script>
+
 <script defer>
 
 Element `user-list`
 
-(class extends Reactive (HTMLElement, userStore) {
-  
+(class extends Reactive ( HTMLElement ) {
+
   onclick ()
   {
-    console.log ('clicking')
-    userActions.userClick ()
+    this.userActions.userClick ()
   }
 
   onstatechange (state) {
@@ -33,9 +33,8 @@ Element `user-list`
     this.render ()
   }
 
-  get users () {
-    return this.state.users
-  }
+  get users ()
+    { return this.state.users }
 
 })
 
