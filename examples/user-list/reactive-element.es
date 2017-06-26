@@ -19,7 +19,6 @@ class extends Element {
       state = { users: [] }
 
     , assign = state => {
-
         const
           users =
             [{'name': 'rob'}, {'name': 'dan'}]
@@ -51,13 +50,13 @@ class extends Element {
     this.stream =
       this.store.state$
 
-      // immutable conventions allow for
-      // standard comparison operator.
-      .distinctUntilChanged ((x, y) => (x == y))
+        // immutable conventions allow for
+        // standard comparison operator.
+        .distinctUntilChanged ((x, y) => (x == y))
 
-      // reduce state into selected scope
-      .map (this.store.selector)
-      .subscribe (target)
+        // reduce state into selected scope
+        .map (this.store.selector)
+        .subscribe (target)
   }
 
   // receives state updates
