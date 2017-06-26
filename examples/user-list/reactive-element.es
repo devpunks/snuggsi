@@ -58,8 +58,8 @@ class extends Element {
 
   // configure streams within onidle, 
   // avoids blocking the first paint.
-  static onconnect () {
-    let 
+  onconnect () {
+    let
       target = this.constructor.onstatechange
 
     this.stream =
@@ -73,6 +73,7 @@ class extends Element {
   }
 
   // receives state updates
-  static onstatechange (state) { return }
+  onstatechange (state) { return }
 
 }
+
