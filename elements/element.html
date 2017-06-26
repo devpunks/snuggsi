@@ -18,3 +18,32 @@
 
 <div id="log"></div>
 
+<script>
+
+test (() => {
+
+  Element `foo-bar` (class CustomElementWithInferredTagName extends HTMLElement {})
+
+  const instance = new (Element `foo-bar`)
+
+  assert_equals (instance.localName, 'foo-bar')
+  assert_equals (instance.nodeName, 'Foo Bar')
+
+}, 'HTMLElement constructor must infer the tag name from the element interface')
+
+
+test (() => {
+
+  Element `foo-bar` (class CustomElementWithInferredTagName extends HTMLElement {})
+
+}, 'HTMLElement constructor must allow subclassing a custom element')
+
+
+test (() => {
+
+  Element `foo-bar` (class CustomElementWithInferredTagName extends HTMLElement {})
+
+}, 'HTMLElement constructor must allow subclassing an user-defined subclass of HTMLElement')
+
+</script>
+
