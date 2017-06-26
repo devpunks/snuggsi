@@ -425,12 +425,14 @@ const Component = HTMLElement => // why buble
         .addEventListener ('load', this.onconnect.bind (this))
   }
 
+
   render () {
 
     this.tokens.bind (this)
 
+
     Array
-      .from // templates with `name` attribute
+      .from
         (this.selectAll ('template[name]'))
 
       .map
@@ -439,6 +441,7 @@ const Component = HTMLElement => // why buble
       .map
         (name => (new Template (name)).bind (this [name]))
 
+
     Array
       .from (this.selectAll ('*'))
 
@@ -446,8 +449,10 @@ const Component = HTMLElement => // why buble
 
       .map (this.reflect, this)
 
+
     super.onidle && super.onidle ()
   }
+
 
   parse (template, insert) {
 
@@ -456,6 +461,7 @@ const Component = HTMLElement => // why buble
     insert = (replacement, name, slot) =>
       (name = replacement.getAttribute ('slot')) &&
       (slot = template.content.querySelector ('slot[name='+name+']'))
+
          // prefer to use replaceWith however support is sparse
          // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
          // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
