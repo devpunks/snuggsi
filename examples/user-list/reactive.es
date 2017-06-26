@@ -10,15 +10,18 @@ const Reactive = (Element) =>
 
 class extends Element {
 
+  constructor () { super ()
+    this.context = { users: [] }
+  }
+
   get actions ()
     { return rxr.createMessageStreams ([ 'onclick' ]) }
 
   get store () {
 
     const
-      state = { users: [] }
+      assign = state => {
 
-    , assign = state => {
         const
           users =
             [{'name': 'rob'}, {'name': 'dan'}]
@@ -35,32 +38,27 @@ class extends Element {
           .map (assign)
 
     return {
-      initialState: state,
-      selector: (state) => ({ users: state.users }),
-      state$: rxr.createState (userClickReducer, state)
+      initialState: this.context,
+      selector: (state) => ({ users: this.context.users }),
+      state$: rxr.createState (userClickReducer, this.context)
     }
   }
 
   // configure streams within onidle,
   // avoids blocking the first paint.
   onconnect () {
+    let store = this.store
 
-    let target = this.onstatechange
+    store.state$
 
-    this.stream =
-      this.store.state$
+      // immutable conventions allow for
+      // standard comparison operator.
+      .distinctUntilChanged ((x, y) => (x == y))
 
-        // immutable conventions allow for
-        // standard comparison operator.
-        .distinctUntilChanged ((x, y) => (x == y))
+      // reduce state into selected scope
+      .map (store.selector)
 
-        // reduce state into selected scope
-        .map (this.store.selector)
-        .subscribe (target)
+      .subscribe (this.onstatechange)
   }
-
-  // receives state updates
-  onstatechange (state) { return }
-
 }
 
