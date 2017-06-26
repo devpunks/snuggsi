@@ -20,15 +20,15 @@ const Component = HTMLElement => // why buble
       .keys (descriptions)
       .map (bind)
 
-    this.context = {}
-    this.tokens  = new TokenList (this)
-
     Object
-      .getOwnPropertyNames (Element.prototype)
+      .getOwnPropertyNames (HTMLElement.prototype)
       .map (this.introspect, this)
 
+    this.context     = this.context || {}
+    this.tokens      = new TokenList (this)
     this.initialize && this.initialize ()
   }
+
 
   connectedCallback () {
 
