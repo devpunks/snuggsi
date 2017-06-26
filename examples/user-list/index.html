@@ -16,23 +16,24 @@
 <script defer>
 
 Element `user-list`
-(class extends Reactive 
-  (HTMLElement, userStore) {
+
+(class extends Reactive (HTMLElement, userStore) {
   
-  static onclick ()
-  { 
-    userActions.userClick()
-  }
-
-  static onstatechange (state) {
-    this.state = state
-    this.render()
-  }
-
-  get users()
+  onclick ()
   {
+    console.log ('clicking')
+    userActions.userClick ()
+  }
+
+  onstatechange (state) {
+    this.state = state
+    this.render ()
+  }
+
+  get users () {
     return this.state.users
   }
+
 })
 
 </script>
