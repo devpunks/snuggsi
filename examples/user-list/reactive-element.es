@@ -9,7 +9,7 @@
 const
   userActions = rxr.createMessageStreams ([ 'userClick' ])
 
-, assign = value => state => {
+, assign = state => {
 
     const
       users =
@@ -38,38 +38,22 @@ class extends Element {
     }
   }
 
-  initialize () {
-
-    console.log ('initializing')
-
-    if(!this.store.state$)
-      throw new Error(
-        'Reactive expected the `state$` property on store.'
-      )
-
-    this.state$ = this.store.state$
-
-    this.selector = this.store.selector
-      ? this.store.selector : (state) => (state)
-
-    this.state = this.store.initialState
-      ? this.store.initialState : {}
-  }
-
-  // configure streams within onidle, 
+  // configure streams within onidle,
   // avoids blocking the first paint.
   onconnect () {
     let
-      target = this.constructor.onstatechange
+      target = this.onstatechange
 
     this.stream =
-      this.state$
-      // immutable conventions allow for 
+      this.store.state$
+
+      // immutable conventions allow for
       // standard comparison operator.
-      .distinctUntilChanged((x, y) => (x == y))
+      .distinctUntilChanged ((x, y) => (x == y))
+
       // reduce state into selected scope
-      .map(this.selector)
-      .subscribe(target.bind(this))
+      .map (this.store.selector)
+      .subscribe (target)
   }
 
   // receives state updates
