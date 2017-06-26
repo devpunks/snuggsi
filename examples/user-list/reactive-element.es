@@ -1,40 +1,34 @@
 /*
   HTMLElement mixin which provides abstractions
-  over the RxJS conventions through mediating the context of state.
+  over the RxJS conventions through context state.
 
   State changes from the injected state$ stream will call
   onstatechange.
 */
 
-const
+const Reactive = (Element) =>
 
-  // Creates a store context object that can be injected
-  // into a reactive element.
-  createStore = (initialState, reducer, selector) => 
-    ({
-      initialState: initialState,
-      state$: rxr.createState(reducer, initialState),
-      selector: selector
-    })
+class extends Element {
 
-  // Element - HTMLElement to extend
-  // store - store context object
-, Reactive = ( Element, store) =>
+  get store ()
+    { return userStore }
 
-(class extends Element {
   initialize () { 
-    if(!store.state$)
+
+    console.log ('initializing')
+
+    if(!this.store.state$)
       throw new Error(
         'Reactive expected the `state$` property on store.'
       )
 
-    this.state$ = store.state$
+    this.state$ = this.store.state$
 
-    this.selector = store.selector 
-      ? store.selector : (state) => (state)
+    this.selector = this.store.selector
+      ? this.store.selector : (state) => (state)
 
-    this.state = store.initialState
-      ? store.initialState : {}
+    this.state = this.store.initialState
+      ? this.store.initialState : {}
   }
 
   // configure streams within onidle, 
@@ -56,4 +50,4 @@ const
   // receives state updates
   static onstatechange (state) { return }
 
-})
+}

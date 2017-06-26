@@ -16,5 +16,14 @@ const
       users: state.users,
     })
 
+// Creates a store context object that can be injected
+// into a reactive element.
+, createStore = (initialState, reducer, selector) =>
+  ({
+    initialState: initialState,
+    state$: rxr.createState(reducer, initialState),
+    selector: selector
+  })
+
 , userStore = createStore(initialState, 
     userClickReducer, stateSelector)
