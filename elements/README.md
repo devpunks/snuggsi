@@ -37,3 +37,8 @@ This is a `DocumentFragment` returned of the `<template>` content.
 
 Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
 
+
+# Testing
+- Introduction - http://web-platform-tests.org/introduction.html
+- Writing Tests - http://web-platform-tests.org/writing-tests
+
