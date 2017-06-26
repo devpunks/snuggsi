@@ -13,7 +13,7 @@ const
     let
       users = [{'name': 'rob'}, {'name': 'dan'}]
 
-    return Object.assign({}, state, {users: users})
+    return Object.assign ( {}, state, {users} )
   }
 
 , userClickReducer = userActions
