@@ -23,21 +23,11 @@ Element `user-list`
 
 (class extends Reactive ( HTMLElement ) {
 
-  initialize () {
-    console.warn ('Element Initialize', this.context)
-  }
-
-  onclick () {
-
-    console.log (this.actions)
-
-//  this.actions.onclick$ ()
-  }
+  onclick ()
+    { this.actions.onclick () }
 
   onstatechange (state) {
     this.context = state
-
-    console.warn ('state change', this.context)
     this.render ()
   }
 

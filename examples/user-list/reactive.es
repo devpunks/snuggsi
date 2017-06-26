@@ -11,16 +11,17 @@ const Reactive = Element =>
 class extends Element {
 
   constructor () { super ()
+
     this.context = { users: [] }
+    this.store   = this.hydrate ()
+
   }
 
-  get actions ()
-    { return rxr.createMessageStreams ([ 'onclick' ]) }
-
-  get store () {
+  hydrate () {
 
     const
       assign = state => {
+        console.log ('assigning & spawning')
 
         const
           users =
@@ -43,6 +44,9 @@ class extends Element {
       state$: rxr.createState (userClickReducer, this.context)
     }
   }
+
+  get actions ()
+    { return rxr.createMessageStreams ([ 'onclick' ]) }
 
   // configure streams within onidle,
   // avoids blocking the first paint.
