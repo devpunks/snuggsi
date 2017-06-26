@@ -6,14 +6,35 @@
   onstatechange.
 */
 
+const
+  userActions = rxr.createMessageStreams ([ 'userClick' ])
+
+, assign = value => state => {
+    let
+      users = [{'name': 'rob'}, {'name': 'dan'}]
+
+    return Object.assign({}, state, {users: users})
+  }
+
+, userClickReducer = userActions
+    .userClick$
+    .map (assign)
+
 const Reactive = (Element) =>
 
 class extends Element {
 
-  get store ()
-    { return userStore }
+  get store () {
+    let state = { users: [] }
 
-  initialize () { 
+    return {
+      initialState: state,
+      selector: (state) => ({ users: state.users }),
+      state$: rxr.createState (userClickReducer, state)
+    }
+  }
+
+  initialize () {
 
     console.log ('initializing')
 
