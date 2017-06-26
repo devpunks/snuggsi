@@ -285,14 +285,15 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     return anonymous;
   }(Element))); }
 
-var Component = function (Element) { return ( (function (superclass) {
-    function anonymous () {
+var Component = function (HTMLElement) { return ( (function (superclass) {
+    function anonymous (context) {
   var this$1 = this;
  superclass.call (this)
 
     var
-      descriptions = Object
-      .getOwnPropertyDescriptors (Element.prototype)
+      descriptions =
+        Object.getOwnPropertyDescriptors
+          (HTMLElement.prototype)
 
     , bind = function (key) { return !!! ['constructor', 'initialize'].includes (key) // possibly can remove
         && 'function' === typeof descriptions [key].value
@@ -302,19 +303,19 @@ var Component = function (Element) { return ( (function (superclass) {
       .keys (descriptions)
       .map (bind)
 
-    this.context = {}
-    this.tokens  = new TokenList (this)
-
     Object
-      .getOwnPropertyNames (Element.prototype)
+      .getOwnPropertyNames (HTMLElement.prototype)
       .map (this.introspect, this)
 
+    this.context     = this.context || {}
+    this.tokens      = new TokenList (this)
     this.initialize && this.initialize ()
   }
 
     if ( superclass ) anonymous.__proto__ = superclass;
     anonymous.prototype = Object.create( superclass && superclass.prototype );
     anonymous.prototype.constructor = anonymous;
+
 
   anonymous.prototype.connectedCallback = function () {
 
@@ -323,14 +324,16 @@ var Component = function (Element) { return ( (function (superclass) {
         .addEventListener ('load', this.onconnect.bind (this))
   };
 
+
   anonymous.prototype.render = function () {
     var this$1 = this;
 
 
     this.tokens.bind (this)
 
+
     Array
-      .from // templates with `name` attribute
+      .from
         (this.selectAll ('template[name]'))
 
       .map
@@ -339,6 +342,7 @@ var Component = function (Element) { return ( (function (superclass) {
       .map
         (function (name) { return (new Template (name)).bind (this$1 [name]); })
 
+
     Array
       .from (this.selectAll ('*'))
 
@@ -346,8 +350,10 @@ var Component = function (Element) { return ( (function (superclass) {
 
       .map (this.reflect, this)
 
+
     superclass.prototype.onidle && superclass.prototype.onidle.call (this)
   };
+
 
   anonymous.prototype.parse = function (template, insert) {
     var this$1 = this;
@@ -357,6 +363,7 @@ var Component = function (Element) { return ( (function (superclass) {
 
     insert = function (replacement, name, slot) { return (name = replacement.getAttribute ('slot')) &&
       (slot = template.content.querySelector ('slot[name='+name+']'))
+
          // prefer to use replaceWith however support is sparse
          // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
          // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
@@ -378,7 +385,7 @@ var Component = function (Element) { return ( (function (superclass) {
   };
 
     return anonymous;
-  }(( EventTarget ( ParentNode ( GlobalEventHandlers ( Element ))))))); }
+  }(( EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement ))))))); }
 
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
