@@ -1,36 +1,39 @@
-/*
-  HTMLElement mixin which provides abstractions
-  over the RxJS conventions through context state.
-
-  State changes from the injected state$ stream will call
-  onstatechange.
-*/
-
-const
-  userActions = rxr.createMessageStreams ([ 'userClick' ])
-
-, assign = state => {
-
-    const
-      users =
-        [{'name': 'rob'}, {'name': 'dan'}]
-
-    , spawn =
-        Object.assign ( {}, state, {users} )
-
-    return spawn
-  }
-
-, userClickReducer = userActions
-    .userClick$
-    .map (assign)
-
 const Reactive = (Element) =>
+
+  /*
+    HTMLElement mixin which provides abstractions
+    over the RxJS conventions through context state.
+
+    State changes from the injected state$ stream will call
+    onstatechange.
+  */
 
 class extends Element {
 
+  get actions ()
+    { return rxr.createMessageStreams ([ 'onclick' ]) }
+
   get store () {
-    let state = { users: [] }
+
+    const
+      state = { users: [] }
+
+    , assign = state => {
+
+        const
+          users =
+            [{'name': 'rob'}, {'name': 'dan'}]
+
+        , spawn =
+            Object.assign ( {}, state, {users} )
+
+        return spawn
+      }
+
+    , userClickReducer =
+        this.actions
+          .onclick$
+          .map (assign)
 
     return {
       initialState: state,
