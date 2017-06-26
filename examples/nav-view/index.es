@@ -32,6 +32,8 @@ Element `nav-view`
 
     this.identify (event.target)
       .hidden = false
+
+    document.title = anchor.title
   }
 
   hide (view)
