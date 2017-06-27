@@ -25,8 +25,10 @@ function load (id)
 
 function browse (interface) {
 
-  const dom =
-    new JSDOM (read (`${root}elements/${interface}.html`), { runScripts: 'dangerously', virtualConsole: out})
+  const
+    file = read (`${root}elements/${interface}.html`)
+  , settings = { runScripts: 'dangerously', virtualConsole: out}
+  , dom = new JSDOM (file, settings)
 
   , window   = dom.window
   , document = dom.window.document
