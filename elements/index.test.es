@@ -15,8 +15,6 @@ out.on ('jsdomError', () => console.error (arguments))
 out.sendTo (console)
 
 function read (path) {
-  console.log ('Reading', find (path))
-
   return open (find (path), encoding)
 }
 
@@ -38,7 +36,7 @@ function fragment (identifier) {
 
 function browse (interface) {
 
-  console.log (`Running test(s) for ${interface} Interface: `)
+  console.log (`\n\nRunning test(s) for \`${interface}\` Interface:`)
 
   return new JSDOM (read (`${interface}.html`), {virtualConsole: out})
 }
