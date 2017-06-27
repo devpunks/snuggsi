@@ -5,7 +5,12 @@ const
 , {JSDOM, VirtualConsole} = require ('jsdom')
 , open    = require ('fs').readFileSync
 , snuggsi = bundle (`${root}/dist/snuggsi`)
-, source  = bundle (`${root}/elements/element.html`)
+
+, source  = '' // bundle (`${root}/elements/element.html`)
+            // https://github.com/tmpvar/jsdom/issues/1030
+            // Unfortunately no support for custom elements... yet...
+            // https://github.com/tmpvar/jsdom/pull/1872
+
 , out     = new VirtualConsole
 , {test: describe} = require ('tape')
 
