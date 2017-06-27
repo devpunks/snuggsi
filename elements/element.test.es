@@ -1,7 +1,7 @@
 const {test, beforeEach} = require ('tape')
 
 
-const jsdom = require (`jsdom`)
+const jsdom = require ('jsdom')
 let document, window
 
 //const Element = require (`./index.es`).Element
