@@ -1,0 +1,4 @@
+#!/bin/bash
+
+# Run tape
+./node_modules/.bin/tape
