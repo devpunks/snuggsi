@@ -48,7 +48,7 @@ function find (path)
   { return `${path}` }
 
 function bundle (lib)
-  { return `${load (lib)}` }
+  { return load (lib) }
 
 module.exports.browse   = browse
 module.exports.describe = describe
