@@ -14,14 +14,6 @@ const
 , out     = new VirtualConsole
 , {test: describe} = require ('tape')
 
-out.sendTo (console)
-
-function read (path) {
-  return open (find (path), encoding)
-}
-
-function load (id)
-  { return read (`${id}.es`) }
 
 function browse (interface) {
 
@@ -44,11 +36,20 @@ function browse (interface) {
   return document
 }
 
+function read (path)
+  { return open (find (path), encoding) }
+
+function load (id)
+  { return read (`${id}.es`) }
+
 function find (path)
   { return `${path}` }
 
 function bundle (lib)
   { return load (lib) }
+
+
+out.sendTo (console)
 
 module.exports.browse   = browse
 module.exports.describe = describe
