@@ -1,3 +1,5 @@
+// https://github.com/tmpvar/jsdom/wiki/Don%27t-stuff-jsdom-globals-onto-the-Node-global
+
 const
   encoding = 'utf8'
 , {test}   = require ('tape')
@@ -12,12 +14,23 @@ out.on ('jsdomError', () => console.error (arguments))
 
 module.exports.test   = test
 module.exports.browse = function (interface) {
-
-  const path = `${__dirname}/${interface}.html`
-
-  console.log ('Running test: ', path)
-  return new JSDOM (read (path, encoding), {virtualConsole: out})
+  console.log ('Running test: ', find (interface))
+  return new JSDOM (read (find (interface), encoding), {virtualConsole: out})
 }
 
 out.sendTo (console)
+
+
+function fragment (identifier) {
+  console.log (read (find (path), encoding))
+}
+
+function browse (identifier) {
+
+}
+
+function find (path)
+  { return `${__dirname}/${path}.html` }
+
+console.log (find ('element'))
 
