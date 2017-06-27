@@ -4,7 +4,7 @@
 echo "🦄 Running Tape on $(pwd)"
 
 # https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
-NODE_PATH=. \
+NODE_PATH=$(pwd) \
   node --harmony ./elements/element.test.es
 
 
