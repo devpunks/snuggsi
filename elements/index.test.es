@@ -10,10 +10,10 @@ const
 , out      = new VirtualConsole
 , {test: describe} = require ('tape')
 
-out.on ('log', () => console.log (arguments))
-out.on ('error', () => console.error (arguments))
-out.on ('warn', () => console.warn (arguments))
-out.on ('jsdomError', () => console.error (arguments))
+//out.on ('log', () => console.log (arguments))
+//out.on ('error', () => console.error (arguments))
+//out.on ('warn', () => console.warn (arguments))
+//out.on ('jsdomError', () => console.error (arguments))
 
 out.sendTo (console)
 
