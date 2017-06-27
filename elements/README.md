@@ -55,11 +55,11 @@ Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
   - [using-testharness.js by Robin Berjon](http://darobin.github.com/test-harness-tutorial/docs/using-testharness.html)
   - [Test The Web Forward Seattle by Kris Krueger](http://www.w3.org/html/wg/wiki/images/b/b6/Testharness.pdf)
 
-## Process for contributing
+## Process for contributing to W3C (Web Platform Tests)
 
   The process for submission and approval of tests is currently:
 
   - Write tests
-  - Submit the tests to the working group
+  - [Submit the tests to the working group](https://www.w3.org/html/wg/wiki/Testing/Submission)
   - Wait for the tests to be reviewed
 
