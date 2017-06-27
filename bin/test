@@ -1,0 +1,8 @@
+#!/bin/bash
+
+# Run tape
+echo "🦄 Running Tape on $(pwd)"
+node --harmony ./elements/element.test.es
+
+
+
