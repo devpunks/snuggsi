@@ -58,6 +58,7 @@
     "koa-static": "*",
     "tap": "*",
     "tape": "*",
+    "tap-nyc": "*",
     "jsdom": "*",
     "buble": "*",
     "uglify-js": "*",
