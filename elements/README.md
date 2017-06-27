@@ -42,8 +42,6 @@ Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
 
   - Introduction - http://web-platform-tests.org/introduction.html
   - [TAP Testing Protocol](https://testanything.org)
-  - Writing Tests - http://web-platform-tests.org/writing-tests
-  - Test Authoring - https://www.w3.org/html/wg/wiki/Testing/Authoring
   - Web Platform - https://platform.html5.org
   - JSDOM - https://github.com/tmpvar/jsdom
   - JSDOM (context per test) - https://github.com/tmpvar/jsdom/wiki/Don%27t-stuff-jsdom-globals-onto-the-Node-global
@@ -63,7 +61,8 @@ Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
 
   The process for submission and approval of tests is currently:
 
-  - Write tests
+  - Writing Tests - http://web-platform-tests.org/writing-tests
+  - Test Authoring - https://www.w3.org/html/wg/wiki/Testing/Authoring
   - [Submit the tests to the working group](https://www.w3.org/html/wg/wiki/Testing/Submission)
   - Wait for the tests to be reviewed
 
