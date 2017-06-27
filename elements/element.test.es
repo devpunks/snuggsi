@@ -1,15 +1,15 @@
 const
   {test} = require ('tape')
+, path = `${__dirname}/element.html`
 , read = require ('fs').readFileSync
 
 , {JSDOM} = require ('jsdom')
 
 //, html = read (__dir)
-, dom = new JSDOM (`<!DOCTYPE html><p>Hello world`)
+, dom = new JSDOM (read (path, 'utf8'))
 
-console.log (read(`${__dirname}/element.html`, 'utf8'))
 console.log
-  ('\n\n', dom.window.document.documentElement.outerHTML, '\n\n')
+  ('\n\n', dom.window.document.title, '\n\n')
 
 test ('new Element', t => {
 
