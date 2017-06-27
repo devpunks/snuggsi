@@ -1,5 +1,3 @@
-// https://github.com/tmpvar/jsdom/wiki/Don%27t-stuff-jsdom-globals-onto-the-Node-global
-
 const
   encoding = 'utf8'
 , root = `${process.env.NODE_PATH}/`
