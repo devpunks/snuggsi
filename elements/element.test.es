@@ -1,19 +1,19 @@
 const
   {test} = require ('tape')
-, path = `${__dirname}/element.html`
-, read = require ('fs').readFileSync
+, browse = require ('./index.test.es')
 
-, {JSDOM} = require ('jsdom')
 
-//, html = read (__dir)
-, dom = new JSDOM (read (path, 'utf8'))
+, interfaces = ['element']
 
-console.log
-  ('\n\n', dom.window.document.title, '\n\n')
+//console.log
+//  ('\n\n', dom.window.document.title, '\n\n')
 
 test ('new Element', t => {
 
-  t.equal (true, true)
+  const
+    { window: {document}} = browse ('element')
+
+  t.equal ('Element: Constructor', document.title)
 
   t.end ()
 })
