@@ -42,4 +42,5 @@ Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
 - Introduction - http://web-platform-tests.org/introduction.html
 - Writing Tests - http://web-platform-tests.org/writing-tests
 - Web Platform - https://platform.html5.org
+- JSDOM - https://github.com/tmpvar/jsdom
 
