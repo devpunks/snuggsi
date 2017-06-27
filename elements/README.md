@@ -42,6 +42,7 @@ Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
 
   - Introduction - http://web-platform-tests.org/introduction.html
   - Writing Tests - http://web-platform-tests.org/writing-tests
+  - Test Authoring - https://www.w3.org/html/wg/wiki/Testing/Authoring
   - Web Platform - https://platform.html5.org
   - JSDOM - https://github.com/tmpvar/jsdom
   - [Testem: Continuous Integration Mode](https://github.com/testem/testem#continuous-integration-mode)
