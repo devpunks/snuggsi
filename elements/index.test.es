@@ -25,7 +25,7 @@ function load (id)
 
 function fragment (identifier) {
   const
-    {window} = new JSDOM
+    {window, document} = new JSDOM
       (read (`${identifier}.html`), { runScripts: 'dangerously' })
   , script = window.document.createElement ('script')
 
@@ -33,10 +33,14 @@ function fragment (identifier) {
   window.document.body.appendChild (script)
 
   return window.document
+  return (window, document)
 }
 
-function browse (identifier) {
-  console.log (read (`${identifier}.html`))
+function browse (interface) {
+
+  console.log (`Running test(s) for ${interface} Interface: `)
+
+  return new JSDOM (read (`${interface}.html`), {virtualConsole: out})
 }
 
 function find (path)
@@ -46,10 +50,5 @@ console.log (fragment ('index').documentElement.outerHTML)
 console.log (load ('index'))
 
 module.exports.test   = test
-module.exports.browse = function (interface) {
-
-  console.log (`Running test(s) for ${interface} Interface: `)
-
-  return new JSDOM (read (`${interface}.html`), {virtualConsole: out})
-}
+module.exports.browse = browse
 
