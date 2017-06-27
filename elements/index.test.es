@@ -7,12 +7,6 @@ const
 , {test}   = require ('tape')
 , encoding = 'utf8'
 
-module.exports.test   = test
-module.exports.browse = function (interface) {
-  console.log ('Running test: ', find (interface))
-  return new JSDOM (read (interface), {virtualConsole: out})
-}
-
 out.on ('log', () => console.log (arguments))
 out.on ('error', () => console.error (arguments))
 out.on ('warn', () => console.warn (arguments))
@@ -21,15 +15,18 @@ out.on ('jsdomError', () => console.error (arguments))
 out.sendTo (console)
 
 function read (path) {
-  console.log ('Reading', find ('element'))
+  console.log ('Reading', find (path))
 
   return open (find (path), encoding)
 }
 
+function load (id)
+  { return read (`${id}.es`) }
+
 function fragment (identifier) {
   const
     {window} = new JSDOM
-      (read (identifier), { runScripts: 'dangerously' })
+      (read (`${identifier}.html`), { runScripts: 'dangerously' })
   , script = window.document.createElement ('script')
 
   script.textContent = 'console.log("\\n\\nSNUGGS!!!!!!!\\n\\n")'
@@ -39,11 +36,20 @@ function fragment (identifier) {
 }
 
 function browse (identifier) {
-  console.log (read (identifier))
+  console.log (read (`${identifier}.html`))
 }
 
 function find (path)
-  { return `${__dirname}/${path}.html` }
+  { return `${__dirname}/${path}` }
 
 console.log (fragment ('index').documentElement.outerHTML)
+console.log (load ('index'))
+
+module.exports.test   = test
+module.exports.browse = function (interface) {
+
+  console.log (`Running test(s) for ${interface} Interface: `)
+
+  return new JSDOM (read (`${interface}.html`), {virtualConsole: out})
+}
 
