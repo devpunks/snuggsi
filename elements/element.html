@@ -22,8 +22,9 @@
 
 <script>
 
+  console.log ('\n\nthis is inside jsdom \n\n')
 // failure
-
+/*
 test (() => {
 
   Element `foo-bar`
@@ -33,9 +34,11 @@ test (() => {
     ({'name': 'TypeError'}, function () { new SomeCustomElement; })
 
 }, 'HTMLElement constructor must throw TypeError when it has not been defined by customElements.define')
+*/
 
 // success
 
+/*
 test (() => {
 
   Element `foo-bar` (class CustomElementWithInferredTagName extends HTMLElement {})
@@ -60,6 +63,6 @@ test (() => {
   Element `foo-bar` (class CustomElementWithInferredTagName extends HTMLElement {})
 
 }, 'HTMLElement constructor must allow subclassing an user-defined subclass of HTMLElement')
-
+*/
 </script>
 
