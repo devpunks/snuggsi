@@ -19,7 +19,7 @@ module.exports.browse = function (interface) {
   const path = `${__dirname}/${interface}.html`
 
   console.log ('Running test: ', path)
-  return new JSDOM (read (path, encoding))
+  return new JSDOM (read (path, encoding), {virtualConsole: out})
 }
 
 out.sendTo (console)
