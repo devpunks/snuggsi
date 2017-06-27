@@ -42,10 +42,9 @@ Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
 
   - Introduction - http://web-platform-tests.org/introduction.html
   - [TAP Testing Protocol](https://testanything.org)
-  - Writing Tests - http://web-platform-tests.org/writing-tests
-  - Test Authoring - https://www.w3.org/html/wg/wiki/Testing/Authoring
   - Web Platform - https://platform.html5.org
   - JSDOM - https://github.com/tmpvar/jsdom
+  - JSDOM (context per test) - https://github.com/tmpvar/jsdom/wiki/Don%27t-stuff-jsdom-globals-onto-the-Node-global
   - [w3c/web-platform-tests/custom-elements](https://github.com/w3c/web-platform-tests/tree/master/custom-elements)
   - [Testem: Tape Example](https://github.com/testem/testem/tree/master/examples/tape_example)
   - [Testem: Continuous Integration Mode](https://github.com/testem/testem#continuous-integration-mode)
@@ -56,13 +55,15 @@ Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
 
   - [HTML Testing by James Graham](http://hoppipolla.co.uk/talks/testing/testing.html)
   - [using-testharness.js by Robin Berjon](http://darobin.github.com/test-harness-tutorial/docs/using-testharness.html)
+  - [web-platform-tests testharness.js documentation](http://web-platform-tests.org/writing-tests/testharness-api.html)
   - [Test The Web Forward Seattle by Kris Krueger](http://www.w3.org/html/wg/wiki/images/b/b6/Testharness.pdf)
 
 ## Process for contributing to W3C (Web Platform Tests)
 
   The process for submission and approval of tests is currently:
 
-  - Write tests
+  - Writing Tests - http://web-platform-tests.org/writing-tests
+  - Test Authoring - https://www.w3.org/html/wg/wiki/Testing/Authoring
   - [Submit the tests to the working group](https://www.w3.org/html/wg/wiki/Testing/Submission)
   - Wait for the tests to be reviewed
 

@@ -1,8 +1,9 @@
 #!/bin/bash
 
 # Run tape
-echo "🦄 Running Tape on $(pwd)"
-node --harmony ./elements/element.test.es
 
-
+# https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
+NODE_PATH=$(pwd) \
+  node --harmony ./elements/element.test.es \
+  | ./node_modules/.bin/tap-nyc
 

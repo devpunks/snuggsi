@@ -1,15 +1,13 @@
 const
-  interface = 'element'
-, {test, browse} = require ('./index.test.es')
+  interface = 'index'
+, {describe, browse} = require ('./index.test.es')
 
 
-test ('new Element', t => {
+describe ('new Element', test => {
+  const document = browse (interface)
 
-  const
-    { window: {document}} = browse (interface)
+  test.ok (document.querySelector ('foo-bar'))
 
-  t.equal ('Element: Constructor', document.title)
-
-  t.end ()
+  test.end ()
 })
 
