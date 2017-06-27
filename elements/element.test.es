@@ -1,9 +1,13 @@
-const {test} = require ('tape')
-
 const
-  {JSDOM} = require ('jsdom')
-  , dom = new JSDOM (`<!DOCTYPE html><p>Hello world`);
+  {test} = require ('tape')
+, read = require ('fs').readFileSync
 
+, {JSDOM} = require ('jsdom')
+
+//, html = read (__dir)
+, dom = new JSDOM (`<!DOCTYPE html><p>Hello world`)
+
+console.log (read(`${__dirname}/element.html`, 'utf8'))
 console.log
   ('\n\n', dom.window.document.documentElement.outerHTML, '\n\n')
 
