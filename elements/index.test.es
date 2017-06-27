@@ -36,7 +36,6 @@ function browse (interface) {
   , script   = document.createElement ('script')
 
   script.textContent = snuggsi
-  console.log (script.textContent)
   document.body.appendChild (script)
 
   return document
@@ -46,7 +45,7 @@ function find (path)
   { return `${path}` }
 
 function bundle (lib)
-  { return 'console.log("\\n\\nSNUGGS!!!!!!!\\n\\n")\n\n' }
+  { return `${load (lib)}` }
 
 module.exports.browse   = browse
 module.exports.describe = describe
