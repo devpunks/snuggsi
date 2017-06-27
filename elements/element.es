@@ -7,7 +7,7 @@ const Element = tag =>
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
     Element => // https://en.wikipedia.org/wiki/Higher-order_function
-      customElements.define
+      window.customElements.define
         ( ...tag, Component (Element))
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
