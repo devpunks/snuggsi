@@ -8,7 +8,7 @@ const
 , open     = require ('fs').readFileSync
 , snuggsi  = bundle (`${root}/dist/snuggsi`)
 , out      = new VirtualConsole
-, {test}   = require ('tape')
+, {test: describe} = require ('tape')
 
 out.on ('log', () => console.log (arguments))
 out.on ('error', () => console.error (arguments))
@@ -48,6 +48,6 @@ function find (path)
 function bundle (lib)
   { return 'console.log("\\n\\nSNUGGS!!!!!!!\\n\\n")\n\n' }
 
-module.exports.test   = test
-module.exports.browse = browse
+module.exports.browse   = browse
+module.exports.describe = describe
 
