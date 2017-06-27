@@ -31,19 +31,22 @@ function browse (interface) {
   const dom =
     new JSDOM (read (`${root}elements/${interface}.html`), {virtualConsole: out})
 
-  , script = dom.window.document.createElement ('script')
+  , window   = dom.window
+  , document = dom.window.document
+  , script   = document.createElement ('script')
 
   script.textContent = snuggsi
-  dom.window.document.body.appendChild (script)
+  console.log (script.textContent)
+  document.body.appendChild (script)
 
-  return dom
+  return document
 }
 
 function find (path)
   { return `${path}` }
 
 function bundle (lib)
-  { return load (lib) + 'void console.log("\\n\\nSNUGGS!!!!!!!\\n\\n")\n\n' }
+  { return 'console.log("\\n\\nSNUGGS!!!!!!!\\n\\n")\n\n' }
 
 module.exports.test   = test
 module.exports.browse = browse
