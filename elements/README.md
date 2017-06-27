@@ -48,3 +48,10 @@ Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
   - [Testem: Continuous Integration Mode](https://github.com/testem/testem#continuous-integration-mode)
   - [TreeHouse: Javascript sandboxes to help Web developers help themselves](https://pdfs.semanticscholar.org/47f0/6bb6607a975500a30e9e52d7c9fbc0034e27.pdf)
 
+
+## Tutorials
+
+  - [HTML Testing by James Graham](http://hoppipolla.co.uk/talks/testing/testing.html)
+  - [using-testharness.js by Robin Berjon](http://darobin.github.com/test-harness-tutorial/docs/using-testharness.html)
+  - [Test The Web Forward Seattle by Kris Krueger](http://www.w3.org/html/wg/wiki/images/b/b6/Testharness.pdf)
+
