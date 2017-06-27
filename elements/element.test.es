@@ -16,8 +16,8 @@ let document, window
 
 test ('new Element', t => {
 
-  t.equal (true, true),
-  t.end ()
+  t.equal (true, true)
 
+  t.end ()
 })
 
