@@ -8,9 +8,13 @@ const
 
 out.sendTo (console)
 
-module.exports = function (interface) {
+module.exports.test = test
+
+module.exports.browse = function (interface) {
+
   const path = `${__dirname}/${interface}.html`
 
-  console.log ('woot in path', path)
+  console.log ('Running test: ', path)
   return new JSDOM (read (path, 'utf8'))
 }
+
