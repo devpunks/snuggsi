@@ -1,5 +1,5 @@
 const
-  interface = 'element'
+  interface = 'index'
 , {test, browse} = require ('./index.test.es')
 
 

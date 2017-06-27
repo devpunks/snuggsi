@@ -1,11 +1,14 @@
 // https://github.com/tmpvar/jsdom/wiki/Don%27t-stuff-jsdom-globals-onto-the-Node-global
 
 const
-  {JSDOM, VirtualConsole} = require ('jsdom')
+  encoding = 'utf8'
+, root = `${process.env.NODE_PATH}/`
+
+, {JSDOM, VirtualConsole} = require ('jsdom')
 , open     = require ('fs').readFileSync
+, snuggsi  = bundle (`${root}/dist/snuggsi`)
 , out      = new VirtualConsole
 , {test}   = require ('tape')
-, encoding = 'utf8'
 
 out.on ('log', () => console.log (arguments))
 out.on ('error', () => console.error (arguments))
@@ -21,28 +24,26 @@ function read (path) {
 function load (id)
   { return read (`${id}.es`) }
 
-function fragment (identifier) {
-  const
-    {window, document} = new JSDOM
-      (read (`${identifier}.html`), { runScripts: 'dangerously' })
-  , script = window.document.createElement ('script')
-
-  script.textContent = 'console.log("\\n\\nSNUGGS!!!!!!!\\n\\n")'
-  window.document.body.appendChild (script)
-
-  return window.document
-  return (window, document)
-}
-
 function browse (interface) {
 
   console.log (`\n\nRunning test(s) for \`${interface}\` Interface:`)
 
-  return new JSDOM (read (`${interface}.html`), {virtualConsole: out})
+  const dom =
+    new JSDOM (read (`${root}elements/${interface}.html`), {virtualConsole: out})
+
+  , script = dom.window.document.createElement ('script')
+
+  script.textContent = snuggsi
+  dom.window.document.body.appendChild (script)
+
+  return dom
 }
 
 function find (path)
-  { return `${__dirname}/${path}` }
+  { return `${path}` }
+
+function bundle (lib)
+  { return load (lib) + 'void console.log("\\n\\nSNUGGS!!!!!!!\\n\\n")\n\n' }
 
 module.exports.test   = test
 module.exports.browse = browse
