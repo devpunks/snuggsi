@@ -4,10 +4,9 @@ const
 
 
 describe ('new Element', test => {
-
   const document = browse (interface)
 
-console.log (document.documentElement.outerHTML)
+  console.log (document.documentElement.outerHTML)
   test.ok (document.querySelector ('foo-bar'))
 
   test.end ()
