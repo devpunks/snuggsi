@@ -12,6 +12,7 @@ const
 out.on ('log', onlog)
 out.on ('error', onerror)
 out.on ('warn', onwarn)
+out.on ('jsdomError', () => console.error (arguments))
 
 module.exports.test   = test
 module.exports.browse = function (interface) {
