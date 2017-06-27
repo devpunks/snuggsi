@@ -57,7 +57,9 @@ Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
 
 ## Process for contributing
 
-The process for submission and approval of tests is currently:
-Write tests
-Submit the tests to the working group
-Wait for the tests to be reviewed
+  The process for submission and approval of tests is currently:
+
+  - Write tests
+  - Submit the tests to the working group
+  - Wait for the tests to be reviewed
+
