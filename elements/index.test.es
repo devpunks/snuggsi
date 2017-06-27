@@ -7,16 +7,16 @@ const
 , {test}   = require ('tape')
 , encoding = 'utf8'
 
-out.on ('log', () => console.log (arguments))
-out.on ('error', () => console.error (arguments))
-out.on ('warn', () => console.warn (arguments))
-out.on ('jsdomError', () => console.error (arguments))
-
 module.exports.test   = test
 module.exports.browse = function (interface) {
   console.log ('Running test: ', find (interface))
   return new JSDOM (read (interface), {virtualConsole: out})
 }
+
+out.on ('log', () => console.log (arguments))
+out.on ('error', () => console.error (arguments))
+out.on ('warn', () => console.warn (arguments))
+out.on ('jsdomError', () => console.error (arguments))
 
 out.sendTo (console)
 
