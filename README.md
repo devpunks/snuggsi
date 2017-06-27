@@ -240,7 +240,7 @@ document
 </script>
 ```
 
-### Default `<template>` _(HTML Custom Element Import)_
+### `<template>` Defaults _(HTML Custom Element Import)_
 
 #### foo-bar.html
 
