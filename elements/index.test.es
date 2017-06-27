@@ -27,7 +27,15 @@ function read (path) {
 }
 
 function fragment (identifier) {
-  console.log (read (identifier))
+  const
+    {window} = new JSDOM
+      (read (identifier), { runScripts: 'dangerously' })
+  , script = window.document.createElement ('script')
+
+  script.textContent = 'console.log("\\n\\nSNUGGS!!!!!!!\\n\\n")'
+  window.document.body.appendChild (script)
+
+  return window.document
 }
 
 function browse (identifier) {
@@ -36,4 +44,6 @@ function browse (identifier) {
 
 function find (path)
   { return `${__dirname}/${path}.html` }
+
+console.log (fragment ('index').documentElement.outerHTML)
 
