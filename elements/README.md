@@ -55,6 +55,7 @@ Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
 
   - [HTML Testing by James Graham](http://hoppipolla.co.uk/talks/testing/testing.html)
   - [using-testharness.js by Robin Berjon](http://darobin.github.com/test-harness-tutorial/docs/using-testharness.html)
+  - [web-platform-tests testharness.js documentation](http://web-platform-tests.org/writing-tests/testharness-api.html)
   - [Test The Web Forward Seattle by Kris Krueger](http://www.w3.org/html/wg/wiki/images/b/b6/Testharness.pdf)
 
 ## Process for contributing to W3C (Web Platform Tests)
