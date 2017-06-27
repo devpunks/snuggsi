@@ -1,17 +1,12 @@
 const
-  {test} = require ('tape')
-, browse = require ('./index.test.es')
+  interface = 'element'
+, {test, browse} = require ('./index.test.es')
 
-
-, interfaces = ['element']
-
-//console.log
-//  ('\n\n', dom.window.document.title, '\n\n')
 
 test ('new Element', t => {
 
   const
-    { window: {document}} = browse ('element')
+    { window: {document}} = browse (interface)
 
   t.equal ('Element: Constructor', document.title)
 
