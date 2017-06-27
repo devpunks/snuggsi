@@ -1,9 +1,11 @@
 const
   read = require ('fs').readFileSync
 
-, {JSDOM, virtualConsole: cs } = require ('jsdom')
+, jsdom  = require ('jsdom')
+, out = new jsdom.VirtualConsole ()
+, {JSDOM} = jsdom
 
-console.log (cs)
+out.sendTo (console)
 
 module.exports = function (interface) {
   const path = `${__dirname}/${interface}.html`
