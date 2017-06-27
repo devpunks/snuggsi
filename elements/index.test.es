@@ -1,10 +1,17 @@
 const
-  encoding = 'utf8'
+  onlog    = () => console.log (arguments)
+, onerror  = () => console.error (arguments)
+, onwarn   = () => console.warn (arguments)
+
+, encoding = 'utf8'
 , {test}   = require ('tape')
-, jsdom    = require ('jsdom')
+, {JSDOM, VirtualConsole} = require ('jsdom')
 , read     = require ('fs').readFileSync
-, out      = new jsdom.VirtualConsole ()
-, {JSDOM}  = jsdom
+, out      = new VirtualConsole
+
+out.on ('log', onlog)
+out.on ('error', onerror)
+out.on ('warn', onwarn)
 
 module.exports.test   = test
 module.exports.browse = function (interface) {
