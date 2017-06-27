@@ -44,9 +44,6 @@ function browse (interface) {
 function find (path)
   { return `${__dirname}/${path}` }
 
-console.log (fragment ('index').documentElement.outerHTML)
-console.log (load ('index'))
-
 module.exports.test   = test
 module.exports.browse = browse
 
