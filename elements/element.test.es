@@ -1,18 +1,11 @@
-const {test, beforeEach} = require ('tape')
+const {test} = require ('tape')
 
+const
+  jsdom = require ('jsdom')
+  , dom = new JSDOM (`<!DOCTYPE html><p>Hello world</p>`);
 
-const jsdom = require ('jsdom')
-let document, window
-
-//const Element = require ('./index.es').Element
-//const subject = new Element (`foo`)
-
-//beforeEach ((done) => {
-//  console.log ('This is before')
-//  document = jsdom.jsdom ()
-//  window = document.defaultView
-//  done ()
-//})
+console.log
+  (dom.window.document.querySelector ('p').textContent)
 
 test ('new Element', t => {
 
