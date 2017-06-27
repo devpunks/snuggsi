@@ -26,8 +26,6 @@ function load (id)
 
 function browse (interface) {
 
-  console.log (`\n\nRunning test(s) for \`${interface}\` Interface:`)
-
   const dom =
     new JSDOM (read (`${root}elements/${interface}.html`), { runScripts: 'dangerously', virtualConsole: out})
 
