@@ -269,7 +269,7 @@ Element `foo-bar`
   onfoo (event) { alert `Registered on foo-bar` }
 
   get bat ()
-    { return ['football', 'soccer', 'baseball']}
+    { return ['football', 'soccer', 'baseball'] }
 })
 
 </script>
