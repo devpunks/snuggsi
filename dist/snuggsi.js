@@ -389,8 +389,9 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
 
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
-var Element = function (tag) { return function (Element) { return customElements.define.apply
-        ( customElements, tag.concat( [Component (Element)] )); }; }
+var Element = function (tag) { return function (Element) { return (ref = window.customElements).define.apply
+        ( ref, tag.concat( [Component (Element)] ))
+        var ref;; }; }
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 Element.prototype = ElementPrototype
