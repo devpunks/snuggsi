@@ -29,7 +29,7 @@ function browse (interface) {
   console.log (`\n\nRunning test(s) for \`${interface}\` Interface:`)
 
   const dom =
-    new JSDOM (read (`${root}elements/${interface}.html`), {virtualConsole: out})
+    new JSDOM (read (`${root}elements/${interface}.html`), { runScripts: 'dangerously', virtualConsole: out})
 
   , window   = dom.window
   , document = dom.window.document
