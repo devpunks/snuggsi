@@ -2,5 +2,7 @@
 
 # Run tape
 echo "🦄 Running Tape on $(pwd)"
-./node_modules/.bin/tape
+node --harmony ./elements/element.test.es
+
+
 
