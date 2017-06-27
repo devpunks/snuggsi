@@ -1,11 +1,11 @@
 const {test} = require ('tape')
 
 const
-  jsdom = require ('jsdom')
-  , dom = new JSDOM (`<!DOCTYPE html><p>Hello world</p>`);
+  {JSDOM} = require ('jsdom')
+  , dom = new JSDOM (`<!DOCTYPE html><p>Hello world`);
 
 console.log
-  (dom.window.document.querySelector ('p').textContent)
+  ('\n\n', dom.window.document.documentElement.outerHTML, '\n\n')
 
 test ('new Element', t => {
 
