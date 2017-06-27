@@ -4,30 +4,19 @@ const {test, beforeEach} = require ('tape')
 const jsdom = require (`jsdom`)
 let document, window
 
-const Element = require (`./index.es`).Element
+//const Element = require (`./index.es`).Element
+//const subject = new Element (`foo`)
 
-const {test, beforeEach} = require (`tap`)
+//beforeEach ((done) => {
+//  console.log (`This is before`)
+//  document = jsdom.jsdom ()
+//  window = document.defaultView
+//  done ()
+//})
 
-const subject = new Element (`foo`)
+test ('new Element', function (t) {
+  t.equal (true, true)
 
-beforeEach ((done) => {
-  console.log (`This is before`)
-  document = jsdom.jsdom ()
-  window = document.defaultView
-  done ()
-})
-
-test (`new Element`, t => {
-  console.log (`Mainin:`, Element.Main)
-  document.body.appendChild ( document.createElement (`x-snuggs`))
-  console.log (document.documentElement.outerHTML)
-  console.log (`registerElement`, document.registerElement)
-  console.log (`customElements`, window.customElements)
-
-  t.doesNotThrow (_ => { new Element (`foo`) })
-
-  t.throws (_ => { new Element })
-
-  t.done ()
+  t.end ()
 })
 
