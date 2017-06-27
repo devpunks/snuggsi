@@ -5,9 +5,10 @@ const
 , root = `${process.env.NODE_PATH}/`
 
 , {JSDOM, VirtualConsole} = require ('jsdom')
-, open     = require ('fs').readFileSync
-, snuggsi  = bundle (`${root}/dist/snuggsi`)
-, out      = new VirtualConsole
+, open    = require ('fs').readFileSync
+, snuggsi = bundle (`${root}/dist/snuggsi`)
+, source  = bundle (`${root}/elements/element.html`)
+, out     = new VirtualConsole
 , {test: describe} = require ('tape')
 
 //out.on ('log', () => console.log (arguments))
@@ -32,9 +33,13 @@ function browse (interface) {
   , window   = dom.window
   , document = dom.window.document
   , script   = document.createElement ('script')
+  , example  = document.createElement ('script')
 
-  script.textContent = snuggsi
+  script.textContent  = snuggsi
+  example.textContent = source
+
   document.body.appendChild (script)
+  document.body.appendChild (example)
 
   return document
 }
