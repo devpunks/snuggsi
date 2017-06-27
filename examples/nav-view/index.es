@@ -26,12 +26,12 @@ Element `nav-view`
   onview (event, anchor = event.target) {
     event.prevent ()
 
-    history.pushState ({}, anchor.title, anchor.href)
-
     this.context.views.map (this.hide)
 
     this.identify (event.target)
       .hidden = false
+
+    document.title = anchor.title
   }
 
   hide (view)
