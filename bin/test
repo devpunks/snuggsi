@@ -1,6 +1,6 @@
 #!/bin/bash
 
 # Run tape
-echo "🦄 Running Tape"
+echo "🦄 Running Tape on $(pwd)"
 ./node_modules/.bin/tape
 
