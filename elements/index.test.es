@@ -36,7 +36,7 @@ function browse (interface) {
   , window   = dom.window
   , document = dom.window.document
   , script   = document.createElement ('script')
-  , example  = document.createElement ('script')
+  , example  = script.cloneNode ()
 
   script.textContent  = snuggsi
   example.textContent = source
