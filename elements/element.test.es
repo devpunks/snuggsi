@@ -14,10 +14,10 @@ let document, window
 //  done ()
 //})
 
-test ('new Element', t =>
+test ('new Element', t => {
 
-  t.equal (true, true) &&
+  t.equal (true, true),
   t.end ()
 
-)
+})
 
