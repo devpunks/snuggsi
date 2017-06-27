@@ -1,5 +1,6 @@
 const
-  read = require ('fs').readFileSync
+  {test} = require ('tape')
+, read = require ('fs').readFileSync
 
 , jsdom  = require ('jsdom')
 , out = new jsdom.VirtualConsole ()
