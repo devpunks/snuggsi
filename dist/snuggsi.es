@@ -400,8 +400,7 @@ const Component = HTMLElement => // why buble
           (HTMLElement.prototype)
 
     , bind = key =>
-        !!! ['constructor', 'initialize'].includes (key) // possibly can remove
-        && 'function' === typeof descriptions [key].value
+        'function' === typeof descriptions [key].value
         && (this [key] = this [key].bind (this))
 
     Object
