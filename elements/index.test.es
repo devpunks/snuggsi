@@ -22,7 +22,6 @@ function browse (interface) {
   , settings = { runScripts: 'dangerously', virtualConsole: out}
   , dom = new JSDOM (file, settings)
 
-  , window   = dom.window
   , document = dom.window.document
   , script   = document.createElement ('script')
   , example  = script.cloneNode ()
