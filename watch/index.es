@@ -3,6 +3,7 @@ module.exports = require ('./browser.es')
 const
   path = './'
 
+, test    = 'bin/test'
 , bundle  = 'npm run bundle'
 , copy    = './publish'
 , reload  = './node_modules/.bin/browser-sync reload --port 3001'
