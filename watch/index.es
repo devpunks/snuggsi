@@ -13,7 +13,7 @@ const
 , list    = 'ls -al ./dist/*.es'
 
 , exec = require ('child_process').exec
-, command = [bundle, copy, echo, reload, list]
+, command = [bundle, copy, clear, echo, reload, test, list]
      .join ` && `
 
 require ('fs').watch (path, { recursive: true },
