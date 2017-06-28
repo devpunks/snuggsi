@@ -16,10 +16,8 @@ class extends Element {
       assign = state => {
         console.log ('assigning & spawning')
 
-        const
-          spawn = Object.assign ( {}, state, {users: this.context.users} )
-
-        return spawn
+        return Object.assign
+          ({}, state, {users: this.context.users})
       }
 
     , userClickReducer =
