@@ -43,7 +43,7 @@ class extends Element {
   // avoids blocking the first paint.
   onconnect () {
 
-    this.store
+    (this.store = this.hydrate ())
 
       .state$
 
