@@ -23,6 +23,10 @@ Element `user-list`
 
 (class extends Reactive ( HTMLElement ) {
 
+  initialize () {
+    this.context.users = [{'name': 'rob'}, {'name': 'dan'}]
+  }
+
   onclick ()
     { this.actions.onclick () }
 
