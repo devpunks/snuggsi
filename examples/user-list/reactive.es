@@ -17,9 +17,7 @@ class extends Element {
         console.log ('assigning & spawning')
 
         const
-          users = [{'name': 'rob'}, {'name': 'dan'}]
-
-        , spawn = Object.assign ( {}, state, {users} )
+          spawn = Object.assign ( {}, state, {users: this.context.users} )
 
         return spawn
       }
@@ -43,7 +41,7 @@ class extends Element {
   // avoids blocking the first paint.
   onconnect () {
 
-    (this.store = this.hydrate ())
+    void (this.store = this.hydrate ())
 
       .state$
 
