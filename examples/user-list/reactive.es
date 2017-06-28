@@ -17,11 +17,9 @@ class extends Element {
         console.log ('assigning & spawning')
 
         const
-          users =
-            [{'name': 'rob'}, {'name': 'dan'}]
+          users = [{'name': 'rob'}, {'name': 'dan'}]
 
-        , spawn =
-            Object.assign ( {}, state, {users} )
+        , spawn = Object.assign ( {}, state, {users} )
 
         return spawn
       }
