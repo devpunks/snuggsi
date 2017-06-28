@@ -295,8 +295,7 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
         Object.getOwnPropertyDescriptors
           (HTMLElement.prototype)
 
-    , bind = function (key) { return !!! ['constructor', 'initialize'].includes (key) // possibly can remove
-        && 'function' === typeof descriptions [key].value
+    , bind = function (key) { return 'function' === typeof descriptions [key].value
         && (this$1 [key] = this$1 [key].bind (this$1)); }
 
     Object
