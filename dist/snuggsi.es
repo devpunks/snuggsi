@@ -411,8 +411,8 @@ const Component = HTMLElement => // why buble
       .getOwnPropertyNames (HTMLElement.prototype)
       .map (this.introspect, this)
 
-    this.context     = this.context || {}
-    this.tokens      = new TokenList (this)
+    this.context = this.context || {}
+    this.tokens  = new TokenList (this)
     this.initialize && this.initialize ()
   }
 
