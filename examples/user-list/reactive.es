@@ -10,27 +10,14 @@ const Reactive = Element =>
 
 class extends Element {
 
-  constructor () { super ()
-
-    this.context = { users: [] }
-    this.store   = this.hydrate ()
-
-  }
-
   hydrate () {
 
     const
       assign = state => {
         console.log ('assigning & spawning')
 
-        const
-          users =
-            [{'name': 'rob'}, {'name': 'dan'}]
-
-        , spawn =
-            Object.assign ( {}, state, {users} )
-
-        return spawn
+        return Object.assign
+          ({}, state, {users: this.context.users})
       }
 
     , userClickReducer =
@@ -52,7 +39,7 @@ class extends Element {
   // avoids blocking the first paint.
   onconnect () {
 
-    this.store
+    void (this.store = this.hydrate ())
 
       .state$
 
