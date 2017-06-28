@@ -10,13 +10,6 @@ const Reactive = Element =>
 
 class extends Element {
 
-  constructor () { super ()
-
-    this.context = { users: [] }
-    this.store   = this.hydrate ()
-
-  }
-
   hydrate () {
 
     const
