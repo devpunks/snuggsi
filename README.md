@@ -64,7 +64,7 @@ Simply place the following script within your webpage:
 
 Et Voila _(that's it!)_ ツ
 
-See [ECMAScript Module Imorts](https://github.com/devpunks/snuggsi/wiki/Module-Imports)
+See [ECMAScript Module Imports](https://github.com/devpunks/snuggsi/wiki/Module-Imports)
 for `<script type=module>` support!
 
 
