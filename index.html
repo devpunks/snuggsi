@@ -306,20 +306,36 @@ header-group a span {
   &lt;script nomodule src=//unpkg.com/snuggsi&gt;&lt;/script&gt;
   </pre></code>
 
-  <p>Et Voila <em>(that's it!)</em> ツ
+  <p class=center>Et Voila <em>(that's it!)</em> ツ
 
-  <p>See
+  <p class=center>See
     <a target=github href=https://github.com/devpunks/snuggsi/wiki/Module-Imports>ECMAScript Module Imorts</a>
     for<code> &lt;script type=module&gt;</code> support!
 
 <style>
 
-section#installation pre {
-  font-size: 90%;
-  overflow: scroll;
-  margin: 0 1em 1.612em;
+.center
+  { text-align: center }
+
+section[view] {
+  font-size: 60%;
+}
+
+section#installation pre,
+section#installation code {
   background: rgba(0,0,0,0.6);
   border-radius: 0.7em;
+}
+
+section#installation code {
+  margin: 0 0.5em;
+  padding: 0 0.5em;
+}
+
+section#installation pre {
+  overflow: scroll;
+  text-align: center;
+  margin: 0 6em 1.612em;
 }
 
 section#installation pre em.comment {
