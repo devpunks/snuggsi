@@ -58,7 +58,7 @@ const Component = HTMLElement => // why buble
 
       .concat ([this])
 
-      .map (this.reflect, this)
+      .map (this.register, this)
 
 
     super.onidle && super.onidle ()

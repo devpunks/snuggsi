@@ -60,7 +60,7 @@ const GlobalEventHandlers = Element =>
     && this.on (name, this [handler])
   }
 
-  reflect (node) {
+  register (node) {
     const
       register = (event, handler) =>
         (handler = /{\s*(\w+)\s*}/.exec (node [event]))

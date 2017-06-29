@@ -370,7 +370,7 @@ const GlobalEventHandlers = Element =>
     && this.on (name, this [handler])
   }
 
-  reflect (node) {
+  register (node) {
     const
       register = (event, handler) =>
         (handler = /{\s*(\w+)\s*}/.exec (node [event]))
@@ -446,7 +446,7 @@ const Component = HTMLElement => // why buble
 
       .concat ([this])
 
-      .map (this.reflect, this)
+      .map (this.register, this)
 
 
     super.onidle && super.onidle ()
