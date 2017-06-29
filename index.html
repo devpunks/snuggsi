@@ -433,7 +433,14 @@ section#installation pre em.comment
 
     <dt>7. Template Iteration
     <dd>
-      Template iteration.
+    Often we need to iterate over collections within a custom element. Traditionally this is done 
+    <a
+      target=external
+      rel=external
+      href=https://tylermcginnis.com/imperative-vs-declarative-programming/>imperatively vs. declaratively</a>
+    by using looping mechanisms that feel more like leaky abstractions than common HTML.  <strong>snuggsiツ</strong>
+    will <strong><em>"Tree Walk"<sup>&trade;</sup></em></strong> the children of your custom element looking for 
+    <code>&lt;template name=&hellip;&gt;</code> and <em>"bind"</em> the collection value of a property with the same name on your class.
 
     <dt>8. Reflection
     <dd>
