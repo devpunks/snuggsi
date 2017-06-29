@@ -101,6 +101,9 @@ body > footer {
   background: rgba(0,0,0,0.6);
 }
 
+body > footer em
+  { font-size: 0.8em }
+
 header-group {
   height: 18vh;
   display: flex;
