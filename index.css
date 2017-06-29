@@ -7,7 +7,7 @@ body {
 
 #badges {
   padding: 0;
-  line-height: 2em !important;
+  margin-top: -1em;
   text-align: center
 }
 
@@ -33,9 +33,11 @@ body > nav header {
   text-align: center;
 }
 
+body > nav, body > aside
+  { top: 20vh }
+
 body > nav {
   left: 0;
-  top: 18vh;
   margin: 0;
   width: 20vw;
   height: auto;
@@ -82,7 +84,6 @@ body > main h1 { text-align: center }
 
 body > aside {
   right: 0;
-  top: 18vh;
   margin: 0;
   width: 20vw;
   height: auto;
@@ -106,7 +107,7 @@ body > footer em
   { font-size: 0.8em }
 
 header-group {
-  height: 14vh;
+  height: 16vh;
   display: flex;
   border-bottom: none;
   line-height: 1.612em;
