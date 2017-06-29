@@ -425,7 +425,11 @@ section#installation pre em.comment
 
     <dt>6. Token Binding
     <dd>
-      Token binding
+      Occurs by <strong><em>"Tree Walking"<sup>&trade;</sup></em></strong> 
+      child content of your custom element each time a <code>{token}</code> is discovered.
+      Tokens are a declarative placeholder for <strong><em>"Computed Property"</em></strong> values declared in your class definition.
+      <code>{foo}</code> is replaced with <code>"some value"</code> If a <code>get foo () { return 'some value' }</code>
+      is a property of your class definition.
 
     <dt>7. Template Iteration
     <dd>
