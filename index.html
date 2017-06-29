@@ -396,10 +396,19 @@ section#installation pre em.comment
 
     <dt>7. Reflection
     <dd>
-      Token binding
+      Reflection
 
     <dt>8. Post-Render Idle
-    <dd> 
+    <dd>
+      Idling occurs after the <strong>Rendering</strong> routine consisting of
+      <strong>Token Binding</strong> &amp; <strong>Reflection</strong>
+      has completed. This period coincides with the
+      <a
+        target=mdn
+        rel=external
+        href=https://developer.mozilla.org/en-US/docs/Web/API/Window/requestIdleCallback>
+          idle time between animation frames
+      </a>.
 
     <dt>9. Event Handler (Repeat steps #5 &amp; #6)
     <dd> 
