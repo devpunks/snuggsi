@@ -144,3 +144,33 @@ pre {
 section#installation pre em.comment
   { color: rgba(255,255,255,0.4) }
 
+
+
+
+#lifecycle
+  { margin-bottom: 10em; height: auto }
+
+#lifecycle dl
+  { margin: 0 1em }
+
+#lifecycle dt {
+  text-align: left;
+  font-size: 1.612em;
+  margin: 0 1.612em 0.612em;
+}
+#lifecycle dt:first-letter {
+  font-size: 1.612em;
+  color: rgba(255,255,255,0.4);
+}
+
+#lifecycle dt em
+  { font-size: 80% }
+
+#lifecycle dd {
+  font-size: 1em;
+  text-align: left;
+  letter-spacing: 0;
+  line-height: 1.612em;
+  margin: 0 1em 2.612em 3.6em;
+}
+
