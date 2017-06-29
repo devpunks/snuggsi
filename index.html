@@ -378,7 +378,7 @@ section#installation pre em.comment
 
     <dt>3. Importing
     <dd>
-      The import step is critical for custom elements which contain a definition within an external import.
+      The <code>&lt;link rel=import&gt;</code> step is critical for custom elements which contain a definition within an external file.
       <em>(See <a
         target=webcomponents
         rel=external
@@ -401,7 +401,7 @@ section#installation pre em.comment
       attribute within your custom element. Your <strong><em>"Named Slot Elements"</em></strong>
       will replace the default import slots If the <em>slot</em> attribute coincides with
       a <code><a target=mdn rel=external href=https://developer.mozilla.org/en-US/docs/Web/HTML/Element/slot>&lt;slot name=slotname&gt;</a></code>
-      defined within the custom element import. In other words &hellip;
+      defined within the imported custom element. In other words &hellip;
       An element with a slot attribute is assigned to the slot created by the
       &lt;slot&gt; element whose name attribute's value matches that slot attribute's value.
 
