@@ -1,3 +1,118 @@
-body {
-  background: red !important;
+:root {
+  --margin: 0 0;
 }
+body {
+  padding: 0;
+}
+
+#badges {
+  padding: 0;
+  text-align: center
+}
+
+#badges img {
+  width: auto;
+  height: 0.9rem;
+  margin: 0.6em 0.4em 0
+}
+
+#badges a:link {
+  margin: 0;
+  height: 1rem;
+  text-decoration: none;
+  border-bottom: none
+}
+
+body > nav a:link {
+  border-bottom: none;
+}
+
+body > aside header,
+body > nav header {
+  text-align: center;
+}
+
+body > nav {
+  left: 0;
+  top: 18vh;
+  margin: 0;
+  width: 20vw;
+  height: auto;
+  min-width: 10rem;
+  min-height: 82vh;
+  text-align: left;
+  position: absolute;
+  color: rgba(0,0,0,0.7);
+  background: var(--lightest-color);
+}
+
+nav ul {
+  list-style-position: inside;
+}
+
+body > nav header { margin-top: 1em }
+
+body > nav details { }
+
+body > nav li { display: block }
+
+body > nav li a {
+  margin-left: 1em;
+  display: inline-block;
+}
+
+body > nav details li a { margin-left: 2em }
+
+body > nav summary a { margin-left: 0em }
+
+body > main { margin: 0 20vw }
+
+[view] {
+  height: 82vh;
+  display: block;
+}
+
+[view]:not(:target) {
+  height: 82vh;
+  display: none;
+}
+
+body > main h1 { text-align: center }
+
+body > aside {
+  right: 0;
+  top: 18vh;
+  margin: 0;
+  width: 20vw;
+  height: auto;
+  text-align: left;
+  min-width: 10rem;
+  min-height: 82vh;
+  background: black;
+  position: absolute;
+}
+
+header-group {
+  height: 18vh;
+  display: flex;
+  margin-bottom: 0;
+  border-bottom: none;
+  align-items: center;
+  line-height: 1.612em;
+  justify-content: center;
+}
+
+header-group h1, header-group h2
+  { display: inline-block }
+
+header-group h1 a:link {
+  text-decoration: none;
+  border: none
+}
+
+header-group a span {
+  opacity: 0.60;
+  font-size: 90%
+}
+
+
