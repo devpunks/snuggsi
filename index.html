@@ -360,11 +360,14 @@ section#installation pre em.comment
     <dt>1. Construction
     <dd>
     After <strong>Definition & Declaration</strong> the custom element will go through
-    it's constructor routine.
+    it's <code>constructor ()</code> routine.
 
     <dt>2. Importing
     <dd>
-      After <strong>Definition & Declaration</strong> 
+      The import step is critical for custom elements which contain a definition within an external import.
+      This is not your typical <em>"import javascript library"</em> you have been used to for years.
+      This is relative to the imported HTML document that contains the DOM markup to instanciate each
+      instance of your custom element with.
 
     <dt>3. Slot Replacement
     <dd> 
