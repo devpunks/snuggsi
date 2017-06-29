@@ -348,10 +348,15 @@
       Whether you choose a declarative registration <code>&lt;button onclick=onfoo&gt;</code>,
       an imperative registration <code>onclick (event) {}</code>,
       or an explicit registration <code>this.on ('click', this.onfoo)</code>,
-      the <strong>Rendering</strong> pipeline will initiate.
+      the <strong>Rendering</strong> pipeline will force a
 
-      <em>To prevent <strong>Rendering</strong> simply prevent the default event action
-        by calling <code>event.prevent ()</code> within the custom element handler.</em>
+      <a target=external rel=help href=https://www.phpied.com/rendering-repaint-reflowrelayout-restyle/>
+        <em>"reflow"</em> and <em>"repaint"</em>
+      </a> unless the <code>event</code> is explicitly prevented.
+
+      <p class=center><br>
+        <em>To prevent <strong>Rendering</strong> simply prevent the default event action by calling <br>
+        <code>event.prevent ()</code> within the custom element handler.</em>
 
 </section>
 
