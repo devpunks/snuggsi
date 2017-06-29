@@ -453,7 +453,15 @@ section#installation pre em.comment
 
     <dt>8. Reflection
     <dd>
-      Reflection
+      One of the many pains of classic browser programming is registering events on DOM elements.
+      Reflection is the process of declaratively registering event handlers by name within your HTML.
+      <strong>snuggsiツ</strong> will <strong><em>"Tree Walk"<sup>&trade;</sup></em></strong> 
+      your custom element and children looking for 
+      <a
+        rel=help
+        target=mdn
+        href=https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers>valid W3C GlobalEventHandlers</a> 
+      by name once <em>"connected"</em> to the HTML document.
 
     <dt>9. Post-Render Idle
     <dd>
