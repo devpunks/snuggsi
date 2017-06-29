@@ -379,9 +379,16 @@ section#installation pre em.comment
     <dt>3. Importing
     <dd>
       The import step is critical for custom elements which contain a definition within an external import.
+      <em>(See <a
+        target=webcomponents
+        rel=external
+        href=https://www.webcomponents.org/community/articles/introduction-to-html-imports>
+          HTML Imports
+      </a> for more detail)</em>.
+
       This is not your typical <em>"import javascript library"</em> you have been used to for years.
-      This is relative to the imported HTML document that contains the DOM markup to instanciate each
-      instance of your custom element with.
+      Imports are relative to the partial HTML document that contains the contents to hydrate each
+      instance of your custom element on upgrade.
 
     <dt>4. Slot Replacement
     <dd>
