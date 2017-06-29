@@ -371,7 +371,7 @@ section#installation pre em.comment
     <dd>
       After <strong>Construction</strong> the custom element will inspect your
       <code>class extends HTMLElement</code> definition for Event Handlers.
-      These are typically methods prefixed with <em><strong>on</strong> (i.e. <code>onclick (event)</code>)</em>. 
+      These are typically methods prefixed with <em><strong>on</strong> (example: <code>onclick (event)</code>)</em>. 
       <strong>snuggsiツ</strong> will <em>automagically<sup>&trade;</sup></em> 
       delegate the event handler to your custom element container.  As a
       convenience the <code>this</code> keyword will <strong><em>Always</em></strong> be bound to the custom element.
@@ -409,17 +409,19 @@ section#installation pre em.comment
     <dd>
       Rendering of your custom element occurs on <strong>three specific occasions</strong>:
       <ol>
-        <li>After <strong>on</strong> events <em>(i.e. <code>onclick (event)</code>)</em>.
+        <li>After <strong>on</strong> events <em>(example: <code>onclick (event)</code>)</em>.
         <li>After initial <code>onconnect ()</code> hook is fired.
         <li>Explicit <code>this.render ()</code> callback is triggered.
+      </ol>
 
       <em>(See <a
         target=mdn
         rel=external
         href=https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame>
           Animation Frames
-      </a> for more detail)</em>.
-    </dd>
+      </a> for more detail)</em>.  Rendering can be disabled from within event handlers by calling <code>event.prevent ()</code>
+      from within handler functions.  <strong>Be sure to declare <code>event</code> in your method signature.</strong>
+      <em>(example: <code>onclick (event) { event.prevent () }</code></em>
 
     <dt>6. Token Binding
     <dd>
