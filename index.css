@@ -92,6 +92,12 @@ body > aside {
   position: absolute;
 }
 
+body > footer {
+  margin: 0;
+  width: 100vw;
+  background: green;
+}
+
 header-group {
   height: 18vh;
   display: flex;
