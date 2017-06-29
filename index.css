@@ -97,6 +97,7 @@ body > footer {
   width: 100vw;
   height: 10em;
   display: flex;
+  justify-content: space-around;
   background: rgba(0,0,0,0.6);
 }
 
