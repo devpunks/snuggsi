@@ -362,6 +362,11 @@ section#installation pre em.comment
     After <strong>Definition & Declaration</strong> the custom element will go through
     it's <code>constructor ()</code> routine.
 
+    <dt>2. Introspection
+    <dd>
+      After construction the custom element will inspect the class definition for
+      defined Event Handlers. These are typically methods prefixed with <em>on</em>
+
     <dt>2. Importing
     <dd>
       The import step is critical for custom elements which contain a definition within an external import.
@@ -374,11 +379,12 @@ section#installation pre em.comment
       After Imporing there will be a replacement of any slots
       defined by the instances of your custom element import.
 
-    <dt>4. Token Binding
+    <dt>4. Rendering
     <dd> 
 
-    <dt>5. Rendering
-    <dd> 
+    <dt>5. Token Binding
+    <dd>
+      Token binding
 
     <dt>6. Post-Render Idle
     <dd> 
