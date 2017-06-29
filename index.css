@@ -157,6 +157,8 @@ section#installation pre em.comment
   text-align: left;
   font-size: 1.612em;
   margin: 0 1.612em 0.612em;
+  color: rgba(255,255,255,1.0);
+  text-shadow: 0px 0px 5px rgba(150, 150, 150, 0.97);
 }
 #lifecycle dt:first-letter {
   font-size: 1.612em;
