@@ -106,15 +106,16 @@ body > footer em
   { font-size: 0.8em }
 
 header-group {
-  height: 18vh;
+  height: 14vh;
   display: flex;
-  margin-bottom: 0;
   border-bottom: none;
-  align-items: center;
   line-height: 1.612em;
-  justify-content: center;
+  margin-bottom: 1.612em;
 }
 
+header-group hgroup {
+  text-align: center;
+}
 header-group h1, header-group h2
   { display: inline-block }
 
