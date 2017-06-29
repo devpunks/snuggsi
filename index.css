@@ -116,3 +116,31 @@ header-group a span {
 }
 
 
+.center
+  { text-align: center }
+
+section[view]
+  { text-align: center; font-size: 60% }
+
+section[view] h1
+  { margin-bottom: 1.612em }
+
+pre, code {
+  border-radius: 0.7em;
+  background: rgb(30,30,30);
+}
+
+code {
+  margin: 0 0.5em;
+  padding: 0 0.5em;
+}
+
+pre {
+  overflow: scroll;
+  text-align: center;
+  margin: 0 6em 1.612em;
+}
+
+section#installation pre em.comment
+  { color: rgba(255,255,255,0.4) }
+
