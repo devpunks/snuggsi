@@ -95,7 +95,9 @@ body > aside {
 body > footer {
   margin: 0;
   width: 100vw;
-  background: green;
+  height: 10em;
+  display: flex;
+  background: rgba(0,0,0,0.6);
 }
 
 header-group {
