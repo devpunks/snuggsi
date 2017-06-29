@@ -266,7 +266,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     && this.on (name, this [handler])
   };
 
-  anonymous.prototype.reflect = function (node) {
+  anonymous.prototype.register = function (node) {
     var this$1 = this;
 
     var
@@ -347,7 +347,7 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
 
       .concat ([this])
 
-      .map (this.reflect, this)
+      .map (this.register, this)
 
 
     superclass.prototype.onidle && superclass.prototype.onidle.call (this)
