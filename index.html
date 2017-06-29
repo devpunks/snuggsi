@@ -360,8 +360,12 @@ section#installation pre em.comment
 
     <dt>1. Construction
     <dd>
-    After <strong>Definition & Declaration</strong> the custom element will go through
-    it's <code>constructor ()</code> routine.
+      After <strong>Definition & Declaration</strong> the custom element will go through
+      it's <code>constructor ()</code> routine. Typically you will not need to define a
+      <code>constructor ()</code> on your <code>class</code>. <strong>snuggsiツ</strong>
+      takes care of all <code>super ()</code> calls for you on instantiation. If you
+      would like to intercept the custom element construction use the
+      <code>initialize ()</code> hook.
 
     <dt>2. Introspection
     <dd>
