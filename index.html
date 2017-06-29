@@ -369,8 +369,12 @@ section#installation pre em.comment
 
     <dt>2. Introspection
     <dd>
-      After construction the custom element will inspect the class definition for
-      defined Event Handlers. These are typically methods prefixed with <em>on</em>
+      After <strong>Construction</strong> the custom element will inspect your
+      <code>class extends HTMLElement</code> definition for Event Handlers.
+      These are typically methods prefixed with <em><strong>on</strong> (i.e. <code>onclick (event)</code>)</em>. 
+      <strong>snuggsiツ</strong> will <em>automagically<sup>&trade;</sup></em> 
+      delegate the event handler to your custom element container.  As a
+      convenience the <code>this</code> keyword will <strong><em>Always</em></strong> be bound to the custom element.
 
     <dt>3. Importing
     <dd>
