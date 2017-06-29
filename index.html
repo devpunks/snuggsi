@@ -407,13 +407,19 @@ section#installation pre em.comment
 
     <dt>5. Rendering
     <dd>
-      Rendering
+      Rendering of your custom element occurs on <strong>three specific occasions</strong>:
+      <ol>
+        <li>After <strong>on</strong> events <em>(i.e. <code>onclick (event)</code>)</em>.
+        <li>After initial <code>onconnect ()</code> hook is fired.
+        <li>Explicit <code>this.render ()</code> callback is triggered.
+
       <em>(See <a
         target=mdn
         rel=external
         href=https://developer.mozilla.org/en-US/docs/Web/API/window/requestAnimationFrame>
           Animation Frames
       </a> for more detail)</em>.
+    </dd>
 
     <dt>6. Token Binding
     <dd>
