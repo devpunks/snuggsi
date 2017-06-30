@@ -191,7 +191,7 @@ body > header-group, body > footer { height: 10vh }
   body > header-group,
   body > footer  { flex-basis: 100vw }
   body > header-group
-    { height: 20vh }
+    { margin-bottom: 0; height: 20vh }
 }
 
 @media (min-width:786px) { }
