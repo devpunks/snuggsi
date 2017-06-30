@@ -192,10 +192,7 @@ body > header-group, body > footer { height: 10vh }
   body > footer  { flex-basis: 100% }
 }
 
-@media (min-width:786px) {
-  body { margin: auto 5vw }
-}
+@media (min-width:786px) { }
 
-@media (min-width:1300px) {
-  body { margin: auto 23vw }
-}
+@media (min-width:1300px) { }
+
