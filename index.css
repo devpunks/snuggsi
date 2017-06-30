@@ -179,16 +179,21 @@ section#installation pre em.comment
 
 /* HOLY GRAIL */
 
+body > nav, body > aside
+  { top: 20vh }
+
 body { display: flex; flex-flow: column }
 body > main, body > aside { flex: 1 }
 body > header-group, body > footer { height: 10vh }
 
 @media (orientation: landscape) {
-  body           { flex-flow: row wrap }
-  body > main    { flex-basis: 70% }
-  body > aside   { flex-basis: 30% }
+  body           { flex-flow: row wrap; background: red }
+  body > main    { flex-basis: 60% }
+  body > aside   { flex-basis: 20% }
+  body > nav     { flex-basis: 20% }
   body > main,
-  body > aside   { min-height: 80vh }
+  body > aside,
+  body > nav     { min-height: 80vh }
   body > header-group,
   body > footer  { flex-basis: 100% }
 }
