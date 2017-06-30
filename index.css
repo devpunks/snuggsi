@@ -181,7 +181,7 @@ body > main, body > aside { flex: 1 }
 body > header-group, body > footer { height: 10vh }
 
 @media (orientation: landscape) {
-  body           { flex-flow: row wrap; background: red }
+  body           { flex-flow: row wrap }
   body > main    { flex-basis: 60% }
   body > aside   { flex-basis: 20% }
   body > nav     { flex-basis: 20% }
