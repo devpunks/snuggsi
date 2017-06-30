@@ -93,7 +93,6 @@ body > footer em
 
 header-group {
   display: flex;
-  border-bottom: none;
   line-height: 1.612em;
   margin-bottom: 1.612em;
 }
