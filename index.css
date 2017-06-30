@@ -43,7 +43,9 @@ body > nav {
   background: var(--lightest-color);
 }
 
-body > nav header { margin-top: 1em }
+body > nav header,
+body > aside header
+  { margin-top: 1em }
 
 body > nav li,
 body > aside li
