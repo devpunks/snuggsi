@@ -118,7 +118,7 @@ section[view]
   { text-align: center; font-size: 60% }
 
 section[view] h1
-  { margin-bottom: 1.612em }
+  { margin: 1.612em 0 }
 
 pre, code {
   border-radius: 0.7em;
