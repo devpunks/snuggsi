@@ -33,17 +33,8 @@ body > nav header {
   text-align: center;
 }
 
-body > nav, body > aside
-  { top: 20vh }
-
 body > nav {
-  left: 0;
-  margin: 0;
-  height: auto;
-  min-width: 10rem;
-  min-height: 82vh;
   text-align: left;
-  position: absolute;
   color: rgba(0,0,0,0.7);
   background: var(--lightest-color);
 }
