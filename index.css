@@ -44,8 +44,6 @@ body > nav {
 
 body > nav header { margin-top: 1em }
 
-body > nav details { }
-
 body > nav li,
 body > aside li
   { list-style: none }
