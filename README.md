@@ -251,11 +251,9 @@ document
   <slot name=content>Some Default Content</slot>
 
   <ul>
-
   <template name=bat>
     <li>Item {#} - Value {self}
   </template>
-
   </ul>
 
 </template>
