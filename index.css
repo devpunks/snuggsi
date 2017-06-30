@@ -26,6 +26,7 @@ body {
 
 body > nav a:link {
   border-bottom: none;
+  font-size: 85%;
 }
 
 body > aside header,
