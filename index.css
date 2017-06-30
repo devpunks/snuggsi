@@ -39,7 +39,6 @@ body > nav, body > aside
 body > nav {
   left: 0;
   margin: 0;
-  width: 20vw;
   height: auto;
   min-width: 10rem;
   min-height: 82vh;
@@ -85,7 +84,6 @@ body > main h1 { text-align: center }
 body > aside {
   right: 0;
   margin: 0;
-  width: 20vw;
   height: auto;
   text-align: left;
   min-width: 10rem;
