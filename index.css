@@ -182,14 +182,16 @@ body > header-group, body > footer { height: 10vh }
 
 @media (orientation: landscape) {
   body           { flex-flow: row wrap }
-  body > main    { flex-basis: 60% }
-  body > aside   { flex-basis: 20% }
-  body > nav     { flex-basis: 20% }
+  body > main    { flex-basis: 55vw }
+  body > aside   { flex-basis: 25vw }
+  body > nav     { flex-basis: 20vw }
   body > main,
   body > aside,
   body > nav     { min-height: 80vh }
   body > header-group,
-  body > footer  { flex-basis: 100% }
+  body > footer  { flex-basis: 100vw }
+  body > header-group
+    { height: 20vh }
 }
 
 @media (min-width:786px) { }
