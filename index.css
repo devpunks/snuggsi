@@ -189,10 +189,12 @@ body > main, body > aside { flex: 1 }
   body > main,
   body > aside,
   body > nav     { min-height: 80vh }
-  body > header-group,
-  body > footer  { flex-basis: 100vw }
   body > header-group
-    { margin-bottom: 0; height: 20vh }
+    { margin-bottom: 0; height: 18vh }
+  body > header-group, body > footer
+    { flex-basis: 100vw }
+  body > footer
+    { height: 10vh }
 }
 
 @media (min-width:786px) { }
