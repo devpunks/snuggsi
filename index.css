@@ -93,7 +93,6 @@ body > footer em
   { font-size: 0.8em }
 
 header-group {
-  height: 16vh;
   display: flex;
   border-bottom: none;
   line-height: 1.612em;
@@ -178,9 +177,6 @@ section#installation pre em.comment
 }
 
 /* HOLY GRAIL */
-
-body > nav, body > aside
-  { top: 20vh }
 
 body { display: flex; flex-flow: column }
 body > main, body > aside { flex: 1 }
