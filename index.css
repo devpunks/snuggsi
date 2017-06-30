@@ -42,24 +42,27 @@ body > nav {
   background: var(--lightest-color);
 }
 
-nav ul {
-  list-style-position: inside;
-}
-
 body > nav header { margin-top: 1em }
 
 body > nav details { }
 
-body > nav li { display: block }
+body > nav li,
+body > aside li
+  { list-style: none }
 
-body > nav li a {
-  margin-left: 1em;
-  display: inline-block;
+body > nav li a,
+body > aside li a {
+  margin-left: 1.7em;
+  display: inline-block
 }
 
 body > nav details li a { margin-left: 2em }
 
 body > nav summary a { margin-left: 0em }
+
+body > nav summary,
+body > aside summary
+  { background: red; margin-left: 0.3em; }
 
 [view] {
   height: 82vh;
