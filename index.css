@@ -62,7 +62,7 @@ body > nav summary a { margin-left: 0em }
 
 body > nav summary,
 body > aside summary
-  { background: red; margin-left: 0.3em; }
+  { margin-left: 0.3em }
 
 [view] {
   height: 82vh;
