@@ -190,7 +190,7 @@ section#installation pre em.comment
 
 body { display: flex; flex-flow: column }
 body > main, body > aside { flex: 1 }
-body > header, body > footer { height: 10vh }
+body > header-group, body > footer { height: 10vh }
 
 @media (orientation: landscape) {
   body           { flex-flow: row wrap }
@@ -198,7 +198,7 @@ body > header, body > footer { height: 10vh }
   body > aside   { flex-basis: 30% }
   body > main,
   body > aside   { min-height: 80vh }
-  body > header,
+  body > header-group,
   body > footer  { flex-basis: 100% }
 }
 
