@@ -180,7 +180,6 @@ section#installation pre em.comment
 
 body { display: flex; flex-flow: column }
 body > main, body > aside { flex: 1 }
-body > header-group, body > footer {  }
 
 @media (orientation: landscape) {
   body           { flex-flow: row wrap }
