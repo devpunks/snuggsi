@@ -24,7 +24,8 @@ body {
   text-decoration: none
 }
 
-body > nav a:link
+body > nav a:link,
+body > aside a:link
   { border-bottom: none }
 
 body > aside header,
