@@ -190,3 +190,26 @@ section#installation pre em.comment
   margin: 0 1em 2.612em 3.6em;
 }
 
+/* HOLY GRAIL */
+
+body { display: flex; flex-flow: column }
+body > main, body > aside { flex: 1 }
+body > header, body > footer { height: 10vh }
+
+@media (orientation: landscape) {
+  body           { flex-flow: row wrap }
+  body > main    { flex-basis: 70% }
+  body > aside   { flex-basis: 30% }
+  body > main,
+  body > aside   { min-height: 80vh }
+  body > header,
+  body > footer  { flex-basis: 100% }
+}
+
+@media (min-width:786px) {
+  body { margin: auto 5vw }
+}
+
+@media (min-width:1300px) {
+  body { margin: auto 23vw }
+}
