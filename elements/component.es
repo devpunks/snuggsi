@@ -21,7 +21,7 @@ const Component = HTMLElement => // why buble
 
     Object
       .getOwnPropertyNames (HTMLElement.prototype)
-      .map (this.introspect, this)
+      .map (this.reflect, this)
 
     this.context = this.context || {}
     this.tokens  = new TokenList (this)
