@@ -102,8 +102,9 @@ body > footer {
   height: 2em;
   display: flex;
   position: fixed;
-  justify-content: space-around;
+  justify-content: center;
   background: rgba(0,0,0,0.6);
+  color: rgba(230,230,230,0.4);
 }
 
 body > footer em
