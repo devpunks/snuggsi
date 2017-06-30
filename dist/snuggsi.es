@@ -360,7 +360,7 @@ const GlobalEventHandlers = Element =>
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  introspect (handler, name) {
+  reflect (handler, name) {
     ( name = ( handler.match (/^on(.+)$/) || [] ) [1] )
 
     && Object.keys // ensure W3C on event
@@ -409,7 +409,7 @@ const Component = HTMLElement => // why buble
 
     Object
       .getOwnPropertyNames (HTMLElement.prototype)
-      .map (this.introspect, this)
+      .map (this.reflect, this)
 
     this.context = this.context || {}
     this.tokens  = new TokenList (this)
