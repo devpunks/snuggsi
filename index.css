@@ -99,7 +99,7 @@ body > footer {
   bottom: 0;
   margin: 0;
   width: 100vw;
-  height: 10em;
+  height: 2em;
   display: flex;
   position: fixed;
   justify-content: space-around;
