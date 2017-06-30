@@ -256,7 +256,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  anonymous.prototype.introspect = function (handler, name) {
+  anonymous.prototype.reflect = function (handler, name) {
     ( name = ( handler.match (/^on(.+)$/) || [] ) [1] )
 
     && Object.keys // ensure W3C on event
@@ -304,7 +304,7 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
 
     Object
       .getOwnPropertyNames (HTMLElement.prototype)
-      .map (this.introspect, this)
+      .map (this.reflect, this)
 
     this.context = this.context || {}
     this.tokens  = new TokenList (this)
