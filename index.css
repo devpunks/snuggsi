@@ -67,8 +67,6 @@ body > nav details li a { margin-left: 2em }
 
 body > nav summary a { margin-left: 0em }
 
-body > main { margin: 0 20vw }
-
 [view] {
   height: 82vh;
   display: block;
