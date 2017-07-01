@@ -8,6 +8,14 @@
 <script src=/></script>
 <script name=polyfill src=https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
 
+<!-- import works inline body -->
+<link rel=import href=/examples/header-group>
+
+<header-group>
+  <h2 slot=header>&lt;input-output&gt;</h2>
+  <a  slot=subheader Title='See more componentexamples' href=./>See more component examples</a>
+</header-group>
+
 <input-output>
 
 <output for=message>{echo}</output>
