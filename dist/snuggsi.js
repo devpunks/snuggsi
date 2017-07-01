@@ -8,7 +8,7 @@ var HTMLLinkElement = function
     proxy = {}
 
   , link = document.querySelector // use CSS :any ?
-      ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
+      ('link[href*='+tag+'][rel=import]')
 
   , register = function (event, handler) { return (HTMLImports && !!! HTMLImports.useNative)
         ? HTMLImports.whenReady
