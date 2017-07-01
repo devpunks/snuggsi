@@ -8,7 +8,7 @@ const HTMLLinkElement = function
     proxy = {}
 
   , link = document.querySelector // use CSS :any ?
-      ('link#'+tag+'[rel=import], link[href*='+tag+'][rel=import]')
+      ('link[href*='+tag+'][rel=import]')
 
   , register = (event, handler) => // https://github.com/webcomponents/html-imports#htmlimports
 
