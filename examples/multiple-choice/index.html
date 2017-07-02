@@ -56,13 +56,44 @@ Element `multiple-choice`
       ]
   }
 
+  onidle () {
+    const
+      previous = this.select
+        `footer button:first-of-type`
+
+    , next = this.select
+        `footer button:last-of-type`
+
+    , beginning =
+        this.context.current == 0
+
+    , end =
+        this.context.current ==
+          (this.context.questions_and_answers.length -1)
+
+    this.enable (beginning, previous)
+    this.enable (end, next)
+  }
+
+  // helpers
+  enable (predicate, element) {
+    predicate
+      ? element.disabled = true
+      : element.disabled = false
+
+  }
+
+  // handlers
   onprevious ()
     { this.context.current -- }
 
   onnext ()
     { this.context.current ++ }
 
-  get current () { return this.context.current }
+
+  // properties
+  get current ()
+    { return this.context.current }
 
   get question () {
     return this.context
