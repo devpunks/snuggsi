@@ -1,0 +1,48 @@
+<script src=//unpkg.com/snuggsi></script>
+<script src=/browser-sync.es></script>
+
+<h1>&lt;multiple-choice&gt;</h1>
+
+<multiple-choice>
+  <slot id=header>
+    <header>Multiple Choice</header>
+  </slot>
+
+  <fieldset>
+    <legend>Answers</legend>
+
+    <template name=answers>
+      <label>
+        <input name=answer type=radio value={#}> {self}
+      </label>
+    </template>
+
+  </fieldset>
+
+</multiple-choice>
+
+<script>
+
+Element `multiple-choice`
+
+(class extends HTMLElement {
+  initialize () {
+    this.context.questions_and_answers =
+      [
+        {
+          question: 'What framework should we start with?',
+          answers: ['React', 'snuggsi'],
+          answer: 1
+        }
+      ]
+  }
+
+  onconnect () { }
+
+  get answers ()
+    { return this.context.questions_and_answers [0].answers }
+
+})
+
+</script>
+
