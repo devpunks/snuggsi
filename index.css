@@ -24,6 +24,12 @@ body {
   text-decoration: none
 }
 
+body > nav {
+  text-align: left;
+  color: rgba(0,0,0,0.7);
+  background: var(--lightest-color);
+}
+
 body > nav a:link,
 body > aside a:link
   { border-bottom: none }
@@ -35,12 +41,6 @@ body > nav header
 body > nav a:link,
 body > aside a:link
   { font-size: 85% }
-
-body > nav {
-  text-align: left;
-  color: rgba(0,0,0,0.7);
-  background: var(--lightest-color);
-}
 
 body > nav header,
 body > aside header
