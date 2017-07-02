@@ -451,6 +451,16 @@
 <section view id=antipatterns>
   <h1>Anti-Patterns</h1>
 
+  <article>
+    <header>Talking to Strangers</header>
+
+    <p>
+      Should never reach outside of your component to talk to siblings.
+      There should be a "parent container" component that "sandboxes" in related components.
+
+  </article>
+
+
   <header>Doing more than 16<abbr title=Milliseconds>ms</abbr> of Work</header>
 
 
