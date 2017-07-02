@@ -1,13 +1,20 @@
-<link rel=stylesheet href=https://devpunks.herokuapp.com/typography.css></script>
-<script src=//unpkg.com/snuggsi></script>
+<title>&lt;multiple-choice&gt;</title>
 
-<h1>&lt;multiple-choice&gt;</h1>
+<link rel=stylesheet href=https://devpunks.herokuapp.com/typography.css></script>
+
+<script src=/snuggsi.es></script>
+<script name=polyfill src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
+
+<!-- import works inline body -->
+<link rel=import href=/examples/header-group>
+
+<header-group>
+  <h2 slot=header>&lt;multiple-choice&gt;</h2>
+
+  <a  slot=subheader title='See more component examples' href=./>See more component examples</a>
+</header-group>
 
 <multiple-choice>
-  <slot id=header>
-    <header>Multiple Choice</header>
-  </slot>
-
   <blockquote>{question}</blockquote>
 
   <fieldset>
