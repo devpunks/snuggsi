@@ -21,6 +21,11 @@
 
   </fieldset>
 
+  <footer>
+    <button onclick=onprevious>👈 Previous</button>
+    <button onclick=onnext>Next 👉</button>
+  </footer>
+
 </multiple-choice>
 
 <script>
@@ -28,24 +33,54 @@
 Element `multiple-choice`
 
 (class extends HTMLElement {
+
   initialize () {
+    this.context.current = 0
+
     this.context.questions_and_answers =
       [
         {
           question: 'What framework should we start with?',
           answers: ['React', 'snuggsi'],
           answer: 1
+        },
+
+        {
+          question: 'What city is known as "The Big 🍎 Apple ?"',
+          answers: ['Seattle, WA', 'Skokie, IL', 'New York City'],
+          answer: 2
         }
       ]
   }
 
-  get question ()
-    { return this.context.questions_and_answers [0].question }
+  onprevious ()
+    { this.context.current -- }
 
-  get answers ()
-    { return this.context.questions_and_answers [0].answers }
+  onnext ()
+    { this.context.current ++ }
+
+  get current () { return this.context.current }
+
+  get question () {
+    return this.context
+      .questions_and_answers
+        [this.current].question
+  }
+
+  get answers () {
+    return this.context
+      .questions_and_answers
+        [this.current].answers
+  }
 
 })
 
 </script>
+
+<style>
+
+multiple-choice footer
+  { text-align: center }
+
+</style>
 
