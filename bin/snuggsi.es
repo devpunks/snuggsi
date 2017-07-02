@@ -1,2 +1,4 @@
-console.log ('Snuggsi cli')
+#!/usr/bin/env
+
+echo 'Snuggsi cli'
 
