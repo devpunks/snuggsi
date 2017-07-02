@@ -9,7 +9,7 @@ Element `multiple-choice`
       [
         {
           question: 'what popular tool for developing the client side application should we use?',
-          answers: ['React', 'Ember.js', 'Vue', 'Angular', 'jQuery'],
+          answers: ['React', 'Ember.js', 'Vue', 'Angular', 'Bootstrap', 'jQuery'],
           // answer: undefined // There is no answer hehe
         },
 
