@@ -388,6 +388,30 @@
   <article><!-- <medium-article> -->
     <header>The <abbr title='Push, Render, Precache, Lazy-load'>P.R.P.L.</abbr> Pattern</header>
 
+    <p>PRPL is a pattern for structuring and serving Progressive Web Apps (PWAs), with an emphasis on the performance of app delivery and launch. It stands for:
+
+    <ul>
+      <li><strong>P</strong>ush critical resources for the initial URL route.
+
+    Render initial route.
+
+    Pre-cache remaining routes.
+
+    Lazy-load and create remaining routes on demand.
+
+    <p>Beyond targeting the fundamental goals and standards of <abbr title='Progressive Web Apps'>P.W.A.</abbr>s, <abbr title='Push, Render, Precache, Lazy-load'>P.R.P.L.</abbr> strives to optimize for:
+
+    <ul>
+      <li> Minimum time-to-interactive
+        <ul>
+          <li>Especially on first use (regardless of entry point)
+          <li>Especially on real-world mobile devices
+        </ul>
+
+      <li>Maximum caching efficiency, especially over time as updates are released
+
+      <li>Simplicity of development and deployment
+    <p><abbr title='Push, Render, Precache, Lazy-load'>P.R.P.L.</abbr> is inspired by a suite of modern web platform features, but it’s possible to apply the pattern without hitting every letter in the acronym or using every feature.
     <aside>
       <header>Relatd Links</header>
 
