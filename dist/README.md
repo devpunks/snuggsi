@@ -65,6 +65,7 @@ _(Uses [UglifyJS](https://github.com/mishoo/UglifyJS))_
 `snuggsi.min.js` ➡️  `snuggsi.min.js.br`
 
 Links
+- http://caniuse.com/#search=brotli
 - https://en.wikipedia.org/wiki/Brotli
 - https://certsimple.com/blog/nginx-brotli
 - https://blogs.akamai.com/2016/02/understanding-brotlis-potential.html
