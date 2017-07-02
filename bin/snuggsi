@@ -2,3 +2,9 @@
 
 echo 'Snuggsi cli'
 
+# Commands
+# init
+# component :name
+# test :name
+# compress :name
+
