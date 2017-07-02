@@ -30,6 +30,12 @@ body > nav {
   background: var(--lightest-color);
 }
 
+body > nav code {
+  margin: 0;
+  font-size: 0.95em;
+  background: rgba(20,20,20,0.1);
+}
+
 body > nav a:link,
 body > aside a:link
   { border-bottom: none }
@@ -63,6 +69,7 @@ body > nav summary a { margin-left: 0em }
 body > nav summary,
 body > aside summary
   { margin-left: 0.3em }
+
 
 [view] {
   height: 82vh;
