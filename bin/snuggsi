@@ -5,6 +5,8 @@ echo 'Snuggsi cli'
 # Commands
 # init
 # component :name
+# browse :name
 # test :name
 # compress :name
+# serve [:name]
 
