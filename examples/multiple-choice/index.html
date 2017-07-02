@@ -13,11 +13,14 @@
   <fieldset>
     <legend>Answers</legend>
 
+    <ul>
     <template name=answers>
-      <label>
-        <input name=answer type=radio value={#}> {self}
-      </label>
+      <li>
+        <label>
+          <input name=answer type=radio value={#}> {self}
+        </label>
     </template>
+  </ul>
 
   </fieldset>
 
