@@ -86,24 +86,13 @@ Place the `<script name=polyfill … >` below before **snuggsiツ** for
 [evergreen cross-browser](https://www.techopedia.com/definition/31094/evergreen-browser) support.
 
 ```html
+<!-- snuggsiツ (modern) -->
+<script src =//unpkg.com/snuggsi></script>
+
 <!-- webcomponents polyfill -->
 <script
   name=polyfill
   src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js>
-</script>
-
-<!-- snuggsiツ (modern) -->
-<script
-  type=module
-  name=snuggsi
-  src =//unpkg.com/snuggsi>
-</script>
-
-<!-- snuggsiツ (classic) -->
-<script
-  nomodule
-  name=classic
-  src =//unpkg.com/snuggsi/snuggsi.min.js>
 </script>
 ```
 
