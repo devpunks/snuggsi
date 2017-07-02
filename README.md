@@ -87,7 +87,7 @@ Place the `<script name=polyfill … >` below before **snuggsiツ** for
 
 ```html
 <!-- snuggsiツ (modern) -->
-<script src =//unpkg.com/snuggsi></script>
+<script nomodule src=//unpkg.com/snuggsi></script>
 
 <!-- webcomponents polyfill -->
 <script
