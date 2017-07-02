@@ -11,6 +11,8 @@
   <fieldset>
     <legend>Answers</legend>
 
+    <blockquote>{question}</blockquote>
+
     <template name=answers>
       <label>
         <input name=answer type=radio value={#}> {self}
@@ -37,7 +39,8 @@ Element `multiple-choice`
       ]
   }
 
-  onconnect () { }
+  get question ()
+    { return this.context.questions_and_answers [0].question }
 
   get answers ()
     { return this.context.questions_and_answers [0].answers }
