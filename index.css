@@ -1,8 +1,27 @@
 body > a#github {
-  width: 100px;
-  height: 100px;
-  padding: 0.5em;
+  width: 6vw;
+  height: 6vw;
+  padding: 0.3em;
   border-radius: 100px;
+  transform: rotate(38deg);
+  background: var(--darkest-color);
+  box-shadow: 0px 0px 0.8em 0.2em rgba(20,20,20,.6);
+
+  right:1vh;
+  top: 1vh;
+  position: fixed;
+  z-index: 1;
+}
+body > a#github:after {
+  top: 1vh;
+  left: -20vw;
+  z-index: -1;
+  position: fixed;
+
+  width: 40vw;
+  height: 10vh;
+  display: block;
+  content: '.';
   background: var(--darkest-color);
   box-shadow: 0px 0px 0.8em 0.2em rgba(20,20,20,.6);
 }
