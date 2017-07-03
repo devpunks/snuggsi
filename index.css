@@ -30,12 +30,6 @@ body > a#github:hover
   { background: var(--darker-color) }
 
 body > svg {
-  display: block;
-  top: 0;
-  right: 0;
-  z-index: 10;
-  display: block;
-  position: fixed;
   pointer-events: all;
 }
 
