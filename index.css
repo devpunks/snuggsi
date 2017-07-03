@@ -95,6 +95,7 @@ body > aside {
 }
 
 body > footer {
+  z-index: 2;
   height: 17vh;
   width: 100vw;
   display: flex;
