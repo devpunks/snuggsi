@@ -14,76 +14,13 @@
   <a  slot=subheader title='See more component examples' href=./>See more component examples</a>
 </header-group>
 
-<main>
-
-<multiple-choice>
-  <blockquote>{question}</blockquote>
-
-  <fieldset>
-    <legend>Answers</legend>
-
-    <ul>
-    <template name=answers>
-      <li>
-        <label>
-          <input name=answer type=radio value={#}> {self}
-        </label>
-    </template>
-  </ul>
-
-  </fieldset>
-
-  <footer>
-    <button onclick=onprevious>👈 Previous</button>
-    <button onclick=onnext>Next 👉</button>
-  </footer>
-
-</multiple-choice>
-
-</main>
-
-<script src=/examples/multiple-choice/index.es></script>
-
 <style>
-
-multiple-choice blockquote {
-  font-size: 1em;
-  text-align: center;
-  margin: 1em 0 1.612em
-}
-
-multiple-choice legend {
-  margin: 0 auto;
-  display: block;
-  border-radius: 5em;
-  padding: 1em 3.5em;
-  background: rgba(20,20,20,0.2);
-}
-
-multiple-choice fieldset {
-  border: 1em double grey;
-}
-
-multiple-choice fieldset ul
-  { list-style-type: none }
-
-multiple-choice fieldset ul li
-  { margin: 0 0 1em  2em }
-
-multiple-choice footer
-  { text-align: center }
-
-multiple-choice footer button {
-  width: 6em;
-  font-size: 1.5em;
-  margin: 1em 1em 0
-}
 
 figure {
   margin: 0;
   width: 46vw;
   display: flex;
-  min-height: 60vh;
+  min-height: 100vh;
   position: absolute;
   flex-flow: row wrap;
 }
@@ -100,11 +37,11 @@ figure:last-of-type
 </style>
 
 <figure>
-   <iframe src=//jsfiddle.net/snuggs/3zwkj9wg/embedded/html,css/dark/?fontColor=ffffff&accentColor=9696f0&bodyColor=3b3b3b&menuColor=3b3b3b frameborder=0></iframe>
+   <iframe src=//jsfiddle.net/snuggs/wzkcvLs7/embedded/html,js,css/dark/?fontColor=ffffff&accentColor=9696f0&bodyColor=3b3b3b&menuColor=3b3b3b frameborder=0></iframe>
  </figure>
 
 <figure>
-  <iframe src=//jsfiddle.net/snuggs/3zwkj9wg/embedded/result/dark/?fontColor=ffffff&accentColor=9696f0&menuColor=3b3b3b frameborder=0></iframe>
+  <iframe src=//jsfiddle.net/snuggs/wzkcvLs7/embedded/result/dark/?fontColor=ffffff&accentColor=9696f0&menuColor=3b3b3b frameborder=0></iframe>
 </figure>
 
 <script src=/browser-sync.es></script>
