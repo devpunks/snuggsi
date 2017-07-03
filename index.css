@@ -125,11 +125,16 @@ header-group a span {
 .center
   { text-align: center }
 
-section[view]
-  { text-align: center; font-size: 60% }
+section[view] {
+  text-align: center; font-size: 60%
+}
 
-section[view] h1
-  { margin: 1.612em 0 }
+section[view] h1 {
+  font-size: 2em;
+  margin: 1.612em 0;
+  letter-spacing: 0.05em;
+  text-shadow: 1px 0px 5px rgba(10, 10, 10, 0.8);
+}
 
 pre, code {
   border-radius: 0.7em;
