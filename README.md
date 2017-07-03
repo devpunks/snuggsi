@@ -298,11 +298,3 @@ bundles as small as *~1500 OCTETS* _(or one 1500byte Ethernet packet frame)_
 
 [Read More](https://github.com/devpunks/snuggsi/tree/master/dist#readme)
 
-
-## Browse Examples
-```bash
-$ git clone https://github.com/devpunks/snuggsi.git
-$ cd snuggsi && npm i
-$ npm run browse
-```
-
