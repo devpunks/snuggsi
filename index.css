@@ -91,11 +91,21 @@ body > aside {
 }
 
 body > footer {
-  height: 2em;
+  height: 17vh;
+  padding-bottom: 3vh;
+  width: 100vw;
   display: flex;
+  margin-bottom: 0;
+  align-items: flex-end;
   justify-content: center;
-  background: rgba(0,0,0,0.6);
   color: rgba(230,230,230,0.4);
+  background:
+    linear-gradient(
+      to bottom,
+      rgba(59,59,59,0),
+      rgba(59,59,59,1),
+      rgba(59,59,59,1)
+    );
 }
 
 body > footer em
@@ -208,13 +218,15 @@ body > main, body > aside { flex: 1 }
 
   body > header-group, body > footer
     { flex-basis: 100vw }
-
-  body > footer {
-    height: 10vh
-  }
 }
 
-@media (min-width:786px) { }
+  body > footer {
+    left: 0;
+    bottom: 0;
+    position: fixed;
+  }
+@media screen (min-width: 786px) {
+}
 
 @media (min-width:1300px) { }
 
