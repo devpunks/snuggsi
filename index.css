@@ -229,6 +229,12 @@ body > main, body > aside { flex: 1 }
   body > main
   { padding-bottom: 20vh }
 
+  body > aside, body > nav
+    { z-index: 2 }
+
+  body > footer
+    { z-index: 1 }
+
 }
 
   body > footer {
