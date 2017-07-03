@@ -50,14 +50,17 @@ body #github svg {
 }
 
 #github::after {
-    content: "";
-    width: 150px;
-    height: 150px;
-    background-color: red;
+  top: 0;
+  right: -20vw;
+  width: 40vw;
+  height: 10vh;
+  display: block;
+  content: "";
+  background-color: red;
 
-    /* create a new stacking context */
-    position: absolute;
-    z-index: -1;  /* to be below the parent element */
+  /* create a new stacking context */
+  position: absolute;
+  z-index: -1;  /* to be below the parent element */
 }
 
 :root {
