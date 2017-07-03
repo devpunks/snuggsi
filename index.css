@@ -232,8 +232,11 @@ body > main, body > aside { flex: 1 }
   body > aside, body > nav
     { z-index: 2 }
 
-  body > footer
-    { z-index: 1 }
+  body > footer {
+    font-size: 70%;
+    letter-spacing: 0px;
+    z-index: 1
+  }
 
 }
 
