@@ -25,7 +25,7 @@ body {
 }
 
 body > aside
-  { padding-bottom: 30vh; }
+  { padding-bottom: 30vh }
 
 body > nav {
   text-align: left;
@@ -214,13 +214,19 @@ body > main, body > aside { flex: 1 }
   body > nav   { flex-basis: 20vw }
   body > main,
   body > nav,
-  body > aside { min-height: 80vh }
+  body > aside
+    { min-height: 60vh; margin-bottom: 0 }
 
   body > header-group
     { margin-bottom: 0; height: 18vh }
 
   body > header-group, body > footer
     { flex-basis: 100vw }
+
+  body > nav,
+  body > main
+  { padding-bottom: 20vh }
+
 }
 
   body > footer {
