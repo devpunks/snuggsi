@@ -4,14 +4,14 @@
 
 *Mime Type* : `application/ecmascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-8.2))_
 
-*Weight* : ~ 1,200 Octets _(1.2Kilobytes)_
+*Weight* : ~ 1,200 Octets _(1.2kiloBytes)_
 
 
 ## `snuggsi.min.js.br`
 
 *Mime Type* : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2))_
 
-*Weight* : ~ 1,400 Octets _(1.4Kilobytes)_
+*Weight* : ~ 1,400 Octets _(1.4kiloBytes)_
 
 
 ## Glossary
