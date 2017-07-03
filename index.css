@@ -24,6 +24,9 @@ body {
   text-decoration: none
 }
 
+body > aside
+  { padding-bottom: 30vh; }
+
 body > nav {
   text-align: left;
   color: rgba(0,0,0,0.7);
@@ -92,10 +95,10 @@ body > aside {
 
 body > footer {
   height: 17vh;
-  padding-bottom: 3vh;
   width: 100vw;
   display: flex;
   margin-bottom: 0;
+  padding-bottom: 3vh;
   align-items: flex-end;
   justify-content: center;
   color: rgba(230,230,230,0.4);
