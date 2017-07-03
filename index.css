@@ -38,11 +38,15 @@ body #github svg {
   pointer-events: all;
 }
 */
-#github { 
-    position: relative;  /* optional */
-    width: 100px;
-    height: 100px;
-    background-color: blue;
+#github {
+  margin:0;
+  top: 0;
+  right: 10vw;
+  position: absolute;
+  display: block;
+  width: 6vw;
+  height: 6vw;
+  background-color: blue;
 }
 
 #github::after {
