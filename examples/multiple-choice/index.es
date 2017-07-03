@@ -3,6 +3,7 @@ Element `multiple-choice`
 (class extends HTMLElement {
 
   initialize () {
+
     this.context.current = 0
 
     this.context.questions_and_answers =
