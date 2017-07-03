@@ -67,8 +67,10 @@ body > nav details li a { margin-left: 2em }
 body > nav summary a { margin-left: 0em }
 
 body > nav summary,
-body > aside summary
-  { margin-left: 0.3em }
+body > aside summary {
+  cursor: pointer;
+  margin-left: 0.3em
+}
 
 
 [view] {
