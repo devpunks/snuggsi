@@ -24,6 +24,9 @@ body {
   text-decoration: none
 }
 
+body > aside, body > nav
+  { z-index: 1 }
+
 body > aside
   { padding-bottom: 30vh }
 
