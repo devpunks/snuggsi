@@ -70,6 +70,20 @@ body #github svg {
   z-index: -1;  /* to be below the parent element */
 }
 
+#github:hover::before {
+  border:0.5em solid var(--lighter-color);
+}
+
+
+
+
+
+
+
+
+
+
+
 :root {
   --margin: 0 0;
 }
