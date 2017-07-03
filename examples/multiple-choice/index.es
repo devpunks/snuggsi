@@ -23,11 +23,11 @@ Element `multiple-choice`
 
   onidle () {
     const
-      previous = this.select
-        `footer button:first-of-type`
+      previous =
+        this.select `footer button:first-of-type`
 
-    , next = this.select
-        `footer button:last-of-type`
+    , next =
+        this.select `footer button:last-of-type`
 
     , beginning =
         this.context.current == 0
