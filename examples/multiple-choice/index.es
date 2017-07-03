@@ -42,10 +42,8 @@ Element `multiple-choice`
 
   // helpers
   enable (predicate, element) {
-    predicate
-      ? element.disabled = true
-      : element.disabled = false
-
+    element.disabled =
+      predicate ? true : false
   }
 
   // handlers
