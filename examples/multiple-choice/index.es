@@ -34,7 +34,7 @@ Element `multiple-choice`
 
     , end =
         this.context.current ==
-          (this.context.questions_and_answers.length -1)
+          (this.context.questions_and_answers.length - 1)
 
     this.enable (beginning, previous)
     this.enable (end, next)
