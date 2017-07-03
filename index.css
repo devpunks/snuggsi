@@ -1,3 +1,25 @@
+body > a#github {
+  width: 100px;
+  height: 100px;
+  padding: 0.5em;
+  border-radius: 100px;
+  background: var(--darkest-color);
+  box-shadow: 0px 0px 0.8em 0.2em rgba(20,20,20,.6);
+}
+
+body > a#github:hover
+  { background: var(--darker-color) }
+
+body > svg {
+  display: block;
+  top: 0;
+  right: 0;
+  z-index: 10;
+  display: block;
+  position: fixed;
+  pointer-events: all;
+}
+
 :root {
   --margin: 0 0;
 }
