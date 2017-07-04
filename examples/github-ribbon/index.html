@@ -2,7 +2,11 @@
 
 
 <template url={url}>
-  <!-- insert default content here -->
+
+  <slot name=link>
+    <a rel=help target=github href={url} title='View on Github'>View on Github</a>
+  </slot>
+
 </template>
 
 
