@@ -1,0 +1,153 @@
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<title>&lt;header-group&gt;</title>
+
+<template url='https://github.com' title='View on Github'>
+
+  <slot name=link>
+    <a rel=help target=github href={url}>View on Github</a>
+  </slot>
+
+</template>
+
+
+<script defer>
+
+Element `github-ribbon`
+
+(class extends HTMLElement {
+
+  get url ()
+    { return this.getAttribute ('url') }
+})
+
+</script>
+
+
+<h1>&lt;github-ribbon&gt;</h1>
+
+
+<p id=description>
+  Custom
+  <a rel=external
+     target=mdn
+     href=https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a>
+       <code>&lt;a&gt;</code>
+   </a>
+   element which links to a Github repository <code>{url}</code>
+</p>
+
+
+<h2>Example</h2>
+
+<code>
+  <pre>
+    &lt;github-ribbon url=https://github.com/my/repo title='Go to my repo'&gt;
+      &lt;a slot=header&gt;My Custom Github Message&lt;/a&gt;
+    &lt;/github-ribbon&gt;
+  </pre>
+</code>
+
+
+<h2>Settings</h2>
+
+<dl>
+  <dt id=url>
+    <strong>url</strong>
+
+  <dd>
+    <em>(Default: <a target=github href=https://github.com>https://github.com)</a></em>
+    - URL used for <a title=link href=#link>link</a>.
+
+</dl>
+
+
+<h2>Slots</h2>
+
+<dl>
+  <dt id=link>
+    <strong>link</strong>
+
+  <dd>
+    Default content of custom element.
+    <em>(Usually an <code>&lt;a&gt;</code> link to Github)</em>
+
+</dl>
+
+
+<h2>Tokens</h2>
+
+<dl>
+  <dt><abbr title='None applicable'>N/A</abbr>
+
+</dl>
+
+
+<style>
+
+github-ribbon a:link {
+  z-index: 3;
+
+  top: 1.1em;
+  right: -10vw;
+
+  width: 30vw;
+  height: 8vh;
+
+  display: block;
+  padding: 0.3em;
+  position: fixed;
+
+  margin:0;
+  border: none;
+  text-indent: -100vw;
+  background: rgba(200,200,200,0.9);
+  box-shadow: 0px 0px 0.8em 0.2em rgba(20,20,20,.6);
+
+  transform: rotate(38deg);
+  transform-style: flat /* Fixes funky z-index issues with ::before & ::after */
+}
+
+github-ribbon a::before {
+  content: "";
+
+  top: -0.3em; /* padding delta */
+  width: 8vh;
+  height: 8vh;
+  padding: 0.3em;
+  display: block;
+  margin-left: 11vw;
+  border-radius: 10vh;
+  background: var(--darkest-color);
+  border:0.5em solid var(--darkest-color);
+  box-shadow: 0px 0px 0.5em 0 rgba(20,20,20,.6);
+
+  /* create a new stacking context */
+  position: fixed;
+  z-index: -1;  /* to be below the parent element */
+
+  background-color: #898989;
+
+  /* Used for capturing mouseover within SVG transparencies
+     // References
+         - https://bugs.webkit.org/show_bug.cgi?id=61824
+         - https://stackoverflow.com/questions/5472802/css-z-index-lost-after-webkit-transform-translate3d#answer-9227478
+
+     // Bug list
+         - https://bugs.webkit.org/show_bug.cgi?id=61824
+  */
+  pointer-events: all;
+}
+
+github-ribbon a::before {
+  background-image: url("data:image/svg+xml;utf8, <svg xmlns='http://www.w3.org/2000/svg' viewBox='0,0,16,16'><path fill-rule='evenodd' fill='#eee' d='M8 0C3.58 0 0 3.58 0 8c0 3.54 2.29 6.53 5.47 7.59.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82.64-.18 1.32-.27 2-.27.68 0 1.36.09 2 .27 1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.48 0 1.07-.01 1.93-.01 2.2 0 .21.15.46.55.38A8.013 8.013 0 0 0 16 8c0-4.42-3.58-8-8-8z'></path></svg>");
+
+  background-repeat: no-repeat;
+}
+
+github-ribbon a:hover::before
+  { border:0.5em solid var(--lighter-color) }
+
+</style>
+
