@@ -1,4 +1,4 @@
-const EventTarget = Element => // why buble
+const EventTarget = HTMLElement => // why buble
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
