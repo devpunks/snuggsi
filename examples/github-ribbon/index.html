@@ -43,10 +43,11 @@ github-ribbon a {
 
   margin:0;
   border: none;
-  transform-style: flat;
-  transform: rotate(38deg);
-  box-shadow: 0px 0px 0.8em 0.2em rgba(20,20,20,.6);
   background: rgba(200,200,200,0.9);
+  box-shadow: 0px 0px 0.8em 0.2em rgba(20,20,20,.6);
+
+  transform: rotate(38deg);
+  transform-style: flat /* Fixes funky z-index issues with ::before & ::after */
 }
 
 github-ribbon a::before {
