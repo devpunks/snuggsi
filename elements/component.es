@@ -79,8 +79,8 @@ const Component = HTMLElement => // why buble
          .parentNode
          .replaceChild (replacement, slot)
 
-    for (let node of this.selectAll ('[slot]'))
-      insert (node)
+    for (let replacement of this.selectAll ('[slot]'))
+      insert (replacement)
 
     Array
       .from (template.attributes)
