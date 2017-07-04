@@ -84,7 +84,10 @@ const Component = HTMLElement => // why buble
 
     Array
       .from (template.attributes)
-      .map (attr => !!! console.log (attr) && attr)
+
+      // skip swapping attribute if setting exists
+      .filter (attr => !!! this.getAttribute (attr.name))
+
       .map  (attr => this.setAttribute (attr.name, attr.value))
 
     this.innerHTML = template.innerHTML
