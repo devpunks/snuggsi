@@ -371,13 +371,17 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
 
     for (var i = 0, list = this$1.selectAll ('[slot]'); i < list.length; i += 1)
       {
-      var node = list[i];
+      var replacement = list[i];
 
-      insert (node)
+      insert (replacement)
     }
 
     Array
       .from (template.attributes)
+
+      // skip swapping attribute if setting exists
+      .filter (function (attr) { return !!! this$1.getAttribute (attr.name); })
+
       .map  (function (attr) { return this$1.setAttribute (attr.name, attr.value); })
 
     this.innerHTML = template.innerHTML
