@@ -67,7 +67,14 @@ github-ribbon a::before {
 
   background-color: #898989;
 
-  /* Used for capturing mouseover within SVG transparencies */
+  /* Used for capturing mouseover within SVG transparencies
+     // References
+         - https://bugs.webkit.org/show_bug.cgi?id=61824
+         - https://stackoverflow.com/questions/5472802/css-z-index-lost-after-webkit-transform-translate3d#answer-9227478
+
+     // Bug list
+         - https://bugs.webkit.org/show_bug.cgi?id=61824
+  */
   pointer-events: all;
 }
 
