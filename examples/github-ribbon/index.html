@@ -1,7 +1,7 @@
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
 
-<h1>&lt;github-ribbon&gt;</h1>
+<title>&lt;header-group&gt;</title>
 
 <template url='https://github.com' title='View on Github'>
 
@@ -23,6 +23,58 @@ Element `github-ribbon`
 })
 
 </script>
+
+
+<h1>&lt;github-ribbon&gt;</h1>
+
+
+<p id=description>
+  Custom
+  <a rel=external
+     target=mdn
+     href=https://developer.mozilla.org/en-US/docs/Web/HTML/Element/a>
+       <code>&lt;a&gt;</code>
+   </a>
+   element
+</p>
+
+
+<h2>Example</h2>
+
+<code>
+  <pre>
+    &lt;github-ribbon url=https://github.com/my/repo title='Go to my repo'&gt;
+      &lt;a slot=header&gt;My Custom Github Message&lt;/a&gt;
+    &lt;/github-ribbon&gt;
+  </pre>
+</code>
+
+
+<h2>Settings</h2>
+
+<dl>
+  <dt id=url>
+    <strong>url</strong>
+
+  <dd>
+    <em>(Default: <a target=github href=https://github.com>https://github.com)</a></em>
+    - URL used for <a title=link href=#link>link</a>.
+
+</dl>
+
+
+<h2>Slots</h2>
+
+<dl>
+  <dt id=link>
+    <strong>link</strong>
+
+  <dd>
+    Default content of custom element.
+    <em>(Usually an <code>&lt;a&gt;</code> link to Github)</em>
+
+</dl>
+
 
 <style>
 
