@@ -162,13 +162,13 @@ var HTMLTemplateElement = Template = function (name) {
   }
 }
 
-var EventTarget = function (Element) { return ((function (Element) {
+var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
     function anonymous () {
-      Element.apply(this, arguments);
+      HTMLElement.apply(this, arguments);
     }
 
-    if ( Element ) anonymous.__proto__ = Element;
-    anonymous.prototype = Object.create( Element && Element.prototype );
+    if ( HTMLElement ) anonymous.__proto__ = HTMLElement;
+    anonymous.prototype = Object.create( HTMLElement && HTMLElement.prototype );
     anonymous.prototype.constructor = anonymous;
 
     anonymous.prototype.on = function ( event, handler ) {
@@ -193,7 +193,7 @@ var EventTarget = function (Element) { return ((function (Element) {
   };
 
     return anonymous;
-  }(Element))); }
+  }(HTMLElement))); }
 
 var ParentNode = function (Element) { return ((function (Element) {
     function anonymous () {
