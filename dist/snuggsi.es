@@ -211,7 +211,7 @@ const EventTarget = HTMLElement => // why buble
   // Within https://w3c.github.io/uievents/#conf-interactive-ua
   // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
 
-(class extends Element {
+(class extends HTMLElement {
 
   // MDN EventTarget.addEventListener
   // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
