@@ -1,7 +1,7 @@
 <h1>&lt;github-ribbon&gt;</h1>
 
 
-<template url={url} title='View on Github'>
+<template url='https://github.com' title='View on Github'>
 
   <slot name=link>
     <a rel=help target=github href={url}>View on Github</a>
@@ -17,7 +17,7 @@ Element `github-ribbon`
 (class extends HTMLElement {
 
   get url ()
-    { return this.getAttribute ('url') || 'https://github.com' }
+    { return this.getAttribute ('url') }
 })
 
 </script>
