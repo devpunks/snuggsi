@@ -25,10 +25,6 @@ Element `github-ribbon`
 
 <style>
 
-github-ribbon svg
-  /* Used for capturing mouseover within SVG transparencies */
-  { pointer-events: all }
-
 github-ribbon a {
   z-index: 3;
 
@@ -64,11 +60,15 @@ github-ribbon a::before {
   background: var(--darkest-color);
   border:0.5em solid var(--darkest-color);
   box-shadow: 0px 0px 0.5em 0 rgba(20,20,20,.6);
+
   /* create a new stacking context */
   position: fixed;
   z-index: -1;  /* to be below the parent element */
 
   background-color: #898989;
+
+  /* Used for capturing mouseover within SVG transparencies */
+  pointer-events: all;
 }
 
 github-ribbon a::before {
