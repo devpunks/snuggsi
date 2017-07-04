@@ -1,7 +1,7 @@
 <h1>&lt;github-ribbon&gt;</h1>
 
 
-<template>
+<template url={url}>
   <!-- insert default content here -->
 </template>
 
@@ -10,7 +10,11 @@
 
 Element `github-ribbon`
 
-(class extends HTMLElement { })
+(class extends HTMLElement {
+
+  get url ()
+    { return this.getAttribute ('url') || 'https://github.com' }
+})
 
 </script>
 
