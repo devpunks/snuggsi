@@ -248,7 +248,7 @@ body > main, body > aside { flex: 1 }
 
   body > nav,
   body > main
-  { padding-bottom: 20vh }
+  { padding-bottom: 10vh }
 
   body > aside, body > nav
     { z-index: 1 }
