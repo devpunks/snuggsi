@@ -219,6 +219,7 @@ body > main, body > aside { flex: 1 }
     width: 20vw;
     height: 100vh;
     position: fixed;
+    overflow: scroll;
   }
   body > nav:before {
     display: block;
