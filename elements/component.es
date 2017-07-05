@@ -65,7 +65,7 @@ const Component = HTMLElement => // why buble
   }
 
 
-  parse (template, insert) {
+  mirror (template, insert) {
 
     template = template.cloneNode (true)
 

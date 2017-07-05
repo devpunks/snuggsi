@@ -31,7 +31,7 @@ const GlobalEventHandlers = Element =>
   onconnect (event, document) {
 
     (document = event.target.import)
-      && this.parse (document.querySelector ('template'))
+      && this.mirror (document.querySelector ('template'))
 
     super.onconnect
       && super.onconnect ()
