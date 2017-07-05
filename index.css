@@ -1,9 +1,9 @@
 :root {
   --margin: 0 0;
 }
-body {
-  padding: 0;
-}
+
+body
+  { padding: 0 }
 
 #badges {
   padding: 0;
@@ -23,9 +23,6 @@ body {
   border-bottom: none;
   text-decoration: none
 }
-
-body > aside, body > nav
-  { z-index: 1 }
 
 body > aside
   { padding-bottom: 30vh }
