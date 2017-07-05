@@ -242,7 +242,10 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     Element.prototype.onconnect
       && Element.prototype.onconnect.call (this)
 
+    this.tokens = new TokenList (this)
     this.render ()
+
+    console.warn (this.innerHTML)
   };
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
@@ -307,7 +310,6 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
       .map (this.reflect, this)
 
     this.context = this.context || {}
-    this.tokens  = new TokenList (this)
     this.initialize && this.initialize ()
   }
 
@@ -361,11 +363,13 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
     template = template.cloneNode (true)
 
     insert = function (replacement, name, slot) { return (name = replacement.getAttribute ('slot')) &&
-      (slot = template.content.querySelector ('slot[name='+name+']'))
 
+      (slot = template.content.querySelector ('slot[name='+name+']'))
          // prefer to use replaceWith however support is sparse
          // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-         // using `Node.parentNode` & `Node.replaceChid` as is defined in (ancient) W3C DOM Level 1,2,3
+         // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
+         // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
+         // as is defined in (ancient) W3C DOM Level 1,2,3
          .parentNode
          .replaceChild (replacement, slot); }
 
