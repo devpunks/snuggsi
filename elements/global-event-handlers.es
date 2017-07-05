@@ -36,7 +36,10 @@ const GlobalEventHandlers = Element =>
     super.onconnect
       && super.onconnect ()
 
+    this.tokens = new TokenList (this)
     this.render ()
+
+    console.warn (this.innerHTML)
   }
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)

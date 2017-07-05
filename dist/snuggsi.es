@@ -346,7 +346,10 @@ const GlobalEventHandlers = Element =>
     super.onconnect
       && super.onconnect ()
 
+    this.tokens = new TokenList (this)
     this.render ()
+
+    console.warn (this.innerHTML)
   }
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
@@ -412,7 +415,6 @@ const Component = HTMLElement => // why buble
       .map (this.reflect, this)
 
     this.context = this.context || {}
-    this.tokens  = new TokenList (this)
     this.initialize && this.initialize ()
   }
 
