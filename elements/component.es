@@ -72,7 +72,6 @@ const Component = HTMLElement => // why buble
     insert = (replacement, name, slot) =>
       (name = replacement.getAttribute ('slot')) &&
       (slot = template.content.querySelector ('slot[name='+name+']'))
-
          // prefer to use replaceWith however support is sparse
          // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
          // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
