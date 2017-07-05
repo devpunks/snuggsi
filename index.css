@@ -219,7 +219,21 @@ body > main, body > aside { flex: 1 }
     width: 20vw;
     height: 100vh;
     position: fixed;
-    padding-top: 18vh; /* header-group height */
+  }
+  body > nav:before {
+    display: block;
+    content: 'ッ';
+    font-size: 18vh;
+    font-weight: bold;
+    text-align: center;
+    color: transparent;
+    line-height: 18vh; height: 18vh; /* header-group height */
+    background-color: #565656;
+    color: transparent;
+    text-shadow: 0px 2px 3px rgba(255,255,255,0.5);
+    -webkit-background-clip: text;
+       -moz-background-clip: text;
+            background-clip: text;
   }
   body > main,
   body > nav,
