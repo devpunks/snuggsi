@@ -92,7 +92,7 @@ body > aside {
 }
 
 body > footer {
-  z-index: 2;
+  z-index: 1;
   height: 17vh;
   width: 100vw;
   display: flex;
@@ -114,7 +114,9 @@ body > footer em
   { font-size: 0.8em }
 
 header-group {
+  z-index: 2; /* less than github-ribbon */
   display: flex;
+  background: rgba(100,100,100,1.0);
   line-height: 1.612em;
   margin-bottom: 1.612em;
 }
@@ -207,10 +209,18 @@ body { display: flex; flex-flow: column }
 body > main, body > aside { flex: 1 }
 
 @media (orientation: landscape) {
+
   body         { flex-flow: row wrap }
-  body > main  { flex-basis: 55vw }
+  body > main  { margin-left: 20vw; flex-basis: 55vw }
   body > aside { flex-basis: 25vw }
-  body > nav   { flex-basis: 20vw }
+  body > nav   {
+    top: 0;
+    left: 0;
+    width: 20vw;
+    height: 100vh;
+    position: fixed;
+    padding-top: 18vh; /* header-group height */
+  }
   body > main,
   body > nav,
   body > aside
@@ -226,19 +236,13 @@ body > main, body > aside { flex: 1 }
   body > main
   { padding-bottom: 20vh }
 
-  body > nav {
-    margin: 0;
-    position: fixed;
-    top: 18vh; /* height of header */
-  }
-
   body > aside, body > nav
-    { z-index: 2 }
+    { z-index: 1 }
 
   body > footer {
+    z-index: 0;
     font-size: 70%;
     letter-spacing: 0px;
-    z-index: 1
   }
 
 }
