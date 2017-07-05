@@ -341,7 +341,7 @@ const GlobalEventHandlers = Element =>
   onconnect (event, document) {
 
     (document = event.target.import)
-      && this.parse (document.querySelector ('template'))
+      && this.mirror (document.querySelector ('template'))
 
     super.onconnect
       && super.onconnect ()
@@ -453,7 +453,7 @@ const Component = HTMLElement => // why buble
   }
 
 
-  parse (template, insert) {
+  mirror (template, insert) {
 
     template = template.cloneNode (true)
 
