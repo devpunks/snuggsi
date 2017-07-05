@@ -237,7 +237,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     anonymous.prototype.onconnect = function (event, document) {
 
     (document = event.target.import)
-      && this.parse (document.querySelector ('template'))
+      && this.mirror (document.querySelector ('template'))
 
     Element.prototype.onconnect
       && Element.prototype.onconnect.call (this)
@@ -354,7 +354,7 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
   };
 
 
-  anonymous.prototype.parse = function (template, insert) {
+  anonymous.prototype.mirror = function (template, insert) {
     var this$1 = this;
 
 
