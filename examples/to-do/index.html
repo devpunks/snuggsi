@@ -43,7 +43,8 @@ Element `to-do`
 (class extends HTMLElement {
 
   initialize () {
-    this.context.tasks = ['Wash clothes', 'Eat food']
+    this.context
+      .tasks = ['Wash clothes', 'Eat food']
   }
 
   onidle () { // hide count if no tasks
