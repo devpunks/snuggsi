@@ -16,6 +16,27 @@
   <a  slot=subheader title='See more component examples' href=/examples>See more component examples</a>
 </header-group>
 
+<to-do>
+  <h1>{name}'s TO-DO List</h1>
+
+</to-do>
+
+<script defer>
+
+Element `to-do`
+
+(class extends HTMLElement {
+
+  initialize () {
+    alert `now that was easy`
+  }
+
+  get name ()
+    { return 'Loren Hale' }
+
+})
+
+</script>
 
 <script src=/browser-sync.es></script>
 
