@@ -16,32 +16,29 @@
 
   <form action=#>
     <input required placeholder='Remember the milk&hellip;'>
+
     <button>Add</button>
+
+    <fieldset> <!-- ???? A better element name -->
+      <legend>{count} items left</legend>
+
+      <label>All</label>
+      <label>Active</label>
+      <label>Completed</label>
+    </fieldset>
+
+    <input name=filter value=all type=radio checked>
+    <input name=filter value=active type=radio>
+    <input name=filter value=completed type=radio>
 
     <ol>
     <template name=tasks>
-      <!-- {#} - current index   -->
-      <!-- {self} - current item -->
-      <li> {self}
-        <button onclick=remove id={#}>Remove</button>
+      <li>
+      <label>
+        <input type=checkbox> {self}                  <!-- {self} - current item -->
+        <button onclick=remove id={#}>Remove</button> <!--    {#} - current index -->
     </template>
     </ol>
-
-    <fieldset>
-      <legend>{count} items left</legend>
-
-      <label> All
-        <input name=filter value=all type=radio checked>
-      </label>
-
-      <label> Active
-        <input name=filter value=active type=radio>
-      </label>
-
-      <label> Completed
-        <input name=filter value=completed type=radio>
-      </label>
-    </fieldset>
   </form>
 </to-do>
 
