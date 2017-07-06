@@ -33,6 +33,7 @@
   </template>
   </ol>
 
+  <footer>Number of tasks: {count}</footer>
 </to-do>
 
 <script defer>
@@ -71,6 +72,9 @@ Element `to-do`
 
   get name ()
     { return 'Loren Hale' }
+
+  get count ()
+    { return this.context.tasks.length }
 
 })
 
