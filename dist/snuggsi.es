@@ -361,14 +361,14 @@ const GlobalEventHandlers = Element =>
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  reflect (handler, name) {
-    ( name = ( handler.match (/^on(.+)$/) || [] ) [1] )
+  reflect (handler, event) {
+    ( event = ( handler.match (/^on(.+)$/) || [] ) [1] )
 
     && Object.keys // ensure W3C on event
      ( HTMLElement.prototype )
        .includes ( handler )
 
-    && this.on (name, this [handler])
+    && this.on (event, this [handler])
   }
 
   register (node) {
@@ -410,6 +410,10 @@ const Component = HTMLElement => // why buble
 
     Object
       .getOwnPropertyNames (HTMLElement.prototype)
+      // POTENTIAL REDUNDANCY
+      // Aren't `on` events set up in `.bind` on 20?
+      // If so we are `.bind`ing to `this` on two iterations
+      // of the same function
       .map (this.reflect, this)
 
     this.context = this.context || {}
@@ -476,7 +480,7 @@ const Component = HTMLElement => // why buble
       .from (template.attributes)
 
       // skip swapping attribute if setting exists
-      .filter (attr => !!! this.getAttribute (attr.name))
+      .filter (attr => !!! this.attributes [attr.name])
 
       .map  (attr => this.setAttribute (attr.name, attr.value))
 
