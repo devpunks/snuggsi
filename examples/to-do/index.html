@@ -38,8 +38,18 @@ Element `to-do`
 (class extends HTMLElement {
 
   initialize () {
-    alert `now that was easy`
+    this.context.tasks = ['Wash clothes', 'Eat food']
   }
+
+  onsubmit (event) {
+    const task = this.select `input`.value
+
+    this.context
+      .tasks.unshift (task)
+  }
+
+  get tasks ()
+    { return this.context.tasks }
 
   get name ()
     { return 'Loren Hale' }
