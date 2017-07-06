@@ -1,5 +1,3 @@
-console.log ('I am the weatherman')
-
 class Weather {
 
   constructor (latitude, longitude) {
