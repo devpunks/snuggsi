@@ -17,8 +17,18 @@
 </header-group>
 
 <to-do>
-  <h1>{name}'s TO-DO List</h1>
+  <h1>{name}'s &lt;to-do&gt; List</h1>
 
+  <form action=#>
+    <input placeholder='Remember the milk&hellip;'>
+    <button>Add</button>
+  </form>
+
+  <ol>
+  <template name=tasks>
+    <li>{self}
+  </template>
+  </ol>
 </to-do>
 
 <script defer>
