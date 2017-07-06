@@ -60,9 +60,10 @@ Element `to-do`
   }
 
   remove (event) {
-    this.context
-      .tasks.splice
-        (event.target.id, 1)
+    this.context.tasks
+      // MDN Array.prototype.slice ()
+      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+      .splice (event.target.id, 1)
   }
 
   get tasks ()
