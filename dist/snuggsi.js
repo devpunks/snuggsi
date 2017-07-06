@@ -257,14 +257,14 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  anonymous.prototype.reflect = function (handler, name) {
-    ( name = ( handler.match (/^on(.+)$/) || [] ) [1] )
+  anonymous.prototype.reflect = function (handler, event) {
+    ( event = ( handler.match (/^on(.+)$/) || [] ) [1] )
 
     && Object.keys // ensure W3C on event
      ( HTMLElement.prototype )
        .includes ( handler )
 
-    && this.on (name, this [handler])
+    && this.on (event, this [handler])
   };
 
   anonymous.prototype.register = function (node) {
@@ -305,6 +305,10 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
 
     Object
       .getOwnPropertyNames (HTMLElement.prototype)
+      // POTENTIAL REDUNDANCY
+      // Aren't `on` events set up in `.bind` on 20?
+      // If so we are `.bind`ing to `this` on two iterations
+      // of the same function
       .map (this.reflect, this)
 
     this.context = this.context || {}
@@ -382,7 +386,7 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
       .from (template.attributes)
 
       // skip swapping attribute if setting exists
-      .filter (function (attr) { return !!! this$1.getAttribute (attr.name); })
+      .filter (function (attr) { return !!! this$1.attributes [attr.name]; })
 
       .map  (function (attr) { return this$1.setAttribute (attr.name, attr.value); })
 
