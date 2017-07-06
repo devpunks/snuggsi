@@ -51,10 +51,12 @@ Element `to-do`
   onsubmit (event) {
     event.preventDefault ()
 
-    const task = this.select `input`.value
+    const input = this.select `input`
 
     this.context
-      .tasks.unshift (task)
+      .tasks.unshift (input.value)
+
+    input.value = ''
   }
 
   remove (event, id = Number (event.target.id)) {
