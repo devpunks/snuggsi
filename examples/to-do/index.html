@@ -46,6 +46,11 @@ Element `to-do`
     this.context.tasks = ['Wash clothes', 'Eat food']
   }
 
+  onidle () { // hide count if no tasks
+    this.select `footer`.hidden =
+      !!! this.context.tasks.length
+  }
+
   // "automagically" delegates registration on `to-do`
   // based solely on GlobalEventHandlers.on* naming conventions.
   // Further Details: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
