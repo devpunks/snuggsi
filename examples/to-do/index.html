@@ -59,8 +59,9 @@ Element `to-do`
     input.value = ''
   }
 
-  remove (event, id = Number (event.target.id)) {
-    this.context.tasks.splice (id, 1)
+  remove (event, id = event.target.id) {
+    this.context
+      .tasks.splice (Number (id), 1)
   }
 
   get tasks ()
