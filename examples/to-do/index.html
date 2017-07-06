@@ -28,9 +28,11 @@
   <template name=tasks>
     <!-- {#} - current index   -->
     <!-- {self} - current item -->
-    <li id={#}>{self}
+    <li> {self}
+      <button onclick=remove id={#}>Remove</button>
   </template>
   </ol>
+
 </to-do>
 
 <script defer>
@@ -48,6 +50,10 @@ Element `to-do`
 
     this.context
       .tasks.unshift (task)
+  }
+
+  remove (event, id = Number (event.target.id)) {
+    this.context.tasks.splice (id, 1)
   }
 
   get tasks ()
