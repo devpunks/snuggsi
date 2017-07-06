@@ -61,7 +61,7 @@ Element `to-do`
     const input = this.select `input`
 
     this.context
-      .tasks.unshift (input.value)
+      .tasks.push (input.value)
 
     input.value = ''
   }
