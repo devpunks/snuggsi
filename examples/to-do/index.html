@@ -22,18 +22,32 @@
   <form action=#>
     <input placeholder='Remember the milk&hellip;'>
     <button>Add</button>
+
+    <ol>
+    <template name=tasks>
+      <!-- {#} - current index   -->
+      <!-- {self} - current item -->
+      <li> {self}
+        <button onclick=remove id={#}>Remove</button>
+    </template>
+    </ol>
+
+    <fieldset>
+      <legend>{count} items left</legend>
+
+      <label> All
+        <input name=filter value=all type=radio checked>
+      </label>
+
+      <label> Active
+        <input name=filter value=active type=radio>
+      </label>
+
+      <label> Completed
+        <input name=filter value=completed type=radio>
+      </label>
+    </fieldset>
   </form>
-
-  <ol>
-  <template name=tasks>
-    <!-- {#} - current index   -->
-    <!-- {self} - current item -->
-    <li> {self}
-      <button onclick=remove id={#}>Remove</button>
-  </template>
-  </ol>
-
-  <footer>Number of tasks: {count}</footer>
 </to-do>
 
 <script defer>
@@ -48,7 +62,7 @@ Element `to-do`
   }
 
   onidle () { // hide count if no tasks
-    this.select `footer`.hidden =
+    this.select `fieldset`.hidden =
       !!! this.context.tasks.length
   }
 
