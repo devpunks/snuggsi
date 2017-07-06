@@ -12,13 +12,8 @@ Element `to-do`
       !!! this.context.tasks.length
   }
 
-  // "automagically" delegates registration on `to-do`
-  // based solely on GlobalEventHandlers.on* naming conventions.
-  // Further Details: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
-  onsubmit (event) {
+  onsubmit (event, input = this.select `input`) {
     event.preventDefault ()
-
-    const input = this.select `input`
 
     this.context
       .tasks.push (input.value)
@@ -28,8 +23,6 @@ Element `to-do`
 
   remove (event) {
     this.context.tasks
-      // MDN Array.prototype.slice ()
-      // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
       .splice (event.target.id, 1)
   }
 
@@ -41,13 +34,5 @@ Element `to-do`
 
   get count ()
     { return this.context.tasks.length }
-
-  // perhaps this should be a Mixin:
-  // `Storage (HTMLElement)`
-  store () {
-    console.log (JSON.strinfigy (this.context.tasks))
-  }
-
 })
-
 
