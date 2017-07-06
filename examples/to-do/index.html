@@ -45,7 +45,12 @@ Element `to-do`
     this.context.tasks = ['Wash clothes', 'Eat food']
   }
 
+  // "automagically" delegates registration on `to-do`
+  // based solely on GlobalEventHandlers.on* naming conventions.
+  // Further Details: https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
   onsubmit (event) {
+    event.preventDefault ()
+
     const task = this.select `input`.value
 
     this.context
