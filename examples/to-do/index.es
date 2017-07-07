@@ -4,19 +4,32 @@ Element `to-do`
 
   initialize () {
     this.context.tasks =
-      [{ task: 'Wash clothes' }, { task: 'Eat food' }]
+      [{ task: 'Wash clothes', completed: true }, { task: 'Eat food' }]
   }
 
   onsubmit (event, input = this.select `input`) {
     event.preventDefault ()
 
     this.context.tasks
-      .push (input.value)
+      .push ({ task: input.value })
 
     input.value = ''
   }
 
-  onidle () { console.log ('idling') }
+  onidle () {
+    const
+      check = (task, id) =>
+        task.completed && mark (id)
+
+   ,  mark = (id, selector = `input[id="${id}"]`) =>
+        this
+          .select (selector)
+          .checked = true
+
+    this.tasks.map (check)
+
+    console.log ('idling')
+  }
 
   all (event) {
     event.prevent () // from painting
@@ -26,9 +39,9 @@ Element `to-do`
       .map (checkbox => checkbox.checked = true)
   }
 
-  complete (event, id = event.target.id) {
-    this.context.tasks
-      [id].completed = true
+  toggle (event, id = event.target.id) {
+    this.context.tasks[id].completed =
+      !!!this.context.tasks[id].completed
   }
 
   remove (event) {
