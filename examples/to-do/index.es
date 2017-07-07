@@ -7,11 +7,6 @@ Element `to-do`
       .tasks = ['Wash clothes', 'Eat food']
   }
 
-  onidle () { // hide count if no tasks
-    this.select `fieldset`.hidden =
-      !!! this.context.tasks.length
-  }
-
   onsubmit (event, input = this.select `input`) {
     event.preventDefault ()
 
