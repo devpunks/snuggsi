@@ -33,6 +33,10 @@ Element `to-do`
   }
 
   remove (event) {
+    const // a little hairy to retrieve
+      id = event.target.parentNode.querySelector
+        `input[type=checkbox]`.id
+
     this.context.tasks
       .splice (event.target.id, 1)
   }
