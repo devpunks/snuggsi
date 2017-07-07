@@ -19,9 +19,9 @@
 
     <button>Add</button>
 
-    <input id= name=filter value=all type=radio checked>
-    <input name=filter value=active type=radio>
-    <input name=filter value=completed type=radio>
+    <input id=all       name=filter type=radio value=all checked>
+    <input id=active    name=filter type=radio value=active>
+    <input id=completed name=filter type=radio value=completed>
 
     <template name=tasks>
     <fieldset>
@@ -36,9 +36,9 @@
     <footer> <!-- ???? A better element name -->
       <legend>{count} items left</legend>
 
-      <label>All</label>
-      <label>Active</label>
-      <label>Completed</label>
+      <label for=all>All</label>
+      <label for=active>Active</label>
+      <label for=completed>Completed</label>
     </footer>
   </form>
 </to-do>
