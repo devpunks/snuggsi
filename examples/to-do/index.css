@@ -1,0 +1,24 @@
+@import '/examples/to-do/styles.css';
+
+  /* logic ------------------------------------------ */
+  to-do form > /* no tasks */ footer { display: none  }
+  to-do form > fieldset ~ footer     { display: flex }
+
+  to-do form > input[type=radio] { display: none } /* state machine */
+
+  to-do form input#active:checked
+    ~ fieldset input:checked,
+
+  to-do form input#active:checked
+    ~ fieldset input:checked
+      ~ *
+      { display:none }
+
+
+  to-do form input#completed:checked
+    ~ fieldset input:not(:checked),
+
+  to-do form input#completed:checked
+    ~ fieldset input:not(:checked)
+      ~ *
+      { display:none }

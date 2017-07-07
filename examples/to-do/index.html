@@ -1,4 +1,6 @@
 <to-do>
+  <link rel=stylesheet href=to-do/index.css>
+
   <h1>{name}'s &lt;to-do&gt; List</h1>
 
   <form action=#>
@@ -10,11 +12,8 @@
     <input id=active    name=filter type=radio value=active>
     <input id=completed name=filter type=radio value=completed>
 
-    <button onclick=all>Complete All</button>
-
     <template name=tasks>
-      <fieldset>
-        <!-- {#} - current index -->
+      <fieldset><!-- {#} = current index -->
         <input id={#} onclick=toggle type=checkbox>
 
         <label for={#}>{task}</label>
@@ -24,7 +23,9 @@
     </template>
 
     <footer>
-      <legend>{count} items left</legend>
+      <header>{count} items left
+        <button onclick=all>Complete All</button>
+      </header>
 
       <label for=all>All</label>
       <label for=active>Active</label>
@@ -33,13 +34,10 @@
       <button onclick=clear>Clear Completed</button>
     </footer>
   </form>
+
+  <script src=/snuggsi.es></script>
+  <script src=/examples/to-do/index.es></script>
+
 </to-do>
 
-<style>
-  to-do form > footer { display: none }
-  to-do form > fieldset ~ footer { display: block }
-</style>
-
-<script src=/snuggsi.es></script>
-<script src=/examples/to-do/index.es></script>
 <script src=/browser-sync.es></script>
