@@ -25,8 +25,6 @@ Element `to-do`
         .checked = true
 
     this.tasks.map (check)
-
-    console.log ('idle')
   }
 
   all (event, checkboxes = this.selectAll `input[type=checkbox]`) {
@@ -52,13 +50,9 @@ Element `to-do`
   clear (event) {
     event.preventDefault ()
 
-    const
-      completed = this.selectAll
-        `input[type=checkbox]:checked`
-
-    for (let checkbox of completed)
+    this.context.tasks =
       this.context.tasks
-        .splice (checkbox.id, 1)
+        .filter (task => !!! task.completed)
   }
 
   get tasks ()
