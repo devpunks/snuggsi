@@ -14,9 +14,10 @@
 
     <template name=tasks>
       <fieldset>
-        <input  id={#} type=checkbox> <!--    {#} - current index -->
+        <!-- {#} - current index -->
+        <input id={#} onclick=complete type=checkbox>
 
-        <label for={#}>{self}</label> <!-- {self} - current item -->
+        <label for={#}>{task}</label>
 
         <button onclick=remove>Remove</button>
       </fieldset>
