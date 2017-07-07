@@ -12,13 +12,17 @@
     <input id=active    name=filter type=radio value=active>
     <input id=completed name=filter type=radio value=completed>
 
+    <label>
+      <button onclick=all>Complete All</button>
+    </label>
+
     <template name=tasks>
     <fieldset>
       <label>
-        <input type=checkbox> {self}                  <!-- {self} - current item -->
+        <input type=checkbox> {self} <!-- {self} - current item -->
       </label>
 
-      <button onclick=remove id={#}>Remove</button> <!--    {#} - current index -->
+      <button onclick=remove id={#}>Remove</button>   <!--    {#} - current index -->
     </fieldset>
     </template>
 
