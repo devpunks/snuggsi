@@ -16,19 +16,15 @@ Element `to-do`
     input.value = ''
   }
 
-  onidle () {
-    const
-      check = (task, id) =>
-        task.completed && mark (id)
+  onidle (check, mark) {
+    check = (task, id) =>
+      task.completed && mark (id)
 
-   ,  mark = (id, selector = `input[id="${id}"]`) =>
-        this
-          .select (selector)
-          .checked = true
+    mark = (id, selector = `input[id="${id}"]`) =>
+      this.select (selector)
+        .checked = true
 
     this.tasks.map (check)
-
-    console.log ('idling')
   }
 
   all (event) {
@@ -36,13 +32,11 @@ Element `to-do`
 
     Array
       .from (this.selectAll `input[type=checkbox]`)
-      .map (checkbox => checkbox.checked = true)
+      .map  (checkbox => checkbox.checked = true)
   }
 
-  toggle (event, id = event.target.id) {
-    this.context.tasks[id].completed =
-      !!!this.context.tasks[id].completed
-  }
+  toggle (event, task = this.context.tasks [event.target.id])
+    { task.completed = !!! task.completed }
 
   remove (event) {
     const // a little hairy to retrieve
@@ -74,4 +68,3 @@ Element `to-do`
   get count ()
     { return this.context.tasks.length }
 })
-
