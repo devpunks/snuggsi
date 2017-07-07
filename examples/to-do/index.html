@@ -1,46 +1,44 @@
-<script src=/snuggsi.es></script>
-
 <to-do>
   <h1>{name}'s &lt;to-do&gt; List</h1>
 
   <form action=#>
     <input required placeholder='Remember the milk&hellip;'>
 
-    <button>Add</button>
+    <button>Add</button><!-- implicitly calls `onsubmit` -->
 
     <input id=all       name=filter type=radio value=all checked>
     <input id=active    name=filter type=radio value=active>
     <input id=completed name=filter type=radio value=completed>
 
-    <label>
-      <button onclick=all>Complete All</button>
-    </label>
+    <button onclick=all>Complete All</button>
 
     <template name=tasks>
-    <fieldset>
-      <label>
-        <input type=checkbox> {self} <!-- {self} - current item -->
-      </label>
+      <fieldset>
+        <input  id={#} type=checkbox> <!--    {#} - current index -->
 
-      <button onclick=remove id={#}>Remove</button>   <!--    {#} - current index -->
-    </fieldset>
+        <label for={#}>{self}</label> <!-- {self} - current item -->
+
+        <button onclick=remove>Remove</button>
+      </fieldset>
     </template>
 
-    <footer> <!-- ???? A better element name -->
+    <footer>
       <legend>{count} items left</legend>
 
       <label for=all>All</label>
       <label for=active>Active</label>
       <label for=completed>Completed</label>
+
+      <button onclick=clear>Clear Completed</button>
     </footer>
   </form>
 </to-do>
-
-<script src=/examples/to-do/index.es></script>
-<script src=/browser-sync.es></script>
 
 <style>
   to-do form > footer { display: none }
   to-do form > fieldset ~ footer { display: block }
 </style>
 
+<script src=/snuggsi.es></script>
+<script src=/examples/to-do/index.es></script>
+<script src=/browser-sync.es></script>
