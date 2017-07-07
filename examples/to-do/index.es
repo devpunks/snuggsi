@@ -25,14 +25,16 @@ Element `to-do`
         .checked = true
 
     this.tasks.map (check)
+
+    console.log ('idle')
   }
 
-  all (event) {
-    event.prevent () // from painting
+  all (event, checkboxes = this.selectAll `input[type=checkbox]`) {
+    event.preventDefault ()
 
-    Array
-      .from (this.selectAll `input[type=checkbox]`)
-      .map  (checkbox => checkbox.checked = true)
+    for (let checkbox of checkboxes)
+      this.context.tasks
+        [checkbox.id].completed = true
   }
 
   toggle (event, task = this.context.tasks [event.target.id])
