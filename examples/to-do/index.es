@@ -3,15 +3,15 @@ Element `to-do`
 (class extends HTMLElement {
 
   initialize () {
-    this.context
-      .tasks = ['Wash clothes', 'Eat food']
+    this.context.tasks =
+      [{ task: 'Wash clothes' }, { task: 'Eat food' }]
   }
 
   onsubmit (event, input = this.select `input`) {
     event.preventDefault ()
 
-    this.context
-      .tasks.push (input.value)
+    this.context.tasks
+      .push (input.value)
 
     input.value = ''
   }
@@ -26,10 +26,9 @@ Element `to-do`
       .map (checkbox => checkbox.checked = true)
   }
 
-  complete (event) {
-    event.prevent () // from painting
-
-    console.log ('complete', event.target)
+  complete (event, id = event.target.id) {
+    this.context.tasks
+      [id].completed = true
   }
 
   remove (event) {
@@ -44,7 +43,13 @@ Element `to-do`
   clear (event) {
     event.preventDefault ()
 
-    console.log ('clearing')
+    const
+      completed = this.selectAll
+        `input[type=checkbox]:checked`
+
+    for (let checkbox of completed)
+      this.context.tasks
+        .splice (checkbox.id, 1)
   }
 
   get tasks ()
