@@ -19,29 +19,35 @@
 
     <button>Add</button>
 
-    <fieldset> <!-- ???? A better element name -->
+    <input id= name=filter value=all type=radio checked>
+    <input name=filter value=active type=radio>
+    <input name=filter value=completed type=radio>
+
+    <template name=tasks>
+    <fieldset>
+      <label>
+        <input type=checkbox> {self}                  <!-- {self} - current item -->
+      </label>
+
+      <button onclick=remove id={#}>Remove</button> <!--    {#} - current index -->
+    </fieldset>
+    </template>
+
+    <footer> <!-- ???? A better element name -->
       <legend>{count} items left</legend>
 
       <label>All</label>
       <label>Active</label>
       <label>Completed</label>
-    </fieldset>
-
-    <input name=filter value=all type=radio checked>
-    <input name=filter value=active type=radio>
-    <input name=filter value=completed type=radio>
-
-    <ol>
-    <template name=tasks>
-      <li>
-      <label>
-        <input type=checkbox> {self}                  <!-- {self} - current item -->
-        <button onclick=remove id={#}>Remove</button> <!--    {#} - current index -->
-    </template>
-    </ol>
+    </footer>
   </form>
 </to-do>
 
 <script src=/examples/to-do/index.es></script>
 <script src=/browser-sync.es></script>
+
+<style>
+  to-do form > footer { display: none }
+  to-do form > fieldset ~ footer { display: block }
+</style>
 
