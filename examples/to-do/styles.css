@@ -1,0 +1,40 @@
+  to-do button, to-do footer > label { cursor: pointer }
+
+  to-do form > fieldset {
+    padding: 0;
+    border: none;
+    background: #eee;
+    line-height: 2em;
+  }
+
+  to-do form > fieldset label {
+    width: 80%;
+    display: inline-block;
+    // Flexbox bug for fieldset - https://stackoverflow.com/questions/28078681/why-cant-fieldset-be-flex-containers
+  }
+
+  to-do footer  {
+    display: flex;
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+
+  to-do footer header button { display: block }
+
+  to-do footer > label {
+    flex: 1;
+    margin: 0 2em;
+    text-align: center;
+    border-radius: 0.2em;
+  }
+
+  to-do input#all:checked
+    ~ footer > label[for=all],
+
+  to-do input#active:checked
+    ~ footer > label[for=active],
+
+  to-do input#completed:checked
+    ~ footer > label[for=completed]
+      { background: #ddd }
