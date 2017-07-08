@@ -25,7 +25,7 @@ Element `to-do`
   }
 
 
-  all (event) {
+  complete (event) {
     event.preventDefault ()
 
     this.tasks.map (task => task.completed = true)
