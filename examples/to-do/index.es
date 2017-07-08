@@ -6,7 +6,6 @@ Element `to-do`
     this.context.tasks = [{ task: 'Wash clothes' }, { task: 'Eat food' }]
   }
 
-
   onsubmit (event, input = this.select `input`) {
     event.preventDefault ()
 
@@ -14,7 +13,6 @@ Element `to-do`
 
     input.value = ''
   }
-
 
   onidle (check) {
     const mark = (task, id) =>
@@ -24,17 +22,14 @@ Element `to-do`
     this.tasks.map (mark)
   }
 
-
   complete (event) {
     event.preventDefault ()
 
     this.tasks.map (task => task.completed = true)
   }
 
-
   toggle (event, task = this.context.tasks [event.target.id])
     { task.completed = !!! task.completed }
-
 
   remove (event, parent = event.target.parentNode) {
     const id = parent.querySelector `input`.id
@@ -42,15 +37,11 @@ Element `to-do`
     this.context.tasks.splice (id, 1)
   }
 
-
-  clear (event) {
+  clear (event, active = task => !!! task.completed) {
     event.preventDefault ()
 
-    this.context.tasks =
-      this.context.tasks
-        .filter (task => !!! task.completed)
+    this.context.tasks = this.context.tasks.filter (active)
   }
-
 
   get name  () { return 'Loren Hale' }
   get tasks () { return this.context.tasks }
