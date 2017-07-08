@@ -9,6 +9,8 @@ const HTMLTemplateElement = Template = function (name) {
     (document.querySelector ('template[name='+name+']'), { bind } )
 
   function bind (context) {
+
+    // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
     contexts = [].concat ( ... [context] )
 
     let
@@ -20,19 +22,19 @@ const HTMLTemplateElement = Template = function (name) {
       .map (context => context)
       .map ((context, index) => {
 
-      context =
-        (typeof context  === 'object') ? context : { self: context }
+        context =
+          (typeof context  === 'object') ? context : { self: context }
 
-      context ['#'] = index
+        context ['#'] = index
 
-      clone  = this.cloneNode (true)
+        clone  = this.cloneNode (true)
 
-      void (new TokenList (clone.content))
-        .bind (context)
+        void (new TokenList (clone.content))
+          .bind (context)
 
-      return clone.innerHTML // immutable snapshot
-    })
-    .join ('')
+        return clone.innerHTML // immutable snapshot
+      })
+      .join ('')
 
     void (this.dependents || [])
       .map (dependent => dependent.remove ())
