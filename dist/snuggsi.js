@@ -123,6 +123,8 @@ var HTMLTemplateElement = Template = function (name) {
   function bind (context) {
     var this$1 = this;
 
+
+    // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
     contexts = (ref = []).concat.apply ( ref, [context] )
 
     var
@@ -134,19 +136,19 @@ var HTMLTemplateElement = Template = function (name) {
       .map (function (context) { return context; })
       .map (function (context, index) {
 
-      context =
-        (typeof context  === 'object') ? context : { self: context }
+        context =
+          (typeof context  === 'object') ? context : { self: context }
 
-      context ['#'] = index
+        context ['#'] = index
 
-      clone  = this$1.cloneNode (true)
+        clone  = this$1.cloneNode (true)
 
-      void (new TokenList (clone.content))
-        .bind (context)
+        void (new TokenList (clone.content))
+          .bind (context)
 
-      return clone.innerHTML // immutable snapshot
-    })
-    .join ('')
+        return clone.innerHTML // immutable snapshot
+      })
+      .join ('')
 
     void (this.dependents || [])
       .map (function (dependent) { return dependent.remove (); })
