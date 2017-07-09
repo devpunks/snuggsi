@@ -33,10 +33,9 @@
     "start": "node --harmony ./index.es",
     "postinstall": "bin/publish",
     "package": "bin/package",
-    "watch": "node watch/index.es",
     "test": "./bin/test",
     "cover": "tap index.test.es --cov --coverage-report=lcov",
-    "compile": "bin/bundle && bin/transpile && bin/shrink && bin/compress && bin/weigh",
+    "compile": "bin/bundle && bin/transpile && bin/shrink && bin/compress && bin/weigh"
   },
   "devDependencies": {
     "devtools-terminal": "*"
