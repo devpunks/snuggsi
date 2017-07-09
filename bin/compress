@@ -9,14 +9,14 @@ bro --quality 11 --repeat 1 --input ./dist/*.min.es \
 
 # gzip
 
-zopfli \
+./node_modules/.bin/zopfli \
   -i 50 \
   --gzip \
   --ext gz \
   --verbose \
   dist/snuggsi.min.es
 
-zopfli \
+./node_modules/.bin/zopfli \
   -i 50 \
   --gzip \
   --ext gz \
