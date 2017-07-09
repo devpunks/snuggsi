@@ -5,10 +5,15 @@
 
 module.exports = {
 
-  "ui": false, // { "port": 8181, "weinre": { "port": 8080 } },
+  "ui": false,
   "port": 3001,
-
   "files": [], // ['public'] since we explicitly fire reload from watch
+  "startPath": "/"
+
+  "reloadDelay": 2,
+  "middleware": false,
+  "logPrefix": "snuggsiツ",
+  "proxy": 'http://localhost:3000',
 
   "watchOptions": {
     ignored: '',
