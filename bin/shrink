@@ -1,0 +1,9 @@
+./node_modules/.bin/uglifyjs \
+  ./dist/snuggsi.es \
+  -c -m \
+  -o ./dist/snuggsi.min.es \
+\
+&& ./node_modules/.bin/uglifyjs \
+  ./dist/snuggsi.js \
+  -c -m \
+  -o ./dist/snuggsi.min.js
