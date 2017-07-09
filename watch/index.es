@@ -28,18 +28,23 @@ require ('fs').watch (path, { recursive: true },
 
 (event, file) => {
 
-  const
-    predicate =
-      /^dist/.test (file) ||
-      /^public/.test (file) ||
-    !!! /\.(html|es|css)$/.test (file)
+  const predicate =
+    /^dist/.test (file) ||
+    /^public/.test (file) ||
+  !!! /\.(html|es|css)$/.test (file)
 
   if ( predicate ) return
 
+  let start = new Date
+
   exec (command, (error, stdout, stderr) => {
-      error
-        ? console.error (`exec error: ${error}`)
-        : console.log (stdout, stderr)
+    const
+      now = (new Date) - start
+    , output = `${stdout} \n\n Feedback (${++times}) Execution time: ${now}ms`
+
+    error
+      ? console.error (`exec error: ${error}`)
+      : console.log (output, stderr)
   })
 })
 
