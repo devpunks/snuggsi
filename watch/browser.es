@@ -3,10 +3,14 @@
  |   http://www.browsersync.io/docs/options/
  */
 
+const
+  port    = process.env.PORT || 8080
+, browser = require ('./browser.es')
+
 module.exports = {
 
   "ui": false,
-  "port": 3001,
+  "port": port,
   "files": [], // ['public'] since we explicitly fire reload from watch
   "startPath": "/index.html",
 
