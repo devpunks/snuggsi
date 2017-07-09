@@ -34,7 +34,7 @@
   },
   "scripts": {
     "start": "node --harmony ./index.es",
-    "postinstall": "./publish",
+    "postinstall": "bin/publish",
     "package": "bin/package",
     "watch": "node watch/index.es",
     "test": "./bin/test",
