@@ -45,7 +45,9 @@
     "test":
       "./bin/test",
 
-    "compile": "npm run transpile && npm run minify && npm run compress && npm run weigh",
+    "compile":
+      "npm run transpile && npm run minify && npm run compress && npm run weigh",
+
     "transpile": "npm run bundle && node ./transpile.es > ./dist/snuggsi.js",
     "bundle": "./bundle",
     "minify": "npm run uglify",
