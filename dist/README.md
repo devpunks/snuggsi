@@ -109,6 +109,15 @@ Browser Support
   - Chrome since forever
   - Safari since forever (as far as I can tell)
 
+#### Zopfli Compression _(snuggsi.min.br)_
+
+`snuggsi.min.es` ➡️  `snuggsi.min.es.br`
+
+`snuggsi.min.js` ➡️  `snuggsi.min.js.br`
+
+Links
+- [Zopfli Optimization: Literally Free Bandwidth - Coding Horror](https://blog.codinghorror.com/zopfli-optimization-literally-free-bandwidth/)
+
 ### Scripts
 
 _Run the following scripts after cloning repository_
