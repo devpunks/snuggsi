@@ -215,9 +215,12 @@ $ bin/transpile
 ```
 
 #### Bundle
+
+_See [bin/bundle](bin/bundle)_
+
 Simple `cat` script for standalone ECMASCript modules
 ```bash
-$ npm run bundle
+$ bin/bundle
 ```
 
 
