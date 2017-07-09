@@ -1,5 +1,8 @@
 #!/bin/bash
 
+# this ensures we aren't using any aliases
+alias ls=ls
+
 OCTETS=$(
   ls -nl ./dist/snuggsi.min.es.br | \
   awk '{print $5}'
