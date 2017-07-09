@@ -101,7 +101,12 @@ Links
 - [Zopfli Optimization: Literally Free Bandwidth - Coding Horror](https://blog.codinghorror.com/zopfli-optimization-literally-free-bandwidth/)
 
 
-#### GZip Compression _(snuggsi.min.gz)_
+#### [GZip Compression (_[rfc1952](https://www.ietf.org/rfc/rfc1952.txt)_) _(snuggsi.min.gz)_
+`snuggsi.min.es` ➡️  `snuggsi.min.es.gz`
+
+`snuggsi.min.js` ➡️  `snuggsi.min.js.gz`
+
+
 a gzip file/stream contains:
 
   - a 10-byte header, containing a magic number, a version number and a time stamp
