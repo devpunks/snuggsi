@@ -1,6 +1,6 @@
 # Build Process
 
-_📖  [Please see `bin/README.md`](bin/README.md)
+_📖  [Please see `bin/README.md`](../bin/README.md)
 For a list of `bin` scripts used within the build pipeline.
 
 
