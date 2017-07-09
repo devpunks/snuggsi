@@ -214,6 +214,7 @@ Run bundle, and Buble for transpilation from ECMAScript to Javascript
 $ bin/transpile
 ```
 
+
 #### Bundle
 
 _See [bin/bundle](bin/bundle)_
@@ -237,9 +238,12 @@ $ bin/shrink
 
 
 #### Compress
+
+_See [bin/compress](bin/compress)_
+
 gzip total byte size of bundled ecmascripts
 ```bash
-$ npm run compress
+$ bin/compress
 ```
 
 
