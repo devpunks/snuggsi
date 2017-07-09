@@ -115,9 +115,9 @@ a gzip file/stream contains:
   - an 8-byte footer, containing a CRC-32 checksum and the length of the original uncompressed data
 
 
-`snuggsi.min.es` ➡️  `snuggsi.min.es.gz`
-
-`snuggsi.min.js` ➡️  `snuggsi.min.js.gz`
+Links
+  - DEFLATE format - [rfc1951](https://en.wikipedia.org/wiki/DEFLATE)
+  - [rfc1951](https://tools.ietf.org/html/rfc1951)
 
 Server Support
   - http://www.gzip.org
