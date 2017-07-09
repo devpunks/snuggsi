@@ -27,14 +27,14 @@ bro --quality 11 --repeat 1 --input ./dist/*.min.es \
 
 # deflate (zlib)
 
-zopfli \
+./node_modules/.bin/zopfli \
   -i 50 \
   --zlib \
   --ext zo \
   --verbose \
   dist/snuggsi.min.es
 
-zopfli \
+./node_modules/.bin/zopfli \
   -i 50 \
   --zlib \
   --ext zo \
