@@ -22,23 +22,29 @@ git commit -m":muscle: bump ZLIB distribution dist/snuggsi.min.es.zo"
 
 
 git add dist/snuggsi.js
-git commit -m":muscle: bump distribution for dist/snuggsi.js"
+git commit -m":muscle: bump TRANSPILED distribution dist/snuggsi.js"
 
 git add dist/snuggsi.min.js
-git commit -m":muscle: bump distribution for dist/snuggsi.min.js"
-
-git add dist/snuggsi.min.js.gz
-git commit -m":muscle: bump distribution for dist/snuggsi.min.js.gz"
+git commit -m":muscle: bump MINIFIED distribution dist/snuggsi.min.js"
 
 git add dist/snuggsi.min.js.br
-git commit -m":muscle: bump distribution for dist/snuggsi.min.js.br"
+git commit -m":muscle: bump BROTLI distribution dist/snuggsi.min.js.br"
+
+git add dist/snuggsi.min.js.gz
+git commit -m":muscle: bump GZIP distribution dist/snuggsi.min.js.gz"
+
+git add dist/snuggsi.min.js.zo
+git commit -m":muscle: bump ZLIB distribution dist/snuggsi.min.js.zo"
+
 
 git push origin master
 
+
 npm version patch
+
 
 git push origin master
 git push origin --tags
 
-npm publish
 
+npm publish
