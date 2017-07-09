@@ -1,4 +1,4 @@
-### `bin` Scripts
+# `bin` Scripts
 
 _Run the following scripts after cloning repository_
 
