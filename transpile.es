@@ -4,9 +4,6 @@ var
     ('./dist/snuggsi.es', {encoding: 'UTF-8'})
 
 , options = {
-    file:   './dist/snuggsi.src',
-    source: './dist/snuggsi.src',
-
     transforms: {
       arrow: true,
       modules: false,

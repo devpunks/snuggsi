@@ -39,8 +39,7 @@
     "watch": "node watch/index.es",
     "test": "./bin/test",
     "cover": "tap index.test.es --cov --coverage-report=lcov",
-    "compile": "bin/bundle && npm run transpile && bin/shrink && bin/compress && npm run weigh",
-    "transpile": "node ./transpile.es > ./dist/snuggsi.js",
+    "compile": "bin/bundle && bin/transpile && bin/shrink && bin/compress && npm run weigh",
     "weigh": "ls -al ./dist",
     "browse": "bin/browse",
     "distribute": "bin/distribute"
