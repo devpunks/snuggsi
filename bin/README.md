@@ -8,7 +8,7 @@ $ cd snuggsi && npm i
 ```
 
 
-#### Browse
+## Browse
 Watch files and hot inject browser assets on file change.
 
 _See [bin/browse](bin/browse)
@@ -19,7 +19,7 @@ $ bin/browse
 ```
 
 
-#### Test Runner
+## Test Runner
 
 Uses
 [`tape`](https://github.com/substack/tape)
@@ -34,7 +34,7 @@ $ bin/test
 ```
 
 
-#### Code Coverage
+## Code Coverage
 
 Uses
 [`nyc`](https://github.com/istanbuljs/nyc)
@@ -45,7 +45,7 @@ $ bin/cover
 ```
 
 
-#### Watch Changes
+## Watch Changes
 Watch ecmascripts routine.
 
 _See [bin/watch](bin/watch)_
@@ -55,7 +55,7 @@ $ bin/watch
 ```
 
 
-#### Compile
+## Compile
 Run transpile, uglify, gzip, and weigh
 
 _See [bin/watch](bin/watch)_
@@ -65,7 +65,7 @@ $ bin/compile
 ```
 
 
-#### Transpile
+## Transpile
 
 _See [bin/transpile](bin/transpile)_
 
@@ -75,7 +75,7 @@ $ bin/transpile
 ```
 
 
-#### Bundle
+## Bundle
 
 _See [bin/bundle](bin/bundle)_
 
@@ -85,7 +85,7 @@ $ bin/bundle
 ```
 
 
-#### Shrink
+## Shrink
 
 _See [bin/shrink](bin/shrink)_
 
@@ -97,7 +97,7 @@ $ bin/shrink
 ```
 
 
-#### Compress
+## Compress
 
 _See [bin/compress](bin/compress)_
 
@@ -107,7 +107,7 @@ $ bin/compress
 ```
 
 
-#### Weigh
+## Weigh
 
 _See [bin/weigh](bin/weigh)_
 
