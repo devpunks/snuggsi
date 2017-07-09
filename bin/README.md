@@ -34,6 +34,17 @@ $ bin/test
 ```
 
 
+#### Code Coverage
+
+Uses
+[`nyc`](https://github.com/istanbuljs/nyc)
+_See [bin/cover](bin/cover)_
+
+```bash
+$ bin/cover
+```
+
+
 #### Watch Changes
 Watch ecmascripts routine.
 
