@@ -6,7 +6,27 @@ bro --quality 11 --repeat 1 --input ./dist/*.min.es \
   > ./dist/snuggsi.min.es.br
 
 
-# zopfli
+
+# gzip
+
+zopfli \
+  -i 50 \
+  --gzip \
+  --ext gz \
+  --verbose \
+  dist/snuggsi.min.es
+
+zopfli \
+  -i 50 \
+  --gzip \
+  --ext gz \
+  --verbose \
+  dist/snuggsi.min.js
+
+
+
+# deflate (zlib)
+
 zopfli \
   -i 50 \
   --zlib \
@@ -20,27 +40,3 @@ zopfli \
   --ext zo \
   --verbose \
   dist/snuggsi.min.js
-
-
-# zopfli
-zopfli \
-  -i 50 \
-  --gzip \
-  --ext gz2 \
-  --verbose \
-  dist/snuggsi.min.es
-
-zopfli \
-  -i 50 \
-  --gzip \
-  --ext gz2 \
-  --verbose \
-  dist/snuggsi.min.js
-
-
-# # gzip is installed locally and manually. No npm cli. HELP!
-# gzip -k -9 -c -S=.js ./dist/snuggsi.min.js \
-#   > ./dist/snuggsi.min.js.gz
-
-# gzip -k -9 -c -S=.js ./dist/snuggsi.min.es \
-#  > ./dist/snuggsi.min.es.gz
