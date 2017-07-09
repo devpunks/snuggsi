@@ -248,9 +248,12 @@ $ bin/compress
 
 
 #### Weigh
+
+_See [bin/weigh](bin/weigh)_
+
 Weigh ecmascripts routine.
 _(gzip total byte size of bundled ecmascripts)_
 ```bash
-$ npm run weigh
+$ bin/weigh
 ```
 
