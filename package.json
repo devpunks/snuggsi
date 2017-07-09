@@ -59,11 +59,17 @@
       "uglifyjs ./dist/snuggsi.es -c -m -o ./dist/snuggsi.min.es && uglifyjs ./dist/snuggsi.js -c -m -o ./dist/snuggsi.min.js",
 
     "compress": " npm run gzip && npm run brotli",
+
     "gzip": "gzip -k -9 -c -S=.js ./dist/*.min.js > ./dist/snuggsi.min.js.gz && gzip -k -9 -c -S=.js ./dist/*.min.es > ./dist/snuggsi.min.es.gz",
+
     "brotli": "bro --quality 11 --repeat 1 --input ./dist/*.min.js > ./dist/snuggsi.min.js.br && bro --quality 11 --repeat 1 --input ./dist/*.min.es > ./dist/snuggsi.min.es.br",
+
     "weigh": "ls -al ./dist",
+
     "truncate": "rm ./dist/*",
+
     "browse": "PORT=3000 npm run start & PORT=3000 npm run watch & browser-sync start --config=./watch/index.es",
+
     "cover": "tap index.test.es --cov --coverage-report=lcov",
 
     "distribute":
