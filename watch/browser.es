@@ -17,14 +17,9 @@
     "files": [], // ['public'] since we explicitly fire reload from watch
     "startPath": "/index.html",
 
-    "reloadDelay": 2,
+//  "middleware" : [browser],
     "logPrefix": "snuggsiツ",
-    "proxy": proxy,
-
-    "watchOptions": {
-      ignored: '',
-      ignoreInitial: true
-    }
+    "proxy": proxy
   }
 /*
     "server": {
