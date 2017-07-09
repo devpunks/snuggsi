@@ -91,6 +91,16 @@ Browser Support
 - Safari supports Brotli as of version 10, released September 20, 2016
 
 
+#### Zopfli Compression _(snuggsi.min.br)_
+
+`snuggsi.min.es` ➡️  `snuggsi.min.es.br`
+
+`snuggsi.min.js` ➡️  `snuggsi.min.js.br`
+
+Links
+- [Zopfli Optimization: Literally Free Bandwidth - Coding Horror](https://blog.codinghorror.com/zopfli-optimization-literally-free-bandwidth/)
+
+
 #### GZip Compression _(snuggsi.min.gz)_
 `snuggsi.min.es` ➡️  `snuggsi.min.es.gz`
 
@@ -110,14 +120,6 @@ Browser Support
   - Chrome since forever
   - Safari since forever (as far as I can tell)
 
-#### Zopfli Compression _(snuggsi.min.br)_
-
-`snuggsi.min.es` ➡️  `snuggsi.min.es.br`
-
-`snuggsi.min.js` ➡️  `snuggsi.min.js.br`
-
-Links
-- [Zopfli Optimization: Literally Free Bandwidth - Coding Horror](https://blog.codinghorror.com/zopfli-optimization-literally-free-bandwidth/)
 
 ### Scripts
 
