@@ -1,0 +1,6 @@
+# ; expecting PORT
+
+npm run start \
+& npm run watch \
+& browser-sync start \
+  --config=./watch/index.es
