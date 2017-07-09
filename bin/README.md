@@ -11,7 +11,7 @@ $ cd snuggsi && npm i
 ## Browse
 Watch files and hot inject browser assets on file change.
 
-_See [bin/browse](bin/browse)
+_See [bin/browse](browse)
 &amp; [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation._
 
 ```bash
@@ -27,7 +27,7 @@ and
 [`tap-nyc`](https://github.com/MegaArman/tap-nyc)
 and
 
-_See [bin/test](bin/test)_
+_See [bin/test](test)_
 
 ```bash
 $ bin/test
@@ -38,7 +38,7 @@ $ bin/test
 
 Uses
 [`nyc`](https://github.com/istanbuljs/nyc)
-_See [bin/cover](bin/cover)_
+_See [bin/cover](cover)_
 
 ```bash
 $ bin/cover
@@ -48,7 +48,7 @@ $ bin/cover
 ## Watch Changes
 Watch ecmascripts routine.
 
-_See [bin/watch](bin/watch)_
+_See [bin/watch](watch)_
 
 ```bash
 $ bin/watch
@@ -58,7 +58,7 @@ $ bin/watch
 ## Compile
 Run transpile, uglify, gzip, and weigh
 
-_See [compile](compile)_
+_See [bin/compile](compile)_
 
 ```bash
 $ bin/compile
@@ -67,7 +67,7 @@ $ bin/compile
 
 ## Transpile
 
-_See [bin/transpile](bin/transpile)_
+_See [bin/transpile](transpile)_
 
 Run bundle, and Buble for transpilation from ECMAScript to Javascript
 ```bash
@@ -77,7 +77,7 @@ $ bin/transpile
 
 ## Bundle
 
-_See [bin/bundle](bin/bundle)_
+_See [bin/bundle](bundle)_
 
 Simple `cat` script for standalone ECMASCript modules
 ```bash
@@ -87,7 +87,7 @@ $ bin/bundle
 
 ## Shrink
 
-_See [bin/shrink](bin/shrink)_
+_See [bin/shrink](shrink)_
 
 Run `uglify-js` and `uglify-es` along with minification
 
@@ -99,7 +99,7 @@ $ bin/shrink
 
 ## Compress
 
-_See [bin/compress](bin/compress)_
+_See [bin/compress](compress)_
 
 gzip total byte size of bundled ecmascripts
 ```bash
@@ -109,7 +109,7 @@ $ bin/compress
 
 ## Weigh
 
-_See [bin/weigh](bin/weigh)_
+_See [bin/weigh](weigh)_
 
 Weigh ecmascripts routine.
 _(gzip total byte size of bundled ecmascripts)_
