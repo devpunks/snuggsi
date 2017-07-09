@@ -65,6 +65,10 @@ _(Uses [UglifyJS](https://github.com/mishoo/UglifyJS))_
   - [Comparison of Brotli, Deflate, Zopfli, LZMA, LZHAM
   and Bzip2 Compression Algorithms](https://cran.r-project.org/web/packages/brotli/vignettes/brotli-2015-09-22.pdf)
   - [Great article on compression](https://blog.cloudflare.com/results-experimenting-brotli)
+Links
+  - DEFLATE format - https://en.wikipedia.org/wiki/DEFLATE
+  - [rfc1951](https://tools.ietf.org/html/rfc1951)
+
 
 
 #### Brotli Compression _(snuggsi.min.br)_
