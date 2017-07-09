@@ -15,6 +15,7 @@
 
 
 ## Glossary
+  - [Scripting Media Types _(rfc4329)_](https://www.rfc-editor.org/rfc/rfc4329.txt)
   - [Content Negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation)
   - Octet - https://en.wikipedia.org/wiki/Octet_(computing)
   - MTU (Maximum Transmission Unit) - https://en.wikipedia.org/wiki/Maximum_transmission_unit
