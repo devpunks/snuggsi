@@ -188,7 +188,7 @@ $ bin/browse
 #### Watch Tests
 Watch ecmascripts routine. [watch/index.es](watch/index.es)
 ```bash
-$ npm run watch
+$ bin/watch
 ```
 
 
