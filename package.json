@@ -49,7 +49,6 @@
     "tape": "*",
     "tap-nyc": "*",
     "koa-send": "*",
-    "koa-static": "*",
     "buble-tape": "*",
     "browser-sync": "*"
   }
