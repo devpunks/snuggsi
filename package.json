@@ -39,7 +39,7 @@
   "devDependencies": {
     "buble": "*",
     "jsdom": "*",
-    "zopfli": "*",
+    "node-zopfli": "*",
     "uglify-es": "*",
     "uglify-js": "*",
     "browser-sync": "*",
