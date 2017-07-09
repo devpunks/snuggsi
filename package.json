@@ -39,11 +39,8 @@
     "watch": "node watch/index.es",
     "test": "./bin/test",
     "cover": "tap index.test.es --cov --coverage-report=lcov",
-    "compile": "bin/bundle && npm run transpile && bin/shrink && npm run compress && npm run weigh",
+    "compile": "bin/bundle && npm run transpile && bin/shrink && bin/compress && npm run weigh",
     "transpile": "node ./transpile.es > ./dist/snuggsi.js",
-    "compress": "npm run gzip && npm run brotli",
-    "gzip": "gzip -k -9 -c -S=.js ./dist/*.min.js > ./dist/snuggsi.min.js.gz && gzip -k -9 -c -S=.js ./dist/*.min.es > ./dist/snuggsi.min.es.gz",
-    "brotli": "bro --quality 11 --repeat 1 --input ./dist/*.min.js > ./dist/snuggsi.min.js.br && bro --quality 11 --repeat 1 --input ./dist/*.min.es > ./dist/snuggsi.min.es.br",
     "weigh": "ls -al ./dist",
     "browse": "bin/browse",
     "distribute": "bin/distribute"

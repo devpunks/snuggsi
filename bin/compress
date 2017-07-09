@@ -1,0 +1,3 @@
+gzip -k -9 -c -S=.js ./dist/*.min.js > ./dist/snuggsi.min.js.gz && gzip -k -9 -c -S=.js ./dist/*.min.es > ./dist/snuggsi.min.es.gz
+
+bro --quality 11 --repeat 1 --input ./dist/*.min.js > ./dist/snuggsi.min.js.br && bro --quality 11 --repeat 1 --input ./dist/*.min.es > ./dist/snuggsi.min.es.br
