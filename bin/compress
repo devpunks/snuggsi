@@ -22,9 +22,25 @@ zopfli \
   dist/snuggsi.min.js
 
 
-# gzip is installed locally and manually. No npm cli. HELP!
-gzip -k -9 -c -S=.js ./dist/snuggsi.min.js \
-  > ./dist/snuggsi.min.js.gz
+# zopfli
+zopfli \
+  -i 50 \
+  --gzip \
+  --ext gz2 \
+  --verbose \
+  dist/snuggsi.min.es
 
-gzip -k -9 -c -S=.js ./dist/snuggsi.min.es \
- > ./dist/snuggsi.min.es.gz
+zopfli \
+  -i 50 \
+  --gzip \
+  --ext gz2 \
+  --verbose \
+  dist/snuggsi.min.js
+
+
+# # gzip is installed locally and manually. No npm cli. HELP!
+# gzip -k -9 -c -S=.js ./dist/snuggsi.min.js \
+#   > ./dist/snuggsi.min.js.gz
+
+# gzip -k -9 -c -S=.js ./dist/snuggsi.min.es \
+#  > ./dist/snuggsi.min.es.gz
