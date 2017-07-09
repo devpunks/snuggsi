@@ -1,0 +1,39 @@
+#!/bin/bash
+
+git add dist/snuggsi.es
+git commit -m":muscle: bump distribution for dist/snuggsi.es"
+
+git add dist/snuggsi.min.es
+git commit -m":muscle: bump distribution for dist/snuggsi.min.es"
+
+cp dist/snuggsi.min.es dist/snuggsi.min.es.js
+git add dist/snuggsi.min.es.js
+git commit -m":muscle: bump distribution for dist/snuggsi.min.es.js"
+
+git add dist/snuggsi.min.es.gz
+git commit -m":muscle: bump distribution for dist/snuggsi.min.es.gz"
+
+git add dist/snuggsi.min.es.br
+git commit -m":muscle: bump distribution for dist/snuggsi.min.es.br"
+
+git add dist/snuggsi.js
+git commit -m":muscle: bump distribution for dist/snuggsi.js"
+
+git add dist/snuggsi.min.js
+git commit -m":muscle: bump distribution for dist/snuggsi.min.js"
+
+git add dist/snuggsi.min.js.gz
+git commit -m":muscle: bump distribution for dist/snuggsi.min.js.gz"
+
+git add dist/snuggsi.min.js.br
+git commit -m":muscle: bump distribution for dist/snuggsi.min.js.br"
+
+git push origin master
+
+npm version patch
+
+git push origin master
+git push origin --tags
+
+npm publish
+
