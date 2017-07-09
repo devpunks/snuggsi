@@ -169,28 +169,23 @@ for more details
   <h1>{name}</h1>
 </template>
 
-<script nomodule src=//unpkg.com/snuggsi></script>
-<script nomodule>
+<script src=//unpkg.com/snuggsi></script>
+<script>
 
 const
   template = Template `developer`
 , context  = { name: 'That Beast' }
 
-template
-  .bind (context)
-
-document
-  .getElementById ('lead')   // select element to append bound template
-  .append (template.content) // .content returns an appendable HTMLDocumentFragment
-  // see https://html.spec.whatwg.org/multipage/scripting.html#dom-template-content
-
-/*
-   <section id='lead'>
-     <h1>That Beast</h1>
-   </section>
-*/
+template.bind (context)
 
 </script>
+```
+
+#### Resulting HTML
+```html
+<section id='lead'>
+  <h1>That Beast</h1>
+</section>
 ```
 
 
