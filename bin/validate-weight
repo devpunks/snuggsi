@@ -1,14 +1,12 @@
 #!/bin/bash
 
 OCTETS=$(
-  curl -sI https://raw.githubusercontent.com/devpunks/snuggsi/master/dist/snuggsi.min.es.br | \
-  grep 'Content-Length'                                                                     | \
-  awk '{ print $2 }'                                                                        | \
-  tr -dc '0-9'
+  ls -nl ./dist/snuggsi.min.es.br | \
+  awk '{print $5}'
 ) || exit 1
 
 if [[ "$OCTETS" -gt 1500 ]]; then
-  >&2 echo "⚠️ ⚠️ ⚠️ snuggsiツ is over weight: current size is $OCTETS, maximum allowable is 1500"
+  >&2 echo && echo "⚠️ ⚠️ ⚠️ snuggsiツ is over weight: current size is $OCTETS, maximum allowable is 1500"
 
   exit 1
 fi
