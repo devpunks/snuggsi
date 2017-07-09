@@ -258,7 +258,7 @@ Element `foo-bar`
 </script>
 ```
 
-#### index.html
+#### Import Document `index.html`
 ```html
 <script src=//unpkg.com/snuggsi></script>
 
