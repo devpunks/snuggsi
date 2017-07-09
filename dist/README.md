@@ -93,9 +93,9 @@ Browser Support
 
 #### Zopfli Compression _(snuggsi.min.br)_
 
-`snuggsi.min.es` ➡️  `snuggsi.min.es.br`
+`snuggsi.min.es` ➡️  `snuggsi.min.es.zo`
 
-`snuggsi.min.js` ➡️  `snuggsi.min.js.br`
+`snuggsi.min.js` ➡️  `snuggsi.min.js.zo`
 
 Links
 - [Zopfli Optimization: Literally Free Bandwidth - Coding Horror](https://blog.codinghorror.com/zopfli-optimization-literally-free-bandwidth/)
