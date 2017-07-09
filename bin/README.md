@@ -90,8 +90,6 @@ $ bin/bundle
 _See [bin/shrink](shrink)_
 
 Run `uglify-js` and `uglify-es` along with minification
-
-
 ```bash
 $ bin/shrink
 ```
@@ -101,7 +99,10 @@ $ bin/shrink
 
 _See [bin/compress](compress)_
 
-gzip total byte size of bundled ecmascripts
+Compression routine used for `Content-Encoding`
+negotiation.
+
+_(Supports `gzip` & `zlib` Content Encoding tokens)_
 ```bash
 $ bin/compress
 ```
@@ -112,7 +113,6 @@ $ bin/compress
 _See [bin/weigh](weigh)_
 
 Weigh ecmascripts routine.
-_(gzip total byte size of bundled ecmascripts)_
 ```bash
 $ bin/weigh
 ```
