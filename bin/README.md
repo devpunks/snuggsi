@@ -116,3 +116,14 @@ _(gzip total byte size of bundled ecmascripts)_
 ```bash
 $ bin/weigh
 ```
+
+
+## Validate Weight
+
+_See [bin/validate-weight](validate-weight)_
+
+Validate that `snuggsi.min.es.br` is within one Ethernet Frame.
+
+```bash
+$ bin/validate-weight
+```
