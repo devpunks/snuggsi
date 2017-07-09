@@ -61,7 +61,9 @@
     "truncate": "rm ./dist/*",
     "browse": "PORT=3000 npm run start & PORT=3000 npm run watch & browser-sync start --config=./watch/index.es",
     "cover": "tap index.test.es --cov --coverage-report=lcov",
-    "distribute": "./distribute"
+
+    "distribute":
+      "bin/distribute"
   },
   "devDependencies": {
     "devtools-terminal": "*"
