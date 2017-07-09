@@ -1,3 +1,5 @@
 # Perhaps weight limit script here
 
 ls -al ./dist
+
+bin/validate-weight
