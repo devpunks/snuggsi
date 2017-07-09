@@ -30,11 +30,21 @@
     "example": "examples"
   },
   "scripts": {
-    "start": "node --harmony ./index.es",
-    "postinstall": "./publish",
-    "package": "./package",
-    "watch": "node watch/index.es",
-    "test": "bin/test",
+    "start":
+      "node --harmony ./index.es",
+
+    "postinstall":
+      "./publish",
+
+    "package":
+      "./package",
+
+    "watch":
+      "node watch/index.es",
+
+    "test":
+      "./bin/test",
+
     "compile": "npm run transpile && npm run minify && npm run compress && npm run weigh",
     "transpile": "npm run bundle && node ./transpile.es > ./dist/snuggsi.js",
     "bundle": "./bundle",

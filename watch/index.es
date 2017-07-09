@@ -5,7 +5,7 @@ const
 
 , test    = 'bin/test'
 , bundle  = './bundle'
-, publish = './publish'
+, publish = 'bin/publish'
 , reload  = './node_modules/.bin/browser-sync reload --port 3001'
 , clear   = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , message = `\n Watching => ${path}🔎 👀 \n`
