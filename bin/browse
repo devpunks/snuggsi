@@ -1,6 +1,7 @@
 # ; expecting PORT
+PORT="3008"
 
-npm run start \
-& npm run watch \
-& browser-sync start \
-  --config=./watch/index.es
+PORT=$PORT npm run start \
+& PORT=$PORT browser-sync start \
+  --config=./watch/index.es \
+& bin/watch
