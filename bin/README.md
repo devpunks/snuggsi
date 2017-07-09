@@ -19,13 +19,13 @@ $ bin/browse
 ```
 
 
-#### Watch Changes
+#### Test Coverage
 Watch ecmascripts routine.
 
-_See [bin/watch](bin/watch)_
+_See [bin/test](bin/test)_
 
 ```bash
-$ bin/watch
+$ bin/test
 ```
 
 
