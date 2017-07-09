@@ -49,7 +49,9 @@
       "npm run transpile && npm run minify && npm run compress && npm run weigh",
 
     "transpile": "npm run bundle && node ./transpile.es > ./dist/snuggsi.js",
-    "bundle": "bin/bundle",
+    "bundle":
+      "bin/bundle",
+
     "minify": "npm run uglify",
     "uglify": "uglifyjs ./dist/snuggsi.es -c -m -o ./dist/snuggsi.min.es && uglifyjs ./dist/snuggsi.js -c -m -o ./dist/snuggsi.min.js",
     "compress": " npm run gzip && npm run brotli",
