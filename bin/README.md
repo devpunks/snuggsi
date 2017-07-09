@@ -8,6 +8,19 @@ $ cd snuggsi && npm i
 ```
 
 
+## Crank
+Runs the following build process
+
+  0. [`compile`](#compile)
+  1. [`distribute`](#distribute)
+  2. [`deploy`](#deploy)
+
+_See [bin/crank](crank)_
+```bash
+$ bin/crank
+```
+
+
 ## Browse
 Watch files and hot inject browser assets on file change.
 
