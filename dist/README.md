@@ -3,6 +3,7 @@
 _📖  [Please see `bin/README.md`](bin/README.md)
 For a list of `bin` scripts used within the build pipeline.
 
+
 ## `snuggsi.min.es.br`
 
 *Mime Type* : `application/ecmascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-8.2))_
@@ -87,7 +88,6 @@ Links
   - [rfc1951](https://tools.ietf.org/html/rfc1951)
 
 
-
 #### Brotli Compression _(snuggsi.min.br)_
 
 `snuggsi.min.es` ➡️  `snuggsi.min.es.br`
@@ -132,8 +132,6 @@ Links
   - [rfc1950](https://tools.ietf.org/html/rfc1950)
 
 
-
-
 #### [GZip Compression (_[rfc1952](https://www.ietf.org/rfc/rfc1952.txt)_) _(snuggsi.min.gz)_
 `snuggsi.min.es` ➡️  `snuggsi.min.es.gz`
 
@@ -146,7 +144,6 @@ a gzip file/stream contains:
   - optional extra headers, such as the original file name,
   - a body, containing a **DEFLATE-compressed payload**
   - an 8-byte footer, containing a CRC-32 checksum and the length of the original uncompressed data
-
 
 Links
   - GZIP format - https://en.wikipedia.org/wiki/Zlib
