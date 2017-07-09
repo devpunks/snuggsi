@@ -19,8 +19,13 @@ $ bin/browse
 ```
 
 
-#### Test Coverage
-Watch ecmascripts routine.
+#### Test Runner
+
+Uses
+[`tape`](https://github.com/substack/tape)
+and
+[`tap-nyc`](https://github.com/MegaArman/tap-nyc)
+and
 
 _See [bin/test](bin/test)_
 
