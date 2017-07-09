@@ -33,14 +33,15 @@
     "start": "node --harmony ./index.es",
     "postinstall": "bin/publish",
     "package": "bin/package",
-    "test": "./bin/test",
-    "cover": "tap index.test.es --cov --coverage-report=lcov"
+    "test": "./bin/test"
   },
   "devDependencies": {
     "buble": "*",
     "jsdom": "*",
+    "node-zopfli": "*",
     "uglify-es": "*",
     "uglify-js": "*",
+    "browser-sync": "*",
     "devtools-terminal": "*"
   },
   "dependencies": {
@@ -49,8 +50,6 @@
     "tape": "*",
     "tap-nyc": "*",
     "koa-send": "*",
-    "koa-static": "*",
-    "buble-tape": "*",
-    "browser-sync": "*"
+    "buble-tape": "*"
   }
 }
