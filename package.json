@@ -39,10 +39,7 @@
     "watch": "node watch/index.es",
     "test": "./bin/test",
     "cover": "tap index.test.es --cov --coverage-report=lcov",
-    "compile": "bin/bundle && bin/transpile && bin/shrink && bin/compress && npm run weigh",
-    "weigh": "ls -al ./dist",
-    "browse": "bin/browse",
-    "distribute": "bin/distribute"
+    "compile": "bin/bundle && bin/transpile && bin/shrink && bin/compress && bin/weigh",
   },
   "devDependencies": {
     "devtools-terminal": "*"
