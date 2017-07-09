@@ -33,8 +33,7 @@
     "start": "node --harmony ./index.es",
     "postinstall": "bin/publish",
     "package": "bin/package",
-    "test": "./bin/test",
-    "cover": "tap index.test.es --cov --coverage-report=lcov"
+    "test": "./bin/test"
   },
   "devDependencies": {
     "buble": "*",
