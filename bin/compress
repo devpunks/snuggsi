@@ -2,9 +2,6 @@
 # gzip -k -9 -c -S=.js ./dist/snuggsi.min.js \
 #   > ./dist/snuggsi.min.js.gz
 
-zopfli --gzip -i 50 \
-  dist/snuggsi.min.js
-
 # gzip -k -9 -c -S=.js ./dist/*.min.es \
 #  > ./dist/snuggsi.min.es.gz
 
@@ -15,3 +12,10 @@ zopfli --gzip -i 50 \
 
 # bro --quality 11 --repeat 1 --input ./dist/*.min.es \
 #   > ./dist/snuggsi.min.es.br
+
+# zopfli
+zopfli --gzip -i 50 t\
+  dist/snuggsi.min.js
+
+zopfli --gzip -i 50 t\
+  dist/snuggsi.min.es
