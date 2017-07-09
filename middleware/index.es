@@ -1,5 +1,6 @@
 const
   root   = 'public'
+, browser= require ('./browser.es')
 , assets = require ('koa-static')
     (root, {defer: true})
 
