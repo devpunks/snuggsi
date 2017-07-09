@@ -224,13 +224,15 @@ $ bin/bundle
 ```
 
 
-#### Minify
+#### Shrink
+
+_See [bin/shrink](bin/shrink)_
 
 Run `uglify-js` and `uglify-es` along with minification
 
 
 ```bash
-$ npm run minify
+$ bin/shrink
 ```
 
 
