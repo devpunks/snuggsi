@@ -58,7 +58,7 @@ $ bin/watch
 ## Compile
 Run transpile, uglify, gzip, and weigh
 
-_See [bin/watch](bin/watch)_
+_See [compile](compile)_
 
 ```bash
 $ bin/compile
