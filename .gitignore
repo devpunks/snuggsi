@@ -15,7 +15,7 @@ snuggsi-*.gem
 snuggsi.gemspec
 NOTES
 .DS_Store
-public/index.html
+public/*.html
 public/examples
 public/*.es
 public/*.css
