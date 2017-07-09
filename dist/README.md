@@ -68,6 +68,7 @@ Links
 - http://caniuse.com/#search=brotli
 - https://en.wikipedia.org/wiki/Brotli
 - https://certsimple.com/blog/nginx-brotli
+- https://blog.cloudflare.com/results-experimenting-brotli
 - https://blogs.akamai.com/2016/02/understanding-brotlis-potential.html
 - https://hacks.mozilla.org/2015/11/better-than-gzip-compression-with-brotli
 
