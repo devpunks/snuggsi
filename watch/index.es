@@ -4,18 +4,19 @@ const
   path = './'
 , PORT = process.env.PORT || 8080
 
-, test    = 'bin/test'
-, bundle  = 'bin/bundle'
-, publish = 'bin/publish'
-, reload  = './node_modules/.bin/browser-sync reload --port=' + PORT
-, clear   = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
-, message = `\n Watching => ${path}🔎 👀 \n`
-, echo    = `printf "${message}" && echo "Last Update $(date)"`
-, list    = 'ls -al ./dist/*.es'
+, test     = 'bin/test'
+, bundle   = 'bin/bundle'
+, publish  = 'bin/publish'
+, reload   = './node_modules/.bin/browser-sync reload --port=' + PORT
+, clear    = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
+, message  = `\n Watching => ${path}🔎 👀 \n`
+, echo     = `printf "${message}" && echo "Last Update $(date)"`
+, list     = 'ls -al ./dist/*.es'
+, validate = 'bin/validate-weight || true'
 
 , exec    = require ('child_process').exec
 
-, command = [ bundle, publish, reload, clear, echo, list]
+, command = [ bundle, publish, reload, clear, echo, list, test, validate]
      .join ` && `
 
 let times = 0
