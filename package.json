@@ -67,7 +67,8 @@
     "brotli":
       "bro --quality 11 --repeat 1 --input ./dist/*.min.js > ./dist/snuggsi.min.js.br && bro --quality 11 --repeat 1 --input ./dist/*.min.es > ./dist/snuggsi.min.es.br",
 
-    "weigh": "ls -al ./dist",
+    "weigh":
+      "ls -al ./dist",
 
     "truncate": "rm ./dist/*",
 
