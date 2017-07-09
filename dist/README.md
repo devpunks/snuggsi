@@ -63,7 +63,8 @@ _(Uses [UglifyJS](https://github.com/mishoo/UglifyJS))_
 
 ⚠️ Please read why Internet Explorer won't let `DEFLATE` be great.
 [here](https://support.microsoft.com/en-us/help/837251/internet-explorer-does-not-correctly-decompress-data-that-uses-the-gzip)
-and [here](https://zoompf.com/blog/2012/02/lose-the-wait-http-compression)
+, [here](https://stackoverflow.com/questions/883841/why-do-real-world-servers-prefer-gzip-over-deflate-encoding#answer-1579506)
+,and [here](https://zoompf.com/blog/2012/02/lose-the-wait-http-compression)
 ⚠️
 
 **snuggsi** handles the following content encoding tokens:
