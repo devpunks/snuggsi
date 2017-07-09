@@ -198,30 +198,31 @@ template.bind (context)
   </template>
 </ul>
 
-<script nomodule src=//unpkg.com/snuggsi></script>
-<script nomodule>
+<script src=//unpkg.com/snuggsi></script>
+<script>
 
 // when context is a collection
 const
   template = Template `item`
 , context  = [ {name: 'DevPunk'}, {name: 'Snuggsi'} ]
 
-template
-   // internal template render for each item in context
-  .bind (context)
+// internal template render for each item in context
+template.bind (context)
 
-document
-  .querySelector ('ul')
-  .append (template.content)
+</script>
+```
 
-/*
+#### Resulting HTML
+```html
 <ul>
+  <!-- invisible -->
+  <template name=item>
+    <li>Hello {name}!</li>
+  </template>
+
   <li>Hello DevPunk!</li>
   <li>Hello Snuggsi!</li>
 </ul>
-*/
-
-</script>
 ```
 
 ### `<template>` Defaults _(HTML Custom Element Import)_
