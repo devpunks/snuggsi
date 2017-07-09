@@ -29,9 +29,6 @@
     "doc": "docs",
     "example": "examples"
   },
-  "config" : {
-    "PORT": "3008"
-  },
   "scripts": {
     "start": "node --harmony ./index.es",
     "postinstall": "bin/publish",
