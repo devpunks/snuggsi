@@ -11,12 +11,14 @@ zopfli \
   -i 50 \
   --gzip \
   --ext zo \
+  --verbose \
   dist/snuggsi.min.js
 
 zopfli \
   -i 50 \
   --gzip \
   --ext zo \
+  --verbose \
   dist/snuggsi.min.es
 
 
