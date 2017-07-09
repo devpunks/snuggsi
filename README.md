@@ -227,7 +227,7 @@ template.bind (context)
 
 ### `<template>` Defaults _(HTML Custom Element Import)_
 
-#### foo-bar.html
+#### Master Document `foo-bar.html`
 
 ```html
 <template onclick=onfoo>
