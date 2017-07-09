@@ -48,6 +48,7 @@
     "tap-nyc": "*",
     "jsdom": "*",
     "buble": "*",
+    "gzip": "*",
     "uglify-js": "*",
     "uglify-es": "*",
     "buble-tape": "*",
