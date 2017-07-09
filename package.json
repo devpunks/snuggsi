@@ -34,8 +34,7 @@
     "postinstall": "bin/publish",
     "package": "bin/package",
     "test": "./bin/test",
-    "cover": "tap index.test.es --cov --coverage-report=lcov",
-    "compile": "bin/bundle && bin/transpile && bin/shrink && bin/compress && bin/weigh"
+    "cover": "tap index.test.es --cov --coverage-report=lcov"
   },
   "devDependencies": {
     "devtools-terminal": "*"

@@ -1,0 +1,5 @@
+bin/bundle
+bin/transpile
+bin/shrink
+bin/compress
+bin/weigh
