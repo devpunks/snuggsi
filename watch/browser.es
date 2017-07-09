@@ -3,24 +3,28 @@
  |   http://www.browsersync.io/docs/options/
  */
 
-const
-  port    = process.env.PORT || 8080
-, browser = require ('./browser.es')
+  const
+    port    = process.env.PORT
+  , proxy   = `http://localhost:${port}`
+  , browser = require ('../middleware/browser.es')
 
-module.exports = {
+  console.log ('PROXY', proxy)
 
-  "ui": false,
-  "port": port,
-  "files": [], // ['public'] since we explicitly fire reload from watch
-  "startPath": "/index.html",
+  module.exports = {
 
-  "reloadDelay": 2,
-  "logPrefix": "snuggsiツ",
-  "proxy": 'http://localhost:3000',
+    "ui": false,
+    "port": 8080,
+    "files": [], // ['public'] since we explicitly fire reload from watch
+    "startPath": "/index.html",
 
-  "watchOptions": {
-    ignored: '',
-    ignoreInitial: true
+    "reloadDelay": 2,
+    "logPrefix": "snuggsiツ",
+    "proxy": proxy,
+
+    "watchOptions": {
+      ignored: '',
+      ignoreInitial: true
+    }
   }
 /*
     "server": {
@@ -32,4 +36,3 @@ module.exports = {
       }
     },
 */
-}
