@@ -7,7 +7,7 @@ OCTETS=$(
   tr -dc '0-9'
 ) || exit 1
 
-if [[ "$OCTETS" -gt 1000 ]]; then
+if [[ "$OCTETS" -gt 1500 ]]; then
   >&2 echo "⚠️ ⚠️ ⚠️ snuggsiツ is over weight: current size is $OCTETS, maximum allowable is 1500"
 
   exit 1
