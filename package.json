@@ -39,8 +39,10 @@
   "devDependencies": {
     "buble": "*",
     "jsdom": "*",
+    "zopfli": "*",
     "uglify-es": "*",
     "uglify-js": "*",
+    "browser-sync": "*",
     "devtools-terminal": "*"
   },
   "dependencies": {
@@ -49,7 +51,6 @@
     "tape": "*",
     "tap-nyc": "*",
     "koa-send": "*",
-    "buble-tape": "*",
-    "browser-sync": "*"
+    "buble-tape": "*"
   }
 }
