@@ -132,8 +132,8 @@ a gzip file/stream contains:
 
 
 Links
-  - DEFLATE format - [rfc1951](https://en.wikipedia.org/wiki/DEFLATE)
-  - [rfc1951](https://tools.ietf.org/html/rfc1951)
+  - GZIP format - https://en.wikipedia.org/wiki/Zlib
+  - [rfc1952](https://tools.ietf.org/html/rfc1952)
 
 Server Support
   - http://www.gzip.org
