@@ -111,6 +111,10 @@ Browser Support
 
 Links
 - [Zopfli Optimization: Literally Free Bandwidth - Coding Horror](https://blog.codinghorror.com/zopfli-optimization-literally-free-bandwidth/)
+  - ZLIB format - https://en.wikipedia.org/wiki/Zlib
+  - [rfc1950](https://tools.ietf.org/html/rfc1950)
+
+
 
 
 #### [GZip Compression (_[rfc1952](https://www.ietf.org/rfc/rfc1952.txt)_) _(snuggsi.min.gz)_
