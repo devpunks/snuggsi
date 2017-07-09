@@ -181,7 +181,7 @@ _See [watch/browser.es](watch/browser.es)
 &amp; [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation._
 
 ```bash
-$ npm run browse
+$ bin/browse
 ```
 
 
