@@ -206,9 +206,12 @@ $ bin/compile
 
 
 #### Transpile
+
+_See [bin/transpile](bin/transpile)_
+
 Run bundle, and Buble for transpilation from ECMAScript to Javascript
 ```bash
-$ npm run transpile
+$ bin/transpile
 ```
 
 #### Bundle
