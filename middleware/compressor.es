@@ -1,3 +1,4 @@
+// deflate (zlib) compression - https://github.com/expressjs/compression
 const
   gzip   = true
 , brotli = true

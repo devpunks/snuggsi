@@ -58,6 +58,16 @@ _(Uses [UglifyJS](https://github.com/mishoo/UglifyJS))_
 
 
 ### Compression
+
+⚠️ Please read issues with Internet Explorer
+[here](https://support.microsoft.com/en-us/help/837251/internet-explorer-does-not-correctly-decompress-data-that-uses-the-gzip)
+⚠️
+
+**snuggsi** handles the following content encoding tokens:
+  - `brotli`
+  - `gzip`
+  - `deflate` _(zlib)_
+
   - [HTTP Compression](https://en.wikipedia.org/wiki/HTTP_compression)
   - [Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)
   - [Content-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding)
