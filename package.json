@@ -37,20 +37,19 @@
     "cover": "tap index.test.es --cov --coverage-report=lcov"
   },
   "devDependencies": {
+    "buble": "*",
+    "jsdom": "*",
+    "uglify-es": "*",
+    "uglify-js": "*",
     "devtools-terminal": "*"
   },
   "dependencies": {
     "koa": "*",
-    "koa-send": "*",
-    "koa-static": "*",
     "tap": "*",
     "tape": "*",
     "tap-nyc": "*",
-    "jsdom": "*",
-    "buble": "*",
-    "gzip": "*",
-    "uglify-js": "*",
-    "uglify-es": "*",
+    "koa-send": "*",
+    "koa-static": "*",
     "buble-tape": "*",
     "browser-sync": "*"
   }
