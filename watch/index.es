@@ -4,8 +4,8 @@ const
   path = './'
 
 , test    = 'bin/test'
-, bundle  = 'npm run bundle'
-, copy    = './publish'
+, bundle  = './bundle'
+, publish = './publish'
 , reload  = './node_modules/.bin/browser-sync reload --port 3001'
 , clear   = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , message = `\n Watching => ${path}🔎 👀 \n`
@@ -13,7 +13,7 @@ const
 , list    = 'ls -al ./dist/*.es'
 
 , exec = require ('child_process').exec
-, command = [bundle, copy, clear, echo, reload, test, list]
+, command = [ bundle, publish, clear, echo, reload, test, list]
      .join ` && `
 
 require ('fs').watch (path, { recursive: true },
