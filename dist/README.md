@@ -15,12 +15,13 @@
 
 
 ## Glossary
-  - [Scripting Media Types _(rfc4329)_](https://www.rfc-editor.org/rfc/rfc4329.txt)
+  - [Scripting Media Types _(rfc4329)_](https://www.rfc-editor.org/rfc/rfc4329.txt) and [why you should know `application/ecmascript`](https://stackoverflow.com/questions/9664282/difference-between-application-x-javascript-and-text-javascript-content-types)
   - [Content Negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation)
-  - Octet - https://en.wikipedia.org/wiki/Octet_(computing)
-  - MTU (Maximum Transmission Unit) - https://en.wikipedia.org/wiki/Maximum_transmission_unit
-  - Difference between Ethernet frame and Packet - https://www.youtube.com/watch?v=wcSee63SIlg
-  - (Ethernet) Frame - https://en.wikipedia.org/wiki/Ethernet_frame
+  - [Octet](https://en.wikipedia.org/wiki/Octet_(computing))
+  - [MTU _(Maximum Transmission Unit)_](https://en.wikipedia.org/wiki/Maximum_transmission_unit)
+  - [Difference between Ethernet frame and Packet](https://www.youtube.com/watch?v=wcSee63SIlg)
+  - [_(Ethernet)_ Frame](https://en.wikipedia.org/wiki/Ethernet_frame)
+
 
 ## Pipeline
 
