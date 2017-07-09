@@ -57,7 +57,14 @@ _(Uses [UglifyJS](https://github.com/mishoo/UglifyJS))_
 
 
 ### Compression
-- [Great article on compression](https://blog.cloudflare.com/results-experimenting-brotli)
+  - [HTTP Compression](https://en.wikipedia.org/wiki/HTTP_compression)
+  - [Accept-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding)
+  - [Content-Encoding](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding)
+  - [Content-Encoding Tokens](https://en.wikipedia.org/wiki/HTTP_compression#Content-Encoding_tokens)
+  - [Comparison of Brotli, Deflate, Zopfli, LZMA, LZHAM
+  and Bzip2 Compression Algorithms](https://cran.r-project.org/web/packages/brotli/vignettes/brotli-2015-09-22.pdf)
+  - [Great article on compression](https://blog.cloudflare.com/results-experimenting-brotli)
+
 
 #### Brotli Compression _(snuggsi.min.br)_
 
