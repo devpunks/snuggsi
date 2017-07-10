@@ -45,12 +45,12 @@
     "uglify-js": "*",
     "buble-tape": "*",
     "node-zopfli": "*",
-    "browser-sync": "*",
     "devtools-terminal": "*"
   },
   "dependencies": {
     "koa": "*",
     "koa-send": "*",
-    "koa-static": "*"
+    "koa-static": "*",
+    "browser-sync": "*"
   }
 }
