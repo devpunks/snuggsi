@@ -2,6 +2,6 @@
 PORT="3008"
 
 PORT=$PORT npm run start \
-& PORT=$PORT browser-sync start \
+& PORT=$PORT ./node_modules/.bin/browser-sync start \
   --config=./watch/index.es \
 & bin/watch
