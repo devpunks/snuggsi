@@ -2,21 +2,19 @@
 
 <link rel='tylesheet' href='http://www.devpunks.com/typography.css'>
 
-<h1->snuggsiツ<p><a></p></h1->
+<sand-box>snuggsiツ<p><a><span><b>foo</b></span></a></p></sand-box>
 
 <script src=/snuggsi.es></script>
-<script>
+<script defer>
 
-  Element `h1-`
+  Element `sand-box`
 
   (class extends HTMLElement {
-    onconnect () {
-      const a = 'a'
 
-      console.log (this.select `p ${a}`)
-    }
+    onconnect () { console.log (this.select `p ${'a'}`) }
+
   })
 
 </script>
-<script src=/browser-sync.es></script>
 
+<script src=/browser-sync.es></script>
