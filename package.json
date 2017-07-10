@@ -36,20 +36,21 @@
     "test": "./bin/test"
   },
   "devDependencies": {
+    "tap": "*",
+    "tape": "*",
+    "tap-nyc": "*",
     "buble": "*",
     "jsdom": "*",
-    "node-zopfli": "*",
     "uglify-es": "*",
     "uglify-js": "*",
+    "buble-tape": "*"
+    "node-zopfli": "*",
     "browser-sync": "*",
     "devtools-terminal": "*"
   },
   "dependencies": {
     "koa": "*",
-    "tap": "*",
-    "tape": "*",
-    "tap-nyc": "*",
     "koa-send": "*",
-    "buble-tape": "*"
+    "koa-static": "*",
   }
 }
