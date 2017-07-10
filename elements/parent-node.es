@@ -23,17 +23,15 @@ const ParentNode = Element =>
 
   selectAll (fragments, ...tokens) {
 
-    fragments = Array.isArray (fragments)
-      ? fragments : [fragments]
+    fragments =
+      [].concat ( ... [fragments] )
 
-      let result = fragments [0]
+    const
+      zip = (selector, token) =>
+        selector + token + fragments.shift ()
 
-      tokens.forEach((subst, i) => {
-          result += subst
-          result += fragments[i+1]
-      })
-
-    return this.querySelectorAll (result)
+    return this.querySelectorAll
+      (tokens.reduce (zip, fragments.shift ()))
   }
 
   select (...selector)
