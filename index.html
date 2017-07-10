@@ -171,7 +171,17 @@
 
         <ul>
           <li>
-            <a href=#interfaces:element>Element</a>
+            <details>
+              <summary><a href=#interfaces:element>Element</a></summary>
+
+              <ul>
+                <li>
+                  <a href=#interfaces:element:select>.select</a>
+
+                <li>
+                  <a href=#interfaces:element:selectAll>.selectAll</a>
+
+            </details>
 
           <li>
             <a href=#interfaces:template>Template</a>
@@ -389,9 +399,19 @@
   <h1>Conventions</h1>
 
   <article><!-- <medium-article> -->
-    <header>Child Selection</header>
+    <h2>Child Selection</h2>
 
     <p> Here is where conventions on selecting children will live.
+
+    <header>Selecting a <strong>Single</strong> Child</header>
+    <code>Element.select (<em>selector</em>)</code>
+
+    <p>This is text about Element.select
+
+    <header>Selecting <strong>Multiple</strong> Childen</header>
+    <code>Element.selectAll (<em>selector</em>)</code>
+
+    <p>This is text about Element.selectAll
 
     <aside>
       <header>Relatd Links</header>
