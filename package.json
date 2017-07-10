@@ -43,7 +43,7 @@
     "jsdom": "*",
     "uglify-es": "*",
     "uglify-js": "*",
-    "buble-tape": "*"
+    "buble-tape": "*",
     "node-zopfli": "*",
     "browser-sync": "*",
     "devtools-terminal": "*"
