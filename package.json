@@ -51,6 +51,6 @@
   "dependencies": {
     "koa": "*",
     "koa-send": "*",
-    "koa-static": "*",
+    "koa-static": "*"
   }
 }
