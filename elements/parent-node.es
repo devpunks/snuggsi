@@ -21,10 +21,22 @@ const ParentNode = Element =>
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
   // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
 
-  selectAll (selector)
-    { return this.querySelectorAll (selector) }
+  selectAll (fragments, ...tokens) {
 
-  select (selector)
+    fragments = Array.isArray (fragments)
+      ? fragments : [fragments]
+
+      let result = fragments [0]
+
+      tokens.forEach((subst, i) => {
+          result += subst
+          result += fragments[i+1]
+      })
+
+    return this.querySelectorAll (result)
+  }
+
+  select (...selector)
     // watch out for clobbering `HTMLInputElement.select ()`
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
     { return this.selectAll (selector) [0] }
