@@ -21,8 +21,7 @@ const ParentNode = Element =>
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
   // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
 
-  selectAll (fragments, ...tokens) {
-
+  selectAll ( fragments, ... tokens ) {
     fragments =
       [].concat ( ... [fragments] )
 
@@ -34,10 +33,10 @@ const ParentNode = Element =>
       (tokens.reduce (zip, fragments.shift ()))
   }
 
-  select (...selector)
+  select ( ... selector )
     // watch out for clobbering `HTMLInputElement.select ()`
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-    { return this.selectAll (selector) [0] }
+    { return this.selectAll ( ... selector ) [0] }
 
 })
 
