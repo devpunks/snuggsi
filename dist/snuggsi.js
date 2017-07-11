@@ -206,13 +206,29 @@ var ParentNode = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.selectAll = function (selector)
-    { return this.querySelectorAll (selector) };
+    anonymous.prototype.selectAll = function ( fragments ) {
+    var tokens = [], len = arguments.length - 1;
+    while ( len-- > 0 ) tokens[ len ] = arguments[ len + 1 ];
 
-  anonymous.prototype.select = function (selector)
+    fragments =
+      (ref = []).concat.apply ( ref, [fragments] )
+
+    var
+      zip = function (selector, token) { return selector + token + fragments.shift (); }
+
+    return this.querySelectorAll
+      (tokens.reduce (zip, fragments.shift ()))
+    var ref;
+  };
+
+  anonymous.prototype.select = function ()
     // watch out for clobbering `HTMLInputElement.select ()`
     // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-    { return this.selectAll (selector) [0] };
+    {
+    var selector = [], len = arguments.length;
+    while ( len-- ) selector[ len ] = arguments[ len ];
+ return (ref = this).selectAll.apply ( ref, selector ) [0]
+    var ref; };
 
     return anonymous;
   }(Element))); }
