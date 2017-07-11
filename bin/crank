@@ -1,9 +1,7 @@
 #!/bin/bash
-# HUH? https://www.cyberciti.biz/tips/finding-bash-perl-python-portably-using-env.html
 
 # Thank TOM for ./crank
-bin/compile
-bin/cover
-bin/distribute
-bin/deploy
 
+bin/compile && bin/cover && bin/distribute && bin/deploy && exit 0
+
+exit 1
