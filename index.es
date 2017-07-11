@@ -3,9 +3,11 @@ const
 , snuggsi = require ('./middleware/index.es')
 
 app
-  .use ( snuggsi.assets )
-
   .use ( snuggsi.compressor )
+
+  .use ( snuggsi.mixins )
+
+  .use ( snuggsi.assets )
 
   .listen (process.env.PORT || 80)
 
