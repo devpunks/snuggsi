@@ -5,6 +5,10 @@
 </p>
 
 <p align=center>
+  <a href=https://travis-ci.org/devpunks/snuggsi>
+    <img alt='Travis CI build' src=https://travis-ci.org/devpunks/snuggsi.svg?branch=master>
+  </a>
+
   <a href=https://npmjs.org/package/snuggsi>
     <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat>
   </a>
@@ -293,4 +297,3 @@ Snuggsi is able to use modern compression algorithms to create
 bundles as small as *~1500 OCTETS* _(or one 1500byte Ethernet packet frame)_
 
 [Read More](https://github.com/devpunks/snuggsi/tree/master/dist#readme)
-
