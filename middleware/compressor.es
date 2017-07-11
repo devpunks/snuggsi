@@ -10,14 +10,14 @@ const
 
 , configuration = { root: dist, gzip, brotli }
 
-module.exports =async context => {
+module.exports = async (context, next) => {
   const
     mime   = /^\*\/\*$/
   , filter = /^\/(snuggsi.*\.es)*$/g
 
   , compress =
       mime.test (context.request.header.accept)
-      && context.path.match (filter)
+      && filter.test (context.path)
 
     // Use ECMASCript path resource  (i.e. `/snuggsi.es`)
     // Otherwise default bundle (i.e. `/` => `/snuggsi.min.es`)
@@ -25,7 +25,9 @@ module.exports =async context => {
       (context.path === root)
         ? bundle : context.path
 
-  return compress && await
-    send (context, resource, configuration)
-}
+  , settings = [context, resource, configuration]
 
+  return (compress && await send ( ... settings ))
+    || await next ()
+
+}
