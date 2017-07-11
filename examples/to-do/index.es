@@ -14,10 +14,10 @@ Element `to-do`
     input.value = ''
   }
 
-  onidle (check) {
-    const mark = (task, id) =>
-      this.select (`input[id="${id}"]`)
-        .checked = task.completed
+  onidle (mark) {
+    mark = (task, id) =>
+      this.select
+        `input[id='${id}']`.checked = task.completed
 
     this.tasks.map (mark)
   }
