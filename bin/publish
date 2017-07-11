@@ -1,9 +1,9 @@
 #!/bin/bash
 
 rm -rf ./public/examples/*
-cp -f  ./snippets/browser-sync.es ./public
-cp -f  ./sandbox.html ./public
-cp -f  ./index.html ./public
-cp -f  ./index.css  ./public
-cp -fr ./examples   ./public
+cp -fr ./examples     ./public
 
+cp -f  ./sandbox.html ./public
+cp -f  ./index.html   ./public
+cp -f  ./index.css    ./public
+cp -f  ./snippets/browser-sync.es ./public

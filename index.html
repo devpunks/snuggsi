@@ -171,7 +171,17 @@
 
         <ul>
           <li>
-            <a href=#interfaces:element>Element</a>
+            <details>
+              <summary><a href=#interfaces:element>Element</a></summary>
+
+              <ul>
+                <li>
+                  <a href=#interfaces:element:select>.select</a>
+
+                <li>
+                  <a href=#interfaces:element:selectAll>.selectAll</a>
+
+            </details>
 
           <li>
             <a href=#interfaces:template>Template</a>
@@ -388,6 +398,40 @@
 <section view id=conventions>
   <h1>Conventions</h1>
 
+  <article><!-- <medium-article> -->
+    <h2>Child Selection</h2>
+
+    <p> Here is where conventions on selecting children will live.
+
+    <header>Selecting a <strong>Single</strong> Child</header>
+    <code>Element.select (<em>selector</em>)</code>
+
+    <p>This is text about Element.select
+
+    <header>Selecting <strong>Multiple</strong> Childen</header>
+    <code>Element.selectAll (<em>selector</em>)</code>
+
+    <p>This is text about Element.selectAll
+
+    <aside>
+      <header>Relatd Links</header>
+
+      <ul>
+        <li>
+          <a rel=help target=external href=#>
+            Element.querySelector ()
+          </a>
+
+        <li>
+          <a rel=help target=external href=#>
+            Element.querySelectorAll ()
+          </a>
+
+    </aside>
+
+    </footer>Medium Article Link</footer>
+  </article>
+
 <!--
   <header>Creating Custom Elements</header>
 
@@ -421,7 +465,6 @@ $$$$$ https://www.youtube.com/watch?v=tKvNeNGmOtU
 
 
   <header><em>Preloading</em> Dependencies</header>
-
 
 -->
 
@@ -525,6 +568,30 @@ $$$$$ https://www.youtube.com/watch?v=tKvNeNGmOtU
 
 <section view id=interfaces>
   <h1>Interfaces</h1>
+
+  <p>This is some content about interfaces
+
+  <section id=interfaces:element>
+    <header><code>Element</code></header>
+
+    <p>Documentation about interfaces:element
+
+    <section id=interfaces:element:select>
+      <header><code>Element.select</code></header>
+
+      <p>Documentation about interfaces:element:select
+
+      <footer>This is the footer</footer>
+    </section>
+
+    <section id=interfaces:element:selectAll>
+      <header><code>Element.selectAll</code></header>
+
+      <p>Documentation about interfaces:element:select
+
+      <footer>This is the footer</footer>
+    </section>
+  </section>
 
 </section>
 
