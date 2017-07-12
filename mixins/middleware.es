@@ -20,5 +20,5 @@ module.exports = async (context, next) => {
   void (response && context.set ( ... header ))
     || await next ()
 
-  console.log ('response', context.response, response)
+  console.log ('response', context.response.status, response)
 }
