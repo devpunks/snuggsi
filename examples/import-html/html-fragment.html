@@ -1,0 +1,20 @@
+
+<!-- nested stylesheets appear not to load -->
+<link rel='stylesheet' src=nested-style.css />
+
+<!-- inline styles apply -->
+<style>
+  h1 { margin-bottom: 1em; }
+  body { background: #001100 }
+</style>
+
+<h1>External Content</h1>
+
+<!-- images work -->
+<img width=600 height=200 src=//placecage.com/600/200 />
+
+<!-- nested scripts appear not to execute -->
+<script>
+  console.log("this script isn't from around here")
+</script>
+

@@ -1,0 +1,6 @@
+h1 {
+  color: blue;
+}
+h1:after {
+  content: ' external style too!';
+}

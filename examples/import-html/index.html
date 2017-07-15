@@ -1,0 +1,50 @@
+<title>snuggsi - Import HTML</title>
+
+<meta charset=UTF-8>
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<link rel=stylesheet href=https://devpunks.herokuapp.com/typography.css>
+
+<script src=/></script>
+<script name=polyfill src=https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
+
+<link rel=import href=/examples/header-group>
+
+<style>
+  import-html {
+    display: block;
+  }
+</style>
+
+<header-group>
+  <h2 slot=header>&lt;import-html&gt;</h2>
+  <a  slot=subheader title='See more componentexamples' href=./>See more component examples</a>
+</header-group>
+
+<!-- YOUR CONTENT HERE -->
+<import-html src=http://localhost:8081/examples/import-html/html-fragment.html>
+  Import Hasn't Happened
+</import-html>
+
+<import-html src=http://localhost:8081/examples/import-html/html-fragment-footer.html>
+
+<script>
+  Element `import-html`
+  (class extends HTMLElement {
+
+    onconnect () {
+      this.innerHTML = 'Content Loading...'
+      this.context.location = new URL(this.getAttribute('src'))
+
+      let hdrs = new Headers({'Accept': 'text/html'})
+      fetch(this.context.location, {mode: 'no-cors', headers: hdrs})
+        .then(res => { return res.text() })
+        .then(content => { this.innerHTML = content })
+        .catch(err => console.warn(err))
+    }
+
+  })
+</script>
+
+<script src=/browser-sync.es></script>
+
