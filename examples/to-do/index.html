@@ -6,20 +6,20 @@
   <form action=#>
     <input required placeholder='Remember the milk&hellip;'>
 
-    <button>Add</button><!-- implicitly calls `onsubmit` -->
+    <button type=submit>Add</button><!-- implicitly calls `onsubmit` -->
 
     <input id=all       name=filter type=radio checked>
     <input id=active    name=filter type=radio>
     <input id=completed name=filter type=radio>
 
     <template name=tasks>
-      <fieldset><!-- {#} = current index -->
-        <input id={#} onclick=toggle type=checkbox>
+    <fieldset><!-- {#} = current index -->
+      <input id={#} onclick=toggle type=checkbox>
 
-        <label for={#}>{task}</label>
+      <label for={#}>{task}</label>
 
-        <button onclick=remove>Remove</button>
-      </fieldset>
+      <button onclick=remove>Remove</button>
+    </fieldset>
     </template>
 
     <footer>
