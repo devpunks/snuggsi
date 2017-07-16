@@ -1,0 +1,41 @@
+<script src=index.es></script>
+
+<template>
+  <link rel=stylesheet href=to-do/index.css>
+
+  <h1>{name}'s &lt;to-do&gt; List</h1>
+
+  <form action=#>
+    <input required placeholder='Remember the milk&hellip;'>
+
+    <button type=submit>Add</button><!-- implicitly calls `onsubmit` -->
+
+    <input id=all       name=filter type=radio checked>
+    <input id=active    name=filter type=radio>
+    <input id=completed name=filter type=radio>
+
+    <template name=tasks>
+    <fieldset><!-- {#} = current index -->
+      <input id={#} onclick=toggle type=checkbox>
+
+      <label for={#}>{task}</label>
+
+      <button onclick=remove>Remove</button>
+    </fieldset>
+    </template>
+
+    <footer>
+      <header>{count} items left
+        <button onclick=complete>Complete All</button>
+      </header>
+
+      <label for=all>All</label>
+      <label for=active>Active</label>
+      <label for=completed>Completed</label>
+
+      <button onclick=clear>Clear Completed</button>
+    </footer>
+  </form>
+
+  <script src=/></script>
+</template>
