@@ -3,7 +3,7 @@
   to-do form > fieldset {
     padding: 0;
     border: none;
-    background: #eee;
+    background: rgba(230,230,230,.5);
     line-height: 2em;
   }
 
