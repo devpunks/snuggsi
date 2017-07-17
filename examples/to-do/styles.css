@@ -1,3 +1,14 @@
+to-do h1 {
+  text-align: center;
+  margin-bottom: .612em;
+}
+
+to-do form {
+  margin: 0 auto;
+  max-width: 70vw;
+  background: red
+}
+
 to-do button, to-do footer > label { cursor: pointer }
 
 to-do form > fieldset {
@@ -8,7 +19,6 @@ to-do form > fieldset {
 }
 
 to-do form > fieldset label {
-  width: 80%;
   display: inline-block;
   // Flexbox bug for fieldset - https://stackoverflow.com/questions/28078681/why-cant-fieldset-be-flex-containers
 }
@@ -45,5 +55,5 @@ to-do input#completed:checked
 
 to-do button,
 to-do form button[type=submit] {
-  font-size: 70%;
+  font-size: 55%;
 }
