@@ -6,9 +6,10 @@
   <h1>{name}'s &lt;to-do&gt; List</h1>
 
   <form action=#>
-    <input required placeholder='Remember the milk&hellip;'>
-
-    <button type=submit>Add</button><!-- implicitly calls `onsubmit` -->
+    <header>
+      <input required placeholder='Remember the milk&hellip;'>
+      <button type=submit>Add</button><!-- implicitly calls `onsubmit` -->
+    </header>
 
     <input id=all       name=filter type=radio checked>
     <input id=active    name=filter type=radio>
