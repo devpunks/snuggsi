@@ -38,3 +38,11 @@
   to-do input#completed:checked
     ~ footer > label[for=completed]
       { background: #ddd }
+
+
+
+
+
+to-do button {
+  font-size: 70%;
+}
