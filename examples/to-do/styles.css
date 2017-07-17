@@ -43,6 +43,7 @@
 
 
 
-to-do button {
+to-do button,
+to-do form button[type=submit] {
   font-size: 70%;
 }
