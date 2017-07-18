@@ -53,9 +53,17 @@ to-do form > article {
 // Flexbox bug for fieldset - https://stackoverflow.com/questions/28078681/why-cant-fieldset-be-flex-containers
 }
 
+to-do form > article {
+  margin: 1em;
+  background: pink;
+}
 to-do form > article label {
   font-size: 320%;
+  flex-basis: 80vw;
+  text-align: center;
   display: inline-block;
+  background: white;
+  margin: 0 0 0 10vw; /* width of Add button */
 }
 
 to-do footer  {
