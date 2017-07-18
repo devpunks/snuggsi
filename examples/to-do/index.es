@@ -43,8 +43,8 @@ Element `to-do`
     this.context.tasks = this.context.tasks.filter (active)
   }
 
-  get name  () { return 'Loren Hale' }
   get tasks () { return this.context.tasks }
   get count () { return this.context.tasks.length }
-
+  get name  ()
+    { return this.getAttribute `name` || 'snuggsi' }
 })
