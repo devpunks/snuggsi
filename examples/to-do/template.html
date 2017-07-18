@@ -1,3 +1,5 @@
+<script src=index.es></script>
+
 <template>
   <link rel=stylesheet href=to-do/index.css>
 
@@ -22,18 +24,14 @@
     </article>
     </template>
 
-    <footer>
-      <header>{count} items left
-        <button onclick=complete>Complete All</button>
-      </header>
+    <menu>{count} items left
+      <button onclick=complete>Complete All</button>
 
       <label for=all>All</label>
       <label for=active>Active</label>
       <label for=completed>Completed</label>
 
       <button onclick=clear>Clear Completed</button>
-    </footer>
+    </menu>
   </form>
 </template>
-
-  <script src=index.es></script>

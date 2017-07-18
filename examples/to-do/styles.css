@@ -78,28 +78,29 @@ to-do form >
     background-size: 78% 78%;
   }
 
-to-do footer  {
+to-do menu  {
   display: flex;
   flex-direction: row;
   align-items: flex-end;
   justify-content: space-between;
 }
 
-to-do footer header button { display: block }
+to-do menu button:first-of-type { display: block }
 
-to-do footer > label {
-  flex: 1;
-  margin: 0 2em;
-  text-align: center;
-  border-radius: 0.2em;
-}
+to-do
+  > menu > label {
+    flex: 1;
+    margin: 0 2em;
+    text-align: center;
+    border-radius: 0.2em;
+  }
 
 to-do input#all:checked
-  ~ footer > label[for=all],
+  ~ menu > label[for=all],
 
 to-do input#active:checked
-  ~ footer > label[for=active],
+  ~ menu > label[for=active],
 
 to-do input#completed:checked
-  ~ footer > label[for=completed]
+  ~ menu > label[for=completed]
     { background: #ddd }
