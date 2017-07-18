@@ -6,7 +6,6 @@ to-do h1 {
 to-do form {
   margin: 0 auto;
   max-width: 70vw;
-  background: red
 }
 
 to-do button, to-do footer > label { cursor: pointer }
