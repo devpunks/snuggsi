@@ -39,8 +39,8 @@ to-do form
   }
 
 to-do form
-  > header button[type=submit] {
-  }
+  > header button[type=submit]
+      { margin-left: 2vw }
 
 to-do form > article {
   padding: 0;
