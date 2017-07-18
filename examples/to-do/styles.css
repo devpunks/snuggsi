@@ -53,10 +53,10 @@ to-do form > article {
 // Flexbox bug for fieldset - https://stackoverflow.com/questions/28078681/why-cant-fieldset-be-flex-containers
 }
 
-to-do form > article {
-  margin: 1em;
-  background: pink;
-}
+to-do form
+   > article input[type=checkbox]
+       { display: none }
+
 to-do form > article label {
   font-size: 320%;
   flex-basis: 80vw;
