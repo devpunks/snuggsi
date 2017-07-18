@@ -128,7 +128,8 @@ to-do menu > button:last-of-type,
 to-do form > header button[type=submit],
 to-do button[type=submit] {
   font-size: 0;
-  background-size: 90% 90%;
+  background-size: 80% 80%;
+  text-shadow: 0.1em 0.1em 0.1em black;
 }
 to-do button:hover,
 to-do form > article button:hover,
@@ -136,7 +137,7 @@ to-do form > header button[type=submit]:hover,
 to-do menu > button:first-of-type:hover,
 to-do menu > button:last-of-type:hover,
 to-do form button[type=submit]:hover {
-  font-size: 80%;
+  font-size: 90%;
   line-height: 80%;
-  background-size: 80% 80%;
+  background-size: 90% 90%;
 }
