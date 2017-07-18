@@ -7,7 +7,7 @@ Element `to-do`
   }
 
   onsubmit (event, input = this.select `input`) {
-    event.preventDefault ()
+    event.preventDefault () // ...form from submitting
 
     this.context.tasks.push ({ task: input.value })
 
