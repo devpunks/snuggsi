@@ -44,7 +44,20 @@ Element `to-do`
   }
 
   get tasks () { return this.context.tasks }
-  get count () { return this.context.tasks.length }
+  get all () { return this.context.tasks.length }
+  get active () {
+    return this.context
+      .tasks
+      .filter (task => !!! task.completed)
+      .length
+  }
+  get completed () {
+    return this.context
+      .tasks
+      .filter (task => task.completed)
+      .length
+  }
+
   get name  ()
     { return this.getAttribute `name` || 'snuggsi' }
 })
