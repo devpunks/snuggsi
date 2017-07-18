@@ -84,11 +84,13 @@ to-do form >
   }
 
 to-do menu  {
-  display: flex;
+  display: none;
   flex-direction: row;
   align-items: center;
-  justify-content: space-between;
+  justify-content: space-between
 }
+to-do article ~ menu
+  { display: flex }
 
 to-do menu
   > label {
@@ -139,7 +141,7 @@ to-do form > header button[type=submit],
 to-do button[type=submit] {
   font-size: 0;
   background-size: 80% 80%;
-  text-shadow: 0.1em 0.1em 0.1em black;
+  text-shadow: 0.05em 0.05em 0.1em black;
 }
 to-do button:hover,
 to-do form > article button:hover,
