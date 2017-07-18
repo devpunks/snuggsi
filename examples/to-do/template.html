@@ -14,13 +14,12 @@
     <input id=completed name=filter type=radio>
 
     <template name=tasks>
-    <fieldset><!-- {#} = current index -->
-      <input id={#} onclick=toggle type=checkbox>
-
+    <article><!--{#} = current index -->
+      <input  id={#} onclick=toggle type=checkbox>
       <label for={#}>{task}</label>
 
       <button onclick=remove>Remove</button>
-    </fieldset>
+    </article>
     </template>
 
     <footer>
@@ -35,6 +34,6 @@
       <button onclick=clear>Clear Completed</button>
     </footer>
   </form>
+</template>
 
   <script src=index.es></script>
-</template>

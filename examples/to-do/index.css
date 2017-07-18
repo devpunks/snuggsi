@@ -4,23 +4,22 @@
 to-do form /* no tasks */
   > footer { display: none }
 
-to-do form > fieldset
+to-do form > article
   ~ footer { display: flex }
 
-to-do form
-  /* state machine */
+to-do form /* state machine */
   > input[type=radio] { display: none }
 
 to-do form input#active:checked
-  ~ fieldset input:checked
-,
+  ~ article input:checked,
+
 to-do form input#active:checked
-  ~ fieldset input:checked
+  ~ article input:checked
     ~ * { display:none }
 
 to-do form input#completed:checked
-  ~ fieldset input:not(:checked),
+  ~ article input:not(:checked),
 
 to-do form input#completed:checked
-  ~ fieldset input:not(:checked)
+  ~ article input:not(:checked)
     ~ * { display:none }
