@@ -1,25 +1,61 @@
 to-do h1 {
+  font-size: 1.8em;
   text-align: center;
   margin-bottom: .612em;
 }
 
 to-do form {
-  margin: 0 auto;
-  max-width: 70vw;
 }
 
 to-do button, to-do footer > label { cursor: pointer }
 
-to-do form > fieldset {
+to-do button,
+to-do form button[type=submit] {
+  margin: 0;
   padding: 0;
-  border: none;
-  background: rgba(230,230,230,.5);
-  line-height: 2em;
+  width: 10vw;
+  height: 10vw;
+  display: block;
+  overflow: hidden;
+  min-width: initial;
+  border-radius: 10em;
+  text-indent: -9999px;
 }
 
-to-do form > fieldset label {
+to-do form
+  > header {
+    display: flex;
+    background: red;
+    margin-bottom: 1.612em;
+    justify-content: stretch;
+  }
+
+to-do form
+  > header input[required] {
+    height: 10vw;
+    font-size: 320%;
+    flex-basis: 80vw;
+    margin: 0 0 0 10vw; /* width of Add button */
+  }
+
+to-do form
+  > header button[type=submit] {
+  }
+
+to-do form > article {
+  padding: 0;
+  border: none;
+  display: flex;
+  flex-direction: row;
+
+  line-height: 2em;
+  background: rgba(230,230,230,.5);
+// Flexbox bug for fieldset - https://stackoverflow.com/questions/28078681/why-cant-fieldset-be-flex-containers
+}
+
+to-do form > article label {
+  font-size: 320%;
   display: inline-block;
-  // Flexbox bug for fieldset - https://stackoverflow.com/questions/28078681/why-cant-fieldset-be-flex-containers
 }
 
 to-do footer  {
@@ -47,12 +83,3 @@ to-do input#active:checked
 to-do input#completed:checked
   ~ footer > label[for=completed]
     { background: #ddd }
-
-
-
-
-
-to-do button,
-to-do form button[type=submit] {
-  font-size: 55%;
-}
