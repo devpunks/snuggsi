@@ -25,7 +25,6 @@ to-do form button[type=submit] {
 to-do form
   > header {
     display: flex;
-    background: red;
     margin-bottom: 1.612em;
     justify-content: stretch;
   }
