@@ -97,8 +97,13 @@ to-do menu
       line-height: 3em;
       text-align: center;
       border-radius: 0.2em;
+      color: var(--darkest-color);
       cursor: pointer
     }
+to-do menu
+  > label:hover {
+    color: var(--lightest-color);
+  }
 
 to-do input#all:checked
   ~ menu > label[for=all],
@@ -107,8 +112,11 @@ to-do input#active:checked
   ~ menu > label[for=active],
 
 to-do input#completed:checked
-  ~ menu > label[for=completed]
-    { background: #ddd; cursor: default }
+  ~ menu > label[for=completed] {
+      cursor: default;
+      color: var(--lightest-color);
+      background: var(--darkest-color);
+    }
 
 to-do menu
   > button:first-of-type {
