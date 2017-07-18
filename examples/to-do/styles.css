@@ -5,6 +5,8 @@ to-do h1 {
 }
 
 to-do form {
+  width:80vw;
+  margin: 0 auto;
 }
 
 to-do button,
@@ -29,10 +31,10 @@ to-do form
 
 to-do form
   > header input[required] {
+    margin: 0;
     height: 10vw;
     font-size: 320%;
     flex-basis: 80vw;
-    margin: 0 0 0 10vw; /* width of Add button */
   }
 
 to-do form
