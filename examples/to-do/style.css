@@ -64,10 +64,15 @@ to-do form > article label {
   padding-left: 10vw; /* width of Add button */
   display: inline-block;
 }
+to-do form > article label:hover {
+  background-color: var(--darkest-color);
+}
 
 to-do form > article input:checked ~ label {
-  background: var(--check) no-repeat 2.5vw center;
-  background-size: 10%
+  background-size: 10%;
+  background-repeat: no-repeat;
+  background-image: var(--check);
+  background-position: 2.5vw center
 }
 
 to-do form >
