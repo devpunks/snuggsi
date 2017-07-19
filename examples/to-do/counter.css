@@ -4,14 +4,18 @@ to-do form {
    counter-reset: complete;
 }
 
-to-do menu > label::before {
-    display: block;
-    width: 20px;
-    height: 20px;
-    background: red;
-    top: 100px;
-    left: 100px;
-    content: attr(data-count);
+to-do menu > label::after {
+  width: 4vw;
+  font-size: 3vw;
+  line-height: 4vw;
+  position: static;
+  border-radius: 4vw;
+  text-align: center;
+  display: inline-block;
+  margin-left: 0.4em;
+  content: attr(data-count);
+  background: rgba(0,0,0,0.5);
+  text-shadow: 0.05em 0.05em 0 black;
 //  content: counter(all);
 }
 
