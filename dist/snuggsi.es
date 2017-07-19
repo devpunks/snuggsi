@@ -404,7 +404,7 @@ const Component = HTMLElement => // why buble
   ( EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement ))))
 {
 
-  constructor (context) { super ()
+  constructor () { super ()
 
     let
       descriptions =
@@ -427,12 +427,15 @@ const Component = HTMLElement => // why buble
       // of the same function
       .map (this.reflect, this)
 
-    this.context = this.context || {}
+    this.context = {}
     this.initialize && this.initialize ()
   }
 
 
   connectedCallback () {
+
+    super.connectedCallback
+      && super.connectedCallback ()
 
     HTMLLinkElement
       (this.tagName.toLowerCase ())
