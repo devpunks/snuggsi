@@ -1,12 +1,12 @@
 @import './counter.css';
-@import '/examples/to-do/styles.css';
+@import './style.css';
 
 /* CSS logic ------------------------------------- */
 to-do form /* no tasks */
-  > footer { display: none }
+  > menu { display: none }
 
 to-do form > article
-  ~ footer { display: flex }
+  ~ menu { display: flex }
 
 to-do form /* state machine */
   > input[type=radio] { display: none }
