@@ -1,18 +1,21 @@
 Element `to-do`
 
-(class extends HTMLElement {
+(class extends Storable (HTMLElement) {
 
-  initialize () {
-    this.context.tasks = [{ task: 'Wash clothes' }, { task: 'Eat food' }]
-  }
+  initialize
+    (tasks = { tasks: [{ task: 'Eat Food' }] })
+      { this.retrieve (tasks) }
+
 
   onsubmit (event, input = this.select `input`) {
     event.preventDefault () // ...form from submitting
 
     this.context.tasks.push ({ task: input.value })
 
+    this.store () // save context
     input.value = ''
   }
+
 
   onidle (mark) {
     mark = (task, id) =>
@@ -22,29 +25,41 @@ Element `to-do`
     this.tasks.map (mark)
   }
 
+
   complete (event) {
     event.preventDefault ()
 
     this.tasks.map (task => task.completed = true)
+    this.store () // save context
   }
 
-  toggle (event, task = this.context.tasks [event.target.id])
-    { task.completed = !!! task.completed }
+
+  toggle (event, task = this.context.tasks [event.target.id]) {
+    task.completed = !!! task.completed
+    this.store () // save context
+  }
+
 
   remove (event, parent = event.target.parentNode) {
     const id = parent.querySelector `input`.id
 
     this.context.tasks.splice (id, 1)
+    this.store () // save context
   }
 
   clear (event, active = task => !!! task.completed) {
     event.preventDefault ()
 
     this.context.tasks = this.context.tasks.filter (active)
+    this.store () // save context
   }
 
-  get tasks () { return this.context.tasks }
-  get all () { return this.context.tasks.length }
+  get name  ()
+    { return this.getAttribute `name` || 'snuggsi' }
+
+  get all ()
+    { return this.context.tasks.length }
+
   get active () {
     return this.context
       .tasks
@@ -58,6 +73,6 @@ Element `to-do`
       .length
   }
 
-  get name  ()
-    { return this.getAttribute `name` || 'snuggsi' }
+  get tasks ()
+    { return this.context.tasks }
 })
