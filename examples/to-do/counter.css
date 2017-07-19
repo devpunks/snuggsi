@@ -1,0 +1,23 @@
+to-do form {
+   counter-reset: all;
+   counter-reset: active;
+   counter-reset: complete;
+}
+
+to-do menu > label::before {
+    display: block;
+    width: 20px;
+    height: 20px;
+    background: red;
+    top: 100px;
+    left: 100px;
+    content: attr(data-count);
+//  content: counter(all);
+}
+
+to-do article
+  { counter-increment: all }
+to-do article input[type=checkbox]:not(:checked)
+  { counter-increment: active }
+to-do article input[type="checkbox"]:checked
+  { counter-increment: complete }
