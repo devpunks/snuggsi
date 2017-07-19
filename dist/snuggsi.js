@@ -305,7 +305,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
   }(Element))); }
 
 var Component = function (HTMLElement) { return ( (function (superclass) {
-    function anonymous (context) {
+    function anonymous () {
   var this$1 = this;
  superclass.call (this)
 
@@ -329,7 +329,7 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
       // of the same function
       .map (this.reflect, this)
 
-    this.context = this.context || {}
+    this.context = {}
     this.initialize && this.initialize ()
   }
 
@@ -339,6 +339,9 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
 
 
   anonymous.prototype.connectedCallback = function () {
+
+    superclass.prototype.connectedCallback
+      && superclass.prototype.connectedCallback.call (this)
 
     HTMLLinkElement
       (this.tagName.toLowerCase ())
