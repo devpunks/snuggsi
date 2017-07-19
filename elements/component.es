@@ -4,7 +4,7 @@ const Component = HTMLElement => // why buble
   ( EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement ))))
 {
 
-  constructor (context) { super ()
+  constructor () { super ()
 
     let
       descriptions =
