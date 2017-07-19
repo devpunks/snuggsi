@@ -64,9 +64,9 @@ to-do form > article label {
   font-size: 320%;
   flex-basis: 80vw;
   text-align: center;
-  display: inline-block;
   line-height:  10vw;
   padding-left: 10vw; /* width of Add button */
+  display: inline-block;
 }
 
 to-do form > article input:checked ~ label {
