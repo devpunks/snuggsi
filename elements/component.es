@@ -27,7 +27,7 @@ const Component = HTMLElement => // why buble
       // of the same function
       .map (this.reflect, this)
 
-    this.context = this.context || {}
+    this.context = {}
     this.initialize && this.initialize ()
   }
 
