@@ -64,12 +64,20 @@ Element `infinity-calendar`
     const
       next_month = this.month + 1
     , date = new Date (this.year , next_month, 0)
-    , length = { length: date.getDate () }
+  //, length = { length: date.getDate () }
+    , length = { length: 1000 }
     , days = (_, index) => ({ day: index +1 })
 
-    return Array
-      .apply (null, length)
-      .map (days)
+      const d = []
+
+      for (var i = 0; i < 10; i++)
+        d.push (days ('', i))
+
+      console.log (d)
+      return d
+//  return Array
+//    .apply (null, length)
+//    .map (days)
   }
 
   date_from_month (change) {
