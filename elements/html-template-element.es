@@ -19,7 +19,9 @@ const Template = HTMLTemplateElement = function (name) {
     , tokens   = keys.map (key => '{'+key+'}') // memoize tokens
     , fragment = document.createElement ('template')
 
-    , deposit = (context, index, clone = template) => {
+    , deposit = (context, index,) => {
+        let clone = template
+
         context = (typeof context  === 'object')
           ? context : { self: context }
 
@@ -44,6 +46,6 @@ const Template = HTMLTemplateElement = function (name) {
     this.dependents = Array.from // non-live
       (fragment.content.childNodes)
 
-    this.after (... this.dependents)
+    this.after ( ... this.dependents )
   }
 }
