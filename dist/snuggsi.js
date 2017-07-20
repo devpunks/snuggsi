@@ -112,58 +112,64 @@ TokenList.prototype.bind = function (context) {
 
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
-var HTMLTemplateElement = Template = function (name) {
+var Template = HTMLTemplateElement = function (name) {
 
   // create shallow clone using `.getOwnPropertyDescriptors`
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors#Examples
   // https://docs.microsoft.com/en-us/scripting/javascript/reference/object-getownpropertydescriptor-function-javascript
+  // NO IE SUPPORT!!!!
   return Object.assign
     (document.querySelector ('template[name='+name+']'), { bind: bind } )
 
   function bind (context) {
-    var this$1 = this;
-
-
-    // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
-    contexts = (ref = []).concat.apply ( ref, [context] )
 
     var
-      clone
-    , template = this.cloneNode (false)
+      html     = ''
+    , template = this.innerHTML
+    , contexts =
+        (ref = []).concat.apply ( ref, [context] )
+        // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
 
-    template.innerHTML =
-    contexts
-      .map (function (context) { return context; })
-      .map (function (context, index) {
+    , keys =
+        Object
+          .keys (contexts [0])    // memoize keys
+          .concat (['#', 'self']) // add helper keys
 
-        context =
-          (typeof context  === 'object') ? context : { self: context }
+    , tokens   = keys.map (function (key) { return '{'+key+'}'; }) // memoize tokens
+    , fragment = document.createElement ('template')
+
+    , deposit = function (context, index) {
+        var clone = template
+
+        context = (typeof context  === 'object')
+          ? context : { self: context }
 
         context ['#'] = index
 
-        clone  = this$1.cloneNode (true)
+        for (var i=0; i<tokens.length; i++)
+          { clone = clone
+            .split (tokens [i])
+            .join  (context [keys [i]]) }
 
-        void (new TokenList (clone.content))
-          .bind (context)
-
-        return clone.innerHTML // immutable snapshot
-      })
-      .join ('')
+        return clone
+      }
 
     void (this.dependents || [])
       .map (function (dependent) { return dependent.remove (); })
 
-    this.dependents =
-      Array.from
-        (template.content.childNodes)
+    for (var i=0, final = ''; i<contexts.length; i++)
+      { html += deposit (contexts [i], i) }
 
-    this.after ( template.content )
+    fragment.innerHTML = html
 
-    return this
+    this.dependents = Array.from // non-live
+      (fragment.content.childNodes)
+
+    (ref$1 = this).after.apply ( ref$1, this.dependents )
     var ref;
+    var ref$1;
   }
 }
-
 var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
     function anonymous () {
       HTMLElement.apply(this, arguments);
