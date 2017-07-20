@@ -33,7 +33,7 @@
 
     onconnect () {
       this.innerHTML = 'Content Loading...'
-      this.context.location = new URL(this.getAttribute('src'))
+      this.context.location = this.getAttribute `src`
 
       let hdrs = new Headers({'Accept': 'text/html'})
       fetch(this.context.location, {mode: 'no-cors', headers: hdrs})
