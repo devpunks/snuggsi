@@ -14,8 +14,15 @@ const Template = HTMLTemplateElement = function (name) {
     let
       html     = ''
     , template = this.innerHTML
-    , contexts = [].concat ( ... [context] )   // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
-    , keys     = Object.keys (contexts [0]).concat (['#'])    // memoize keys
+    , contexts =
+        [].concat ( ... [context] )
+        // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
+
+    , keys =
+        Object
+          .keys (contexts [0])    // memoize keys
+          .concat (['#', 'self']) // add helper keys
+
     , tokens   = keys.map (key => '{'+key+'}') // memoize tokens
     , fragment = document.createElement ('template')
 
