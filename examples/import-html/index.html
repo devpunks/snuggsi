@@ -37,12 +37,30 @@
       this.context.location = this.getAttribute `src`
 
       let hdrs = new Headers({'Accept': 'text/html'})
+
       fetch(this.context.location, {mode: 'no-cors', headers: hdrs})
         .then(res => { return res.text() })
-        .then(content => { this.innerHTML = content })
+        .then(content => this.parse(content))
         .catch(err => console.warn(err))
     }
 
+    parse (string) {
+      let
+        root = (new DOMParser)
+          .parseFromString (string, 'text/html')
+          .documentElement
+
+      , html = document.importNode (root, true)
+
+      , head = html.querySelector
+          `head`.childNodes
+
+      , body = html.querySelector
+          `body`.childNodes
+
+      this.innerHTML = ''
+      this.append ( ... [ ... head, ... body ] )
+    }
   })
 </script>
 
