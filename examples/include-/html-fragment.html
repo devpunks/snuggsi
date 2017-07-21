@@ -1,5 +1,4 @@
-<!-- nested stylesheets appear not to load -->
-<link rel=stylesheet href=nested-style.css />
+<link rel=stylesheet href=include-/nested-style.css />
 
 <!-- inline styles apply -->
 <style>
@@ -14,6 +13,7 @@
 
 <!-- nested scripts appear not to execute -->
 <script>
-  console.log("this script isn't from around here")
+  console.log
+    ("this script isn't from around here")
 </script>
 

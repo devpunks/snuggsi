@@ -22,14 +22,14 @@
 
 <!-- YOUR CONTENT HERE -->
 
-<import-html src=/examples/import-html/html-fragment.html>
+<include- src=include-/html-fragment.html>
   Import Hasn't Happened
-</import-html>
+</include->
 
-<import-html src=/examples/import-html/html-fragment-footer.html></import-html>
+<include- src=include-/html-fragment-footer.html></include->
 
 <script>
-  Element `import-html`
+  Element `include-`
   (class extends HTMLElement {
 
     onconnect () {
@@ -39,7 +39,7 @@
       let headers = new Headers ({ Accept: 'text/html' })
 
       fetch (this.context.location, { mode: 'no-cors', headers })
-        .then  (response => return response.text ())
+        .then  (response => response.text ())
         .then  (content  => this.parse (content))
         .catch (error    => console.warn (error))
     }
