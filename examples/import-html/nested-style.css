@@ -1,3 +1,7 @@
+body {
+  background: red !important;
+  color: purple;
+}
 h1 {
   color: blue;
 }
