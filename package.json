@@ -49,6 +49,7 @@
   },
   "dependencies": {
     "koa": "*",
+    "koa-cors": "*",
     "koa-send": "*",
     "koa-static": "*",
     "browser-sync": "*"
