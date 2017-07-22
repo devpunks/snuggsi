@@ -5,16 +5,16 @@
 <email-recipients>
 
   <template name=recipients>
-  <address>
-    <button id={#}
-      onclick=onremove
-      title='Remove <{self}> from recipients'>x</button>
+    <address>
+      <button id={#}
+        onclick=onremove
+        title='Remove <{self}> from recipients'>x</button>
 
-    <label>
-      <input name=recipients[] type=checkbox value={self} checked>
-      {self}
-    </label>
-  </address>
+      <label>
+        <input name=recipients[] type=checkbox value={self} checked>
+        {self}
+      </label>
+    </address>
   </template>
 
   <input
@@ -25,9 +25,9 @@
     placeholder=email@example.com>
 
   <datalist id=contacts>
-  <template name=contacts>
-  <option value={email}>{name} &lt;{email}&gt;
-  </template>
+    <template name=contacts>
+      <option value={email}>{name} &lt;{email}&gt;
+    </template>
   </datalist>
 
 </email-recipients>
