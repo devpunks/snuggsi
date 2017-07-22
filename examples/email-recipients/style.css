@@ -4,7 +4,7 @@
 
 email-recipients > address:hover,
 email-recipients {
-  box-shadow: 0 0 0.28em rgba(40,40,40,0.8);
+  box-shadow: 0 0 0.28em rgba(40, 40, 40, 0.8);
   border-radius: var(--email-recipients-corner-radius)
 }
 
@@ -33,10 +33,10 @@ email-recipients > address::after {
   content: ", ";
   margin-top: -0.4em;
   font-size: 2em;
-  color: rgba(50,50,50,0.7);
+  color: rgba(50, 50, 50, 0.7);
 }
 email-recipients > address:hover {
-  background: rgba(220,220,220,0.9)
+  background: rgba(220, 220, 220, 0.9)
 }
 email-recipients > address button {
   opacity: 0;
@@ -51,7 +51,7 @@ email-recipients > address:hover button {
   opacity: 0.5;
   font-size: 80%;
   cursor: pointer;
-  color: rgba(230,0,0,0.9);
+  color: rgba(230, 0, 0, 0.9)
 }
 email-recipients > address button:hover {
   opacity: 1.0
