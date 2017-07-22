@@ -132,7 +132,7 @@ var Template = HTMLTemplateElement = function (name) {
 
     , keys =
         Object
-          .keys (contexts [0])    // memoize keys
+          .keys (contexts [0] || [])    // memoize keys
           .concat (['#', 'self']) // add helper keys
 
     , tokens   = keys.map (function (key) { return '{'+key+'}'; }) // memoize tokens
