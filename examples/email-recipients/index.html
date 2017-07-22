@@ -1,0 +1,87 @@
+<title>&lt;email&gt;</title>
+
+<link rel=stylesheet href=email/style.css>
+
+<email-recipients>
+
+  <template name=recipients>
+  <address>
+    <button id={#}
+      onclick=onremove
+      title='Remove <{self}> from recipients'>x</button>
+
+    <label>
+      <input name=recipients[] type=checkbox value={self} checked>
+      {self}
+    </label>
+  </address>
+  </template>
+
+  <input
+    name=address
+    list=contacts
+    onchange=addrecipient
+    placeholder=email@example.com>
+
+  <datalist id=contacts>
+  <template name=contacts>
+  <option value={email}>{name} &lt;{email}&gt;
+  </template>
+  </datalist>
+
+</email-recipients>
+
+<script src=/snuggsi.es></script>
+<script defer>
+
+Element `email-recipients`
+
+(class extends HTMLElement {
+
+  initialize () {
+    this.context.recipients =
+      ['angelo@isawesome.com', 'snuggs@isawesome.com']
+  }
+
+  onconnect () {
+    this.context
+      .contacts = [
+        { name: 'Tim', email: 'tim@isawesome.com' },
+        { name: 'Rob Cole', email: 'robcole@isawesome.com' }
+      ]
+  }
+
+  // use Array.prototype.splice
+  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
+  onremove (event, id = event.target.id, address) {
+    address =
+      this.context
+        .recipients.splice
+          (event.target.id, 1)
+
+    this.select
+      `input[name=address]`.focus()
+  }
+
+  addrecipient (event, input = event.target) {
+    this.context
+      .recipients.push
+        (input.value)
+
+    input.value = ''
+  }
+
+  get recipients ()
+    { return this.context.recipients }
+
+  get contacts ()
+    { return this.context.contacts }
+})
+
+</script>
+
+<script src=/browser-sync.es></script>
+<script
+  name=polyfill
+  src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js>
+</script>

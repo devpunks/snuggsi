@@ -1,0 +1,70 @@
+:root {
+  --email-recipients-corner-radius: 1vw;
+}
+
+email-recipients > address:hover,
+email-recipients {
+  box-shadow: 0 0 0.28em rgba(40,40,40,0.8);
+  border-radius: var(--email-recipients-corner-radius)
+}
+
+email-recipients {
+  padding: 1em;
+  display: flex;
+  flex-basis: auto;
+  flex-flow: row wrap;
+}
+
+email-recipients > * {
+  font-size: 90%;
+  line-height: 1.612em;
+}
+
+email-recipients > address {
+  display: flex;
+  cursor: pointer;
+  margin: 0;
+  font-style: normal;
+  align-items: center;
+  flex-flow: row nowrap;
+  font-family: sans-serif;
+}
+email-recipients > address::after {
+  content: ", ";
+  margin-top: -0.4em;
+  font-size: 2em;
+  color: rgba(50,50,50,0.7);
+}
+email-recipients > address:hover {
+  background: rgba(220,220,220,0.9)
+}
+email-recipients > address button {
+  opacity: 0;
+  border: none;
+  background: none;
+  margin-right: 0.12em;
+  padding: 0 0.12em 0 0.2em;
+  border-right: 1px solid red;
+}
+
+email-recipients > address:hover button {
+  opacity: 0.5;
+  font-size: 80%;
+  cursor: pointer;
+  color: rgba(230,0,0,0.9);
+}
+email-recipients > address button:hover {
+  opacity: 1.0
+}
+
+email-recipients input[name='recipients[]'] {
+  display: none;
+}
+email-recipients input[name=address] {
+  flex: 0;
+  border: none;
+  outline: none;
+  background; yellow;
+  line-height: 1em;
+  align-items: flex-start;
+}
