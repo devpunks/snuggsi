@@ -31,8 +31,9 @@ email-recipients > address {
 }
 email-recipients > address::after {
   content: ", ";
-  margin-top: -0.4em;
-  font-size: 2em;
+  font-size: 1.6em;
+  font-weight: 300;
+  margin-top: -0.3em;
   color: rgba(50, 50, 50, 0.7);
 }
 email-recipients > address:hover {
