@@ -2,17 +2,17 @@
   --email-recipients-corner-radius: 1vw;
 }
 
-email-recipients > address:hover,
-email-recipients {
-  box-shadow: 0 0 0.28em rgba(40, 40, 40, 0.8);
-  border-radius: var(--email-recipients-corner-radius)
-}
+email-recipients,
+email-recipients
+  > address:hover
+  { border-radius: var(--email-recipients-corner-radius) }
 
 email-recipients {
   padding: 1em;
   display: flex;
   flex-basis: auto;
   flex-flow: row wrap;
+  box-shadow: 0 0 0.28em rgba(40, 40, 40, 0.8)
 }
 
 email-recipients > * {
