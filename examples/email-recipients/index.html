@@ -43,14 +43,11 @@ Element `email-recipients`
   initialize () {
     this.context.recipients =
       ['angelo@isawesome.com', 'snuggs@isawesome.com']
-  }
 
-  onconnect () {
-    this.context
-      .contacts = [
-        { name: 'Tim', email: 'tim@isawesome.com' },
-        { name: 'Rob Cole', email: 'robcole@isawesome.com' }
-      ]
+    this.context.contacts = [
+      { name: 'Tim', email: 'tim@isawesome.com' },
+      { name: 'Rob Cole', email: 'robcole@isawesome.com' }
+    ]
   }
 
   // use Array.prototype.splice
