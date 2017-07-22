@@ -52,20 +52,17 @@ Element `email-recipients`
 
   // use Array.prototype.splice
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/splice
-  onremove (event, id = event.target.id, address) {
-    address =
-      this.context
-        .recipients.splice
-          (event.target.id, 1)
+  onremove (event, id = event.target.id) {
+    this.context.recipients
+      .splice (id, 1)
 
     this.select
-      `input[name=address]`.focus()
+      `input[name=address]`.focus ()
   }
 
   addrecipient (event, input = event.target) {
-    this.context
-      .recipients.push
-        (input.value)
+    this.context.recipients
+      .push (input.value)
 
     input.value = ''
   }
