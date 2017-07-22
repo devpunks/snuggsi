@@ -20,7 +20,7 @@ const Template = HTMLTemplateElement = function (name) {
 
     , keys =
         Object
-          .keys (contexts [0])    // memoize keys
+          .keys (contexts [0] || [])    // memoize keys
           .concat (['#', 'self']) // add helper keys
 
     , tokens   = keys.map (key => '{'+key+'}') // memoize tokens
