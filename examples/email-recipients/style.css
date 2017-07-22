@@ -37,7 +37,7 @@ email-recipients > address::after {
   color: rgba(50, 50, 50, 0.7);
 }
 email-recipients > address:hover {
-  background: rgba(220, 220, 220, 0.9)
+  background: rgba(220, 220, 220, 0.5)
 }
 email-recipients > address button {
   opacity: 0;
