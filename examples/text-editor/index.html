@@ -27,11 +27,10 @@
   <article contenteditable>This is default text for article</article>
 
   <menu>
-    <template name=actions>
-      <button icon={icon} onclick={action}>{title}</button>
-    </template>
+  <template name=actions>
+    <button icon={icon} title={title} onclick={action}>{title}</button>
+  </template>
   </menu>
-
 <style>
 
 text-editor > article {
