@@ -60,11 +60,21 @@ Element `text-editor`
 
 (class extends HTMLElement {
 
-  initialize ()
-    { this.append `🌎 ` }
+  onconnect () {
+    console.log (this.actions)
+  }
 
-  get value ()
-    { return 'html markup string' }
+  get actions () {
+    return [ this.action`bold`, this.action`italic`, this.action`underline`]
+  }
+
+  action (name, action = [].concat ( ... [name]) [0]) {
+    return { icon: action, title: action, action: (_ => this.exec (action)) }
+  }
+
+  exec (action) {
+    console.warn ('Executing', action)
+  }
 })
 
 </script>
