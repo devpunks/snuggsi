@@ -27,8 +27,25 @@
 
   <textarea></textarea>
 
+  <article contenteditable>This is default text for article</article>
+
   <menu>
+    <template name=actions>
+      <button icon={icon} onclick={action}>{title}</button>
+    </template>
   </menu>
+
+<style>
+
+text-editor > article {
+  display: block;
+  width: 90vw;
+  height: 60vh;
+  margin: 0 auto;
+  background: pink;
+}
+
+</style>
 </text-editor>
 
 <script defer>
