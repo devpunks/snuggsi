@@ -44,6 +44,18 @@ text-editor > article:focus {
 
 <script defer>
 
+const actions = {
+  bold: 'bold'
+, italic: 'italic'
+, underline: 'underline'
+, strikethrough: 'strikeThrough'
+, ulist: 'insertUnorderedist'
+, olist: 'insertOrderedList'
+, line: 'insertHorizontalRule'
+, link: 'createLink'
+, custom: 'formatBlock'
+}
+
 // Element Definition -----------------------------
 
 Element `text-editor`
