@@ -50,8 +50,9 @@ Element `text-editor`
 
 (class extends HTMLElement {
 
-  onconnect () {
-    console.log (this.actions)
+  execute (event, button = event.target, action = this.find (button.name)) {
+    (HTMLButtonElement === button.constructor)
+      && document.execCommand (action.command, false, action.value)
   }
 
   get actions () {
