@@ -41,17 +41,11 @@
   - Quote
   - Ordered List
   - Unordered List
-  - Code
   - Horizontal Rule
   - Link
-  - Image
 
 ## Roadmap
 
-  - Justify Center
-  - Justify Full
-  - Justify Left
-  - Justify Right
   - Subscript
   - Superscript
   - Font Name
