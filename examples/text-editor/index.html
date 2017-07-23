@@ -37,8 +37,14 @@ text-editor > article {
   display: block;
   width: 90vw;
   height: 60vh;
-  margin: 0 auto;
-  background: pink;
+  margin: 0 auto
+}
+text-editor > article:hover,
+text-editor > article:focus
+  { outline: 2px dashed rgba(20, 20, 20, 0.2) }
+
+text-editor > article:focus {
+  background: rgba(255, 255, 0, 0.2)
 }
 
 </style>
