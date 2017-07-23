@@ -55,12 +55,10 @@ Element `text-editor`
       && document.execCommand (action.command, false, action.value)
   }
 
-  get actions () {
-    return [ this.action`bold`, this.action`italic`, this.action`underline`]
-  }
-
-  action (name, action = [].concat ( ... [name]) [0]) {
-    return { icon: action, title: action, action: (_ => this.exec (action)) }
+  find (name) {
+    for (var i = 0; i < this.actions.length; i++)
+      if (name === this.actions [i].name)
+          return this.actions [i]
   }
 
   get actions () {
