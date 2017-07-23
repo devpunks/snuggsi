@@ -56,6 +56,11 @@
   - Undo
   - Redo
 
+## Quirks
+
+https://github.com/guardian/scribe/blob/master/BROWSERINCONSISTENCIES.md
+
+
 ### License
 
 MIT
