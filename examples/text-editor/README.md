@@ -1,6 +1,6 @@
 # `<text-editor>`
 
-## HTML:
+## Example:
 
 ```html
 <link rel=import href=https://snuggsi.es/text-editor>
