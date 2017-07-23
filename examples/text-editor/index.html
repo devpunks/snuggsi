@@ -46,24 +46,6 @@ text-editor > article:focus {
 
 <script defer>
 
-const actions = {
-  bold: 'bold'
-, italic: 'italic'
-, underline: 'underline'
-, left: 'justifyLeft'
-, center: 'justifyCenter'
-, right: 'justifyRight'
-, strikethrough: 'strikeThrough'
-, paragraph: 'insertParagraph'
-, ulist: 'insertUnorderedist'
-, olist: 'insertOrderedList'
-, line: 'insertHorizontalRule'
-, link: 'createLink'
-, custom: 'formatBlock'
-}
-
-// Element Definition -----------------------------
-
 Element `text-editor`
 
 // Class Description ------------------------------
@@ -82,8 +64,23 @@ Element `text-editor`
     return { icon: action, title: action, action: (_ => this.exec (action)) }
   }
 
-  exec (action) {
-    console.warn ('Executing', action)
+  get actions () {
+    return [
+      { icon: '¶', name: 'bold', title: 'Bold Text', command: 'bold' }
+    , { icon: '¶', name: 'italic', title: 'Italicize Text', command: 'italic' }
+    , { icon: '¶', name: 'underline', title: 'Underline Text', command: 'underline' }
+    , { icon: '¶', name: 'left', title: 'Left Justify Text', command: 'justifyLeft' }
+    , { icon: '¶', name: 'center', title: 'Center Justify Text', command: 'justifyCenter' }
+    , { icon: '¶', name: 'right', title: 'Right Justify Text', command: 'justifyRight' }
+    , { icon: '¶', name: 'strikethrough', title: 'Strikethrough Text', command: 'strikeThrough' }
+    , { icon: '¶', name: 'paragraph', title: 'Convert Text to Paragraph', command: 'insertParagraph' }
+    , { icon: '¶', name: 'ulist', title: 'Convert to Unordered List', command: 'insertUnorderedist' }
+    , { icon: '¶', name: 'olist', title: 'Convert to Ordered List', command: 'insertOrderedist' }
+    , { icon: '¶', name: 'line', title: 'Insert Horizontal Rule', command: 'insertHorizontalRule' }
+    , { icon: '¶', name: 'link', title: 'Create URL Link', command: 'createLink' }
+    , { icon: '¶', name: 'header', title: 'Create Header', command: 'formatBlock', value: '<h1>' }
+    , { icon: '¶', name: 'subheader', title: 'Create Sub-Header', command: 'formatBlock', value: '<h2>' }
+    ]
   }
 })
 
