@@ -19,7 +19,7 @@
 
 | library             | size (min+gzip) | size (min) | jquery | bootstrap |
 |---------------------|-----------------|------------|--------|-----------|
-| &lt;text-editor&gt; | 1.11kB          | 2.85kB     |        |           |
+| &lt;text-editor&gt; | 540Bytes        | 1.55kB     |        |           |
 | pell                | 1.11kB          | 2.85kB     |        |           |
 | medium-editor       | 27kB            | 105kB      |        |           |
 | quill               | 43kB            | 205kB      |        |           |
