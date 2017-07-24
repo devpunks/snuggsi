@@ -12,8 +12,9 @@ $ cd snuggsi && npm i
 Runs the following build process
 
   0. [`compile`](#compile)
-  1. [`distribute`](#distribute)
-  2. [`deploy`](#deploy)
+  1. [`lint`](#lint)
+  2. [`distribute`](#distribute)
+  3. [`deploy`](#deploy)
 
 _See [bin/crank](crank)_
 ```bash
@@ -55,6 +56,17 @@ _See [bin/cover](cover)_
 
 ```bash
 $ bin/cover
+```
+
+
+## Lint
+
+Uses
+[`JSStandard`](https://github.com/feross/standard)
+_See [bin/lint](lint)_
+
+```bash
+$ bin/lint
 ```
 
 
