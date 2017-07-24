@@ -2,3 +2,6 @@
 
 ./node_modules/.bin/nyc bin/test
 
+./node_modules/.bin/standard \
+  ./dist/snuggsi.es \
+  | awk 'END {print "\nNumber of StandardJS Warnings"} END {print NR} END {print}'
