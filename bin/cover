@@ -3,5 +3,5 @@
 ./node_modules/.bin/nyc bin/test
 
 NUMBER_OF_JS_WARNINGS=`bin/lint | wc -l | xargs`
-echo && echo "⚠️ ⚠️ ⚠️ ${NUMBER_OF_JS_WARNINGS}⚠️ ⚠️ ⚠️  StandardJS Warnings: "
+echo && echo "⚠️ ⚠️ ⚠️ ${NUMBER_OF_JS_WARNINGS}⚠️ ⚠️ ⚠️  StandardJS Warnings"
 echo
