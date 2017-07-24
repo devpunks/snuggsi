@@ -3,6 +3,7 @@
 
 # Thank TOM for ./crank
 bin/compile
+bin/cover
 bin/distribute
 bin/deploy
 
