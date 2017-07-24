@@ -36,16 +36,17 @@
     "test": "./bin/test"
   },
   "devDependencies": {
-    "tap": "*",
-    "tape": "*",
-    "tap-nyc": "*",
     "buble": "*",
-    "jsdom": "*",
-    "uglify-es": "*",
-    "uglify-js": "*",
     "buble-tape": "*",
+    "devtools-terminal": "*",
+    "jsdom": "*",
     "node-zopfli": "*",
-    "devtools-terminal": "*"
+    "standard": "^10.0.2",
+    "tap": "*",
+    "tap-nyc": "*",
+    "tape": "*",
+    "uglify-es": "*",
+    "uglify-js": "*"
   },
   "dependencies": {
     "koa": "*",
