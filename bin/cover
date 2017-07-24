@@ -2,5 +2,6 @@
 
 ./node_modules/.bin/nyc bin/test
 
-bin/lint \
-  | awk 'END {print "\nNumber of StandardJS Warnings"} END {print NR} END {print}'
+NUMBER_OF_JS_WARNINGS=`bin/lint | wc -l`
+echo && echo "⚠️ ⚠️ ⚠️ ${NUMBER_OF_JS_WARNINGS}⚠️ ⚠️ ⚠️  StandardJS Warnings: "
+echo
