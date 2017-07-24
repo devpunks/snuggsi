@@ -20,6 +20,7 @@ For a list of `bin` scripts used within the build pipeline.
 
 ## Glossary
   - [Scripting Media Types _(rfc4329)_](https://www.rfc-editor.org/rfc/rfc4329.txt) and [why you should know `application/ecmascript`](https://stackoverflow.com/questions/9664282/difference-between-application-x-javascript-and-text-javascript-content-types)
+  - [Javascript MIME types](https://html.spec.whatwg.org/#javascript-mime-type)
   - [Content Negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation)
   - [Octet](https://en.wikipedia.org/wiki/Octet_(computing))
   - [MTU _(Maximum Transmission Unit)_](https://en.wikipedia.org/wiki/Maximum_transmission_unit)
