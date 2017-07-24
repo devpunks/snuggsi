@@ -1,0 +1,4 @@
+#!/bin/bash
+
+./node_modules/.bin/standard \
+  ./dist/snuggsi.es
