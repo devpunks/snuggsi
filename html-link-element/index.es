@@ -112,7 +112,6 @@ void (_ => {
 
       ['id', 'rel', 'href', 'src', 'textContent', 'as', 'defer', 'crossOrigin'/* , media */]
         // setAttribute won't work for textContent and likewise explicit set for crossorigin
-        // Mutually exclusive!!! ?!??!?!?!?!?
         .map (attr => node [attr] && attr in clone && (clone [attr] = node [attr]))
 
       // use rel = 'preload stylesheet' for async
