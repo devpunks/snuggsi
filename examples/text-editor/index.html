@@ -1,0 +1,86 @@
+<title>&lt;text-editor&gt;</title>
+
+<!--
+<link rel=stylesheet href=https://devpunks.herokuapp.com/typography.css>
+<link rel=stylesheet href=https://devpunks.herokuapp.com/form.css>
+-->
+
+<script src=/snuggsi.es></script>
+<script name=polyfill src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
+
+<link rel=import href=/examples/header-group>
+
+<header-group>
+  <h2 slot=header>&lt;text-editor&gt;</h2>
+  <a  slot=subheader title='See more component examples' href=/examples>See more component examples</a>
+</header-group>
+
+<text-editor>
+
+  <menu onclick=execute>
+  <template name=actions>
+    <button name={name} icon={icon} title={title}>{title}</button>
+  </template>
+  </menu>
+
+  <article contenteditable>This is default text for article</article>
+
+<style>
+
+text-editor > article {
+  display: block;
+  width: 90vw;
+  height: 60vh;
+  margin: 0 auto
+}
+text-editor > article:hover,
+text-editor > article:focus
+  { outline: 2px dashed rgba(20, 20, 20, 0.2) }
+
+text-editor > article:focus {
+  background: rgba(255, 255, 0, 0.2)
+}
+
+</style>
+</text-editor>
+
+<script defer>
+
+Element `text-editor`
+
+(class extends HTMLElement {
+
+  execute (event, button = event.target, action = this.find (button.name)) {
+    (HTMLButtonElement === button.constructor)
+      && document.execCommand (action.command, false, action.value)
+  }
+
+  find (name) {
+    for (var i = 0; i < this.actions.length; i++)
+      if (name === this.actions [i].name)
+          return this.actions [i]
+  }
+
+  get actions () {
+    return [
+      { icon: '¶', name: 'bold', title: 'Bold Text', command: 'bold' }
+    , { icon: '¶', name: 'italic', title: 'Italicize Text', command: 'italic' }
+    , { icon: '¶', name: 'underline', title: 'Underline Text', command: 'underline' }
+    , { icon: '¶', name: 'left', title: 'Left Justify Text', command: 'justifyLeft' }
+    , { icon: '¶', name: 'center', title: 'Center Justify Text', command: 'justifyCenter' }
+    , { icon: '¶', name: 'right', title: 'Right Justify Text', command: 'justifyRight' }
+    , { icon: '¶', name: 'strikethrough', title: 'Strikethrough Text', command: 'strikeThrough' }
+    , { icon: '¶', name: 'paragraph', title: 'Convert Text to Paragraph', command: 'insertParagraph' }
+    , { icon: '¶', name: 'ulist', title: 'Convert to Unordered List', command: 'insertUnorderedist' }
+    , { icon: '¶', name: 'olist', title: 'Convert to Ordered List', command: 'insertOrderedist' }
+    , { icon: '¶', name: 'line', title: 'Insert Horizontal Rule', command: 'insertHorizontalRule' }
+    , { icon: '¶', name: 'link', title: 'Create URL Link', command: 'createLink' }
+    , { icon: '¶', name: 'header', title: 'Create Header', command: 'formatBlock', value: '<h1>' }
+    , { icon: '¶', name: 'subheader', title: 'Create Sub-Header', command: 'formatBlock', value: '<h2>' }
+    ]
+  }
+})
+
+</script>
+
+<script src=/browser-sync.es></script>
