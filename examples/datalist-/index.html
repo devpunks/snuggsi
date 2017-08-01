@@ -52,9 +52,13 @@
     }
 
     polyfill (datalist) {
-      const options =
-        datalist.querySelectorAll
-          `option:not(:disabled)`
+      const
+        options =
+          datalist.querySelectorAll
+            `option:not(:disabled)`
+
+      , input =
+          document.querySelector (`[list=${datalist.id}]`)
 
       !!!  ('options' in datalist)
         && (datalist.options = Array.from (options))
