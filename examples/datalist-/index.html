@@ -48,7 +48,8 @@
 
     initialize (datalists = document.querySelectorAll `datalist`) {
       for (let datalist of datalists)
-        this.polyfill (datalist)
+        !!! ('options' in datalist)
+          && this.polyfill (datalist)
     }
 
     polyfill (datalist) {
@@ -60,9 +61,10 @@
       , input =
           document.querySelector (`[list=${datalist.id}]`)
 
-      !!!  ('options' in datalist)
-        // polyfill HTMLDataList.options
-        && (datalist.options = Array.from (options))
+
+      // polyfill HTMLDataList.options
+      datalist.hidden  = true
+      datalist.options = Array.from (options)
 
       input.addEventListener ('focus', e => datalist.hidden = false)
       datalist.querySelector ('select').addEventListener ('input', this.onchange)
