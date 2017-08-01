@@ -71,7 +71,7 @@ Element `datalist-`
 
     select.addEventListener
       ('change',
-        (e, select = e.target) =>
+        (event, select = event.target) =>
           (input.value = select.value)
             && (select.selectedIndex = -1)
               && (datalist.hidden = true))
