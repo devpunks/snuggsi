@@ -13,7 +13,9 @@
   <a  slot=subheader title='See more component examples' href=/examples>See more component examples</a>
 </header-group>
 
-<datalist->
+<input list=foo>
+
+<datalist- id=foo>
   <datalist>
   <template name=options>
     <option value={value}>{name}
@@ -37,6 +39,10 @@
 
     onidle () {
       console.log (this.selectAll `option`)
+    }
+
+    get id () {
+      return this.getAttribute `id`
     }
 
     get options ()
