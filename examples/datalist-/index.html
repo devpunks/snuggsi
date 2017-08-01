@@ -28,6 +28,11 @@
   (class extends HTMLElement {
 
     initialize () {
+      this.context
+      .options = [
+        { name: 'Snuggs', value: 'foo@bar.com' }
+      , { name: 'Kage', value: 'baz@bat.com' }
+      ]
     }
 
     onconnect () {
