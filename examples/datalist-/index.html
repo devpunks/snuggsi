@@ -16,7 +16,16 @@
 <input list=foo>
 
 <datalist id=foo>
-  <option value=Snuggsi>Wuggsi
+  <label>
+    or select from the list:
+    <!-- https://html.spec.whatwg.org/multipage/form-elements.html#the-datalist-element -->
+    <select name=sex>
+     <!-- https://stackoverflow.com/questions/8605516/default-select-option-as-blank#answer-23638053 -->
+     <option disabled selected value>Select Option
+     <option>Female
+     <option>Male
+    </select>
+   </label>
 </datalist>
 
 <datalist->
