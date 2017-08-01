@@ -21,32 +21,44 @@
   <label>
     or select from the list:
     <select name=sex>
-     <!-- https://stackoverflow.com/questions/8605516/default-select-option-as-blank#answer-23638053 -->
-     <option disabled selected value>Select Option
-     <option>Female
-     <option>Male
+      <option disabled selected value>Select Option
+      <!-- https://stackoverflow.com/questions/8605516/default-select-option-as-blank#answer-23638053 -->
+
+      <option>Female
+      <option>Male
     </select>
-   </label>
+  </label>
 </datalist>
 
 <datalist->
-  <template name=options>
-    <option value={value}>{name}
+  <!-- can have phrasing content - https://html.spec.whatwg.org/multipage/dom.html#phrasing-content-2 -->
+  <template>
+  <li>
+    <label><input value={value} type={type}>{name}</label>
   </template>
 </datalist->
 
 <script>
 
   Element `datalist-`
+  // https://html.spec.whatwg.org/multipage/form-elements.html#the-datalist-element
 
   (class extends HTMLElement {
 
-    initialize () {
+    initialize (datalists = document.querySelectorAll `datalist`) {
+      for (let datalist of datalists)
+        this.polyfill (datalist)
+
       this.context
         .options = [
           { name: 'Snuggs', value: 'foo@bar.com' }
         , { name: 'Kage', value: 'baz@bat.com' }
         ]
+    }
+
+
+    polyfill (datalist) {
+      this.options = datalist.querySelectorAll `option:not(:disabled)`
     }
 
     onconnect () {
@@ -61,9 +73,6 @@
     get id () {
       return this.getAttribute `id`
     }
-
-    get options ()
-      { return this.context.options }
   })
 </script>
 
