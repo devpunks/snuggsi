@@ -1,0 +1,24 @@
+<title>&lt;datalist-&gt;</title>
+
+<script src=/></script>
+<script name=polyfill src=https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
+
+<link rel=stylesheet href=https://devpunks.herokuapp.com/typography.css>
+
+<!-- import works inline body -->
+<link rel=import href=/examples/header-group>
+
+<header-group>
+  <h2 slot=header>&lt;datalist-&gt;</h2>
+  <a  slot=subheader title='See more component examples' href=/examples>See more component examples</a>
+</header-group>
+
+<datalist->
+  <datalist>
+  <template name=options>
+    <option value={value}>{text}
+  </template>
+  </datalist>
+</datalist->
+
+<script src=/browser-sync.es></script>
