@@ -49,12 +49,6 @@
     initialize (datalists = document.querySelectorAll `datalist`) {
       for (let datalist of datalists)
         this.polyfill (datalist)
-
-      this.context
-        .options = [
-          { name: 'Snuggs', value: 'foo@bar.com' }
-        , { name: 'Kage', value: 'baz@bat.com' }
-        ]
     }
 
 
