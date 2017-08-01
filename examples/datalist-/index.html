@@ -88,8 +88,8 @@ Element `datalist-`
             && (select.selectedIndex = -1)
               && (datalist.hidden = true))
 
-    input.addEventListener ('focus', e => datalist.hidden = false)
-    datalist.querySelector ('select').addEventListener ('input', this.onchange)
+    input.addEventListener
+      ('focus', e => datalist.hidden = false)
   }
 })
 </script>
