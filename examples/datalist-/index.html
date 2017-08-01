@@ -69,12 +69,12 @@ Element `datalist-`
       select =
         datalist.querySelector `select`
 
+    , input =
+        document.querySelector (`[list=${datalist.id}]`)
+
     , options =
         datalist.querySelectorAll
           `option:not(:disabled)`
-
-    , input =
-        document.querySelector (`[list=${datalist.id}]`)
 
 
     // polyfill HTMLDataList.options
