@@ -15,12 +15,14 @@
 
 <input list=foo>
 
-<datalist- id=foo>
-  <datalist>
+<datalist id=foo>
+  <option value=Snuggsi>Wuggsi
+</datalist>
+
+<datalist->
   <template name=options>
     <option value={value}>{name}
   </template>
-  </datalist>
 </datalist->
 
 <script>
@@ -37,8 +39,13 @@
         ]
     }
 
+    onconnect () {
+      this.lists  = document.querySelectorAll `datalist`
+    }
+
     onidle () {
-      console.log (this.selectAll `option`)
+      for (let datalist of this.lists)
+        console.warn ('Snuggs', datalist.options)
     }
 
     get id () {
