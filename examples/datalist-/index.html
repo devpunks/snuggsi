@@ -64,6 +64,7 @@
         // polyfill HTMLDataList.options
         && (datalist.options = Array.from (options))
 
+      input.addEventListener ('focus', e => datalist.hidden = false)
       datalist.querySelector ('select').addEventListener ('input', this.onchange)
     }
 
