@@ -8,7 +8,7 @@ For a list of `bin` scripts used within the build pipeline.
 
 *Mime Type* : `application/ecmascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-8.2))_
 
-*Weight* : ~ 1,300 OCTETS _(1.2kiloBytes)_
+*Weight* : ~ 1,300 OCTETS _(1.3kiloBytes)_
 
 
 ## `snuggsi.min.js.br`
