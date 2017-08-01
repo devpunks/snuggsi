@@ -29,9 +29,11 @@
     <img src=https://img.shields.io/npm/l/snuggsi.svg alt=license>
   </a>
 
+<!-- CodeCov
   <a href='https://codecov.io/github/devpunks/snuggsi?branch=master' target=external>
     <img src=https://codecov.io/gh/devpunks/snuggsi/branch/master/graph/badge.svg alt='Coverage via Codecov'>
   </a>
+-->
 
   <a href=https://github.com/devpunks/snuggsi/issues target=external>
     <img src=https://img.shields.io/badge/PRs-welcome-brightgreen.svg alt='Pull requests welcome!'>
