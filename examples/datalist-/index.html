@@ -64,7 +64,10 @@
         datalist.querySelectorAll
           `option:not(:disabled)`
 
-      datalist.options = Array.from (options)
+      !!!  ('options' in datalist)
+        && (datalist.options = Array.from (options))
+
+      datalist.querySelector ('select').addEventListener ('input', this.onchange)
     }
 
     onconnect () {
