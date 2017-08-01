@@ -520,7 +520,7 @@ const Element = tag =>
 
     Element => // https://en.wikipedia.org/wiki/Higher-order_function
       window.customElements.define
-        ( ...tag, Component (Element))
+        ( ... [].concat ( ... [tag]), Component (Element))
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 Element.prototype = ElementPrototype
