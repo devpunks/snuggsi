@@ -1,7 +1,7 @@
 {
   "name": "snuggsi",
-  "version": "0.7.68",
-  "author": "Snuggs",
+  "version": "0.8.1",
+  "author": ["Snuggs", "Brandondees"],
   "description": "Easy Web Components in 1KB",
   "license": "MIT",
   "bugs": {
