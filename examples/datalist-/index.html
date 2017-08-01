@@ -67,19 +67,6 @@
       input.addEventListener ('focus', e => datalist.hidden = false)
       datalist.querySelector ('select').addEventListener ('input', this.onchange)
     }
-
-    onconnect () {
-      this.lists  = document.querySelectorAll `datalist`
-    }
-
-    onidle () {
-      for (let datalist of this.lists)
-        console.warn ('Snuggs', datalist.options)
-    }
-
-    get id () {
-      return this.getAttribute `id`
-    }
   })
 </script>
 
