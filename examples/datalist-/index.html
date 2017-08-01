@@ -61,7 +61,11 @@
 
 
     polyfill (datalist) {
-      this.options = datalist.querySelectorAll `option:not(:disabled)`
+      const options =
+        datalist.querySelectorAll
+          `option:not(:disabled)`
+
+      datalist.options = Array.from (options)
     }
 
     onconnect () {
