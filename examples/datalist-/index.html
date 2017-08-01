@@ -61,6 +61,7 @@
           document.querySelector (`[list=${datalist.id}]`)
 
       !!!  ('options' in datalist)
+        // polyfill HTMLDataList.options
         && (datalist.options = Array.from (options))
 
       datalist.querySelector ('select').addEventListener ('input', this.onchange)
