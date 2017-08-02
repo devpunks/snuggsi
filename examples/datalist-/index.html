@@ -111,9 +111,13 @@ Element `datalist-` // https://html.spec.whatwg.org/multipage/form-elements.html
   fixate (input, datalist, select) {
     const
       rect  = input.getBoundingClientRect ()
-    , top   = rect.top - rect.height - 3
-    , left  = rect.left - 2
-    , width = rect.width + 500
+    , left  = rect.left
+    , width = rect.width // perhaps auto with min-width
+    , top   = rect.top - rect.height // ??? Dunno why have to subtract height
+
+    select.style.margin  = 0
+    select.style.padding = 0
+    select.style.minWidth = width
 
     datalist.style.top = top
     datalist.style.left = left
