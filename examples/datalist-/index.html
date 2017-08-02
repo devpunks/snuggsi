@@ -114,7 +114,7 @@ Element `datalist-` // https://html.spec.whatwg.org/multipage/form-elements.html
       rect  = input.getBoundingClientRect ()
     , left  = rect.left
     , width = rect.width // perhaps auto with min-width
-    , top   = rect.top - rect.height // ??? Dunno why have to subtract height
+    , top   = rect.bottom // - rect.height // ??? Dunno why have to subtract height
 
     // should be a way to set style object
     select.style.margin  = 0
