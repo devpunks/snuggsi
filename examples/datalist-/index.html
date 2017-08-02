@@ -104,8 +104,9 @@ Element `datalist-` // https://html.spec.whatwg.org/multipage/form-elements.html
             && (select.selectedIndex = -1)
               && (datalist.hidden = true))
 
+    var that = this
     input.addEventListener
-      ('focus', () => datalist.hidden = false)
+      ('focus', () => that.fixate (input, datalist, select))
   }
 
   fixate (input, datalist, select) {
