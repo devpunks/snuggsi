@@ -24,25 +24,23 @@
 <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist -->
 <datalist id=foo>
 
-  <label>
-    <select multiple>
-      <!-- <option disabled selected value>Select Option -->
-      <!-- https://stackoverflow.com/questions/8605516/default-select-option-as-blank#answer-23638053 -->
+  <select multiple>
+    <!-- <option disabled selected value>Select Option -->
+    <!-- https://stackoverflow.com/questions/8605516/default-select-option-as-blank#answer-23638053 -->
 
-      <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option -->
-      <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup -->
-      <option>Female
-      <option>Male
-      <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup -->
-      <optgroup label=LGBTM>
-        <option disabled value=Transgender>T
-      </optgroup>
-      <optgroup disabled label=Aliens>
-        <!-- quirk with Firefox for selectable option nested within disabled optgroup -->
-        <option value=Mars>Alien
-      </optgroup>
-    </select>
-  </label>
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/option -->
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup -->
+    <option>Female
+    <option>Male
+    <!-- https://developer.mozilla.org/en-US/docs/Web/HTML/Element/optgroup -->
+    <optgroup label=LGBTM>
+      <option disabled value=Transgender>T
+    </optgroup>
+    <optgroup disabled label=Aliens>
+      <!-- quirk with Firefox for selectable option nested within disabled optgroup -->
+      <option value=Mars>Alien
+    </optgroup>
+  </select>
 </datalist>
 
 <datalist->
