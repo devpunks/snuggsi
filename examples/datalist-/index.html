@@ -53,6 +53,18 @@
   </template>
 </datalist->
 
+<style>
+option:after {
+    content: attr(title);
+    background: #666;
+    color: #fff;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    border: none;
+}
+</style>
+
 <script>
 
 Element `datalist-` // https://html.spec.whatwg.org/multipage/form-elements.html#the-datalist-element
@@ -79,7 +91,7 @@ Element `datalist-` // https://html.spec.whatwg.org/multipage/form-elements.html
 
 
 
-    this.fixate (input, datalist)
+    this.fixate (input, datalist, select)
 
     // polyfill HTMLDataList.options
     datalist.hidden  = true
