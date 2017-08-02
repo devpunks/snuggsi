@@ -115,16 +115,15 @@ Element `datalist-` // https://html.spec.whatwg.org/multipage/form-elements.html
     , width = rect.width // perhaps auto with min-width
     , top   = rect.top - rect.height // ??? Dunno why have to subtract height
 
+    // should be a way to set style object
     select.style.margin  = 0
     select.style.padding = 0
     select.style.minWidth = width
 
+    // should be a way to set style object
     datalist.style.top = top
     datalist.style.left = left
     datalist.style.position = 'absolute'
-
-    // should be a way to set style object
-    console.log (top, left, datalist.style.cssText)
   }
 })
 
