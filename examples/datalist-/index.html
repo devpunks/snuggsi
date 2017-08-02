@@ -121,6 +121,8 @@ Element `datalist-` // https://html.spec.whatwg.org/multipage/form-elements.html
     select.style.minWidth = width
 
     // should be a way to set style object
+    // Object.assign (check IE support)
+    // https://stackoverflow.com/questions/3968593/how-to-set-multiple-css-style-properties-in-javascript#answer-34490573
     // try offsets - https://stackoverflow.com/questions/27922345/display-a-div-below-a-selected-input-field-no-jquery
     select.style.top = top
     select.style.left = left
