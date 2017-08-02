@@ -305,8 +305,10 @@ const ParentNode = Element =>
       zip = (selector, token) =>
         selector + token + fragments.shift ()
 
-    return this.querySelectorAll
-      (tokens.reduce (zip, fragments.shift ()))
+    return Array
+      .from
+        (this.querySelectorAll
+          (tokens.reduce (zip, fragments.shift ())))
   }
 
   select ( ... selector )
