@@ -222,8 +222,10 @@ var ParentNode = function (Element) { return ((function (Element) {
     var
       zip = function (selector, token) { return selector + token + fragments.shift (); }
 
-    return this.querySelectorAll
-      (tokens.reduce (zip, fragments.shift ()))
+    return Array
+      .from
+        (this.querySelectorAll
+          (tokens.reduce (zip, fragments.shift ())))
     var ref;
   };
 
