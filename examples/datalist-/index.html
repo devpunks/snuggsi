@@ -108,7 +108,7 @@ Element `datalist-` // https://html.spec.whatwg.org/multipage/form-elements.html
       ('focus', e => datalist.hidden = false)
   }
 
-  fixate (input, datalist) {
+  fixate (input, datalist, select) {
     const
       rect  = input.getBoundingClientRect ()
     , top   = rect.top - rect.height - 3
