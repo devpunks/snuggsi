@@ -65,7 +65,7 @@ Simply place the following script within your webpage:
 
 ```html
 <!-- http(s): protocol required to run locally -->
-<script nomodule src=//unpkg.com/snuggsi/dist/snuggsi.min.es.js></script>
+<script crossorigin src=//unpkg.com/snuggsi/dist/snuggsi.min.es.js></script>
 ```
 
 Et Voila _(that's it!)_ ツ
