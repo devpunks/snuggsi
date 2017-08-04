@@ -112,14 +112,18 @@ TokenList.prototype.bind = function (context) {
 
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
-var Template = HTMLTemplateElement = function (name) {
+var Template = HTMLTemplateElement = function (template) {
+
+  template =
+    (typeof template == 'string')
+      ? document.querySelector ('template[name='+template+']')
+      : template
 
   // create shallow clone using `.getOwnPropertyDescriptors`
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors#Examples
   // https://docs.microsoft.com/en-us/scripting/javascript/reference/object-getownpropertydescriptor-function-javascript
   // NO IE SUPPORT!!!!
-  return Object.assign
-    (document.querySelector ('template[name='+name+']'), { bind: bind } )
+  return Object.assign (template, { bind: bind } )
 
   function bind (context) {
 
