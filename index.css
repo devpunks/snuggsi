@@ -211,7 +211,7 @@ body > main, body > aside { flex: 1 }
 @media (orientation: landscape) {
 
   body         { flex-flow: row wrap }
-  body > main  { margin-left: 20vw; flex-basis: 55vw }
+  body > main  { margin-left: 20vw; flex-basis: 55vw; max-width: 55vw; }
   body > aside { flex-basis: 25vw }
   body > nav   {
     top: 0;
