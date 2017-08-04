@@ -154,11 +154,12 @@ section[view] h1 {
 
 pre, code {
   border-radius: 0.7em;
+  background: rgb(30,30,30);
 }
 
-pre > code {
+pre > code
+  { background: none }
 
-}
 code {
   margin: 0 0.5em;
   padding: 0 0.5em;
