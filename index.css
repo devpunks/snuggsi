@@ -168,10 +168,11 @@ code {
 pre {
   overflow: scroll;
   text-align: center;
-  border-radius: 7.7em;
   margin: 0 2em 1.612em;
   background: rgb(30,30,30);
-  border: 30px double #3b3b3b;
+  border: 32px double #4d4d4d;
+  border-radius: 0 4.0em 4.0em 4.0em;
+  box-shadow: 0em .1em 1em rgba(20,20,20,0.9);
 }
 
 section#installation pre em.comment
