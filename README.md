@@ -9,7 +9,7 @@
     <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat>
   </a>
 
-  <a href=https://travis-ci.org/devpunks/snuggsi>
+  <a href=https://travis-ci.org/devpunks/snuggsi target=external>
     <img alt='Travis CI build' src=https://travis-ci.org/devpunks/snuggsi.svg?branch=master>
   </a>
 
