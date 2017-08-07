@@ -5,12 +5,12 @@
 </p>
 
 <p align=center>
-  <a href=https://travis-ci.org/devpunks/snuggsi>
-    <img alt='Travis CI build' src=https://travis-ci.org/devpunks/snuggsi.svg?branch=master>
-  </a>
-
   <a href=https://npmjs.org/package/snuggsi>
     <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat>
+  </a>
+
+  <a href=https://travis-ci.org/devpunks/snuggsi>
+    <img alt='Travis CI build' src=https://travis-ci.org/devpunks/snuggsi.svg?branch=master>
   </a>
 
   <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>
