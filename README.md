@@ -5,7 +5,7 @@
 </p>
 
 <p align=center>
-  <a href=https://npmjs.org/package/snuggsi>
+  <a href=https://npmjs.org/package/snuggsi target=external>
     <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat>
   </a>
 
