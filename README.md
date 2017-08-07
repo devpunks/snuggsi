@@ -13,7 +13,7 @@
     <img alt='Travis CI build' src=https://travis-ci.org/devpunks/snuggsi.svg?branch=master>
   </a>
 
-  <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>
+  <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme target=external>
     <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-~%201kB-ff69b4.svg>
   </a>
 
