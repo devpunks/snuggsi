@@ -17,7 +17,7 @@
     <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-~%201kB-ff69b4.svg>
   </a>
 
-  <a href=https://www.npmjs.com/package/snuggsi>
+  <a href=https://www.npmjs.com/package/snuggsi target=external>
     <img src=https://img.shields.io/npm/v/snuggsi.svg alt='npm version'>
   </a>
 
