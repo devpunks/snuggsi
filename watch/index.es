@@ -16,8 +16,9 @@ const
 
 , exec    = require ('child_process').exec
 
-, command = [ bundle, publish, reload, clear, echo, list, test, validate ]
-     .join ` && `
+, command =
+    [ bundle, publish, reload, clear, echo, list, test, validate ]
+      .join ` && `
 
 let times = 0
 
