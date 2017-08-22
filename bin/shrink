@@ -2,8 +2,8 @@
   --compress                     \
   --mangle safari10=true         \
   --output ./dist/snuggsi.min.es \
-  -- ./dist/snuggsi.es           \
-&& \
+  -- ./dist/snuggsi.es
+
 ./node_modules/.bin/uglifyjs     \
   --compress                     \
   --mangle safari10=true         \
