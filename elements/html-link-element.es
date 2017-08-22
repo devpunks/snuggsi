@@ -4,12 +4,9 @@ const HTMLLinkElement = function
 
 (tag) {
 
-  return
-
   const
     target = document.querySelector // use CSS :any ?
       ('link[href*='+tag+'][rel=import]')
-        || {}
 
   , register = (event, handler) => // https://github.com/webcomponents/html-imports#htmlimports
       HTMLImports
@@ -19,24 +16,26 @@ const HTMLLinkElement = function
 
           : target.addEventListener (event, handler)
 
-    Object
-      .defineProperties (target, {
+  return target
 
-        'addEventListener': {
-          writable: false,
+//Object
+//  .defineProperties (target, {
 
-          value: function (event, handler) {
-            !!! target
-              ? handler  ({ target })
-              : register (event, handler)
-          }
-        }
+//    'addEventListener': {
+//      writable: false,
+
+//      value: function (event, handler) {
+//        !!! target
+//          ? handler  ({ target })
+//          : register (event, handler)
+//      }
+//    }
 
 // TODO: definition for onerror
 //    , 'onerror':
 //        { set (handler) {} }
-      })
+//  })
 
-  return target
+//return target
 }
 

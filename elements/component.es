@@ -33,9 +33,11 @@ const Component = HTMLElement => // why buble
 
 
   connectedCallback (link) {
+    link = HTMLLinkElement
+      (this.tagName.toLowerCase ())
 
-    (link = HTMLLinkElement (this.tagName.toLowerCase ()))
-      && link.addEventListener
+    link &&
+      link.addEventListener
         ('load', this.onconnect.bind (this))
   }
 
@@ -97,6 +99,5 @@ const Component = HTMLElement => // why buble
 
     this.innerHTML = template.innerHTML
   }
-
 })
 

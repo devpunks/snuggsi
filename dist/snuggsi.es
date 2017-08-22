@@ -4,12 +4,9 @@ const HTMLLinkElement = function
 
 (tag) {
 
-  return
-
   const
     target = document.querySelector // use CSS :any ?
       ('link[href*='+tag+'][rel=import]')
-        || {}
 
   , register = (event, handler) => // https://github.com/webcomponents/html-imports#htmlimports
       HTMLImports
@@ -19,25 +16,27 @@ const HTMLLinkElement = function
 
           : target.addEventListener (event, handler)
 
-    Object
-      .defineProperties (target, {
+  return target
 
-        'addEventListener': {
-          writable: false,
+//Object
+//  .defineProperties (target, {
 
-          value: function (event, handler) {
-            !!! target
-              ? handler  ({ target })
-              : register (event, handler)
-          }
-        }
+//    'addEventListener': {
+//      writable: false,
+
+//      value: function (event, handler) {
+//        !!! target
+//          ? handler  ({ target })
+//          : register (event, handler)
+//      }
+//    }
 
 // TODO: definition for onerror
 //    , 'onerror':
 //        { set (handler) {} }
-      })
+//  })
 
-  return target
+//return target
 }
 
 class TokenList {
@@ -363,11 +362,13 @@ const GlobalEventHandlers = Element =>
 
   onconnect (event, document) {
 
-    (document = event.target.import)
+    void (document = event.target.import)
       && this.mirror (document.querySelector ('template'))
 
     super.onconnect
       && super.onconnect ()
+
+    console.log ('connected', document)
 
     this.tokens = new TokenList (this)
     this.render ()
@@ -445,9 +446,11 @@ const Component = HTMLElement => // why buble
 
 
   connectedCallback (link) {
+    link = HTMLLinkElement
+      (this.tagName.toLowerCase ())
 
-    (link = HTMLLinkElement (this.tagName.toLowerCase ()))
-      && link.addEventListener
+    link &&
+      link.addEventListener
         ('load', this.onconnect.bind (this))
   }
 
@@ -509,7 +512,6 @@ const Component = HTMLElement => // why buble
 
     this.innerHTML = template.innerHTML
   }
-
 })
 
 const ElementPrototype = window.Element.prototype // see bottom of this file

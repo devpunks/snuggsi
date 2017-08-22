@@ -30,11 +30,13 @@ const GlobalEventHandlers = Element =>
 
   onconnect (event, document) {
 
-    (document = event.target.import)
+    void (document = event.target.import)
       && this.mirror (document.querySelector ('template'))
 
     super.onconnect
       && super.onconnect ()
+
+    console.log ('connected', document)
 
     this.tokens = new TokenList (this)
     this.render ()
