@@ -43,7 +43,7 @@
     "buble-tape": "*",
     "devtools-terminal": "*",
     "jsdom": "*",
-    "node-zopfli": "*",
+    "node-zopfli": "^2.0.2",
     "standard": "^10.0.2",
     "tap": "*",
     "tap-nyc": "*",
