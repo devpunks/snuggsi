@@ -1,9 +1,11 @@
-./node_modules/.bin/uglifyjs \
-  ./dist/snuggsi.es \
-  -c -m \
-  -o ./dist/snuggsi.min.es \
-\
-&& ./node_modules/.bin/uglifyjs \
-  ./dist/snuggsi.js \
-  -c -m \
-  -o ./dist/snuggsi.min.js
+./node_modules/.bin/uglifyjs     \
+  --compress                     \
+  --mangle safari10=true         \
+  --output ./dist/snuggsi.min.es \
+  -- ./dist/snuggsi.es           \
+&& \
+./node_modules/.bin/uglifyjs     \
+  --compress                     \
+  --mangle safari10=true         \
+  --output ./dist/snuggsi.min.js \
+  -- ./dist/snuggsi.js
