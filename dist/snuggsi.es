@@ -445,10 +445,7 @@ const Component = HTMLElement => // why buble
   }
 
 
-  connectedCallback () {
-
-    super.connectedCallback
-      && super.connectedCallback ()
+  connectedCallback (link) {
 
     HTMLLinkElement
       (this.tagName.toLowerCase ())
