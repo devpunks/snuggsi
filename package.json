@@ -48,8 +48,7 @@
     "tap": "*",
     "tap-nyc": "*",
     "tape": "*",
-    "uglify-es": "*",
-    "uglify-js": "*"
+    "uglify-es": "*"
   },
   "dependencies": {
     "koa": "*",
