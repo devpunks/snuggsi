@@ -5,38 +5,37 @@ var HTMLLinkElement = function
 (tag) {
 
   var
-    proxy = {}
-
-  , link = document.querySelector // use CSS :any ?
+    target = document.querySelector // use CSS :any ?
       ('link[href*='+tag+'][rel=import]')
 
-  , register = function (event, handler) { return (HTMLImports && !!! HTMLImports.useNative)
-        ? HTMLImports.whenReady
-            ( function (_) { return handler ({ target: link }); } ) // eww
+  , register = function (event, handler) { return HTMLImports
+        && !!! HTMLImports.useNative
+          ? HTMLImports.whenReady
+              ( function (_) { return handler ({ target: target }); } ) // eww
 
-        : link.addEventListener
-            (event, handler); }
+          : target.addEventListener (event, handler); }
 
+  return target
 
-    Object
-      .defineProperties (proxy, {
+//Object
+//  .defineProperties (target, {
 
-        'addEventListener': {
-          writable: false,
+//    'addEventListener': {
+//      writable: false,
 
-          value: function (event, handler) {
-            !!! link
-              ? handler  ({ target: proxy })
-              : register (event, handler)
-          }
-        }
+//      value: function (event, handler) {
+//        !!! target
+//          ? handler  ({ target })
+//          : register (event, handler)
+//      }
+//    }
 
 // TODO: definition for onerror
 //    , 'onerror':
 //        { set (handler) {} }
-      })
+//  })
 
-  return proxy
+//return target
 }
 
 var TokenList = function (node) {
@@ -266,11 +265,13 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
     anonymous.prototype.onconnect = function (event, document) {
 
-    (document = event.target.import)
+    void (document = event.target.import)
       && this.mirror (document.querySelector ('template'))
 
     Element.prototype.onconnect
       && Element.prototype.onconnect.call (this)
+
+    console.log ('connected', document)
 
     this.tokens = new TokenList (this)
     this.render ()
@@ -350,14 +351,13 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
     anonymous.prototype.constructor = anonymous;
 
 
-  anonymous.prototype.connectedCallback = function () {
-
-    superclass.prototype.connectedCallback
-      && superclass.prototype.connectedCallback.call (this)
-
-    HTMLLinkElement
+  anonymous.prototype.connectedCallback = function (link) {
+    link = HTMLLinkElement
       (this.tagName.toLowerCase ())
-        .addEventListener ('load', this.onconnect.bind (this))
+
+    link &&
+      link.addEventListener
+        ('load', this.onconnect.bind (this))
   };
 
 
