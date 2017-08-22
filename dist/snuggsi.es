@@ -360,16 +360,13 @@ const GlobalEventHandlers = Element =>
 
 (class extends Element {
 
-  onconnect (event, document) {
+  onconnect (event, target) {
 
-    event.target
-      && (document = event.target.import)
-      && this.mirror (document.querySelector ('template'))
+    (target = event.target)
+      && this.mirror (target.import.querySelector ('template'))
 
     super.onconnect
       && super.onconnect ()
-
-    console.warn ('mirror', document);
 
     this.tokens = new TokenList (this)
     this.render ()
@@ -450,8 +447,6 @@ const Component = HTMLElement => // why buble
     link = HTMLLinkElement
       (this.tagName.toLowerCase ())
 
-  console.log ('link', link)
-
     link
       ? link.addEventListener ('load', this.onconnect.bind (this))
       : this.onconnect (new Event ('load'))
@@ -487,8 +482,6 @@ const Component = HTMLElement => // why buble
 
 
   mirror (template, insert) {
-
-    console.warn (template);
 
     template = template.cloneNode (true)
 

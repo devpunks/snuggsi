@@ -36,8 +36,6 @@ const Component = HTMLElement => // why buble
     link = HTMLLinkElement
       (this.tagName.toLowerCase ())
 
-  console.log ('link', link)
-
     link
       ? link.addEventListener ('load', this.onconnect.bind (this))
       : this.onconnect (new Event ('load'))
@@ -73,8 +71,6 @@ const Component = HTMLElement => // why buble
 
 
   mirror (template, insert) {
-
-    console.warn (template);
 
     template = template.cloneNode (true)
 
