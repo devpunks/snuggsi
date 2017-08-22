@@ -4,31 +4,30 @@ const HTMLLinkElement = function
 
 (tag) {
 
-  const
-    proxy = {}
+  return
 
-  , link = document.querySelector // use CSS :any ?
+  const
+    target = document.querySelector // use CSS :any ?
       ('link[href*='+tag+'][rel=import]')
+        || {}
 
   , register = (event, handler) => // https://github.com/webcomponents/html-imports#htmlimports
+      HTMLImports
+        && !!! HTMLImports.useNative
+          ? HTMLImports.whenReady
+              ( _ => handler ({ target }) ) // eww
 
-      (HTMLImports && !!! HTMLImports.useNative)
-        ? HTMLImports.whenReady
-            ( _ => handler ({ target: link }) ) // eww
-
-        : link.addEventListener
-            (event, handler)
-
+          : target.addEventListener (event, handler)
 
     Object
-      .defineProperties (proxy, {
+      .defineProperties (target, {
 
         'addEventListener': {
           writable: false,
 
           value: function (event, handler) {
-            !!! link
-              ? handler  ({ target: proxy })
+            !!! target
+              ? handler  ({ target })
               : register (event, handler)
           }
         }
@@ -38,6 +37,6 @@ const HTMLLinkElement = function
 //        { set (handler) {} }
       })
 
-  return proxy
+  return target
 }
 
