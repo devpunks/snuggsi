@@ -5,37 +5,17 @@ const HTMLLinkElement = function
 (tag) {
 
   const
-    target = document.querySelector // use CSS :any ?
+    evt = new Event ('load')
+
+  , target = document.querySelector // use CSS :any ?
       ('link[href*='+tag+'][rel=import]')
 
-//, register = (event, handler) => // https://github.com/webcomponents/html-imports#htmlimports
-//    HTMLImports
-//      && !!! HTMLImports.useNative
-//        ? HTMLImports.whenReady
-//            ( _ => handler ({ target }) ) // eww
-
-//        : target.addEventListener (event, handler)
+  // https://github.com/webcomponents/html-imports#htmlimports
+  ;(evt.target = target)
+    && HTMLImports
+    && !!! HTMLImports.useNative
+    && HTMLImports.whenReady ( _ => target.dispatchEvent (evt) ) // eww
 
   return target
-
-//Object
-//  .defineProperties (target, {
-
-//    'addEventListener': {
-//      writable: false,
-
-//      value: function (event, handler) {
-//        !!! target
-//          ? handler  ({ target })
-//          : register (event, handler)
-//      }
-//    }
-
-// TODO: definition for onerror
-//    , 'onerror':
-//        { set (handler) {} }
-//  })
-
-//return target
 }
 
