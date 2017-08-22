@@ -30,7 +30,8 @@ const GlobalEventHandlers = Element =>
 
   onconnect (event, document) {
 
-    (document = event.target.import)
+    event.target
+      && (document = event.target.import)
       && this.mirror (document.querySelector ('template'))
 
     super.onconnect
