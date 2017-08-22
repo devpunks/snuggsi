@@ -8,13 +8,13 @@ const HTMLLinkElement = function
     target = document.querySelector // use CSS :any ?
       ('link[href*='+tag+'][rel=import]')
 
-  , register = (event, handler) => // https://github.com/webcomponents/html-imports#htmlimports
-      HTMLImports
-        && !!! HTMLImports.useNative
-          ? HTMLImports.whenReady
-              ( _ => handler ({ target }) ) // eww
+//, register = (event, handler) => // https://github.com/webcomponents/html-imports#htmlimports
+//    HTMLImports
+//      && !!! HTMLImports.useNative
+//        ? HTMLImports.whenReady
+//            ( _ => handler ({ target }) ) // eww
 
-          : target.addEventListener (event, handler)
+//        : target.addEventListener (event, handler)
 
   return target
 

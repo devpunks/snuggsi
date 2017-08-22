@@ -8,13 +8,13 @@ const HTMLLinkElement = function
     target = document.querySelector // use CSS :any ?
       ('link[href*='+tag+'][rel=import]')
 
-  , register = (event, handler) => // https://github.com/webcomponents/html-imports#htmlimports
-      HTMLImports
-        && !!! HTMLImports.useNative
-          ? HTMLImports.whenReady
-              ( _ => handler ({ target }) ) // eww
+//, register = (event, handler) => // https://github.com/webcomponents/html-imports#htmlimports
+//    HTMLImports
+//      && !!! HTMLImports.useNative
+//        ? HTMLImports.whenReady
+//            ( _ => handler ({ target }) ) // eww
 
-          : target.addEventListener (event, handler)
+//        : target.addEventListener (event, handler)
 
   return target
 
@@ -362,13 +362,13 @@ const GlobalEventHandlers = Element =>
 
   onconnect (event, document) {
 
-    void (document = event.target.import)
+    (document = event.target.import)
       && this.mirror (document.querySelector ('template'))
 
     super.onconnect
       && super.onconnect ()
 
-    console.log ('connected', document)
+    console.warn ('mirror', document);
 
     this.tokens = new TokenList (this)
     this.render ()
@@ -449,9 +449,11 @@ const Component = HTMLElement => // why buble
     link = HTMLLinkElement
       (this.tagName.toLowerCase ())
 
-    link &&
-      link.addEventListener
-        ('load', this.onconnect.bind (this))
+  console.log ('link', link)
+
+    link
+      ? link.addEventListener ('load', this.onconnect.bind (this))
+      : this.onconnect (new Event ('load'))
   }
 
 
@@ -484,6 +486,8 @@ const Component = HTMLElement => // why buble
 
 
   mirror (template, insert) {
+
+    console.warn (template);
 
     template = template.cloneNode (true)
 
