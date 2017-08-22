@@ -5,37 +5,18 @@ var HTMLLinkElement = function
 (tag) {
 
   var
-    target = document.querySelector // use CSS :any ?
+    evt = new Event ('load')
+
+  , target = document.querySelector // use CSS :any ?
       ('link[href*='+tag+'][rel=import]')
 
-  , register = function (event, handler) { return HTMLImports
-        && !!! HTMLImports.useNative
-          ? HTMLImports.whenReady
-              ( function (_) { return handler ({ target: target }); } ) // eww
-
-          : target.addEventListener (event, handler); }
+  // https://github.com/webcomponents/html-imports#htmlimports
+  ;(evt.target = target)
+    && HTMLImports
+    && !!! HTMLImports.useNative
+    && HTMLImports.whenReady ( function (_) { return target.dispatchEvent (evt); } ) // eww
 
   return target
-
-//Object
-//  .defineProperties (target, {
-
-//    'addEventListener': {
-//      writable: false,
-
-//      value: function (event, handler) {
-//        !!! target
-//          ? handler  ({ target })
-//          : register (event, handler)
-//      }
-//    }
-
-// TODO: definition for onerror
-//    , 'onerror':
-//        { set (handler) {} }
-//  })
-
-//return target
 }
 
 var TokenList = function (node) {
@@ -263,15 +244,13 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.onconnect = function (event, document) {
+    anonymous.prototype.onconnect = function (event, target) {
 
-    void (document = event.target.import)
-      && this.mirror (document.querySelector ('template'))
+    (target = event.target)
+      && this.mirror (target.import.querySelector ('template'))
 
     Element.prototype.onconnect
       && Element.prototype.onconnect.call (this)
-
-    console.log ('connected', document)
 
     this.tokens = new TokenList (this)
     this.render ()
@@ -355,9 +334,9 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
     link = HTMLLinkElement
       (this.tagName.toLowerCase ())
 
-    link &&
-      link.addEventListener
-        ('load', this.onconnect.bind (this))
+    link
+      ? link.addEventListener ('load', this.onconnect.bind (this))
+      : this.onconnect (new Event ('load'))
   };
 
 
