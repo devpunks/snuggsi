@@ -447,9 +447,9 @@ const Component = HTMLElement => // why buble
 
   connectedCallback (link) {
 
-    HTMLLinkElement
-      (this.tagName.toLowerCase ())
-        .addEventListener ('load', this.onconnect.bind (this))
+    (link = HTMLLinkElement (this.tagName.toLowerCase ()))
+      && link.addEventListener
+        ('load', this.onconnect.bind (this))
   }
 
 
