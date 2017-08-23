@@ -23,10 +23,10 @@ _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` script
   - [Scripting Media Types _(rfc4329)_](https://www.rfc-editor.org/rfc/rfc4329.txt)
   - [WHATWG/W3c approval of media types](https://github.com/w3c/webcomponents/issues/645#issuecomment-317338144)
   - [why you should know `application/ecmascript`](https://stackoverflow.com/questions/9664282/difference-between-application-x-javascript-and-text-javascript-content-types)
-  - [Octet](https://en.wikipedia.org/wiki/Octet_(computing))
-  - [MTU _(Maximum Transmission Unit)_](https://en.wikipedia.org/wiki/Maximum_transmission_unit)
   - [Difference between Ethernet frame and Packet](https://www.youtube.com/watch?v=wcSee63SIlg)
+  - [MTU _(Maximum Transmission Unit)_](https://en.wikipedia.org/wiki/Maximum_transmission_unit)
   - [_(Ethernet)_ Frame](https://en.wikipedia.org/wiki/Ethernet_frame)
+  - [OCTET](https://en.wikipedia.org/wiki/Octet_(computing))
 
 
 ## Pipeline
