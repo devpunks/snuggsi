@@ -48,11 +48,11 @@
 
 
 ## Why ?
-  1. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
-  2. Because [You (probably) don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
-  3. Web Components ARE [ready for production](https://twitter.com/WebReflection/status/761316429559922688)
+  1. Because [You (probably) don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
+  2. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
+     &amp; Web Components ARE [ready for production](https://twitter.com/WebReflection/status/761316429559922688)
 
-     &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
+  3. [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
      [support for every modern browser including Internet Explorer 11+ / Edge](https://github.com/webcomponents/webcomponentsjs#browser-support)
 
 
