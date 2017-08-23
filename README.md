@@ -70,20 +70,6 @@ Simply place the following script within your webpage:
 
 Et Voila _(that's it!)_ ツ
 
-## Browser Support
-
-  | Feature    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
-  | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
-  | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | Templates |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | HTML Imports |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | Shadow Dom | | |✅ |✅ | | | |
-
-  _\*Indicates the current version of the browser_
-
-  The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
-  polyfills are intended to work in the latest versions of browsers.
-
 Place the `<script name=polyfill … >` below before **snuggsiツ** for
 [evergreen cross-browser](https://www.techopedia.com/definition/31094/evergreen-browser) support.
 
@@ -97,6 +83,20 @@ Place the `<script name=polyfill … >` below before **snuggsiツ** for
   src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js>
 </script>
 ```
+
+  The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
+  polyfills are intended to provide backwards compatibility for the following browsers:
+
+## Browser Support
+
+  | Feature    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
+  | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
+  | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | Templates |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | HTML Imports |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | Shadow Dom | | |✅ |✅ | | | |
+
+  _\*Indicates the current version of the browser_
 
 **⚠️  Warning ⚠️** _**snuggsiツ (classic)** will back support to Internet Explorer 11+._
 
