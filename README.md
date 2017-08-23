@@ -1,4 +1,4 @@
-<p align=center>
+
   <h1 align=center>snuggsi ツ - Easy Web Components in
     <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>~1kiloByte</a>
   </h1>
@@ -65,14 +65,10 @@ Simply place the following script within your webpage:
 
 ```html
 <!-- http(s): protocol required to run locally -->
-<script crossorigin src=//unpkg.com/snuggsi/dist/snuggsi.min.es.js></script>
+<script src=//unpkg.com/snuggsi/dist/snuggsi.min.es.js></script>
 ```
 
 Et Voila _(that's it!)_ ツ
-
-See [ECMAScript Module Imports](https://github.com/devpunks/snuggsi/wiki/Module-Imports)
-for `<script type=module>` support!
-
 
 ## Browser Support
 
