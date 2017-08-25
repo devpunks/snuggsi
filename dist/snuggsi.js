@@ -12,8 +12,8 @@ var HTMLLinkElement = function
 
   // https://github.com/webcomponents/html-imports#htmlimports
   ;(evt.target = target)
-    && HTMLImports
-    && !!! HTMLImports.useNative
+    && window.HTMLImports
+    && !!! window.HTMLImports.useNative
     && HTMLImports.whenReady ( function (_) { return target.dispatchEvent (evt); } ) // eww
 
   return target
