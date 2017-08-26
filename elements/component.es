@@ -50,8 +50,8 @@ const Component = HTMLElement => // why buble
       .from
         (this.selectAll ('template[name]'))
 
-      .map (name =>
-        (new Template (name))
+      .map (node =>
+        (new Template (node))
           .bind (this [name]))
 
     Array
