@@ -439,17 +439,13 @@ const Component = HTMLElement => // why buble
 
     this.tokens.bind (this)
 
-
     Array
       .from
         (this.selectAll ('template[name]'))
 
-      .map
-        (template => template.getAttribute ('name'))
-
-      .map
-        (name => (new Template (name)).bind (this [name]))
-
+      .map (name =>
+        (new Template (name))
+          .bind (this [name]))
 
     Array
       .from (this.selectAll ('*'))
