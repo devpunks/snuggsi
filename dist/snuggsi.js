@@ -346,17 +346,12 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
 
     this.tokens.bind (this)
 
-
     Array
       .from
         (this.selectAll ('template[name]'))
 
-      .map
-        (function (template) { return template.getAttribute ('name'); })
-
-      .map
-        (function (name) { return (new Template (name)).bind (this$1 [name]); })
-
+      .map (function (node) { return (new Template (node))
+          .bind (this$1 [name]); })
 
     Array
       .from (this.selectAll ('*'))
