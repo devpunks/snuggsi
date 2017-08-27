@@ -4,8 +4,23 @@
 
 <sand-box>snuggsiツ<p><a><span><b>foo</b></span></a></p></sand-box>
 
+<foo-bar>
+  <template name=snuggs>
+    {self}
+  </template>
+</foo-bar>
+
 <script src=/snuggsi.es></script>
 <script defer>
+
+  Element `foo-bar`
+
+  (class extends HTMLElement {
+
+    get snuggs () {
+      return ['snuggs', 'what']
+    }
+  })
 
   Element `sand-box`
 
