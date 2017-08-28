@@ -54,7 +54,8 @@ const Custom = Element => // why buble
 
     this
       .templates
-      .map (template => template.bind (this [template.name]))
+      .map (template =>
+        template.bind (this [template.name]))
 
     this
       .tokens

@@ -8,8 +8,13 @@
 const Template = HTMLTemplateElement = function (template) {
 
   template =
-    (typeof template == 'string')
+    typeof template == 'string'
       ? document.querySelector ('template[name='+template+']')
+      : template
+
+  template =
+    this === HTMLTemplateElement
+      ? template.cloneNode (true)
       : template
 
   template.name =
