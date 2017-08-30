@@ -40,7 +40,7 @@
   </a>
 
 <p align=center>
-  <strong align=center>All you need is a browser and basic knowledge of HTML &amp; Javascript to be productive!</strong>
+  <strong align=center>All you need is a browser and basic knowledge of HTML, CSS & [Javascript classes](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes) to be productive!</strong>
 
 <p align=center>
   "Performance is the art of avoiding work" - #FreeJewelry 💍 💎
