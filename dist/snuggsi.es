@@ -1,6 +1,6 @@
 class CustomElementRegistry {
 
-  define (tag, constructor) {
+  static define (tag, constructor) {
     console.warn ('WHAT THE FUCK THIS WORKED FOR IE!!!!')
     console.warn ('tag:', tag)
     console.warn ('class definition:', constructor)
