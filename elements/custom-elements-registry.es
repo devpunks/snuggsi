@@ -1,3 +1,9 @@
+// The CustomElementRegistry Interface
+// WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
+//
+// The Custom Elements Spec
+// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
+
 class CustomElementRegistry {
 
   define (tag, constructor) {
