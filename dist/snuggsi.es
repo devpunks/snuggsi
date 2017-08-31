@@ -13,7 +13,7 @@ window.customElements
   = window.customElements
   || CustomElementRegistry
 
-(new window.customElements).define ('foo-bar')
+void (new window.customElements).define ('foo-bar')
 const HTMLLinkElement = function
 
   // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import

@@ -13,4 +13,4 @@ window.customElements
   = window.customElements
   || CustomElementRegistry
 
-(new window.customElements).define ('foo-bar')
+void (new window.customElements).define ('foo-bar')
