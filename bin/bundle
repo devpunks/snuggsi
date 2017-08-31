@@ -1,4 +1,5 @@
 cat \
+elements/custom-elements-registry.es \
 elements/html-link-element.es \
 elements/token-list.es \
 elements/html-template-element.es \
@@ -7,4 +8,5 @@ elements/parent-node.es \
 elements/global-event-handlers.es \
 elements/component.es \
 elements/element.es \
+\
 > dist/snuggsi.es
