@@ -1,3 +1,17 @@
+class CustomElementRegistry {
+
+  define (tag, constructor) {
+    console.warn ('WHAT THE FUCK THIS WORKED FOR IE!!!!')
+    console.warn ('tag:', tag)
+    console.warn ('class definition:', constructor)
+  }
+}
+
+// WHATWG Custom Elements Spec - https://html.spec.whatwg.org/multipage/custom-elements.htm
+
+window.customElements
+  = window.customElements
+  || CustomElementRegistry
 const HTMLLinkElement = function
 
   // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
