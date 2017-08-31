@@ -6,7 +6,7 @@
 
 var CustomElementRegistry = function () {};
 
-CustomElementRegistry.prototype.define = function (tag, constructor) {
+CustomElementRegistry.prototype.define = function (tag, element) {
   console.warn ('WHAT THE FUCK THIS WORKED FOR IE!!!!')
   console.warn ('tag:', tag)
   console.warn ('class definition:', constructor)
