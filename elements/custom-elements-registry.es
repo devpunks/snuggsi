@@ -13,8 +13,6 @@ class CustomElementRegistry {
   }
 }
 
-// WHATWG Custom Elements Spec - https://html.spec.whatwg.org/multipage/custom-elements.htm
-
 window.customElements
   = window.customElements
   || CustomElementRegistry
