@@ -2,6 +2,6 @@
 
 # Thank TOM for ./crank
 
-bin/compile && bin/cover && bin/distribute && exit 0
+bin/compile && bin/cover && bin/distribute && bin/deploy && exit 0
 
 exit 1
