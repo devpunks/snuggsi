@@ -1,3 +1,9 @@
+// The CustomElementRegistry Interface
+// WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
+//
+// The Custom Elements Spec
+// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
+
 var CustomElementRegistry = function () {};
 
 CustomElementRegistry.prototype.define = function (tag, constructor) {
@@ -5,8 +11,6 @@ CustomElementRegistry.prototype.define = function (tag, constructor) {
   console.warn ('tag:', tag)
   console.warn ('class definition:', constructor)
 };
-
-// WHATWG Custom Elements Spec - https://html.spec.whatwg.org/multipage/custom-elements.htm
 
 window.customElements
   = window.customElements
