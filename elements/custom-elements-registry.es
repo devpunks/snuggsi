@@ -9,12 +9,10 @@ class CustomElementRegistry {
   define (tag, element) {
     console.warn ('WHAT THE FUCK THIS WORKED FOR IE!!!!')
     console.warn ('tag:', tag)
-    console.warn ('class definition:', constructor)
+    console.warn ('class definition:', element)
   }
 }
 
 window.customElements
   = window.customElements
   || CustomElementRegistry
-
-void (new window.customElements).define ('foo-bar')
