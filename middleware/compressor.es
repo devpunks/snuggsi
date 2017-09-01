@@ -1,35 +1,58 @@
-const
-  root   = '/'
-, gzip   = true
-, brotli = true
-, dist   = './dist'
-, suffix = ''
-, send   = require ('koa-send')
+// snuggsi Content negotiation middleware
+//
+//   Please see https://github.com/devpunks/snuggsi/tree/master/dist#readme
+//   for further details.
+//
+//
+// Content Negotiation
+//
+//   References:
+//
+//   WIkipedia - https://en.wikipedia.org/wiki/Content_negotiation
+//   MDN - https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation
+//   HTTP Accept Header - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
 
-, configuration = { root: dist, gzip, brotli }
+const
+  send   = require ('koa-send')
+
+, root   = '/'
+, name   = 'snuggsi.'
+, suffix = ''
+
+, configuration = {
+    gzip   : true
+  , brotli : true
+  , root   : './dist'
+}
 
 module.exports = async (context, next) => {
 
   const
-    library = /^(\/|\/snuggsi.+)$/
+    // HTTP 1.1 `Accept` Header
+    //      - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
+    accept  = context.request.header.accept
+
+  , library = /^(\/|\/snuggsi.+)$/
       .test (context.path)
 
-    ecmascript = /^\*\/\*$/
-      .test (context.request.header.accept)
+  , ecmascript = /^\*\/\*$/
+      .test (accept)
 
   , javascript =
       /application\/javascript/ // MSIE 11.0 `application/javascript, */*;q=0.8`
-        .test (context.request.header.accept)
+        .test (accept)
 
       || /\*\/\*;q=\d\.\d/ // q=0.8
-          .test (context.request.header.accept)
+          .test (accept)
 
   , compress =
       library && (ecmascript || javascript)
 
   , extension = javascript ? 'js' : 'es'
 
-  , bundle = ['snuggsi.', suffix, extension].join ``
+  , bundle =
+      [ name, suffix, extension ]
+        .join ``
 
   , resource =
       (context.path === root)
