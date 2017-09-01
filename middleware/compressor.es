@@ -85,8 +85,8 @@ module.exports =
 
   , resource =
       (path === root)
-        ? bundle // default bundle
-        : path   // requested path
+        ? bundle // default resource
+        : path   // requested resource
 
   , settings =
       [context, resource, configuration]
