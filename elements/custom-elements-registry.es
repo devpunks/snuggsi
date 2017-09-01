@@ -10,9 +10,12 @@ class CustomElementRegistry {
     console.warn ('WHAT THE FUCK THIS WORKED FOR IE!!!!')
     console.warn ('tag:', tag)
     console.warn ('class definition:', element)
+
+    alert ('what the FUCK!!!')
   }
 }
 
 window.customElements
   = window.customElements
   || CustomElementRegistry
+
