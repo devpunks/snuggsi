@@ -60,12 +60,15 @@ module.exports =
         //   type    - application
         //   subtype - javascript
         .test (accept)
-    ||
-      // Javascript (classic) `Accept` fallback Mime Type
-      //   - wildcard fallback Mime Type & quality factor qualifier
+
+    || // , Or
+
       /\*\/\*;q=\d\.\d/
-        // MSIE 6.0-11.0
-        // default: `*/*;q=0.8`
+        // MSIE 6.0-11.0 wildcard media-range
+        //   default - `*/*;q=0.8`
+        //   type    - *
+        //   subtype - *
+        //   qfactor - q=0.8
         .test (accept)
 
   , compress =
