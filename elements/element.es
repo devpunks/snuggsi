@@ -7,6 +7,11 @@ const Element = tag =>
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
     Element => // https://en.wikipedia.org/wiki/Higher-order_function
+      // The following causes a bug in buble
+      // console.log ('element', Element)
+      //window.customElements.define
+      //  ( ... [].concat ( ... [tag]), Component (Element))
+
       window.customElements.define
         ( ... [].concat ( ... [tag]), Component (Element))
 
