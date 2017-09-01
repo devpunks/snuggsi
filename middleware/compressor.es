@@ -54,7 +54,8 @@ module.exports =
         // example - `*/*`
         .test (accept)
 
-  , javascript = // (classic) Accept: #( media-range )`
+  , javascript =
+      // (classic) Accept: #( media-range )`
       /application\/javascript/ // MSIE 6.0-11.0
         // type    - application
         // subtype - javascript
