@@ -44,7 +44,7 @@ module.exports =
   , library =
       // ECMAScript (evergreen) `Accept` Mime Type
       /^(\/|\/snuggsi.+)$/
-        .test (context.path)
+        .test (path)
 
   , ecmascript =
       // ECMAScript (evergreen) `Accept` Mime Type
@@ -81,14 +81,14 @@ module.exports =
         .join ``
 
   , resource =
-      (context.path === root)
-        ? bundle       // default bundle
-        : context.path // requested path
+      (path === root)
+        ? bundle // default bundle
+        : path   // requested path
 
   , settings =
       [context, resource, configuration]
 
-  console.log ('\n\npath', context.path)
+  console.log ('\n\npath', path)
   console.log ('compress', compress)
   console.log ('bundle', bundle)
   console.log ('resource', resource)
