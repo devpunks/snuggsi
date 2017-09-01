@@ -2,8 +2,8 @@ const
   root   = '/'
 , gzip   = true
 , brotli = true
-, dist   = 'dist'
-, suffix = 'min.'
+, dist   = './dist'
+, suffix = ''
 , send   = require ('koa-send')
 
 , configuration = { root: dist, gzip, brotli }
