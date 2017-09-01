@@ -1,46 +1,52 @@
-// deflate (zlib) compression - https://github.com/expressjs/compression
-// MS Registry key for mime types - HKLM\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Accepted Documents
 const
-  gzip   = true
+  root   = '/'
+, gzip   = true
 , brotli = true
-
-, root   = '/'
 , dist   = 'dist'
-, bundle = '/snuggsi.min.es'
+, suffix = 'min.'
 , send   = require ('koa-send')
 
 , configuration = { root: dist, gzip, brotli }
 
 module.exports = async (context, next) => {
+
   const
-    javascript =
-      /application\/javascript/
+    library = /^\/(snuggsi)*$/g
+      .test (context.path)
+
+    ecmascript = /^\*\/\*$/
+      .test (context.request.header.accept)
+
+  , javascript =
+      /application\/javascript/ // MSIE 11.0 `application/javascript, */*;q=0.8`
         .test (context.request.header.accept)
 
-//, ecmascript = //
-  const
-    mime   = /^\*\/\*$/
-  , filter = /^\/(snuggsi.*\.es)*$/g
+      || /\*\/\*;q=\d\.\d/ // q=0.8
+          .test (context.request.header.accept)
 
   , compress =
-      mime.test (context.request.header.accept)
-      && filter.test (context.path)
+      library && (ecmascript || javascript)
 
-    // Use ECMASCript path resource  (i.e. `/snuggsi.es`)
-    // Otherwise default bundle (i.e. `/` => `/snuggsi.min.es`)
+  , extension = javascript ? 'js' : 'es'
+
+  , bundle = ['snuggsi.', suffix, extension].join ``
+
   , resource =
       (context.path === root)
-        ? bundle : context.path
+        ? bundle       // default bundle
+        : context.path // requested path
 
-  , settings = [context, resource, configuration]
+  , settings =
+      [context, resource, configuration]
 
-  console.log ('javascript:', javascript)
-  console.log ('\n\nUA:', context.request.header ['user-agent'])
-  console.log ('ACCEPT ENCODING:', context.request.header ['accept-encoding'])
-  console.log ('ACCEPT', mime.test (context.request.header.accept), context.request.header.accept)
-  console.log ('PATH', filter.test (context.path), context.path)
+  console.log ('\n\ncompress', compress)
+  console.log ('bundle', bundle)
+  console.log ('resource', resource)
+  console.log ('library', library, context.path)
+  console.log ('ecmascript', ecmascript, context.request.header.accept)
+  console.log ('javascript', javascript, context.request.header.accept)
+  console.log ('headers', context.request.header)
 
   return (compress && await send ( ... settings ))
     || await next ()
-
 }
