@@ -7,17 +7,18 @@
 <hello-world>Hello World!!!</hello-world>
 
 <hello-mars>Hello Mars!!!</hello-mars>
+
 <script>
 
 var klass = function () {
 
   function Foo ()
-    { NativeHTMLElement.apply (this) }
+    { HTMLElement.apply (this) }
 
   Foo.__proto__ = HTMLElement
 
   Foo.prototype = Object.create
-    ( NativeHTMLElement.prototype )
+    ( HTMLElement.prototype )
 
   Foo.prototype
     .constructor = Foo
