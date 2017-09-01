@@ -39,11 +39,10 @@ module.exports = async (context, next) => {
   , settings =
       [context, resource, configuration]
 
+  console.log ('path', context.path)
   console.log ('\n\ncompress', compress)
   console.log ('bundle', bundle)
   console.log ('resource', resource)
-  console.log ('library', library, context.path)
-  console.log ('headers', context.request.header)
 
   return (compress && await send ( ... settings ))
     || await next ()
