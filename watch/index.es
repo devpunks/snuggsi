@@ -6,6 +6,7 @@ const
 
 , test     = 'bin/test'
 , bundle   = 'bin/bundle'
+, shrink   = 'bin/shrink'
 , publish  = 'bin/publish'
 , transpile= 'bin/transpile'
 , reload   = './node_modules/.bin/browser-sync reload --port=' + PORT
@@ -18,7 +19,7 @@ const
 , exec    = require ('child_process').exec
 
 , command =
-    [ bundle, transpile, publish, reload, clear, echo, list, test, validate ]
+    [ bundle, transpile, shrink, publish, reload, clear, echo, list, test, validate ]
       .join ` && `
 
 let times = 0
