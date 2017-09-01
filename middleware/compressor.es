@@ -11,7 +11,7 @@ const
 module.exports = async (context, next) => {
 
   const
-    library = /^\/(snuggsi)*$/g
+    library = /^(\/|\/snuggsi.+)$/
       .test (context.path)
 
     ecmascript = /^\*\/\*$/
