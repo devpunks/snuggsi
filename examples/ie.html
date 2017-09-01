@@ -6,11 +6,28 @@
 
 <hello-world>Hello World!!!</hello-world>
 
+<hello-mars>Hello Mars!!!</hello-mars>
 <script>
 
-Element ('hello-world')
+var klass = function () {
 
-(null)
+  function Foo ()
+    { HTMLElement.apply (this) }
+
+  Foo.__proto__ = HTMLElement
+
+  Foo.prototype = Object.create
+    ( window.HTMLElement.prototype )
+
+  Foo.prototype
+    .constructor = Foo
+
+  return Foo
+} ();
+
+Element ('hello-world')(klass)
+
+Element ('hello-mars')(klass)
 
 /*
 ({
