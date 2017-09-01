@@ -42,39 +42,40 @@ module.exports =
       context.path
 
   , library =
-      // ECMAScript (evergreen) `Accept` Mime Type
+      // `/` root
+      // or `/snuggsi` in URL path
       /^(\/|\/snuggsi.+)$/
         .test (path)
 
-  , ecmascript =
-      // ECMAScript (evergreen) `Accept` Mime Type
-      /^\*\/\*$/
-        // Chrome, Edge, Firefox, Safari, iOS Safari, Android
-        // default: `*/*`
+  , ecmascript = // (evergreen) Accept: #( media-range )`
+      /^\*\/\*$/ // Chrome, Edge, Firefox, Safari, iOS Safari, Android
+        // type    - *
+        // subtype - *
+        // example - `*/*`
         .test (accept)
 
-  , javascript = // Javascript (classic) media-range
-      /application\/javascript/
-        // MSIE 6.0-11.0
-        //   default - `*/*`
-        //   type    - application
-        //   subtype - javascript
+  , javascript = // (classic) Accept: #( media-range )`
+      /application\/javascript/ // MSIE 6.0-11.0
+        // type    - application
+        // subtype - javascript
+        // example - `application/javascript`
         .test (accept)
 
-    || // , Or
+    || // , Or with accept-params
 
-      /\*\/\*;q=\d\.\d/
-        // MSIE 6.0-11.0 wildcard media-range
-        //   default - `*/*;q=0.8`
-        //   type    - *
-        //   subtype - *
-        //   qfactor - q=0.8
+      // (classic) Accept: #( media-range [ accept-params ] )`
+      /\*\/\*;q=\d\.\d$/ // MSIE 6.0-11.0
+        // type    - *
+        // subtype - *
+        // qfactor - q=0.8
+        // example - `*/*;q=0.8`
         .test (accept)
 
   , compress =
       library && (ecmascript || javascript)
 
-  , extension = javascript ? 'js' : 'es'
+  , extension =
+      javascript ? 'js' : 'es'
 
   , bundle =
       [ name, suffix, extension ]
