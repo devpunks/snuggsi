@@ -75,9 +75,9 @@ module.exports =
       library && (ecmascript || javascript)
 
   , extension =
-      ecmascript
-        ? 'es' // default (ecmascript) extension
-        : 'js' // Javascript extension
+      ecmascript // default
+        ? 'es'   // Ecmascript extension
+        : 'js'   // Javascript extension
 
   , bundle =
       [ name, suffix, extension ]
