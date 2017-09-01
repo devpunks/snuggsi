@@ -43,8 +43,6 @@ module.exports = async (context, next) => {
   console.log ('bundle', bundle)
   console.log ('resource', resource)
   console.log ('library', library, context.path)
-  console.log ('ecmascript', ecmascript, context.request.header.accept)
-  console.log ('javascript', javascript, context.request.header.accept)
   console.log ('headers', context.request.header)
 
   return (compress && await send ( ... settings ))

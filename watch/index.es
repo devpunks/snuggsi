@@ -13,13 +13,12 @@ const
 , clear    = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , message  = `\n Watching => ${path}🔎 👀 \n`
 , echo     = `printf "${message}" && echo "Last Update $(date)"`
-, list     = 'ls -al ./dist/*.es'
 , validate = 'bin/validate-weight || true'
 
 , exec    = require ('child_process').exec
 
 , command =
-    [ bundle, transpile, shrink, publish, reload, clear, echo, list, test, validate ]
+    [ bundle, transpile, shrink, publish, reload, clear, echo, test, validate ]
       .join ` && `
 
 let times = 0
