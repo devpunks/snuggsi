@@ -27,6 +27,10 @@ module.exports = async (context, next) => {
 
   , settings = [context, resource, configuration]
 
+  console.log ('\n\nUA:', context.request.header ['user-agent'])
+  console.log ('ACCEPT', mime.test (context.request.header.accept), context.request.header.accept)
+  console.log ('PATH', filter.test (context.path), context.path)
+
   return (compress && await send ( ... settings ))
     || await next ()
 
