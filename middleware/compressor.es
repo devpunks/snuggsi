@@ -29,13 +29,21 @@ module.exports =
   async (context, next) =>
 {
   const
-    // HTTP 1.1 `Accept` Header
-    //      - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
-    accept  =
+    accept =
+      // HTTP 1.1 `Accept` Header
+      //      - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
       context.request.header.accept
 
-  , library = /^(\/|\/snuggsi.+)$/
-      .test (context.path)
+  , path =
+      // WHATW GURL path Spec
+      //   URL path - https://url.spec.whatwg.org/#concept-url-path
+      //   pathname - https://url.spec.whatwg.org/#dom-url-pathname
+      context.path
+
+  , library =
+      // ECMAScript (evergreen) `Accept` Mime Type
+      /^(\/|\/snuggsi.+)$/
+        .test (context.path)
 
   , ecmascript =
       // ECMAScript (evergreen) `Accept` Mime Type
