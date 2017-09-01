@@ -13,6 +13,12 @@ const
 
 module.exports = async (context, next) => {
   const
+    javascript =
+      /application\/javascript/
+        .test (context.request.header.accept)
+
+//, ecmascript = //
+  const
     mime   = /^\*\/\*$/
   , filter = /^\/(snuggsi.*\.es)*$/g
 
