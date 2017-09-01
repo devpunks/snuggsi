@@ -53,11 +53,12 @@ module.exports =
         // default: `*/*`
         .test (accept)
 
-  , javascript =
-      // Javascript (classic) `Accept` Mime Type
+  , javascript = // Javascript (classic) media-range
       /application\/javascript/
         // MSIE 6.0-11.0
-        // default: `application/javascript, */*;q=0.8`
+        //   default - `*/*`
+        //   type    - application
+        //   subtype - javascript
         .test (accept)
     ||
       // Javascript (classic) `Accept` fallback Mime Type
