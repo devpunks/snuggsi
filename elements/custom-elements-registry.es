@@ -9,16 +9,32 @@ class CustomElementRegistry {
   static define (tag, element) {
     ('loading' === document.readyState)
       && document.addEventListener
-        ('DOMContentLoaded', this.upgrade (tag))
+        ('DOMContentLoaded', this.register (tag, element))
   }
 
-  static upgrade (tag) {
-    return event =>
-      console.log ('Defined bitch', tag, this, event)
+  static register (name, klass) {
+
+    return event => {
+
+      let
+        selected  =
+          document.body
+            .querySelectorAll (name)
+
+      , instances = []
+          .slice
+          .call (selected)
+          .map  (this.upgrade)
+    }
+  }
+
+  static upgrade (element) {
+    console.log
+      ('ugrading element', element.localName)
   }
 }
 
 window.customElements
-  = window.customElements
+  =  window.customElements
   || CustomElementRegistry
 
