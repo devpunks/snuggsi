@@ -1,4 +1,5 @@
 // deflate (zlib) compression - https://github.com/expressjs/compression
+// MS Registry key for mime types - HKLM\Software\Microsoft\Windows\CurrentVersion\Internet Settings\Accepted Documents
 const
   gzip   = true
 , brotli = true
