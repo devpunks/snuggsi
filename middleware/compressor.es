@@ -9,6 +9,7 @@
 //   References:
 //
 //   WIkipedia - https://en.wikipedia.org/wiki/Content_negotiation
+//   WHATWG URL Spec - https://url.spec.whatwg.org/#dom-url-pathname
 //   MDN - https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation
 //   HTTP Accept Header - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
 
@@ -35,7 +36,7 @@ module.exports =
       context.request.header.accept
 
   , path =
-      // WHATW GURL path Spec
+      // WHATWG URL path Spec
       //   URL path - https://url.spec.whatwg.org/#concept-url-path
       //   pathname - https://url.spec.whatwg.org/#dom-url-pathname
       context.path
