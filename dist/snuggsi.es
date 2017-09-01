@@ -10,8 +10,6 @@ class CustomElementRegistry {
     console.warn ('WHAT THE FUCK THIS WORKED FOR IE!!!!')
     console.warn ('tag:', tag)
     console.warn ('class definition:', element)
-
-    alert ('what the FUCK!!!')
   }
 }
 
@@ -201,6 +199,7 @@ const Template = HTMLTemplateElement = function (template) {
     this.after ( ... this.dependents )
   }
 }
+
 const EventTarget = HTMLElement => // why buble
 
   // DOM Levels

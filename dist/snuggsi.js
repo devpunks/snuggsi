@@ -10,8 +10,6 @@ CustomElementRegistry.define = function (tag, element) {
   console.warn ('WHAT THE FUCK THIS WORKED FOR IE!!!!')
   console.warn ('tag:', tag)
   console.warn ('class definition:', element)
-
-  alert ('what the FUCK!!!')
 };
 
 window.customElements
@@ -174,6 +172,7 @@ var Template = HTMLTemplateElement = function (template) {
     var ref$1;
   }
 }
+
 var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
     function anonymous () {
       HTMLElement.apply(this, arguments);
