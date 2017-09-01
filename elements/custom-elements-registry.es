@@ -7,9 +7,14 @@
 class CustomElementRegistry {
 
   static define (tag, element) {
-    console.warn ('WHAT THE FUCK THIS WORKED FOR IE!!!!')
-    console.warn ('tag:', tag)
-    console.warn ('class definition:', element)
+    ('loading' === document.readyState)
+      && document.addEventListener
+        ('DOMContentLoaded', this.upgrade (tag))
+  }
+
+  static upgrade (tag) {
+    return event =>
+      console.log ('Defined bitch', tag, this, event)
   }
 }
 
