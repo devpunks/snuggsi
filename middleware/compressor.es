@@ -23,27 +23,40 @@ const
     gzip   : true
   , brotli : true
   , root   : './dist'
-}
+  }
 
-module.exports = async (context, next) => {
-
+module.exports =
+  async (context, next) =>
+{
   const
     // HTTP 1.1 `Accept` Header
     //      - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
-    accept  = context.request.header.accept
+    accept  =
+      context.request.header.accept
 
   , library = /^(\/|\/snuggsi.+)$/
       .test (context.path)
 
-  , ecmascript = /^\*\/\*$/
-      .test (accept)
-
-  , javascript =
-      /application\/javascript/ // MSIE 11.0 `application/javascript, */*;q=0.8`
+  , ecmascript =
+      // ECMAScript (evergreen) `Accept` Mime Type
+      /^\*\/\*$/
+        // Chrome, Edge, Firefox, Safari, iOS Safari, Android
+        // default: `*/*`
         .test (accept)
 
-      || /\*\/\*;q=\d\.\d/ // q=0.8
-          .test (accept)
+  , javascript =
+      // Javascript (classic) `Accept` Mime Type
+      /application\/javascript/
+        // MSIE 6.0-11.0
+        // default: `application/javascript, */*;q=0.8`
+        .test (accept)
+    ||
+      // Javascript (classic) `Accept` fallback Mime Type
+      //   - wildcard fallback Mime Type & quality factor qualifier
+      /\*\/\*;q=\d\.\d/
+        // MSIE 6.0-11.0
+        // default: `*/*;q=0.8`
+        .test (accept)
 
   , compress =
       library && (ecmascript || javascript)
