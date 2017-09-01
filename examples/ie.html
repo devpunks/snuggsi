@@ -12,12 +12,12 @@
 var klass = function () {
 
   function Foo ()
-    { HTMLElement.apply (this) }
+    { NativeHTMLElement.apply (this) }
 
   Foo.__proto__ = HTMLElement
 
   Foo.prototype = Object.create
-    ( window.HTMLElement.prototype )
+    ( NativeHTMLElement.prototype )
 
   Foo.prototype
     .constructor = Foo
