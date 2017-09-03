@@ -4,60 +4,61 @@
 // The Custom Elements Spec
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
-window.customElements = ( function () { return (function () {
-    function CustomElementRegistry () {}
+(function (registry, define) {
+if ( define === void 0 ) define = registry.define.bind (registry);
 
-    var staticAccessors = { registrants: {} };
+ 
+var CustomElementRegistry = function () {};
 
-    CustomElementRegistry.define = function (tag, element) {
+CustomElementRegistry.define = function (name, klass, constructor) {
 
-    console.log ('Snuggsi definition')
+  console.warn ('Snuggsi', name, constructor, klass);
 
-    ('loading' === document.readyState)
-      && document.addEventListener
-        ('DOMContentLoaded',
-          this.register (tag, element))
-  };
+  ('loading' === document.readyState)
+    && document.addEventListener
+      ('DOMContentLoaded',
+        this.register (name, klass))
+};
 
-  staticAccessors.registrants.get = function () {
-    return registrants
-  };
-
-  CustomElementRegistry.register = function (name, klass) {
+CustomElementRegistry.register = function (name, klass) {
     var this$1 = this;
 
 
-    this.registrants [name] = klass
+  this [name] = klass
 
-    return function (event) {
+  define &&
+    define (name, this [name])
 
-      var
-        selected  =
-          document.body
-            .querySelectorAll (name)
+  return function (event) {
 
-      , instances = []
-          .slice
-          .call (selected)
-          .map  (this$1.upgrade)
-    }
-  };
+    var
+      selected=
+        document.body
+          .querySelectorAll (name)
 
-  CustomElementRegistry.upgrade = function (element) {
-    console.log
-      ('ugrading element',
-       element.localName)
-  };
+    , instances = []
+        .slice
+        .call (selected)
+        .map(this$1.upgrade)
+  }
+};
 
-    Object.defineProperties( CustomElementRegistry, staticAccessors );
+CustomElementRegistry.upgrade = function (element) {
+  console.log
+    ('ugrading element',
+     element.localName)
+};
 
-    return CustomElementRegistry;
-  }())
 
-&& null; }
+registry.define =
+  CustomElementRegistry.define
+    .bind (CustomElementRegistry)
 
-)()
+})
 
+(window.customElements = window.customElements || {})
+
+// http://nshipster.com/method-swizzling/
 // HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
 
 var HTMLCustomElement = function () {
@@ -71,19 +72,6 @@ var HTMLCustomElement = function () {
 //})
 
 //(window.HTMLElement, function HTMLElement () {})
-
-
-var Foo = (function (HTMLElement) {
-  function Foo () {
-    HTMLElement.apply(this, arguments);
-  }if ( HTMLElement ) Foo.__proto__ = HTMLElement;
-  Foo.prototype = Object.create( HTMLElement && HTMLElement.prototype );
-  Foo.prototype.constructor = Foo;
-
-  
-
-  return Foo;
-}(HTMLElement));
 
 var HTMLLinkElement = function
 
@@ -179,6 +167,7 @@ TokenList.prototype.bind = function (context) {
 
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
+// https://github.com/webcomponents/template
 var Template = HTMLTemplateElement = function (template) {
 
   template =
@@ -260,6 +249,12 @@ var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
   anonymous.prototype.renderable = function ( handler ) {
     var this$1 = this;
 
+
+    // BIG BUG IN IE!!!
+    //
+    // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
+    //
+    // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
 
     return function (event, render) {
         if ( render === void 0 ) render = true;
@@ -515,14 +510,12 @@ var Element = function (tag) {
       console.warn ('Element', Element)
       console.warn ('Element.prototype', Element.prototype)
       console.warn ('Element.prototype.constructor', Element.prototype.constructor)
-      Element.prototype.constructor = constructor
-      console.warn ('Element.prototype.constructor', Element.prototype.constructor)
       console.warn ('Element.constructor', Element.constructor)
       console.warn ('constructor', constructor)
       console.warn ('constructor.prototype', constructor.prototype)
 
-      (ref = window.customElements).define.apply
-        ( ref, (ref$1 = []).concat.apply ( ref$1, [tag]).concat( [Custom (Element)] ))
+      void (ref = window.customElements).define.apply
+        ( ref, (ref$1 = []).concat.apply ( ref$1, [tag]).concat( [Custom (Element)], [constructor] ))
       var ref;
       var ref$1;
 
