@@ -10,7 +10,7 @@
 
 <script>
 
-var klass = function () {
+var babel = function () {
 
   function Mock ()
     { HTMLElement.apply (this) }
@@ -26,21 +26,30 @@ var klass = function () {
   return Mock
 } ()
 
-Element ('hello-world')(klass)
+//Element ('hello-world')(babel)
+//Element ('buble-world')(buble)
 
 // Interesting. What step prevents duplicate class registration?
 // Uncaught DOMException: Failed to execute 'define' on 'CustomElementRegistry':
 // this constructor has already been used with this registry
 // Element ('hello-mars')(klass)
 
-Element`hello-saturn`
-
-(class extends HTMLElement {
-
+class Foo extends HTMLElement {
   onclick () {
-    alert `ZOMG!`
+    alert `FOO ZOMG!`
   }
-})
+}
+
+/*
+class Bar extends HTMLElement {
+  onclick () {
+    alert `BAR ZOMG!`
+  }
+}
+
+*/
+
+Element`hello-saturn`(Foo)
 
 </script>
 
