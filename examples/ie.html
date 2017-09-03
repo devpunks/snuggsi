@@ -12,25 +12,39 @@
 
 var klass = function () {
 
-  function Foo ()
+  function Mock ()
     { HTMLElement.apply (this) }
 
-  Foo.__proto__ = HTMLElement
+  Mock.__proto__ = HTMLElement
 
-  Foo.prototype = Object.create
+  Mock.prototype = Object.create
     ( HTMLElement.prototype )
 
-  Foo.prototype
-    .constructor = Foo
+  Mock.prototype
+    .constructor = Mock
 
-  return Foo
-} ();
+  return Mock
+} ()
 
 Element ('hello-world')(klass)
 
-Element ('hello-mars')(klass)
+// Interesting. What step prevents duplicate class registration?
+// Uncaught DOMException: Failed to execute 'define' on 'CustomElementRegistry':
+// this constructor has already been used with this registry
+// Element ('hello-mars')(klass)
+
+Element`hello-saturn`
+
+(class extends HTMLElement {
+
+  onclick () {
+    alert `ZOMG!`
+  }
+})
 
 </script>
+
+<hello-saturn>Hi i'm saturn</hello-saturn>
 
 <style>
 h1 {

@@ -1,19 +1,34 @@
 const ElementPrototype = window.Element.prototype // see bottom of this file
 
-const Element = tag =>
+const Element = tag => {
+
+  const constructor =// swizzle
+    typeof tag === 'string'
+      ? HTMLCustomElement
+      : HTMLElement
 
     //https://gist.github.com/allenwb/53927e46b31564168a1d
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-    Element => // https://en.wikipedia.org/wiki/Higher-order_function
-      // The following causes a bug in buble
-      // console.log ('element', Element)
-      //window.customElements.define
-      //  ( ... [].concat ( ... [tag]), Component (Element))
+    return Element => // https://en.wikipedia.org/wiki/Higher-order_function
+    {
+
+      console.warn ('tag', tag)
+      console.warn ('Element', Element)
+      console.warn ('Element.prototype', Element.prototype)
+      console.warn ('Element.prototype.constructor', Element.prototype.constructor)
+      Element.prototype.constructor = constructor
+      console.warn ('Element.prototype.constructor', Element.prototype.constructor)
+      console.warn ('Element.constructor', Element.constructor)
+      console.warn ('constructor', constructor)
+      console.warn ('constructor.prototype', constructor.prototype)
 
       window.customElements.define
-        ( ... [].concat ( ... [tag]), Component (Element))
+        ( ...  [].concat ( ... [tag]) , Custom (Element))
+
+    }
+}
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 Element.prototype = ElementPrototype
