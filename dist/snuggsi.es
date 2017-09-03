@@ -4,45 +4,72 @@
 // The Custom Elements Spec
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
+window.customElements = ( () =>
+
 class CustomElementRegistry {
 
   static define (tag, element) {
+
+    console.log ('Snuggsi definition')
+
     ('loading' === document.readyState)
       && document.addEventListener
-        ('DOMContentLoaded', this.upgrade (tag))
+        ('DOMContentLoaded',
+          this.register (tag, element))
   }
 
-  static upgrade (tag) {
-    return event =>
-      console.log ('Defined bitch', tag, this, event)
+  static get registrants () {
+    return registrants
+  }
+
+  static register (name, klass) {
+
+    this.registrants [name] = klass
+
+    return event => {
+
+      let
+        selected  =
+          document.body
+            .querySelectorAll (name)
+
+      , instances = []
+          .slice
+          .call (selected)
+          .map  (this.upgrade)
+    }
+  }
+
+  static upgrade (element) {
+    console.log
+      ('ugrading element',
+       element.localName)
   }
 }
 
-window.customElements
-  = window.customElements
-  || CustomElementRegistry
+&& null
+
+)()
 
 // HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
 
-  const
-    NativeHTMLElement = window.HTMLElement
-  , nativeDefine = window.customElements.define
-  , nativeGet    = window.customElements.get
-  , tag_by_constructor = {}
-  , constructor_by_tag = {}
-  , browser = false
-  , user    = false
+class HTMLCustomElement {
+  constructor () {
+    return new String ('snuggsi HTMLCustomElement')
+  }
+}
 
-const HTMLElement = ((HTMLElement) => {
+//window.HTMLElement = ((HTMLElement, klass) => {
 
-  const element = new Function
+//  return Object
+//    .setPrototypeOf (klass, HTMLElement.prototype)
+//})
 
-  element.prototype = Object.create (HTMLElement.prototype)
+//(window.HTMLElement, function HTMLElement () {})
 
-  element.prototype.constructor = HTMLElement
 
-  return element
-}) (window.HTMLElement)
+class Foo extends HTMLElement { }
+
 const HTMLLinkElement = function
 
   // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
@@ -437,18 +464,17 @@ const GlobalEventHandlers = Element =>
   }
 })
 
-const Component = HTMLElement => // why buble
+const Custom = Element => // why buble
 
 ( class extends // interfaces
-  ( EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement ))))
+  ( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))
 {
-
   constructor () { super ()
 
     let
       descriptions =
         Object.getOwnPropertyDescriptors
-          (HTMLElement.prototype)
+          (Element.prototype)
 
     , bind = key =>
         'function' === typeof descriptions [key].value
@@ -459,7 +485,7 @@ const Component = HTMLElement => // why buble
       .map (bind)
 
     Object
-      .getOwnPropertyNames (HTMLElement.prototype)
+      .getOwnPropertyNames (Element.prototype)
       // POTENTIAL REDUNDANCY
       // Aren't `on` events set up in `.bind` on 20?
       // If so we are `.bind`ing to `this` on two iterations
@@ -542,20 +568,35 @@ const Component = HTMLElement => // why buble
 
 const ElementPrototype = window.Element.prototype // see bottom of this file
 
-const Element = tag =>
+const Element = tag => {
+
+  const constructor =// swizzle
+    typeof tag === 'string'
+      ? HTMLCustomElement
+      : HTMLElement
 
     //https://gist.github.com/allenwb/53927e46b31564168a1d
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-    Element => // https://en.wikipedia.org/wiki/Higher-order_function
-      // The following causes a bug in buble
-      // console.log ('element', Element)
-      //window.customElements.define
-      //  ( ... [].concat ( ... [tag]), Component (Element))
+    return Element => // https://en.wikipedia.org/wiki/Higher-order_function
+    {
+
+      console.warn ('tag', tag)
+      console.warn ('Element', Element)
+      console.warn ('Element.prototype', Element.prototype)
+      console.warn ('Element.prototype.constructor', Element.prototype.constructor)
+      Element.prototype.constructor = constructor
+      console.warn ('Element.prototype.constructor', Element.prototype.constructor)
+      console.warn ('Element.constructor', Element.constructor)
+      console.warn ('constructor', constructor)
+      console.warn ('constructor.prototype', constructor.prototype)
 
       window.customElements.define
-        ( ... [].concat ( ... [tag]), Component (Element))
+        ( ...  [].concat ( ... [tag]) , Custom (Element))
+
+    }
+}
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 Element.prototype = ElementPrototype
