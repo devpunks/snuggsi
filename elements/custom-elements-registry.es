@@ -4,9 +4,14 @@
 // The Custom Elements Spec
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
+((registry, define = registry.define.bind (registry)) => {
+ 
 class CustomElementRegistry {
 
-  static define (name, klass) {
+  static define (name, klass, constructor) {
+
+    console.warn ('Snuggsi', name, constructor, klass);
+
     ('loading' === document.readyState)
       && document.addEventListener
         ('DOMContentLoaded',
@@ -16,6 +21,9 @@ class CustomElementRegistry {
   static register (name, klass) {
 
     this [name] = klass
+
+    define &&
+      define (name, this [name])
 
     return event => {
 
@@ -36,12 +44,15 @@ class CustomElementRegistry {
       ('ugrading element',
        element.localName)
   }
+
 }
 
-(window.customElements
-  = window.customElements || {})
 
-window.customElements.define =
+registry.define =
   CustomElementRegistry.define
     .bind (CustomElementRegistry)
+
+})
+
+(window.customElements = window.customElements || {})
 

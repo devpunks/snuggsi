@@ -18,14 +18,12 @@ const Element = tag => {
       console.warn ('Element', Element)
       console.warn ('Element.prototype', Element.prototype)
       console.warn ('Element.prototype.constructor', Element.prototype.constructor)
-      Element.prototype.constructor = constructor
-      console.warn ('Element.prototype.constructor', Element.prototype.constructor)
       console.warn ('Element.constructor', Element.constructor)
       console.warn ('constructor', constructor)
       console.warn ('constructor.prototype', constructor.prototype)
 
       void window.customElements.define
-        ( ...  [].concat ( ... [tag]) , Custom (Element))
+        ( ...  [].concat ( ... [tag]) , Custom (Element), constructor)
 
     }
 }
