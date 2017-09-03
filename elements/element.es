@@ -24,7 +24,7 @@ const Element = tag => {
       console.warn ('constructor', constructor)
       console.warn ('constructor.prototype', constructor.prototype)
 
-      window.customElements.define
+      void window.customElements.define
         ( ...  [].concat ( ... [tag]) , Custom (Element))
 
     }
