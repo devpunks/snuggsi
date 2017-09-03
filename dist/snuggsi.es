@@ -4,27 +4,26 @@
 // The Custom Elements Spec
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
-window.customElements = ( () =>
-
+((registry, define = registry.define.bind (registry)) => {
+ 
 class CustomElementRegistry {
 
-  static define (tag, element) {
+  static define (name, klass, constructor) {
 
-    console.log ('Snuggsi definition')
+    console.warn ('Snuggsi', name, constructor, klass);
 
     ('loading' === document.readyState)
       && document.addEventListener
         ('DOMContentLoaded',
-          this.register (tag, element))
-  }
-
-  static get registrants () {
-    return registrants
+          this.register (name, klass))
   }
 
   static register (name, klass) {
 
-    this.registrants [name] = klass
+    this [name] = klass
+
+    define &&
+      define (name, this [name])
 
     return event => {
 
@@ -45,12 +44,19 @@ class CustomElementRegistry {
       ('ugrading element',
        element.localName)
   }
+
 }
 
-&& null
 
-)()
+registry.define =
+  CustomElementRegistry.define
+    .bind (CustomElementRegistry)
 
+})
+
+(window.customElements = window.customElements || {})
+
+// http://nshipster.com/method-swizzling/
 // HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
 
 class HTMLCustomElement {
@@ -66,9 +72,6 @@ class HTMLCustomElement {
 //})
 
 //(window.HTMLElement, function HTMLElement () {})
-
-
-class Foo extends HTMLElement { }
 
 const HTMLLinkElement = function
 
@@ -192,6 +195,7 @@ class TokenList {
 
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
+// https://github.com/webcomponents/template
 const Template = HTMLTemplateElement = function (template) {
 
   template =
@@ -294,6 +298,12 @@ const EventTarget = HTMLElement => // why buble
   }
 
   renderable ( handler ) {
+
+    // BIG BUG IN IE!!!
+    //
+    // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
+    //
+    // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
 
     return (event, render = true) =>
       (event.prevent = _ =>
@@ -586,14 +596,12 @@ const Element = tag => {
       console.warn ('Element', Element)
       console.warn ('Element.prototype', Element.prototype)
       console.warn ('Element.prototype.constructor', Element.prototype.constructor)
-      Element.prototype.constructor = constructor
-      console.warn ('Element.prototype.constructor', Element.prototype.constructor)
       console.warn ('Element.constructor', Element.constructor)
       console.warn ('constructor', constructor)
       console.warn ('constructor.prototype', constructor.prototype)
 
-      window.customElements.define
-        ( ...  [].concat ( ... [tag]) , Custom (Element))
+      void window.customElements.define
+        ( ...  [].concat ( ... [tag]) , Custom (Element), constructor)
 
     }
 }
