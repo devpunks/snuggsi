@@ -14,6 +14,3 @@ class HTMLCustomElement {
 
 //(window.HTMLElement, function HTMLElement () {})
 
-
-class Foo extends HTMLElement { }
-

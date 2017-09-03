@@ -1,5 +1,6 @@
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
+// https://github.com/webcomponents/template
 const Template = HTMLTemplateElement = function (template) {
 
   template =

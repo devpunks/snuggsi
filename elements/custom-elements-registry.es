@@ -4,13 +4,14 @@
 // The Custom Elements Spec
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
-window.customElements = ( () =>
+window.customElements =
 
 class CustomElementRegistry {
 
   static define (tag, element) {
+    this [tag] = element
 
-    console.log ('Snuggsi definition')
+    console.log ('Snuggsi definition for', this [tag])
 
     ('loading' === document.readyState)
       && document.addEventListener
@@ -46,8 +47,4 @@ class CustomElementRegistry {
        element.localName)
   }
 }
-
-&& null
-
-)()
 
