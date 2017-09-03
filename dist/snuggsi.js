@@ -4,17 +4,86 @@
 // The Custom Elements Spec
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
-var CustomElementRegistry = function () {};
+window.customElements = ( function () { return (function () {
+    function CustomElementRegistry () {}
 
-CustomElementRegistry.define = function (tag, element) {
-  console.warn ('WHAT THE FUCK THIS WORKED FOR IE!!!!')
-  console.warn ('tag:', tag)
-  console.warn ('class definition:', element)
+    var staticAccessors = { registrants: {} };
+
+    CustomElementRegistry.define = function (tag, element) {
+
+    console.log ('Snuggsi definition')
+
+    ('loading' === document.readyState)
+      && document.addEventListener
+        ('DOMContentLoaded',
+          this.register (tag, element))
+  };
+
+  staticAccessors.registrants.get = function () {
+    return registrants
+  };
+
+  CustomElementRegistry.register = function (name, klass) {
+    var this$1 = this;
+
+
+    this.registrants [name] = klass
+
+    return function (event) {
+
+      var
+        selected  =
+          document.body
+            .querySelectorAll (name)
+
+      , instances = []
+          .slice
+          .call (selected)
+          .map  (this$1.upgrade)
+    }
+  };
+
+  CustomElementRegistry.upgrade = function (element) {
+    console.log
+      ('ugrading element',
+       element.localName)
+  };
+
+    Object.defineProperties( CustomElementRegistry, staticAccessors );
+
+    return CustomElementRegistry;
+  }())
+
+&& null; }
+
+)()
+
+// HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
+
+var HTMLCustomElement = function () {
+  return new String ('snuggsi HTMLCustomElement')
 };
 
-window.customElements
-  = window.customElements
-  || CustomElementRegistry
+//window.HTMLElement = ((HTMLElement, klass) => {
+
+//  return Object
+//    .setPrototypeOf (klass, HTMLElement.prototype)
+//})
+
+//(window.HTMLElement, function HTMLElement () {})
+
+
+var Foo = (function (HTMLElement) {
+  function Foo () {
+    HTMLElement.apply(this, arguments);
+  }if ( HTMLElement ) Foo.__proto__ = HTMLElement;
+  Foo.prototype = Object.create( HTMLElement && HTMLElement.prototype );
+  Foo.prototype.constructor = Foo;
+
+  
+
+  return Foo;
+}(HTMLElement));
 
 var HTMLLinkElement = function
 
@@ -315,7 +384,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     return anonymous;
   }(Element))); }
 
-var Component = function (HTMLElement) { return ( (function (superclass) {
+var Custom = function (Element) { return ( (function (superclass) {
     function anonymous () {
   var this$1 = this;
  superclass.call (this)
@@ -323,7 +392,7 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
     var
       descriptions =
         Object.getOwnPropertyDescriptors
-          (HTMLElement.prototype)
+          (Element.prototype)
 
     , bind = function (key) { return 'function' === typeof descriptions [key].value
         && (this$1 [key] = this$1 [key].bind (this$1)); }
@@ -333,7 +402,7 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
       .map (bind)
 
     Object
-      .getOwnPropertyNames (HTMLElement.prototype)
+      .getOwnPropertyNames (Element.prototype)
       // POTENTIAL REDUNDANCY
       // Aren't `on` events set up in `.bind` on 20?
       // If so we are `.bind`ing to `this` on two iterations
@@ -425,14 +494,40 @@ var Component = function (HTMLElement) { return ( (function (superclass) {
   };
 
     return anonymous;
-  }(( EventTarget ( ParentNode ( GlobalEventHandlers ( HTMLElement ))))))); }
+  }(( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))))); }
 
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
-var Element = function (tag) { return function (Element) { return (ref = window.customElements).define.apply
-        ( ref, (ref$1 = []).concat.apply ( ref$1, [tag]).concat( [Component (Element)] ))
-        var ref;
-        var ref$1;; }; }
+var Element = function (tag) {
+
+  var constructor =// swizzle
+    typeof tag === 'string'
+      ? HTMLCustomElement
+      : HTMLElement
+
+    //https://gist.github.com/allenwb/53927e46b31564168a1d
+    // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
+    // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
+
+    return function (Element) {
+
+      console.warn ('tag', tag)
+      console.warn ('Element', Element)
+      console.warn ('Element.prototype', Element.prototype)
+      console.warn ('Element.prototype.constructor', Element.prototype.constructor)
+      Element.prototype.constructor = constructor
+      console.warn ('Element.prototype.constructor', Element.prototype.constructor)
+      console.warn ('Element.constructor', Element.constructor)
+      console.warn ('constructor', constructor)
+      console.warn ('constructor.prototype', constructor.prototype)
+
+      (ref = window.customElements).define.apply
+        ( ref, (ref$1 = []).concat.apply ( ref$1, [tag]).concat( [Custom (Element)] ))
+      var ref;
+      var ref$1;
+
+    }
+}
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 Element.prototype = ElementPrototype
