@@ -11,20 +11,10 @@ const Element = tag => {
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-    return Element => // https://en.wikipedia.org/wiki/Higher-order_function
-    {
-
-      console.warn ('tag', tag)
-      console.warn ('Element', Element)
-      console.warn ('Element.prototype', Element.prototype)
-      console.warn ('Element.prototype.constructor', Element.prototype.constructor)
-      console.warn ('Element.constructor', Element.constructor)
-      console.warn ('constructor', constructor)
-      console.warn ('constructor.prototype', constructor.prototype)
-
+    return klass => { // https://en.wikipedia.org/wiki/Higher-order_function
       void window.customElements.define
-        ( ...  [].concat ( ... [tag]) , Custom (Element), constructor)
-
+        ( ...  [].concat ( ... [tag])
+          , /* Custom */ (klass), constructor)
     }
 }
 
