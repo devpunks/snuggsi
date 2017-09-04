@@ -297,3 +297,6 @@ Snuggsi is able to use modern compression algorithms to create
 bundles as small as *~1500 OCTETS* _(or one 1500byte Ethernet packet frame)_
 
 [Read More](https://github.com/devpunks/snuggsi/tree/master/dist#readme)
+
+## Other Links
+  - https://medium.com/@oneeezy/frameworks-vs-web-components-9a7bd89da9d4
