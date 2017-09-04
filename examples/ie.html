@@ -8,12 +8,15 @@
 
 <hello-mars>Hello Mars!!!</hello-mars>
 
+<hello-saturn>Hi i'm saturn</hello-saturn>
+
 <script>
 
 var babel = function () {
 
-  function Mock ()
-    { HTMLElement.apply (this) }
+  function Mock () {
+    return HTMLElement.call (this)
+  }
 
   Mock.__proto__ = HTMLElement
 
@@ -27,12 +30,62 @@ var babel = function () {
 
 } ()
 
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Bam = function (_HTMLElement) {
+  _inherits(Bam, _HTMLElement);
+
+  function Bam() {
+    _classCallCheck(this, Bam);
+
+    var _this = _possibleConstructorReturn(this, (Bam.__proto__ || Object.getPrototypeOf(Bam)).call(this));
+
+    alert('Snuggs dun did it again');
+    return _this;
+  }
+
+  _createClass(Bam, [{
+    key: 'connectedCallback',
+    value: function connectedCallback() {
+      console.log('connected bitch');
+    }
+  }, {
+    key: 'baz',
+    value: function baz() {
+      return 'baz';
+    }
+  }, {
+    key: 'foo',
+    get: function get() {
+      return 'foo';
+    }
+  }, {
+    key: 'bar',
+    get: function get() {
+      return 'bar';
+    }
+  }]);
+
+  return Bam;
+}(HTMLElement);
+
 // Interesting. What step prevents duplicate class registration?
 // Uncaught DOMException: Failed to execute 'define' on 'CustomElementRegistry':
 // this constructor has already been used with this registry
 // Element ('hello-mars')(klass)
 
+/*
 class Foo extends HTMLElement {
+  connectedCallback () {
+    console.warn ('\n\n\nWTF is really going on')
+  }
+
   onclick () {
     alert `FOO ZOMG!`
   }
@@ -43,25 +96,21 @@ class Bar extends HTMLElement {
     alert `BAR ZOMG!`
   }
 }
-
-/*
 */
 
-Element`hello-saturn`(Foo)
-Element ('hello-world')(babel)
+//Element`hello-saturn`(Foo)
+  Element ('hello-world')(Bam)
 //Element ('buble-world')(buble)
 
 
 </script>
-
-<hello-saturn>Hi i'm saturn</hello-saturn>
 
 <style>
 h1 {
   background: pink
 }
 
-hello-world, hello-mars {
+hello-world, hello-mars, hello-saturn {
   margin: 1em;
   padding: 1em;
   color: white;
@@ -76,6 +125,9 @@ hello-world
 
 hello-mars
   { background: green }
+
+hello-saturn
+  { background: pink }
 
 </style>
 
