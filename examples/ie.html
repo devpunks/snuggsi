@@ -24,10 +24,8 @@ var babel = function () {
     .constructor = Mock
 
   return Mock
-} ()
 
-//Element ('hello-world')(babel)
-//Element ('buble-world')(buble)
+} ()
 
 // Interesting. What step prevents duplicate class registration?
 // Uncaught DOMException: Failed to execute 'define' on 'CustomElementRegistry':
@@ -40,16 +38,19 @@ class Foo extends HTMLElement {
   }
 }
 
-/*
 class Bar extends HTMLElement {
   onclick () {
     alert `BAR ZOMG!`
   }
 }
 
+/*
 */
 
 Element`hello-saturn`(Foo)
+Element ('hello-world')(babel)
+//Element ('buble-world')(buble)
+
 
 </script>
 
