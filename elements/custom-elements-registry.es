@@ -10,9 +10,9 @@ class CustomElementRegistry {
 
   static define (name, ... klass) {
 
-    console.warn ('Snuggsi', name, klass);
+    klass = this.swizzle ( ... klass );
 
-    klass = this.swizzle (klass);
+    console.warn ('Snuggsi', name, klass);
 
     ('loading' === document.readyState)
       && document.addEventListener
@@ -57,7 +57,6 @@ class CustomElementRegistry {
       ('ugrading element',
        element.localName)
   }
-
 }
 
 
