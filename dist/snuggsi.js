@@ -5,14 +5,19 @@
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
 (function (registry, define) {
-if ( define === void 0 ) define = registry.define.bind (registry);
+if ( define === void 0 ) define = registry.define && registry.define.bind (registry);
 
  
 var CustomElementRegistry = function () {};
 
-CustomElementRegistry.define = function (name, klass, constructor) {
+CustomElementRegistry.define = function (name) {
+    var klass = [], len = arguments.length - 1;
+    while ( len-- > 0 ) klass[ len ] = arguments[ len + 1 ];
 
-  console.warn ('Snuggsi', name, constructor, klass);
+
+  console.warn ('Snuggsi', name, klass);
+
+  klass = this.swizzle (klass);
 
   ('loading' === document.readyState)
     && document.addEventListener
@@ -24,10 +29,8 @@ CustomElementRegistry.register = function (name, klass) {
     var this$1 = this;
 
 
-  this [name] = klass
-
-  define &&
-    define (name, this [name])
+  define && define // do not register if not custom element
+    (name, this [name] = klass)
 
   return function (event) {
 
@@ -43,6 +46,21 @@ CustomElementRegistry.register = function (name, klass) {
   }
 };
 
+CustomElementRegistry.swizzle = function (klass, constructor) {
+    if ( constructor === void 0 ) constructor = HTMLCustomElement;
+
+  console.log ('Im swizzlin!')
+
+  console.warn ('Element', klass)
+  console.warn ('Element.prototype', klass.prototype)
+  console.warn ('Element.prototype.constructor', klass.prototype.constructor)
+  console.warn ('Element.constructor', klass.constructor)
+  console.warn ('constructor', constructor)
+  console.warn ('constructor.prototype', constructor.prototype)
+
+  return klass
+};
+
 CustomElementRegistry.upgrade = function (element) {
   console.log
     ('ugrading element',
@@ -53,7 +71,6 @@ CustomElementRegistry.upgrade = function (element) {
 registry.define =
   CustomElementRegistry.define
     .bind (CustomElementRegistry)
-
 })
 
 (window.customElements = window.customElements || {})
@@ -504,21 +521,11 @@ var Element = function (tag) {
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-    return function (Element) {
-
-      console.warn ('tag', tag)
-      console.warn ('Element', Element)
-      console.warn ('Element.prototype', Element.prototype)
-      console.warn ('Element.prototype.constructor', Element.prototype.constructor)
-      console.warn ('Element.constructor', Element.constructor)
-      console.warn ('constructor', constructor)
-      console.warn ('constructor.prototype', constructor.prototype)
-
+    return function (klass) { // https://en.wikipedia.org/wiki/Higher-order_function
       void (ref = window.customElements).define.apply
-        ( ref, (ref$1 = []).concat.apply ( ref$1, [tag]).concat( [Custom (Element)], [constructor] ))
+        ( ref, (ref$1 = []).concat.apply ( ref$1, [tag]).concat( [(klass)], [constructor] ))
       var ref;
       var ref$1;
-
     }
 }
 
