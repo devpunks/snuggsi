@@ -4,8 +4,8 @@ const Element = tag => {
 
   const constructor =// swizzle
     typeof tag === 'string'
-      ? HTMLCustomElement
-      : HTMLElement
+//    ? HTMLCustomElement
+//    : HTMLElement
 
     //https://gist.github.com/allenwb/53927e46b31564168a1d
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
@@ -14,7 +14,7 @@ const Element = tag => {
     return klass => { // https://en.wikipedia.org/wiki/Higher-order_function
       void window.customElements.define
         ( ...  [].concat ( ... [tag])
-          , Custom (klass), constructor)
+          , /* Custom */ (klass), constructor)
     }
 }
 

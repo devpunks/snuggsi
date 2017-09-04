@@ -32,6 +32,8 @@ const Custom = Element => // why buble
 
 
   connectedCallback (link) {
+    console.warn (this)
+
     link = HTMLLinkElement
       (this.tagName.toLowerCase ())
 

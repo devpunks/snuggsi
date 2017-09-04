@@ -22,8 +22,8 @@ class CustomElementRegistry {
 
   static register (name, klass) {
 
-    define && define // do not register if not custom element
-      (name, this [name] = klass)
+//  define && define // do not register if not custom element
+//    (name, this [name] = klass)
 
     return event => {
 
@@ -39,15 +39,23 @@ class CustomElementRegistry {
     }
   }
 
-  static swizzle (klass, constructor = HTMLCustomElement) {
-    console.log ('Im swizzlin!')
+  // http://nshipster.com/method-swizzling/
+  static swizzle (klass) {
 
-    console.warn ('Element', klass)
-    console.warn ('Element.prototype', klass.prototype)
-    console.warn ('Element.prototype.constructor', klass.prototype.constructor)
-    console.warn ('Element.constructor', klass.constructor)
-    console.warn ('constructor', constructor)
-    console.warn ('constructor.prototype', constructor.prototype)
+    console.warn ('html element', HTMLElement)
+//  class CustomHTMLElement extends HTMLElement {
+//    constructor () { super ()
+//      Object.setPrototypeOf (this, klass)
+//      console.log ('proto', this.__proto__)
+//      this.__proto__ = HTMLElement
+//      console.log ('proto', this.__proto__)
+//    }
+
+//    connectedCallback () {
+//      console.dir (this)
+//      console.dir (klass.prototype.connectedCallback)
+//    }
+//  }
 
     return klass
   }
