@@ -43,7 +43,7 @@
   <strong align=center>All you need is a browser and basic knowledge of HTML, CSS & <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes>Javascript classes</a> to be productive!</strong>
 
 <p align=center>
-  "Performance is the art of avoiding work" - #FreeJewelry 💍 💎
+  <q>"Performance is the art of avoiding work"</q> - #FreeJewelry 💍 💎
 </p>
 
 
