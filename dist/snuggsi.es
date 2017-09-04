@@ -4,13 +4,15 @@
 // The Custom Elements Spec
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
-((registry, define = registry.define.bind (registry)) => {
+((registry, define = registry.define && registry.define.bind (registry)) => {
  
 class CustomElementRegistry {
 
-  static define (name, klass, constructor) {
+  static define (name, ... klass) {
 
-    console.warn ('Snuggsi', name, constructor, klass);
+    console.warn ('Snuggsi', name, klass);
+
+    klass = this.swizzle (klass);
 
     ('loading' === document.readyState)
       && document.addEventListener
@@ -20,10 +22,8 @@ class CustomElementRegistry {
 
   static register (name, klass) {
 
-    this [name] = klass
-
-    define &&
-      define (name, this [name])
+    define && define // do not register if not custom element
+      (name, this [name] = klass)
 
     return event => {
 
@@ -39,6 +39,19 @@ class CustomElementRegistry {
     }
   }
 
+  static swizzle (klass, constructor = HTMLCustomElement) {
+    console.log ('Im swizzlin!')
+
+    console.warn ('Element', klass)
+    console.warn ('Element.prototype', klass.prototype)
+    console.warn ('Element.prototype.constructor', klass.prototype.constructor)
+    console.warn ('Element.constructor', klass.constructor)
+    console.warn ('constructor', constructor)
+    console.warn ('constructor.prototype', constructor.prototype)
+
+    return klass
+  }
+
   static upgrade (element) {
     console.log
       ('ugrading element',
@@ -51,7 +64,6 @@ class CustomElementRegistry {
 registry.define =
   CustomElementRegistry.define
     .bind (CustomElementRegistry)
-
 })
 
 (window.customElements = window.customElements || {})
@@ -589,20 +601,10 @@ const Element = tag => {
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-    return Element => // https://en.wikipedia.org/wiki/Higher-order_function
-    {
-
-      console.warn ('tag', tag)
-      console.warn ('Element', Element)
-      console.warn ('Element.prototype', Element.prototype)
-      console.warn ('Element.prototype.constructor', Element.prototype.constructor)
-      console.warn ('Element.constructor', Element.constructor)
-      console.warn ('constructor', constructor)
-      console.warn ('constructor.prototype', constructor.prototype)
-
+    return klass => { // https://en.wikipedia.org/wiki/Higher-order_function
       void window.customElements.define
-        ( ...  [].concat ( ... [tag]) , Custom (Element), constructor)
-
+        ( ...  [].concat ( ... [tag])
+          , /* Custom */ (klass), constructor)
     }
 }
 
