@@ -48,7 +48,7 @@
 
 
 ## Why ?
-  1. Because [You (probably) don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
+  1. Because [You _(probably)_ don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
   2. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
      &amp; [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
      ARE [ready for production](https://twitter.com/WebReflection/status/761316429559922688)
