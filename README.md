@@ -59,7 +59,7 @@
 
 
 ## Easy Installation
-Made with [Vanilla JS](http://vanilla-js.com) 💖 No need to learn Node.js, Webpack, Babel, or Gulp.
+Made with [Vanilla JS™](http://vanilla-js.com) 💖 No need to learn Node.js, Webpack, Babel, or Gulp.
 
 **snuggsiツ** works in production or in a plain 'ol HTML file!
 
