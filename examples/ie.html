@@ -5,6 +5,8 @@
 <h1>Internet Explorer Test Page</h1>
 
 <hello-world>Hello World!!!</hello-world>
+<hello-world>Hello Sun!!!</hello-world>
+<hello-world>Hello Moon!!!</hello-world>
 
 <hello-mars>Hello Mars!!!</hello-mars>
 
@@ -46,14 +48,19 @@ var Bam = function (_HTMLElement) {
 
     var _this = _possibleConstructorReturn(this, (Bam.__proto__ || Object.getPrototypeOf(Bam)).call(this));
 
-    alert('Snuggs dun did it again');
+    console.log('Snuggs dun did it again', _this);
     return _this;
   }
 
   _createClass(Bam, [{
     key: 'connectedCallback',
     value: function connectedCallback() {
-      console.log('connected bitch');
+      console.log('connected bitch', this, this.innerText);
+    }
+  }, {
+    key: 'onclick',
+    value: function baz(event) {
+      console.log ('clicked mofo', event);
     }
   }, {
     key: 'baz',
@@ -101,7 +108,6 @@ class Bar extends HTMLElement {
 //Element`hello-saturn`(Foo)
   Element ('hello-world')(Bam)
 //Element ('buble-world')(buble)
-
 
 </script>
 
