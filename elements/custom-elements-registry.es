@@ -8,24 +8,27 @@
  
 class CustomElementRegistry {
 
-  static define (name, ... klass) {
+  static define ( ... definition ) {
 
-    klass = this.swizzle ( ... klass );
+//  definition = this.swizzle ( definition );
 
-    console.warn ('Snuggsi', name, klass);
+//  console.warn ('Snuggsi', definition );
 
     ('loading' === document.readyState)
       && document.addEventListener
         ('DOMContentLoaded',
-          this.register (name, klass))
+          this.register ( ... definition ))
   }
 
-  static register (name, klass) {
+  static register ( name, Class, constructor ) {
 
 //  define && define // do not register if not custom element
 //    (name, this [name] = klass)
 
+    console.log ('the class', Class)
+
     return event => {
+      Class.localName = name
 
       let
         selected  =
@@ -35,35 +38,23 @@ class CustomElementRegistry {
       , instances = []
           .slice
           .call (selected)
-          .map  (this.upgrade)
+          .map  (this.upgrade, Class)
     }
   }
 
   // http://nshipster.com/method-swizzling/
-  static swizzle (klass) {
+  static swizzle ( name, ... Class ) {
 
-    console.warn ('html element', HTMLElement)
-//  class CustomHTMLElement extends HTMLElement {
-//    constructor () { super ()
-//      Object.setPrototypeOf (this, klass)
-//      console.log ('proto', this.__proto__)
-//      this.__proto__ = HTMLElement
-//      console.log ('proto', this.__proto__)
-//    }
-
-//    connectedCallback () {
-//      console.dir (this)
-//      console.dir (klass.prototype.connectedCallback)
-//    }
-//  }
-
-    return klass
+    return definition // tuple
   }
 
   static upgrade (element) {
-    console.log
-      ('ugrading element',
-       element.localName)
+    (new this)
+      .connectedCallback
+      .call (element)
+
+    console.warn
+      (element.localName,'ugraded!')
   }
 }
 

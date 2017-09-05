@@ -5,14 +5,13 @@ window.HTMLElement = function (constructor, element) {
 
   const E = function HTMLElement () {
 
-    console.log ('Makin HTML BABY!', this.constructor)
-      element = document.createElement ('foo-world')
-    console.log ('element', element, element.prototype)
+    element = document.createElement
+      (this.constructor.localName)
+
+    console.log ('element', element)
 
     return Object.setPrototypeOf
       (element, this.constructor.prototype)
-
-    return element
   }
 
   E.prototype = constructor.prototype

@@ -5,6 +5,10 @@ const Custom = Element => // why buble
 {
   constructor () { super ()
 
+    console.log ('holy fuck this is working!!!', this)
+
+    return this
+
     let
       descriptions =
         Object.getOwnPropertyDescriptors
@@ -32,7 +36,9 @@ const Custom = Element => // why buble
 
 
   connectedCallback (link) {
-    console.warn (this)
+    console.warn ('HAIL MARY', this, this.foo, this.bar, this.baz, this.onconnect)
+
+    return
 
     link = HTMLLinkElement
       (this.tagName.toLowerCase ())
