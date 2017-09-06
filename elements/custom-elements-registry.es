@@ -22,14 +22,14 @@ class CustomElementRegistry {
 
   static register ( name, Class, constructor ) {
 
+    Class.localName = name
+
 //  define && define // do not register if not custom element
 //    (name, this [name] = klass)
 
     console.log ('the class', Class)
 
     return event => {
-      Class.localName = name
-
       let
         selected  =
           document.body
