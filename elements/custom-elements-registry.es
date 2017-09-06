@@ -48,6 +48,7 @@ class CustomElementRegistry {
     return definition // tuple
   }
 
+  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   static upgrade (element) {
     (new this)
       .connectedCallback
