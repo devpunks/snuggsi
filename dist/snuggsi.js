@@ -345,8 +345,6 @@ var Custom = function (Element) { return ( (function (superclass) {
   anonymous.prototype.connectedCallback = function (link) {
     console.warn ('HAIL MARY', this, this.foo, this.bar, this.baz, this.onconnect)
 
-    return
-
     link = HTMLLinkElement
       (this.tagName.toLowerCase ())
 

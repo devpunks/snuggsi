@@ -439,8 +439,6 @@ const Custom = Element => // why buble
   connectedCallback (link) {
     console.warn ('HAIL MARY', this, this.foo, this.bar, this.baz, this.onconnect)
 
-    return
-
     link = HTMLLinkElement
       (this.tagName.toLowerCase ())
 
