@@ -525,7 +525,7 @@ const Element = tag => {
     return klass => { // https://en.wikipedia.org/wiki/Higher-order_function
       void window.customElements.define
         ( ...  [].concat ( ... [tag])
-          , Custom (klass), constructor)
+          , Custom (klass), { prototype: constructor })
     }
 }
 
