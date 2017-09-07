@@ -406,6 +406,10 @@ const Custom = Element => // why buble
 {
   constructor () { super ()
 
+    console.log ('holy fuck this is working!!!', this)
+
+    return this
+
     let
       descriptions =
         Object.getOwnPropertyDescriptors
@@ -433,6 +437,10 @@ const Custom = Element => // why buble
 
 
   connectedCallback (link) {
+    console.warn ('HAIL MARY', this, this.foo, this.bar, this.baz, this.onconnect)
+
+    return
+
     link = HTMLLinkElement
       (this.tagName.toLowerCase ())
 
@@ -507,8 +515,8 @@ const Element = tag => {
 
   const constructor =// swizzle
     typeof tag === 'string'
-      ? HTMLCustomElement
-      : HTMLElement
+//    ? HTMLCustomElement
+//    : HTMLElement
 
     //https://gist.github.com/allenwb/53927e46b31564168a1d
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
