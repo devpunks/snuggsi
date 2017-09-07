@@ -309,6 +309,10 @@ var Custom = function (Element) { return ( (function (superclass) {
   var this$1 = this;
  superclass.call (this)
 
+    console.log ('holy fuck this is working!!!', this)
+
+    return this
+
     var
       descriptions =
         Object.getOwnPropertyDescriptors
@@ -339,6 +343,10 @@ var Custom = function (Element) { return ( (function (superclass) {
 
 
   anonymous.prototype.connectedCallback = function (link) {
+    console.warn ('HAIL MARY', this, this.foo, this.bar, this.baz, this.onconnect)
+
+    return
+
     link = HTMLLinkElement
       (this.tagName.toLowerCase ())
 
@@ -422,8 +430,8 @@ var Element = function (tag) {
 
   var constructor =// swizzle
     typeof tag === 'string'
-      ? HTMLCustomElement
-      : HTMLElement
+//    ? HTMLCustomElement
+//    : HTMLElement
 
     //https://gist.github.com/allenwb/53927e46b31564168a1d
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
