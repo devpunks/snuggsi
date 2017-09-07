@@ -1,4 +1,6 @@
 cat \
+elements/html-element.es \
+elements/custom-element-registry.es \
 elements/custom.es \
 elements/html-link-element.es \
 elements/token-list.es \
