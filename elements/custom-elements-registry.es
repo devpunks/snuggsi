@@ -2,6 +2,7 @@
 // WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
 //
 // The Custom Elements Spec
+// W3C - https://w3c.github.io/webcomponents/spec/custom/
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
 ((registry, define = registry.define && registry.define.bind (registry)) => {
