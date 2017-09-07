@@ -13,8 +13,6 @@ class CustomElementRegistry {
 
 //  definition = this.swizzle ( definition );
 
-//  console.warn ('Snuggsi', definition );
-
     ('loading' === document.readyState)
       && document.addEventListener
         ('DOMContentLoaded',
@@ -50,6 +48,7 @@ class CustomElementRegistry {
   }
 
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
+  // "Dmitry's Brain Transplant"
   static upgrade (element) {
     (new this)
       .connectedCallback
