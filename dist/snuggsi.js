@@ -1,3 +1,103 @@
+// http://nshipster.com/method-swizzling/
+// HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
+
+window.HTMLElement = function (constructor, element) {
+
+  var E = function HTMLElement () {
+
+    element = document.createElement
+      (this.constructor.localName)
+
+    console.log ('element', element)
+
+    return Object.setPrototypeOf
+      (element, this.constructor.prototype)
+  }
+
+  E.prototype = constructor.prototype
+
+  return E
+
+} (HTMLElement)
+// The CustomElementRegistry Interface
+// WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
+//
+// The Custom Elements Spec
+// W3C - https://w3c.github.io/webcomponents/spec/custom/
+// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
+
+void (function (registry, define) {
+if ( define === void 0 ) define = registry.define && registry.define.bind (registry);
+
+ 
+var CustomElementRegistry = function () {};
+
+CustomElementRegistry.define = function () {
+    var definition = [], len = arguments.length;
+    while ( len-- ) definition[ len ] = arguments[ len ];
+
+
+//definition = this.swizzle ( definition );
+
+  ('loading' === document.readyState)
+    && document.addEventListener
+      ('DOMContentLoaded',
+        (ref = this).register.apply ( ref, definition ))
+    var ref;
+};
+
+CustomElementRegistry.register = function ( name, Class, constructor ) {
+    var this$1 = this;
+
+
+  Class.localName = name
+
+//define && define // do not register if not custom element
+//  (name, this [name] = klass)
+
+  console.log ('the class', Class)
+
+  return function (event) {
+    var
+      selected=
+        document.body
+          .querySelectorAll (name)
+
+    , instances = []
+        .slice
+        .call (selected)
+        .map(this$1.upgrade, Class)
+  }
+};
+
+// http://nshipster.com/method-swizzling/
+CustomElementRegistry.swizzle = function ( name ) {
+    var Class = [], len = arguments.length - 1;
+    while ( len-- > 0 ) Class[ len ] = arguments[ len + 1 ];
+
+
+  return definition // tuple
+};
+
+// https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
+// "Dmitry's Brain Transplant"
+CustomElementRegistry.upgrade = function (element) {
+  (new this)
+    .connectedCallback
+    .call (element)
+
+  console.warn
+    (element.localName,'ugraded!')
+};
+
+
+registry.define =
+  CustomElementRegistry.define
+    .bind (CustomElementRegistry)
+})
+
+(window.customElements = window.customElements || {})
+
 var HTMLLinkElement = function
 
   // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import

@@ -5,7 +5,7 @@
 // W3C - https://w3c.github.io/webcomponents/spec/custom/
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
-((registry, define = registry.define && registry.define.bind (registry)) => {
+void ((registry, define = registry.define && registry.define.bind (registry)) => {
  
 class CustomElementRegistry {
 

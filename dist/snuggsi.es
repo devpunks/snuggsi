@@ -1,3 +1,93 @@
+// http://nshipster.com/method-swizzling/
+// HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
+
+window.HTMLElement = function (constructor, element) {
+
+  const E = function HTMLElement () {
+
+    element = document.createElement
+      (this.constructor.localName)
+
+    console.log ('element', element)
+
+    return Object.setPrototypeOf
+      (element, this.constructor.prototype)
+  }
+
+  E.prototype = constructor.prototype
+
+  return E
+
+} (HTMLElement)
+// The CustomElementRegistry Interface
+// WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
+//
+// The Custom Elements Spec
+// W3C - https://w3c.github.io/webcomponents/spec/custom/
+// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
+
+void ((registry, define = registry.define && registry.define.bind (registry)) => {
+ 
+class CustomElementRegistry {
+
+  static define ( ... definition ) {
+
+//  definition = this.swizzle ( definition );
+
+    ('loading' === document.readyState)
+      && document.addEventListener
+        ('DOMContentLoaded',
+          this.register ( ... definition ))
+  }
+
+  static register ( name, Class, constructor ) {
+
+    Class.localName = name
+
+//  define && define // do not register if not custom element
+//    (name, this [name] = klass)
+
+    console.log ('the class', Class)
+
+    return event => {
+      let
+        selected  =
+          document.body
+            .querySelectorAll (name)
+
+      , instances = []
+          .slice
+          .call (selected)
+          .map  (this.upgrade, Class)
+    }
+  }
+
+  // http://nshipster.com/method-swizzling/
+  static swizzle ( name, ... Class ) {
+
+    return definition // tuple
+  }
+
+  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
+  // "Dmitry's Brain Transplant"
+  static upgrade (element) {
+    (new this)
+      .connectedCallback
+      .call (element)
+
+    console.warn
+      (element.localName,'ugraded!')
+  }
+}
+
+
+registry.define =
+  CustomElementRegistry.define
+    .bind (CustomElementRegistry)
+})
+
+(window.customElements = window.customElements || {})
+
 const HTMLLinkElement = function
 
   // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
