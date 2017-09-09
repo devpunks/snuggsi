@@ -1,3 +1,7 @@
+// https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
+
+// https://github.com/WebReflection/hyperHTML/pull/100
+
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
 // https://github.com/webcomponents/template
