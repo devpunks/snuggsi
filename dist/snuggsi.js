@@ -90,6 +90,12 @@ TokenList.prototype.bind = function (context) {
       .map (replace (symbol$1)) }
 };
 
+// https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
+
+// https://github.com/WebReflection/hyperHTML/pull/100
+
+// https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
+
 // INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
 // https://github.com/webcomponents/template
