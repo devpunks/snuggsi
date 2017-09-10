@@ -138,7 +138,7 @@
             <a href=#lifecyle:definition >Definition</a>
 
           <li>
-          <a href=#lifecyle:construction ><code>initialize ()</code> Construction</a>
+          <a href=#lifecyle:construction >Construction</a>
 
           <li>
             <a href=#lifecyle:reflection >Reflection</a>
@@ -343,7 +343,7 @@
   <h1>Custom Element Lifecycle</h1>
 
   <dl>
-    <dt id=lifecycle:definition >0. Definition
+    <dt id=lifecycle:definition >0. <code>define</code> Element
     <dd>
       A custom element is <em>"defined"</em> by specifying the <code>Element `your-tag-name`</code>
       declaration immediately followed with a <code>(class extends HTMLElement {})</code> definition.
@@ -351,7 +351,7 @@
       definition is specified. This means your custom element can be styled like any other HTML element.
       However, your element will not have functionality until after definition.
 
-    <dt id=lifecycle:construction >1. Construction
+    <dt id=lifecycle:construction >1. <code>initialize</code> Construction
     <dd>
       After <strong>Definition & Declaration</strong> the custom element will go through
       it's <code>constructor ()</code> routine. Typically you will not need to define a
