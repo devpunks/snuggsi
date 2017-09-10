@@ -9,14 +9,31 @@ void ((registry, define = registry.define && registry.define.bind (registry)) =>
  
 class CustomElementRegistry {
 
-  static define ( ... definition ) {
+  constructor () { }
+
+  define (name, Class) {
+    this [name] = Class
+  }
+
+  get (name) {
+    return this [name]
+  }
+
+  whenDefined (name, callback) {
+    callback ()
+    console.warn ('Defined', name)
+  }
+
+
+
+  static define ( name, Class, constructor ) {
 
 //  definition = this.swizzle ( definition );
 
     ('loading' === document.readyState)
       && document.addEventListener
         ('DOMContentLoaded',
-          this.register ( ... definition ))
+          this.register ( name, Class, constructor ))
   }
 
   static register ( name, Class, constructor ) {
