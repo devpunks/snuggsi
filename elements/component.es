@@ -6,6 +6,7 @@ const Custom = Element => // why buble
   constructor () { super ()
 
     console.log ('holy fuck this is working!!!', this)
+    console.warn ('Anything further is snuggsi')
 
     return this
 

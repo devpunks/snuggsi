@@ -43,8 +43,8 @@ new class CustomElementRegistry {
 
       console.warn ('Definining', definition, name, Class, options)
 
-//    delegate.apply
-//      ( window.customElements, this.register ( ... definition ) )
+      delegate.apply
+        ( window.customElements, this.register ( name, Class ) )
     }
   }
 
@@ -53,9 +53,9 @@ new class CustomElementRegistry {
     (this [name] = Class)
       .localName = name;
 
-    ('loading' === document.readyState)
-      && document.addEventListener
-        ('DOMContentLoaded', function (event) { console.warn (event) } )
+//  ('loading' === document.readyState)
+//    && document.addEventListener
+//      ('DOMContentLoaded', function (event) { console.warn (event) } )
 
     return arguments
   }
