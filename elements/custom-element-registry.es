@@ -36,7 +36,8 @@ new class CustomElementRegistry {
       } = Class.prototype
 
       , definition = {
-          connectedCallback
+          name
+        , connectedCallback
         , disconnectedCallback
       }
 
