@@ -17,9 +17,9 @@ new class CustomElementRegistry {
   }
 
   define (name, Class) {
-    this [name] = Class
+    this.definitions [name] = Class
 
-    console.warn ('Snuggs', this [name])
+    console.warn ('Snuggs', this.definitions [name])
   }
 
   get (name) {
