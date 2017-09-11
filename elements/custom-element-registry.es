@@ -5,7 +5,6 @@
 // W3C - https://w3c.github.io/webcomponents/spec/custom/
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
-
 !!! window.customElements
   && (window.customElements = {})
 
@@ -13,37 +12,24 @@ new class CustomElementRegistry {
 
   constructor ({ define, get, whenDefined } = customElements ) {
 
-//  const { define, get, whenDefined } = window.customElements
-
     this.promises = []
     this.definitions = []
     this.running = undefined
 
-    window.customElements && (
-    window.customElements.define = function (name, Class) {
-      this.definitions [name] = Class
-
-      console.warn ('Snuggs', define, this, this.definitions [name])
-    }.bind (this))
-
-//  for (let func of [define, get])
-//  console.log ('Holy Shit!', func.name)
+      window.customElements.define
+        = this.define (define)
+          .bind (this)
   }
 
-  define2 (name, Class) {
+  define ( delegate = () => {} ) {
+    return ( ... definition ) =>
+      delegate.apply
+        (window.customElements, definition)
   }
 
-  get (name) {
-    return this [name]
-  }
-
-  whenDefined (name) {
-    console.warn ('Defined', name)
-
-    return (new Promise)
-  }
-
-} ()
+  get (name) { return this [name] }
+  whenDefined (name) { return (new Promise) }
+}
 
 
 void ((registry, define = registry.define && registry.define.bind (registry)) => {
