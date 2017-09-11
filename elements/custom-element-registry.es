@@ -35,7 +35,12 @@ new class CustomElementRegistry {
       , disconnectedCallback
       } = Class.prototype
 
-      console.warn ('Definining', connectedCallback, ... arguments)
+      , definition = {
+        connectedCallback
+      , disconnectedCallback
+      }
+
+      console.warn ('Definining', definition, name, Class, options)
 
 //    delegate.apply
 //      ( window.customElements, this.register ( ... definition ) )
