@@ -6,13 +6,7 @@
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
 
-window.customElements
-
-|| (window.customElements =
-
-new (window.CustomElementRegistry =
-
-class {
+new class CustomElementRegistry {
 
   constructor ({ define, get, whenDefined } = {}) {
 
@@ -30,14 +24,14 @@ class {
     return this [name]
   }
 
-  whenDefined (name, callback) {
-    callback ()
+  whenDefined (name) {
     console.warn ('Defined', name)
+
+    return (new Promise)
   }
 
-}) (window.customElements)
+} (window.customElements)
 
-)
 
 void ((registry, define = registry.define && registry.define.bind (registry)) => {
  
