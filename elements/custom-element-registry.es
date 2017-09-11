@@ -24,6 +24,8 @@ new (window.CustomElementRegistry =
 
   define (name, Class) {
     this [name] = Class
+
+    console.warn ('Snuggs', this [name])
   }
 
   get (name) {
@@ -37,11 +39,7 @@ new (window.CustomElementRegistry =
 
 })))
 
-
-
-
-console.log (window.customElements, window.CustomElementRegistry)
-
+} (window.customElements)
 
 void ((registry, define = registry.define && registry.define.bind (registry)) => {
  
