@@ -10,6 +10,8 @@ new class CustomElementRegistry {
 
   constructor ({ define, get, whenDefined } = {}) {
 
+    this.definitions = []
+
     console.warn ('Snuggs', define, get, whenDefined)
     console.log ('Holy Shit!')
   }
