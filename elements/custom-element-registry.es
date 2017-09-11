@@ -15,16 +15,15 @@ new class CustomElementRegistry {
 
   constructor ({ define, get, whenDefined } = customElements ) {
 
-    this.running = undefined
-
     window.customElements.define
       = this._define (define)
         .bind (this)
   }
 
-  _define ( delegate = _=>{} ) {
+  _define ( delegate = _=> {} ) {
 
-    this.definitions = []
+    this.running = undefined
+
     //  definition = this.swizzle ( definition );
 
     return ( name, Class, options ) => {
@@ -39,7 +38,7 @@ new class CustomElementRegistry {
 
   register (name, Class) {
     // perhaps this goes in swizzle
-    (this.definitions [name] = Class)
+    (this [name] = Class)
       .localName = name;
 
     ('loading' === document.readyState)
