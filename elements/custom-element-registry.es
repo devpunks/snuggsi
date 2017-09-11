@@ -5,11 +5,18 @@
 // W3C - https://w3c.github.io/webcomponents/spec/custom/
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
-void ((registry, define = registry.define && registry.define.bind (registry)) => {
- 
-class CustomElementRegistry {
+window.customElements
 
-  constructor () { }
+|| (window.customElements =
+
+new (window.CustomElementRegistry =
+
+(class {
+
+  constructor () {
+
+    console.log ('Holy Shit!')
+  }
 
   define (name, Class) {
     this [name] = Class
@@ -24,7 +31,17 @@ class CustomElementRegistry {
     console.warn ('Defined', name)
   }
 
+})))
 
+
+
+
+console.log (window.customElements, window.CustomElementRegistry)
+
+
+void ((registry, define = registry.define && registry.define.bind (registry)) => {
+ 
+class CustomElementRegistry {
 
   static define ( name, Class, constructor ) {
 
@@ -82,5 +99,5 @@ registry.define =
     .bind (CustomElementRegistry)
 })
 
-(window.customElements = window.customElements || {})
+//(window.customElements = window.customElements || {})
 
