@@ -28,16 +28,16 @@ new class CustomElementRegistry {
 
     return ( name, Class, options ) => {
       const {
-      //, observedAttributes
-      //, attributesChangedCallback
-      //adoptedCallback
-        connectedCallback
-      , disconnectedCallback
+        //, observedAttributes
+        //, attributesChangedCallback
+        //, adoptedCallback
+          connectedCallback
+        , disconnectedCallback
       } = Class.prototype
 
       , definition = {
-        connectedCallback
-      , disconnectedCallback
+          connectedCallback
+        , disconnectedCallback
       }
 
       console.warn ('Definining', definition, name, Class, options)
