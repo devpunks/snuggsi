@@ -5,6 +5,10 @@
 // W3C - https://w3c.github.io/webcomponents/spec/custom/
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
+void function ( { define, get, whenDefined } = {} ) {
+
+console.warn ('Snuggs', define, get, whenDefined)
+
 window.customElements
 
 || (window.customElements =
