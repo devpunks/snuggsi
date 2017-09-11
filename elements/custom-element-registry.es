@@ -15,47 +15,36 @@ new class CustomElementRegistry {
     this.running = undefined
 
     window.customElements.define
-      = this.define (define)
+      = this._define (define)
         .bind (this)
   }
 
-  define ( delegate = () => {} ) {
-    this.definitions = []
+  _define ( delegate = _=>{} ) {
 
-    return function thunk ( ... definition ) {
+    this.definitions = []
+    //  definition = this.swizzle ( definition );
+
+    return ( ... definition ) =>
       delegate.apply
-        (window.customElements, definition)
-    }
+        ( window.customElements, this.register ( ... definition ) )
+  }
+
+  register (name, Class) {
+    // perhaps this goes in swizzle
+    (this.definitions [name] = Class)
+      .localName = name;
+
+    ('loading' === document.readyState)
+      && document.addEventListener
+        ('DOMContentLoaded', function (event) { console.warn (event) } )
+
+    return arguments
   }
 
   get (name) { return this [name] }
   whenDefined (name) { return (new Promise) }
-}
-
-
-void ((registry, define = registry.define && registry.define.bind (registry)) => {
- 
-class CustomElementRegistry {
-
-  static define ( name, Class, constructor ) {
-
-//  definition = this.swizzle ( definition );
-
-    ('loading' === document.readyState)
-      && document.addEventListener
-        ('DOMContentLoaded',
-          this.register ( name, Class, constructor ))
-  }
 
   static register ( name, Class, constructor ) {
-
-    Class.localName = name
-
-//  define && define // do not register if not custom element
-//    (name, this [name] = klass)
-
-    console.log ('the class', Class)
-
     return event => {
       let
         selected  =
@@ -86,12 +75,3 @@ class CustomElementRegistry {
       (element.localName,'ugraded!')
   }
 }
-
-
-registry.define =
-  CustomElementRegistry.define
-    .bind (CustomElementRegistry)
-})
-
-//(window.customElements = window.customElements || {})
-
