@@ -9,7 +9,9 @@ window.HTMLElement = function (constructor) {
       ('section')
 //    (this.constructor.localName)
 
-    console.warn ('element', constructor, this.constructor.localName, element)
+console.warn (this.constructor)
+
+//  console.warn ('element', constructor, this.constructor.localName, element)
 
     return Object.setPrototypeOf
       (element, this.constructor.prototype)

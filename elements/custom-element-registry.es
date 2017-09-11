@@ -26,25 +26,26 @@ new class CustomElementRegistry {
 
     //  definition = this.swizzle ( definition );
 
-    return ( name, Class, options ) => {
+    return ( name, constructor, options ) => {
       const {
         //, observedAttributes
         //, attributesChangedCallback
         //, adoptedCallback
           connectedCallback
         , disconnectedCallback
-      } = Class.prototype
+      } = constructor.prototype
 
       , definition = {
           name
+        , constructor
         , connectedCallback
         , disconnectedCallback
       }
 
-      console.warn ('Definining', definition, name, Class, options)
+      console.warn ('Definining', definition, name, constructor, options)
 
       delegate.apply
-        ( window.customElements, this.register ( name, Class ) )
+        ( window.customElements, this.register ( name, constructor ) )
     }
   }
 
