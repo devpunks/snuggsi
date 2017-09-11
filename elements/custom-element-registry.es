@@ -11,6 +11,7 @@ new class CustomElementRegistry {
   constructor ({ define, get, whenDefined } = {}) {
 
     this.definitions = []
+    this.running     = undefined
 
     console.warn ('Snuggs', define, get, whenDefined)
     console.log ('Holy Shit!')
