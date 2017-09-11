@@ -1,12 +1,12 @@
+!!! window.customElements
+  && (window.customElements = {/* microfill */})
+
 // The CustomElementRegistry Interface
 // WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
 //
 // The Custom Elements Spec
 // W3C - https://w3c.github.io/webcomponents/spec/custom/
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
-
-!!! window.customElements
-  && (window.customElements = {})
 
 new class CustomElementRegistry {
 
