@@ -6,21 +6,31 @@
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
 
 
+!!! window.customElements
+  && (window.customElements = {})
+
 new class CustomElementRegistry {
 
-  constructor ({ define, get, whenDefined } = {}) {
+  constructor ({ define, get, whenDefined } = customElements ) {
 
+//  const { define, get, whenDefined } = window.customElements
+
+    this.promises = []
     this.definitions = []
-    this.running     = undefined
+    this.running = undefined
 
-    console.warn ('Snuggs', define, get, whenDefined)
-    console.log ('Holy Shit!')
+    window.customElements && (
+    window.customElements.define = function (name, Class) {
+      this.definitions [name] = Class
+
+      console.warn ('Snuggs', define, this, this.definitions [name])
+    }.bind (this))
+
+//  for (let func of [define, get])
+//  console.log ('Holy Shit!', func.name)
   }
 
-  define (name, Class) {
-    this.definitions [name] = Class
-
-    console.warn ('Snuggs', this.definitions [name])
+  define2 (name, Class) {
   }
 
   get (name) {
@@ -33,7 +43,7 @@ new class CustomElementRegistry {
     return (new Promise)
   }
 
-} (window.customElements)
+} ()
 
 
 void ((registry, define = registry.define && registry.define.bind (registry)) => {
