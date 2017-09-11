@@ -27,9 +27,13 @@ new class CustomElementRegistry {
     //  definition = this.swizzle ( definition );
 
     return ( name, Class, options ) => {
-      const proto = Class.prototype
+      const {
+        adoptedCallback
+      , connectedCallback
+      , disconnectedCallback
+      } = Class.prototype
 
-      console.warn ('Definining', proto.connectedCallback, ... arguments)
+      console.warn ('Definining', connectedCallback, ... arguments)
 
 //    delegate.apply
 //      ( window.customElements, this.register ( ... definition ) )
