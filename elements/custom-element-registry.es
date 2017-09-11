@@ -12,10 +12,11 @@ window.customElements
 
 new (window.CustomElementRegistry =
 
-(class {
+class {
 
-  constructor () {
+  constructor ({ define, get, whenDefined } = {}) {
 
+    console.warn ('Snuggs', define, get, whenDefined)
     console.log ('Holy Shit!')
   }
 
@@ -34,9 +35,9 @@ new (window.CustomElementRegistry =
     console.warn ('Defined', name)
   }
 
-})))
+}) (window.customElements)
 
-} (window.customElements)
+)
 
 void ((registry, define = registry.define && registry.define.bind (registry)) => {
  
