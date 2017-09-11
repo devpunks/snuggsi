@@ -12,19 +12,20 @@ new class CustomElementRegistry {
 
   constructor ({ define, get, whenDefined } = customElements ) {
 
-    this.promises = []
-    this.definitions = []
     this.running = undefined
 
-      window.customElements.define
-        = this.define (define)
-          .bind (this)
+    window.customElements.define
+      = this.define (define)
+        .bind (this)
   }
 
   define ( delegate = () => {} ) {
-    return ( ... definition ) =>
+    this.definitions = []
+
+    return function thunk ( ... definition ) {
       delegate.apply
         (window.customElements, definition)
+    }
   }
 
   get (name) { return this [name] }
