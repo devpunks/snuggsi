@@ -28,8 +28,10 @@ new class CustomElementRegistry {
 
     return ( name, Class, options ) => {
       const {
-        adoptedCallback
-      , connectedCallback
+      //, observedAttributes
+      //, attributesChangedCallback
+      //adoptedCallback
+        connectedCallback
       , disconnectedCallback
       } = Class.prototype
 
