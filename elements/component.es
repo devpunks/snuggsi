@@ -55,23 +55,16 @@ const Custom = Element => // why buble
       && super.connectedCallback ()
 
     this.onconnect ()
+
+    this.render ()
   }
 
 
   render () {
     console.log ('rendering')
 
-    this.tokens.bind (this)
-
-    void []
-      .slice
-      .call (this.selectAll ('template[name]'))
-
-      .map
-        (template => template.getAttribute ('name'))
-
-      .map
-        (name => (new Template (name)).bind (this [name]))
+    console.warn (this .templates)
+//    .map (template => console.warn ( template, this [name] ) )
 
 
     return
@@ -82,6 +75,8 @@ const Custom = Element => // why buble
 
       .map (this.register, this)
 
+
+    this.tokens.bind (this)
 
     super.onidle && super.onidle ()
   }

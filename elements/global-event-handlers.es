@@ -37,13 +37,17 @@ const GlobalEventHandlers = Element =>
 //    && this.mirror
 //      (target.import.querySelector ('template'))
 
-    super.onconnect
-      && super.onconnect ()
+    this
+      .templates = []
+      .slice
+      .call (this.selectAll ('template[name]'))
+      .map  (template => new Template (template))
 
     this.tokens =
       new TokenList (this)
 
-    this.render ()
+    super.onconnect
+      && super.onconnect ()
   }
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)

@@ -64,6 +64,9 @@ const Template = HTMLTemplateElement = function (template) {
     for (let i=0, final = ''; i<contexts.length; i++)
       html += deposit (contexts [i], i)
 
+    console.log (html)
+    return
+
     fragment.innerHTML = html
 
     this.dependents = Array.from // non-live
