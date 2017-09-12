@@ -11,7 +11,7 @@
       console.dir (this.constructor)
     }
 
-    E.prototype = Object.create (constructor.prototype)
+    E.prototype = constructor.prototype
     E.prototype.constructor = constructor
 
     return E

@@ -59,9 +59,6 @@ new class CustomElementRegistry {
     (this [name] = Class)
       .localName = name;
 
-    Class.clone =
-      document.createElement (name);
-
     ('loading' === document.readyState)
       && document.addEventListener
         ('DOMContentLoaded', this.queue ( ... arguments ))
@@ -89,12 +86,15 @@ new class CustomElementRegistry {
   upgrade (constructor) {
     return function (element) {
 
-      console.log (new constructor)
+//    console.log (new constructor)
 
+//  const wha =
 //    Object
 //      .setPrototypeOf
 //        (element, Object.create (constructor.prototype))
 //      .connectedCallback ()
+
+//  console.warn (wha.initialize ())
     }
   }
 

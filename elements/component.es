@@ -4,14 +4,13 @@ const Custom = Element => // why buble
   ( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))
 {
   constructor () {
-    super ()
-
-    console.warn ('Anything further is snuggsi')
-
-    this.initialize ()
+    super
+      () .initialize ()
   }
 
   initialize () {
+    console.warn ('Anything further is snuggsi')
+
 
     let
       descriptions =
@@ -20,14 +19,18 @@ const Custom = Element => // why buble
              (Element.prototype)
 
     , bind = key =>
-        'function' === typeof descriptions [key].value
-        && (this [key] = this [key].bind (this))
+        !!! console.warn
+          (key, descriptions [key].value, descriptions [key], this[key])
+
+        &&
+
+        'function' === typeof
+          descriptions [key].value
+            && (this [key] = this [key].bind (this))
 
     Object
       .keys (descriptions)
-      .map (console.log) //(bind)
-
-    return this
+      .map  (bind)
 
     Object
       .getOwnPropertyNames (Element.prototype)
@@ -38,19 +41,23 @@ const Custom = Element => // why buble
       .map (this.reflect, this)
 
     this.context = {}
-    this.initialize && this.initialize ()
+
+    console.warn ('context', this.context)
+
+//  console.log ('super initialize', super.initialize)
   }
 
 
   connectedCallback (link) {
-    console.warn ('HAIL MARY', this, this.foo, this.bar, this.baz, this.onconnect)
+    console.warn ('HAIL MARY', this, this.foo, this.bar, this.baz)
+    this.onconnect (new Event ('load'))
 
-    link = HTMLLinkElement
-      (this.tagName.toLowerCase ())
+//  link = HTMLLinkElement
+//    (this.tagName.toLowerCase ())
 
-    link
-      ? link.addEventListener ('load', this.onconnect.bind (this))
-      : this.onconnect (new Event ('load'))
+//  link
+//    ? link.addEventListener ('load', this.onconnect.bind (this))
+//    : this.onconnect (new Event ('load'))
   }
 
 

@@ -54,13 +54,15 @@ const GlobalEventHandlers = Element =>
   // meta-data, properties and/or functions of an object at runtime.
 
   reflect (handler, event) {
+
     ( event = ( handler.match (/^on(.+)$/) || [] ) [1] )
 
-    && Object.keys // ensure W3C on event
-     ( HTMLElement.prototype )
-       .includes ( handler )
+      && // ensure W3C on event
+        HTMLElement.prototype
+          .hasOwnProperty (handler)
 
-    && this.on (event, this [handler])
+      &&
+        this.on (event, this [handler])
   }
 
   register (node) {
