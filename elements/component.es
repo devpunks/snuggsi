@@ -63,11 +63,9 @@ const Custom = Element => // why buble
 
     this.tokens.bind (this)
 
-    return
-
-    Array
-      .from
-        (this.selectAll ('template[name]'))
+    void []
+      .slice
+      .call (this.selectAll ('template[name]'))
 
       .map
         (template => template.getAttribute ('name'))
@@ -75,6 +73,8 @@ const Custom = Element => // why buble
       .map
         (name => (new Template (name)).bind (this [name]))
 
+
+    return
 
     Array
       .from (this.selectAll ('*'))
