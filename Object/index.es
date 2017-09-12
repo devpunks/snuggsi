@@ -14,6 +14,7 @@
 //   - http://2ality.com/2016/02/object-getownpropertydescriptors.html
 //   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
 //
+// TC39 Proposal - https://github.com/tc39/proposal-object-getownpropertydescriptors
 
 void new class {
 
