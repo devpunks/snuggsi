@@ -4,16 +4,16 @@
 // 3.2.3 HTML element constructors
 // https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
 
-//window.HTMLElement = function (constructor) {
+  window.HTMLElement = function (constructor) {
 
-//  const E = function HTMLElement () {
+    const E = function HTMLElement () {
 
-//    console.dir (this.constructor)
-//  }
+      console.dir (this.constructor)
+    }
 
-//  E.prototype = Object.create (constructor.prototype)
-//  E.prototype.constructor = constructor
+    E.prototype = Object.create (constructor.prototype)
+    E.prototype.constructor = constructor
 
-//  return E
+    return E
 
-//} (HTMLElement)
+  } (HTMLElement)

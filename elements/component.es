@@ -4,18 +4,16 @@ const Custom = Element => // why buble
   ( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))
 {
   constructor () {
-    self = super ()
+    super ()
 
-    console.log ('holy fuck this COMPONENT.es is working!!!', this)
-    console.warn ('Anything further is snuggsi', self)
+    console.warn ('Anything further is snuggsi')
 
     this.initialize ()
-
-    return self // for new instantiation
   }
 
   initialize () {
 
+    console.warn (Object.getOwnPropertyDescriptors)
     let
       descriptions =
         Object.getOwnPropertyDescriptors
