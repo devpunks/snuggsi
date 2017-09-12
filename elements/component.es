@@ -19,7 +19,9 @@ const Custom = Element => // why buble
 
     Object
       .keys (descriptions)
-      .map (bind)
+      .map (console.log) //(bind)
+
+    return this
 
     Object
       .getOwnPropertyNames (Element.prototype)
