@@ -71,11 +71,15 @@ new class CustomElementRegistry {
   upgrade (constructor) {
     return function (element) {
 
-      Object
+      element = Object
         .setPrototypeOf
           (element, Object.create (constructor.prototype))
-        .initialize ()
-        .connectedCallback ()
+
+      element.initialize
+        && element.initialize ()
+
+      element.connectedCallback
+        && element.connectedCallback ()
     }
   }
 
