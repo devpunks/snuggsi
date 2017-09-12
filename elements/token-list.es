@@ -72,7 +72,9 @@ class TokenList {
         .map (replace (symbol))
   }
 
-//zip (...elements) {
+}
+
+//function zip (...elements) {
 //  const
 //    lock = (zipper, row) => [...zipper, ...row]
 //  , pair = teeth => // http://english.stackexchange.com/questions/121601/pair-or-couple
@@ -84,7 +86,7 @@ class TokenList {
 //    .reduce (lock)
 //}
 
-//slice (text, tokens = []) {
+//function slice (text, tokens = []) {
 //  const
 //    match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
 //  , replace  = token => (collect (token), '✂️')
@@ -96,5 +98,3 @@ class TokenList {
 //  return zip (tokens, sections)
 //        .map (element => element && new Text (element))
 //}
-}
-
