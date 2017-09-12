@@ -3,6 +3,9 @@
 
 // 3.2.3 HTML element constructors
 // https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
+// Satisfy Element interface document.createElement
+//   - https://dom.spec.whatwg.org/#concept-element-interface
+
 
   window.HTMLElement = function (constructor) {
 

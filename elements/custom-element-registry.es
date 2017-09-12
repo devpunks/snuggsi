@@ -32,22 +32,7 @@ new class CustomElementRegistry {
     //  definition = this.swizzle ( definition );
 
     return ( name, constructor, options ) => {
-      const {
-        //, observedAttributes
-        //, attributesChangedCallback
-        //, adoptedCallback
-          connectedCallback
-        , disconnectedCallback
-      } = constructor.prototype
-
-      , definition = {
-          name
-        , constructor
-        , connectedCallback
-        , disconnectedCallback
-      }
-
-      console.warn ('Definining', definition, name, constructor, options)
+      console.warn ('Definining', name, constructor, options)
 
       void (_=>{}).apply
         ( window.customElements, this.register ( name, constructor ) )
@@ -86,15 +71,11 @@ new class CustomElementRegistry {
   upgrade (constructor) {
     return function (element) {
 
-//    console.log (new constructor)
-
-//  const wha =
-//    Object
-//      .setPrototypeOf
-//        (element, Object.create (constructor.prototype))
-//      .connectedCallback ()
-
-//  console.warn (wha.initialize ())
+      Object
+        .setPrototypeOf
+          (element, Object.create (constructor.prototype))
+        .initialize ()
+        .connectedCallback ()
     }
   }
 

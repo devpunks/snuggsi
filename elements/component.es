@@ -45,23 +45,19 @@ const Custom = Element => // why buble
     console.warn ('context', this.context)
 
 //  console.log ('super initialize', super.initialize)
+
+    return this
   }
 
 
   connectedCallback (link) {
-    console.warn ('HAIL MARY', this, this.foo, this.bar, this.baz)
-    this.onconnect (new Event ('load'))
-
-//  link = HTMLLinkElement
-//    (this.tagName.toLowerCase ())
-
-//  link
-//    ? link.addEventListener ('load', this.onconnect.bind (this))
-//    : this.onconnect (new Event ('load'))
+    this.onconnect ()
   }
 
 
   render () {
+    console.log ('rendering')
+    return
 
     this.tokens.bind (this)
 
