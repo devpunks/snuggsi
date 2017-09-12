@@ -8,7 +8,18 @@
   <p style='visibility:visible;background:orange;padding:3em'>Whatever is clever</p>
 </section>
 
-<hello-world>Hello World!!!</hello-world>
+<hello-world>
+  Hello World!!! {baz}
+
+  <template name=snuggs>
+    <section style=background:black;color:red;>
+      <h1>{self}</h1>
+
+      Holy Fuck! {#}
+    </section>
+  </template>
+</hello-world>
+
 <!--
   <hello-world>Hello Sun!!!</hello-world>
   <hello-world>Hello Moon!!!</hello-world>
@@ -76,7 +87,7 @@ var Bam = function (_HTMLElement) {
   }, {
     key: 'baz',
     value: function baz() {
-      return 'baz';
+      return new Date;
     }
   }, {
     key: 'foo',
