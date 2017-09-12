@@ -15,7 +15,7 @@
     <section style=background:black;color:red;>
       <h1>{self}</h1>
 
-      Holy Fuck! {#}
+      WOW ! {#}
       <footer>
         <button onclick=onrob>Score</button>
       </footer>
@@ -68,28 +68,38 @@ var Bam = function (_HTMLElement) {
 
     var _this = _possibleConstructorReturn(this, (Bam.__proto__ || Object.getPrototypeOf(Bam)).call(this));
 
-    console.log('Snuggs dun did it again', _this);
+    console.log('Snuggs did it again', _this);
     return _this;
   }
 
   _createClass(Bam, [{
     key: 'connectedCallback',
     value: function connectedCallback() {
-      console.log('connected bitch', this, this.innerText);
+      console.log('connected!', this, this.innerText);
+    }
+  }, {
+    key: 'onidle',
+    value: function baz(event) {
+      console.log ('Idling', event);
+    }
+  }, {
+    key: 'initialize',
+    value: function initialize() {
+      console.log ('Initializing', event);
     }
   }, {
     key: 'onconnect',
-    value: function baz(event) {
-      console.log ('This fucking made it all the way here', event);
+    value: function onconnect(event) {
+      console.log ('This made it all the way here', event);
     }
   }, {
     key: 'onclick',
-    value: function baz(event) {
+    value: function onclick(event) {
       console.log ('clicked mofo', event);
     }
   }, {
     key: 'onrob',
-    value: function baz(event) {
+    value: function onrob(event) {
       console.log ('🎉🎉 TOUCHDOWN! 🏈 ', event);
     }
   }, {
