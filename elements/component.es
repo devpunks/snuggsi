@@ -13,11 +13,11 @@ const Custom = Element => // why buble
 
   initialize () {
 
-    console.warn (Object.getOwnPropertyDescriptors)
     let
       descriptions =
-        Object.getOwnPropertyDescriptors
-          (Element.prototype)
+        Object
+          .getOwnPropertyDescriptors
+             (Element.prototype)
 
     , bind = key =>
         'function' === typeof descriptions [key].value
