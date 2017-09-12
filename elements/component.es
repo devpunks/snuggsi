@@ -3,10 +3,18 @@ const Custom = Element => // why buble
 ( class extends // interfaces
   ( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))
 {
-  constructor () { super ()
+  constructor () {
+    self = super ()
 
     console.log ('holy fuck this COMPONENT.es is working!!!', this)
-    console.warn ('Anything further is snuggsi')
+    console.warn ('Anything further is snuggsi', self)
+
+    this.initialize ()
+
+    return self // for new instantiation
+  }
+
+  initialize () {
 
     let
       descriptions =
