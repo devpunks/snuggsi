@@ -78,6 +78,7 @@ new class CustomElementRegistry {
       , instances = []
           .slice
           .call (selected)
+          // .reverse () // should be able to do depth first
           .map  (this.upgrade (Class))
     }
   }
