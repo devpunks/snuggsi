@@ -4,8 +4,6 @@
 
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
 
-// INTERESTING! Converting `Template` to a class increases size by ~16 octets
-
 // https://github.com/webcomponents/template
 const Template = HTMLTemplateElement = function (template) {
 
@@ -25,10 +23,6 @@ const Template = HTMLTemplateElement = function (template) {
     .replaceChild
       (template.comment, template)
 
-  // create shallow clone using `.getOwnPropertyDescriptors`
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors#Examples
-  // https://docs.microsoft.com/en-us/scripting/javascript/reference/object-getownpropertydescriptor-function-javascript
-  // NO IE SUPPORT!!!!
   Object
     .defineProperty
       (template, 'bind'
@@ -41,8 +35,7 @@ const Template = HTMLTemplateElement = function (template) {
     let
       html     = ''
     , template = this.innerHTML
-    , contexts =
-        [].concat ( ... [context] )
+    , contexts = [].concat ( ... [context] )
         // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
 
     const
@@ -55,8 +48,7 @@ const Template = HTMLTemplateElement = function (template) {
     , tokens =
         keys.map (key => '{'+key+'}') // memoize tokens
 
-    , fragment =
-      // create template polyfill here
+    , fragment = // create template polyfill here
         document.createElement ('template')
 
     , deposit = (context, index) => {
@@ -87,23 +79,16 @@ const Template = HTMLTemplateElement = function (template) {
       (fragment.content || fragment).childNodes
 
     this.dependents =
-      Array.apply (null, children); // non-live
+      Array.apply (null, children) // non-live
 
     this.comment.after
       && this.comment.after ( ... this.dependents )
 
-    console.log ((new Date).getTime ())
     !!!  this.comment.after
-      && this
-           .dependents
-           .reverse ()
-           .map (dependent =>
-             this
-               .comment
-               .parentNode
-               .insertBefore (dependent, this.comment.nextSibling))
-    console.log ((new Date).getTime ())
-
+      && this.dependents.reverse ()
+         .map (dependent =>
+           this.comment.parentNode.insertBefore
+             (dependent, this.comment.nextSibling))
   }
 }
 
