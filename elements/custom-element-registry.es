@@ -44,7 +44,7 @@ new class CustomElementRegistry {
 
       console.warn ('Definining', definition, name, constructor, options)
 
-      delegate.apply
+      void (_=>{}).apply
         ( window.customElements, this.register ( name, constructor ) )
     }
   }
@@ -54,17 +54,17 @@ new class CustomElementRegistry {
     (this [name] = Class)
       .localName = name;
 
-//  ('loading' === document.readyState)
-//    && document.addEventListener
-//      ('DOMContentLoaded', function (event) { console.warn (event) } )
+    Class.clone =
+      document.createElement (name);
+
+    ('loading' === document.readyState)
+      && document.addEventListener
+        ('DOMContentLoaded', this.queue ( ... arguments ))
 
     return arguments
   }
 
-  get (name) { return this [name] }
-  whenDefined (name) { return (new Promise) }
-
-  static register ( name, Class, constructor ) {
+  queue ( name, Class, constructor ) {
     return event => {
       let
         selected  =
@@ -74,7 +74,21 @@ new class CustomElementRegistry {
       , instances = []
           .slice
           .call (selected)
-          .map  (this.upgrade, Class)
+          .map  (this.upgrade (Class))
+    }
+  }
+
+  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
+  // "Dmitry's Brain Transplant"
+  upgrade (constructor) {
+    return function (element) {
+
+      console.log (new constructor)
+
+//    Object
+//      .setPrototypeOf
+//        (element, Object.create (constructor.prototype))
+//      .connectedCallback ()
     }
   }
 
@@ -82,16 +96,5 @@ new class CustomElementRegistry {
   static swizzle ( name, ... Class ) {
 
     return definition // tuple
-  }
-
-  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
-  // "Dmitry's Brain Transplant"
-  static upgrade (element) {
-    (new this)
-      .connectedCallback
-      .call (element)
-
-    console.warn
-      (element.localName,'ugraded!')
   }
 }

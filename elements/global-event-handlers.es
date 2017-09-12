@@ -30,6 +30,8 @@ const GlobalEventHandlers = Element =>
 
   onconnect (event, target) {
 
+    console.warn ('On Connecting!!!');
+
     (target = event.target)
       && this.mirror (target.import.querySelector ('template'))
 

@@ -8,8 +8,6 @@ const Custom = Element => // why buble
     console.log ('holy fuck this COMPONENT.es is working!!!', this)
     console.warn ('Anything further is snuggsi')
 
-    return this
-
     let
       descriptions =
         Object.getOwnPropertyDescriptors
