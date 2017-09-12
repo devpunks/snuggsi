@@ -17,9 +17,13 @@ const Template = HTMLTemplateElement = function (template) {
   template.name =
     template.getAttribute ('name')
 
+  template.comment =
+    document.createComment (template.name)
+
   template
     .parentNode
-    .removeChild (template)
+    .replaceChild
+      (template.comment, template)
 
   // create shallow clone using `.getOwnPropertyDescriptors`
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors#Examples
@@ -41,13 +45,19 @@ const Template = HTMLTemplateElement = function (template) {
         [].concat ( ... [context] )
         // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
 
-    , keys =
-        Object
-          .keys (contexts [0] || [])    // memoize keys
+    const
+      keys =
+        'object' === typeof contexts [0]
+          ? Object.keys (contexts [0])    // memoize keys
+          :  []
           .concat (['#', 'self']) // add helper keys
 
-    , tokens   = keys.map (key => '{'+key+'}') // memoize tokens
-    , fragment = document.createElement ('template')
+    , tokens =
+        keys.map (key => '{'+key+'}') // memoize tokens
+
+    , fragment =
+      // create template polyfill here
+        document.createElement ('template')
 
     , deposit = (context, index) => {
         let clone = template
@@ -65,21 +75,35 @@ const Template = HTMLTemplateElement = function (template) {
         return clone
       }
 
-    void (this.dependents || [])
-      .map (dependent => dependent.remove ())
+    void ( this.dependents || [] ).map
+      (dependent => dependent.parentNode.removeChild (dependent))
 
     for (let i=0, final = ''; i<contexts.length; i++)
       html += deposit (contexts [i], i)
 
-    console.log (html)
-    return
-
     fragment.innerHTML = html
 
-    this.dependents = Array.from // non-live
-      (fragment.content.childNodes)
+    var children =
+      (fragment.content || fragment).childNodes
 
-    this.after ( ... this.dependents )
+    this.dependents =
+      Array.apply (null, children); // non-live
+
+    this.comment.after
+      && this.comment.after ( ... this.dependents )
+
+    console.log ((new Date).getTime ())
+    !!!  this.comment.after
+      && this
+           .dependents
+           .reverse ()
+           .map (dependent =>
+             this
+               .comment
+               .parentNode
+               .insertBefore (dependent, this.comment.nextSibling))
+    console.log ((new Date).getTime ())
+
   }
 }
 
