@@ -33,16 +33,17 @@ class TokenList {
 
     , TEXT_NODE = node =>
         expression.test (node.textContent)
-        && nodes.push (node)
+          && nodes.push (node)
 
     , ELEMENT_NODE = attrs =>
-        Array
-          .from (attrs)
+        []
+          .slice
+          .call (attrs)
           .map  (attr => expression.test (attr.value) && nodes.push (attr))
 
     , walker =
         document.createNodeIterator
-          (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit)
+          (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
           // by default breaks on template YAY! 🎉
 
     while (walker.nextNode ()) 0 // Walk all nodes and do nothing.
