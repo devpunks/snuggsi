@@ -48,6 +48,8 @@ const GlobalEventHandlers = Element =>
 
     super.onconnect
       && super.onconnect ()
+
+    return this
   }
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)

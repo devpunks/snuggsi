@@ -54,9 +54,9 @@ const Custom = Element => // why buble
     super.connectedCallback
       && super.connectedCallback ()
 
-    this.onconnect ()
-
-    this.render ()
+    this
+      .onconnect ()
+      .render ()
   }
 
 
