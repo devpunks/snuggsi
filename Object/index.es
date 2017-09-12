@@ -15,21 +15,42 @@
 //   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
 //
 
-Object.getOwnPropertyDescriptors
+void new class {
 
-||
+  constructor () {
+    Object.getOwnPropertyDescriptors
+    || Object.defineProperty
+      (Object, 'getOwnPropertyDescriptors', this.record)
+  }
 
+  get record () {
+    return {
+      writable: true
+    , configurable: true
+    , value: this.getOwnPropertyDescriptors
+    }
+  }
 
-Object.defineProperty
-  (Object, 'getOwnPropertyDescriptors', { configurable: true, writable: true, value: getOwnPropertyDescriptors })
+  getOwnPropertyDescriptors (object) {
 
-function getOwnPropertyDescriptors (object) {
+    return Object
 
-  return Object
-    .getOwnPropertyNames (object)
-    .reduce ((descriptors, key) =>
-      Object.defineProperty
-        (descriptors, key, { configurable: true, enumerable: true, writable: true, value: Object.getOwnPropertyDescriptor (object, key) })
-    , {})
+      .getOwnPropertyNames (object)
+
+      .reduce ((descriptors, key) =>
+
+        Object.defineProperty
+          (descriptors, key, {
+
+            writable: true
+          , enumerable: true
+          , configurable: true
+
+          , value:
+              Object.getOwnPropertyDescriptor (object, key)
+          })
+
+      , {})
+  }
 }
 
