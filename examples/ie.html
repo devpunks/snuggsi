@@ -9,8 +9,10 @@
 </section>
 
 <hello-world>Hello World!!!</hello-world>
-<hello-world>Hello Sun!!!</hello-world>
-<hello-world>Hello Moon!!!</hello-world>
+<!--
+  <hello-world>Hello Sun!!!</hello-world>
+  <hello-world>Hello Moon!!!</hello-world>
+-->
 
 <hello-mars>Hello Mars!!!</hello-mars>
 
@@ -62,6 +64,11 @@ var Bam = function (_HTMLElement) {
       console.log('connected bitch', this, this.innerText);
     }
   }, {
+    key: 'onconnect',
+    value: function baz(event) {
+      console.log ('This fucking made it all the way here', event);
+    }
+  }, {
     key: 'onclick',
     value: function baz(event) {
       console.log ('clicked mofo', event);
@@ -90,24 +97,6 @@ var Bam = function (_HTMLElement) {
 // Uncaught DOMException: Failed to execute 'define' on 'CustomElementRegistry':
 // this constructor has already been used with this registry
 // Element ('hello-mars')(klass)
-
-/*
-class Foo extends HTMLElement {
-  connectedCallback () {
-    console.warn ('\n\n\nWTF is really going on')
-  }
-
-  onclick () {
-    alert `FOO ZOMG!`
-  }
-}
-
-class Bar extends HTMLElement {
-  onclick () {
-    alert `BAR ZOMG!`
-  }
-}
-*/
 
 //Element`hello-saturn`(Foo)
   Element ('hello-world')(Bam)
