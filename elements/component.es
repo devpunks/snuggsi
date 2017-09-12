@@ -76,8 +76,7 @@ const Custom = Element => // why buble
 
     return
 
-    Array
-      .from (this.selectAll ('*'))
+    Array.from (this.selectAll ('*'))
 
       .concat ([this])
 
