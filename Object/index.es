@@ -1,5 +1,11 @@
+// MDN Object.keys
+//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+//
 // MDN Object.hasOwnProperty
 //   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
+//
+// Object.getOwnPropertyNames
+//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames
 //
 // Object.getOwnPropertyDescriptor
 //   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor
