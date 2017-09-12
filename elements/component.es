@@ -60,10 +60,10 @@ const Custom = Element => // why buble
 
   render () {
     console.log ('rendering')
-    return
 
     this.tokens.bind (this)
 
+    return
 
     Array
       .from

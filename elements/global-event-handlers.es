@@ -41,7 +41,9 @@ const GlobalEventHandlers = Element =>
     super.onconnect
       && super.onconnect ()
 
-    this.tokens = new TokenList (this)
+    this.tokens =
+      new TokenList (this)
+
     this.render ()
   }
 
