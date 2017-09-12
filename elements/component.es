@@ -3,10 +3,8 @@ const Custom = Element => // why buble
 ( class extends // interfaces
   ( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))
 {
-  constructor () {
-    super ()
-      .initialize ()
-  }
+  constructor ()
+    { super () }
 
   initialize () {
 
@@ -34,6 +32,9 @@ const Custom = Element => // why buble
       .map (this.reflect, this)
 
     this.context = {}
+
+    super.initialize
+      && super.initialize ()
 
     return this
   }
