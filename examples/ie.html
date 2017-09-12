@@ -16,6 +16,9 @@
       <h1>{self}</h1>
 
       Holy Fuck! {#}
+      <footer>
+        <button onclick=onrob>Score</button>
+      </footer>
     </section>
   </template>
 </hello-world>
@@ -83,6 +86,11 @@ var Bam = function (_HTMLElement) {
     key: 'onclick',
     value: function baz(event) {
       console.log ('clicked mofo', event);
+    }
+  }, {
+    key: 'onrob',
+    value: function baz(event) {
+      console.log ('🎉🎉 TOUCHDOWN! 🏈 ', event);
     }
   }, {
     key: 'baz',
