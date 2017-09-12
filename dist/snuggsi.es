@@ -1,3 +1,178 @@
+// MDN Object.keys
+//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+//
+// MDN Object.hasOwnProperty
+//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
+//
+// Object.getOwnPropertyNames
+//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames
+//
+// Object.getOwnPropertyDescriptor
+//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor
+//
+// Object.getOwnPropertyDescriptors
+//   - http://2ality.com/2016/02/object-getownpropertydescriptors.html
+//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
+//
+// TC39 Proposal - https://github.com/tc39/proposal-object-getownpropertydescriptors
+
+void new class {
+
+  constructor () {
+
+    Object.getOwnPropertyDescriptors
+    || Object.defineProperty
+      (Object, 'getOwnPropertyDescriptors', this.descriptor)
+  }
+
+  get descriptor () {
+    return {
+      writable: true
+    , configurable: true
+    , value: this.getOwnPropertyDescriptors
+    }
+  }
+
+  getOwnPropertyDescriptors (object) {
+
+    return Object
+
+      .getOwnPropertyNames (object)
+
+      .reduce ((descriptors, key) =>
+
+        Object.defineProperty
+          (descriptors, key, {
+
+            writable: true
+          , enumerable: true
+          , configurable: true
+
+          , value:
+              Object.getOwnPropertyDescriptor (object, key)
+          })
+
+      , {})
+  }
+}
+
+// http://nshipster.com/method-swizzling/
+// HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
+
+// 3.2.3 HTML element constructors
+// https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
+// Satisfy Element interface document.createElement
+//   - https://dom.spec.whatwg.org/#concept-element-interface
+
+
+  window.HTMLElement = function (constructor) {
+
+    const E = function HTMLElement () {
+
+      console.dir (this.constructor)
+    }
+
+    E.prototype = constructor.prototype
+    E.prototype.constructor = constructor
+
+    return E
+
+  } (HTMLElement)
+
+// The CustomElementRegistry Interface
+// WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
+//
+// The Custom Elements Spec
+// W3C - https://w3c.github.io/webcomponents/spec/custom/
+// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
+//
+// Legacy webcomponentsjs
+//   - https://github.com/webcomponents/custom-elements/blob/master/src/CustomElementRegistry.js
+//
+//   - CEReactions
+//     - https://github.com/webcomponents/custom-elements/pull/62
+//     - https://html.spec.whatwg.org/multipage/custom-elements.html#cereactions
+//     - https://html.spec.whatwg.org/#cereactions
+
+
+!!! window.customElements
+  && (window.customElements = {/* microfill */})
+
+
+new class CustomElementRegistry {
+
+  constructor ({ define, get, whenDefined } = customElements ) {
+
+    window.customElements.define
+      = this._define (define)
+        .bind (this)
+  }
+
+  _define ( delegate = _=> {} ) {
+
+    this.running = undefined
+
+    //  definition = this.swizzle ( definition );
+
+    return ( name, constructor, options ) => {
+      console.warn ('Definining', name, constructor, options)
+
+      void (_=>{}).apply
+        ( window.customElements, this.register ( name, constructor ) )
+    }
+  }
+
+  register (name, Class) {
+    // perhaps this goes in swizzle
+    (this [name] = Class)
+      .localName = name;
+
+    ('loading' === document.readyState)
+      && document.addEventListener
+        ('DOMContentLoaded', this.queue ( ... arguments ))
+
+    return arguments
+  }
+
+  queue ( name, Class, constructor ) {
+    return event => {
+      let
+        selected  =
+          document.body
+            .querySelectorAll (name)
+
+      , instances = []
+          .slice
+          .call (selected)
+          // .reverse () // should be able to do depth first
+          .map  (this.upgrade (Class))
+    }
+  }
+
+  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
+  // "Dmitry's Brain Transplant"
+  upgrade (constructor) {
+    // Here's where we can swizzle
+    return function (element) {
+
+      element =
+        Object.setPrototypeOf
+          (element, constructor.prototype)
+
+      element.initialize
+        && element.initialize ()
+
+      element.connectedCallback
+        && element.connectedCallback ()
+    }
+  }
+
+  // http://nshipster.com/method-swizzling/
+  static swizzle ( name, ... Class ) {
+
+    return definition // tuple
+  }
+}
 const HTMLLinkElement = function
 
   // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
@@ -54,16 +229,17 @@ class TokenList {
 
     , TEXT_NODE = node =>
         expression.test (node.textContent)
-        && nodes.push (node)
+          && nodes.push (node)
 
     , ELEMENT_NODE = attrs =>
-        Array
-          .from (attrs)
+        []
+          .slice
+          .call (attrs)
           .map  (attr => expression.test (attr.value) && nodes.push (attr))
 
     , walker =
         document.createNodeIterator
-          (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit)
+          (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
           // by default breaks on template YAY! 🎉
 
     while (walker.nextNode ()) 0 // Walk all nodes and do nothing.
@@ -74,25 +250,27 @@ class TokenList {
   bind (context) {
 
     const
-      keys = Object.keys (this)
-
-    , reset = symbol =>
-        this [symbol].map
-          (node => (node.textContent = node.text) && symbol)
+      reset = symbol =>
+        (symbol.textContent = symbol.text)
 
     , replace =
         (symbol, token = '{'+symbol+'}') =>
           item =>
             (item.textContent = item.textContent.replace (token, context [symbol]))
 
-    keys.map (reset)
 
-    for (let symbol in this)
+    for (let symbol of Object.keys (this))
+      this [symbol]
+        .map (reset)
+
+    for (let symbol of Object.keys (this))
       this [symbol]
         .map (replace (symbol))
   }
 
-//zip (...elements) {
+}
+
+//function zip (...elements) {
 //  const
 //    lock = (zipper, row) => [...zipper, ...row]
 //  , pair = teeth => // http://english.stackexchange.com/questions/121601/pair-or-couple
@@ -104,7 +282,7 @@ class TokenList {
 //    .reduce (lock)
 //}
 
-//slice (text, tokens = []) {
+//function slice (text, tokens = []) {
 //  const
 //    match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
 //  , replace  = token => (collect (token), '✂️')
@@ -116,15 +294,12 @@ class TokenList {
 //  return zip (tokens, sections)
 //        .map (element => element && new Text (element))
 //}
-}
 
 // https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 
 // https://github.com/WebReflection/hyperHTML/pull/100
 
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
-
-// INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
 // https://github.com/webcomponents/template
 const Template = HTMLTemplateElement = function (template) {
@@ -134,28 +309,44 @@ const Template = HTMLTemplateElement = function (template) {
       ? document.querySelector ('template[name='+template+']')
       : template
 
-  // create shallow clone using `.getOwnPropertyDescriptors`
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors#Examples
-  // https://docs.microsoft.com/en-us/scripting/javascript/reference/object-getownpropertydescriptor-function-javascript
-  // NO IE SUPPORT!!!!
-  return Object.assign (template, { bind } )
+  template.name =
+    template.getAttribute ('name')
+
+  template.comment =
+    document.createComment (template.name)
+
+  template
+    .parentNode
+    .replaceChild
+      (template.comment, template)
+
+  Object
+    .defineProperty
+      (template, 'bind'
+      , { value: bind, writable: true, configurable: true })
+
+  return template
 
   function bind (context) {
 
     let
       html     = ''
     , template = this.innerHTML
-    , contexts =
-        [].concat ( ... [context] )
+    , contexts = [].concat ( ... [context] )
         // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
 
-    , keys =
-        Object
-          .keys (contexts [0] || [])    // memoize keys
+    const
+      keys =
+        'object' === typeof contexts [0]
+          ? Object.keys (contexts [0])    // memoize keys
+          :  []
           .concat (['#', 'self']) // add helper keys
 
-    , tokens   = keys.map (key => '{'+key+'}') // memoize tokens
-    , fragment = document.createElement ('template')
+    , tokens =
+        keys.map (key => '{'+key+'}') // memoize tokens
+
+    , fragment = // create template polyfill here
+        document.createElement ('template')
 
     , deposit = (context, index) => {
         let clone = template
@@ -173,18 +364,28 @@ const Template = HTMLTemplateElement = function (template) {
         return clone
       }
 
-    void (this.dependents || [])
-      .map (dependent => dependent.remove ())
+    void ( this.dependents || [] ).map
+      (dependent => dependent.parentNode.removeChild (dependent))
 
     for (let i=0, final = ''; i<contexts.length; i++)
       html += deposit (contexts [i], i)
 
     fragment.innerHTML = html
 
-    this.dependents = Array.from // non-live
-      (fragment.content.childNodes)
+    var children =
+      (fragment.content || fragment).childNodes
 
-    this.after ( ... this.dependents )
+    this.dependents =
+      Array.apply (null, children) // non-live
+
+    this.comment.after
+      && this.comment.after ( ... this.dependents )
+
+    !!!  this.comment.after
+      && this.dependents.reverse ()
+         .map (dependent =>
+           this.comment.parentNode.insertBefore
+             (dependent, this.comment.nextSibling))
   }
 }
 
@@ -298,13 +499,16 @@ const ParentNode = Element =>
       [].concat ( ... [fragments] )
 
     const
-      zip = (selector, token) =>
-        selector + token + fragments.shift ()
+      zip =
+        (part, token) =>
+          part + token + fragments.shift ()
 
-    return Array
-      .from
-        (this.querySelectorAll
-          (tokens.reduce (zip, fragments.shift ())))
+    , selector =
+        tokens.reduce (zip, fragments.shift ())
+
+    return []
+      .slice
+      .call ( this.querySelectorAll (selector) )
   }
 
   select ( ... selector )
@@ -356,16 +560,26 @@ const GlobalEventHandlers = Element =>
 
   onconnect (event, target) {
 
-    console.warn ('On Connecting!!!');
+//  RESERVED FOR IMPORTS WTF IS GOING ON
+//  event
+//    && event.target
+//    && (target = event.target)
+//    && this.mirror
+//      (target.import.querySelector ('template'))
 
-    (target = event.target)
-      && this.mirror (target.import.querySelector ('template'))
+    this
+      .templates = []
+      .slice
+      .call (this.selectAll ('template[name]'))
+      .map  (template => new Template (template))
+
+    this.tokens =
+      new TokenList (this)
 
     super.onconnect
       && super.onconnect ()
 
-    this.tokens = new TokenList (this)
-    this.render ()
+    return this
   }
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
@@ -380,13 +594,15 @@ const GlobalEventHandlers = Element =>
   // meta-data, properties and/or functions of an object at runtime.
 
   reflect (handler, event) {
+
     ( event = ( handler.match (/^on(.+)$/) || [] ) [1] )
 
-    && Object.keys // ensure W3C on event
-     ( HTMLElement.prototype )
-       .includes ( handler )
+      && // ensure W3C on event
+        HTMLElement.prototype
+          .hasOwnProperty (handler)
 
-    && this.on (event, this [handler])
+      &&
+        this.on (event, this [handler])
   }
 
   register (node) {
@@ -399,8 +615,9 @@ const GlobalEventHandlers = Element =>
         && ( handler = this [ (handler || []) [1] ] )
         && ( node [event] = this.renderable (handler) )
 
-    Array
-      .from (node.attributes)
+    void []
+      .slice
+      .call (node.attributes)
       .map (attr => attr.name)
       .filter (name => /^on/.test (name))
       .map (register)
@@ -412,23 +629,25 @@ const Custom = Element => // why buble
 ( class extends // interfaces
   ( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))
 {
-  constructor () { super ()
+  constructor ()
+    { super () }
 
-    console.log ('holy fuck this COMPONENT.es is working!!!', this)
-    console.warn ('Anything further is snuggsi')
+  initialize () {
 
     let
       descriptions =
-        Object.getOwnPropertyDescriptors
-          (Element.prototype)
+        Object
+          .getOwnPropertyDescriptors
+             (Element.prototype)
 
     , bind = key =>
-        'function' === typeof descriptions [key].value
-        && (this [key] = this [key].bind (this))
+        'function' === typeof
+          descriptions [key].value
+            && (this [key] = this [key].bind (this))
 
     Object
       .keys (descriptions)
-      .map (bind)
+      .map  (bind)
 
     Object
       .getOwnPropertyNames (Element.prototype)
@@ -439,79 +658,48 @@ const Custom = Element => // why buble
       .map (this.reflect, this)
 
     this.context = {}
-    this.initialize && this.initialize ()
+
+    super.initialize
+      && super.initialize ()
+
+    return this
   }
 
 
-  connectedCallback (link) {
-    console.warn ('HAIL MARY', this, this.foo, this.bar, this.baz, this.onconnect)
+  connectedCallback () {
+    super.connectedCallback
+      && super.connectedCallback ()
 
-    link = HTMLLinkElement
-      (this.tagName.toLowerCase ())
-
-    link
-      ? link.addEventListener ('load', this.onconnect.bind (this))
-      : this.onconnect (new Event ('load'))
+    this
+      .onconnect ()
+      .render ()
   }
 
 
   render () {
 
-    this.tokens.bind (this)
+    this
+      .templates
+      .map (template => template.bind (this [template.name]))
 
+    this
+      .tokens
+      .bind (this)
 
-    Array
-      .from
-        (this.selectAll ('template[name]'))
+    void []
 
-      .map
-        (template => template.getAttribute ('name'))
+      .slice
 
-      .map
-        (name => (new Template (name)).bind (this [name]))
-
-
-    Array
-      .from (this.selectAll ('*'))
+      .call (this.selectAll ('*'))
 
       .concat ([this])
 
       .map (this.register, this)
 
-
     super.onidle && super.onidle ()
   }
 
 
-  mirror (template, insert) {
-
-    template = template.cloneNode (true)
-
-    insert = (replacement, name, slot) =>
-      (name = replacement.getAttribute ('slot')) &&
-
-      (slot = template.content.querySelector ('slot[name='+name+']'))
-         // prefer to use replaceWith however support is sparse
-         // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-         // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
-         // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
-         // as is defined in (ancient) W3C DOM Level 1,2,3
-         .parentNode
-         .replaceChild (replacement, slot)
-
-    for (let replacement of this.selectAll ('[slot]'))
-      insert (replacement)
-
-    Array
-      .from (template.attributes)
-
-      // skip swapping attribute if setting exists
-      .filter (attr => !!! this.attributes [attr.name])
-
-      .map  (attr => this.setAttribute (attr.name, attr.value))
-
-    this.innerHTML = template.innerHTML
-  }
 })
 
 const ElementPrototype = window.Element.prototype // see bottom of this file
