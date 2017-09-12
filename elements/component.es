@@ -63,9 +63,12 @@ const Custom = Element => // why buble
   render () {
     console.log ('rendering')
 
-    console.warn (this .templates)
-//    .map (template => console.warn ( template, this [name] ) )
+    this
+      .templates
+      .map (template => console.warn ( template, this [template.name] ) )
 
+
+    this.tokens.bind (this)
 
     return
 
@@ -75,8 +78,6 @@ const Custom = Element => // why buble
 
       .map (this.register, this)
 
-
-    this.tokens.bind (this)
 
     super.onidle && super.onidle ()
   }

@@ -14,6 +14,13 @@ const Template = HTMLTemplateElement = function (template) {
       ? document.querySelector ('template[name='+template+']')
       : template
 
+  template.name =
+    template.getAttribute ('name')
+
+  template
+    .parentNode
+    .removeChild (template)
+
   // create shallow clone using `.getOwnPropertyDescriptors`
   // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors#Examples
   // https://docs.microsoft.com/en-us/scripting/javascript/reference/object-getownpropertydescriptor-function-javascript
