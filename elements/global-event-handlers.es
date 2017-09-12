@@ -30,13 +30,12 @@ const GlobalEventHandlers = Element =>
 
   onconnect (event, target) {
 
-    console.warn ('On Connecting!!!');
-
-    event
-      && event.target
-      && (target = event.target)
-      && this.mirror
-        (target.import.querySelector ('template'))
+//  RESERVED FOR IMPORTS WTF IS GOING ON
+//  event
+//    && event.target
+//    && (target = event.target)
+//    && this.mirror
+//      (target.import.querySelector ('template'))
 
     super.onconnect
       && super.onconnect ()
