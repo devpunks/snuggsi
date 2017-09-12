@@ -10,6 +10,10 @@
 //
 // Legacy webcomponentsjs
 //   - https://github.com/webcomponents/custom-elements/blob/master/src/CustomElementRegistry.js
+//
+//   - CEReactions
+//     - https://github.com/webcomponents/custom-elements/pull/62
+//     - https://html.spec.whatwg.org/#cereactions
 
 new class CustomElementRegistry {
 
