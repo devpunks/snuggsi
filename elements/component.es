@@ -70,14 +70,13 @@ const Custom = Element => // why buble
 
     this.tokens.bind (this)
 
-    return
-
-    Array.from (this.selectAll ('*'))
+    void []
+      .slice
+      .call (this.selectAll ('*'))
 
       .concat ([this])
 
       .map (this.register, this)
-
 
     super.onidle && super.onidle ()
   }
