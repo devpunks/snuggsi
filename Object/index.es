@@ -15,12 +15,21 @@
 //   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
 //
 
-function getOwnPropertyDescriptors (prototype) {
-  console.log ('calling descriptors for', prototype)
+Object.getOwnPropertyDescriptors
 
-  return []
+||
+
+
+Object.defineProperty
+  (Object, 'getOwnPropertyDescriptors', { configurable: true, writable: true, value: getOwnPropertyDescriptors })
+
+function getOwnPropertyDescriptors (object) {
+
+  return Object
+    .getOwnPropertyNames (object)
+    .reduce ((descriptors, key) =>
+      Object.defineProperty
+        (descriptors, key, { configurable: true, enumerable: true, writable: true, value: Object.getOwnPropertyDescriptor (object, key) })
+    , {})
 }
 
-var b = Object.getOwnPropertyDescriptors
-
-console.warn ('Polyfilling Object.getOwnPropertyDescriptor', 'getOwnPropertyDescriptors' in Object)
