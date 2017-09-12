@@ -260,6 +260,8 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
     anonymous.prototype.onconnect = function (event, target) {
 
+    console.warn ('On Connecting!!!');
+
     (target = event.target)
       && this.mirror (target.import.querySelector ('template'))
 
@@ -315,9 +317,8 @@ var Custom = function (Element) { return ( (function (superclass) {
   var this$1 = this;
  superclass.call (this)
 
-    console.log ('holy fuck this is working!!!', this)
-
-    return this
+    console.log ('holy fuck this COMPONENT.es is working!!!', this)
+    console.warn ('Anything further is snuggsi')
 
     var
       descriptions =
