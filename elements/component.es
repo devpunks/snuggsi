@@ -4,13 +4,11 @@ const Custom = Element => // why buble
   ( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))
 {
   constructor () {
-    super
-      () .initialize ()
+    super ()
+      .initialize ()
   }
 
   initialize () {
-    console.warn ('Anything further is snuggsi')
-
 
     let
       descriptions =
@@ -19,11 +17,6 @@ const Custom = Element => // why buble
              (Element.prototype)
 
     , bind = key =>
-        !!! console.warn
-          (key, descriptions [key].value, descriptions [key], this[key])
-
-        &&
-
         'function' === typeof
           descriptions [key].value
             && (this [key] = this [key].bind (this))
@@ -42,10 +35,6 @@ const Custom = Element => // why buble
 
     this.context = {}
 
-    console.warn ('context', this.context)
-
-//  console.log ('super initialize', super.initialize)
-
     return this
   }
 
@@ -61,7 +50,6 @@ const Custom = Element => // why buble
 
 
   render () {
-    console.log ('rendering')
 
     this
       .templates
