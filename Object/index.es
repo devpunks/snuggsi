@@ -18,12 +18,13 @@
 void new class {
 
   constructor () {
+
     Object.getOwnPropertyDescriptors
     || Object.defineProperty
-      (Object, 'getOwnPropertyDescriptors', this.record)
+      (Object, 'getOwnPropertyDescriptors', this.descriptor)
   }
 
-  get record () {
+  get descriptor () {
     return {
       writable: true
     , configurable: true
