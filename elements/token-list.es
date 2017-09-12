@@ -54,10 +54,18 @@ class TokenList {
   bind (context) {
 
     const
-      replace =
+      reset = symbol =>
+        (symbol.textContent = symbol.text)
+
+    , replace =
         (symbol, token = '{'+symbol+'}') =>
           item =>
-            (item.textContent = item.text.replace (token, context [symbol]))
+            (item.textContent = item.textContent.replace (token, context [symbol]))
+
+
+    for (let symbol of Object.keys (this))
+      this [symbol]
+        .map (reset)
 
     for (let symbol of Object.keys (this))
       this [symbol]

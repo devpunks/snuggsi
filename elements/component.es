@@ -56,11 +56,14 @@ const Custom = Element => // why buble
       .templates
       .map (template => template.bind (this [template.name]))
 
-
-    this.tokens.bind (this)
+    this
+      .tokens
+      .bind (this)
 
     void []
+
       .slice
+
       .call (this.selectAll ('*'))
 
       .concat ([this])
