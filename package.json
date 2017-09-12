@@ -1,6 +1,6 @@
 {
   "name": "snuggsi",
-  "version": "0.8.107",
+  "version": "0.9.12",
   "author": [
     "Snuggs",
     "Brandondees"
@@ -26,7 +26,7 @@
     "routing",
     "templates"
   ],
-  "main": "./dist/snuggsi.min.es.js",
+  "main": "./dist/snuggsi.min.js",
   "bin": "bin/snuggsi",
   "directories": {
     "doc": "docs",
