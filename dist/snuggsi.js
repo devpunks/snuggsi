@@ -1,3 +1,196 @@
+// MDN Object.keys
+//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
+//
+// MDN Object.hasOwnProperty
+//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
+//
+// Object.getOwnPropertyNames
+//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames
+//
+// Object.getOwnPropertyDescriptor
+//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor
+//
+// Object.getOwnPropertyDescriptors
+//   - http://2ality.com/2016/02/object-getownpropertydescriptors.html
+//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
+//
+// TC39 Proposal - https://github.com/tc39/proposal-object-getownpropertydescriptors
+
+void new (function () {
+  function anonymous () {
+
+    Object.getOwnPropertyDescriptors
+    || Object.defineProperty
+      (Object, 'getOwnPropertyDescriptors', this.descriptor)
+  }
+
+  var prototypeAccessors = { descriptor: {} };
+
+  prototypeAccessors.descriptor.get = function () {
+    return {
+      writable: true
+    , configurable: true
+    , value: this.getOwnPropertyDescriptors
+    }
+  };
+
+  anonymous.prototype.getOwnPropertyDescriptors = function (object) {
+
+    return Object
+
+      .getOwnPropertyNames (object)
+
+      .reduce (function (descriptors, key) { return Object.defineProperty
+          (descriptors, key, {
+
+            writable: true
+          , enumerable: true
+          , configurable: true
+
+          , value:
+              Object.getOwnPropertyDescriptor (object, key)
+          }); }
+
+      , {})
+  };
+
+  Object.defineProperties( anonymous.prototype, prototypeAccessors );
+
+  return anonymous;
+}())
+
+// http://nshipster.com/method-swizzling/
+// HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
+
+// 3.2.3 HTML element constructors
+// https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
+// Satisfy Element interface document.createElement
+//   - https://dom.spec.whatwg.org/#concept-element-interface
+
+
+  window.HTMLElement = function (constructor) {
+
+    var E = function HTMLElement () {
+
+      console.dir (this.constructor)
+    }
+
+    E.prototype = constructor.prototype
+    E.prototype.constructor = constructor
+
+    return E
+
+  } (HTMLElement)
+
+// The CustomElementRegistry Interface
+// WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
+//
+// The Custom Elements Spec
+// W3C - https://w3c.github.io/webcomponents/spec/custom/
+// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
+//
+// Legacy webcomponentsjs
+//   - https://github.com/webcomponents/custom-elements/blob/master/src/CustomElementRegistry.js
+//
+//   - CEReactions
+//     - https://github.com/webcomponents/custom-elements/pull/62
+//     - https://html.spec.whatwg.org/multipage/custom-elements.html#cereactions
+//     - https://html.spec.whatwg.org/#cereactions
+
+
+!!! window.customElements
+  && (window.customElements = {/* microfill */})
+
+
+new (function () {
+  function CustomElementRegistry (ref ) {
+  if ( ref === void 0 ) ref = customElements;
+  var define = ref.define;
+  var get = ref.get;
+  var whenDefined = ref.whenDefined;
+
+
+    window.customElements.define
+      = this._define (define)
+        .bind (this)
+  }
+
+  CustomElementRegistry.prototype._define = function ( delegate ) {
+    var this$1 = this;
+    if ( delegate === void 0 ) delegate = function (_){};
+
+
+    this.running = undefined
+
+    //  definition = this.swizzle ( definition );
+
+    return function ( name, constructor, options ) {
+      console.warn ('Definining', name, constructor, options)
+
+      void (function (_){}).apply
+        ( window.customElements, this$1.register ( name, constructor ) )
+    }
+  };
+
+  CustomElementRegistry.prototype.register = function (name, Class) {
+    // perhaps this goes in swizzle
+    (this [name] = Class)
+      .localName = name;
+
+    ('loading' === document.readyState)
+      && document.addEventListener
+        ('DOMContentLoaded', (ref = this).queue.apply ( ref, arguments ))
+
+    return arguments
+    var ref;
+  };
+
+  CustomElementRegistry.prototype.queue = function ( name, Class, constructor ) {
+    var this$1 = this;
+
+    return function (event) {
+      var
+        selected  =
+          document.body
+            .querySelectorAll (name)
+
+      , instances = []
+          .slice
+          .call (selected)
+          // .reverse () // should be able to do depth first
+          .map  (this$1.upgrade (Class))
+    }
+  };
+
+  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
+  // "Dmitry's Brain Transplant"
+  CustomElementRegistry.prototype.upgrade = function (constructor) {
+    // Here's where we can swizzle
+    return function (element) {
+
+      element =
+        Object.setPrototypeOf
+          (element, constructor.prototype)
+
+      element.initialize
+        && element.initialize ()
+
+      element.connectedCallback
+        && element.connectedCallback ()
+    }
+  };
+
+  // http://nshipster.com/method-swizzling/
+  CustomElementRegistry.swizzle = function ( name ) {
+    var Class = [], len = arguments.length - 1;
+    while ( len-- > 0 ) Class[ len ] = arguments[ len + 1 ];
+
+
+    return definition // tuple
+  };
+
+  return CustomElementRegistry;
+}())
 var HTMLLinkElement = function
 
   // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
@@ -50,15 +243,16 @@ TokenList.prototype.sift = function (node) {
       && NodeFilter.FILTER_REJECT; } // We don't need 'em
 
   , TEXT_NODE = function (node) { return expression.test (node.textContent)
-      && nodes.push (node); }
+        && nodes.push (node); }
 
-  , ELEMENT_NODE = function (attrs) { return Array
-        .from (attrs)
+  , ELEMENT_NODE = function (attrs) { return []
+        .slice
+        .call (attrs)
         .map(function (attr) { return expression.test (attr.value) && nodes.push (attr); }); }
 
   , walker =
       document.createNodeIterator
-        (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit)
+        (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
         // by default breaks on template YAY! 🎉
 
   while (walker.nextNode ()) { 0 } // Walk all nodes and do nothing.
@@ -71,10 +265,7 @@ TokenList.prototype.bind = function (context) {
 
 
   var
-    keys = Object.keys (this)
-
-  , reset = function (symbol) { return this$1 [symbol].map
-        (function (node) { return (node.textContent = node.text) && symbol; }); }
+    reset = function (symbol) { return (symbol.textContent = symbol.text); }
 
   , replace =
       function (symbol, token) {
@@ -83,20 +274,54 @@ TokenList.prototype.bind = function (context) {
             return function (item) { return (item.textContent = item.textContent.replace (token, context [symbol])); };
     }
 
-  keys.map (reset)
 
-  for (var symbol$1 in this$1)
-    { this$1 [symbol$1]
-      .map (replace (symbol$1)) }
+  for (var i = 0, list = Object.keys (this$1); i < list.length; i += 1)
+    {
+      var symbol$1 = list[i];
+
+      this$1 [symbol$1]
+      .map (reset)
+    }
+
+  for (var i$1 = 0, list$1 = Object.keys (this$1); i$1 < list$1.length; i$1 += 1)
+    {
+      var symbol$2 = list$1[i$1];
+
+      this$1 [symbol$2]
+      .map (replace (symbol$2))
+    }
 };
+
+//function zip (...elements) {
+//  const
+//    lock = (zipper, row) => [...zipper, ...row]
+//  , pair = teeth => // http://english.stackexchange.com/questions/121601/pair-or-couple
+//      (tooth, position) => // thunk
+//        [tooth, teeth [position]]
+
+//  return elements [1]
+//    .map (pair (elements [0]))
+//    .reduce (lock)
+//}
+
+//function slice (text, tokens = []) {
+//  const
+//    match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
+//  , replace  = token => (collect (token), '✂️')
+//  , collect  = token => tokens.push (token)
+//  , sections = text
+//      .replace (match, replace)
+//        .split ('✂️')
+
+//  return zip (tokens, sections)
+//        .map (element => element && new Text (element))
+//}
 
 // https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 
 // https://github.com/WebReflection/hyperHTML/pull/100
 
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
-
-// INTERESTING! Converting `Template` to a class increases size by ~16 octets
 
 // https://github.com/webcomponents/template
 var Template = HTMLTemplateElement = function (template) {
@@ -106,28 +331,46 @@ var Template = HTMLTemplateElement = function (template) {
       ? document.querySelector ('template[name='+template+']')
       : template
 
-  // create shallow clone using `.getOwnPropertyDescriptors`
-  // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors#Examples
-  // https://docs.microsoft.com/en-us/scripting/javascript/reference/object-getownpropertydescriptor-function-javascript
-  // NO IE SUPPORT!!!!
-  return Object.assign (template, { bind: bind } )
+  template.name =
+    template.getAttribute ('name')
+
+  template.comment =
+    document.createComment (template.name)
+
+  template
+    .parentNode
+    .replaceChild
+      (template.comment, template)
+
+  Object
+    .defineProperty
+      (template, 'bind'
+      , { value: bind, writable: true, configurable: true })
+
+  return template
 
   function bind (context) {
+    var this$1 = this;
+
 
     var
       html     = ''
     , template = this.innerHTML
-    , contexts =
-        (ref = []).concat.apply ( ref, [context] )
+    , contexts = (ref = []).concat.apply ( ref, [context] )
         // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
 
-    , keys =
-        Object
-          .keys (contexts [0] || [])    // memoize keys
+    var
+      keys =
+        'object' === typeof contexts [0]
+          ? Object.keys (contexts [0])    // memoize keys
+          :  []
           .concat (['#', 'self']) // add helper keys
 
-    , tokens   = keys.map (function (key) { return '{'+key+'}'; }) // memoize tokens
-    , fragment = document.createElement ('template')
+    , tokens =
+        keys.map (function (key) { return '{'+key+'}'; }) // memoize tokens
+
+    , fragment = // create template polyfill here
+        document.createElement ('template')
 
     , deposit = function (context, index) {
         var clone = template
@@ -145,18 +388,27 @@ var Template = HTMLTemplateElement = function (template) {
         return clone
       }
 
-    void (this.dependents || [])
-      .map (function (dependent) { return dependent.remove (); })
+    void ( this.dependents || [] ).map
+      (function (dependent) { return dependent.parentNode.removeChild (dependent); })
 
     for (var i=0, final = ''; i<contexts.length; i++)
       { html += deposit (contexts [i], i) }
 
     fragment.innerHTML = html
 
-    this.dependents = Array.from // non-live
-      (fragment.content.childNodes)
+    var children =
+      (fragment.content || fragment).childNodes
 
-    (ref$1 = this).after.apply ( ref$1, this.dependents )
+    this.dependents =
+      Array.apply (null, children) // non-live
+
+    this.comment.after
+      && (ref$1 = this.comment).after.apply ( ref$1, this.dependents )
+
+    !!!  this.comment.after
+      && this.dependents.reverse ()
+         .map (function (dependent) { return this$1.comment.parentNode.insertBefore
+             (dependent, this$1.comment.nextSibling); })
     var ref;
     var ref$1;
   }
@@ -218,12 +470,15 @@ var ParentNode = function (Element) { return ((function (Element) {
       (ref = []).concat.apply ( ref, [fragments] )
 
     var
-      zip = function (selector, token) { return selector + token + fragments.shift (); }
+      zip =
+        function (part, token) { return part + token + fragments.shift (); }
 
-    return Array
-      .from
-        (this.querySelectorAll
-          (tokens.reduce (zip, fragments.shift ())))
+    , selector =
+        tokens.reduce (zip, fragments.shift ())
+
+    return []
+      .slice
+      .call ( this.querySelectorAll (selector) )
     var ref;
   };
 
@@ -260,16 +515,26 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
     anonymous.prototype.onconnect = function (event, target) {
 
-    console.warn ('On Connecting!!!');
+//  RESERVED FOR IMPORTS WTF IS GOING ON
+//  event
+//    && event.target
+//    && (target = event.target)
+//    && this.mirror
+//      (target.import.querySelector ('template'))
 
-    (target = event.target)
-      && this.mirror (target.import.querySelector ('template'))
+    this
+      .templates = []
+      .slice
+      .call (this.selectAll ('template[name]'))
+      .map  (function (template) { return new Template (template); })
+
+    this.tokens =
+      new TokenList (this)
 
     Element.prototype.onconnect
       && Element.prototype.onconnect.call (this)
 
-    this.tokens = new TokenList (this)
-    this.render ()
+    return this
   };
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
@@ -284,13 +549,15 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
   // meta-data, properties and/or functions of an object at runtime.
 
   anonymous.prototype.reflect = function (handler, event) {
+
     ( event = ( handler.match (/^on(.+)$/) || [] ) [1] )
 
-    && Object.keys // ensure W3C on event
-     ( HTMLElement.prototype )
-       .includes ( handler )
+      && // ensure W3C on event
+        HTMLElement.prototype
+          .hasOwnProperty (handler)
 
-    && this.on (event, this [handler])
+      &&
+        this.on (event, this [handler])
   };
 
   anonymous.prototype.register = function (node) {
@@ -302,8 +569,9 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
         && ( handler = this$1 [ (handler || []) [1] ] )
         && ( node [event] = this$1.renderable (handler) ); }
 
-    Array
-      .from (node.attributes)
+    void []
+      .slice
+      .call (node.attributes)
       .map (function (attr) { return attr.name; })
       .filter (function (name) { return /^on/.test (name); })
       .map (register)
@@ -313,24 +581,30 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
   }(Element))); }
 
 var Custom = function (Element) { return ( (function (superclass) {
-    function anonymous () {
-  var this$1 = this;
- superclass.call (this)
+    function anonymous ()
+    { superclass.call (this) }
 
-    console.log ('holy fuck this COMPONENT.es is working!!!', this)
-    console.warn ('Anything further is snuggsi')
+    if ( superclass ) anonymous.__proto__ = superclass;
+    anonymous.prototype = Object.create( superclass && superclass.prototype );
+    anonymous.prototype.constructor = anonymous;
+
+  anonymous.prototype.initialize = function () {
+    var this$1 = this;
+
 
     var
       descriptions =
-        Object.getOwnPropertyDescriptors
-          (Element.prototype)
+        Object
+          .getOwnPropertyDescriptors
+             (Element.prototype)
 
-    , bind = function (key) { return 'function' === typeof descriptions [key].value
-        && (this$1 [key] = this$1 [key].bind (this$1)); }
+    , bind = function (key) { return 'function' === typeof
+          descriptions [key].value
+            && (this$1 [key] = this$1 [key].bind (this$1)); }
 
     Object
       .keys (descriptions)
-      .map (bind)
+      .map  (bind)
 
     Object
       .getOwnPropertyNames (Element.prototype)
@@ -341,23 +615,21 @@ var Custom = function (Element) { return ( (function (superclass) {
       .map (this.reflect, this)
 
     this.context = {}
-    this.initialize && this.initialize ()
-  }
 
-    if ( superclass ) anonymous.__proto__ = superclass;
-    anonymous.prototype = Object.create( superclass && superclass.prototype );
-    anonymous.prototype.constructor = anonymous;
+    superclass.prototype.initialize
+      && superclass.prototype.initialize.call (this)
+
+    return this
+  };
 
 
-  anonymous.prototype.connectedCallback = function (link) {
-    console.warn ('HAIL MARY', this, this.foo, this.bar, this.baz, this.onconnect)
+  anonymous.prototype.connectedCallback = function () {
+    superclass.prototype.connectedCallback
+      && superclass.prototype.connectedCallback.call (this)
 
-    link = HTMLLinkElement
-      (this.tagName.toLowerCase ())
-
-    link
-      ? link.addEventListener ('load', this.onconnect.bind (this))
-      : this.onconnect (new Event ('load'))
+    this
+      .onconnect ()
+      .render ()
   };
 
 
@@ -365,65 +637,25 @@ var Custom = function (Element) { return ( (function (superclass) {
     var this$1 = this;
 
 
-    this.tokens.bind (this)
+    this
+      .templates
+      .map (function (template) { return template.bind (this$1 [template.name]); })
 
+    this
+      .tokens
+      .bind (this)
 
-    Array
-      .from
-        (this.selectAll ('template[name]'))
+    void []
 
-      .map
-        (function (template) { return template.getAttribute ('name'); })
+      .slice
 
-      .map
-        (function (name) { return (new Template (name)).bind (this$1 [name]); })
-
-
-    Array
-      .from (this.selectAll ('*'))
+      .call (this.selectAll ('*'))
 
       .concat ([this])
 
       .map (this.register, this)
 
-
     superclass.prototype.onidle && superclass.prototype.onidle.call (this)
-  };
-
-
-  anonymous.prototype.mirror = function (template, insert) {
-    var this$1 = this;
-
-
-    template = template.cloneNode (true)
-
-    insert = function (replacement, name, slot) { return (name = replacement.getAttribute ('slot')) &&
-
-      (slot = template.content.querySelector ('slot[name='+name+']'))
-         // prefer to use replaceWith however support is sparse
-         // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-         // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
-         // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
-         // as is defined in (ancient) W3C DOM Level 1,2,3
-         .parentNode
-         .replaceChild (replacement, slot); }
-
-    for (var i = 0, list = this$1.selectAll ('[slot]'); i < list.length; i += 1)
-      {
-      var replacement = list[i];
-
-      insert (replacement)
-    }
-
-    Array
-      .from (template.attributes)
-
-      // skip swapping attribute if setting exists
-      .filter (function (attr) { return !!! this$1.attributes [attr.name]; })
-
-      .map  (function (attr) { return this$1.setAttribute (attr.name, attr.value); })
-
-    this.innerHTML = template.innerHTML
   };
 
     return anonymous;
