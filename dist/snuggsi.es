@@ -356,6 +356,8 @@ const GlobalEventHandlers = Element =>
 
   onconnect (event, target) {
 
+    console.warn ('On Connecting!!!');
+
     (target = event.target)
       && this.mirror (target.import.querySelector ('template'))
 
@@ -412,9 +414,8 @@ const Custom = Element => // why buble
 {
   constructor () { super ()
 
-    console.log ('holy fuck this is working!!!', this)
-
-    return this
+    console.log ('holy fuck this COMPONENT.es is working!!!', this)
+    console.warn ('Anything further is snuggsi')
 
     let
       descriptions =
