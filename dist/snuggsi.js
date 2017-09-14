@@ -566,7 +566,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
 var Custom = function (Element) { return ( (function (superclass) {
     function anonymous ()
-    { superclass.call (this) }
+    { superclass.call (this) /* will need to add initialize () routine */ }
 
     if ( superclass ) anonymous.__proto__ = superclass;
     anonymous.prototype = Object.create( superclass && superclass.prototype );
@@ -629,17 +629,14 @@ var Custom = function (Element) { return ( (function (superclass) {
       .tokens
       .bind (this)
 
-    void []
+    void (ref = [this])
 
-      .slice
-
-      .call (this.selectAll ('*'))
-
-      .concat ([this])
+      .concat.apply ( ref, this.selectAll ('*') )
 
       .map (this.register, this)
 
     superclass.prototype.onidle && superclass.prototype.onidle.call (this)
+    var ref;
   };
 
     return anonymous;
