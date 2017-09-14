@@ -74,16 +74,14 @@ Et Voila _(that's it!)_ ツ
 
 ## Browser Support
 
-  | Feature    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
+  | Support    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+ | Chrome (Android)* | iOS Safari* |
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
   | Custom Elements |✅ |✅ |✅ |  |✅ |✅ |✅ |
   | Templates |✅ |✅ |✅ |  |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
 
-**⚠️  Warning ⚠️** _**snuggsiツ** will back support to Internet Explorer 11+._
-
-_We shall provide our best effort to support IE 11+ through
+**⚠️  Warning ⚠️** _We shall provide our best effort to support IE 11+ through
 [EOL](https://en.wikipedia.org/wiki/End-of-life_(product)#Computing)_
 
 _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.microsoft.com/en-us/windowsforbusiness/end-of-ie-support) for further details._
