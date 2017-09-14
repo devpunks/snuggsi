@@ -553,7 +553,7 @@ const GlobalEventHandlers = Element =>
   // https://en.wikipedia.org/wiki/DOM_events#Event_handling_models
   //
   // Inline Model
-  // https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#Inline_model
+  // https://en.wikipedia.org/wiki/DOM_events#Inline_model
   //
   // Traditional Model
   // https://en.wikipedia.org/wiki/DOM_events#Traditional_model

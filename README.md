@@ -76,12 +76,13 @@ Et Voila _(that's it!)_ ツ
 
   | Support    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+ | Chrome (Android)* | iOS Safari* |
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
-  | Custom Elements |✅ |✅ |✅ |  |✅ |✅ |✅ |
-  | Templates |✅ |✅ |✅ |  |✅ |✅ |✅ |
+  | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | Templates |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
 
 **⚠️  Warning ⚠️** _We shall provide our best effort to support IE 11+ through
+
 [EOL](https://en.wikipedia.org/wiki/End-of-life_(product)#Computing)_
 
 _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.microsoft.com/en-us/windowsforbusiness/end-of-ie-support) for further details._
@@ -277,5 +278,3 @@ bundles as small as *~1500 OCTETS* _(or one 1500byte Ethernet packet frame)_
 
 [Read More](https://github.com/devpunks/snuggsi/tree/master/dist#readme)
 
-## Other Links
-  - https://medium.com/@oneeezy/frameworks-vs-web-components-9a7bd89da9d4
