@@ -614,7 +614,7 @@ const Custom = Element => // why buble
   ( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))
 {
   constructor ()
-    { super () }
+    { super () /* will need to add initialize () routine */ }
 
   initialize () {
 
@@ -671,13 +671,9 @@ const Custom = Element => // why buble
       .tokens
       .bind (this)
 
-    void []
+    void [this]
 
-      .slice
-
-      .call (this.selectAll ('*'))
-
-      .concat ([this])
+      .concat ( ... this.selectAll ('*') )
 
       .map (this.register, this)
 
