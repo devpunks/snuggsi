@@ -76,8 +76,8 @@ Et Voila _(that's it!)_ ツ
 
   | Feature    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
-  | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | Templates |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
 
