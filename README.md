@@ -74,7 +74,7 @@ Et Voila _(that's it!)_ ツ
 
 ## Browser Support
 
-  | Feature    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
+  | Support    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+ | Chrome (Android)* | iOS Safari* |
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
   | Templates |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
