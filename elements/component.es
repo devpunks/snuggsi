@@ -4,7 +4,7 @@ const Custom = Element => // why buble
   ( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))
 {
   constructor ()
-    { super () }
+    { super () /* will need to add initialize () routine */ }
 
   initialize () {
 
