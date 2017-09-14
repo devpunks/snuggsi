@@ -305,8 +305,13 @@ class TokenList {
 const Template = HTMLTemplateElement = function (template) {
 
   template =
-    (typeof template == 'string')
+    typeof template == 'string'
       ? document.querySelector ('template[name='+template+']')
+      : template
+
+  template =
+    this === HTMLTemplateElement
+      ? template.cloneNode (true)
       : template
 
   template.name =
@@ -680,7 +685,8 @@ const Custom = Element => // why buble
 
     this
       .templates
-      .map (template => template.bind (this [template.name]))
+      .map (template =>
+        template.bind (this [template.name]))
 
     this
       .tokens
