@@ -72,35 +72,16 @@ Simply place the following script within your webpage:
 
 Et Voila _(that's it!)_ ツ
 
-Place the `<script name=polyfill … >` below before **snuggsiツ** for
-[evergreen cross-browser](https://www.techopedia.com/definition/31094/evergreen-browser) support.
-
-```html
-<!-- snuggsiツ (modern) -->
-<script nomodule src=//unpkg.com/snuggsi></script>
-
-<!-- webcomponents polyfill -->
-<script
-  name=polyfill
-  src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js>
-</script>
-```
-
-  The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
-  polyfills are intended to provide backwards compatibility for the following browsers:
-
 ## Browser Support
 
   | Feature    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
-  | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | Templates |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | HTML Imports |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | Shadow Dom | | |✅ |✅ | | | |
+  | Custom Elements |✅ |✅ |✅ |  |✅ |✅ |✅ |
+  | Templates |✅ |✅ |✅ |  |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
 
-**⚠️  Warning ⚠️** _**snuggsiツ (classic)** will back support to Internet Explorer 11+._
+**⚠️  Warning ⚠️** _**snuggsiツ** will back support to Internet Explorer 11+._
 
 _We shall provide our best effort to support IE 11+ through
 [EOL](https://en.wikipedia.org/wiki/End-of-life_(product)#Computing)_
