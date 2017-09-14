@@ -67,7 +67,7 @@ Simply place the following script within your webpage:
 
 ```html
 <!-- http(s): protocol required to run locally -->
-<script src=//unpkg.com/snuggsi/dist/snuggsi.min.es.js></script>
+<script src=//unpkg.com/snuggsi></script>
 ```
 
 Et Voila _(that's it!)_ ツ
