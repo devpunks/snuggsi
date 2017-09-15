@@ -11,7 +11,7 @@
 
     var E = function HTMLElement () {
 
-      console.dir (this.constructor)
+      /*  console.dir (this.constructor) */
     }
 
     E.prototype = constructor.prototype
