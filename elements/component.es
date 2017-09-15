@@ -8,28 +8,29 @@ const Custom = Element => // why buble
 
   initialize () {
 
-    let
-      descriptions =
-        Object
-          .getOwnPropertyDescriptors
-             (Element.prototype)
+//  let
+//    bindable = property =>
+//      Object.getOwnPropertyDescriptor
+//        (Element.prototype, property).value
 
-    , bind = key =>
-        'function' === typeof
-          descriptions [key].value
-            && (this [key] = this [key].bind (this))
+//  , bind = property =>
+//      (this [property] = this [property].bind (this))
 
-    Object
-      .keys (descriptions)
-      .map  (bind)
+//  , names =
+//      Object.getOwnPropertyNames
+//        (Element.prototype)
 
-    Object
-      .getOwnPropertyNames (Element.prototype)
-      // POTENTIAL REDUNDANCY
-      // Aren't `on` events set up in `.bind` on 20?
-      // If so we are `.bind`ing to `this` on two iterations
-      // of the same function
-      .map (this.reflect, this)
+//  names
+//    .filter (bindable)
+//    .map    (bind)
+
+    // POTENTIAL REDUNDANCY
+    // Aren't `on` events set up in `.bind` on 16?
+    // If so we are `.bind`ing to `this` on two iterations
+    // of the same function
+    Object.getOwnPropertyNames
+      (Element.prototype)
+        .map (this.reflect, this)
 
     this.context = {}
 
