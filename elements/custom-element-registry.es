@@ -81,9 +81,6 @@ new class CustomElementRegistry {
         Object.setPrototypeOf
           (element, constructor.prototype)
 
-      element.initialize
-        && element.initialize ()
-
       element.connectedCallback
         && element.connectedCallback ()
     }
