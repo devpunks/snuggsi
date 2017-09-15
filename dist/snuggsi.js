@@ -114,9 +114,6 @@ new (function () {
         Object.setPrototypeOf
           (element, constructor.prototype)
 
-      element.initialize
-        && element.initialize ()
-
       element.connectedCallback
         && element.connectedCallback ()
     }
@@ -474,16 +471,14 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  anonymous.prototype.reflect = function (handler, event) {
+  anonymous.prototype.reflect = function (handler) {
 
-    ( event = ( handler.match (/^on(.+)$/) || [] ) [1] )
+    /^on/.test (handler) // `on*`
+      && handler // is a W3C event
+        in HTMLElement.prototype
 
-      && // ensure W3C on event
-        HTMLElement.prototype
-          .hasOwnProperty (handler)
-
-      &&
-        this.on (event, this [handler])
+      && // automagically delegate event
+        this.on ( handler.substr (2), this [handler] )
   };
 
   anonymous.prototype.register = function (node) {
@@ -514,7 +509,7 @@ var Custom = function (Element) { return ( (function (superclass) {
     anonymous.prototype = Object.create( superclass && superclass.prototype );
     anonymous.prototype.constructor = anonymous;
 
-  anonymous.prototype.initialize = function () {
+//initialize () {
 
 //  let
 //    bindable = property =>
@@ -531,27 +526,26 @@ var Custom = function (Element) { return ( (function (superclass) {
 //  names
 //    .filter (bindable)
 //    .map    (bind)
+//}
 
-    // POTENTIAL REDUNDANCY
-    // Aren't `on` events set up in `.bind` on 16?
-    // If so we are `.bind`ing to `this` on two iterations
-    // of the same function
-    Object.getOwnPropertyNames
-      (Element.prototype)
-        .map (this.reflect, this)
+
+  anonymous.prototype.connectedCallback = function () {
 
     this.context = {}
 
     superclass.prototype.initialize
       && superclass.prototype.initialize.call (this)
 
-    return this
-  };
-
-
-  anonymous.prototype.connectedCallback = function () {
     superclass.prototype.connectedCallback
       && superclass.prototype.connectedCallback.call (this)
+
+    // POTENTIAL REDUNDANCY
+    // Aren't `on` events set up in `.bind` on 16?
+    // If so we are `.bind`ing to `this` on two iterations
+    // of the same function
+    Object.getOwnPropertyNames
+      (Element.prototype).map
+        (this.reflect, this)
 
     this
       .onconnect ()
