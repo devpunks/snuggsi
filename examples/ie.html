@@ -102,22 +102,27 @@ var Bam = function (_HTMLElement) {
   }, {
     key: 'onidle',
     value: function baz(event) {
-      console.log ('Idling', event);
+      console.log ('Idling', this, event);
     }
   }, {
     key: 'initialize',
     value: function initialize() {
-      console.log ('Initializing');
+      console.log ('Initializing', this);
     }
   }, {
     key: 'onconnect',
     value: function onconnect(event) {
-      console.log ('This made it all the way here', event);
+      console.log ('This made it all the way here', this, event);
     }
   }, {
     key: 'onrob',
     value: function onrob(event) {
       alert ('🎉🎉 TOUCHDOWN! 🏈 ', event);
+    }
+  }, {
+    key: 'snuggsi',
+    value: function snuggsi(event) {
+      console.warn ('🎉🎉 TOUCHDOWN! 🏈 ', this, event);
     }
   }, {
     key: 'baz',
