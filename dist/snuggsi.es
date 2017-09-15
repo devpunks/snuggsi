@@ -104,9 +104,6 @@ new class CustomElementRegistry {
         Object.setPrototypeOf
           (element, constructor.prototype)
 
-      element.initialize
-        && element.initialize ()
-
       element.connectedCallback
         && element.connectedCallback ()
     }
@@ -522,16 +519,14 @@ const GlobalEventHandlers = Element =>
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  reflect (handler, event) {
+  reflect (handler) {
 
-    ( event = ( handler.match (/^on(.+)$/) || [] ) [1] )
+    /^on/.test (handler) // `on*`
+      && handler // is a W3C event
+        in HTMLElement.prototype
 
-      && // ensure W3C on event
-        HTMLElement.prototype
-          .hasOwnProperty (handler)
-
-      &&
-        this.on (event, this [handler])
+      && // automagically delegate event
+        this.on ( handler.substr (2), this [handler] )
   }
 
   register (node) {
@@ -561,7 +556,7 @@ const Custom = Element => // why buble
   constructor ()
     { super () /* will need to add initialize () routine */ }
 
-  initialize () {
+//initialize () {
 
 //  let
 //    bindable = property =>
@@ -578,27 +573,26 @@ const Custom = Element => // why buble
 //  names
 //    .filter (bindable)
 //    .map    (bind)
+//}
 
-    // POTENTIAL REDUNDANCY
-    // Aren't `on` events set up in `.bind` on 16?
-    // If so we are `.bind`ing to `this` on two iterations
-    // of the same function
-    Object.getOwnPropertyNames
-      (Element.prototype)
-        .map (this.reflect, this)
+
+  connectedCallback () {
 
     this.context = {}
 
     super.initialize
       && super.initialize ()
 
-    return this
-  }
-
-
-  connectedCallback () {
     super.connectedCallback
       && super.connectedCallback ()
+
+    // POTENTIAL REDUNDANCY
+    // Aren't `on` events set up in `.bind` on 16?
+    // If so we are `.bind`ing to `this` on two iterations
+    // of the same function
+    Object.getOwnPropertyNames
+      (Element.prototype).map
+        (this.reflect, this)
 
     this
       .onconnect ()
