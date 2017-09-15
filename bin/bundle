@@ -1,5 +1,4 @@
 cat \
-Object/index.es \
 elements/html-element.es \
 elements/custom-element-registry.es \
 elements/token-list.es \
