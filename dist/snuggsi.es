@@ -1,61 +1,3 @@
-// MDN Object.keys
-//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/keys
-//
-// MDN Object.hasOwnProperty
-//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/hasOwnProperty
-//
-// Object.getOwnPropertyNames
-//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyNames
-//
-// Object.getOwnPropertyDescriptor
-//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptor
-//
-// Object.getOwnPropertyDescriptors
-//   - http://2ality.com/2016/02/object-getownpropertydescriptors.html
-//   - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/getOwnPropertyDescriptors
-//
-// TC39 Proposal - https://github.com/tc39/proposal-object-getownpropertydescriptors
-
-void new class {
-
-  constructor () {
-
-    Object.getOwnPropertyDescriptors
-    || Object.defineProperty
-      (Object, 'getOwnPropertyDescriptors', this.descriptor)
-  }
-
-  get descriptor () {
-    return {
-      writable: true
-    , configurable: true
-    , value: this.getOwnPropertyDescriptors
-    }
-  }
-
-  getOwnPropertyDescriptors (object) {
-
-    return Object
-
-      .getOwnPropertyNames (object)
-
-      .reduce ((descriptors, key) =>
-
-        Object.defineProperty
-          (descriptors, key, {
-
-            writable: true
-          , enumerable: true
-          , configurable: true
-
-          , value:
-              Object.getOwnPropertyDescriptor (object, key)
-          })
-
-      , {})
-  }
-}
-
 // http://nshipster.com/method-swizzling/
 // HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
 
@@ -81,6 +23,9 @@ void new class {
 
 // The CustomElementRegistry Interface
 // WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
+//
+// HTML Element Constructors
+//   - https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
 //
 // The Custom Elements Spec
 // W3C - https://w3c.github.io/webcomponents/spec/custom/
@@ -618,28 +563,29 @@ const Custom = Element => // why buble
 
   initialize () {
 
-    let
-      descriptions =
-        Object
-          .getOwnPropertyDescriptors
-             (Element.prototype)
+//  let
+//    bindable = property =>
+//      Object.getOwnPropertyDescriptor
+//        (Element.prototype, property).value
 
-    , bind = key =>
-        'function' === typeof
-          descriptions [key].value
-            && (this [key] = this [key].bind (this))
+//  , bind = property =>
+//      (this [property] = this [property].bind (this))
 
-    Object
-      .keys (descriptions)
-      .map  (bind)
+//  , names =
+//      Object.getOwnPropertyNames
+//        (Element.prototype)
 
-    Object
-      .getOwnPropertyNames (Element.prototype)
-      // POTENTIAL REDUNDANCY
-      // Aren't `on` events set up in `.bind` on 20?
-      // If so we are `.bind`ing to `this` on two iterations
-      // of the same function
-      .map (this.reflect, this)
+//  names
+//    .filter (bindable)
+//    .map    (bind)
+
+    // POTENTIAL REDUNDANCY
+    // Aren't `on` events set up in `.bind` on 16?
+    // If so we are `.bind`ing to `this` on two iterations
+    // of the same function
+    Object.getOwnPropertyNames
+      (Element.prototype)
+        .map (this.reflect, this)
 
     this.context = {}
 
