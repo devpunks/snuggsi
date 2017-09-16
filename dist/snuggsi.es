@@ -550,31 +550,11 @@ const GlobalEventHandlers = Element =>
 const Custom = Element => // why buble
 
 ( class extends // interfaces
-  ( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))
+  ( EventTarget
+  ( ParentNode
+  ( GlobalEventHandlers
+  ( Element ))))
 {
-  constructor ()
-    { super () /* will need to add initialize () routine */ }
-
-//initialize () {
-
-//  let
-//    bindable = property =>
-//      Object.getOwnPropertyDescriptor
-//        (Element.prototype, property).value
-
-//  , bind = property =>
-//      (this [property] = this [property].bind (this))
-
-//  , names =
-//      Object.getOwnPropertyNames
-//        (Element.prototype)
-
-//  names
-//    .filter (bindable)
-//    .map    (bind)
-//}
-
-
   connectedCallback () {
 
     this.context = {}
@@ -618,7 +598,6 @@ const Custom = Element => // why buble
 
     super.onidle && super.onidle ()
   }
-
 
 })
 
