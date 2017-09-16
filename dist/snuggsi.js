@@ -183,31 +183,28 @@ TokenList.prototype.bind = function (context) {
 
 
   var
-    reset = function (symbol) { return (symbol.textContent = symbol.text); }
+    reset = function (symbol) { return this$1 [symbol].map // more than one occurrence
+        (function (node) { return node.textContent = node.text; })
+      && [symbol, this$1 [symbol]]; }
 
-  , replace =
-      function (symbol, token) {
-            if ( token === void 0 ) token = '{'+symbol+'}';
+ // must both run independently not in tandem
 
-            return function (item) { return (item.textContent = item.textContent.replace (token, context [symbol])); };
+  , restore = function (ref) {
+           var symbol = ref[0];
+           var nodes = ref[1];
+
+           return nodes.map
+         ( replace (['{'+symbol+'}', context [symbol]]) );
     }
 
+  , replace = function (replacement) { return function (node) { return node.textContent = (ref = node.textContent)
+          .replace.apply ( ref, replacement )
+            var ref;; }; }
 
-  for (var i = 0, list = Object.keys (this$1); i < list.length; i += 1)
-    {
-      var symbol$1 = list[i];
-
-      this$1 [symbol$1]
-      .map (reset)
-    }
-
-  for (var i$1 = 0, list$1 = Object.keys (this$1); i$1 < list$1.length; i$1 += 1)
-    {
-      var symbol$2 = list$1[i$1];
-
-      this$1 [symbol$2]
-      .map (replace (symbol$2))
-    }
+  Object
+    .keys (this)
+    .map(reset)
+    .map(restore)
 };
 
 //function zip (...elements) {
