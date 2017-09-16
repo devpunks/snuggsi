@@ -130,6 +130,7 @@ new (function () {
 
     return CustomElementRegistry;
   }())
+
 var TokenList = function (node) {
 
   this
@@ -259,14 +260,11 @@ var Template = HTMLTemplateElement = function (template) {
     .replaceChild
       (template.comment, template)
 
-  Object
+  return Object
     .defineProperty
-      (template, 'bind'
-      , { value: bind, writable: true, configurable: true })
+      (template, 'bind', { value: value })
 
-  return template
-
-  function bind (context) {
+  function value (context) {
     var this$1 = this;
 
 
