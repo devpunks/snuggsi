@@ -1,7 +1,10 @@
 const Custom = Element => // why buble
 
 ( class extends // interfaces
-  ( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))
+  ( EventTarget
+  ( ParentNode
+  ( GlobalEventHandlers
+  ( Element ))))
 {
   constructor ()
     { super () /* will need to add initialize () routine */ }
