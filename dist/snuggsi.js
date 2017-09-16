@@ -514,10 +514,6 @@ var Custom = function (Element) { return ( (function (superclass) {
     superclass.prototype.connectedCallback
       && superclass.prototype.connectedCallback.call (this)
 
-    // POTENTIAL REDUNDANCY
-    // Aren't `on` events set up in `.bind` on 16?
-    // If so we are `.bind`ing to `this` on two iterations
-    // of the same function
     Object.getOwnPropertyNames
       (Element.prototype).map
         (this.reflect, this)
@@ -533,12 +529,12 @@ var Custom = function (Element) { return ( (function (superclass) {
 
 
     this
-      .templates
-      .map (function (template) { return template.bind (this$1 [template.name]); })
-
-    this
       .tokens
       .bind (this)
+
+    this
+      .templates
+      .map (function (template) { return template.bind (this$1 [template.name]); })
 
     void (ref = [this])
 
