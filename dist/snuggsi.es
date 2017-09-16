@@ -179,13 +179,9 @@ class TokenList {
    // must both run independently not in tandem
 
     , restore = ([symbol, nodes]) =>
-         nodes.map
-           ( replace (['{'+symbol+'}', context [symbol]]) )
-
-    , replace = replacement =>
-        node => // thunk
-          node.textContent = node.textContent
-            .replace ( ... replacement )
+         nodes.map ( node =>
+           node.textContent = node.textContent
+             .replace ( ... ['{'+symbol+'}', context [symbol]] ))
 
     Object
       .keys (this)
