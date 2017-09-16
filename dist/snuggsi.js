@@ -193,13 +193,10 @@ TokenList.prototype.bind = function (context) {
            var symbol = ref[0];
            var nodes = ref[1];
 
-           return nodes.map
-         ( replace (['{'+symbol+'}', context [symbol]]) );
+           return nodes.map ( function (node) { return node.textContent = (ref = node.textContent)
+           .replace.apply ( ref, ['{'+symbol+'}', context [symbol]] )
+             var ref;; });
     }
-
-  , replace = function (replacement) { return function (node) { return node.textContent = (ref = node.textContent)
-          .replace.apply ( ref, replacement )
-            var ref;; }; }
 
   Object
     .keys (this)
