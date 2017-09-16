@@ -565,10 +565,6 @@ const Custom = Element => // why buble
     super.connectedCallback
       && super.connectedCallback ()
 
-    // POTENTIAL REDUNDANCY
-    // Aren't `on` events set up in `.bind` on 16?
-    // If so we are `.bind`ing to `this` on two iterations
-    // of the same function
     Object.getOwnPropertyNames
       (Element.prototype).map
         (this.reflect, this)
@@ -582,13 +578,13 @@ const Custom = Element => // why buble
   render () {
 
     this
+      .tokens
+      .bind (this)
+
+    this
       .templates
       .map (template =>
         template.bind (this [template.name]))
-
-    this
-      .tokens
-      .bind (this)
 
     void [this]
 
