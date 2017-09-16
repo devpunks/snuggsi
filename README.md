@@ -91,7 +91,7 @@ _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.
 
 ## [Element](/elements/element.es)
 
-Play [Hello World Demo](https://jsfiddle.net/snuggs/w02kL17n/1/)
+Play [Hello World Demo](https://jsfiddle.net/snuggs/w02kL17n)
 
 The following is a snippet from [examples/hello-word](/examples/hello-world/index.html)
 
