@@ -6,29 +6,6 @@ const Custom = Element => // why buble
   ( GlobalEventHandlers
   ( Element ))))
 {
-  constructor ()
-    { super () /* will need to add initialize () routine */ }
-
-//initialize () {
-
-//  let
-//    bindable = property =>
-//      Object.getOwnPropertyDescriptor
-//        (Element.prototype, property).value
-
-//  , bind = property =>
-//      (this [property] = this [property].bind (this))
-
-//  , names =
-//      Object.getOwnPropertyNames
-//        (Element.prototype)
-
-//  names
-//    .filter (bindable)
-//    .map    (bind)
-//}
-
-
   connectedCallback () {
 
     this.context = {}
