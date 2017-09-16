@@ -55,12 +55,11 @@ class TokenList {
 
     const
       reset = symbol =>
-        (symbol.textContent = symbol.text)
+        this [symbol].map // more than one occurrence
+          (node => node.textContent = node.text)
+        && [symbol, this [symbol]]
 
-    , replace =
-        (symbol, token = '{'+symbol+'}') =>
-          item =>
-            (item.textContent = item.textContent.replace (token, context [symbol]))
+   // must both run independently not in tandem
 
 
     for (let symbol of Object.keys (this))
