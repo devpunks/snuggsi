@@ -496,34 +496,15 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
   }(Element))); }
 
 var Custom = function (Element) { return ( (function (superclass) {
-    function anonymous ()
-    { superclass.call (this) /* will need to add initialize () routine */ }
+    function anonymous () {
+      superclass.apply(this, arguments);
+    }
 
     if ( superclass ) anonymous.__proto__ = superclass;
     anonymous.prototype = Object.create( superclass && superclass.prototype );
     anonymous.prototype.constructor = anonymous;
 
-//initialize () {
-
-//  let
-//    bindable = property =>
-//      Object.getOwnPropertyDescriptor
-//        (Element.prototype, property).value
-
-//  , bind = property =>
-//      (this [property] = this [property].bind (this))
-
-//  , names =
-//      Object.getOwnPropertyNames
-//        (Element.prototype)
-
-//  names
-//    .filter (bindable)
-//    .map    (bind)
-//}
-
-
-  anonymous.prototype.connectedCallback = function () {
+    anonymous.prototype.connectedCallback = function () {
 
     this.context = {}
 
@@ -570,7 +551,10 @@ var Custom = function (Element) { return ( (function (superclass) {
   };
 
     return anonymous;
-  }(( EventTarget ( ParentNode ( GlobalEventHandlers (Element) )))))); }
+  }(( EventTarget
+  ( ParentNode
+  ( GlobalEventHandlers
+  ( Element ))))))); }
 
 var ElementPrototype = window.Element.prototype // see bottom of this file
 
