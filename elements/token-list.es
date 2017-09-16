@@ -61,16 +61,20 @@ class TokenList {
 
    // must both run independently not in tandem
 
+    , restore = ([symbol, nodes]) =>
+         nodes.map
+           ( replace (['{'+symbol+'}', context [symbol]]) )
 
-    for (let symbol of Object.keys (this))
-      this [symbol]
-        .map (reset)
+    , replace = replacement =>
+        node => // thunk
+          node.textContent = node.textContent
+            .replace ( ... replacement )
 
-    for (let symbol of Object.keys (this))
-      this [symbol]
-        .map (replace (symbol))
+    Object
+      .keys (this)
+      .map  (reset)
+      .map  (restore)
   }
-
 }
 
 //function zip (...elements) {
