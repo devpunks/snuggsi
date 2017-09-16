@@ -50,6 +50,5 @@ const Custom = Element => // why buble
     super.onidle && super.onidle ()
   }
 
-
 })
 
