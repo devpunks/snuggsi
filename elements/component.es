@@ -29,13 +29,13 @@ const Custom = Element => // why buble
   render () {
 
     this
+      .tokens
+      .bind (this)
+
+    this
       .templates
       .map (template =>
         template.bind (this [template.name]))
-
-    this
-      .tokens
-      .bind (this)
 
     void [this]
 
