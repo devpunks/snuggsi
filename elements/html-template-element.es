@@ -28,14 +28,11 @@ const Template = HTMLTemplateElement = function (template) {
     .replaceChild
       (template.comment, template)
 
-  Object
+  return Object
     .defineProperty
-      (template, 'bind'
-      , { value: bind, writable: true, configurable: true })
+      (template, 'bind', { value })
 
-  return template
-
-  function bind (context) {
+  function value (context) {
 
     let
       html     = ''
