@@ -116,10 +116,8 @@ new class CustomElementRegistry {
   }
 
   // http://nshipster.com/method-swizzling/
-  static swizzle ( name, ... Class ) {
+  static swizzle ( name, ... Class ) { }
 
-    return definition // tuple
-  }
 }
 
 class TokenList {
