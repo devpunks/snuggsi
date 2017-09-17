@@ -571,7 +571,6 @@ const Custom = Element => // why buble
       && super.initialize ()
 
     super.connectedCallback
-      && super.connectedCallback ()
 
     Object.getOwnPropertyNames
       (Element.prototype).map
