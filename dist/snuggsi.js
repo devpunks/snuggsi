@@ -100,18 +100,14 @@ new (function () {
   CustomElementRegistry.prototype.queue = function ( name, Class, constructor ) {
     var this$1 = this;
 
-    return function (event) {
-      var
-        selected  =
-          document.body
-            .querySelectorAll (name)
+    return function (event) { return [].slice
+        .call
+          // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
+          (document.getElementsByTagName (name))
 
-      , instances = []
-          .slice
-          .call (selected)
-          // .reverse () // should be able to do depth first
-          .map  (this$1.upgrade (Class))
-    }
+        // .reverse () // should be able to do depth first
+        .map
+          (this$1.upgrade (Class)); }
   };
 
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
