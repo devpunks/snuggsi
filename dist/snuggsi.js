@@ -112,16 +112,14 @@ new (function () {
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
   CustomElementRegistry.prototype.upgrade = function (constructor) {
+
     // Here's where we can swizzle
-    return function (element) {
 
-      element =
-        Object.setPrototypeOf
-          (element, constructor.prototype)
+    return function (element) { return Object.setPrototypeOf
+        (element, constructor.prototype)
 
-      element.connectedCallback
-        && element.connectedCallback ()
-    }
+      .connectedCallback
+        && element.connectedCallback (); }
   };
 
   // http://nshipster.com/method-swizzling/
