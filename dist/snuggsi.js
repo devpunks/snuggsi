@@ -126,10 +126,7 @@ new (function () {
   CustomElementRegistry.swizzle = function ( name ) {
     var Class = [], len = arguments.length - 1;
     while ( len-- > 0 ) Class[ len ] = arguments[ len + 1 ];
-
-
-    return definition // tuple
-  };
+ };
 
     return CustomElementRegistry;
   }())
