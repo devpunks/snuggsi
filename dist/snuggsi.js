@@ -358,7 +358,7 @@ var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
     return function (event, render) {
         if ( render === void 0 ) render = true;
 
-        return (event.prevent = function (_) { return (render = false) && event.preventDefault (); })
+        return (event.prevent = function (_) { return !!! (render = false) && event.preventDefault (); })
 
       && handler.call (this$1, event) !== false // for `return false`
 
