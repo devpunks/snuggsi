@@ -62,8 +62,9 @@ new (function () {
   var whenDefined = ref.whenDefined;
 
 
-    window.customElements.define
-      = this._define (define)
+    window.customElements
+      .define = this
+        ._define (undefined) // (define)
         .bind (this)
   }
 
@@ -77,9 +78,7 @@ new (function () {
     //  definition = this.swizzle ( definition );
 
     return function ( name, constructor, options ) {
-      console.warn ('Definining', name, constructor, options)
-
-      void (function (_){}).apply
+      (delegate).apply
         ( window.customElements, this$1.register ( name, constructor ) )
     }
   };
