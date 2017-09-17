@@ -570,15 +570,13 @@ const Custom = Element => // why buble
     super.initialize
       && super.initialize ()
 
-    super.connectedCallback
-
     Object.getOwnPropertyNames
       (Element.prototype).map
         (this.reflect, this)
 
     this
       .onconnect ()
-      .render ()
+      .render    ()
   }
 
 
