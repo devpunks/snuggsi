@@ -566,12 +566,11 @@ var Element = function (tag) {
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
     // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-    return function (klass) { // https://en.wikipedia.org/wiki/Higher-order_function
-      void (ref = window.customElements).define.apply
-        ( ref, (ref$1 = []).concat.apply ( ref$1, [tag]).concat( [Custom (klass)], [{ constructor: constructor }] ))
+  return function (klass) { return (ref = window.customElements).define.apply
+      ( ref, (ref$1 = []).concat.apply ( ref$1, [tag] ).concat( [Custom (klass)]
+        , [{ constructor: constructor }] ))
       var ref;
-      var ref$1;
-    }
+      var ref$1;; }
 }
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
