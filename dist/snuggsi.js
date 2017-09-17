@@ -572,7 +572,7 @@ var Element = function (tag) {
 
     return function (klass) { // https://en.wikipedia.org/wiki/Higher-order_function
       void (ref = window.customElements).define.apply
-        ( ref, (ref$1 = []).concat.apply ( ref$1, [tag]).concat( [Custom (klass)], [{ prototype: constructor }] ))
+        ( ref, (ref$1 = []).concat.apply ( ref$1, [tag]).concat( [Custom (klass)], [{ constructor: constructor }] ))
       var ref;
       var ref$1;
     }
