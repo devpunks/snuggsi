@@ -519,15 +519,13 @@ var Custom = function (Element) { return ( (function (superclass) {
     superclass.prototype.initialize
       && superclass.prototype.initialize.call (this)
 
-    superclass.prototype.connectedCallback
-
     Object.getOwnPropertyNames
       (Element.prototype).map
         (this.reflect, this)
 
     this
       .onconnect ()
-      .render ()
+      .render    ()
   };
 
 
