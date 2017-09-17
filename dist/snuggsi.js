@@ -73,15 +73,14 @@ new (function () {
     if ( delegate === void 0 ) delegate = function (_){};
 
 
-    this.running = undefined
+    // this.running = undefined
 
     //  definition = this.swizzle ( definition );
 
-    return function ( name, constructor, options ) {
-      (delegate).apply
-        ( window.customElements, this$1.register ( name, constructor ) )
-    }
+    return function ( name, constructor, options ) { return (delegate).apply
+        ( window.customElements, this$1.register ( name, constructor ) ); }
   };
+
 
   CustomElementRegistry.prototype.register = function (name, Class) {
     // perhaps this goes in swizzle
@@ -96,6 +95,7 @@ new (function () {
     var ref;
   };
 
+
   CustomElementRegistry.prototype.queue = function ( name, Class, constructor ) {
     var this$1 = this;
 
@@ -108,6 +108,7 @@ new (function () {
         .map
           (this$1.upgrade (Class)); }
   };
+
 
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
