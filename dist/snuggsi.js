@@ -520,7 +520,6 @@ var Custom = function (Element) { return ( (function (superclass) {
       && superclass.prototype.initialize.call (this)
 
     superclass.prototype.connectedCallback
-      && superclass.prototype.connectedCallback.call (this)
 
     Object.getOwnPropertyNames
       (Element.prototype).map
