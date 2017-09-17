@@ -21,7 +21,7 @@ const Custom = Element => // why buble
 
     this
       .onconnect ()
-      .render ()
+      .render    ()
   }
 
 
