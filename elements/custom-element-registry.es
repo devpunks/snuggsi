@@ -70,16 +70,16 @@ new class CustomElementRegistry {
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
   upgrade (constructor) {
+
     // Here's where we can swizzle
-    return function (element) {
 
-      element =
-        Object.setPrototypeOf
-          (element, constructor.prototype)
+    return element =>
 
-      element.connectedCallback
+      Object.setPrototypeOf
+        (element, constructor.prototype)
+
+      .connectedCallback
         && element.connectedCallback ()
-    }
   }
 
   // http://nshipster.com/method-swizzling/
