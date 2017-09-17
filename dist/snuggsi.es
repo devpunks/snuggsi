@@ -368,7 +368,7 @@ const EventTarget = HTMLElement => // why buble
 
     return (event, render = true) =>
       (event.prevent = _ =>
-         (render = false) && event.preventDefault ())
+         !!! (render = false) && event.preventDefault ())
 
       && handler.call (this, event) !== false // for `return false`
 
