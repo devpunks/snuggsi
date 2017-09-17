@@ -33,15 +33,15 @@ new class CustomElementRegistry {
 
   _define ( delegate = _=> {} ) {
 
-    this.running = undefined
+    // this.running = undefined
 
     //  definition = this.swizzle ( definition );
 
-    return ( name, constructor, options ) => {
+    return ( name, constructor, options ) =>
       (delegate).apply
         ( window.customElements, this.register ( name, constructor ) )
-    }
   }
+
 
   register (name, Class) {
     // perhaps this goes in swizzle
@@ -55,6 +55,7 @@ new class CustomElementRegistry {
     return arguments
   }
 
+
   queue ( name, Class, constructor ) {
     return event =>
       [].slice
@@ -66,6 +67,7 @@ new class CustomElementRegistry {
         .map
           (this.upgrade (Class))
   }
+
 
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
