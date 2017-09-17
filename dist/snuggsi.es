@@ -58,8 +58,9 @@ new class CustomElementRegistry {
 
   constructor ({ define, get, whenDefined } = customElements ) {
 
-    window.customElements.define
-      = this._define (define)
+    window.customElements
+      .define = this
+        ._define (undefined) // (define)
         .bind (this)
   }
 
@@ -70,9 +71,7 @@ new class CustomElementRegistry {
     //  definition = this.swizzle ( definition );
 
     return ( name, constructor, options ) => {
-      console.warn ('Definining', name, constructor, options)
-
-      void (_=>{}).apply
+      (delegate).apply
         ( window.customElements, this.register ( name, constructor ) )
     }
   }
