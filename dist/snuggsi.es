@@ -116,7 +116,7 @@ new class CustomElementRegistry {
   }
 
   // http://nshipster.com/method-swizzling/
-  static swizzle ( name, ... Class ) { }
+  swizzle ( name, ... Class ) { }
 
 }
 
