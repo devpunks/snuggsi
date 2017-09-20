@@ -91,10 +91,8 @@ new class CustomElementRegistry {
 
   queue ( name, Class, constructor ) {
     return event =>
-      [].slice
-        .call
-          // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
-          (document.getElementsByTagName (name))
+      // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
+      [ ... document.getElementsByTagName (name) ]
 
         // .reverse () // should be able to do depth first
         .map
