@@ -479,9 +479,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
         && ( handler = this$1 [ (handler || []) [1] ] )
         && ( node [event] = this$1.renderable (handler) ); }
 
-    void []
-      .slice
-      .call (node.attributes)
+    void [].concat( node.attributes )
       .map (function (attr) { return attr.name; })
       .filter (function (name) { return /^on/.test (name); })
       .map (register)
