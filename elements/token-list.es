@@ -37,8 +37,8 @@ class TokenList {
           && nodes.push (node)
 
     , ELEMENT_NODE = attrs =>
-        [...attrs]
-          .map  (attr => expression.test (attr.value) && nodes.push (attr))
+        [ ... attrs].map 
+          (attr => expression.test (attr.value) && nodes.push (attr))
 
     , walker =
         document.createNodeIterator
