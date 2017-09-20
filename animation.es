@@ -7,6 +7,8 @@
 // https://www.webreflection.co.uk/blog/2016/07/31/taming-raf-and-rick
 // https://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
 // http://blog.teamtreehouse.com/efficient-animations-with-requestanimationframe
+//
+// Polyfill - https://github.com/WebReflection/dom4/blob/master/src/dom4.js#L428-L469
 
 var aliceTumbling = [
   { transform: 'rotate(0) translate3D(-50%, -50%, 0', color: '#000' }, 

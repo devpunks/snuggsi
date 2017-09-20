@@ -26,13 +26,14 @@ const ParentNode = Element =>
       [].concat ( ... [fragments] )
 
     const
-      zip = (selector, token) =>
-        selector + token + fragments.shift ()
+      zip =
+        (part, token) =>
+          part + token + fragments.shift ()
 
-    return Array
-      .from
-        (this.querySelectorAll
-          (tokens.reduce (zip, fragments.shift ())))
+    , selector =
+        tokens.reduce (zip, fragments.shift ())
+
+    return [ ... this.querySelectorAll (selector) ]
   }
 
   select ( ... selector )

@@ -1,7 +1,6 @@
 # Build Process
 
-_📖  [Please see `bin/README.md`](../bin/README.md)
-For a list of `bin` scripts used within the build pipeline.
+_📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` scripts used within the build pipeline._
 
 
 ## `snuggsi.min.es.br`
@@ -19,13 +18,15 @@ For a list of `bin` scripts used within the build pipeline.
 
 
 ## Glossary
-  - [Scripting Media Types _(rfc4329)_](https://www.rfc-editor.org/rfc/rfc4329.txt), their [WHATWG/W3c approval](https://github.com/w3c/webcomponents/issues/645#issuecomment-317338144) status, and [why you should know `application/ecmascript`](https://stackoverflow.com/questions/9664282/difference-between-application-x-javascript-and-text-javascript-content-types)
-  - [Javascript MIME types](https://html.spec.whatwg.org/#javascript-mime-type)
   - [Content Negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation)
-  - [Octet](https://en.wikipedia.org/wiki/Octet_(computing))
-  - [MTU _(Maximum Transmission Unit)_](https://en.wikipedia.org/wiki/Maximum_transmission_unit)
+  - [Javascript MIME types](https://html.spec.whatwg.org/#javascript-mime-type)
+  - [Scripting Media Types _(rfc4329)_](https://www.rfc-editor.org/rfc/rfc4329.txt)
+  - [WHATWG/W3c approval of media types](https://github.com/w3c/webcomponents/issues/645#issuecomment-317338144)
+  - [why you should know `application/ecmascript`](https://stackoverflow.com/questions/9664282/difference-between-application-x-javascript-and-text-javascript-content-types)
   - [Difference between Ethernet frame and Packet](https://www.youtube.com/watch?v=wcSee63SIlg)
+  - [MTU _(Maximum Transmission Unit)_](https://en.wikipedia.org/wiki/Maximum_transmission_unit)
   - [_(Ethernet)_ Frame](https://en.wikipedia.org/wiki/Ethernet_frame)
+  - [OCTET](https://en.wikipedia.org/wiki/Octet_(computing))
 
 
 ## Pipeline
@@ -134,7 +135,7 @@ Links
   - [rfc1950](https://tools.ietf.org/html/rfc1950)
 
 
-#### [GZip Compression (_[rfc1952](https://www.ietf.org/rfc/rfc1952.txt)_) _(snuggsi.min.gz)_
+#### GZip Compression _[rfc1952](https://www.ietf.org/rfc/rfc1952.txt) (snuggsi.min.gz)_
 `snuggsi.min.es` ➡️  `snuggsi.min.es.gz`
 
 `snuggsi.min.js` ➡️  `snuggsi.min.js.gz`

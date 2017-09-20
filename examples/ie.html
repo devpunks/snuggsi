@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+
+<script src=/></script>
+
+<h1>Internet Explorer Test Page</h1>
+
+<section style='visibility:hidden;background:pink;height:20vh;padding:3em'>
+  <p style='visibility:visible;background:orange;padding:3em'>Whatever is clever</p>
+</section>
+
+<hello-world title="{baz} and {foo} and {bar}">
+  Hello World!!! {baz}
+
+  <template name=snuggs>
+    <section style=background:black;color:red;>
+      <h1>{self}</h1>
+
+      WOW ! {#}
+      <footer>
+        <button onclick=onrob>Score</button>
+      </footer>
+    </section>
+  </template>
+</hello-world>
+
+<hello-world>
+  Hello World Again!!! {baz}
+
+  <template name=snuggs>
+    <section style=background:pink;color:green;>
+      <h1>{self}</h1>
+
+      WOW ! {#}
+      <footer>
+        <button onclick=onrob>Score</button>
+      </footer>
+    </section>
+  </template>
+</hello-world>
+
+<!--
+  <hello-world>Hello Sun!!!</hello-world>
+  <hello-world>Hello Moon!!!</hello-world>
+-->
+
+<hello-mars>Hello Mars!!!</hello-mars>
+
+<hello-saturn>Hi i'm saturn</hello-saturn>
+
+<script>
+
+/*
+The following is code generated from a transpilation of
+
+class extends HTMLElement { ... }
+
+*/
+
+var babel = function () {
+
+  function Mock () {
+    return HTMLElement.call (this)
+  }
+
+  Mock.__proto__ = HTMLElement
+
+  Mock.prototype = Object.create
+    ( HTMLElement.prototype )
+
+  Mock.prototype
+    .constructor = Mock
+
+  return Mock
+
+} ()
+
+var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var Bam = function (_HTMLElement) {
+  _inherits(Bam, _HTMLElement);
+
+  function Bam() {
+    _classCallCheck(this, Bam);
+
+    var _this = _possibleConstructorReturn(this, (Bam.__proto__ || Object.getPrototypeOf(Bam)).call(this));
+
+    console.log('Snuggs did it again', _this);
+    return _this;
+  }
+
+  _createClass(Bam, [{
+    key: 'connectedCallback',
+    value: function connectedCallback() {
+      console.log('connected!', this, this.innerText);
+    }
+  }, {
+    key: 'onidle',
+    value: function baz(event) {
+      console.log ('Idling', this, event);
+    }
+  }, {
+    key: 'initialize',
+    value: function initialize() {
+      console.log ('Initializing', this);
+    }
+  }, {
+    key: 'onconnect',
+    value: function onconnect(event) {
+      console.log ('This made it all the way here', this, event);
+    }
+  }, {
+    key: 'onrob',
+    value: function onrob(event) {
+      alert ('🎉🎉 TOUCHDOWN! 🏈 ', event);
+    }
+  }, {
+    key: 'onclick',
+    value: function onclick(event) {
+      this.snuggsi ()
+    }
+  }, {
+    key: 'snuggsi',
+    value: function snuggsi(event) {
+      console.warn ('🎉🎉 TOUCHDOWN! 🏈 ', this, event);
+    }
+  }, {
+    key: 'baz',
+    value: function baz() {
+      return new Date;
+    }
+  }, {
+    key: 'foo',
+    get: function get() {
+      return 'foo';
+    }
+  }, {
+    key: 'bar',
+    get: function get() {
+      return 'bar';
+    }
+  }, {
+    key: 'snuggs',
+    get: function get() {
+      return [(new Date).getTime(), 'zoh', 'mah', 'gerd'];
+    }
+  }]);
+
+  return Bam;
+}(HTMLElement);
+
+// Interesting. What step prevents duplicate class registration?
+// Uncaught DOMException: Failed to execute 'define' on 'CustomElementRegistry':
+// this constructor has already been used with this registry
+// Element ('hello-mars')(klass)
+
+//Element`hello-saturn`(Foo)
+  Element ('hello-world')(Bam)
+//Element ('buble-world')(buble)
+
+</script>
+
+<style>
+h1 {
+  background: pink
+}
+
+hello-world, hello-mars, hello-saturn {
+  margin: 1em;
+  padding: 1em;
+  color: white;
+  display: block;
+  font-size: 2em;
+  font-weight: bold;
+  text-align: center;
+}
+
+hello-world
+  { background: red }
+
+hello-mars
+  { background: green }
+
+hello-saturn
+  { background: pink }
+
+</style>
+
+<script src=/browser-sync.es></script>
+

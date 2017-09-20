@@ -18,7 +18,7 @@ const GlobalEventHandlers = Element =>
   // https://en.wikipedia.org/wiki/DOM_events#Event_handling_models
   //
   // Inline Model
-  // https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#Inline_model
+  // https://en.wikipedia.org/wiki/DOM_events#Inline_model
   //
   // Traditional Model
   // https://en.wikipedia.org/wiki/DOM_events#Traditional_model
@@ -28,16 +28,27 @@ const GlobalEventHandlers = Element =>
 
 (class extends Element {
 
-  onconnect (event, document) {
+  onconnect (event, target) {
 
-    (document = event.target.import)
-      && this.mirror (document.querySelector ('template'))
+//  RESERVED FOR IMPORTS WTF IS GOING ON
+//  event
+//    && event.target
+//    && (target = event.target)
+//    && this.mirror
+//      (target.import.querySelector ('template'))
+
+    this.templates =
+      this
+        .selectAll ('template[name]')
+        .map  (template => new Template (template))
+
+    this.tokens =
+      new TokenList (this)
 
     super.onconnect
       && super.onconnect ()
 
-    this.tokens = new TokenList (this)
-    this.render ()
+    return this
   }
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
@@ -51,26 +62,27 @@ const GlobalEventHandlers = Element =>
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  reflect (handler, event) {
-    ( event = ( handler.match (/^on(.+)$/) || [] ) [1] )
+  reflect (handler) {
 
-    && Object.keys // ensure W3C on event
-     ( HTMLElement.prototype )
-       .includes ( handler )
+    /^on/.test (handler) // `on*`
+      && handler // is a W3C event
+        in HTMLElement.prototype
 
-    && this.on (event, this [handler])
+      && // automagically delegate event
+        this.on ( handler.substr (2), this [handler] )
   }
 
   register (node) {
     const
       register = (event, handler) =>
+        // https://www.quirksmode.org/js/events_tradmod.html
+        // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
         (handler = /{\s*(\w+)\s*}/.exec (node [event]))
 
         && ( handler = this [ (handler || []) [1] ] )
         && ( node [event] = this.renderable (handler) )
 
-    Array
-      .from (node.attributes)
+    void [ ... node.attributes ]
       .map (attr => attr.name)
       .filter (name => /^on/.test (name))
       .map (register)

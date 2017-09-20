@@ -106,52 +106,100 @@
   <header>Getting Started</header>
   <ul>
     <li>
+      <a href=/examples/hello-world >&lt;hello-world&gt;</a>
+
+    <li>
       <details>
         <summary><a href=#installation>Installation</a></summary>
 
         <ul>
           <li>
+            <a href=#>Files Organization</a>
+            <!-- https://medium.com/styled-components/component-folder-pattern-ee42df37ec68 -->
+
+          <li hidden >
             <a href=#><code>&lt;script&gt;</code> tag</a>
 
-          <li>
+          <li hidden >
             <a href=#>Chrome Extension</a>
             <!-- https://github.com/pakastin/redom-devtools/blob/master/dist/devtools.js -->
 
-          <li>
+          <li hidden >
             <a href=#><code>$ npm i snuggsi</code></a>
 
       </details>
 
     <li>
       <details>
-        <summary><a href=#lifecycle>Lifecycle</a></summary>
+        <summary><a href=#lifecycle >Lifecycle</a></summary>
 
-        <ul>
+        <ol>
           <li>
-            <a href=#>Initiaize</a>
+            <a href=#lifecyle:definition >Definition</a>
 
           <li>
-            <a href=#>Render</a>
+          <a href=#lifecyle:construction >Construction</a>
+
+          <li>
+            <a href=#lifecyle:reflection >Reflection</a>
+
+          <li>
+            <a href=#lifecyle:imports >Imports</a>
+
+          <!-- This is a bit wonky in nomenclature and semantics -->
+
+          <li>
+            <a href=#lifecyle:slots >Slot Replacement</a>
+
+          <li>
+            <a href=#lifecyle:rendering >Rendering</a>
+
+            <ol>
+              <li>
+                <a href=#lifecycle:rendering:tokens >Tokens</a>
+
+              <li>
+                <a href=#lifecycle:rendering:templates >Templates</a>
+
+              <li>
+                <a href=#lifecycle:rendering:registration >Event Registration</a>
+
+            </ol>
+
+          <li>
+            <a href=#lifecyle:idle >Idle</a>
+
+          <li>
+            <a href=#lifecyle:events >Handling Events</a>
 
       </details>
 
     <li>
       <details>
-        <summary><a href=#conventions>Conventions</a></summary>
+        <summary><a href=#conventions >Conventions</a></summary>
 
         <ul>
           <li>
-            <a href=#tokens>Tokens</a>
+            <a href=#tokens >Tokens</a>
 
           <li>
             <!-- http://blog.aurelia.io/2016/05/23/aurelia-shadow-dom-v1-slots-prerelease -->
-            <a href=#slots>Slots</a>
+            <a href=#slots >Slots</a>
 
           <li>
-            <a title=Context href=#context>Context</a>
+            <a title=Context href=#context >Context</a>
 
           <li>
-            <a title=Mixins href=#mixins>Mixins</a>
+            <a title=Mixins href=#mixins >Mixins</a>
+
+      </details>
+
+    <li>
+      <details>
+        <summary><a href=#practices>Best Practices</a></summary>
+
+        <ul>
+          <li></li>
 
       </details>
 
@@ -203,17 +251,97 @@
             <a href=#events:idle><em>(on)</em>idle</a>
 
           <li>
-            <a href=https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers>GlobalEventHandlers.<em>(on)</em>events</a>
+            <a
+              rel=external
+              target=external
+              href=https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers>Native Handlers</a>
+
         </ul>
 
         <footer>
           <ul>
             <li>
-              <a href=https://blog.garstasio.com/you-dont-need-jquery/events>Web Platform Event Conventions</a>
+              <a
+                rel=help
+                target=wikipedia
+                href=https://en.wikipedia.org/wiki/DOM_events#Inline_model >
+                Inline Registration
+              </a>
+
           </ul>
         </footer>
       </details>
 
+
+          </ul>
+        </footer>
+      </details>
+
+    <li>
+      <details>
+        <summary><a href=#mixins>Mixins</a></summary>
+
+
+        <footer>
+          <ul>
+            <li>
+              <a
+                target=mdn
+                rel=external
+                href=https://developer.mozilla.org/en-US/docs/Glossary/Mixin>
+                <abbr title='Mozilla Developer Network'>MDN</abbr>
+                Mixins
+              </a>
+
+            <li>
+              <a
+                rel=external
+                target=wikipedia
+                href=https://en.wikipedia.org/wiki/Mixin>
+                Wikipedia Mixins
+              </a>
+
+            <li>
+              <a
+                target=mdn
+                rel=external
+                href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes#Mix-ins>
+                ECMAScript Mixins
+              </a>
+
+          </ul>
+        </footer>
+      </details>
+
+    <li>
+      <details>
+        <summary><a href=#modules>Modules</a></summary>
+
+        <ul>
+          <li>
+            <a href=#modules:html><abbr title='Hyper-Text Markup Language'>HTML</abbr> Modules</a>
+
+          <li>
+            <a href=#modules:ecmascript>ECMAScript Modules</a>
+
+        </ul>
+
+        <footer>
+          <ul>
+            <li>
+              <a rel=external target=external href=https://aremodulesready.com>Are Modules Ready?</a>
+
+          </ul>
+        </footer>
+      </details>
+
+    <li>
+      <details>
+        <summary><a href=#imports>Imports</a></summary>
+
+
+        <footer></footer>
+      </details>
 
   </ul>
 
@@ -227,8 +355,7 @@
   <p>Simply place the following script within your webpage:</p>
 
   <pre><code>
-  <em class=comment>&lt;!-- https:// required to run locally --&gt;</em>
-  &lt;script src=//unpkg.com/snuggsi&gt;&lt;/script&gt;
+  &lt;script src=https://unpkg.com/snuggsi&gt;&lt;/script&gt;
   </pre></code>
 
   <p><strong>snuggsiツ</strong> works in production or in a plain 'ol HTML file!
@@ -239,7 +366,7 @@
   <h1>Custom Element Lifecycle</h1>
 
   <dl>
-    <dt>0. Definition
+    <dt id=lifecycle:definition >0. <code>define</code> Element
     <dd>
       A custom element is <em>"defined"</em> by specifying the <code>Element `your-tag-name`</code>
       declaration immediately followed with a <code>(class extends HTMLElement {})</code> definition.
@@ -247,7 +374,7 @@
       definition is specified. This means your custom element can be styled like any other HTML element.
       However, your element will not have functionality until after definition.
 
-    <dt>1. Construction
+    <dt id=lifecycle:construction >1. <code>initialize</code> Construction
     <dd>
       After <strong>Definition & Declaration</strong> the custom element will go through
       it's <code>constructor ()</code> routine. Typically you will not need to define a
@@ -257,7 +384,7 @@
       If you would like to alter the custom element construction,
       define an <code>initialize ()</code> function which is a hook that will be used automatically.
 
-    <dt>2. Reflection
+    <dt id=lifecycle:reflection >2. Reflection
     <dd>
       After <strong>Construction</strong> the custom element will inspect your
       <code>class extends HTMLElement</code> definition for Event Handlers.
@@ -266,7 +393,7 @@
       delegate the event handler to your custom element container.  As a
       convenience the <code>this</code> keyword will <strong><em>Always</em></strong> be bound to the custom element.
 
-    <dt>3. <code>&lt;link&gt;</code>Importing
+    <dt id=lifecycle:imports >3. <code>&lt;link&gt;</code>Importing
     <dd>
       The <code>&lt;link rel=import&gt;</code> step is critical for custom elements which contain a definition within an external file.
       <em>(See <a
@@ -280,7 +407,7 @@
       Imports are relative to the partial HTML document that contains the contents to hydrate each
       instance of your custom element on upgrade.
 
-    <dt>4. <code>&lt;slot&gt;</code> Replacement
+    <dt id=lifecycle:slots >4. <code>&lt;slot&gt;</code> Replacement
     <dd>
       After <strong>Importing</strong> the default contents of your custom element
       there will be a replacement of any child elements with a
@@ -295,7 +422,7 @@
       An element with a slot attribute is assigned to the slot created by the
       &lt;slot&gt; element whose name attribute's value matches that slot attribute's value.
 
-    <dt>5. Rendering
+    <dt id=lifecycle:rendering >5. Rendering
     <dd>
       Rendering of your custom element occurs on <strong>three specific occasions</strong>:
       <ol>
@@ -313,7 +440,7 @@
       from within handler functions.  <strong>Be sure to declare <code>event</code> in your method signature.</strong>
       <em>(example: <code>onclick (event) { event.prevent () }</code></em>
 
-    <dt>5a. <code>{token}</code> Binding
+    <dt id=lifecycle:rendering:tokens >5a. <code>{token}</code> Binding
     <dd>
       Occurs by <strong><em>"Tree Walking"<sup>&trade;</sup></em></strong> 
       child content of your custom element each time a <code>{token}</code> is discovered.
@@ -321,7 +448,7 @@
       <code>{foo}</code> is replaced with <code>"some value"</code> If a <code>get foo () { return 'some value' }</code>
       is a property of your class definition.
 
-    <dt>5b. <code>&lt;template&gt;</code> Iteration
+    <dt id=lifecycle:rendering:templates >5b. <code>&lt;template&gt;</code> Iteration
     <dd>
     Often we need to iterate over collections within a custom element. Traditionally this is done 
     <a
@@ -332,7 +459,7 @@
     will <strong><em>"Tree Walk"<sup>&trade;</sup></em></strong> the children of your custom element looking for 
     <code>&lt;template name=&hellip;&gt;</code> and <em>"bind"</em> the collection value of a property with the same name on your class.
 
-    <dt>5c. Event Registration
+    <dt id=lifecycle:rendering:registration >5c. Event Registration
     <dd>
       One of the many pains of classic browser programming is registering events on DOM elements.
       <strong>Event Registration</strong> is the process of declaratively registering event handlers by name
@@ -347,7 +474,7 @@
       <code>&lt;foo-bar onclick=hello&gt;</code> will <em>"automagically"<sup>&trade;</sup></em> register
       the <code>hello (event) { }</code> handler defined on the custom element <code>class</code> definition.
 
-    <dt>6. Post-Render Idle
+    <dt id=lifecycle:idle >6. Post-Render Idle
     <dd>
       Idling occurs after the <strong>Rendering</strong> routine consisting of
       <strong>Token Binding</strong>, <strong>Template Iteration</strong>,
@@ -372,7 +499,7 @@
           idle time between animation frames
       </a>.
 
-    <dt>7. Triggering Events <em>(On completion repeats rendering step #5 a, b, &amp; c)</em>
+    <dt id=lifecycle:events >7. Triggering Events <em>(On completion repeats rendering step #5 a, b, &amp; c)</em>
     <dd>
       There are a few ways events are registered by <strong>snuggsiツ</strong>.
       Whether you choose a declarative registration <code>&lt;button onclick=onfoo&gt;</code>,
@@ -647,6 +774,15 @@ $$$$$ https://www.youtube.com/watch?v=tKvNeNGmOtU
   <header>Examples</header>
 
   <details>
+  <summary><a href=/examples>&lt;section <em style='color:rgba(220,220,220,0.7)'><strong>is</strong>=enhanced</em> &gt;</a><sup>New!</sup></summary>
+    <!-- https://github.com/w3c/webcomponents/issues/662 -->
+
+    <nav> </nav>
+
+  </details>
+
+
+  <details>
     <summary><a href=/examples#html>&lt;custom-elements&gt;</a></summary>
 
     <nav>
@@ -698,20 +834,6 @@ $$$$$ https://www.youtube.com/watch?v=tKvNeNGmOtU
   </details>
 
   <details>
-    <summary><a href=/examples#svg>&lt;svg-elements&gt;</a></summary>
-
-    <nav>
-      <ul>
-        <li>
-          <a target=mdn href=https://developer.mozilla.org/en-US/docs/Web/SVG>SVG</a>
-
-        <li>
-          <a target=mdn href=https://developer.mozilla.org/en-US/docs/Web/SVG/Element>Element</a>
-    </nav>
-
-  </details>
-
-  <details>
     <summary><a title='<template>' href=/examples#template>&lt;template&gt;</a></summary>
 
     <nav>
@@ -743,7 +865,31 @@ $$$$$ https://www.youtube.com/watch?v=tKvNeNGmOtU
 
     <nav>
       <ul>
-        <li><abbr title='Reactive JS'>RxJS</abbr> <em>(ReactiveJS)</em>
+        <li>
+          <a
+            title=Validate
+            href=#mixins:validate >
+            Validate
+          </a>
+
+        <li>
+          <!-- https://w3c.github.io/web-animations/#use-cases -->
+          <!-- https://discourse.wicg.io/t/proposal-wait-for-element-to-transition/2225 -->
+          <!-- https://medium.com/@adaptivepath/jedi-principles-of-ui-animation-2b88423b1dac -->
+          <!-- https://hackernoon.com/how-to-create-fancy-revealing-animations-with-these-simple-css-tricks-5b34614ae69a -->
+          <a title=Animate href=#>Animate</a>
+
+        <li>
+          <a title=Worker href=#>Worker</a>
+
+        <li>
+          <!-- https://www.smashingmagazine.com/2017/09/guide-virtual-reality-web-developers/?utm_source=frontendfocus&utm_medium=email -->
+          <a href=#>
+            <abbr title='Virtual Reality'>VR</abbr> <em>(Virtual Reality)</em>
+          </a>
+
+        <li>
+          <abbr title='Reactive JS'>RxJS</abbr> <em>(ReactiveJS)</em>
     </nav>
 
   </details>

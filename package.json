@@ -1,6 +1,6 @@
 {
   "name": "snuggsi",
-  "version": "0.8.15",
+  "version": "0.9.58",
   "author": [
     "Snuggs",
     "Brandondees"
@@ -26,7 +26,7 @@
     "routing",
     "templates"
   ],
-  "main": "./dist/snuggsi.min.es.js",
+  "main": "./dist/snuggsi.min.js",
   "bin": "bin/snuggsi",
   "directories": {
     "doc": "docs",
@@ -43,13 +43,12 @@
     "buble-tape": "*",
     "devtools-terminal": "*",
     "jsdom": "*",
-    "node-zopfli": "*",
+    "node-zopfli": "^2.0.2",
     "standard": "^10.0.2",
     "tap": "*",
     "tap-nyc": "*",
     "tape": "*",
-    "uglify-es": "*",
-    "uglify-js": "*"
+    "uglify-es": "*"
   },
   "dependencies": {
     "koa": "*",

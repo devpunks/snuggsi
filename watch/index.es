@@ -6,18 +6,20 @@ const
 
 , test     = 'bin/test'
 , bundle   = 'bin/bundle'
+, shrink   = 'bin/shrink'
 , publish  = 'bin/publish'
+, transpile= 'bin/transpile'
 , reload   = './node_modules/.bin/browser-sync reload --port=' + PORT
 , clear    = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , message  = `\n Watching => ${path}🔎 👀 \n`
 , echo     = `printf "${message}" && echo "Last Update $(date)"`
-, list     = 'ls -al ./dist/*.es'
 , validate = 'bin/validate-weight || true'
 
 , exec    = require ('child_process').exec
 
-, command = [ bundle, publish, reload, clear, echo, list, test, validate]
-     .join ` && `
+, command =
+    [ bundle, transpile, shrink, publish, reload, clear, echo, test, validate ]
+      .join ` && `
 
 let times = 0
 

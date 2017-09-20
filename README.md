@@ -1,23 +1,23 @@
-<p align=center>
+
   <h1 align=center>snuggsi ツ - Easy Web Components in
     <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>~1kiloByte</a>
   </h1>
 </p>
 
 <p align=center>
-  <a href=https://travis-ci.org/devpunks/snuggsi>
-    <img alt='Travis CI build' src=https://travis-ci.org/devpunks/snuggsi.svg?branch=master>
-  </a>
-
-  <a href=https://npmjs.org/package/snuggsi>
+  <a href=https://npmjs.org/package/snuggsi target=external>
     <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat>
   </a>
 
-  <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>
+  <a href=https://travis-ci.org/devpunks/snuggsi target=external>
+    <img alt='Travis CI build' src=https://travis-ci.org/devpunks/snuggsi.svg?branch=master>
+  </a>
+
+  <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme target=external>
     <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-~%201kB-ff69b4.svg>
   </a>
 
-  <a href=https://www.npmjs.com/package/snuggsi>
+  <a href=https://www.npmjs.com/package/snuggsi target=external>
     <img src=https://img.shields.io/npm/v/snuggsi.svg alt='npm version'>
   </a>
 
@@ -40,24 +40,26 @@
   </a>
 
 <p align=center>
-  <strong align=center>All you need is a browser and basic knowledge of HTML &amp; Javascript to be productive!</strong>
+  <strong align=center>All you need is a browser and basic knowledge of HTML, CSS & <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes>Javascript classes</a> to be productive!</strong>
 
 <p align=center>
-  "Performance is the art of avoiding work" - #FreeJewelry 💍 💎
+  <q><em>Performance is the art of avoiding work</em></q> - #FreeJewelry 💍 💎
 </p>
 
 
 ## Why ?
-  1. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
-  2. Because [You (probably) don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
-  3. Web Components ARE [ready for production](https://twitter.com/WebReflection/status/761316429559922688)
+  1. Because [You _(probably)_ don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
+  2. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
+     &amp; [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
+     are [ready](https://twitter.com/domenic/status/904114041752358913)
+     for [production](https://twitter.com/WebReflection/status/761316429559922688)
 
-     &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
-     [support for every modern browser including Internet Explorer 11+ / Edge](https://github.com/webcomponents/webcomponentsjs#browser-support)
+  3. [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
+     [support for every modern browser including Internet Explorer 11+ / Edge](#browser-support)
 
 
 ## Easy Installation
-No need for Node.js, Webpack, Babel, or Gulp.
+Made with [💖 Vanilla JS™](http://vanilla-js.com) No need to learn Node.js, Webpack, Babel, or Gulp. *#UseThePlatform*
 
 **snuggsiツ** works in production or in a plain 'ol HTML file!
 
@@ -65,46 +67,21 @@ Simply place the following script within your webpage:
 
 ```html
 <!-- http(s): protocol required to run locally -->
-<script crossorigin src=//unpkg.com/snuggsi/dist/snuggsi.min.es.js></script>
+<script src=//unpkg.com/snuggsi></script>
 ```
 
 Et Voila _(that's it!)_ ツ
 
-See [ECMAScript Module Imports](https://github.com/devpunks/snuggsi/wiki/Module-Imports)
-for `<script type=module>` support!
-
-
 ## Browser Support
 
-  | Feature    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+* | Chrome Android* | Mobile Safari* |
+  | Support    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+ | Chrome (Android)* | iOS Safari* |
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
-  | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | Templates |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | HTML Imports |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | Shadow Dom | | |✅ |✅ | | | |
+  | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
 
-  The [webcomponentsjs](https://github.com/webcomponents/webcomponentsjs)
-  polyfills are intended to work in the latest versions of browsers.
-
-Place the `<script name=polyfill … >` below before **snuggsiツ** for
-[evergreen cross-browser](https://www.techopedia.com/definition/31094/evergreen-browser) support.
-
-```html
-<!-- snuggsiツ (modern) -->
-<script nomodule src=//unpkg.com/snuggsi></script>
-
-<!-- webcomponents polyfill -->
-<script
-  name=polyfill
-  src=//cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js>
-</script>
-```
-
-**⚠️  Warning ⚠️** _**snuggsiツ (classic)** will back support to Internet Explorer 11+._
-
-_We shall provide our best effort to support IE 11+ through
+**⚠️  Warning ⚠️** _We shall provide our best effort to support IE 11+ through
 [EOL](https://en.wikipedia.org/wiki/End-of-life_(product)#Computing)_
 
 _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.microsoft.com/en-us/windowsforbusiness/end-of-ie-support) for further details._
@@ -114,7 +91,7 @@ _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.
 
 ## [Element](/elements/element.es)
 
-Play [Hello World Demo](https://jsfiddle.net/rmv8e2vz/)
+Play [Hello World Demo](https://jsfiddle.net/snuggs/w02kL17n)
 
 The following is a snippet from [examples/hello-word](/examples/hello-world/index.html)
 
@@ -299,3 +276,4 @@ Snuggsi is able to use modern compression algorithms to create
 bundles as small as *~1500 OCTETS* _(or one 1500byte Ethernet packet frame)_
 
 [Read More](https://github.com/devpunks/snuggsi/tree/master/dist#readme)
+

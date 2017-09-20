@@ -40,9 +40,15 @@ const EventTarget = HTMLElement => // why buble
 
   renderable ( handler ) {
 
+    // BIG BUG IN IE!!!
+    //
+    // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
+    //
+    // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
+
     return (event, render = true) =>
       (event.prevent = _ =>
-         (render = false) && event.preventDefault ())
+         !!! (render = false) && event.preventDefault ())
 
       && handler.call (this, event) !== false // for `return false`
 
