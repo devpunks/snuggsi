@@ -99,10 +99,7 @@ new (function () {
   CustomElementRegistry.prototype.queue = function ( name, Class, constructor ) {
     var this$1 = this;
 
-    return function (event) { return [].slice
-        .call
-          // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
-          (document.getElementsByTagName (name))
+    return function (event) { return [].concat( document.getElementsByTagName (name) )
 
         // .reverse () // should be able to do depth first
         .map
