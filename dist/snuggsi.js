@@ -166,10 +166,8 @@ TokenList.prototype.sift = function (node) {
   , TEXT_NODE = function (node) { return expression.test (node.textContent)
         && nodes.push (node); }
 
-  , ELEMENT_NODE = function (attrs) { return []
-        .slice
-        .call (attrs)
-        .map(function (attr) { return expression.test (attr.value) && nodes.push (attr); }); }
+  , ELEMENT_NODE = function (attrs) { return [].concat( attrs ).map 
+        (function (attr) { return expression.test (attr.value) && nodes.push (attr); }); }
 
   , walker =
       document.createNodeIterator
