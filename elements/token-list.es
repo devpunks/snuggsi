@@ -37,9 +37,7 @@ class TokenList {
           && nodes.push (node)
 
     , ELEMENT_NODE = attrs =>
-        []
-          .slice
-          .call (attrs)
+        [...attrs]
           .map  (attr => expression.test (attr.value) && nodes.push (attr))
 
     , walker =
