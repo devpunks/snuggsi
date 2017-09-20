@@ -538,9 +538,7 @@ const GlobalEventHandlers = Element =>
         && ( handler = this [ (handler || []) [1] ] )
         && ( node [event] = this.renderable (handler) )
 
-    void []
-      .slice
-      .call (node.attributes)
+    void [ ... node.attributes ]
       .map (attr => attr.name)
       .filter (name => /^on/.test (name))
       .map (register)
