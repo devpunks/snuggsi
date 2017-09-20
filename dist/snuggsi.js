@@ -147,7 +147,8 @@ TokenList.prototype.tokenize = function (node) {
     insert = function (node) { return function (symbol) { return (this$1 [symbol] = this$1 [symbol] || []).push (node); }; }
 
   void (node.text = node.textContent)
-    .match (/([^{]*?)(\w|#)(?=\})/g)
+    .match (/[^{\}]+(?=})/g)
+//  .match (/([^{]*?)(\w|#)(?=\})/g)
     .map (insert (node))
 };
 
