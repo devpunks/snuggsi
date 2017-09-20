@@ -161,7 +161,7 @@ class TokenList {
           && nodes.push (node)
 
     , ELEMENT_NODE = attrs =>
-        [ ... attrs].map 
+        [ ... attrs ].map
           (attr => expression.test (attr.value) && nodes.push (attr))
 
     , walker =
@@ -434,9 +434,7 @@ const ParentNode = Element =>
     , selector =
         tokens.reduce (zip, fragments.shift ())
 
-    return []
-      .slice
-      .call ( this.querySelectorAll (selector) )
+    return [ ... this.querySelectorAll (selector) ]
   }
 
   select ( ... selector )
