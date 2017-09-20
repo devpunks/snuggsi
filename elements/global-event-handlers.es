@@ -37,11 +37,10 @@ const GlobalEventHandlers = Element =>
 //    && this.mirror
 //      (target.import.querySelector ('template'))
 
-    this
-      .templates = []
-      .slice
-      .call (this.selectAll ('template[name]'))
-      .map  (template => new Template (template))
+    this.templates =
+      this
+        .selectAll ('template[name]')
+        .map  (template => new Template (template))
 
     this.tokens =
       new TokenList (this)
