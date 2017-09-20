@@ -166,7 +166,7 @@ TokenList.prototype.sift = function (node) {
   , TEXT_NODE = function (node) { return expression.test (node.textContent)
         && nodes.push (node); }
 
-  , ELEMENT_NODE = function (attrs) { return [].concat( attrs ).map 
+  , ELEMENT_NODE = function (attrs) { return [].concat( attrs ).map
         (function (attr) { return expression.test (attr.value) && nodes.push (attr); }); }
 
   , walker =
@@ -391,9 +391,7 @@ var ParentNode = function (Element) { return ((function (Element) {
     , selector =
         tokens.reduce (zip, fragments.shift ())
 
-    return []
-      .slice
-      .call ( this.querySelectorAll (selector) )
+    return [].concat( this.querySelectorAll (selector) )
     var ref;
   };
 
