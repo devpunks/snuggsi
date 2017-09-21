@@ -5,5 +5,6 @@ const
 , mixins     = require ('../mixins/middleware.es')
 , assets     = require ('koa-static') (root, {defer: true})
 
-module.exports = { compressor, assets, mixins }
+module.exports =
+  { compressor, assets, mixins }
 
