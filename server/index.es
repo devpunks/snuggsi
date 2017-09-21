@@ -1,8 +1,14 @@
 module.exports =
 
 class {
-  constructor ( middleware = [] ) {
-    console.warn (middleware)
+  constructor ( options = {} ) {
+    console.warn (options)
+
+    const fun = function (middleware) {
+
+    }
+
+    return fun
   }
 }
 
