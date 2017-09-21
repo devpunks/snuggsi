@@ -10,6 +10,8 @@ export ROOT=$(pwd)
 export NODE_PATH=$ROOT
 
 node ./elements/element.test.es \
+  --require $ROOT/polyfills \
+  --require $ROOT/test \
   | $ROOT/node_modules/.bin/tap-nyc
 
 node \
