@@ -1,9 +1,8 @@
 module.exports =
 
 class {
-  constructor (middleware) {
+  constructor ( middleware = [] ) {
     console.warn (middleware)
   }
-
 }
 
