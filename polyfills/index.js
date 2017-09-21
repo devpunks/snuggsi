@@ -1,0 +1,2 @@
+require ('./ecmascript.es')
+
