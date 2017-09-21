@@ -3,7 +3,17 @@
 # Run tape
 
 # https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
-NODE_PATH=$(pwd) \
-  node --harmony ./elements/element.test.es \
-  | ./node_modules/.bin/tap-nyc
+export ROOT=$(pwd)
+
+# https://gist.github.com/branneman/8775568
+# https://gist.github.com/branneman/8048520
+export NODE_PATH=$ROOT
+
+node ./elements/element.test.es \
+  | $ROOT/node_modules/.bin/tap-nyc
+
+node \
+  --require $ROOT/polyfills \
+  --require $ROOT/test \
+  server/index.test.es
 
