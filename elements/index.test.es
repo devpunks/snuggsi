@@ -1,6 +1,6 @@
 const
   encoding = 'utf8'
-, root = `${process.env.NODE_PATH}/`
+, root = `${process.env.ROOT}/`
 
 , {JSDOM, VirtualConsole} = require ('jsdom')
 , open    = require ('fs').readFileSync
