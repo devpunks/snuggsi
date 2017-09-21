@@ -39,22 +39,21 @@
     "test": "./bin/test"
   },
   "devDependencies": {
-    "buble": "*",
-    "buble-tape": "*",
-    "devtools-terminal": "*",
-    "jsdom": "*",
-    "node-zopfli": "^2.0.2",
-    "standard": "^10.0.2",
     "tap": "*",
-    "tap-nyc": "*",
     "tape": "*",
-    "uglify-es": "*"
+    "buble": "*",
+    "jsdom": "*",
+    "tap-nyc": "*",
+    "uglify-es": "*",
+    "browser-sync": "*",
+    "standard": "^10.0.2",
+    "node-zopfli": "^2.0.2",
+    "devtools-terminal": "*"
   },
   "dependencies": {
     "koa": "*",
     "koa-cors": "*",
     "koa-send": "*",
-    "koa-static": "*",
-    "browser-sync": "*"
+    "koa-static": "*"
   }
 }
