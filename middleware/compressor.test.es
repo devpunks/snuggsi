@@ -1,6 +1,8 @@
 const
+  serve = require ('../server')
+
   // https://nodejs.org/api/http.html#http_http_request_options_callback
-  options = {
+, options = {
     /*, host: 'localhost' // default */
     port    : 8080
   , method  : 'GET'
