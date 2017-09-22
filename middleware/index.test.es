@@ -16,7 +16,7 @@ const
 
 describe ('new Element', test => {
   request = require ('http').get (options, response => {
-  //console.warn (response.headers)
+    test.equal (response.statusCode, 200)
     test.end ()
   })
 })
