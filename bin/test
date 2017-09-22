@@ -9,13 +9,15 @@ export ROOT=$(pwd)
 # https://gist.github.com/branneman/8048520
 export NODE_PATH=$ROOT
 
-node ./elements/element.test.es \
+node \
   --require $ROOT/polyfills \
   --require $ROOT/test \
-  | $ROOT/node_modules/.bin/tap-nyc
+  ./elements/element.test.es \
+| $ROOT/node_modules/.bin/tap-nyc
 
 node \
   --require $ROOT/polyfills \
   --require $ROOT/test \
-  server/index.test.es
+  server/index.test.es \
+| $ROOT/node_modules/.bin/tap-nyc
 
