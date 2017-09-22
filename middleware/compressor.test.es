@@ -15,9 +15,13 @@ const
   }
 
 describe ('new Element', test => {
+
   request = require ('http').get (options, response => {
-    test.equal (response.statusCode, 200)
+    test.equal
+      (response.statusCode, 200)
+
     test.end ()
   })
+
 })
 
