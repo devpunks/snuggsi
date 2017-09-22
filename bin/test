@@ -12,7 +12,7 @@ export FILES="./server/index.test.es,./middleware/index.test.es"
 export NODE_PATH=$ROOT
 
 $ROOT/node_modules/.bin/tape \
-  --require $ROOT/polyfills \
-  --require $ROOT/test/index.es \
+  -r $ROOT/polyfills \
+  -r $ROOT/test \
   './{server,middleware,elements}/index.test.es' \
 | $ROOT/node_modules/.bin/tap-nyc
