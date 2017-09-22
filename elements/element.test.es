@@ -7,7 +7,8 @@ const
 describe ('new Element', test => {
   const document = browse (interface)
 
-  test.ok (document.querySelector `foo-bar`)
+  test.ok
+    (document.querySelector `foo-bar`)
 
   test.end ()
 })
