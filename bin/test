@@ -13,8 +13,10 @@ node \
   --require $ROOT/polyfills \
   --require $ROOT/test \
   ./elements/element.test.es \
-| $ROOT/node_modules/.bin/tap-nyc
-
+| $ROOT/node_modules/.bin/tap-nyc \
+\
+&& \
+\
 node \
   --require $ROOT/polyfills \
   --require $ROOT/test \
