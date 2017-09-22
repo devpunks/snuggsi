@@ -14,5 +14,5 @@ export NODE_PATH=$ROOT
 $ROOT/node_modules/.bin/tape \
   --require $ROOT/polyfills \
   --require $ROOT/test/index.es \
-  ./*/index.test.es \
+  './{server,middleware,elements}/index.test.es' \
 | $ROOT/node_modules/.bin/tap-nyc
