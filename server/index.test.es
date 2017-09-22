@@ -1,8 +1,15 @@
-const test = require ('test')
+const
+  { describe, browse, serve } = require ('test')
 
 const
-  Server  = require ('./')
-, options = { dist: 'dist' }
+  options = { dist: 'dist' }
+, Server  = new (require ('./'))(options)
 
-console.warn ( (new Server (options)) )
+describe ('new Server', test => {
+
+  test.doesNotThrow
+    ( _ => new Server (options) )
+
+  test.end ()
+})
 
