@@ -5,21 +5,14 @@
 # https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
 export ROOT=$(pwd)
 
+export FILES="./server/index.test.es,./middleware/index.test.es"
+
 # https://gist.github.com/branneman/8775568
 # https://gist.github.com/branneman/8048520
 export NODE_PATH=$ROOT
 
-node \
+$ROOT/node_modules/.bin/tape \
   --require $ROOT/polyfills \
-  --require $ROOT/test \
-  ./elements/element.test.es \
-| $ROOT/node_modules/.bin/tap-nyc \
-\
-&& \
-\
-node \
-  --require $ROOT/polyfills \
-  --require $ROOT/test \
-  server/index.test.es \
+  --require $ROOT/test/index.es \
+  ./*/index.test.es \
 | $ROOT/node_modules/.bin/tap-nyc
-
