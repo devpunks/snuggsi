@@ -12,7 +12,6 @@ const
             // https://github.com/tmpvar/jsdom/pull/1872
 
 , out     = new VirtualConsole
-, {test: describe} = require ('tape')
 
 
 function browse (interface) {
