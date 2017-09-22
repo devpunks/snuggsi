@@ -1,15 +1,14 @@
 const
   interface = 'index'
-, { describe, test, serve, browse }
+, { describe, serve, browse }
     = require ('test')
 
 
 describe ('new Element', test => {
   const document = browse (interface)
 
-  console.warn (arguments)
-//test.ok (document.querySelector `foo-bar`)
+  test.ok (document.querySelector `foo-bar`)
 
-//test.end ()
+  test.end ()
 })
 
