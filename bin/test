@@ -13,6 +13,6 @@ export NODE_PATH=$ROOT
 
 $ROOT/node_modules/.bin/tape \
   -r $ROOT/polyfills \
-  -r $ROOT/test \
-  './{server,middleware,elements}/index.test.es' \
+  -r $ROOT/test/index.es \
+  ./{server,middleware,elements}/index.test.es \
 | $ROOT/node_modules/.bin/tap-nyc
