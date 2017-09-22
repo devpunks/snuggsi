@@ -43,7 +43,7 @@ Provide more context by answering these questions:
 
 ### Pull Requests
 
-<!-- * Include screenshots and animated GIFs in your pull request whenever possible. -->
+* Include screenshots and animated GIFs in your pull request whenever possible.
 <!-- * Follow the [Ruby](https://github.com/styleguide/ruby) styleguides. -->
 <!-- * Include thoughtfully-worded, well-structured -->
   <!-- [Rspec](http://rspec.info/) specs in the `./spec` folder. Run them using `bundle exec rspec`. -->
