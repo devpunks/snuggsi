@@ -1,5 +1,6 @@
 const
-  { describe, browse, serve } = require ('test')
+  { describe, browse, serve }
+    = require ('test')
 
 const
   options = { dist: 'dist' }
