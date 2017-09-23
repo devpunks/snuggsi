@@ -99,8 +99,7 @@ new (function () {
   CustomElementRegistry.prototype.queue = function ( name, Class, constructor ) {
     var this$1 = this;
 
-    return function (event) { return [].concat( document.getElementsByTagName (name) )
-
+    return function (event) { return [].slice.call (document.getElementsByTagName (name))
         // .reverse () // should be able to do depth first
         .map
           (this$1.upgrade (Class)); }
@@ -128,7 +127,6 @@ new (function () {
 
     return CustomElementRegistry;
   }())
-
 var TokenList = function (node) {
 
   this
@@ -388,7 +386,7 @@ var ParentNode = function (Element) { return ((function (Element) {
     , selector =
         tokens.reduce (zip, fragments.shift ())
 
-    return [].concat( this.querySelectorAll (selector) )
+    return [].slice.call (this.querySelectorAll (selector))
     var ref;
   };
 
@@ -495,7 +493,6 @@ var Custom = function (Element) { return ( (function (superclass) {
     anonymous.prototype.constructor = anonymous;
 
     anonymous.prototype.connectedCallback = function () {
-
     this.context = {}
 
     superclass.prototype.initialize
