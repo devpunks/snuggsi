@@ -7,7 +7,6 @@ const Custom = Element => // why buble
   ( Element ))))
 {
   connectedCallback () {
-
     this.context = {}
 
     super.initialize

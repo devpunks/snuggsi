@@ -59,8 +59,7 @@ new class CustomElementRegistry {
   queue ( name, Class, constructor ) {
     return event =>
       // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
-      [ ... document.getElementsByTagName (name) ]
-
+      [].slice.call (document.getElementsByTagName (name))
         // .reverse () // should be able to do depth first
         .map
           (this.upgrade (Class))
@@ -74,7 +73,6 @@ new class CustomElementRegistry {
     // Here's where we can swizzle
 
     return element =>
-
       Object.setPrototypeOf
         (element, constructor.prototype)
 
@@ -86,4 +84,3 @@ new class CustomElementRegistry {
   swizzle ( name, ... Class ) { }
 
 }
-

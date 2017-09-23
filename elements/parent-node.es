@@ -33,7 +33,7 @@ const ParentNode = Element =>
     , selector =
         tokens.reduce (zip, fragments.shift ())
 
-    return [ ... this.querySelectorAll (selector) ]
+    return [].slice.call (this.querySelectorAll (selector))
   }
 
   select ( ... selector )
