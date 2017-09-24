@@ -248,9 +248,9 @@ const Template = HTMLTemplateElement = function (template) {
 
   return Object
     .defineProperty
-      (template, 'bind', { value })
+      (template, 'bind', { value: bind })
 
-  function value (context) {
+  function bind (context) {
 
     let
       html     = ''
