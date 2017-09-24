@@ -17,19 +17,14 @@
 //    { /* override as you like */ }
 //}
 
-  window.HTMLElement = function (constructor) {
-
-    var E = function HTMLElement () {
-
-      /*  console.dir (this.constructor) */
-    }
-
+window.HTMLElement = (
+  function (constructor) {
+    var E = function () {}
     E.prototype = constructor.prototype
-    E.prototype.constructor = constructor
-
     return E
-
-  } (HTMLElement)
+  }
+    //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
+) (HTMLElement)
 
 // The CustomElementRegistry Interface
 // WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
@@ -55,7 +50,7 @@
 
 
 new (function () {
-    function CustomElementRegistry (ref ) {
+  function CustomElementRegistry (ref ) {
   if ( ref === void 0 ) ref = customElements;
   var define = ref.define;
   var get = ref.get;
@@ -125,8 +120,8 @@ new (function () {
     while ( len-- > 0 ) Class[ len ] = arguments[ len + 1 ];
  };
 
-    return CustomElementRegistry;
-  }())
+  return CustomElementRegistry;
+}())
 var TokenList = function (node) {
 
   this
