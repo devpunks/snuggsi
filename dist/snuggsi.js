@@ -468,21 +468,23 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
   anonymous.prototype.register = function (node) {
     var this$1 = this;
 
-    var
-      register = function (event, handler) { return (handler = /{\s*(\w+)\s*}/.exec (node [event]))
 
-        && ( handler = this$1 [ (handler || []) [1] ] )
+    var
+      register = function (event, handler) { return /^on/.test (event)
+        // https://www.quirksmode.org/js/events_tradmod.html
+        // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
+        && (handler = (/{\s*(\w+)\s*}/.exec (node [event]) || []) [1])
+        && ( handler = this$1 [handler] )
         && ( node [event] = this$1.renderable (handler) ); }
 
-    void [].concat( node.attributes )
-      .map (function (attr) { return attr.name; })
-      .filter (function (name) { return /^on/.test (name); })
-      .map (register)
+    void
+      [].concat( node.attributes )
+        .map (function (attr) { return attr.name; })
+        .map (register)
   };
 
     return anonymous;
   }(Element))); }
-
 var Custom = function (Element) { return ( (function (superclass) {
     function anonymous () {
       superclass.apply(this, arguments);
