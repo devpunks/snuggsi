@@ -524,22 +524,22 @@ const GlobalEventHandlers = Element =>
   }
 
   register (node) {
+
     const
       register = (event, handler) =>
+        /^on/.test (event)
         // https://www.quirksmode.org/js/events_tradmod.html
         // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-        (handler = /{\s*(\w+)\s*}/.exec (node [event]))
-
-        && ( handler = this [ (handler || []) [1] ] )
+        && (handler = (/{\s*(\w+)\s*}/.exec (node [event]) || []) [1])
+        && ( handler = this [handler] )
         && ( node [event] = this.renderable (handler) )
 
-    void [ ... node.attributes ]
-      .map (attr => attr.name)
-      .filter (name => /^on/.test (name))
-      .map (register)
+    void
+      [ ... node.attributes ]
+        .map (attr => attr.name)
+        .map (register)
   }
 })
-
 const Custom = Element => // why buble
 
 ( class extends // interfaces
