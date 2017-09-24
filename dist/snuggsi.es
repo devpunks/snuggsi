@@ -534,10 +534,11 @@ const GlobalEventHandlers = Element =>
         && ( handler = this [handler] )
         && ( node [event] = this.renderable (handler) )
 
-    void
-      [ ... node.attributes ]
-        .map (attr => attr.name)
-        .map (register)
+    void []
+      .slice
+      .call (node.attributes)
+      .map  (attr => attr.name)
+      .map  (register)
   }
 })
 const Custom = Element => // why buble
@@ -575,11 +576,9 @@ const Custom = Element => // why buble
       .map (template =>
         template.bind (this [template.name]))
 
-    void [this]
-
-      .concat ( ... this.selectAll ('*') )
-
-      .map (this.register, this)
+    void
+      [this, ... this.selectAll ('*')]
+        .map (this.register, this)
 
     super.onidle && super.onidle ()
   }
