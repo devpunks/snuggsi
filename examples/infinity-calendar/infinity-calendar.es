@@ -3,7 +3,13 @@ Element `infinity-calendar`
 (class extends HTMLElement {
 
   initialize ()
-    { this.context.date = new Date }
+  {
+    this.context.date = new Date
+  }
+
+  onconnect () {
+    console.warn ('connecting')
+  }
 
   onidle () {
     this.select
