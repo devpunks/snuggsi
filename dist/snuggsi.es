@@ -17,19 +17,14 @@
 //    { /* override as you like */ }
 //}
 
-  window.HTMLElement = function (constructor) {
-
-    const E = function HTMLElement () {
-
-      /*  console.dir (this.constructor) */
-    }
-
+window.HTMLElement = (
+  constructor => {
+    const E = function () {}
     E.prototype = constructor.prototype
-    E.prototype.constructor = constructor
-
     return E
-
-  } (HTMLElement)
+  }
+    //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
+) (HTMLElement)
 
 // The CustomElementRegistry Interface
 // WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
