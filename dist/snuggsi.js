@@ -477,10 +477,11 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
         && ( handler = this$1 [handler] )
         && ( node [event] = this$1.renderable (handler) ); }
 
-    void
-      [].concat( node.attributes )
-        .map (function (attr) { return attr.name; })
-        .map (register)
+    void []
+      .slice
+      .call (node.attributes)
+      .map  (function (attr) { return attr.name; })
+      .map  (register)
   };
 
     return anonymous;
@@ -522,14 +523,11 @@ var Custom = function (Element) { return ( (function (superclass) {
       .templates
       .map (function (template) { return template.bind (this$1 [template.name]); })
 
-    void (ref = [this])
-
-      .concat.apply ( ref, this.selectAll ('*') )
-
-      .map (this.register, this)
+    void
+      [this ].concat( this.selectAll ('*'))
+        .map (this.register, this)
 
     superclass.prototype.onidle && superclass.prototype.onidle.call (this)
-    var ref;
   };
 
     return anonymous;
