@@ -13,7 +13,7 @@
   module.exports = {
 
     "ui": false,
-    "port": 8080,
+    "port": port,
     "files": [], // ['public'] since we explicitly fire reload from watch
     "startPath": "/index.html",
 
