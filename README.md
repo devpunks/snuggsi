@@ -103,7 +103,7 @@ _See [examples](/examples#readme) for more details_
 </hello-world>
 
 <script src=https://unpkg.com/snuggsi></script>
-<script defer>
+<script>
 
 // Element Definition -----------------------------
 
