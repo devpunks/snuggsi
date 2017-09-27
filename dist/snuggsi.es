@@ -17,14 +17,14 @@
 //    { /* override as you like */ }
 //}
 
-window.HTMLElement = (
+const HTMLElement = (
   constructor => {
     const E = function () {}
     E.prototype = constructor.prototype
     return E
   }
     //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
-) (HTMLElement)
+) (window.HTMLElement)
 
 // The CustomElementRegistry Interface
 // WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
@@ -580,30 +580,35 @@ const Custom = Element => // why buble
 
 })
 
-const ElementPrototype = window.Element.prototype // see bottom of this file
+// http://2ality.com/2013/09/window.html
+// http://tobyho.com/2013/03/13/window-prop-vs-global-var
 
-const Element = tag => {
+const Element = (
+  Element => {
 
-  const constructor =// swizzle
-    typeof tag === 'string'
-//    ? HTMLCustomElement
-//    : HTMLElement
+    const
+      E = tag => {
 
-    //https://gist.github.com/allenwb/53927e46b31564168a1d
-    // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
-    // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
+        const constructor =// swizzle
+          typeof tag === 'string'
+      //    ? HTMLCustomElement
+      //    : HTMLElement
 
-  return klass => // https://en.wikipedia.org/wiki/Higher-order_function
+          //https://gist.github.com/allenwb/53927e46b31564168a1d
+          // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
+          // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-    window.customElements.define
-      ( ...  [].concat ( ... [tag] )
-        , Custom (klass)
-        , { constructor })
-}
+        return klass => // https://en.wikipedia.org/wiki/Higher-order_function
 
-// Assign `window.Element.prototype` in case of feature checking on `Element`
-Element.prototype = ElementPrototype
-  // http://2ality.com/2013/09/window.html
-  // http://tobyho.com/2013/03/13/window-prop-vs-global-var
-  // https://github.com/webcomponents/webcomponentsjs/blob/master/webcomponents-es5-loader.js#L19
+          window.customElements.define
+            ( ...  [].concat ( ... [tag] )
+              , Custom (klass)
+              , { constructor })
+      }
+
+    // Assign `window.Element.prototype` in case of feature checking on `Element`
+    E.prototype = Element.prototype
+    return E
+
+}) (window.Element)
 
