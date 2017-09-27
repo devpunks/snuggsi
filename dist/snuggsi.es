@@ -539,8 +539,8 @@ const GlobalEventHandlers = Element =>
 const Custom = Element => // why buble
 
 ( class extends // interfaces
-  ( EventTarget
   ( ParentNode
+  ( EventTarget
   ( GlobalEventHandlers
   ( Element ))))
 {
