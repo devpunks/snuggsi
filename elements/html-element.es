@@ -17,12 +17,12 @@
 //    { /* override as you like */ }
 //}
 
-window.HTMLElement = (
+const HTMLElement = (
   constructor => {
     const E = function () {}
     E.prototype = constructor.prototype
     return E
   }
     //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
-) (HTMLElement)
+) (window.HTMLElement)
 
