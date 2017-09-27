@@ -526,8 +526,8 @@ var Custom = function (Element) { return ( (function (superclass) {
   };
 
     return anonymous;
-  }(( EventTarget
-  ( ParentNode
+  }(( ParentNode
+  ( EventTarget
   ( GlobalEventHandlers
   ( Element ))))))); }
 
