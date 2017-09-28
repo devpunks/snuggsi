@@ -12,10 +12,10 @@ TokenList.prototype.tokenize = function (node) {
   var
     insert = function (node) { return function (symbol) { return (this$1 [symbol] = this$1 [symbol] || []).push (node); }; }
 
-  void (node.text = node.textContent)
-    .match (/[^{\}]+(?=})/g)
-//  .match (/([^{]*?)(\w|#)(?=\})/g)
-    .map (insert (node))
+  void
+    (node.text = node.textContent)
+      .match (/[^{\}]+(?=})/g)
+      .map (insert (node))
 };
 
 TokenList.prototype.sift = function (node) {
