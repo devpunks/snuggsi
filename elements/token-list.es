@@ -14,10 +14,10 @@ class TokenList {
         symbol =>
           (this [symbol] = this [symbol] || []).push (node)
 
-    void (node.text = node.textContent)
-      .match (/[^{\}]+(?=})/g)
-//    .match (/([^{]*?)(\w|#)(?=\})/g)
-      .map (insert (node))
+    void
+      (node.text = node.textContent)
+        .match (/[^{\}]+(?=})/g)
+        .map   (insert (node))
   }
 
   sift (node) {
