@@ -1,127 +1,3 @@
-// http://nshipster.com/method-swizzling/
-// HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
-
-// 3.2.3 HTML element constructors
-// https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
-// Satisfy Element interface document.createElement
-//   - https://dom.spec.whatwg.org/#concept-element-interface
-
-
-//// base class to extend, same trick as before
-//class HTMLCustomElement extends HTMLElement {
-
-//  constructor(_)
-//    { return (_ = super(_)).init(), _; }
-
-//  init()
-//    { /* override as you like */ }
-//}
-
-var HTMLElement = (
-  function (constructor) {
-    var E = function () {}
-    E.prototype = constructor.prototype
-    return E
-  }
-    //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
-) (window.HTMLElement)
-
-// The CustomElementRegistry Interface
-// WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
-//
-// HTML Element Constructors
-//   - https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
-//
-// The Custom Elements Spec
-// W3C - https://w3c.github.io/webcomponents/spec/custom/
-// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
-//
-// Legacy webcomponentsjs
-//   - https://github.com/webcomponents/custom-elements/blob/master/src/CustomElementRegistry.js
-//
-//   - CEReactions
-//     - https://github.com/webcomponents/custom-elements/pull/62
-//     - https://html.spec.whatwg.org/multipage/custom-elements.html#cereactions
-//     - https://html.spec.whatwg.org/#cereactions
-
-
-!!! window.customElements
-  && (window.customElements = {/* microfill */})
-
-
-new (function () {
-  function CustomElementRegistry (ref ) {
-  if ( ref === void 0 ) ref = customElements;
-  var define = ref.define;
-  var get = ref.get;
-  var whenDefined = ref.whenDefined;
-
-
-    window.customElements
-      .define = this
-        ._define (undefined) // (define)
-        .bind (this)
-  }
-
-  CustomElementRegistry.prototype._define = function ( delegate ) {
-    var this$1 = this;
-    if ( delegate === void 0 ) delegate = function (_){};
-
-
-    // this.running = undefined
-
-    //  definition = this.swizzle ( definition );
-
-    return function ( name, constructor, options ) { return (delegate).apply
-        ( window.customElements, this$1.register ( name, constructor ) ); }
-  };
-
-
-  CustomElementRegistry.prototype.register = function (name, Class) {
-    // perhaps this goes in swizzle
-    (this [name] = Class)
-      .localName = name;
-
-    ('loading' === document.readyState)
-      && document.addEventListener
-        ('DOMContentLoaded', (ref = this).queue.apply ( ref, arguments ))
-
-    return arguments
-    var ref;
-  };
-
-
-  CustomElementRegistry.prototype.queue = function ( name, Class, constructor ) {
-    var this$1 = this;
-
-    return function (event) { return [].slice.call (document.getElementsByTagName (name))
-        // .reverse () // should be able to do depth first
-        .map
-          (this$1.upgrade (Class)); }
-  };
-
-
-  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
-  // "Dmitry's Brain Transplant"
-  CustomElementRegistry.prototype.upgrade = function (constructor) {
-
-    // Here's where we can swizzle
-
-    return function (element) { return Object.setPrototypeOf
-        (element, constructor.prototype)
-
-      .connectedCallback
-        && element.connectedCallback (); }
-  };
-
-  // http://nshipster.com/method-swizzling/
-  CustomElementRegistry.prototype.swizzle = function ( name ) {
-    var Class = [], len = arguments.length - 1;
-    while ( len-- > 0 ) Class[ len ] = arguments[ len + 1 ];
- };
-
-  return CustomElementRegistry;
-}())
 var TokenList = function (node) {
 
   this
@@ -219,6 +95,34 @@ TokenList.prototype.bind = function (context) {
 //  return zip (tokens, sections)
 //        .map (element => element && new Text (element))
 //}
+
+// http://nshipster.com/method-swizzling/
+// HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
+
+// 3.2.3 HTML element constructors
+// https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
+// Satisfy Element interface document.createElement
+//   - https://dom.spec.whatwg.org/#concept-element-interface
+
+
+//// base class to extend, same trick as before
+//class HTMLCustomElement extends HTMLElement {
+
+//  constructor(_)
+//    { return (_ = super(_)).init(), _; }
+
+//  init()
+//    { /* override as you like */ }
+//}
+
+var HTMLElement = (
+  function (constructor) {
+    var E = function () {}
+    E.prototype = constructor.prototype
+    return E
+  }
+    //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
+) (window.HTMLElement)
 
 // https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 
@@ -319,45 +223,102 @@ var Template = HTMLTemplateElement = function (template) {
   }
 }
 
-var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
-    function anonymous () {
-      HTMLElement.apply(this, arguments);
-    }
+// The CustomElementRegistry Interface
+// WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
+//
+// HTML Element Constructors
+//   - https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
+//
+// The Custom Elements Spec
+// W3C - https://w3c.github.io/webcomponents/spec/custom/
+// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
+//
+// Legacy webcomponentsjs
+//   - https://github.com/webcomponents/custom-elements/blob/master/src/CustomElementRegistry.js
+//
+//   - CEReactions
+//     - https://github.com/webcomponents/custom-elements/pull/62
+//     - https://html.spec.whatwg.org/multipage/custom-elements.html#cereactions
+//     - https://html.spec.whatwg.org/#cereactions
 
-    if ( HTMLElement ) anonymous.__proto__ = HTMLElement;
-    anonymous.prototype = Object.create( HTMLElement && HTMLElement.prototype );
-    anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.on = function ( event, handler ) {
+!!! window.customElements
+  && (window.customElements = {/* microfill */})
 
-    this.addEventListener
-      (event, this.renderable (handler))
+
+new (function () {
+  function CustomElementRegistry (ref ) {
+  if ( ref === void 0 ) ref = customElements;
+  var define = ref.define;
+  var get = ref.get;
+  var whenDefined = ref.whenDefined;
+
+
+    window.customElements
+      .define = this
+        ._define (undefined) // (define)
+        .bind (this)
+  }
+
+  CustomElementRegistry.prototype._define = function ( delegate ) {
+    var this$1 = this;
+    if ( delegate === void 0 ) delegate = function (_){};
+
+
+    // this.running = undefined
+
+    //  definition = this.swizzle ( definition );
+
+    return function ( name, constructor, options ) { return (delegate).apply
+        ( window.customElements, this$1.register ( name, constructor ) ); }
   };
 
-  anonymous.prototype.renderable = function ( handler ) {
+
+  CustomElementRegistry.prototype.register = function (name, Class) {
+    // perhaps this goes in swizzle
+    (this [name] = Class)
+      .localName = name;
+
+    ('loading' === document.readyState)
+      && document.addEventListener
+        ('DOMContentLoaded', (ref = this).queue.apply ( ref, arguments ))
+
+    return arguments
+    var ref;
+  };
+
+
+  CustomElementRegistry.prototype.queue = function ( name, Class, constructor ) {
     var this$1 = this;
 
-
-    // BIG BUG IN IE!!!
-    //
-    // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
-    //
-    // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
-
-    return function (event, render) {
-        if ( render === void 0 ) render = true;
-
-        return (event.prevent = function (_) { return !!! (render = false) && event.preventDefault (); })
-
-      && handler.call (this$1, event) !== false // for `return false`
-
-      && render && this$1.render ();
-    } // check render availability
+    return function (event) { return [].slice.call (document.getElementsByTagName (name))
+        // .reverse () // should be able to do depth first
+        .map
+          (this$1.upgrade (Class)); }
   };
 
-    return anonymous;
-  }(HTMLElement))); }
 
+  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
+  // "Dmitry's Brain Transplant"
+  CustomElementRegistry.prototype.upgrade = function (constructor) {
+
+    // Here's where we can swizzle
+
+    return function (element) { return Object.setPrototypeOf
+        (element, constructor.prototype)
+
+      .connectedCallback
+        && element.connectedCallback (); }
+  };
+
+  // http://nshipster.com/method-swizzling/
+  CustomElementRegistry.prototype.swizzle = function ( name ) {
+    var Class = [], len = arguments.length - 1;
+    while ( len-- > 0 ) Class[ len ] = arguments[ len + 1 ];
+ };
+
+  return CustomElementRegistry;
+}())
 var ParentNode = function (Element) { return ((function (Element) {
     function anonymous () {
       Element.apply(this, arguments);
@@ -406,6 +367,45 @@ var ParentNode = function (Element) { return ((function (Element) {
 //    for (let node = parent.firstChild; node; node = node.nextSibling)
 //      comb (node)
 //}
+
+var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
+    function anonymous () {
+      HTMLElement.apply(this, arguments);
+    }
+
+    if ( HTMLElement ) anonymous.__proto__ = HTMLElement;
+    anonymous.prototype = Object.create( HTMLElement && HTMLElement.prototype );
+    anonymous.prototype.constructor = anonymous;
+
+    anonymous.prototype.on = function ( event, handler ) {
+
+    this.addEventListener
+      (event, this.renderable (handler))
+  };
+
+  anonymous.prototype.renderable = function ( handler ) {
+    var this$1 = this;
+
+
+    // BIG BUG IN IE!!!
+    //
+    // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
+    //
+    // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
+
+    return function (event, render) {
+        if ( render === void 0 ) render = true;
+
+        return (event.prevent = function (_) { return !!! (render = false) && event.preventDefault (); })
+
+      && handler.call (this$1, event) !== false // for `return false`
+
+      && render && this$1.render ();
+    } // check render availability
+  };
+
+    return anonymous;
+  }(HTMLElement))); }
 
 var GlobalEventHandlers = function (Element) { return ((function (Element) {
     function anonymous () {
