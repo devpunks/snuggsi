@@ -1,117 +1,3 @@
-// http://nshipster.com/method-swizzling/
-// HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
-
-// 3.2.3 HTML element constructors
-// https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
-// Satisfy Element interface document.createElement
-//   - https://dom.spec.whatwg.org/#concept-element-interface
-
-
-//// base class to extend, same trick as before
-//class HTMLCustomElement extends HTMLElement {
-
-//  constructor(_)
-//    { return (_ = super(_)).init(), _; }
-
-//  init()
-//    { /* override as you like */ }
-//}
-
-const HTMLElement = (
-  constructor => {
-    const E = function () {}
-    E.prototype = constructor.prototype
-    return E
-  }
-    //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
-) (window.HTMLElement)
-
-// The CustomElementRegistry Interface
-// WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
-//
-// HTML Element Constructors
-//   - https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
-//
-// The Custom Elements Spec
-// W3C - https://w3c.github.io/webcomponents/spec/custom/
-// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
-//
-// Legacy webcomponentsjs
-//   - https://github.com/webcomponents/custom-elements/blob/master/src/CustomElementRegistry.js
-//
-//   - CEReactions
-//     - https://github.com/webcomponents/custom-elements/pull/62
-//     - https://html.spec.whatwg.org/multipage/custom-elements.html#cereactions
-//     - https://html.spec.whatwg.org/#cereactions
-
-
-!!! window.customElements
-  && (window.customElements = {/* microfill */})
-
-
-new class CustomElementRegistry {
-
-  constructor ({ define, get, whenDefined } = customElements ) {
-
-    window.customElements
-      .define = this
-        ._define (undefined) // (define)
-        .bind (this)
-  }
-
-  _define ( delegate = _=> {} ) {
-
-    // this.running = undefined
-
-    //  definition = this.swizzle ( definition );
-
-    return ( name, constructor, options ) =>
-      (delegate).apply
-        ( window.customElements, this.register ( name, constructor ) )
-  }
-
-
-  register (name, Class) {
-    // perhaps this goes in swizzle
-    (this [name] = Class)
-      .localName = name;
-
-    ('loading' === document.readyState)
-      && document.addEventListener
-        ('DOMContentLoaded', this.queue ( ... arguments ))
-
-    return arguments
-  }
-
-
-  queue ( name, Class, constructor ) {
-    return event =>
-      // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
-      [].slice.call (document.getElementsByTagName (name))
-        // .reverse () // should be able to do depth first
-        .map
-          (this.upgrade (Class))
-  }
-
-
-  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
-  // "Dmitry's Brain Transplant"
-  upgrade (constructor) {
-
-    // Here's where we can swizzle
-
-    return element =>
-      Object.setPrototypeOf
-        (element, constructor.prototype)
-
-      .connectedCallback
-        && element.connectedCallback ()
-  }
-
-  // http://nshipster.com/method-swizzling/
-  swizzle ( name, ... Class ) { }
-
-}
 class TokenList {
 
   constructor (node) {
@@ -211,6 +97,34 @@ class TokenList {
 //        .map (element => element && new Text (element))
 //}
 
+// http://nshipster.com/method-swizzling/
+// HTMLElement Swizzle - To swizzle a method is to change a class’s dispatch table in order to resolve messages from an existing selector to a different implementation, while aliasing the original method implementation to a new selector.
+
+// 3.2.3 HTML element constructors
+// https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
+// Satisfy Element interface document.createElement
+//   - https://dom.spec.whatwg.org/#concept-element-interface
+
+
+//// base class to extend, same trick as before
+//class HTMLCustomElement extends HTMLElement {
+
+//  constructor(_)
+//    { return (_ = super(_)).init(), _; }
+
+//  init()
+//    { /* override as you like */ }
+//}
+
+const HTMLElement = (
+  constructor => {
+    const E = function () {}
+    E.prototype = constructor.prototype
+    return E
+  }
+    //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
+) (window.HTMLElement)
+
 // https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 
 // https://github.com/WebReflection/hyperHTML/pull/100
@@ -307,6 +221,147 @@ const Template = HTMLTemplateElement = function (template) {
   }
 }
 
+// The CustomElementRegistry Interface
+// WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
+//
+// HTML Element Constructors
+//   - https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
+//
+// The Custom Elements Spec
+// W3C - https://w3c.github.io/webcomponents/spec/custom/
+// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
+//
+// Legacy webcomponentsjs
+//   - https://github.com/webcomponents/custom-elements/blob/master/src/CustomElementRegistry.js
+//
+//   - CEReactions
+//     - https://github.com/webcomponents/custom-elements/pull/62
+//     - https://html.spec.whatwg.org/multipage/custom-elements.html#cereactions
+//     - https://html.spec.whatwg.org/#cereactions
+
+
+!!! window.customElements
+  && (window.customElements = {/* microfill */})
+
+
+new class CustomElementRegistry {
+
+  constructor ({ define, get, whenDefined } = customElements ) {
+
+    window.customElements
+      .define = this
+        ._define (undefined) // (define)
+        .bind (this)
+  }
+
+  _define ( delegate = _=> {} ) {
+
+    // this.running = undefined
+
+    //  definition = this.swizzle ( definition );
+
+    return ( name, constructor, options ) =>
+      (delegate).apply
+        ( window.customElements, this.register ( name, constructor ) )
+  }
+
+
+  register (name, Class) {
+    // perhaps this goes in swizzle
+    (this [name] = Class)
+      .localName = name;
+
+    ('loading' === document.readyState)
+      && document.addEventListener
+        ('DOMContentLoaded', this.queue ( ... arguments ))
+
+    return arguments
+  }
+
+
+  queue ( name, Class, constructor ) {
+    return event =>
+      // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
+      [].slice.call (document.getElementsByTagName (name))
+        // .reverse () // should be able to do depth first
+        .map
+          (this.upgrade (Class))
+  }
+
+
+  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
+  // "Dmitry's Brain Transplant"
+  upgrade (constructor) {
+
+    // Here's where we can swizzle
+
+    return element =>
+      Object.setPrototypeOf
+        (element, constructor.prototype)
+
+      .connectedCallback
+        && element.connectedCallback ()
+  }
+
+  // http://nshipster.com/method-swizzling/
+  swizzle ( name, ... Class ) { }
+
+}
+const ParentNode = Element =>
+
+  // DOM Levels
+  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
+  //
+  // Living Standard HTML5 ParentNode
+  // https://dom.spec.whatwg.org/#parentnode
+  //
+  // MDN ParentNode
+  // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode
+  //
+  // ElementTraversal interface
+  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
+
+(class extends Element {
+
+  // http://jsfiddle.net/zaqtg/10
+  // https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
+  // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
+  // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
+  // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
+  // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
+
+  selectAll ( fragments, ... tokens ) {
+    fragments =
+      [].concat ( ... [fragments] )
+
+    const
+      zip =
+        (part, token) =>
+          part + token + fragments.shift ()
+
+    , selector =
+        tokens.reduce (zip, fragments.shift ())
+
+    return [].slice.call (this.querySelectorAll (selector))
+  }
+
+  select ( ... selector )
+    // watch out for clobbering `HTMLInputElement.select ()`
+    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
+    { return this.selectAll ( ... selector ) [0] }
+
+})
+
+//function comb
+//  // ElementTraversal interface
+//  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
+//
+//(parent) {
+//  if (parent.hasChildNodes())
+//    for (let node = parent.firstChild; node; node = node.nextSibling)
+//      comb (node)
+//}
+
 const EventTarget = HTMLElement => // why buble
 
   // DOM Levels
@@ -388,61 +443,6 @@ const EventTarget = HTMLElement => // why buble
 
 //  { }
 })
-
-const ParentNode = Element =>
-
-  // DOM Levels
-  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-  //
-  // Living Standard HTML5 ParentNode
-  // https://dom.spec.whatwg.org/#parentnode
-  //
-  // MDN ParentNode
-  // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode
-  //
-  // ElementTraversal interface
-  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
-
-(class extends Element {
-
-  // http://jsfiddle.net/zaqtg/10
-  // https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
-  // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-  // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
-  // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
-  // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
-
-  selectAll ( fragments, ... tokens ) {
-    fragments =
-      [].concat ( ... [fragments] )
-
-    const
-      zip =
-        (part, token) =>
-          part + token + fragments.shift ()
-
-    , selector =
-        tokens.reduce (zip, fragments.shift ())
-
-    return [].slice.call (this.querySelectorAll (selector))
-  }
-
-  select ( ... selector )
-    // watch out for clobbering `HTMLInputElement.select ()`
-    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-    { return this.selectAll ( ... selector ) [0] }
-
-})
-
-//function comb
-//  // ElementTraversal interface
-//  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
-//
-//(parent) {
-//  if (parent.hasChildNodes())
-//    for (let node = parent.firstChild; node; node = node.nextSibling)
-//      comb (node)
-//}
 
 const GlobalEventHandlers = Element =>
 
