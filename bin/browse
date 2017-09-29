@@ -1,5 +1,5 @@
 # ; expecting PORT
-PORT="3008"
+PORT="3009"
 
 PORT=$PORT npm run start \
 & PORT=$PORT ./node_modules/.bin/browser-sync start \
