@@ -79,7 +79,7 @@ const GlobalEventHandlers = Element =>
         /^on/.test (event)
         // https://www.quirksmode.org/js/events_tradmod.html
         // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-        && (handler = (/{\s*(\w+)\s*}/.exec (node [event]) || []) [1])
+        && ( handler = (/{\s*(\w+)\s*}/.exec (node [event]) || []) [1])
         && ( handler = this [handler] )
         && ( node [event] = this.renderable (handler) )
 
