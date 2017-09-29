@@ -4,11 +4,12 @@
  */
 
   const
-    port    = process.env.PORT
-  , proxy   = `http://localhost:${port}`
-  , browser = require ('../middleware/browser.es')
+    port = // for browsersync
+      Number.parseInt // (8000 - 9000)
+        (8000 + (Math.random () * 1000))
 
-  console.log ('PROXY', proxy)
+  , proxy   = `http://localhost:${process.env.PORT}`
+  , browser = require ('../middleware/browser.es')
 
   module.exports = {
 
