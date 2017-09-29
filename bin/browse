@@ -1,7 +1,9 @@
 # ; expecting PORT
-PORT="3009"
+export PORT="3009"
+export BROWSER_PORT="8989"
 
 PORT=$PORT npm run start \
-& PORT=$PORT ./node_modules/.bin/browser-sync start \
+& BROWSER_PORT=$BROWSER_PORT \
+  ./node_modules/.bin/browser-sync start \
   --config=./watch/index.es \
 & bin/watch
