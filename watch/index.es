@@ -2,14 +2,16 @@ module.exports = require ('./browser.es')
 
 const
   path = './'
-, PORT = process.env.PORT || 8080
+
+, BROWSER_PORT =
+    process.env.BROWSER_PORT
 
 , test     = 'bin/test'
 , bundle   = 'bin/bundle'
 , shrink   = 'bin/shrink'
 , publish  = 'bin/publish'
 , transpile= 'bin/transpile'
-, reload   = './node_modules/.bin/browser-sync reload --port=' + PORT
+, reload   = './node_modules/.bin/browser-sync reload --port=' + BROWSER_PORT
 , clear    = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , message  = `\n Watching => ${path}🔎 👀 \n`
 , echo     = `printf "${message}" && echo "Last Update $(date)"`

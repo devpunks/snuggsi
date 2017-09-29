@@ -8,8 +8,8 @@ const
 
 module.exports = {
 
-  port
-, proxy
+  proxy
+, "port": `${process.env.BROWSER_PORT}`
 , "files": [] // ['public'] since we explicitly fire reload from watch
 , "startPath": "/index.html"
 , "logPrefix": "snuggsiツ"
