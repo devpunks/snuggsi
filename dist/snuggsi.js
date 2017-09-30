@@ -124,6 +124,47 @@ var HTMLElement = (
     //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
 ) (window.HTMLElement)
 
+var HTMLLinkElement = (function (Element) {
+  console.warn ('HTMLLinkElement')
+}) (window.HTMLLinkElement)
+
+// see global-event-handlers.es:onconnect
+
+function mirror (template, insert) {
+  var this$1 = this;
+
+
+  template = template.cloneNode (true)
+
+  insert = function (replacement, name, slot) { return (name = replacement.getAttribute ('slot')) &&
+
+    (slot = template.content.querySelector ('slot[name='+name+']'))
+       // prefer to use replaceWith however support is sparse
+       // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+       // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
+       // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
+       // as is defined in (ancient) W3C DOM Level 1,2,3
+       .parentNode
+       .replaceChild (replacement, slot); }
+
+  for (var i = 0, list = this$1.selectAll ('[slot]'); i < list.length; i += 1)
+    {
+    var replacement = list[i];
+
+    insert (replacement)
+  }
+
+  Array
+    .from (template.attributes)
+
+    // skip swapping attribute if setting exists
+    .filter (function (attr) { return !!! this$1.attributes [attr.name]; })
+
+    .map  (function (attr) { return this$1.setAttribute (attr.name, attr.value); })
+
+  this.innerHTML = template.innerHTML
+}
+
 // https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 
 // https://github.com/WebReflection/hyperHTML/pull/100
@@ -468,7 +509,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
       register = function (event, handler) { return /^on/.test (event)
         // https://www.quirksmode.org/js/events_tradmod.html
         // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-        && (handler = (/{\s*(\w+)\s*}/.exec (node [event]) || []) [1])
+        && ( handler = (/{\s*(\w+)\s*}/.exec (node [event]) || []) [1])
         && ( handler = this$1 [handler] )
         && ( node [event] = this$1.renderable (handler) ); }
 
