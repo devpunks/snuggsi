@@ -125,6 +125,42 @@ const HTMLElement = (
     //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
 ) (window.HTMLElement)
 
+const HTMLLinkElement = (Element => {
+  console.warn ('HTMLLinkElement')
+}) (window.HTMLLinkElement)
+
+// see global-event-handlers.es:onconnect
+
+function mirror (template, insert) {
+
+  template = template.cloneNode (true)
+
+  insert = (replacement, name, slot) =>
+    (name = replacement.getAttribute ('slot')) &&
+
+    (slot = template.content.querySelector ('slot[name='+name+']'))
+       // prefer to use replaceWith however support is sparse
+       // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+       // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
+       // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
+       // as is defined in (ancient) W3C DOM Level 1,2,3
+       .parentNode
+       .replaceChild (replacement, slot)
+
+  for (let replacement of this.selectAll ('[slot]'))
+    insert (replacement)
+
+  Array
+    .from (template.attributes)
+
+    // skip swapping attribute if setting exists
+    .filter (attr => !!! this.attributes [attr.name])
+
+    .map  (attr => this.setAttribute (attr.name, attr.value))
+
+  this.innerHTML = template.innerHTML
+}
+
 // https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 
 // https://github.com/WebReflection/hyperHTML/pull/100
@@ -525,7 +561,7 @@ const GlobalEventHandlers = Element =>
         /^on/.test (event)
         // https://www.quirksmode.org/js/events_tradmod.html
         // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-        && (handler = (/{\s*(\w+)\s*}/.exec (node [event]) || []) [1])
+        && ( handler = (/{\s*(\w+)\s*}/.exec (node [event]) || []) [1])
         && ( handler = this [handler] )
         && ( node [event] = this.renderable (handler) )
 
