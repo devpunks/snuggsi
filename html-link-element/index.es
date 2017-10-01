@@ -22,15 +22,15 @@ function load (link) {
 
   fetch (link.getAttribute ('href'))
     .then (response => response.text ())
-    .then (html => (template.innerHTML = html) && template.content.querySelector ('template'))
-//  .then (html => console.warn (template.innerHTML = html) && template.content.querySelector ('template'))
+//  may be used for script insertion
+    .then (html => (template.innerHTML = html) && template.content.querySelector ('template').innerHTML)
     .then (stamp (link.id))
 }
 
 function stamp (name) {
   return template =>
     [ ... document.getElementsByTagName (name) ]
-      .map (element => element.innerHTML = template.innerHTML)
+      .map (element => element.innerHTML = template)
 }
 
 // see global-event-handlers.es:onconnect
