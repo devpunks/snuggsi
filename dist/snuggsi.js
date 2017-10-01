@@ -137,10 +137,45 @@ var HTMLLinkElement = (function (Element) {
 }) (window.HTMLLinkElement)
 
 function preload () {
-  var links = document.querySelectorAll ('link[rel*=preload][id*="-"]')
+  var
+    selector = 'link[rel*=prefetch][id*="-"]'
+  , links    = [].concat( document.querySelectorAll (selector) )
 
-  console.warn ('Content is laoded!!!', links)
+  links.map (load)
 }
+
+function load (link) {
+  var
+    template =
+      document.createElement ('template')
+
+  , headers = new Headers({
+      'Content-Type': 'text/html'
+    , 'Accept': 'text/html'
+  })
+
+  console.warn ('foo')
+
+  fetch (link.getAttribute ('href'), { headers: headers })
+    .then (function (response) { return response.text (); })
+    .then (function (html) { return (template.innerHTML = html) && template.content.querySelector ('template'); })
+//  .then (html => console.warn (template.innerHTML = html) && template.content.querySelector ('template'))
+    .then (stamp (link.id))
+}
+
+function stamp (name) {
+    console.warn (name)
+  return function (template) {
+    console.warn (template)
+
+    var elements =
+      []
+        .slice.call
+          (document.getElementsByTagName (name))
+        .map (function (element) { return element.innerHTML = template.innerHTML; })
+  }
+}
+
 
 // see global-event-handlers.es:onconnect
 
