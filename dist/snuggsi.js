@@ -148,24 +148,15 @@ function load (link) {
 
   fetch (link.getAttribute ('href'))
     .then (function (response) { return response.text (); })
-    .then (function (html) { return (template.innerHTML = html) && template.content.querySelector ('template'); })
-//  .then (html => console.warn (template.innerHTML = html) && template.content.querySelector ('template'))
+//  may be used for script insertion
+    .then (function (html) { return (template.innerHTML = html) && template.content.querySelector ('template').innerHTML; })
     .then (stamp (link.id))
 }
 
 function stamp (name) {
-    console.warn (name)
-  return function (template) {
-    console.warn (template)
-
-    var elements =
-      []
-        .slice.call
-          (document.getElementsByTagName (name))
-        .map (function (element) { return element.innerHTML = template.innerHTML; })
-  }
+  return function (template) { return [].concat( document.getElementsByTagName (name) )
+      .map (function (element) { return element.innerHTML = template; }); }
 }
-
 
 // see global-event-handlers.es:onconnect
 
