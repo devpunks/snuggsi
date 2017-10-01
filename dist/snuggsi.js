@@ -124,46 +124,55 @@ var HTMLElement = (
     //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
 ) (window.HTMLElement)
 
+// Preloading -
+//   - https://w3c.github.io/preload/
+
 var HTMLLinkElement = (function (Element) {
-  console.warn ('HTMLLinkElement')
+
+  ('loading' === document.readyState)
+    ? document.addEventListener // could this be `.onload = f()` ?
+        ('DOMContentLoaded', ready)
+    : ready ()
+
 }) (window.HTMLLinkElement)
+
+function ready () {
+  var links = document.querySelectorAll ('link[rel=preload]')
+
+  console.warn ('Content is laoded!!!', links)
+}
 
 // see global-event-handlers.es:onconnect
 
-function mirror (template, insert) {
-  var this$1 = this;
+//function mirror (template, insert) {
 
+//  template = template.cloneNode (true)
 
-  template = template.cloneNode (true)
+//  insert = (replacement, name, slot) =>
+//    (name = replacement.getAttribute ('slot')) &&
 
-  insert = function (replacement, name, slot) { return (name = replacement.getAttribute ('slot')) &&
+//    (slot = template.content.querySelector ('slot[name='+name+']'))
+//       // prefer to use replaceWith however support is sparse
+//       // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+//       // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
+//       // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
+//       // as is defined in (ancient) W3C DOM Level 1,2,3
+//       .parentNode
+//       .replaceChild (replacement, slot)
 
-    (slot = template.content.querySelector ('slot[name='+name+']'))
-       // prefer to use replaceWith however support is sparse
-       // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-       // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
-       // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
-       // as is defined in (ancient) W3C DOM Level 1,2,3
-       .parentNode
-       .replaceChild (replacement, slot); }
+//  for (let replacement of this.selectAll ('[slot]'))
+//    insert (replacement)
 
-  for (var i = 0, list = this$1.selectAll ('[slot]'); i < list.length; i += 1)
-    {
-    var replacement = list[i];
+//  Array
+//    .from (template.attributes)
 
-    insert (replacement)
-  }
+//    // skip swapping attribute if setting exists
+//    .filter (attr => !!! this.attributes [attr.name])
 
-  Array
-    .from (template.attributes)
+//    .map  (attr => this.setAttribute (attr.name, attr.value))
 
-    // skip swapping attribute if setting exists
-    .filter (function (attr) { return !!! this$1.attributes [attr.name]; })
-
-    .map  (function (attr) { return this$1.setAttribute (attr.name, attr.value); })
-
-  this.innerHTML = template.innerHTML
-}
+//  this.innerHTML = template.innerHTML
+//}
 
 // https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 
