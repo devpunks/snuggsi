@@ -12,7 +12,7 @@ const HTMLLinkElement = (Element => {
 
 function preload () {
   const
-    selector = 'link[rel*=prefetch][id*="-"]'
+    selector = 'link[id*="-"]'
   , links    = [ ... document.querySelectorAll (selector) ]
 
   links.map (load)
@@ -23,14 +23,7 @@ function load (link) {
     template =
       document.createElement ('template')
 
-  , headers = new Headers({
-      'Content-Type': 'text/html'
-    , 'Accept': 'text/html'
-  })
-
-  console.warn ('foo')
-
-  fetch (link.getAttribute ('href'), { headers })
+  fetch (link.getAttribute ('href'))
     .then (response => response.text ())
     .then (html => (template.innerHTML = html) && template.content.querySelector ('template'))
 //  .then (html => console.warn (template.innerHTML = html) && template.content.querySelector ('template'))
