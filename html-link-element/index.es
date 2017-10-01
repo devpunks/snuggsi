@@ -5,13 +5,13 @@ const HTMLLinkElement = (Element => {
 
   ('loading' === document.readyState)
     ? document.addEventListener // could this be `.onload = f()` ?
-        ('DOMContentLoaded', ready)
-    : ready ()
+        ('DOMContentLoaded', preload)
+    : preload ()
 
 }) (window.HTMLLinkElement)
 
-function ready () {
-  const links = document.querySelectorAll ('link[rel=preload]')
+function preload () {
+  const links = document.querySelectorAll ('link[rel*=preload]')
 
   console.warn ('Content is laoded!!!', links)
 }
