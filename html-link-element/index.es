@@ -1,36 +1,50 @@
+// Preloading -
+//   - https://w3c.github.io/preload/
+
 const HTMLLinkElement = (Element => {
-  console.warn ('HTMLLinkElement')
+
+  ('loading' === document.readyState)
+    ? document.addEventListener // could this be `.onload = f()` ?
+        ('DOMContentLoaded', ready)
+    : ready ()
+
 }) (window.HTMLLinkElement)
+
+function ready () {
+  const links = document.querySelectorAll ('link[rel=preload]')
+
+  console.warn ('Content is laoded!!!', links)
+}
 
 // see global-event-handlers.es:onconnect
 
-function mirror (template, insert) {
+//function mirror (template, insert) {
 
-  template = template.cloneNode (true)
+//  template = template.cloneNode (true)
 
-  insert = (replacement, name, slot) =>
-    (name = replacement.getAttribute ('slot')) &&
+//  insert = (replacement, name, slot) =>
+//    (name = replacement.getAttribute ('slot')) &&
 
-    (slot = template.content.querySelector ('slot[name='+name+']'))
-       // prefer to use replaceWith however support is sparse
-       // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-       // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
-       // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
-       // as is defined in (ancient) W3C DOM Level 1,2,3
-       .parentNode
-       .replaceChild (replacement, slot)
+//    (slot = template.content.querySelector ('slot[name='+name+']'))
+//       // prefer to use replaceWith however support is sparse
+//       // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+//       // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
+//       // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
+//       // as is defined in (ancient) W3C DOM Level 1,2,3
+//       .parentNode
+//       .replaceChild (replacement, slot)
 
-  for (let replacement of this.selectAll ('[slot]'))
-    insert (replacement)
+//  for (let replacement of this.selectAll ('[slot]'))
+//    insert (replacement)
 
-  Array
-    .from (template.attributes)
+//  Array
+//    .from (template.attributes)
 
-    // skip swapping attribute if setting exists
-    .filter (attr => !!! this.attributes [attr.name])
+//    // skip swapping attribute if setting exists
+//    .filter (attr => !!! this.attributes [attr.name])
 
-    .map  (attr => this.setAttribute (attr.name, attr.value))
+//    .map  (attr => this.setAttribute (attr.name, attr.value))
 
-  this.innerHTML = template.innerHTML
-}
+//  this.innerHTML = template.innerHTML
+//}
 
