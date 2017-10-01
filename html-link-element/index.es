@@ -11,11 +11,8 @@ const HTMLLinkElement = (Element => {
 }) (window.HTMLLinkElement)
 
 function preload () {
-  const
-    selector = 'link[id*="-"]'
-  , links    = [ ... document.querySelectorAll (selector) ]
-
-  links.map (load)
+  [ ... document.querySelectorAll ('link[id*="-"]') ]
+    .map (load)
 }
 
 function load (link) {
