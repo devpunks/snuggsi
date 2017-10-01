@@ -11,7 +11,7 @@ const HTMLLinkElement = (Element => {
 }) (window.HTMLLinkElement)
 
 function preload () {
-  const links = document.querySelectorAll ('link[rel*=preload]')
+  const links = document.querySelectorAll ('link[rel*=preload][id*="-"]')
 
   console.warn ('Content is laoded!!!', links)
 }
