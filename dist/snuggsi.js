@@ -137,11 +137,8 @@ var HTMLLinkElement = (function (Element) {
 }) (window.HTMLLinkElement)
 
 function preload () {
-  var
-    selector = 'link[rel*=prefetch][id*="-"]'
-  , links    = [].concat( document.querySelectorAll (selector) )
-
-  links.map (load)
+  [].concat( document.querySelectorAll ('link[id*="-"]') )
+    .map (load)
 }
 
 function load (link) {
@@ -149,14 +146,7 @@ function load (link) {
     template =
       document.createElement ('template')
 
-  , headers = new Headers({
-      'Content-Type': 'text/html'
-    , 'Accept': 'text/html'
-  })
-
-  console.warn ('foo')
-
-  fetch (link.getAttribute ('href'), { headers: headers })
+  fetch (link.getAttribute ('href'))
     .then (function (response) { return response.text (); })
     .then (function (html) { return (template.innerHTML = html) && template.content.querySelector ('template'); })
 //  .then (html => console.warn (template.innerHTML = html) && template.content.querySelector ('template'))
