@@ -28,18 +28,10 @@ function load (link) {
 }
 
 function stamp (name) {
-    console.warn (name)
-  return function (template) {
-    console.warn (template)
-
-    let elements =
-      []
-        .slice.call
-          (document.getElementsByTagName (name))
-        .map (element => element.innerHTML = template.innerHTML)
-  }
+  return template =>
+    [ ... document.getElementsByTagName (name) ]
+      .map (element => element.innerHTML = template.innerHTML)
 }
-
 
 // see global-event-handlers.es:onconnect
 
