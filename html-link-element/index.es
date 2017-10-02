@@ -29,24 +29,20 @@ function load (link) {
   const xhr = new XMLHttpRequest
 
   xhr.onload = function () {
-    console.warn ('Loaded', this.responseXML.querySelector ('template'), arguments)
+    stamp (link.id)(this.responseXML.querySelector ('template').innerHTML)
   }
 
   xhr.open ('GET', link.getAttribute ('href'))
   xhr.responseType = 'document'
   xhr.send ()
-
-  fetch (link.getAttribute ('href'))
-    .then (response => response.text ())
-//  may be used for script insertion
-    .then (html => (template.innerHTML = html) && template.content.querySelector ('template').innerHTML)
-    .then (stamp (link.id))
 }
 
 function stamp (name) {
   return template =>
-    [ ... document.getElementsByTagName (name) ]
-      .map (element => element.innerHTML = template)
+    []
+      .slice
+      .call (document.getElementsByTagName (name))
+      .map  (element => element.innerHTML = template)
 }
 
 // see global-event-handlers.es:onconnect
