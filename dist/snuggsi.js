@@ -156,23 +156,25 @@ function load (link) {
   var
     xhr = new XMLHttpRequest
 
-  xhr.onload = function () {
-    stamp
-      (link.id)
-      (this.responseXML.querySelector ('template').innerHTML)
+  xhr.onload = onload
+  xhr.responseType = 'document'
+  xhr.open ('GET', link.getAttribute ('href'))
+  xhr.send ()
+
+  function onload () {
+      var
+        html =
+          this.responseXML
+            .querySelector
+              ('template').innerHTML
+
+    void []
+      .slice
+      .call (document.getElementsByTagName (link.id))
+      .map  (function (element) { return element.innerHTML = html; })
+
     console.warn ('Done stamping', link.id)
   }
-
-  xhr.open ('GET', link.getAttribute ('href'))
-  xhr.responseType = 'document'
-  xhr.send ()
-}
-
-function stamp (name) {
-  return function (template) { return []
-      .slice
-      .call (document.getElementsByTagName (name))
-      .map  (function (element) { return element.innerHTML = template; }); }
 }
 
 // see global-event-handlers.es:onconnect
