@@ -125,6 +125,8 @@ const HTMLElement = (
     //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
 ) (window.HTMLElement)
 
+  // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
+
 // Preloading -
 //   - https://w3c.github.io/preload/
 
@@ -132,6 +134,10 @@ const HTMLElement = (
 // - <link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'"
 
 const HTMLLinkElement = (Element => {
+
+  console.warn ('linking')
+
+  void
 
   ('loading' === document.readyState)
     ? document.addEventListener // could this be `.onload = f()` ?
@@ -155,6 +161,7 @@ function load (link) {
     stamp
       (link.id)
       (this.responseXML.querySelector ('template').innerHTML)
+    console.warn ('Done stamping', link.id)
   }
 
   xhr.open ('GET', link.getAttribute ('href'))
@@ -622,6 +629,8 @@ const Custom = Element => // why buble
   ( Element ))))
 {
   connectedCallback () {
+    console.warn ('Connected', this.localName)
+
     this.context = {}
 
     super.initialize
