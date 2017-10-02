@@ -150,16 +150,15 @@ var HTMLLinkElement = (function (Element) {
   }
 
 
-  function load (link) {
-    var
-      xhr = new XMLHttpRequest
+  function load (link, xhr) {
 
-    xhr.onload = onload
-    xhr.open ('GET', link.getAttribute ('href'))
+    (xhr = new XMLHttpRequest)
+      .open ('GET', link.href)
+
     xhr.responseType = 'document'
     xhr.send ()
 
-    function onload () {
+    xhr.onload = function () {
       var
         html =
           this.responseXML
