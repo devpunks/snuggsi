@@ -24,16 +24,15 @@ const HTMLLinkElement = (Element => {
   }
 
 
-  function load (link) {
-    const
-      xhr = new XMLHttpRequest
+  function load (link, xhr) {
 
-    xhr.onload = onload
-    xhr.open ('GET', link.getAttribute ('href'))
+    (xhr = new XMLHttpRequest)
+      .open ('GET', link.href)
+
     xhr.responseType = 'document'
     xhr.send ()
 
-    function onload () {
+    xhr.onload = function () {
       const
         html =
           this.responseXML
