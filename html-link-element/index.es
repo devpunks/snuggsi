@@ -30,24 +30,25 @@ function load (link) {
   const
     xhr = new XMLHttpRequest
 
-  xhr.onload = function () {
-    stamp
-      (link.id)
-      (this.responseXML.querySelector ('template').innerHTML)
+  xhr.onload = onload
+  xhr.responseType = 'document'
+  xhr.open ('GET', link.getAttribute ('href'))
+  xhr.send ()
+
+  function onload () {
+      const
+        html =
+          this.responseXML
+            .querySelector
+              ('template').innerHTML
+
+    void []
+      .slice
+      .call (document.getElementsByTagName (link.id))
+      .map  (element => element.innerHTML = html)
+
     console.warn ('Done stamping', link.id)
   }
-
-  xhr.open ('GET', link.getAttribute ('href'))
-  xhr.responseType = 'document'
-  xhr.send ()
-}
-
-function stamp (name) {
-  return template =>
-    []
-      .slice
-      .call (document.getElementsByTagName (name))
-      .map  (element => element.innerHTML = template)
 }
 
 // see global-event-handlers.es:onconnect
