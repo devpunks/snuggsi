@@ -155,23 +155,19 @@ function load (link) {
   var xhr = new XMLHttpRequest
 
   xhr.onload = function () {
-    console.warn ('Loaded', this.responseXML.querySelector ('template'), arguments)
+    stamp (link.id)(this.responseXML.querySelector ('template').innerHTML)
   }
 
   xhr.open ('GET', link.getAttribute ('href'))
   xhr.responseType = 'document'
   xhr.send ()
-
-  fetch (link.getAttribute ('href'))
-    .then (function (response) { return response.text (); })
-//  may be used for script insertion
-    .then (function (html) { return (template.innerHTML = html) && template.content.querySelector ('template').innerHTML; })
-    .then (stamp (link.id))
 }
 
 function stamp (name) {
-  return function (template) { return [].concat( document.getElementsByTagName (name) )
-      .map (function (element) { return element.innerHTML = template; }); }
+  return function (template) { return []
+      .slice
+      .call (document.getElementsByTagName (name))
+      .map  (function (element) { return element.innerHTML = template; }); }
 }
 
 // see global-event-handlers.es:onconnect
