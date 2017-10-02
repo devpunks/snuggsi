@@ -29,8 +29,8 @@ const HTMLLinkElement = (Element => {
       xhr = new XMLHttpRequest
 
     xhr.onload = onload
-    xhr.responseType = 'document'
     xhr.open ('GET', link.getAttribute ('href'))
+    xhr.responseType = 'document'
     xhr.send ()
 
     function onload () {
