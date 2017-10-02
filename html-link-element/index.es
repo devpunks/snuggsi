@@ -8,6 +8,10 @@
 
 const HTMLLinkElement = (Element => {
 
+  console.warn ('linking')
+
+  void
+
   ('loading' === document.readyState)
     ? document.addEventListener // could this be `.onload = f()` ?
         ('DOMContentLoaded', preload)
@@ -30,6 +34,7 @@ function load (link) {
     stamp
       (link.id)
       (this.responseXML.querySelector ('template').innerHTML)
+    console.warn ('Done stamping', link.id)
   }
 
   xhr.open ('GET', link.getAttribute ('href'))
