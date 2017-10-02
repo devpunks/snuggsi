@@ -148,15 +148,13 @@ function preload () {
 }
 
 function load (link) {
-  console.warn (link)
   const
-    template =
-      document.createElement ('template')
-
-  const xhr = new XMLHttpRequest
+    xhr = new XMLHttpRequest
 
   xhr.onload = function () {
-    stamp (link.id)(this.responseXML.querySelector ('template').innerHTML)
+    stamp
+      (link.id)
+      (this.responseXML.querySelector ('template').innerHTML)
   }
 
   xhr.open ('GET', link.getAttribute ('href'))
