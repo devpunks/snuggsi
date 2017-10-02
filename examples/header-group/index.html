@@ -1,13 +1,5 @@
 <title>&lt;header-group&gt;</title>
 
-<style>
-header-group {
-  display: block;
-  line-height: 3em;
-  border-bottom: 0.1em solid #ddd
-}
-</style>
-
 <template>
 
   <hgroup>
@@ -17,21 +9,19 @@ header-group {
     <slot name=subheader></slot>
   </hgroup>
 
-<script>
-alert ('snuggs')
-</script>
-
 </template>
 
-<!-- minimal custom element registration -->
-<script>
-
-Element `header-group`
-  (class extends HTMLElement { })
-
-</script>
+<style>
+header-group {
+  display: block;
+  line-height: 3em;
+  border-bottom: 0.1em solid #ddd
+}
+</style>
 
 <h1>&lt;header-group&gt;</h1>
+
+<main>
 
 <p>
   Custom
@@ -73,4 +63,6 @@ Element `header-group`
     &lt;/header-group&gt;
   </pre>
 </code>
+
+</main>
 
