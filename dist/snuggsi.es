@@ -128,6 +128,9 @@ const HTMLElement = (
 // Preloading -
 //   - https://w3c.github.io/preload/
 
+// Markup based async loader
+// - <link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'"
+
 const HTMLLinkElement = (Element => {
 
   ('loading' === document.readyState)
@@ -146,6 +149,16 @@ function load (link) {
   const
     template =
       document.createElement ('template')
+
+  const xhr = new XMLHttpRequest
+
+  xhr.onload = function () {
+    console.warn ('Loaded', this.responseXML.querySelector ('template'), arguments)
+  }
+
+  xhr.open ('GET', link.getAttribute ('href'))
+  xhr.responseType = 'document'
+  xhr.send ()
 
   fetch (link.getAttribute ('href'))
     .then (response => response.text ())
