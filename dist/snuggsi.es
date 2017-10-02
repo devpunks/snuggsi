@@ -141,11 +141,14 @@ const HTMLLinkElement = (Element => {
 }) (window.HTMLLinkElement)
 
 function preload () {
-  [ ... document.querySelectorAll ('link[id*="-"]') ]
-    .map (load)
+  []
+    .slice
+    .call (document.querySelectorAll ('link[id*="-"]'))
+    .map  (load)
 }
 
 function load (link) {
+  console.warn (link)
   const
     template =
       document.createElement ('template')
