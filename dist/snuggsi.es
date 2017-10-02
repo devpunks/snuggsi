@@ -135,48 +135,48 @@ const HTMLElement = (
 
 const HTMLLinkElement = (Element => {
 
-  console.warn ('linking')
-
-  void
-
   ('loading' === document.readyState)
+
     ? document.addEventListener // could this be `.onload = f()` ?
         ('DOMContentLoaded', preload)
+
     : preload ()
 
-}) (window.HTMLLinkElement)
 
-function preload () {
-  []
-    .slice
-    .call (document.querySelectorAll ('link[id*="-"]'))
-    .map  (load)
-}
+  function preload () {
+    []
+      .slice
+      .call (document.querySelectorAll ('link[id*="-"]'))
+      .map  (load)
+  }
 
-function load (link) {
-  const
-    xhr = new XMLHttpRequest
 
-  xhr.onload = onload
-  xhr.responseType = 'document'
-  xhr.open ('GET', link.getAttribute ('href'))
-  xhr.send ()
+  function load (link) {
+    const
+      xhr = new XMLHttpRequest
 
-  function onload () {
+    xhr.onload = onload
+    xhr.responseType = 'document'
+    xhr.open ('GET', link.getAttribute ('href'))
+    xhr.send ()
+
+    function onload () {
       const
         html =
           this.responseXML
             .querySelector
               ('template').innerHTML
 
-    void []
-      .slice
-      .call (document.getElementsByTagName (link.id))
-      .map  (element => element.innerHTML = html)
+      void []
+        .slice
+        .call (document.getElementsByTagName (link.id))
+        .map  (element => element.innerHTML = html)
 
-    console.warn ('Done stamping', link.id)
+      console.warn ('Done stamping', link.id)
+    }
   }
-}
+
+}) (window.HTMLLinkElement)
 
 // see global-event-handlers.es:onconnect
 
