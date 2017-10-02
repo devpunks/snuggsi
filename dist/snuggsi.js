@@ -140,11 +140,14 @@ var HTMLLinkElement = (function (Element) {
 }) (window.HTMLLinkElement)
 
 function preload () {
-  [].concat( document.querySelectorAll ('link[id*="-"]') )
-    .map (load)
+  []
+    .slice
+    .call (document.querySelectorAll ('link[id*="-"]'))
+    .map  (load)
 }
 
 function load (link) {
+  console.warn (link)
   var
     template =
       document.createElement ('template')
