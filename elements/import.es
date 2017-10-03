@@ -3,19 +3,19 @@
 // http://stackoverflow.com/questions/5168451/javascript-require-on-client-side#answer-8536369
 function import (url, options) {
   options = options || {}
-  
+
   var script = document.createElement ('script')
 
   script.src = url.match (/\.js$/) ?
     url : `${url}.js`
-  
+
   script.async = 'async' in options
     ? options.async : false
 
   document.currentScript.parentNode
     .insertBefore (script, document.currentScript)
 
-  return inject
+  return import
 }
 
 // Usage:
