@@ -162,10 +162,14 @@ const HTMLLinkElement = (Element => {
 
     xhr.onload = function () {
       const
-        html =
-          this.responseXML
-            .querySelector
-              ('template').innerHTML
+        doc = this.responseXML
+
+      , html =
+          doc.querySelector
+            ('template').innerHTML
+
+      , scripts =
+          doc.querySelectorAll ('script')
 
       void []
         .slice
@@ -173,6 +177,17 @@ const HTMLLinkElement = (Element => {
         .map  (element => element.innerHTML = html)
 
       console.warn ('Done stamping', link.id)
+
+      for (let script of scripts) {
+        const
+          clone = document.createElement ('script')
+
+        script.src
+          && (clone.src = script.src)
+
+        clone.textContent = script.textContent
+        document.head.append (clone)
+      }
     }
   }
 
