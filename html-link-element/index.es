@@ -35,10 +35,14 @@ const HTMLLinkElement = (Element => {
 
     xhr.onload = function () {
       const
-        html =
-          this.responseXML
-            .querySelector
-              ('template').innerHTML
+        doc = this.responseXML
+
+      , html =
+          doc.querySelector
+            ('template').innerHTML
+
+      , scripts =
+          doc.querySelectorAll ('script')
 
       void []
         .slice
