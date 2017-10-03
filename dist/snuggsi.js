@@ -152,6 +152,7 @@ var HTMLLinkElement = (function (Element) {
 
   function load (link, xhr) {
 
+    // HTML Imports
     (xhr = new XMLHttpRequest)
       .open ('GET', link.href)
 
