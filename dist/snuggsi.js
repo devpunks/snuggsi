@@ -161,10 +161,14 @@ var HTMLLinkElement = (function (Element) {
 
     xhr.onload = function () {
       var
-        html =
-          this.responseXML
-            .querySelector
-              ('template').innerHTML
+        doc = this.responseXML
+
+      , html =
+          doc.querySelector
+            ('template').innerHTML
+
+      , scripts =
+          doc.querySelectorAll ('script')
 
       void []
         .slice
@@ -172,6 +176,19 @@ var HTMLLinkElement = (function (Element) {
         .map  (function (element) { return element.innerHTML = html; })
 
       console.warn ('Done stamping', link.id)
+
+      for (var i = 0, list = scripts; i < list.length; i += 1) {
+        var script = list[i];
+
+        var
+          clone = document.createElement ('script')
+
+        script.src
+          && (clone.src = script.src)
+
+        clone.textContent = script.textContent
+        document.head.append (clone)
+      }
     }
   }
 
