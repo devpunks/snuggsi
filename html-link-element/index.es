@@ -8,13 +8,11 @@
 
 void ((Element, preload) => {
 
-  preload =
-    (links = document.querySelectorAll ('link[id*="-"]')) =>
-      []
-        .slice
-        .call (links)
-        .map  (load)
-
+  preload =_=>
+    []
+      .slice
+      .call (document.querySelectorAll ('link[id*="-"]'))
+      .map  (load)
 
   void ('loading' === document.readyState)
 
