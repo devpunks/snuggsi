@@ -1,4 +1,7 @@
 header-group {
+  display: block;
   background: pink;
+  line-height: 3em;
+  border-bottom: 0.1em solid #ddd
 }
 
