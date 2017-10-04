@@ -133,13 +133,7 @@ const HTMLElement = (
 // Markup based async loader
 // - <link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'"
 
-void ((Element, preload) => {
-
-  preload =_=>
-    []
-      .slice
-      .call (document.querySelectorAll ('link[id*="-"]'))
-      .map  (load)
+void (Element => {
 
   void ('loading' === document.readyState)
 
@@ -148,6 +142,13 @@ void ((Element, preload) => {
 
     : preload ()
 
+
+  function preload () {
+    []
+      .slice
+      .call (document.querySelectorAll ('link[id*="-"]'))
+      .map  (load)
+  }
 
   function load (link, xhr) {
 
