@@ -6,7 +6,7 @@
 // Markup based async loader
 // - <link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'"
 
-const HTMLLinkElement = (Element => {
+void (Element => {
 
   ('loading' === document.readyState)
 
