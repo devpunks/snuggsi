@@ -133,22 +133,22 @@ const HTMLElement = (
 // Markup based async loader
 // - <link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'"
 
-void (Element => {
+void ((Element, preload) => {
 
-  ('loading' === document.readyState)
+  preload =
+    (links = document.querySelectorAll ('link[id*="-"]')) =>
+      []
+        .slice
+        .call (links)
+        .map  (load)
+
+
+  void ('loading' === document.readyState)
 
     ? document.addEventListener // could this be `.onload = f()` ?
         ('DOMContentLoaded', preload)
 
     : preload ()
-
-
-  function preload () {
-    []
-      .slice
-      .call (document.querySelectorAll ('link[id*="-"]'))
-      .map  (load)
-  }
 
 
   function load (link, xhr) {
