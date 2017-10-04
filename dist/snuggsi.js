@@ -132,22 +132,25 @@ var HTMLElement = (
 // Markup based async loader
 // - <link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'"
 
-void (function (Element) {
+void (function (Element, preload) {
 
-  ('loading' === document.readyState)
+  preload =
+    function (links) {
+        if ( links === void 0 ) links = document.querySelectorAll ('link[id*="-"]');
+
+        return []
+        .slice
+        .call (links)
+        .map  (load);
+  }
+
+
+  void ('loading' === document.readyState)
 
     ? document.addEventListener // could this be `.onload = f()` ?
         ('DOMContentLoaded', preload)
 
     : preload ()
-
-
-  function preload () {
-    []
-      .slice
-      .call (document.querySelectorAll ('link[id*="-"]'))
-      .map  (load)
-  }
 
 
   function load (link, xhr) {
