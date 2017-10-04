@@ -176,6 +176,10 @@ void (Element => {
       , stamp = element =>
           element.innerHTML = template.innerHTML
 
+      , reflect =
+          node => attr =>
+            node [attr] && (clone [attr] = node [attr])
+
       void []
         .slice
         .call (links)
@@ -184,17 +188,8 @@ void (Element => {
       for (let node of nodes)
         (clone = document.createElement (node.tagName))
 
-        , node.rel
-            && (clone.rel = node.rel)
-
-        , node.src
-            && (clone.src = node.src)
-
-        , node.href
-            && (clone.href = node.href)
-
-        , node.textContent
-            && (clone.textContent = node.textContent)
+        , ['rel', 'src', 'href', 'textContent']
+            .map (reflect (node))
 
         , document.head.appendChild (clone)
     }
