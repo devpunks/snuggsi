@@ -159,7 +159,7 @@ var HTMLLinkElement = (function (Element) {
     xhr.responseType = 'document'
     xhr.send ()
 
-    xhr.onload = function () {
+    xhr.onload = function (clone) {
       var
         content = this.responseXML
 
@@ -180,27 +180,25 @@ var HTMLLinkElement = (function (Element) {
         .call (links)
         .map  (stamp)
 
-      console.warn ('Done stamping', link.id)
-
-      for (var i = 0, list = nodes; i < list.length; i += 1) {
+      for (var i = 0, list = nodes; i < list.length; i += 1)
+        {
         var node = list[i];
 
-        var
-          clone = document.createElement (node.tagName)
+        (clone = document.createElement (node.tagName))
 
-        node.rel
-          && (clone.rel = node.rel)
+        , node.rel
+            && (clone.rel = node.rel)
 
-        node.href
-          && (clone.href = node.href)
+        , node.src
+            && (clone.src = node.src)
 
-        node.src
-          && (clone.src = node.src)
+        , node.href
+            && (clone.href = node.href)
 
-        node.textContent
-          && (clone.textContent = node.textContent)
+        , node.textContent
+            && (clone.textContent = node.textContent)
 
-        document.head.append (clone)
+        , document.head.append (clone)
       }
     }
   }
