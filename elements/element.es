@@ -7,6 +7,8 @@ const Element = (
     const
       E = tag => {
 
+        console.warn ('Setting up Element', tag)
+
         const constructor =// swizzle
           typeof tag === 'string'
       //    ? HTMLCustomElement
@@ -26,6 +28,7 @@ const Element = (
 
     // Assign `window.Element.prototype` in case of feature checking on `Element`
     E.prototype = Element.prototype
+
     return E
 
 }) (window.Element)
