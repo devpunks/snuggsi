@@ -134,16 +134,10 @@ var HTMLElement = (
 
 void (function (Element, preload) {
 
-  preload =
-    function (links) {
-        if ( links === void 0 ) links = document.querySelectorAll ('link[id*="-"]');
-
-        return []
-        .slice
-        .call (links)
-        .map  (load);
-  }
-
+  preload =function (_){ return []
+      .slice
+      .call (document.querySelectorAll ('link[id*="-"]'))
+      .map  (load); }
 
   void ('loading' === document.readyState)
 
