@@ -168,7 +168,7 @@ var HTMLLinkElement = (function (Element) {
             ('template').innerHTML
 
       , styles =
-          doc.querySelectorAll ('style')
+          doc.querySelectorAll ('style,link[rel=stylesheet]')
 
       , scripts =
           doc.querySelectorAll ('script')
@@ -184,10 +184,17 @@ var HTMLLinkElement = (function (Element) {
         var style = list[i];
 
         var
-          clone = document.createElement ('style')
+          clone = document.createElement (style.tagName)
 
-        clone.rel = 'stylesheet'
-        clone.textContent = style.textContent
+        style.textContent
+          && (clone.textContent = style.textContent)
+
+        style.rel
+          && (clone.rel = style.rel)
+
+        style.href
+          && (clone.href = style.href)
+
         document.head.append (clone)
       }
 
