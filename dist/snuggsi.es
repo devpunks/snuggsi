@@ -163,6 +163,8 @@ void (Element => {
       const
         content = this.responseXML
 
+      , next = link.nextSibling
+
       , template =
           content.querySelector ('template')
 
@@ -188,10 +190,13 @@ void (Element => {
       for (let node of nodes)
         (clone = document.createElement (node.tagName))
 
+          // force scripts to run in order
+        , clone.async && (clone.async = false)
+
         , ['rel', 'src', 'href', 'textContent']
             .map (reflect (node))
 
-        , document.head.appendChild (clone)
+        , link.parentNode.insertBefore (clone, next)
     }
   }
 
