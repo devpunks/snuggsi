@@ -41,11 +41,8 @@ const HTMLLinkElement = (Element => {
           doc.querySelector
             ('template').innerHTML
 
-      , styles =
-          doc.querySelectorAll ('style,link[rel=stylesheet]')
-
-      , scripts =
-          doc.querySelectorAll ('script')
+      , nodes =
+          doc.querySelectorAll ('script,style,link[rel=stylesheet]')
 
       void []
         .slice
@@ -54,31 +51,22 @@ const HTMLLinkElement = (Element => {
 
       console.warn ('Done stamping', link.id)
 
-      for (let style of styles) {
+      for (let node of nodes) {
         const
-          clone = document.createElement (style.tagName)
+          clone = document.createElement (node.tagName)
 
-        style.textContent
-          && (clone.textContent = style.textContent)
+        node.rel
+          && (clone.rel = node.rel)
 
-        style.rel
-          && (clone.rel = style.rel)
+        node.href
+          && (clone.href = node.href)
 
-        style.href
-          && (clone.href = style.href)
+        node.src
+          && (clone.src = node.src)
 
-        document.head.append (clone)
-      }
+        node.textContent
+          && (clone.textContent = node.textContent)
 
-
-      for (let script of scripts) {
-        const
-          clone = document.createElement ('script')
-
-        script.src
-          && (clone.src = script.src)
-
-        clone.textContent = script.textContent
         document.head.append (clone)
       }
     }
