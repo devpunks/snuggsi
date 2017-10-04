@@ -70,7 +70,7 @@ const HTMLLinkElement = (Element => {
         , node.textContent
             && (clone.textContent = node.textContent)
 
-        , document.head.append (clone)
+        , document.head.appendChild (clone)
     }
   }
 
