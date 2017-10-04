@@ -161,19 +161,24 @@ var HTMLLinkElement = (function (Element) {
 
     xhr.onload = function () {
       var
-        doc = this.responseXML
+        content = this.responseXML
 
-      , html =
-          doc.querySelector
-            ('template').innerHTML
+      , template =
+          content.querySelector ('template')
 
       , nodes =
-          doc.querySelectorAll ('script,style,link[rel=stylesheet]')
+          content.querySelectorAll
+            ('script,style,link[rel=stylesheet]')
+
+      , links =
+          document.getElementsByTagName (link.id)
+
+      , stamp = function (element) { return element.innerHTML = template.innerHTML; }
 
       void []
         .slice
-        .call (document.getElementsByTagName (link.id))
-        .map  (function (element) { return element.innerHTML = html; })
+        .call (links)
+        .map  (stamp)
 
       console.warn ('Done stamping', link.id)
 
