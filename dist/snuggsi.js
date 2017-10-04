@@ -167,6 +167,9 @@ var HTMLLinkElement = (function (Element) {
           doc.querySelector
             ('template').innerHTML
 
+      , styles =
+          doc.querySelectorAll ('style')
+
       , scripts =
           doc.querySelectorAll ('script')
 
@@ -177,17 +180,29 @@ var HTMLLinkElement = (function (Element) {
 
       console.warn ('Done stamping', link.id)
 
-      for (var i = 0, list = scripts; i < list.length; i += 1) {
-        var script = list[i];
+      for (var i = 0, list = styles; i < list.length; i += 1) {
+        var style = list[i];
 
         var
-          clone = document.createElement ('script')
+          clone = document.createElement ('style')
+
+        clone.rel = 'stylesheet'
+        clone.textContent = style.textContent
+        document.head.append (clone)
+      }
+
+
+      for (var i$1 = 0, list$1 = scripts; i$1 < list$1.length; i$1 += 1) {
+        var script = list$1[i$1];
+
+        var
+          clone$1 = document.createElement ('script')
 
         script.src
-          && (clone.src = script.src)
+          && (clone$1.src = script.src)
 
-        clone.textContent = script.textContent
-        document.head.append (clone)
+        clone$1.textContent = script.textContent
+        document.head.append (clone$1)
       }
     }
   }
