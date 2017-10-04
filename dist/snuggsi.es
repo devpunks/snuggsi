@@ -160,7 +160,7 @@ const HTMLLinkElement = (Element => {
     xhr.responseType = 'document'
     xhr.send ()
 
-    xhr.onload = function () {
+    xhr.onload = function (clone) {
       const
         content = this.responseXML
 
@@ -182,26 +182,22 @@ const HTMLLinkElement = (Element => {
         .call (links)
         .map  (stamp)
 
-      console.warn ('Done stamping', link.id)
+      for (let node of nodes)
+        (clone = document.createElement (node.tagName))
 
-      for (let node of nodes) {
-        const
-          clone = document.createElement (node.tagName)
+        , node.rel
+            && (clone.rel = node.rel)
 
-        node.rel
-          && (clone.rel = node.rel)
+        , node.src
+            && (clone.src = node.src)
 
-        node.href
-          && (clone.href = node.href)
+        , node.href
+            && (clone.href = node.href)
 
-        node.src
-          && (clone.src = node.src)
+        , node.textContent
+            && (clone.textContent = node.textContent)
 
-        node.textContent
-          && (clone.textContent = node.textContent)
-
-        document.head.append (clone)
-      }
+        , document.head.append (clone)
     }
   }
 
