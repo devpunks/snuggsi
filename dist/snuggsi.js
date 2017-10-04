@@ -167,11 +167,8 @@ var HTMLLinkElement = (function (Element) {
           doc.querySelector
             ('template').innerHTML
 
-      , styles =
-          doc.querySelectorAll ('style,link[rel=stylesheet]')
-
-      , scripts =
-          doc.querySelectorAll ('script')
+      , nodes =
+          doc.querySelectorAll ('script,style,link[rel=stylesheet]')
 
       void []
         .slice
@@ -180,36 +177,25 @@ var HTMLLinkElement = (function (Element) {
 
       console.warn ('Done stamping', link.id)
 
-      for (var i = 0, list = styles; i < list.length; i += 1) {
-        var style = list[i];
+      for (var i = 0, list = nodes; i < list.length; i += 1) {
+        var node = list[i];
 
         var
-          clone = document.createElement (style.tagName)
+          clone = document.createElement (node.tagName)
 
-        style.textContent
-          && (clone.textContent = style.textContent)
+        node.rel
+          && (clone.rel = node.rel)
 
-        style.rel
-          && (clone.rel = style.rel)
+        node.href
+          && (clone.href = node.href)
 
-        style.href
-          && (clone.href = style.href)
+        node.src
+          && (clone.src = node.src)
+
+        node.textContent
+          && (clone.textContent = node.textContent)
 
         document.head.append (clone)
-      }
-
-
-      for (var i$1 = 0, list$1 = scripts; i$1 < list$1.length; i$1 += 1) {
-        var script = list$1[i$1];
-
-        var
-          clone$1 = document.createElement ('script')
-
-        script.src
-          && (clone$1.src = script.src)
-
-        clone$1.textContent = script.textContent
-        document.head.append (clone$1)
       }
     }
   }
