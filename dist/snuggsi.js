@@ -132,12 +132,7 @@ var HTMLElement = (
 // Markup based async loader
 // - <link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'"
 
-void (function (Element, preload) {
-
-  preload =function (_){ return []
-      .slice
-      .call (document.querySelectorAll ('link[id*="-"]'))
-      .map  (load); }
+void (function (Element) {
 
   void ('loading' === document.readyState)
 
@@ -146,6 +141,13 @@ void (function (Element, preload) {
 
     : preload ()
 
+
+  function preload () {
+    []
+      .slice
+      .call (document.querySelectorAll ('link[id*="-"]'))
+      .map  (load)
+  }
 
   function load (link, xhr) {
 
