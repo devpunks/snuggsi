@@ -41,7 +41,7 @@ void (Element => {
 
       , nodes =
           content.querySelectorAll
-            ('script,style,link[rel=stylesheet]')
+            ('style,link[rel=stylesheet],script[type=export]')
 
       , links =
           document.getElementsByTagName (link.id)
