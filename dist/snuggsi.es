@@ -168,6 +168,9 @@ const HTMLLinkElement = (Element => {
           doc.querySelector
             ('template').innerHTML
 
+      , styles =
+          doc.querySelectorAll ('style')
+
       , scripts =
           doc.querySelectorAll ('script')
 
@@ -177,6 +180,16 @@ const HTMLLinkElement = (Element => {
         .map  (element => element.innerHTML = html)
 
       console.warn ('Done stamping', link.id)
+
+      for (let style of styles) {
+        const
+          clone = document.createElement ('style')
+
+        clone.rel = 'stylesheet'
+        clone.textContent = style.textContent
+        document.head.append (clone)
+      }
+
 
       for (let script of scripts) {
         const
