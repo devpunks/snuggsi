@@ -1,9 +1,6 @@
-<meta charset=UTF-8>
-<meta name=viewport content=width=device-width,initial-scale=1>
-
 <title>&lt;x-flashy&gt;</title>
 
-<link rel=stylesheet href=https://devpunks.herokuapp.com/typography.css>
+<meta name=viewport content=width=device-width,initial-scale=1>
 
 <style>
 
@@ -31,22 +28,17 @@
   }
 </style>
 
-<script src=/></script>
-<script name=polyfill src=https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
-
-<link rel=icon type=image/png href=/favicon-32x32.png sizes=32x32>
 
 <header-group>
   <h2 slot=header>&lt;x-flashy&gt;</h2>
   <a  slot=subheader Title='See more componentexamples' href=/examples>See more component examples</a>
 </header-group>
-<!-- import works inline body -->
-<link rel=import href=/examples/header-group>
-
 
 <x-flashy>
   {greeting}
 </x-flashy>
+
+<script src=/></script>
 
 <script>
 
@@ -54,7 +46,8 @@ Element `x-flashy`
 
 (class extends HTMLElement {
 
-  get speed () { return 3000 }
+  get speed ()
+    { return 3000 }
 
   onclick (event)
     { console.log ('mole whacked') }
@@ -72,12 +65,15 @@ Element `x-flashy`
       'such lightweight'
     ]
 
+    console.warn ('Initializing')
+
     this.randomize()
     const intervalId = setInterval
       (this.randomize.bind (this), this.speed)
   }
 
-  get greeting () { return this.context.greeting }
+  get greeting ()
+    { return this.context.greeting }
 
   randomize () {
     this.style.color = this.randomLightColor
@@ -110,4 +106,6 @@ Element `x-flashy`
 })
 
 </script>
+
+<script src=/browser-sync.es></script>
 
