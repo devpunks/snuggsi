@@ -644,6 +644,8 @@ var Element = (
     var
       E = function (tag) {
 
+        console.warn ('Setting up Element', tag)
+
         var constructor =// swizzle
           typeof tag === 'string'
       //    ? HTMLCustomElement
@@ -662,6 +664,7 @@ var Element = (
 
     // Assign `window.Element.prototype` in case of feature checking on `Element`
     E.prototype = Element.prototype
+
     return E
 
 }) (window.Element)
