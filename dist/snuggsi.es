@@ -162,19 +162,25 @@ const HTMLLinkElement = (Element => {
 
     xhr.onload = function () {
       const
-        doc = this.responseXML
+        content = this.responseXML
 
-      , html =
-          doc.querySelector
-            ('template').innerHTML
+      , template =
+          content.querySelector ('template')
 
       , nodes =
-          doc.querySelectorAll ('script,style,link[rel=stylesheet]')
+          content.querySelectorAll
+            ('script,style,link[rel=stylesheet]')
+
+      , links =
+          document.getElementsByTagName (link.id)
+
+      , stamp = element =>
+          element.innerHTML = template.innerHTML
 
       void []
         .slice
-        .call (document.getElementsByTagName (link.id))
-        .map  (element => element.innerHTML = html)
+        .call (links)
+        .map  (stamp)
 
       console.warn ('Done stamping', link.id)
 
