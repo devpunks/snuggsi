@@ -174,6 +174,9 @@ void (function (Element) {
 
       , stamp = function (element) { return element.innerHTML = template.innerHTML; }
 
+      , reflect =
+          function (node) { return function (attr) { return node [attr] && (clone [attr] = node [attr]); }; }
+
       void []
         .slice
         .call (links)
@@ -185,17 +188,8 @@ void (function (Element) {
 
         (clone = document.createElement (node.tagName))
 
-        , node.rel
-            && (clone.rel = node.rel)
-
-        , node.src
-            && (clone.src = node.src)
-
-        , node.href
-            && (clone.href = node.href)
-
-        , node.textContent
-            && (clone.textContent = node.textContent)
+        , ['rel', 'src', 'href', 'textContent']
+            .map (reflect (node))
 
         , document.head.appendChild (clone)
       }
