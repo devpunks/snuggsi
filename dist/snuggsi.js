@@ -132,7 +132,7 @@ var HTMLElement = (
 // Markup based async loader
 // - <link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'"
 
-var HTMLLinkElement = (function (Element) {
+void (function (Element) {
 
   ('loading' === document.readyState)
 
