@@ -3,7 +3,12 @@
 // Preloading -
 //   - https://w3c.github.io/preload/
 
+document.addEventListener
+('DOMContentLoaded', console.warn)
+
 void (Element => {
+
+  console.warn ('\n\nReady State:', document.readyState)
 
   'loading' === document.readyState
 
@@ -20,6 +25,8 @@ void (Element => {
 
   function load (link, xhr) {
 
+    console.warn (link.id, 'Load Ready State:', document.readyState);
+
     // HTML Imports
     (xhr = new XMLHttpRequest)
       .open ('GET', link.href)
@@ -28,6 +35,8 @@ void (Element => {
     xhr.send ()
 
     xhr.onload = function (clone, node) {
+
+      console.warn (link.id, 'XHR Ready State:', document.readyState)
 
       const
         content = this.responseXML
@@ -47,6 +56,7 @@ void (Element => {
           node [attr]
             && (node [attr] = node [attr])
 
+    console.warn (template);
 
       for (node of tags)
         stamp.call (node, template)
@@ -73,6 +83,8 @@ void (Element => {
 
 
   function stamp (template, insert, replacement) {
+
+    console.warn (this, template)
 
     template = template.cloneNode (true)
 
