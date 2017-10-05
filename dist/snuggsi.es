@@ -135,7 +135,7 @@ const HTMLElement = (
 
 void (Element => {
 
-  void ('loading' === document.readyState)
+  'loading' === document.readyState
 
     ? document.addEventListener // could this be `.onload = f()` ?
         ('DOMContentLoaded', preload)
@@ -378,11 +378,15 @@ new class CustomElementRegistry {
   register (name, Class) {
     // perhaps this goes in swizzle
     (this [name] = Class)
-      .localName = name;
+      .localName = name
 
-    ('loading' === document.readyState)
-      && document.addEventListener
+
+    'loading' === document.readyState
+
+      ? document.addEventListener
         ('DOMContentLoaded', this.queue ( ... arguments ))
+
+      : this.queue ( ... arguments )()
 
     return arguments
   }
