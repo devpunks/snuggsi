@@ -143,10 +143,12 @@ void (function (Element) {
 
 
   function preload () {
-    []
-      .slice
-      .call (document.querySelectorAll ('link[id*="-"]'))
-      .map  (load)
+    for (var i = 0, list = document.querySelectorAll ('link[id*="-"]'); i < list.length; i += 1)
+      {
+      var link = list[i];
+
+      load (link)
+    }
   }
 
   function load (link, xhr) {
@@ -158,7 +160,7 @@ void (function (Element) {
     xhr.responseType = 'document'
     xhr.send ()
 
-    xhr.onload = function (clone) {
+    xhr.onload = function (clone, node) {
       var
         content = this.responseXML
 
@@ -167,65 +169,67 @@ void (function (Element) {
       , template =
           content.querySelector ('template')
 
-      , nodes =
-          content.querySelectorAll
-            ('style,link[rel=stylesheet],script[type=export]')
-
-      , links =
+      , tags =
           document.getElementsByTagName (link.id)
 
-      , stamp = function (element) { return mirror.call (element, template); }
+      , clones =
+          content.querySelectorAll ('style,link,script')
 
-      , reflect =
-          function (node) { return function (attr) { return node [attr] && (clone [attr] = node [attr]); }; }
+      , reflect = function (node) { return function (attr) { return (node [attr] = node [attr]); }; }
 
-      void []
-        .slice
-        .call (links)
-        .map  (stamp)
 
-      for (var i = 0, list = nodes; i < list.length; i += 1)
+      for (var i = 0, list = tags; i < list.length; i += 1)
         {
-        var node = list[i];
+        node = list[i];
 
-        (clone = document.createElement (node.tagName))
+        stamp.call (node, template)
+      }
 
-          // force scripts to run in order
-        , clone.async && (clone.async = false)
 
-        , ['rel', 'src', 'href', 'textContent']
-            .map (reflect (node))
+      for (var i$1 = 0, list$1 = clones; i$1 < list$1.length; i$1 += 1) {
+        node = list$1[i$1];
 
-        , link.parentNode.insertBefore (clone, next)
+        ['src', 'href']
+          .map (reflect (node))
+
+        'style' == node.as // createstylesheet
+          && node.relList.add ('stylesheet')
+
+        link.parentNode.insertBefore (node, next)
+
+        'script' == node.as // create script
+          &&
+            link.parentNode.insertBefore
+              (clone = document.createElement ('script'), next)
+          &&
+            (clone.src = node.href)
       }
     }
   }
 
-  function mirror (template, insert) {
+
+  function stamp (template, insert, replacement) {
     var this$1 = this;
 
 
-    template =
-      template.cloneNode (true)
+    template = template.cloneNode (true)
 
 
     insert = function (replacement, name, slot) { return (name = replacement.getAttribute ('slot')) &&
 
-      (slot = (template.content || template).querySelector ('slot[name='+name+']'))
-         // prefer to use replaceWith however support is sparse
-         // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-         // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
-         // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
-         // as is defined in (ancient) W3C DOM Level 1,2,3
-         .parentNode
-         .replaceChild (replacement, slot); }
+      (slot = (template.content || template)
+         .querySelector ('slot[name='+name+']'))
+           .parentNode
+           .replaceChild (replacement, slot); }
+
 
     for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1)
       {
-      var replacement = list[i];
+      replacement = list[i];
 
       insert (replacement)
     }
+
 
     this.innerHTML = template.innerHTML
   }
