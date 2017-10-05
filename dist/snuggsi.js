@@ -129,9 +129,6 @@ var HTMLElement = (
 // Preloading -
 //   - https://w3c.github.io/preload/
 
-// Markup based async loader
-// - <link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'"
-
 void (function (Element) {
 
   'loading' === document.readyState
@@ -161,6 +158,7 @@ void (function (Element) {
     xhr.send ()
 
     xhr.onload = function (clone, node) {
+
       var
         content = this.responseXML
 
@@ -175,7 +173,8 @@ void (function (Element) {
       , clones =
           content.querySelectorAll ('style,link,script')
 
-      , reflect = function (node) { return function (attr) { return (node [attr] = node [attr]); }; }
+      , reflect = function (node) { return function (attr) { return node [attr]
+            && (node [attr] = node [attr]); }; }
 
 
       for (var i = 0, list = tags; i < list.length; i += 1)
