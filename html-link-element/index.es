@@ -17,10 +17,8 @@ void (Element => {
 
 
   function preload () {
-    []
-      .slice
-      .call (document.querySelectorAll ('link[id*="-"]'))
-      .map  (load)
+    for (let link of document.querySelectorAll ('link[id*="-"]'))
+      load (link)
   }
 
   function load (link, xhr) {
