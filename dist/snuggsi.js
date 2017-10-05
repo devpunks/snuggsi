@@ -134,7 +134,7 @@ var HTMLElement = (
 
 void (function (Element) {
 
-  void ('loading' === document.readyState)
+  'loading' === document.readyState
 
     ? document.addEventListener // could this be `.onload = f()` ?
         ('DOMContentLoaded', preload)
@@ -388,14 +388,19 @@ new (function () {
   CustomElementRegistry.prototype.register = function (name, Class) {
     // perhaps this goes in swizzle
     (this [name] = Class)
-      .localName = name;
+      .localName = name
 
-    ('loading' === document.readyState)
-      && document.addEventListener
+
+    'loading' === document.readyState
+
+      ? document.addEventListener
         ('DOMContentLoaded', (ref = this).queue.apply ( ref, arguments ))
+
+      : (ref$1 = this).queue.apply ( ref$1, arguments )()
 
     return arguments
     var ref;
+    var ref$1;
   };
 
 
