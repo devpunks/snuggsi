@@ -144,10 +144,8 @@ void (Element => {
 
 
   function preload () {
-    []
-      .slice
-      .call (document.querySelectorAll ('link[id*="-"]'))
-      .map  (load)
+    for (let link of document.querySelectorAll ('link[id*="-"]'))
+      load (link)
   }
 
   function load (link, xhr) {
@@ -159,7 +157,7 @@ void (Element => {
     xhr.responseType = 'document'
     xhr.send ()
 
-    xhr.onload = function (clone) {
+    xhr.onload = function (clone, node) {
       const
         content = this.responseXML
 
@@ -168,59 +166,58 @@ void (Element => {
       , template =
           content.querySelector ('template')
 
-      , nodes =
-          content.querySelectorAll
-            ('style,link[rel=stylesheet],script[type=export]')
-
-      , links =
+      , tags =
           document.getElementsByTagName (link.id)
 
-      , stamp = element =>
-          mirror.call (element, template)
+      , clones =
+          content.querySelectorAll ('style,link,script')
 
-      , reflect =
-          node => attr =>
-            node [attr] && (clone [attr] = node [attr])
+      , reflect = node => attr =>
+          (node [attr] = node [attr])
 
-      void []
-        .slice
-        .call (links)
-        .map  (stamp)
 
-      for (let node of nodes)
-        (clone = document.createElement (node.tagName))
+      for (node of tags)
+        stamp.call (node, template)
 
-          // force scripts to run in order
-        , clone.async && (clone.async = false)
 
-        , ['rel', 'src', 'href', 'textContent']
-            .map (reflect (node))
+      for (node of clones) {
+        ['src', 'href']
+          .map (reflect (node))
 
-        , link.parentNode.insertBefore (clone, next)
+        'style' == node.as // createstylesheet
+          && node.relList.add ('stylesheet')
+
+        link.parentNode.insertBefore (node, next)
+
+        'script' == node.as // create script
+          &&
+            link.parentNode.insertBefore
+              (clone = document.createElement ('script'), next)
+          &&
+            (clone.src = node.href)
+      }
     }
   }
 
-  function mirror (template, insert) {
 
-    template =
-      template.cloneNode (true)
+  function stamp (template, insert, replacement) {
+
+    template = template.cloneNode (true)
 
 
     insert = (replacement, name, slot) =>
 
       (name = replacement.getAttribute ('slot')) &&
 
-      (slot = (template.content || template).querySelector ('slot[name='+name+']'))
-         // prefer to use replaceWith however support is sparse
-         // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-         // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
-         // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
-         // as is defined in (ancient) W3C DOM Level 1,2,3
-         .parentNode
-         .replaceChild (replacement, slot)
+      (slot = (template.content || template)
+         .querySelector ('slot[name='+name+']'))
+           .parentNode
+           .replaceChild (replacement, slot)
 
-    for (let replacement of this.querySelectorAll ('[slot]'))
+
+    for (replacement of this.querySelectorAll ('[slot]'))
       insert (replacement)
+
 
     this.innerHTML = template.innerHTML
   }
