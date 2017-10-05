@@ -699,26 +699,24 @@ const Custom = Element => // why buble
 const Element = (
   Element => {
 
-    const
-      E = tag => {
+    const E =
+      (tag, constructor) => {
 
-        console.warn ('Setting up Element', tag)
-
-        const constructor =// swizzle
-          typeof tag === 'string'
-      //    ? HTMLCustomElement
-      //    : HTMLElement
+//      const constructor =// swizzle
+//        typeof tag === 'string'
+//    //    ? HTMLCustomElement
+//    //    : HTMLElement
 
           //https://gist.github.com/allenwb/53927e46b31564168a1d
           // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
           // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-        return klass => // https://en.wikipedia.org/wiki/Higher-order_function
+            return klass => // https://en.wikipedia.org/wiki/Higher-order_function
 
-          window.customElements.define
-            ( ...  [].concat ( ... [tag] )
-              , Custom (klass)
-              , { constructor })
+              window.customElements.define
+                ( ...  [].concat ( ... [tag] )
+                  , Custom (klass)
+                  , { constructor })
       }
 
     // Assign `window.Element.prototype` in case of feature checking on `Element`
