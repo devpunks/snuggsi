@@ -46,11 +46,15 @@ new class CustomElementRegistry {
   register (name, Class) {
     // perhaps this goes in swizzle
     (this [name] = Class)
-      .localName = name;
+      .localName = name
 
-    ('loading' === document.readyState)
-      && document.addEventListener
+
+    'loading' === document.readyState
+
+      ? document.addEventListener
         ('DOMContentLoaded', this.queue ( ... arguments ))
+
+      : this.queue ( ... arguments )()
 
     return arguments
   }

@@ -8,7 +8,7 @@
 
 void (Element => {
 
-  void ('loading' === document.readyState)
+  'loading' === document.readyState
 
     ? document.addEventListener // could this be `.onload = f()` ?
         ('DOMContentLoaded', preload)
