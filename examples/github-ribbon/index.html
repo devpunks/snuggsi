@@ -15,6 +15,10 @@ Element `github-ribbon`
 
 (class extends HTMLElement {
 
+  onconnect () {
+    console.warn ('connecting github ribbon')
+  }
+
   get url ()
     { return this.getAttribute ('url') }
 })
