@@ -130,9 +130,6 @@ const HTMLElement = (
 // Preloading -
 //   - https://w3c.github.io/preload/
 
-// Markup based async loader
-// - <link rel="preload" as="style" href="async_style.css" onload="this.rel='stylesheet'"
-
 void (Element => {
 
   'loading' === document.readyState
@@ -158,6 +155,7 @@ void (Element => {
     xhr.send ()
 
     xhr.onload = function (clone, node) {
+
       const
         content = this.responseXML
 
@@ -173,7 +171,8 @@ void (Element => {
           content.querySelectorAll ('style,link,script')
 
       , reflect = node => attr =>
-          (node [attr] = node [attr])
+          node [attr]
+            && (node [attr] = node [attr])
 
 
       for (node of tags)
