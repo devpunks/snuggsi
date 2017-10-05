@@ -30,7 +30,7 @@ void (Element => {
     xhr.responseType = 'document'
     xhr.send ()
 
-    xhr.onload = function (clone) {
+    xhr.onload = function (clone, node) {
       const
         content = this.responseXML
 
