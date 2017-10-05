@@ -174,7 +174,7 @@ void (function (Element) {
       , links =
           document.getElementsByTagName (link.id)
 
-      , stamp = function (element) { return element.innerHTML = template.innerHTML; }
+      , stamp = function (element) { return mirror.call (element, template); }
 
       , reflect =
           function (node) { return function (attr) { return node [attr] && (clone [attr] = node [attr]); }; }
@@ -201,39 +201,36 @@ void (function (Element) {
     }
   }
 
+  function mirror (template, insert) {
+    var this$1 = this;
+
+
+    template =
+      template.cloneNode (true)
+
+
+    insert = function (replacement, name, slot) { return (name = replacement.getAttribute ('slot')) &&
+
+      (slot = (template.content || template).querySelector ('slot[name='+name+']'))
+         // prefer to use replaceWith however support is sparse
+         // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
+         // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
+         // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
+         // as is defined in (ancient) W3C DOM Level 1,2,3
+         .parentNode
+         .replaceChild (replacement, slot); }
+
+    for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1)
+      {
+      var replacement = list[i];
+
+      insert (replacement)
+    }
+
+    this.innerHTML = template.innerHTML
+  }
+
 }) (window.HTMLLinkElement)
-
-// see global-event-handlers.es:onconnect
-
-//function mirror (template, insert) {
-
-//  template = template.cloneNode (true)
-
-//  insert = (replacement, name, slot) =>
-//    (name = replacement.getAttribute ('slot')) &&
-
-//    (slot = template.content.querySelector ('slot[name='+name+']'))
-//       // prefer to use replaceWith however support is sparse
-//       // https://developer.mozilla.org/en-US/docs/Web/API/ChildNode/replaceWith
-//       // using `Node.parentNode` - https://developer.mozilla.org/en-US/docs/Web/API/Node/parentNode
-//       // & `Node.replaceChid` - https://developer.mozilla.org/en-US/docs/Web/API/Node/replaceChild
-//       // as is defined in (ancient) W3C DOM Level 1,2,3
-//       .parentNode
-//       .replaceChild (replacement, slot)
-
-//  for (let replacement of this.selectAll ('[slot]'))
-//    insert (replacement)
-
-//  Array
-//    .from (template.attributes)
-
-//    // skip swapping attribute if setting exists
-//    .filter (attr => !!! this.attributes [attr.name])
-
-//    .map  (attr => this.setAttribute (attr.name, attr.value))
-
-//  this.innerHTML = template.innerHTML
-//}
 
 // https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 
