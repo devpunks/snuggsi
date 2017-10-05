@@ -607,8 +607,6 @@ var Custom = function (Element) { return ( (function (superclass) {
     anonymous.prototype.constructor = anonymous;
 
     anonymous.prototype.connectedCallback = function () {
-    console.warn ('Connected', this.localName)
-
     this.context = {}
 
     superclass.prototype.initialize
