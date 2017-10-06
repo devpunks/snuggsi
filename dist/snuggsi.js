@@ -166,34 +166,37 @@ void (function (Element) {
     xhr.responseType = 'document'
     xhr.send ()
 
-    xhr.onload = function (clone, node) {
+    xhr.onload = function (clone) {
 
-      console.warn (link.id, 'XHR Ready State:', document.readyState)
+      console.warn
+        (link.id, 'XHR Ready State:', document.readyState, this.response)
 
       var
-        content = this.responseXML
+        select =
+          this
+            .response
+            .querySelectorAll
+            .bind (this.response)
 
       , next = link.nextSibling
 
       , template =
-          content.querySelector ('template')
-
-      , tags =
-          document.getElementsByTagName (link.id)
+          select ('template')[0]
 
       , clones =
-          content.querySelectorAll ('style,link,script')
+          select ('style,link,script')
 
       , reflect = function (node) { return function (attr) { return node [attr]
             && (node [attr] = node [attr]); }; }
 
 console.warn (template);
 
-      for (var i = 0, list = tags; i < list.length; i += 1)
-        {
-        node = list[i];
+      for
+        (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
+          {
+        var node$1 = list[i];
 
-        stamp.call (node, template)
+        stamp.call (node$1, template)
       }
 
 
