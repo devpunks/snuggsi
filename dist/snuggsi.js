@@ -117,9 +117,6 @@ var HTMLElement = (
 // Preloading -
 //   - https://w3c.github.io/preload/
 
-document.addEventListener
-('DOMContentLoaded', function (event) { return console.warn ('loaded', event); })
-
 void (function (Element) {
 
   var
@@ -133,8 +130,6 @@ void (function (Element) {
     }
 
 
-  console.warn ('\n\nReady State:', document.readyState)
-
   'loading' == document.readyState
 
     ? document.addEventListener // could this be `.onload = f()` ?
@@ -145,8 +140,6 @@ void (function (Element) {
 
   function load (link, xhr) {
 
-    console.warn (link.id, 'Load Ready State:', document.readyState);
-
     // HTML Imports
     (xhr = new XMLHttpRequest)
       .open ('GET', link.href)
@@ -155,9 +148,6 @@ void (function (Element) {
     xhr.send ()
 
     xhr.onload = function () {
-
-      console.warn
-        (link.id, 'XHR Ready State:', document.readyState, this.response)
 
       var
         select =
@@ -200,7 +190,7 @@ void (function (Element) {
           .map (reflect (clone, node$1))
 
         'style' == as &&
-          clone.relList.add ('stylesheet')
+          (clone.rel += ' stylesheet') // space separated
 
         link.parentNode.insertBefore (clone, next)
 
@@ -214,10 +204,8 @@ void (function (Element) {
 
 
   function stamp (template, insert, replacement) {
-var this$1 = this;
+    var this$1 = this;
 
-
-console.warn (this, template)
 
     template = template.cloneNode (true)
 
@@ -232,10 +220,10 @@ console.warn (this, template)
 
     for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1)
       {
-  replacement = list[i];
+      replacement = list[i];
 
-  insert (replacement)
-}
+      insert (replacement)
+    }
 
 
     this.innerHTML = template.innerHTML
