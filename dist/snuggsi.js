@@ -131,7 +131,12 @@ var HTMLElement = (
 
 void (function (Element) {
 
-  'loading' === document.readyState
+document.addEventListener
+('DOMContentLoaded', function (event) { return console.warn ('loaded', event); })
+
+  console.warn ('\n\nReady State:', document.readyState)
+
+  'loading' == document.readyState
 
     ? document.addEventListener // could this be `.onload = f()` ?
         ('DOMContentLoaded', preload)
@@ -150,6 +155,8 @@ void (function (Element) {
 
   function load (link, xhr) {
 
+    console.warn (link.id, 'Load Ready State:', document.readyState);
+
     // HTML Imports
     (xhr = new XMLHttpRequest)
       .open ('GET', link.href)
@@ -158,6 +165,8 @@ void (function (Element) {
     xhr.send ()
 
     xhr.onload = function (clone, node) {
+
+      console.warn (link.id, 'XHR Ready State:', document.readyState)
 
       var
         content = this.responseXML
@@ -176,6 +185,7 @@ void (function (Element) {
       , reflect = function (node) { return function (attr) { return node [attr]
             && (node [attr] = node [attr]); }; }
 
+    console.warn (template);
 
       for (var i = 0, list = tags; i < list.length; i += 1)
         {
@@ -210,6 +220,8 @@ void (function (Element) {
   function stamp (template, insert, replacement) {
     var this$1 = this;
 
+
+    console.warn (this, template)
 
     template = template.cloneNode (true)
 
