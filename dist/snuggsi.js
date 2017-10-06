@@ -112,10 +112,9 @@ var HTMLElement = (
     //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
 ) (window.HTMLElement)
 
-  // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
-
-// Preloading -
-//   - https://w3c.github.io/preload/
+// Preloading - https://w3c.github.io/preload
+// Resource Hints - https://www.w3.org/TR/resource-hints
+// http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
 
 void (function (Element) {
 
@@ -186,11 +185,10 @@ void (function (Element) {
             document.createElement (node$1.localName)
 
 
-        void ['src', 'href', 'textContent', 'rel', 'as']
+        void ['src', 'href', 'textContent', 'rel']
           .map (reflect (clone, node$1))
 
-        'style' == as &&
-          (clone.rel += ' stylesheet') // space separated
+        'style' == as && (clone.rel = 'stylesheet')
 
         link.parentNode.insertBefore (clone, next)
 
