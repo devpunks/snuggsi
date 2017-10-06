@@ -166,7 +166,7 @@ void (function (Element) {
     xhr.responseType = 'document'
     xhr.send ()
 
-    xhr.onload = function (clone) {
+    xhr.onload = function () {
 
       console.warn
         (link.id, 'XHR Ready State:', document.readyState, this.response)
@@ -186,37 +186,40 @@ void (function (Element) {
       , clones =
           select ('style,link,script')
 
-      , reflect = function (node) { return function (attr) { return node [attr]
-            && (node [attr] = node [attr]); }; }
-
-console.warn (template);
+      , reflect = function (clone, node) { return function (attr) { return node [attr]
+            && (clone [attr] = node [attr]); }; }
 
       for
         (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
           {
-        var node$1 = list[i];
+        var node = list[i];
 
-        stamp.call (node$1, template)
+        stamp.call (node, template)
       }
 
 
       for (var i$1 = 0, list$1 = clones; i$1 < list$1.length; i$1 += 1) {
-        node = list$1[i$1];
+        var node$1 = list$1[i$1];
 
-        ['src', 'href']
-          .map (reflect (node))
+        var
+          as = node$1.getAttribute ('as')
 
-        'style' == node.as // createstylesheet
-          && node.relList.add ('stylesheet')
+        , clone =
+            document.createElement (node$1.localName)
 
-        link.parentNode.insertBefore (node, next)
 
-        'script' == node.as // create script
-          &&
-            link.parentNode.insertBefore
-              (clone = document.createElement ('script'), next)
-          &&
-            (clone.src = node.href)
+        void ['src', 'href', 'textContent', 'rel', 'as']
+          .map (reflect (clone, node$1))
+
+        'style' == as &&
+          clone.relList.add ('stylesheet')
+
+        link.parentNode.insertBefore (clone, next)
+
+        'script' == as &&
+          (link.parentNode.insertBefore
+            (document.createElement ('script'), next)
+              .src = node$1.href)
       }
     }
   }
