@@ -3,14 +3,14 @@
 // Preloading -
 //   - https://w3c.github.io/preload/
 
-document.addEventListener
-('DOMContentLoaded', console.warn)
-
 void (Element => {
+
+document.addEventListener
+('DOMContentLoaded', event => console.warn ('loaded', event))
 
   console.warn ('\n\nReady State:', document.readyState)
 
-  'loading' === document.readyState
+  'loading' == document.readyState
 
     ? document.addEventListener // could this be `.onload = f()` ?
         ('DOMContentLoaded', preload)
