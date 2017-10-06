@@ -176,11 +176,10 @@ void (Element => {
             document.createElement (node.localName)
 
 
-        void ['src', 'href', 'textContent', 'rel', 'as']
+        void ['src', 'href', 'textContent', 'rel']
           .map (reflect (clone, node))
 
-        'style' == as &&
-          (clone.rel += ' stylesheet') // space separated
+        'style' == as && (clone.rel = 'stylesheet')
 
         link.parentNode.insertBefore (clone, next)
 
