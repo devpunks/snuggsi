@@ -65,10 +65,10 @@ void (Element => {
         void ['src', 'href', 'textContent', 'rel']
           .map (reflect (clone, node))
 
-        // http://keithclark.co.uk/articles/loading-css-without-blocking-render
-        // https://github.com/filamentgroup/loadCSS
         // use rel = 'preload stylesheet' for async
         // or use media=snuggsi => media || 'all' trick
+        // loadCSS - https://github.com/filamentgroup/loadCSS
+        // http://keithclark.co.uk/articles/loading-css-without-blocking-render
         'style' == as && (clone.rel = 'stylesheet')
 
         link.parentNode.insertBefore (clone, next)
