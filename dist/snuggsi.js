@@ -32,13 +32,13 @@ TokenList.prototype.sift = function (node) {
   , TEXT_NODE = function (node) { return expression.test (node.textContent)
         && nodes.push (node); }
 
-  , ELEMENT_NODE = function (attrs) { return [].concat( attrs ).map
-        (function (attr) { return expression.test (attr.value) && nodes.push (attr); }); }
+  , ELEMENT_NODE = function (attrs) { return []
+        .slice.call (attrs)
+        .map (function (attr) { return expression.test (attr.value) && nodes.push (attr); }); }
 
   , walker =
       document.createNodeIterator
         (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
-        // by default breaks on template YAY! 🎉
 
   while (walker.nextNode ()) { 0 } // Walk all nodes and do nothing.
 
@@ -70,18 +70,6 @@ TokenList.prototype.bind = function (context) {
     .map(reset)
     .map(restore)
 };
-
-//function zip (...elements) {
-//  const
-//    lock = (zipper, row) => [...zipper, ...row]
-//  , pair = teeth => // http://english.stackexchange.com/questions/121601/pair-or-couple
-//      (tooth, position) => // thunk
-//        [tooth, teeth [position]]
-
-//  return elements [1]
-//    .map (pair (elements [0]))
-//    .reduce (lock)
-//}
 
 //function slice (text, tokens = []) {
 //  const
