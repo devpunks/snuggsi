@@ -129,10 +129,21 @@ var HTMLElement = (
 // Preloading -
 //   - https://w3c.github.io/preload/
 
-void (function (Element) {
-
 document.addEventListener
 ('DOMContentLoaded', function (event) { return console.warn ('loaded', event); })
+
+void (function (Element) {
+
+  var
+    preload = function () {
+      for (var i = 0, list = document.querySelectorAll ('link[id*="-"]'); i < list.length; i += 1)
+        {
+        var link = list[i];
+
+        load (link)
+      }
+    }
+
 
   console.warn ('\n\nReady State:', document.readyState)
 
@@ -143,15 +154,6 @@ document.addEventListener
 
     : preload ()
 
-
-  function preload () {
-    for (var i = 0, list = document.querySelectorAll ('link[id*="-"]'); i < list.length; i += 1)
-      {
-      var link = list[i];
-
-      load (link)
-    }
-  }
 
   function load (link, xhr) {
 
@@ -185,7 +187,7 @@ document.addEventListener
       , reflect = function (node) { return function (attr) { return node [attr]
             && (node [attr] = node [attr]); }; }
 
-    console.warn (template);
+console.warn (template);
 
       for (var i = 0, list = tags; i < list.length; i += 1)
         {
@@ -218,10 +220,10 @@ document.addEventListener
 
 
   function stamp (template, insert, replacement) {
-    var this$1 = this;
+var this$1 = this;
 
 
-    console.warn (this, template)
+console.warn (this, template)
 
     template = template.cloneNode (true)
 
@@ -236,10 +238,10 @@ document.addEventListener
 
     for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1)
       {
-      replacement = list[i];
+  replacement = list[i];
 
-      insert (replacement)
-    }
+  insert (replacement)
+}
 
 
     this.innerHTML = template.innerHTML
