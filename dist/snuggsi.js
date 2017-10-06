@@ -118,85 +118,76 @@ var HTMLElement = (
 
 void (function (Element) {
 
-  var
-    preload = function () {
-      for (var i = 0, list = document.querySelectorAll ('link[id*="-"]'); i < list.length; i += 1)
-        {
-        var link = list[i];
+  var xhr
 
-        load (link)
-      }
+  for (var i = 0, list = document.querySelectorAll ('link[id*="-"]'); i < list.length; i += 1) {
+    var link = list[i];
+
+    (xhr = new XMLHttpRequest)
+       .open ('GET', link.href)
+
+    xhr.responseType = 'document'
+    xhr.onload = onload
+    xhr.link = link
+    xhr.send ()
+  }
+
+  function onload () {
+
+    var
+      select =
+        this
+          .response
+          .querySelectorAll
+          .bind (this.response)
+
+    , link = this.link
+
+    , next = link.nextSibling
+
+    , template =
+        select ('template')[0]
+
+    , clones =
+        select ('style,link,script')
+
+    , reflect = function (clone, node) { return function (attr) { return node [attr]
+          && (clone [attr] = node [attr]); }; }
+
+    for
+      (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
+        {
+      var node = list[i];
+
+      stamp.call (node, template)
     }
 
 
-  'loading' == document.readyState
-
-    ? document.addEventListener // could this be `.onload = f()` ?
-        ('DOMContentLoaded', preload)
-
-    : preload ()
-
-
-  function load (link, xhr) {
-
-    // HTML Imports
-    (xhr = new XMLHttpRequest)
-      .open ('GET', link.href)
-
-    xhr.responseType = 'document'
-    xhr.send ()
-
-    xhr.onload = function () {
+    for (var i$1 = 0, list$1 = clones; i$1 < list$1.length; i$1 += 1) {
+      var node$1 = list$1[i$1];
 
       var
-        select =
-          this
-            .response
-            .querySelectorAll
-            .bind (this.response)
+        as = node$1.getAttribute ('as')
 
-      , next = link.nextSibling
-
-      , template =
-          select ('template')[0]
-
-      , clones =
-          select ('style,link,script')
-
-      , reflect = function (clone, node) { return function (attr) { return node [attr]
-            && (clone [attr] = node [attr]); }; }
-
-      for
-        (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
-          {
-        var node = list[i];
-
-        stamp.call (node, template)
-      }
+      , clone =
+          document.createElement (node$1.localName)
 
 
-      for (var i$1 = 0, list$1 = clones; i$1 < list$1.length; i$1 += 1) {
-        var node$1 = list$1[i$1];
+      void ['src', 'href', 'textContent', 'rel']
+        .map (reflect (clone, node$1))
 
-        var
-          as = node$1.getAttribute ('as')
+      // use rel = 'preload stylesheet' for async
+      // or use media=snuggsi => media || 'all' trick
+      // loadCSS - https://github.com/filamentgroup/loadCSS
+      // http://keithclark.co.uk/articles/loading-css-without-blocking-render
+      'style' == as && (clone.rel = 'stylesheet')
 
-        , clone =
-            document.createElement (node$1.localName)
+      link.parentNode.insertBefore (clone, next)
 
-
-        void ['src', 'href', 'textContent', 'rel']
-          .map (reflect (clone, node$1))
-
-        'style' == as && (clone.rel = 'stylesheet')
-
-        link.parentNode.insertBefore (clone, next)
-
-        'script' == as &&
-          (link.parentNode.insertBefore
-            (document.createElement ('script'), next)
-              .src = node$1.href)
-      }
+      'script' == as &&
+        (link.parentNode.insertBefore
+          (document.createElement ('script'), next)
+            .src = node$1.href)
     }
   }
 
