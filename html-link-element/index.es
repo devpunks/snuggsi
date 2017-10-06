@@ -36,7 +36,7 @@ void (Element => {
     xhr.responseType = 'document'
     xhr.send ()
 
-    xhr.onload = function (clone) {
+    xhr.onload = function () {
 
       console.warn
         (link.id, 'XHR Ready State:', document.readyState, this.response)
@@ -56,32 +56,35 @@ void (Element => {
       , clones =
           select ('style,link,script')
 
-      , reflect = node => attr =>
+      , reflect = (clone, node) => attr =>
           node [attr]
-            && (node [attr] = node [attr])
-
-console.warn (template);
+            && (clone [attr] = node [attr])
 
       for
         (let node of document.querySelectorAll (link.id))
           stamp.call (node, template)
 
 
-      for (node of clones) {
-        ['src', 'href']
-          .map (reflect (node))
+      for (let node of clones) {
+        let
+          as = node.getAttribute ('as')
 
-        'style' == node.as // createstylesheet
-          && node.relList.add ('stylesheet')
+        , clone =
+            document.createElement (node.localName)
 
-        link.parentNode.insertBefore (node, next)
 
-        'script' == node.as // create script
-          &&
-            link.parentNode.insertBefore
-              (clone = document.createElement ('script'), next)
-          &&
-            (clone.src = node.href)
+        void ['src', 'href', 'textContent', 'rel', 'as']
+          .map (reflect (clone, node))
+
+        'style' == as &&
+          clone.relList.add ('stylesheet')
+
+        link.parentNode.insertBefore (clone, next)
+
+        'script' == as &&
+          (link.parentNode.insertBefore
+            (document.createElement ('script'), next)
+              .src = node.href)
       }
     }
   }
