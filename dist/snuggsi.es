@@ -130,10 +130,17 @@ const HTMLElement = (
 // Preloading -
 //   - https://w3c.github.io/preload/
 
-void (Element => {
-
 document.addEventListener
 ('DOMContentLoaded', event => console.warn ('loaded', event))
+
+void (Element => {
+
+  const
+    preload = () => {
+      for (let link of document.querySelectorAll ('link[id*="-"]'))
+        load (link)
+    }
+
 
   console.warn ('\n\nReady State:', document.readyState)
 
@@ -144,11 +151,6 @@ document.addEventListener
 
     : preload ()
 
-
-  function preload () {
-    for (let link of document.querySelectorAll ('link[id*="-"]'))
-      load (link)
-  }
 
   function load (link, xhr) {
 
@@ -183,7 +185,7 @@ document.addEventListener
           node [attr]
             && (node [attr] = node [attr])
 
-    console.warn (template);
+console.warn (template);
 
       for (node of tags)
         stamp.call (node, template)
@@ -211,7 +213,7 @@ document.addEventListener
 
   function stamp (template, insert, replacement) {
 
-    console.warn (this, template)
+console.warn (this, template)
 
     template = template.cloneNode (true)
 
