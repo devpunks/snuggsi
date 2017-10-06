@@ -3,9 +3,6 @@
 // Preloading -
 //   - https://w3c.github.io/preload/
 
-document.addEventListener
-('DOMContentLoaded', event => console.warn ('loaded', event))
-
 void (Element => {
 
   const
