@@ -65,6 +65,7 @@ void (Element => {
         void ['src', 'href', 'textContent', 'rel']
           .map (reflect (clone, node))
 
+        // http://keithclark.co.uk/articles/loading-css-without-blocking-render
         'style' == as && (clone.rel = 'stylesheet')
 
         link.parentNode.insertBefore (clone, next)
