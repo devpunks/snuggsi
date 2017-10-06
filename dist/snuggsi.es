@@ -117,9 +117,6 @@ const HTMLElement = (
 // Preloading -
 //   - https://w3c.github.io/preload/
 
-document.addEventListener
-('DOMContentLoaded', event => console.warn ('loaded', event))
-
 void (Element => {
 
   const
@@ -128,8 +125,6 @@ void (Element => {
         load (link)
     }
 
-
-  console.warn ('\n\nReady State:', document.readyState)
 
   'loading' == document.readyState
 
@@ -141,8 +136,6 @@ void (Element => {
 
   function load (link, xhr) {
 
-    console.warn (link.id, 'Load Ready State:', document.readyState);
-
     // HTML Imports
     (xhr = new XMLHttpRequest)
       .open ('GET', link.href)
@@ -151,9 +144,6 @@ void (Element => {
     xhr.send ()
 
     xhr.onload = function () {
-
-      console.warn
-        (link.id, 'XHR Ready State:', document.readyState, this.response)
 
       const
         select =
@@ -191,7 +181,7 @@ void (Element => {
           .map (reflect (clone, node))
 
         'style' == as &&
-          clone.relList.add ('stylesheet')
+          (clone.rel += ' stylesheet') // space separated
 
         link.parentNode.insertBefore (clone, next)
 
@@ -205,8 +195,6 @@ void (Element => {
 
 
   function stamp (template, insert, replacement) {
-
-console.warn (this, template)
 
     template = template.cloneNode (true)
 
