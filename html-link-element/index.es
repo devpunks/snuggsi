@@ -66,6 +66,9 @@ void (Element => {
           .map (reflect (clone, node))
 
         // http://keithclark.co.uk/articles/loading-css-without-blocking-render
+        // https://github.com/filamentgroup/loadCSS
+        // use rel = 'preload stylesheet' for async
+        // or use media=snuggsi => media || 'all' trick
         'style' == as && (clone.rel = 'stylesheet')
 
         link.parentNode.insertBefore (clone, next)
