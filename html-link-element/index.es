@@ -4,80 +4,69 @@
 
 void (Element => {
 
-  const
-    preload = () => {
-      for (let link of document.querySelectorAll ('link[id*="-"]'))
-        load (link)
-    }
+  let xhr
 
-
-  'loading' == document.readyState
-
-    ? document.addEventListener // could this be `.onload = f()` ?
-        ('DOMContentLoaded', preload)
-
-    : preload ()
-
-
-  function load (link, xhr) {
-
-    // HTML Imports
+  for (let link of document.querySelectorAll ('link[id*="-"]')) {
     (xhr = new XMLHttpRequest)
-      .open ('GET', link.href)
+       .open ('GET', link.href)
 
     xhr.responseType = 'document'
+    xhr.onload = onload
+    xhr.link = link
     xhr.send ()
+  }
 
-    xhr.onload = function () {
+  function onload () {
 
-      const
-        select =
-          this
-            .response
-            .querySelectorAll
-            .bind (this.response)
+    const
+      select =
+        this
+          .response
+          .querySelectorAll
+          .bind (this.response)
 
-      , next = link.nextSibling
+    , link = this.link
 
-      , template =
-          select ('template')[0]
+    , next = link.nextSibling
 
-      , clones =
-          select ('style,link,script')
+    , template =
+        select ('template')[0]
 
-      , reflect = (clone, node) => attr =>
-          node [attr]
-            && (clone [attr] = node [attr])
+    , clones =
+        select ('style,link,script')
 
-      for
-        (let node of document.querySelectorAll (link.id))
-          stamp.call (node, template)
+    , reflect = (clone, node) => attr =>
+        node [attr]
+          && (clone [attr] = node [attr])
 
-
-      for (let node of clones) {
-        let
-          as = node.getAttribute ('as')
-
-        , clone =
-            document.createElement (node.localName)
+    for
+      (let node of document.querySelectorAll (link.id))
+        stamp.call (node, template)
 
 
-        void ['src', 'href', 'textContent', 'rel']
-          .map (reflect (clone, node))
+    for (let node of clones) {
+      let
+        as = node.getAttribute ('as')
 
-        // use rel = 'preload stylesheet' for async
-        // or use media=snuggsi => media || 'all' trick
-        // loadCSS - https://github.com/filamentgroup/loadCSS
-        // http://keithclark.co.uk/articles/loading-css-without-blocking-render
-        'style' == as && (clone.rel = 'stylesheet')
+      , clone =
+          document.createElement (node.localName)
 
-        link.parentNode.insertBefore (clone, next)
 
-        'script' == as &&
-          (link.parentNode.insertBefore
-            (document.createElement ('script'), next)
-              .src = node.href)
-      }
+      void ['src', 'href', 'textContent', 'rel']
+        .map (reflect (clone, node))
+
+      // use rel = 'preload stylesheet' for async
+      // or use media=snuggsi => media || 'all' trick
+      // loadCSS - https://github.com/filamentgroup/loadCSS
+      // http://keithclark.co.uk/articles/loading-css-without-blocking-render
+      'style' == as && (clone.rel = 'stylesheet')
+
+      link.parentNode.insertBefore (clone, next)
+
+      'script' == as &&
+        (link.parentNode.insertBefore
+          (document.createElement ('script'), next)
+            .src = node.href)
     }
   }
 
