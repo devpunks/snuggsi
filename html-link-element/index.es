@@ -36,23 +36,25 @@ void (Element => {
     xhr.responseType = 'document'
     xhr.send ()
 
-    xhr.onload = function (clone, node) {
+    xhr.onload = function (clone) {
 
-      console.warn (link.id, 'XHR Ready State:', document.readyState)
+      console.warn
+        (link.id, 'XHR Ready State:', document.readyState, this.response)
 
       const
-        content = this.responseXML
+        select =
+          this
+            .response
+            .querySelectorAll
+            .bind (this.response)
 
       , next = link.nextSibling
 
       , template =
-          content.querySelector ('template')
-
-      , tags =
-          document.getElementsByTagName (link.id)
+          select ('template')[0]
 
       , clones =
-          content.querySelectorAll ('style,link,script')
+          select ('style,link,script')
 
       , reflect = node => attr =>
           node [attr]
@@ -60,8 +62,9 @@ void (Element => {
 
 console.warn (template);
 
-      for (node of tags)
-        stamp.call (node, template)
+      for
+        (let node of document.querySelectorAll (link.id))
+          stamp.call (node, template)
 
 
       for (node of clones) {
