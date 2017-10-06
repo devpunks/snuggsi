@@ -15,5 +15,3 @@ Element `header-group`
   }
 })
 
-console.warn ('header-group defined')
-
