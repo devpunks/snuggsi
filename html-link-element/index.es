@@ -1,7 +1,6 @@
-  // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
-
-// Preloading -
-//   - https://w3c.github.io/preload/
+// Preloading - https://w3c.github.io/preload
+// Resource Hints - https://www.w3.org/TR/resource-hints
+// http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
 
 void (Element => {
 
