@@ -31,8 +31,17 @@
 <link rel=stylesheet href=https://devpunks.herokuapp.com/typography.css>
 <link rel=stylesheet href=/index.css></script>
 
-<link rel=import href=/examples/header-group>
-<link rel=import href=/examples/github-ribbon>
+<link
+  as=fetch
+  rel=preload
+  id=github-ribbon
+  href=/examples/github-ribbon>
+
+<link
+  as=fetch
+  rel=preload
+  id=header-group
+  href=/examples/header-group>
 
 <style>
 // enough inline styles to paint to fold
