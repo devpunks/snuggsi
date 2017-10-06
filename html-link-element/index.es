@@ -12,8 +12,6 @@ void (Element => {
     }
 
 
-  console.warn ('\n\nReady State:', document.readyState)
-
   'loading' == document.readyState
 
     ? document.addEventListener // could this be `.onload = f()` ?
@@ -24,8 +22,6 @@ void (Element => {
 
   function load (link, xhr) {
 
-    console.warn (link.id, 'Load Ready State:', document.readyState);
-
     // HTML Imports
     (xhr = new XMLHttpRequest)
       .open ('GET', link.href)
@@ -34,9 +30,6 @@ void (Element => {
     xhr.send ()
 
     xhr.onload = function () {
-
-      console.warn
-        (link.id, 'XHR Ready State:', document.readyState, this.response)
 
       const
         select =
@@ -88,8 +81,6 @@ void (Element => {
 
 
   function stamp (template, insert, replacement) {
-
-console.warn (this, template)
 
     template = template.cloneNode (true)
 
