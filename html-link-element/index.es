@@ -77,7 +77,7 @@ void (Element => {
           .map (reflect (clone, node))
 
         'style' == as &&
-          clone.relList.add ('stylesheet')
+          (clone.rel += ' stylesheet') // space separated
 
         link.parentNode.insertBefore (clone, next)
 
