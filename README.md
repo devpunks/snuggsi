@@ -208,7 +208,11 @@ template.bind (context)
 </ul>
 ```
 
-### `<template>` Defaults _(Preload Components)_
+### `<template>` Default _(Preload Components)_
+
+  A default `<template>` can be stored within a
+  `<link>`able HTML file when components grow in size and dependencies.
+
 
 #### Component `foo-bar.html`
 
