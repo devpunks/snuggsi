@@ -208,10 +208,10 @@ template.bind (context)
 </ul>
 ```
 
-### `<template>` Default _(Preload Components)_
+### `<template>` Default _(Preload Resource)_
 
   A default `<template>` can be stored within a
-  `<link>`able HTML file when components grow in size and dependencies.
+  `<link>`able HTML resource when components grow in size and dependencies.
 
 
 #### Component `foo-bar.html`
@@ -256,12 +256,11 @@ Element `foo-bar`
   rel=import
   href=foo-bar.html>
 
-<!-- <foo-bar onclick=onfoo></foo-bar> -->
 <foo-bar>
   <p slot=content>The quick brown fox jumped over the lazy dog
 </foo-bar>
 
-<!-- After import
+<!-- After loading remote resource
 
 <foo-bar onclick=onfoo>
   <h1>foo-bar custom element</h1>
