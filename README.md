@@ -208,7 +208,7 @@ template.bind (context)
 </ul>
 ```
 
-### `<template>` Defaults _(Preloaded Components)_
+### `<template>` Defaults _(Preload Components)_
 
 #### Component `foo-bar.html`
 
