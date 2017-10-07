@@ -208,9 +208,9 @@ template.bind (context)
 </ul>
 ```
 
-### `<template>` Defaults _(HTML Custom Element Import)_
+### `<template>` Defaults _(Preloaded Components )_
 
-#### Master Document `foo-bar.html`
+#### Component `foo-bar.html`
 
 ```html
 <template onclick=onfoo>
@@ -232,7 +232,8 @@ Element `foo-bar`
 
 (class extends HTMLElement {
 
-  onfoo (event) { alert `Registered on foo-bar` }
+  onfoo (event)
+    { alert `Registered on foo-bar` }
 
   get bat ()
     { return ['football', 'soccer', 'baseball'] }
@@ -241,11 +242,15 @@ Element `foo-bar`
 </script>
 ```
 
-#### Import Document `index.html`
+#### Master Document `index.html`
 ```html
 <script src=//unpkg.com/snuggsi></script>
 
-<link rel=import name=foo-bar href=foo-bar.html>
+<link
+  as=fetch
+  id=foo-bar
+  rel=import
+  href=foo-bar.html>
 
 <!-- <foo-bar onclick=onfoo></foo-bar> -->
 <foo-bar>
