@@ -262,6 +262,28 @@ Element `foo-bar`
 
 <!-- After loading remote resource
 
+<script>
+
+Element `foo-bar`
+
+(class extends HTMLElement {
+
+  onfoo (event)
+    { alert `Registered on foo-bar` }
+
+  get bat ()
+    { return ['football', 'soccer', 'baseball'] }
+})
+
+</script>
+
+<link
+  as=fetch
+  id=foo-bar
+  rel=import
+  href=foo-bar.html>
+
+
 <foo-bar onclick=onfoo>
   <h1>foo-bar custom element</h1>
 
