@@ -262,6 +262,12 @@ Element `foo-bar`
 
 <!-- After loading remote resource
 
+<link
+  as=fetch
+  id=foo-bar
+  rel=import
+  href=foo-bar.html>
+
 <script>
 
 Element `foo-bar`
@@ -276,12 +282,6 @@ Element `foo-bar`
 })
 
 </script>
-
-<link
-  as=fetch
-  id=foo-bar
-  rel=import
-  href=foo-bar.html>
 
 
 <foo-bar onclick=onfoo>
