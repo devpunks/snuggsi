@@ -77,14 +77,14 @@ function (template) {
     this.dependents =
       Array.apply (null, children) // non-live
 
-    this.comment.after
-      && this.comment.after ( ... this.dependents )
+    this.after
+      && this.after ( ... this.dependents )
 
-    !!!  this.comment.after
+    !!!  this.after
       && this.dependents.reverse ()
          .map (dependent =>
-           this.comment.parentNode.insertBefore
-             (dependent, this.comment.nextSibling))
+           this.parentNode.insertBefore
+             (dependent, this.nextSibling))
   }
 }
 
