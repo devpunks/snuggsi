@@ -37,15 +37,15 @@ new class CustomElementRegistry {
 
     //  definition = this.swizzle ( definition );
 
-    return ( name, constructor, options ) =>
+    return ( name, constructor ) =>
       (delegate).apply
         ( window.customElements, this.register ( name, constructor ) )
   }
 
 
-  register (name, Class) {
+  register (name, constructor) {
     // perhaps this goes in swizzle
-    (this [name] = Class)
+    (this [name] = constructor)
       .localName = name
 
 
@@ -60,13 +60,13 @@ new class CustomElementRegistry {
   }
 
 
-  queue ( name, Class, constructor ) {
+  queue ( name, constructor ) {
     return event =>
       // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       [].slice.call (document.getElementsByTagName (name))
         // .reverse () // should be able to do depth first
         .map
-          (this.upgrade (Class))
+          (this.upgrade (constructor))
   }
 
 
