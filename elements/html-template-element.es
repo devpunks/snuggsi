@@ -5,7 +5,9 @@
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
 
 // https://github.com/webcomponents/template
-const Template = HTMLTemplateElement = function (template) {
+const Template = HTMLTemplateElement =
+
+function (template) {
 
   template =
     typeof template == 'string'
@@ -17,11 +19,10 @@ const Template = HTMLTemplateElement = function (template) {
       ? template.cloneNode (true)
       : template
 
-  template.name =
-    template.getAttribute ('name')
 
   template.comment =
-    document.createComment (template.name)
+    document.createComment
+      (template.getAttribute ('name'))
 
   template
     .parentNode
