@@ -21,17 +21,18 @@ const ParentNode = Element =>
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
   // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
 
-  selectAll ( fragments, ... tokens ) {
-    fragments =
-      [].concat ( ... [fragments] )
+  selectAll ( strings, ... tokens ) {
+
+    strings =
+      [].concat ( ... [strings] )
 
     const
       zip =
         (part, token) =>
-          part + token + fragments.shift ()
+          part + token + strings.shift ()
 
     , selector =
-        tokens.reduce (zip, fragments.shift ())
+        tokens.reduce (zip, strings.shift ())
 
     return [].slice.call (this.querySelectorAll (selector))
   }
