@@ -117,7 +117,6 @@ var HTMLElement = (
 // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
 
 void (function (Element) {
-
   var xhr
 
   for (var i = 0, list = document.querySelectorAll ('link[id*="-"]'); i < list.length; i += 1) {
@@ -133,7 +132,6 @@ void (function (Element) {
   }
 
   function onload () {
-
     var
       select =
         this
@@ -349,7 +347,6 @@ new (function () {
   var get = ref.get;
   var whenDefined = ref.whenDefined;
 
-
     window.customElements
       .define = this
         ._define (undefined) // (define)
@@ -365,14 +362,14 @@ new (function () {
 
     //  definition = this.swizzle ( definition );
 
-    return function ( name, constructor, options ) { return (delegate).apply
+    return function ( name, constructor ) { return (delegate).apply
         ( window.customElements, this$1.register ( name, constructor ) ); }
   };
 
 
-  CustomElementRegistry.prototype.register = function (name, Class) {
+  CustomElementRegistry.prototype.register = function (name, constructor) {
     // perhaps this goes in swizzle
-    (this [name] = Class)
+    (this [name] = constructor)
       .localName = name
 
 
@@ -389,13 +386,13 @@ new (function () {
   };
 
 
-  CustomElementRegistry.prototype.queue = function ( name, Class, constructor ) {
+  CustomElementRegistry.prototype.queue = function ( name, constructor ) {
     var this$1 = this;
 
     return function (event) { return [].slice.call (document.getElementsByTagName (name))
         // .reverse () // should be able to do depth first
         .map
-          (this$1.upgrade (Class)); }
+          (this$1.upgrade (constructor)); }
   };
 
 
