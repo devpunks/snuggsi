@@ -426,19 +426,20 @@ var ParentNode = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.selectAll = function ( fragments ) {
+    anonymous.prototype.selectAll = function ( strings ) {
     var tokens = [], len = arguments.length - 1;
     while ( len-- > 0 ) tokens[ len ] = arguments[ len + 1 ];
 
-    fragments =
-      (ref = []).concat.apply ( ref, [fragments] )
+
+    strings =
+      (ref = []).concat.apply ( ref, [strings] )
 
     var
       zip =
-        function (part, token) { return part + token + fragments.shift (); }
+        function (part, token) { return part + token + strings.shift (); }
 
     , selector =
-        tokens.reduce (zip, fragments.shift ())
+        tokens.reduce (zip, strings.shift ())
 
     return [].slice.call (this.querySelectorAll (selector))
     var ref;
