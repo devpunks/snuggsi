@@ -3,7 +3,6 @@
 // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
 
 void (Element => {
-
   let xhr
 
   for (let link of document.querySelectorAll ('link[id*="-"]')) {
@@ -17,7 +16,6 @@ void (Element => {
   }
 
   function onload () {
-
     const
       select =
         this
