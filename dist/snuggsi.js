@@ -242,6 +242,14 @@ function (template) {
   template.name =
     template.getAttribute ('name')
 
+  template.comment =
+    document.createComment (template.name)
+
+  template
+    .parentNode
+    .replaceChild
+      (template.comment, template)
+
   return Object
     .defineProperty
       (template, 'bind', { value: bind })
@@ -299,13 +307,13 @@ function (template) {
     this.dependents =
       Array.apply (null, children) // non-live
 
-    this.after
-      && (ref$1 = this).after.apply ( ref$1, this.dependents )
+    this.comment.after
+      && (ref$1 = this.comment).after.apply ( ref$1, this.dependents )
 
-    !!!  this.after
+    !!!  this.comment.after
       && this.dependents.reverse ()
-         .map (function (dependent) { return this$1.parentNode.insertBefore
-             (dependent, this$1.nextSibling); })
+         .map (function (dependent) { return this$1.comment.parentNode.insertBefore
+             (dependent, this$1.comment.nextSibling); })
     var ref;
     var ref$1;
   }
