@@ -12,7 +12,8 @@ app
 
   .use ( snuggsi.assets )
 
-  .listen (process.env.PORT || 80)
+  .listen ( process.env.PORT || 80 )
 
-console.log (`listening on PORT ${process.env.PORT}`)
+console.log
+  ( `listening on PORT ${process.env.PORT}` )
 
