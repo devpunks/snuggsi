@@ -225,7 +225,9 @@ void (function (Element) {
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
 
 // https://github.com/webcomponents/template
-var Template = HTMLTemplateElement = function (template) {
+var Template = HTMLTemplateElement =
+
+function (template) {
 
   template =
     typeof template == 'string'
@@ -239,14 +241,6 @@ var Template = HTMLTemplateElement = function (template) {
 
   template.name =
     template.getAttribute ('name')
-
-  template.comment =
-    document.createComment (template.name)
-
-  template
-    .parentNode
-    .replaceChild
-      (template.comment, template)
 
   return Object
     .defineProperty
@@ -305,13 +299,13 @@ var Template = HTMLTemplateElement = function (template) {
     this.dependents =
       Array.apply (null, children) // non-live
 
-    this.comment.after
-      && (ref$1 = this.comment).after.apply ( ref$1, this.dependents )
+    this.after
+      && (ref$1 = this).after.apply ( ref$1, this.dependents )
 
-    !!!  this.comment.after
+    !!!  this.after
       && this.dependents.reverse ()
-         .map (function (dependent) { return this$1.comment.parentNode.insertBefore
-             (dependent, this$1.comment.nextSibling); })
+         .map (function (dependent) { return this$1.parentNode.insertBefore
+             (dependent, this$1.nextSibling); })
     var ref;
     var ref$1;
   }
