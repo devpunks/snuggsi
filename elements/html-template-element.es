@@ -19,15 +19,8 @@ function (template) {
       ? template.cloneNode (true)
       : template
 
-
-  template.comment =
-    document.createComment
-      (template.getAttribute ('name'))
-
-  template
-    .parentNode
-    .replaceChild
-      (template.comment, template)
+  template.name =
+    template.getAttribute ('name')
 
   return Object
     .defineProperty
