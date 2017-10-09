@@ -167,7 +167,7 @@ void (function (Element) {
         {
       var node = list[i];
 
-      stamp.call (node, template)
+      stamp.call (node, template.cloneNode (true))
     }
 
 
@@ -204,22 +204,16 @@ void (function (Element) {
     var this$1 = this;
 
 
-    template = template.cloneNode (true)
-
-
-    insert = function (replacement, name, slot) { return (name = replacement.getAttribute ('slot')) &&
-
-      (slot = (template.content || template)
-         .querySelector ('slot[name='+name+']'))
-           .parentNode
-           .replaceChild (replacement, slot); }
-
-
     for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1)
       {
       replacement = list[i];
 
-      insert (replacement)
+      (slot =
+        (template.content || template).querySelector
+          ('slot[name='+ replacement.getAttribute ('slot') +']'))
+
+        .parentNode
+        .replaceChild (replacement, slot)
     }
 
 
