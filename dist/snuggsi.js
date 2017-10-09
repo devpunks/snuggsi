@@ -116,6 +116,7 @@ var HTMLElement = (
 // Resource Hints - https://www.w3.org/TR/resource-hints
 // https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
 // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
+// https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/12142852/
 // Caching best practices - https://jakearchibald.com/2016/caching-best-practices/
 //
 //
@@ -124,7 +125,6 @@ var HTMLElement = (
 // https://github.com/whatwg/html/commit/179983e9eb99efe417349a40ebb664bd11668ddd
 // https://bugs.webkit.org/show_bug.cgi?id=172639
 // https://github.com/whatwg/html/pull/616#issuecomment-180018260
-// https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/12142852/
 
 void (function (Element) {
   var xhr
