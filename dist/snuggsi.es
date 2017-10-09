@@ -114,8 +114,12 @@ const HTMLElement = (
 
 // Preloading - https://w3c.github.io/preload
 // Resource Hints - https://www.w3.org/TR/resource-hints
-// https://jakearchibald.com/2017/h2-push-tougher-than-i-thought
+// https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
 // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
+// Caching best practices - https://jakearchibald.com/2016/caching-best-practices/
+// https://bugs.webkit.org/show_bug.cgi?id=172639
+// https://github.com/whatwg/html/pull/616#issuecomment-180018260
+// https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/12142852/
 
 void (Element => {
   let xhr
