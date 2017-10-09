@@ -37,22 +37,17 @@ void (Element => {
 
     , next = link.nextSibling
 
-    , template =
-        select ('template')[0]
-
-    , clones =
-        select ('style,link,script')
-
     , reflect = (clone, node) => attr =>
         node [attr]
           && (clone [attr] = node [attr])
 
     for
       (let node of document.querySelectorAll (link.id))
-        stamp.call (node, template.cloneNode (true))
+        stamp.call
+          (node, select ('template') [0].cloneNode (true))
 
 
-    for (let node of clones) {
+    for (let node of select ('style,link,script')) {
       let
         as = node.getAttribute ('as')
 
