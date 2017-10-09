@@ -129,8 +129,8 @@ void (Element => {
        .open ('GET', link.href)
 
     xhr.responseType = 'document'
-    xhr.onload = onload
-    xhr.link = link
+    xhr.onload       = onload
+    xhr.link         = link
     xhr.send ()
   }
 
