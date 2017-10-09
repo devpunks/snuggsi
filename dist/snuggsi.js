@@ -153,12 +153,6 @@ void (function (Element) {
 
     , next = link.nextSibling
 
-    , template =
-        select ('template')[0]
-
-    , clones =
-        select ('style,link,script')
-
     , reflect = function (clone, node) { return function (attr) { return node [attr]
           && (clone [attr] = node [attr]); }; }
 
@@ -167,11 +161,12 @@ void (function (Element) {
         {
       var node = list[i];
 
-      stamp.call (node, template.cloneNode (true))
+      stamp.call
+          (node, select ('template') [0].cloneNode (true))
     }
 
 
-    for (var i$1 = 0, list$1 = clones; i$1 < list$1.length; i$1 += 1) {
+    for (var i$1 = 0, list$1 = select ('style,link,script'); i$1 < list$1.length; i$1 += 1) {
       var node$1 = list$1[i$1];
 
       var
