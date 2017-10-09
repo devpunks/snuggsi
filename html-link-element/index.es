@@ -49,7 +49,7 @@ void (Element => {
 
     for
       (let node of document.querySelectorAll (link.id))
-        stamp.call (node, template)
+        stamp.call (node, template.cloneNode (true))
 
 
     for (let node of clones) {
@@ -81,21 +81,13 @@ void (Element => {
 
   function stamp (template, insert, replacement) {
 
-    template = template.cloneNode (true)
-
-
-    insert = (replacement, name, slot) =>
-
-      (name = replacement.getAttribute ('slot')) &&
-
-      (slot = (template.content || template)
-         .querySelector ('slot[name='+name+']'))
-           .parentNode
-           .replaceChild (replacement, slot)
-
-
     for (replacement of this.querySelectorAll ('[slot]'))
-      insert (replacement)
+      (slot =
+        (template.content || template).querySelector
+          ('slot[name='+ replacement.getAttribute ('slot') +']'))
+
+        .parentNode
+        .replaceChild (replacement, slot)
 
 
     this.innerHTML = template.innerHTML
