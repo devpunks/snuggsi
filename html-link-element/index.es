@@ -2,6 +2,7 @@
 // Resource Hints - https://www.w3.org/TR/resource-hints
 // https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
 // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
+// Caching best practices - https://jakearchibald.com/2016/caching-best-practices/
 
 void (Element => {
   let xhr
