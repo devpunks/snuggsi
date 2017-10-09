@@ -114,6 +114,7 @@ var HTMLElement = (
 
 // Preloading - https://w3c.github.io/preload
 // Resource Hints - https://www.w3.org/TR/resource-hints
+// https://jakearchibald.com/2017/h2-push-tougher-than-i-thought
 // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
 
 void (function (Element) {
@@ -443,7 +444,9 @@ var ParentNode = function (Element) { return ((function (Element) {
     , selector =
         tokens.reduce (zip, strings.shift ())
 
-    return [].slice.call (this.querySelectorAll (selector))
+    return []
+      .slice
+      .call (this.querySelectorAll (selector))
     var ref;
   };
 
