@@ -1,5 +1,6 @@
 // Preloading - https://w3c.github.io/preload
 // Resource Hints - https://www.w3.org/TR/resource-hints
+// https://jakearchibald.com/2017/h2-push-tougher-than-i-thought
 // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
 
 void (Element => {
