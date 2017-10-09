@@ -21,6 +21,8 @@ void (Element => {
 
     xhr.responseType = 'document'
     xhr.onload       = onload
+
+    // this is kinda smelly!!!
     xhr.link         = link
     xhr.send ()
   }
