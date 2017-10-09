@@ -34,7 +34,9 @@ const ParentNode = Element =>
     , selector =
         tokens.reduce (zip, strings.shift ())
 
-    return [].slice.call (this.querySelectorAll (selector))
+    return []
+      .slice
+      .call (this.querySelectorAll (selector))
   }
 
   select ( ... selector )
