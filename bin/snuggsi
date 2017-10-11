@@ -8,7 +8,12 @@ echo "All $ALL_PARAMS"
 
 for PARAM in $PARAMS
 do
-echo $PARAM
+# if [[ $PARAM == -* ]
+  if [[ -d $PARAM ]]; then
+    echo $PARAM
+  else
+    echo "NO DIRECTORY $PARAM"
+  fi
 done
 
 
