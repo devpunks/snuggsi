@@ -1,3 +1,4 @@
-echo 'Styling component $NAME'
+echo $NAME
+echo "Styling component $NAME"
 
 
