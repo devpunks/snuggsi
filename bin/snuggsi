@@ -1,10 +1,19 @@
 #!/usr/bin/env bash
+# http://www.tldp.org/LDP/abs/html/parameter-substitution.html
+
+export NAME=$1
+
+for ARGUMENT in "$@"
+do
+echo $ARGUMENT
+done
+
 
 echo "Snuggsi cli"
 
 echo "Component name $NAME"
 
-./bin/style -- NAME=foo-bar
+./bin/style ${NAME}
 
 # Commands
 # init
