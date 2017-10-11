@@ -2,10 +2,13 @@
 # http://www.tldp.org/LDP/abs/html/parameter-substitution.html
 
 export NAME=$1
+ALL_PARAMS=( "$@" )
 
-for ARGUMENT in "$@"
+echo "All $ALL_PARAMS"
+
+for PARAM in $PARAMS
 do
-echo $ARGUMENT
+echo $PARAM
 done
 
 
