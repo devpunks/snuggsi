@@ -1,4 +1,5 @@
-echo $NAME
-echo "Styling component $NAME"
+echo "💅 ✨ snuggsiツ styles"
+
+echo "Styling component $1"
 
 
