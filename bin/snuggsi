@@ -7,7 +7,13 @@ echo "DIRRRRR ${DIR}"
 
 PARAMS=$@
 
-export NAME=foo-bar
+export POSTCSS="$(pwd)/node_modules/.bin/postcss"
+export PATH=$1
+export ENTRY="$POSTCSS $(pwd)/${PATH:-foo-bar}/index.css"
+
+echo $ENTRY
+
+$( $ENTRY )
 
 echo "All $PARAMS"
 
