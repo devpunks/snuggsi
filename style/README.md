@@ -34,15 +34,12 @@ body {
 
 #### CSS Grid
 ```CSS
-body {
+body { // Before
   grid-template-areas: 'foo bar';
 }
-```
 
 
-#### After
-```CSS
-body {
+body { // After
   -ms-grid-template-areas: 'foo bar';
   grid-template-areas: 'foo bar';
 }
