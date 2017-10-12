@@ -9,12 +9,11 @@ PARAMS=$@
 
 export POSTCSS="$DIR/postcss"
 export PATH=$1
-export ENTRY="$POSTCSS $(pwd)/${PATH:-foo-bar}/index.css"
+export ENTRY="$POSTCSS" #$(pwd)/${PATH:-foo-bar}/index.css"
 
 echo $ENTRY
 
 $( $ENTRY )
-echo env
 
 echo "All $PARAMS"
 
