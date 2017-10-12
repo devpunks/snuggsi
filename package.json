@@ -12,12 +12,13 @@
 , "bugs":
     { "url": "https://github.com/devpunks/snuggsi/issues" }
 
-  "homepage": "https://github.com/devpunks/snuggsi#readme",
-  "engines": {
-    "npm": "5.0.x",
-    "node": "8.1.x"
-  },
-  "repository": {
+, "homepage":
+    "https://github.com/devpunks/snuggsi#readme"
+
+, "engines":
+    { "npm": "5.0.x", "node": "8.1.x" }
+
+, "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/devpunks/snuggsi.git"
   },
