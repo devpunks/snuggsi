@@ -6,7 +6,7 @@
     "Snuggs",
     "Brandondees"
   ],
-  "description": "Easy Web Components in 1KB",
+  "description": "Easy Web Components in 1kB",
   "bin": ["bin/snuggsi", "bin/style"],
   "bugs": {
     "url": "https://github.com/devpunks/snuggsi/issues"
