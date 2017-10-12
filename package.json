@@ -23,10 +23,9 @@
     "resource",
     "routing",
     "templates"
-  ]
+  ],
 
-  "main":
-    "./dist/snuggsi.min.js",
+  "main": "./dist/snuggsi.min.js",
 
   "directories": {
     "doc": "docs",
