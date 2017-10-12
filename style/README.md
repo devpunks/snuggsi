@@ -7,10 +7,10 @@ This routine will take **component-directory** as a parameter
 
 ### Styling a Component
 ```bash
-$ bin/style foo-bar
+$ bin/style ./foo-bar
 ```
 
-  - _(optional)_  Processes `index.sss` styles as [Snuggsi Style Sheets](#snuggsi-style-sheets)
+  - _(optional)_  Processes `./foo-bar/index.sss` styles as [Snuggsi Style Sheets](#snuggsi-style-sheets)
   - Processes `index.css` styles as [Cascading Style Sheets](#cascading-style-sheets)
   - Outputs to STDOUT _(Great for `|` pipe appending with classic CSS bundles)_
 
