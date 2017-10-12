@@ -33,6 +33,22 @@ $ bin/browse
 ```
 
 
+## Style
+```bash
+$ bin/style [component-directory | style-file.{css,pug}]
+```
+
+This routine will take **component-directory** as a parameter
+
+### Styling components
+
+
+### Style Using explicit CSS file
+
+
+### Style Using explicit CSS file
+
+
 ## Test Runner
 
 Uses
