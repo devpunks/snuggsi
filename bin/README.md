@@ -42,6 +42,12 @@ This routine will take **component-directory** as a parameter
 
 ### Snuggsi Style Sheets
 
+  - Indentation based stylesheets.
+  - No need for semicolons.
+  - `@import` inline styles
+  - Comment removal.
+  - Minification.
+
 
 ### Styling a Component
 
