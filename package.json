@@ -57,6 +57,7 @@
     "koa-static": "*",
     "sugarss": "*",
     "postcss-cli": "*",
+    "postcss-autoprefixer": "*",
     "postcss-custom-properties": "*"
   }
 }
