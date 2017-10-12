@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 # http://www.tldp.org/LDP/abs/html/parameter-substitution.html
 
+DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+
+echo "DIRRRRR ${dir}"
+
 PARAMS=$@
 
 export NAME=foo-bar
