@@ -33,16 +33,19 @@
 
 , "main":
     "./dist/snuggsi.min.js"
+
   "bin": "bin/snuggsi",
+
   "directories": {
-    "doc": "docs",
-    "example": "examples"
-  },
-  "scripts": {
-    "start": "node --harmony ./index.es",
-    "postinstall": "bin/publish",
-    "package": "bin/package",
-    "test": "./bin/test"
+    "doc": "docs"
+  , "example": "examples"
+  }
+
+, "scripts": {
+    "start": "node --harmony ./index.es"
+  , "postinstall": "bin/publish"
+  , "package": "bin/package"
+  , "test": "./bin/test"
   },
   "devDependencies": {
     "tap": "*",
