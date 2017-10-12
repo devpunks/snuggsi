@@ -1,7 +1,7 @@
 let
   root   = process.env.PWD
 , cache  = require (`read-cache`)
-, output = `${__dirname}/public/style.css`
+, output = 'FILENAME' // `${__dirname}/public/style.css`
 
 console.log ('root', root)
 
