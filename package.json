@@ -1,13 +1,16 @@
 {
   "name": "snuggsi"
+
 , "version": "0.10.68"
+
+, "license": "MIT"
 
 , "author":
     [ "Snuggs" , "Brandondees" ]
 
 , "description": "Easy Web Components in 1KB"
 
-, "license": "MIT"
+, "bin": "bin/snuggsi"
 
 , "bugs":
     { "url": "https://github.com/devpunks/snuggsi/issues" }
