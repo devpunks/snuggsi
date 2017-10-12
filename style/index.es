@@ -6,7 +6,8 @@ let
 console.log ('root', root)
 
 module.exports = {
-//use: 'postcss-easy-import'
+  'autoprefixer' :
+    { grid: true },
 
   'postcss-easy-import': {
     prefix: false,
