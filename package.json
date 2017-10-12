@@ -19,8 +19,8 @@
     { "npm": "5.0.x", "node": "8.1.x" }
 
 , "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/devpunks/snuggsi.git"
+    "type": "git"
+  , "url": "git+ssh://git@github.com/devpunks/snuggsi.git"
   }
 
 , "keywords": [
@@ -29,8 +29,10 @@
 ,   "resource"
 ,   "routing"
 ,   "templates"
-  ],
-  "main": "./dist/snuggsi.min.js",
+  ]
+
+, "main":
+    "./dist/snuggsi.min.js"
   "bin": "bin/snuggsi",
   "directories": {
     "doc": "docs",
