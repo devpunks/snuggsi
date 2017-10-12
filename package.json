@@ -21,8 +21,9 @@
 , "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/devpunks/snuggsi.git"
-  },
-  "keywords": [
+  }
+
+, "keywords": [
     "web",
     "components",
     "resource",
