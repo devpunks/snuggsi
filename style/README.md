@@ -30,24 +30,24 @@ $ bin/style index.css
   --bad-ass-green: #bada55
 }
 
-body { // Before
+body { /* Before */
   background: var(--bad-ass-green)
 }
 
 
-body //After
+body /* After */
   { background: #bada55 }
 ```
 
 
 #### CSS Grid
 ```CSS
-body { // Before
+body { /* Before */
   grid-template-areas: 'foo bar'
 }
 
 
-body { // After
+body { /* After */
   -ms-grid-template-areas: 'foo bar';
   grid-template-areas: 'foo bar'
 }
