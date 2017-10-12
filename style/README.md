@@ -10,9 +10,8 @@ This routine will take **component-directory** as a parameter
 $ bin/style foo-bar
 ```
 
-  - Searches for `foo-bar/index.sss` or `foo-bar/index.css` file as entry point.
-  - _(optional)_  [Snuggsi Style Sheets](#snuggsi-style-sheets)
-  - Leaves `index.min.css` as artifact. _(Great for appending to classic CSS bundles)_
+  - _(optional)_  Processes `.sss` styles as [Snuggsi Style Sheets](#snuggsi-style-sheets)
+  - Outputs to STDOUT _(Great for `|` pipe appending with classic CSS bundles)_
 
 
 ### Cascading Style Sheets
@@ -20,8 +19,8 @@ $ bin/style foo-bar
 $ bin/style index.css
 ```
 
-  - Cross-platform CSS Properties support!
   - Cross-platform CSS Grid support!
+  - Cross-platform CSS Properties support!
 
 
 #### CSS Custom Properties
@@ -59,7 +58,8 @@ body { /* After */
 $ bin/style index.sss
 ```
 
-  - No need for semicolons
+  - Inserts curly braces
+  - No need for semicolons _(Inserts semi-colons `;`)_
   - `@import` inline styles
   - Removes comments from styles
-  - Indentation based stylesheets
+  - Indentation based stylesheets _(Inserts curly braces `{ /* rules /* }`)_
