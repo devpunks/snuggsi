@@ -20,8 +20,8 @@ $ bin/style ./foo-bar
 $ bin/style index.css
 ```
 
-  - Cross-platform CSS Grid support!
   - Cross-platform CSS Properties support!
+  - Cross-platform CSS Grid support! _(Yes IE11.0)_
 
 
 #### CSS Custom Properties
