@@ -53,7 +53,7 @@
   },
 
   "dependencies": {
-    "koa": "*",,
+    "koa": "*",
     "koa-cors": "*",
     "koa-send": "*",
     "koa-static": "*",
