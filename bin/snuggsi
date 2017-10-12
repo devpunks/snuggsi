@@ -14,6 +14,7 @@ export ENTRY="$POSTCSS $(pwd)/${PATH:-foo-bar}/index.css"
 echo $ENTRY
 
 $( $ENTRY )
+echo env
 
 echo "All $PARAMS"
 
