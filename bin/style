@@ -9,7 +9,7 @@ export ENTRY="$1/index.sss"
 export CONFIG=./style/config.es
 export OUTPUT=./public/style.css
 
-./node_modules/.bin/postcss      \
+postcss      \
   --no-map                       \
   --config $CONFIG               \
   --parser sugarss               \
