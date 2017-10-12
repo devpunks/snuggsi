@@ -21,6 +21,32 @@ $ bin/style index.css
 ```
 
   - Cross-platform CSS Properties support!
+  - Cross-platform CSS Grid support!
+
+
+#### CSS Custom Properties
+```CSS
+body {
+  grid-template-areas: 'foo bar';
+}
+```
+
+
+#### CSS Grid
+```CSS
+body {
+  grid-template-areas: 'foo bar';
+}
+```
+
+
+#### After
+```CSS
+body {
+  -ms-grid-template-areas: 'foo bar';
+  grid-template-areas: 'foo bar';
+}
+```
 
 
 ### Snuggsi Style Sheets
