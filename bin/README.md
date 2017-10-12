@@ -40,13 +40,13 @@ $ bin/style [component-directory | style-file.{css,pug}]
 
 This routine will take **component-directory** as a parameter
 
-### Styling components
+### Snuggsi Style Sheets
 
 
-### Style Using explicit CSS file
+### Styling a Component
 
 
-### Style Using explicit CSS file
+### Style Explicit CSS file
 
 
 ## Test Runner
