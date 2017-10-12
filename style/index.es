@@ -15,7 +15,6 @@ module.exports = {
   'postcss-easy-import' : {
     prefix: false,
     extensions: ['.sss'],
-    // shouldn't `from` be from ./style not ./    ??
     from: `${__dirname}/style.sss`,
 
     onImport (sources) {
