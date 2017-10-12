@@ -28,7 +28,7 @@ module.exports = {
 
       console.log (`~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~\n`)
       console.log (`⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ ⬇ \n`)
-      console.log (`Bundle ➡️  ${output }`)
+      console.log (`Bundle ➡️  ${output}`)
     },
 
     load (file, options) {
