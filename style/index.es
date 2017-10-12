@@ -9,7 +9,9 @@ module.exports = {
   'autoprefixer' :
     { grid: true },
 
-  'postcss-easy-import': {
+  'postcss-custom-properties' : { },
+
+  'postcss-easy-import' : {
     prefix: false,
     extensions: [`.sss`],
     // shouldn't `from` be from ./style not ./    ??
