@@ -46,8 +46,8 @@
   , "postinstall": "bin/publish"
   , "package": "bin/package"
   , "test": "./bin/test"
-  },
-  "devDependencies": {
+  }
+, "devDependencies": {
     "tap": "*",
     "tape": "*",
     "buble": "*",
