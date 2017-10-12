@@ -27,7 +27,7 @@ done
 echo "Snuggsi cli"
 
 
-./bin/style ${NAME}
+./style ${NAME}
 
 # Commands
 # init
