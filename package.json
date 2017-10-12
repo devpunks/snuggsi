@@ -55,5 +55,7 @@
     "koa-cors": "*",
     "koa-send": "*",
     "koa-static": "*"
+
+  , "postcss-custom-properties": "*"
   }
 }
