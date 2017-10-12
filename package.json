@@ -50,19 +50,19 @@
   }
 
 , "devDependencies": {
-    "tap": "*",
-    "tape": "*",
-    "buble": "*",
-    "jsdom": "*",
-    "tap-nyc": "*",
-    "uglify-es": "*",
-    "browser-sync": "*",
-    "standard": "^10.0.2",
-    "node-zopfli": "^2.0.2",
-    "devtools-terminal": "*"
-  },
+    "tap": "*"
+  , "tape": "*"
+  , "buble": "*"
+  , "jsdom": "*"
+  , "tap-nyc": "*"
+  , "standard": "*"
+  , "uglify-es": "*"
+  , "node-zopfli": "*"
+  , "browser-sync": "*"
+  , "devtools-terminal": "*"
+  }
 
-  "dependencies": {
+, "dependencies": {
     "koa": "*",
   , "koa-cors": "*"
   , "koa-send": "*"
