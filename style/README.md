@@ -43,6 +43,9 @@ body /* After */
 #### CSS Grid
 ```CSS
 body { /* Before */
+
+  /* Supports all CSS Grid properties */
+
   grid-template-areas: 'foo bar'
 }
 
