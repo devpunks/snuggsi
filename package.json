@@ -58,7 +58,7 @@
     "koa-send": "*",
     "koa-static": "*",
 
-    "sugarss",
+    "sugarss": "*",
     "postcss-cli": "*",
     "postcss-custom-properties": "*"
   }
