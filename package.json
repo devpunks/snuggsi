@@ -1,15 +1,17 @@
 {
-  "name": "snuggsi",
-  "version": "0.10.68",
-  "author": [
-    "Snuggs",
-    "Brandondees"
-  ],
-  "description": "Easy Web Components in 1KB",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/devpunks/snuggsi/issues"
-  },
+  "name": "snuggsi"
+, "version": "0.10.68"
+
+, "author":
+    [ "Snuggs" , "Brandondees" ]
+
+, "description": "Easy Web Components in 1KB"
+
+, "license": "MIT"
+
+, "bugs":
+    { "url": "https://github.com/devpunks/snuggsi/issues" }
+
   "homepage": "https://github.com/devpunks/snuggsi#readme",
   "engines": {
     "npm": "5.0.x",
