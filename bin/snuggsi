@@ -41,4 +41,3 @@ echo "Snuggsi cli"
 # test :name
 # compress :name
 # serve [:name]
-
