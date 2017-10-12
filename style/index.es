@@ -9,7 +9,8 @@ module.exports = {
   'autoprefixer' :
     { grid: true },
 
-  'postcss-custom-properties' : { },
+  'postcss-custom-properties' :
+    { preserve: true },
 
   'postcss-easy-import' : {
     prefix: false,
