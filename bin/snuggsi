@@ -32,9 +32,6 @@ done
 
 echo "Snuggsi cli"
 
-
-style ${NAME}
-
 # Commands
 # init
 # component :name
