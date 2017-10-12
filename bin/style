@@ -15,6 +15,7 @@ postcss      \
   --parser sugarss               \
   --use postcss-easy-import      \
   --use postcss-nested           \
+  --use autoprefixer             \
   --use postcss-discard-comments \
   -- $ENTRY
 # --output $OUTPUT               \
