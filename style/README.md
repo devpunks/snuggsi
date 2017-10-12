@@ -11,11 +11,16 @@ $ bin/style foo-bar
 ```
 
   - Searches for `foo-bar/index.sss` or `foo-bar/index.css` file as entry point.
-  - _(optional)_ Preprocess `foo-bar/index.sss` to `foo-bar/index.css`
+  - _(optional)_  [Snuggsi Style Sheets](#snuggsi-style-sheets)
   - Leaves `index.min.css` as artifact. _(Great for appending to classic CSS bundles)_
 
 
 ### Cascading Style Sheets
+```bash
+$ bin/style index.css
+```
+
+  - Cross-platform CSS Properties support!
 
 
 ### Snuggsi Style Sheets
@@ -23,9 +28,7 @@ $ bin/style foo-bar
 $ bin/style index.sss
 ```
 
-  - Indentation based stylesheets
   - No need for semicolons
   - `@import` inline styles
-  - Comment removal
-  - Minification
-
+  - Removes comments from styles
+  - Indentation based stylesheets
