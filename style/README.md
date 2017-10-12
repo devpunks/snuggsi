@@ -26,18 +26,16 @@ $ bin/style index.css
 
 #### CSS Custom Properties
 ```CSS
-// Before
 :root {
   --bad-ass-green: #bada55
 }
 
-body {
+body { // Before
   background: var(--bad-ass-green)
 }
 
 
-//After
-body
+body //After
   { background: #bada55 }
 ```
 
@@ -45,13 +43,13 @@ body
 #### CSS Grid
 ```CSS
 body { // Before
-  grid-template-areas: 'foo bar';
+  grid-template-areas: 'foo bar'
 }
 
 
 body { // After
   -ms-grid-template-areas: 'foo bar';
-  grid-template-areas: 'foo bar';
+  grid-template-areas: 'foo bar'
 }
 ```
 
