@@ -26,8 +26,23 @@ $ bin/style index.css
 
 #### CSS Custom Properties
 ```CSS
+// Before
+:root {
+  --bad-ass-green: #bada55
+}
+
 body {
-  grid-template-areas: 'foo bar';
+  background: var(--bad-ass-green)
+}
+
+
+//After
+:root {
+  --bad-ass-green: #bada55
+}
+
+body {
+  background: var(--bad-ass-green)
 }
 ```
 
