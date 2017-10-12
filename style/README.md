@@ -37,13 +37,8 @@ body {
 
 
 //After
-:root {
-  --bad-ass-green: #bada55
-}
-
-body {
-  background: var(--bad-ass-green)
-}
+body
+  { background: #bada55 }
 ```
 
 
