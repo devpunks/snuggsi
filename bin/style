@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 echo "💅 ✨ snuggsiツ styles"
 
 echo "Styling component $1"
