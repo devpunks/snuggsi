@@ -1,22 +1,25 @@
-{ "name": "snuggsi",
+{
+  "name": "snuggsi",
   "version": "0.10.68",
   "license": "MIT",
-  "author": [ "Snuggs" , "Brandondees" ],
+  "author": [
+    "Snuggs",
+    "Brandondees"
+  ],
   "description": "Easy Web Components in 1KB",
-
   "bin": "bin/snuggsi",
-
-  "bugs": { "url": "https://github.com/devpunks/snuggsi/issues" },
-
+  "bugs": {
+    "url": "https://github.com/devpunks/snuggsi/issues"
+  },
   "homepage": "https://github.com/devpunks/snuggsi#readme",
-
-  "engines": { "npm": "5.0.x", "node": "8.1.x" },
-
+  "engines": {
+    "npm": "5.0.x",
+    "node": "8.1.x"
+  },
   "repository": {
     "type": "git",
     "url": "git+ssh://git@github.com/devpunks/snuggsi.git"
   },
-
   "keywords": [
     "web",
     "components",
@@ -24,21 +27,17 @@
     "routing",
     "templates"
   ],
-
   "main": "./dist/snuggsi.min.js",
-
   "directories": {
     "doc": "docs",
     "example": "examples"
   },
-
   "scripts": {
     "start": "node --harmony ./index.es",
     "postinstall": "bin/publish",
     "package": "bin/package",
     "test": "./bin/test"
   },
-
   "devDependencies": {
     "tap": "*",
     "tape": "*",
@@ -51,13 +50,11 @@
     "browser-sync": "*",
     "devtools-terminal": "*"
   },
-
   "dependencies": {
     "koa": "*",
     "koa-cors": "*",
     "koa-send": "*",
     "koa-static": "*",
-
     "sugarss": "*",
     "postcss-cli": "*",
     "postcss-custom-properties": "*"
