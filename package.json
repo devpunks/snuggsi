@@ -24,11 +24,11 @@
   }
 
 , "keywords": [
-    "web",
-    "components",
-    "resource",
-    "routing",
-    "templates"
+    "web"
+,   "components"
+,   "resource"
+,   "routing"
+,   "templates"
   ],
   "main": "./dist/snuggsi.min.js",
   "bin": "bin/snuggsi",
