@@ -307,6 +307,7 @@ Element `foo-bar`
   <p slot=content>The quick brown fox jumped over the lazy dog
 
   <ul>
+  <!-- template[name=bat] -->
     <li>Item 0 - Value football
     <li>Item 1 - Value soccer
     <li>Item 2 - Value baseball
