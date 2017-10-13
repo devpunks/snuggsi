@@ -285,7 +285,6 @@ Element `foo-bar`
 ```html
 <!doctype html>
 
-
 <html>
 
   <head>
