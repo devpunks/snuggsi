@@ -127,12 +127,11 @@ const HTMLElement = (
 // https://github.com/whatwg/html/pull/616#issuecomment-180018260
 
 void (Element => {
-  let xhr
+  const xhr = new XMLHttpRequest
 
   for (let link of document.querySelectorAll ('link[id*="-"]')) {
-    (xhr = new XMLHttpRequest)
-       .open ('GET', link.href)
 
+    xhr.open ('GET', link.href)
     xhr.responseType = 'document'
     xhr.onload       = onload
 
