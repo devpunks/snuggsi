@@ -210,12 +210,12 @@ template.bind (context)
 
 ## [HTML Component `<link>`](/html-link-element#readme)
 
-  > *Component* - _a part or element of a larger whole._
+  > **Component** - _a part or element of a larger whole._
 
-  *snuggsi* provides conventions around `<link>`able HTML resources
+  **snuggsiツ** provides conventions around `<link>`able HTML resources
   when components grow in size and dependencies.
 
-  A *snuggsiツ* _"Component"_ supports the following features:
+  A **snuggsiツ** _"Component"_ supports the following features:
     - Self Documenting.
     - Named `<slot>` replacement.
     - Components written in pure HTML.
