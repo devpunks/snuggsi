@@ -253,7 +253,7 @@ Element `foo-bar`
 <link
   as=fetch
   id=foo-bar
-  rel=import
+  rel=preload
   href=foo-bar.html>
 
 <foo-bar>
@@ -265,7 +265,7 @@ Element `foo-bar`
 <link
   as=fetch
   id=foo-bar
-  rel=import
+  rel=preload
   href=foo-bar.html>
 
 <script>
