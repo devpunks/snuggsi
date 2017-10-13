@@ -226,6 +226,23 @@ template.bind (context)
   - Resource management for scripts, stylesheets, fonts, and other  resources can be declared for use within master document via the `<link>` tag. (_[Learn More](https://github.com/devpunks/snuggsi/tree/master/html-link-element)_)
 
 
+### Master Document `index.html`
+
+```html
+<script src=//unpkg.com/snuggsi></script>
+
+<link
+  as=fetch
+  id=foo-bar
+  rel=preload
+  href=foo-bar.html>
+
+<foo-bar>
+  <p slot=content>The quick brown fox jumped over the lazy dog
+</foo-bar>
+```
+
+
 ### `<template>` Default _`foo-bar.html`_
 
 ```html
@@ -258,22 +275,9 @@ Element `foo-bar`
 </script>
 ```
 
-### Master Document `index.html`
-```html
-<script src=//unpkg.com/snuggsi></script>
-
-<link
-  as=fetch
-  id=foo-bar
-  rel=preload
-  href=foo-bar.html>
-
-<foo-bar>
-  <p slot=content>The quick brown fox jumped over the lazy dog
-</foo-bar>
-```
 
 #### Resulting HTML
+
 ```html
 <link
   as=fetch
