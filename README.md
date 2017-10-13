@@ -208,7 +208,7 @@ template.bind (context)
 </ul>
 ```
 
-## HTML Component `<link>`
+## [HTML Component `<link>`](/html-link-element#readme)
 
   > *Component* - _a part or element of a larger whole._
 
