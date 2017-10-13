@@ -127,14 +127,13 @@ var HTMLElement = (
 // https://github.com/whatwg/html/pull/616#issuecomment-180018260
 
 void (function (Element) {
-  var xhr
+  var xhr = new XMLHttpRequest
 
   for (var i = 0, list = document.querySelectorAll ('link[id*="-"]'); i < list.length; i += 1) {
+
     var link = list[i];
 
-    (xhr = new XMLHttpRequest)
-       .open ('GET', link.href)
-
+    xhr.open ('GET', link.href)
     xhr.responseType = 'document'
     xhr.onload       = onload
 
