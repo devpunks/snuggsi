@@ -284,10 +284,11 @@ Element `foo-bar`
 
 <html>
 
-<head>
-  <title>Remote Component Example</title>
-  <link as="fetch" id="foo-bar" rel="preload" href="foo-bar.html">
-</head>
+  <head>
+    <title>Remote Component Example</title>
+
+    <link as="fetch" id="foo-bar" rel="preload" href="foo-bar.html">
+  </head>
 
 
 <foo-bar onclick="onfoo">
