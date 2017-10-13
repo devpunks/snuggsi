@@ -252,6 +252,7 @@ template.bind (context)
 
 ```html
 <template onclick=onfoo>
+
   <h1>foo-bar custom element</h1>
 
   <slot name=content>Some Default Content</slot>
