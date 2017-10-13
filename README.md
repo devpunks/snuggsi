@@ -265,6 +265,7 @@ template.bind (context)
 
 </template>
 
+
 <script>
 
 Element `foo-bar`
