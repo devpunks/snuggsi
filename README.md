@@ -283,7 +283,7 @@ Element `foo-bar`
 ```
 
 
-### Resulting HTML
+### Resulting Master Document _`index.html`_
 
 ```html
 <!doctype html>
