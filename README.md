@@ -129,16 +129,15 @@ Element `hello-world`
 
 ## [Template](/elements/html-template-element.es)
 
-`<template>` to appendable `DocumentFragment`.
+The `<template>` is used to define custom element content for use within multiple elements.
 
 Useful when we need to:
 
-1. Bind a context (or Javascript object) to the template
-2. Append rendered template to the document.
+1. Separate a custom element definition into a [Remote Component](/snuggsi#remote-components).
+2. Bind a context (or Javascript object) to the template
+3. Append rendered template to the document.
     - If `context` is an object `bind` a single `<template>`.
     - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
-
-3. or use default `<template>` from within a [Remote Component](/snuggsi#remote-components).
 
 See [MDN &lt;template&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
 for more details
