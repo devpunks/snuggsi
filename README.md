@@ -131,12 +131,12 @@ Element `hello-world`
 
 `<template>` to appendable `DocumentFragment`.
 
-We have a `<template>` in the DOM and need to:
+Useful when we need to:
 
 1. Bind a context (or Javascript object) to the template
 2. Append rendered template to the document.
-  - If `context` is an object `bind` a single `<template>`.
-  - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
+    - If `context` is an object `bind` a single `<template>`.
+    - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
 
 3. or use default `<template>` from within a [Remote Component](/snuggsi#remote-components).
 
