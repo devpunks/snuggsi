@@ -279,11 +279,7 @@ Element `foo-bar`
 ### Resulting HTML
 
 ```html
-<link
-  as=fetch
-  id=foo-bar
-  rel=preload
-  href=foo-bar.html>
+<link as="fetch" id="foo-bar" rel="preload" href="foo-bar.html">
 
 <script>
 
@@ -301,7 +297,7 @@ Element `foo-bar`
 </script>
 
 
-<foo-bar onclick=onfoo>
+<foo-bar onclick="onfoo">
   <h1>foo-bar custom element</h1>
 
   <p slot=content>The quick brown fox jumped over the lazy dog
