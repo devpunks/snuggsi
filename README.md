@@ -286,7 +286,6 @@ Element `foo-bar`
 <!doctype html>
 
 <html>
-
   <head>
     <title>Remote Component Example</title>
 
