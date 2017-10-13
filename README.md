@@ -79,7 +79,7 @@ Et Voila _(that's it!)_ ツ
   | [Templates](/snuggsi#template) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | [Custom Elements](/snuggsi#element) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | Slot Replacement |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | [Remote Components]() |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | [Remote Components](/snuggsi#remote-components) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
 
@@ -138,7 +138,7 @@ We have a `<template>` in the DOM and need to:
   - If `context` is an object `bind` a single `<template>`.
   - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
 
-3. or use default `<template>` from within a Remote Component.
+3. or use default `<template>` from within a [Remote Component](/snuggsi#remote-components).
 
 See [MDN &lt;template&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
 for more details
