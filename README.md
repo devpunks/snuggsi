@@ -208,13 +208,13 @@ template.bind (context)
 </ul>
 ```
 
-### `<link>`able Components
+## `<link>`able Components
 
   A default `<template>` can be stored within a
   `<link>`able HTML resource when components grow in size and dependencies.
 
 
-#### `<template>` Default _`foo-bar.html`_
+### `<template>` Default _`foo-bar.html`_
 
 ```html
 <template onclick=onfoo>
@@ -246,7 +246,7 @@ Element `foo-bar`
 </script>
 ```
 
-#### Master Document `index.html`
+### Master Document `index.html`
 ```html
 <script src=//unpkg.com/snuggsi></script>
 
