@@ -208,13 +208,13 @@ template.bind (context)
 </ul>
 ```
 
-### `<template>` Default _(Preload Resource)_
+### `<link>`able Components
 
   A default `<template>` can be stored within a
   `<link>`able HTML resource when components grow in size and dependencies.
 
 
-#### Component `foo-bar.html`
+#### `<template>` Default _`foo-bar.html`_
 
 ```html
 <template onclick=onfoo>
