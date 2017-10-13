@@ -271,9 +271,10 @@ Element `foo-bar`
 <foo-bar>
   <p slot=content>The quick brown fox jumped over the lazy dog
 </foo-bar>
+```
 
-<!-- After loading remote component
-
+#### Resulting HTML
+```html
 <link
   as=fetch
   id=foo-bar
@@ -307,8 +308,6 @@ Element `foo-bar`
     <li>Item 2 - Value baseball
   </ul>
 </foo-bar>
-
--->
 ```
 
 
