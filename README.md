@@ -208,7 +208,7 @@ template.bind (context)
 </ul>
 ```
 
-## HTML Component `<link>`s
+## HTML Component `<link>`
 
   A default `<template>` can be stored within a
   `<link>`able HTML resource when components grow in size and dependencies.
