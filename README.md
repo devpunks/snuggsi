@@ -290,35 +290,37 @@ Element `foo-bar`
     <link as="fetch" id="foo-bar" rel="preload" href="foo-bar.html">
   </head>
 
+  <body>
+    <foo-bar onclick="onfoo">
+      <h1>foo-bar custom element</h1>
 
-<foo-bar onclick="onfoo">
-  <h1>foo-bar custom element</h1>
+      <p slot=content>The quick brown fox jumped over the lazy dog
 
-  <p slot=content>The quick brown fox jumped over the lazy dog
+      <ul>
+      <!-- template[name=bat] -->
+        <li>Item 0 - Value football
+        <li>Item 1 - Value soccer
+        <li>Item 2 - Value baseball
+      </ul>
+    </foo-bar>
 
-  <ul>
-  <!-- template[name=bat] -->
-    <li>Item 0 - Value football
-    <li>Item 1 - Value soccer
-    <li>Item 2 - Value baseball
-  </ul>
-</foo-bar>
+    <script>
 
+    Element `foo-bar`
 
-<script>
+    (class extends HTMLElement {
 
-Element `foo-bar`
+      onfoo (event)
+        { alert `Registered on foo-bar` }
 
-(class extends HTMLElement {
+      get bat ()
+        { return ['football', 'soccer', 'baseball'] }
+    })
 
-  onfoo (event)
-    { alert `Registered on foo-bar` }
+    </script>
 
-  get bat ()
-    { return ['football', 'soccer', 'baseball'] }
-})
-
-</script>
+  </body>
+</html>
 ```
 
 
