@@ -226,7 +226,7 @@ template.bind (context)
   - Resource management for scripts, stylesheets, fonts, and other  resources can be declared for use within master document via the `<link>` tag. (_[Learn More](https://github.com/devpunks/snuggsi/tree/master/html-link-element)_)
 
 
-### Master Document `index.html`
+### Master Document _`index.html`_
 
 ```html
 <script src=//unpkg.com/snuggsi></script>
