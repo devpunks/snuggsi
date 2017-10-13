@@ -76,10 +76,10 @@ Et Voila _(that's it!)_ ツ
 
   | Support    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+ | Chrome (Android)* | iOS Safari* |
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
-  | Templates |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | [Templates](/snuggsi#template) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | [Custom Elements](/snuggsi#element) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | Slot Replacement |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | Remote Components |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | [Remote Components]() |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
 
@@ -138,7 +138,7 @@ We have a `<template>` in the DOM and need to:
   - If `context` is an object `bind` a single `<template>`.
   - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
 
-3. or use default `<template>` from within an HTML Import.
+3. or use default `<template>` from within a Remote Component.
 
 See [MDN &lt;template&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
 for more details
@@ -210,7 +210,7 @@ template.bind (context)
 </ul>
 ```
 
-## [HTML Components](/html-link-element#readme)
+## [Remote Components](/html-link-element#readme)
 
   > **Component** - _a part or element of a larger whole._
 
