@@ -320,7 +320,6 @@ Element `foo-bar`
     })
 
     </script>
-
   </body>
 </html>
 ```
