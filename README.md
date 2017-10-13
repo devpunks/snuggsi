@@ -229,6 +229,10 @@ template.bind (context)
 ### Master Document _`index.html`_
 
 ```html
+<!doctype html>
+
+<title>Remote Component Example</title>
+
 <script src=//unpkg.com/snuggsi></script>
 
 <link
