@@ -276,7 +276,7 @@ Element `foo-bar`
 ```
 
 
-#### Resulting HTML
+### Resulting HTML
 
 ```html
 <link
