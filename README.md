@@ -291,6 +291,8 @@ Element `foo-bar`
     <title>Remote Component Example</title>
 
     <link as="fetch" id="foo-bar" rel="preload" href="foo-bar.html">
+
+    <script src="https://unpkg.com/snuggsi"></script>
   </head>
 
   <body>
