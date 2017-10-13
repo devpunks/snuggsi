@@ -216,12 +216,13 @@ template.bind (context)
   when components grow in size and dependencies.
 
   A **snuggsiツ** _"Component"_ supports the following features:
-    - Self Documenting.
-    - Named `<slot>` replacement.
-    - Components written in pure HTML.
-    - Usage of a component `<link>` requires no JavaScript😮.
-    - A default `<template>` element used as a _light DOM_ for custom element definitions.
-    - Resource management for scripts, stylesheets, fonts, and other  resources can be declared for use within master document via the `<link>` tag. (_[Learn More](https://github.com/devpunks/snuggsi/tree/master/html-link-element)_)
+
+  - Self Documenting.
+  - Named `<slot>` replacement.
+  - Components written in pure HTML.
+  - Usage of a component `<link>` requires no JavaScript😮.
+  - A default `<template>` element used as a _light DOM_ for custom element definitions.
+  - Resource management for scripts, stylesheets, fonts, and other  resources can be declared for use within master document via the `<link>` tag. (_[Learn More](https://github.com/devpunks/snuggsi/tree/master/html-link-element)_)
 
 
 ### `<template>` Default _`foo-bar.html`_
