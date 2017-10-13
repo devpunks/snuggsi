@@ -210,8 +210,18 @@ template.bind (context)
 
 ## HTML Component `<link>`
 
-  A default `<template>` can be stored within a
-  `<link>`able HTML resource when components grow in size and dependencies.
+  > *Component* - _a part or element of a larger whole._
+
+  *snuggsi* provides conventions around `<link>`able HTML resources
+  when components grow in size and dependencies.
+
+  A *snuggsiツ* _"Component"_ supports the following features:
+    - Self Documenting.
+    - Named `<slot>` replacement.
+    - Components written in pure HTML.
+    - Usage of a component `<link>` requires no JavaScript😮.
+    - A default `<template>` element used as a _light DOM_ for custom element definitions.
+    - Resource management for scripts, stylesheets, fonts, and other  resources can be declared for use within master document via the `<link>` tag. (_[Learn More](https://github.com/devpunks/snuggsi/tree/master/html-link-element)_)
 
 
 ### `<template>` Default _`foo-bar.html`_
@@ -260,7 +270,7 @@ Element `foo-bar`
   <p slot=content>The quick brown fox jumped over the lazy dog
 </foo-bar>
 
-<!-- After loading remote resource
+<!-- After loading remote component
 
 <link
   as=fetch
