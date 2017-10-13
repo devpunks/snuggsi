@@ -302,6 +302,22 @@ Element `foo-bar`
     <li>Item 2 - Value baseball
   </ul>
 </foo-bar>
+
+
+<script>
+
+Element `foo-bar`
+
+(class extends HTMLElement {
+
+  onfoo (event)
+    { alert `Registered on foo-bar` }
+
+  get bat ()
+    { return ['football', 'soccer', 'baseball'] }
+})
+
+</script>
 ```
 
 
