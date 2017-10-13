@@ -279,22 +279,15 @@ Element `foo-bar`
 ### Resulting HTML
 
 ```html
-<link as="fetch" id="foo-bar" rel="preload" href="foo-bar.html">
+<!doctype html>
 
-<script>
 
-Element `foo-bar`
+<html>
 
-(class extends HTMLElement {
-
-  onfoo (event)
-    { alert `Registered on foo-bar` }
-
-  get bat ()
-    { return ['football', 'soccer', 'baseball'] }
-})
-
-</script>
+<head>
+  <title>Remote Component Example</title>
+  <link as="fetch" id="foo-bar" rel="preload" href="foo-bar.html">
+</head>
 
 
 <foo-bar onclick="onfoo">
