@@ -78,6 +78,7 @@ Et Voila _(that's it!)_ ツ
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
   | Templates |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | Remote HTML Components |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
 
