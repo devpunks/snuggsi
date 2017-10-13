@@ -76,10 +76,10 @@ Et Voila _(that's it!)_ ツ
 
   | Support    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+ | Chrome (Android)* | iOS Safari* |
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
-  | [Templates](/snuggsi#template) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | [Custom Elements](/snuggsi#element) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | [Templates](#template) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | [Custom Elements](#element) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | Slot Replacement |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | [Remote Components](/snuggsi#remote-components) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | [Remote Components](#remote-components) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
 
