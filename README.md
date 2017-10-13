@@ -79,7 +79,7 @@ Et Voila _(that's it!)_ ツ
   | Templates |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | Custom Elements |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | Slot Replacement |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | Remote HTML Components |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | Remote Components |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
 
