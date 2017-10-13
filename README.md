@@ -248,7 +248,7 @@ template.bind (context)
 ```
 
 
-### `<template>` Default _`foo-bar.html`_
+### Default `<template>` in _`foo-bar.html`_
 
 ```html
 <template onclick=onfoo>
