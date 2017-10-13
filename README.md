@@ -332,7 +332,7 @@ Element `foo-bar`
 
 ## Build Process
 
-Snuggsi is able to use modern compression algorithms to create
+**snuggsiツ** is able to use modern compression algorithms to create
 bundles as small as *~1500 OCTETS* _(or one 1500byte Ethernet packet frame)_
 
 [Read More](https://github.com/devpunks/snuggsi/tree/master/dist#readme)
