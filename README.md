@@ -182,7 +182,7 @@ template.bind (context)
 ```
 
 
-### `<template name>` With Object `Array` Context
+### `<template>` With Object `Array` Context
 
   Each `<template name>` will be mapped over each
   context item within the array. When the array items
@@ -227,7 +227,7 @@ template.bind (context)
 ```
 
 
-### `<template name>` With Scalar `Array` Context
+### `<template>` With Scalar `Array` Context
 
   Each `<template name>` will be mapped over each
   context item within the array. When the array items
