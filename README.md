@@ -241,6 +241,7 @@ template.bind (context)
   <template name=recipie>
     <dt> Step {#}.
     <dd> {self}.
+
   </template>
 </dl>
 
@@ -267,14 +268,13 @@ template.bind (context)
 #### Resulting HTML
 ```html
 <dl>
-  <template name=item>
-  <!-- invisible
     <template name=recipie>
+    <!-- invisible
       <dt> Step {#}.
       <dd> {self}.
+
+    -->
     </template>
-  -->
-  </template>
 
   <dt> Step 1.
   <dd> Preheat oven.
