@@ -236,24 +236,20 @@ var Template = function (template) {
 
   template =
     typeof template == 'string'
+
       ? document.querySelector ('template[name='+template+']')
-      : template
 
-  template =
-    this === HTMLTemplateElement
-      ? template.cloneNode (true)
-      : template
-
-  template.name =
-    template.getAttribute ('name')
-
-  template.comment =
-    document.createComment (template.name)
+      : this === HTMLTemplateElement
+          ? template.cloneNode (true)
+          : template
 
   template
     .parentNode
     .replaceChild
-      (template.comment, template)
+      ( template.comment= document.createComment
+        ( template.name  = template.getAttribute ('name') )
+      , template)
+
 
   return Object
     .defineProperty
@@ -313,15 +309,14 @@ var Template = function (template) {
         ( ( fragment.content || fragment ).childNodes )
 
 
-    this.comment.after
-      && (ref$1 = this.comment).after.apply ( ref$1, this.dependents )
+    for (var i$1 = 0, list = this$1.dependents.reverse (); i$1 < list.length; i$1 += 1)
+      {
+      var dependent = list[i$1];
 
-    ! this.comment.after
-      && this.dependents.reverse ()
-         .map (function (dependent) { return this$1.comment.parentNode.insertBefore
-             (dependent, this$1.comment.nextSibling); })
+      this$1.comment.parentNode.insertBefore
+        (dependent, this$1.comment.nextSibling)
     var ref;
-    var ref$1;
+    }
   }
 }
 
