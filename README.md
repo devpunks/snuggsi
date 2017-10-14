@@ -43,7 +43,16 @@
   <strong align=center>All you need is a browser and basic understanding of <a href=https://developer.mozilla.org/en-US/docs/Web/HTML target=mdn>HTML</a>, <a href=https://developer.mozilla.org/en-US/docs/Web/CSS target=mdn>CSS</a>, &amp; <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes target=mdn>Javascript classes</a> to be productive!</strong>
 
 <p align=center>
-  <q><em>[Performance is the art of avoiding work](http://nonprofits.agileventures.org/2017/03/16/who-needs-frameworks)</em></q> - #FreeJewelry 💍 💎
+  <q>
+    <em>
+      <a
+        href=http://nonprofits.agileventures.org/2017/03/16/who-needs-frameworks target=help>
+        Performance is the art of avoiding work
+      </a>
+    </em>
+  </q>
+
+  - #FreeJewelry 💍 💎
 </p>
 
 
