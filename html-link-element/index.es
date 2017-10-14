@@ -79,11 +79,8 @@ void (Element => {
 
     for (replacement of this.querySelectorAll ('[slot]'))
         (template.content || template).querySelector
-          ('slot[name='+ replacement.getAttribute ('slot') +']'))
-
-        .parentNode
-        .replaceChild (replacement, slot)
-
+          ('slot[name='+ replacement.getAttribute ('slot') +']')
+            .outerHTML = replacement.outerHTML
 
     this.innerHTML = template.innerHTML
   }
