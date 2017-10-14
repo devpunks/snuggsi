@@ -5,9 +5,7 @@
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
 
 // https://github.com/webcomponents/template
-const Template = HTMLTemplateElement =
-
-function (template) {
+const Template = function (template) {
 
   template =
     typeof template == 'string'
@@ -79,16 +77,17 @@ function (template) {
 
     fragment.innerHTML = html
 
-    var children =
-      (fragment.content || fragment).childNodes
-
     this.dependents =
-      Array.apply (null, children) // non-live
+      [] // non-live
+        .slice
+        .call
+        ( ( fragment.content || fragment ).childNodes )
+
 
     this.comment.after
       && this.comment.after ( ... this.dependents )
 
-    !!!  this.comment.after
+    ! this.comment.after
       && this.dependents.reverse ()
          .map (dependent =>
            this.comment.parentNode.insertBefore
