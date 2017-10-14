@@ -255,26 +255,12 @@ var Template = function (template) {
     .defineProperty
       (template, 'bind', { value: bind })
 
-  function bind (context) {
+  function bind (context, anchor) {
     var this$1 = this;
 
 
     var
-      html     = ''
-    , contexts = (ref = []).concat.apply ( ref, [context] )
-        // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
-
-    var
-      keys =
-        'object' === typeof contexts [0]
-          ? Object.keys (contexts [0])    // memoize keys
-          :  []
-          .concat (['#', 'self']) // add helper keys
-
-    , tokens =
-        keys.map (function (key) { return '{'+key+'}'; }) // memoize tokens
-
-    , fragment = // create template polyfill here
+      fragment =
         document.createElement ('template')
 
     , deposit = function (html, context, index) {
@@ -285,20 +271,23 @@ var Template = function (template) {
 
         context ['#'] = index
 
-        for (var i=0; i<tokens.length; i++)
+        for (var i in context)
           { clone = clone
-            .split (tokens [i])
-            .join  (context [keys [i]]) }
+            .split ('{'+i+'}')
+            .join  (context [i]) }
 
         return html + clone
       }
 
-    void ( this.dependents || [] ).map
+    ( this.dependents || [] ).map
       (function (dependent) { return dependent.parentNode.removeChild (dependent); })
 
-    fragment
-      .innerHTML = contexts
-      .reduce (deposit, '')
+
+    fragment.innerHTML =
+      []
+        .concat (context)
+        .reduce (deposit, '')
+
 
     this.dependents =
       [] // non-live
@@ -307,13 +296,15 @@ var Template = function (template) {
         ( ( fragment.content || fragment ).childNodes )
 
 
-    var anchor =
+    anchor =
       this.comment.nextSibling
 
-    this.dependents
-      .map (function (dependent) { return this$1.comment.parentNode
-          .insertBefore (dependent, anchor); })
-    var ref;
+    for (var i = 0, list = this$1.dependents; i < list.length; i += 1)
+      {
+      var dependent = list[i];
+
+      this$1.comment.parentNode.insertBefore (dependent, anchor)
+    }
   }
 }
 
