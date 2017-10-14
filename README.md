@@ -269,7 +269,10 @@ template.bind (context)
 <dl>
   <template name=item>
   <!-- invisible
-    <li>Hello {name}!</li>
+    <template name=recipie>
+      <dt> Step {#}.
+      <dd> {self}.
+    </template>
   -->
   </template>
 
