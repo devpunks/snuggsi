@@ -54,13 +54,6 @@ const Template = function (template) {
         .reduce (deposit, '')
 
 
-    this.dependents =
-      [] // non-live
-        .slice
-        .call
-        ( ( fragment.content || fragment ).childNodes )
-
-
     anchor =
       this.comment.nextSibling
 
