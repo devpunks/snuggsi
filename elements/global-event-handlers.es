@@ -71,7 +71,7 @@ const GlobalEventHandlers = Element =>
         this.on ( handler.substr (2), this [handler] )
   }
 
-  register (node) {
+  register (node, handler, event) {
 
     const
       register = (event, handler) =>
