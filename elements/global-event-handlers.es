@@ -73,19 +73,12 @@ const GlobalEventHandlers = Element =>
 
   register (node, handler, event) {
 
-    const
-      register = (event, handler) =>
-        /^on/.test (event)
-        // https://www.quirksmode.org/js/events_tradmod.html
-        // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-        && ( handler = (/{\s*(\w+)\s*}/.exec (node [event]) || []) [1])
-        && ( handler = this [handler] )
-        && ( node [event] = this.renderable (handler) )
-
-    void []
-      .slice
-      .call (node.attributes)
-      .map  (attr => attr.name)
-      .map  (register)
+    for (let attribute of node.attributes)
+      /^on/.test (event = attribute.name)
+      // https://www.quirksmode.org/js/events_tradmod.html
+      // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
+      && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
+      && ( node [event] = this.renderable (this [handler]) )
   }
 })
+
