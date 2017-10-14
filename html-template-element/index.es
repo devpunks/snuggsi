@@ -55,7 +55,7 @@ const Template = function (template) {
 
 
     anchor =
-      this.comment.nextSibling
+      this.nextSibling
 
     for (let dependent of this.dependents)
       this.comment.parentNode.insertBefore (dependent, anchor)
