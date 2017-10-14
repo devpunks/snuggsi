@@ -50,9 +50,7 @@
         Performance is the art of avoiding work
       </a>
     </em>
-  </q>
-
-  - #FreeJewelry 💍 💎
+  </q> - #FreeJewelry 💍 💎
 </p>
 
 
