@@ -439,15 +439,14 @@ const ParentNode = Element =>
 
 })
 
-//function comb
-//  // ElementTraversal interface
-//  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
+//  comb (parent) {
+//    // ElementTraversal interface
+//    // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
 //
-//(parent) {
-//  if (parent.hasChildNodes())
-//    for (let node = parent.firstChild; node; node = node.nextSibling)
-//      comb (node)
-//}
+//    if (parent.hasChildNodes())
+//      for (let node = parent.firstChild; node; node = node.nextSibling)
+//        comb (node)
+//  }
 
 const EventTarget = HTMLElement => // why buble
 
