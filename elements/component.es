@@ -22,16 +22,15 @@ const Custom = Element => // why buble
   }
 
 
-  render () {
+  render (template) {
+
+    for (template of this.templates)
+      template.bind
+        (this [template.getAttribute ('name')])
 
     this
       .tokens
       .bind (this)
-
-    this
-      .templates
-      .map (template =>
-        template.bind (this [template.name]))
 
     void
       [this, ... this.selectAll ('*')]
