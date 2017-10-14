@@ -80,12 +80,6 @@ const Template = function (template) {
         ( ( fragment.content || fragment ).childNodes )
 
 
-//  this.comment.after
-//    && this.comment.after ( ... this.dependents )
-
-
-//! this.comment.after &&
-
     for (let dependent of this.dependents.reverse ())
       this.comment.parentNode.insertBefore
         (dependent, this.comment.nextSibling)
