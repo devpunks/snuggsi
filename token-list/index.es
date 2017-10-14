@@ -63,7 +63,7 @@ class TokenList {
       reset = symbol =>
         this [symbol].map // more than one occurrence
           (node => node.textContent = node.text)
-        && [symbol, this [symbol]]
+        && symbol
 
    // must both run independently not in tandem
 
