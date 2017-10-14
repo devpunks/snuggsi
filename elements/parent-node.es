@@ -19,8 +19,7 @@ const ParentNode = Element =>
 
   selectAll ( strings, ... tokens ) {
     strings =
-      [].concat
-        ( ... [strings] )
+      [].concat ( strings )
 
     return [].slice.call
       (this.querySelectorAll
