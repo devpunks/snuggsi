@@ -40,7 +40,10 @@ Element `infinity-calendar`
     { this.date_from_month (-1) }
 
   dayclick (event)
-    { alert (event.target.textContent) }
+    {
+      event.preventDefault ()
+      alert (event.target.textContent)
+    }
 
   get year ()
     { return this.context.date.getFullYear () }
