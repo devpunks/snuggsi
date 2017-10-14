@@ -78,7 +78,6 @@ void (Element => {
   function stamp (template, insert, replacement) {
 
     for (replacement of this.querySelectorAll ('[slot]'))
-      (slot =
         (template.content || template).querySelector
           ('slot[name='+ replacement.getAttribute ('slot') +']'))
 
