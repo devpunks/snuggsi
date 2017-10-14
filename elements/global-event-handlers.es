@@ -39,7 +39,7 @@ const GlobalEventHandlers = Element =>
     this.templates =
       this
         .selectAll ('template[name]')
-        .map  (template => new Template (template))
+        .map (Template)
 
     this.tokens =
       new TokenList (this)
