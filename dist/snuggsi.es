@@ -294,9 +294,13 @@ const Template = function (template) {
         ( ( fragment.content || fragment ).childNodes )
 
 
-    for (let dependent of this.dependents.reverse ())
-      this.comment.parentNode.insertBefore
-        (dependent, this.comment.nextSibling)
+    let anchor =
+      this.comment.nextSibling
+
+    this.dependents
+      .map (dependent =>
+        this.comment.parentNode
+          .insertBefore (dependent, anchor))
   }
 }
 
