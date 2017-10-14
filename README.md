@@ -215,7 +215,7 @@ template.bind (context)
 #### Resulting HTML
 ```html
 <ul>
-  <template name=item>
+  <template name="item">
   <!-- invisible
     <li>Hello {name}!</li>
   -->
