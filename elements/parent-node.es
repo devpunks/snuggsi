@@ -31,12 +31,11 @@ const ParentNode = Element =>
         (part, token) =>
           part + token + strings.shift ()
 
-    , selector =
-        tokens.reduce (zip, strings.shift ())
-
     return []
-      .slice
-      .call (this.querySelectorAll (selector))
+      .slice.call
+        (this.querySelectorAll
+          (tokens.reduce
+            (zip, strings.shift ())))
   }
 
   select ( ... selector )
@@ -46,13 +45,12 @@ const ParentNode = Element =>
 
 })
 
-//function comb
-//  // ElementTraversal interface
-//  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
+//  comb (parent) {
+//    // ElementTraversal interface
+//    // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
 //
-//(parent) {
-//  if (parent.hasChildNodes())
-//    for (let node = parent.firstChild; node; node = node.nextSibling)
-//      comb (node)
-//}
+//    if (parent.hasChildNodes())
+//      for (let node = parent.firstChild; node; node = node.nextSibling)
+//        comb (node)
+//  }
 

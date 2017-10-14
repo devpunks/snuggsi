@@ -425,12 +425,11 @@ const ParentNode = Element =>
         (part, token) =>
           part + token + strings.shift ()
 
-    , selector =
-        tokens.reduce (zip, strings.shift ())
-
     return []
-      .slice
-      .call (this.querySelectorAll (selector))
+      .slice.call
+        (this.querySelectorAll
+          (tokens.reduce
+            (zip, strings.shift ())))
   }
 
   select ( ... selector )
