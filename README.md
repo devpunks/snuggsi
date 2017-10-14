@@ -172,7 +172,7 @@ template.bind (context)
 
 #### Resulting HTML
 ```html
-<template name=developer>
+<template name="developer">
 <!-- invisible
   <h1>{name}</h1>
  -->
