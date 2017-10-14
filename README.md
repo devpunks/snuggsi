@@ -326,7 +326,7 @@ template.bind (context)
 
 
 <foo-bar>
-  <p slot=content>The quick brown fox jumped over the lazy dog
+  <p slot="content">The quick brown fox jumped over the lazy dog
 </foo-bar>
 ```
 
@@ -387,7 +387,12 @@ Element `foo-bar`
       <p slot=content>The quick brown fox jumped over the lazy dog
 
       <ul>
-      <!-- template[name=bat] -->
+      <template name="bat">
+      <!-- invisible
+        <li>Item {#} - Value {self}
+      -->
+      </template>
+
         <li>Item 0 - Value football
         <li>Item 1 - Value soccer
         <li>Item 2 - Value baseball
