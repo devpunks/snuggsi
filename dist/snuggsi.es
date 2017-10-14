@@ -223,24 +223,20 @@ const Template = function (template) {
 
   template =
     typeof template == 'string'
+
       ? document.querySelector ('template[name='+template+']')
-      : template
 
-  template =
-    this === HTMLTemplateElement
-      ? template.cloneNode (true)
-      : template
-
-  template.name =
-    template.getAttribute ('name')
-
-  template.comment =
-    document.createComment (template.name)
+      : this === HTMLTemplateElement
+          ? template.cloneNode (true)
+          : template
 
   template
     .parentNode
     .replaceChild
-      (template.comment, template)
+      ( template.comment= document.createComment
+        ( template.name  = template.getAttribute ('name') )
+      , template)
+
 
   return Object
     .defineProperty
@@ -298,14 +294,9 @@ const Template = function (template) {
         ( ( fragment.content || fragment ).childNodes )
 
 
-    this.comment.after
-      && this.comment.after ( ... this.dependents )
-
-    ! this.comment.after
-      && this.dependents.reverse ()
-         .map (dependent =>
-           this.comment.parentNode.insertBefore
-             (dependent, this.comment.nextSibling))
+    for (let dependent of this.dependents.reverse ())
+      this.comment.parentNode.insertBefore
+        (dependent, this.comment.nextSibling)
   }
 }
 
