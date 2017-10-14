@@ -261,7 +261,6 @@ var Template = function (template) {
 
     var
       html     = ''
-    , template = this.innerHTML
     , contexts = (ref = []).concat.apply ( ref, [context] )
         // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
 
@@ -278,11 +277,11 @@ var Template = function (template) {
     , fragment = // create template polyfill here
         document.createElement ('template')
 
-    , deposit = function (context, index) {
-        var clone = template
+    , deposit = function (html, context, index) {
+        var clone = this$1.innerHTML
 
-        context = (typeof context  === 'object')
-          ? context : { self: context }
+        typeof context != 'object'
+          && ( context  = { self: context })
 
         context ['#'] = index
 
@@ -291,16 +290,15 @@ var Template = function (template) {
             .split (tokens [i])
             .join  (context [keys [i]]) }
 
-        return clone
+        return html + clone
       }
 
     void ( this.dependents || [] ).map
       (function (dependent) { return dependent.parentNode.removeChild (dependent); })
 
-    for (var i=0, final = ''; i<contexts.length; i++)
-      { html += deposit (contexts [i], i) }
-
-    fragment.innerHTML = html
+    fragment
+      .innerHTML = contexts
+      .reduce (deposit, '')
 
     this.dependents =
       [] // non-live
