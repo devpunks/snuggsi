@@ -7,7 +7,7 @@
 // https://github.com/webcomponents/template
 const Template = function (template) {
 
-  typeof template == 'string'
+  template.length
     && (template = document.querySelector
         ('template[name='+template+']'))
 
