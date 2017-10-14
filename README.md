@@ -387,11 +387,11 @@ Element `foo-bar`
       <p slot=content>The quick brown fox jumped over the lazy dog
 
       <ul>
-      <template name="bat">
-      <!-- invisible
-        <li>Item {#} - Value {self}
-      -->
-      </template>
+        <template name="bat">
+        <!-- invisible
+          <li>Item {#} - Value {self}
+        -->
+        </template>
 
         <li>Item 0 - Value football
         <li>Item 1 - Value soccer
