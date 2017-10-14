@@ -124,11 +124,12 @@ var Bam = function (_HTMLElement) {
   }, {
     key: 'onclick',
     value: function onclick(event) {
-      this.snuggsi ()
+      this.snuggsi (event)
     }
   }, {
     key: 'snuggsi',
     value: function snuggsi(event) {
+      event.preventDefault ()
       console.warn ('🎉🎉 TOUCHDOWN! 🏈 ', this, event);
     }
   }, {
