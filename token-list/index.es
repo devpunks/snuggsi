@@ -67,10 +67,12 @@ class TokenList {
 
    // must both run independently not in tandem
 
-    , restore = ([symbol, nodes]) =>
-         nodes.map ( node =>
-           node.textContent = node.textContent
-             .replace ( ... ['{'+symbol+'}', context [symbol]] ))
+    , restore = (symbol) =>
+         this [symbol].map (node =>
+           (node.textContent =
+             node.textContent
+               .split ('{'+symbol+'}')
+               .join  (context [symbol])))
 
     Object
       .keys (this)
