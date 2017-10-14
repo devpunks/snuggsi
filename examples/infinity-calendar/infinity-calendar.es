@@ -12,12 +12,6 @@ Element `infinity-calendar`
   }
 
   onidle () {
-//  let extra = '[href]'
-//  console.log (this.select ('a[href]'))
-//  console.log (this.select `a${extra}`)
-//  console.log (this.selectAll `a`)
-//  console.log (this.selectAll `a${extra} *`)
-
     this.select
       `[name=month]`.value = this.month
 
