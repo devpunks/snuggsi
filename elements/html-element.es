@@ -17,14 +17,14 @@
 //    { /* override as you like */ }
 //}
 
-const HTMLElement = (
-  prototype => {
-    function E () {}
+const HTMLElement =
 
-    E.prototype = prototype
+(prototype => {
+  function E () {}
 
-    return E
-  }
-    //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
-) (window.HTMLElement.prototype)
+  E.prototype =
+    window.HTMLElement.prototype
+
+  return E
+})()
 
