@@ -37,7 +37,6 @@ class TokenList {
         node.nodeType === Node.TEXT_NODE
           ? TEXT_NODE (node)
           : ELEMENT_NODE (node.attributes)
-        && NodeFilter.FILTER_REJECT // We don't need 'em
 
     , TEXT_NODE = node =>
         expression.test (node.textContent)
