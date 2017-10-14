@@ -1,3 +1,10 @@
+  // http://jsfiddle.net/zaqtg/10
+  // https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
+  // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
+  // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
+  // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
+  // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
+
 var TokenList = function (node) {
 
   this
@@ -428,34 +435,23 @@ var ParentNode = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.selectAll = function ( strings ) {
+    anonymous.prototype.select = function ( )
+    { return (ref = this).selectAll.apply ( ref, arguments ) [0]
+    var ref; };
+
+  anonymous.prototype.selectAll = function ( strings ) {
     var tokens = [], len = arguments.length - 1;
     while ( len-- > 0 ) tokens[ len ] = arguments[ len + 1 ];
 
 
-    strings =
-      (ref = []).concat.apply ( ref, [strings] )
-
-    var
-      zip =
-        function (part, token) { return part + token + strings.shift (); }
-
-    return []
-      .slice.call
-        (this.querySelectorAll
-          (tokens.reduce
-            (zip, strings.shift ())))
+    return [].slice.call
+      (this.querySelectorAll
+        (tokens.reduce // denormalize selector
+          (function (part, token) { return part + token + strings.shift (); }
+          , (strings = (ref = []).concat.apply ( ref, [strings]))
+              .shift ())))
     var ref;
   };
-
-  anonymous.prototype.select = function ()
-    // watch out for clobbering `HTMLInputElement.select ()`
-    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-    {
-    var selector = [], len = arguments.length;
-    while ( len-- ) selector[ len ] = arguments[ len ];
- return (ref = this).selectAll.apply ( ref, selector ) [0]
-    var ref; };
 
     return anonymous;
   }(Element))); }
