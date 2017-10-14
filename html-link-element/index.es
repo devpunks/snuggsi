@@ -85,5 +85,5 @@ void (Element => {
     this.innerHTML = template.innerHTML
   }
 
-}) (window.HTMLLinkElement)
+}) ()
 
