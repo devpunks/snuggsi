@@ -57,8 +57,13 @@ const Template = function (template) {
     anchor =
       this.nextSibling
 
-    for (let dependent of this.dependents)
-      this.comment.parentNode.insertBefore (dependent, anchor)
+    for (let dependent of
+          this.dependents = // non-live
+            [].slice.call (fragment.childNodes))
+
+        this
+          .parentNode
+          .insertBefore (dependent, anchor)
   }
 }
 
