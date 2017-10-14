@@ -43,8 +43,9 @@ const Template = function (template) {
         return html + clone
       }
 
-    ( this.dependents || [] ).map
-      (dependent => dependent.parentNode.removeChild (dependent))
+    for (let node of // removes IE childNodes
+          (this.dependents || [] ))
+            node.parentNode.removeChild (node)
 
 
     fragment.innerHTML =
