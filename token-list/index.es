@@ -7,27 +7,7 @@
 
 class TokenList {
 
-  constructor (node) {
-
-    this
-      .sift (node)
-      .map  (this.tokenize, this)
-  }
-
-  tokenize (node) {
-
-    const
-      insert = node => symbol =>
-        (this [symbol] = this [symbol] || []).push (node)
-
-    void
-      (node.text = node.textContent)
-//      .match (/[^{\}]+(?=})/g)
-        .match (/[^{]+(?=})/g)
-        .map   (insert (node))
-  }
-
-  sift (node) {
+  constructor (node, symbol) {
 
     const
       nodes = []
