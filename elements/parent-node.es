@@ -18,13 +18,15 @@ const ParentNode = Element =>
     { return this.selectAll ( ... arguments ) [0] }
 
   selectAll ( strings, ... tokens ) {
+    strings =
+      [].concat
+        ( ... [strings] )
 
     return [].slice.call
       (this.querySelectorAll
         (tokens.reduce // denormalize selector
           ((part, token) => part + token + strings.shift ()
-          , (strings = [].concat ( ... [strings]))
-              .shift ())))
+          , strings.shift ())))
   }
 
 })
