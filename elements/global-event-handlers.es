@@ -28,11 +28,10 @@ const GlobalEventHandlers = Element =>
 
 (class extends Element {
 
-  onconnect (event, target) {
+  onconnect () {
 
 //  RESERVED FOR IMPORTS WTF IS GOING ON
 //  event
-//    && event.target
 //    && (target = event.target)
 //    && this.mirror
 //      (target.import.querySelector ('template'))
