@@ -29,7 +29,10 @@ class TokenList {
 
     while (walker.nextNode ()) 0 // Walk all nodes and do nothing.
 
-    return nodes
+    for (node of nodes)
+      (node.text = node.textContent)
+        .match (/[^{]+(?=})/g)
+        .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
   }
 
   bind (context) {
