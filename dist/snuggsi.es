@@ -7,45 +7,21 @@
 
 class TokenList {
 
-  constructor (node) {
-
-    this
-      .sift (node)
-      .map  (this.tokenize, this)
-  }
-
-  tokenize (node) {
-
-    const
-      insert = node => symbol =>
-        (this [symbol] = this [symbol] || []).push (node)
-
-    void
-      (node.text = node.textContent)
-        .match (/[^{\}]+(?=})/g)
-        .map   (insert (node))
-  }
-
-  sift (node) {
+  constructor (node, symbol) {
 
     const
       nodes = []
     , expression = /{(\w+|#)}/
 
     , visit = node =>
-        node.nodeType === Node.TEXT_NODE
-          ? TEXT_NODE (node)
-          : ELEMENT_NODE (node.attributes)
-        && NodeFilter.FILTER_REJECT // We don't need 'em
-
-    , TEXT_NODE = node =>
-        expression.test (node.textContent)
-          && nodes.push (node)
+        node.tagName
+          ? ELEMENT_NODE (node.attributes)
+          : expression.test (node.textContent) && nodes.push (node)
 
     , ELEMENT_NODE = (attrs) =>
-        []
-          .slice.call (attrs)
-          .map (attr => expression.test (attr.value) && nodes.push (attr))
+        [].slice
+          .call (attrs)
+          .map  (attr => expression.test (attr.value) && nodes.push (attr))
 
     , walker =
         document.createNodeIterator
@@ -53,7 +29,10 @@ class TokenList {
 
     while (walker.nextNode ()) 0 // Walk all nodes and do nothing.
 
-    return nodes
+    for (node of nodes)
+      (node.text = node.textContent)
+        .match (/[^{]+(?=})/g)
+        .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
   }
 
   bind (context) {
@@ -62,14 +41,16 @@ class TokenList {
       reset = symbol =>
         this [symbol].map // more than one occurrence
           (node => node.textContent = node.text)
-        && [symbol, this [symbol]]
+        && symbol
 
    // must both run independently not in tandem
 
-    , restore = ([symbol, nodes]) =>
-         nodes.map ( node =>
-           node.textContent = node.textContent
-             .replace ( ... ['{'+symbol+'}', context [symbol]] ))
+    , restore = (symbol) =>
+         this [symbol].map (node =>
+           (node.textContent =
+             node.textContent
+               .split ('{'+symbol+'}')
+               .join  (context [symbol])))
 
     Object
       .keys (this)
@@ -111,13 +92,15 @@ class TokenList {
 //}
 
 const HTMLElement = (
-  constructor => {
-    const E = function () {}
-    E.prototype = constructor.prototype
+  prototype => {
+    function E () {}
+
+    E.prototype = prototype
+
     return E
   }
     //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
-) (window.HTMLElement)
+) (window.HTMLElement.prototype)
 
 // Preloading - https://w3c.github.io/preload
 // Resource Hints - https://www.w3.org/TR/resource-hints
@@ -199,18 +182,14 @@ void (Element => {
   function stamp (template, insert, replacement) {
 
     for (replacement of this.querySelectorAll ('[slot]'))
-      (slot =
         (template.content || template).querySelector
-          ('slot[name='+ replacement.getAttribute ('slot') +']'))
-
-        .parentNode
-        .replaceChild (replacement, slot)
-
+          ('slot[name='+ replacement.getAttribute ('slot') +']')
+            .outerHTML = replacement.outerHTML
 
     this.innerHTML = template.innerHTML
   }
 
-}) (window.HTMLLinkElement)
+}) ()
 
 // https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 
@@ -221,7 +200,7 @@ void (Element => {
 // https://github.com/webcomponents/template
 const Template = function (template) {
 
-  typeof template == 'string'
+  template.length
     && (template = document.querySelector
         ('template[name='+template+']'))
 
@@ -391,8 +370,7 @@ const ParentNode = Element =>
 
   selectAll ( strings, ... tokens ) {
     strings =
-      [].concat
-        ( ... [strings] )
+      [].concat ( strings )
 
     return [].slice.call
       (this.querySelectorAll
@@ -460,13 +438,12 @@ const EventTarget = HTMLElement => // why buble
     //
     // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
 
-    return (event, render = true) =>
-      (event.prevent = _ =>
-         ! (render = false) && event.preventDefault ())
-
-      && handler.call (this, event) !== false // for `return false`
-
-      && render && this.render () // check render availability
+    return event =>
+      // for `return false`
+      handler.call (this, event) !== false
+        // check render availability
+        && event.defaultPrevented
+        || this.render ()
   }
 
 //off (event, listener = 'on' + this [event])
@@ -524,11 +501,10 @@ const GlobalEventHandlers = Element =>
 
 (class extends Element {
 
-  onconnect (event, target) {
+  onconnect () {
 
 //  RESERVED FOR IMPORTS WTF IS GOING ON
 //  event
-//    && event.target
 //    && (target = event.target)
 //    && this.mirror
 //      (target.import.querySelector ('template'))
@@ -536,7 +512,7 @@ const GlobalEventHandlers = Element =>
     this.templates =
       this
         .selectAll ('template[name]')
-        .map  (template => new Template (template))
+        .map (Template)
 
     this.tokens =
       new TokenList (this)
@@ -568,24 +544,17 @@ const GlobalEventHandlers = Element =>
         this.on ( handler.substr (2), this [handler] )
   }
 
-  register (node) {
+  register (node, handler, event) {
 
-    const
-      register = (event, handler) =>
-        /^on/.test (event)
-        // https://www.quirksmode.org/js/events_tradmod.html
-        // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-        && ( handler = (/{\s*(\w+)\s*}/.exec (node [event]) || []) [1])
-        && ( handler = this [handler] )
-        && ( node [event] = this.renderable (handler) )
-
-    void []
-      .slice
-      .call (node.attributes)
-      .map  (attr => attr.name)
-      .map  (register)
+    for (let attribute of node.attributes)
+      /^on/.test (event = attribute.name)
+      // https://www.quirksmode.org/js/events_tradmod.html
+      // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
+      && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
+      && ( node [event] = this.renderable (this [handler]) )
   }
 })
+
 const Custom = Element => // why buble
 
 ( class extends // interfaces
@@ -650,9 +619,7 @@ const Element = (
             return klass => // https://en.wikipedia.org/wiki/Higher-order_function
 
               window.customElements.define
-                ( ...  [].concat ( ... [tag] )
-                  , Custom (klass)
-                  , { constructor })
+                ( tag + '', Custom (klass), { constructor })
       }
 
     // Assign `window.Element.prototype` in case of feature checking on `Element`
