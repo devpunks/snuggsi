@@ -189,10 +189,12 @@ template.bind (context)
   are objects each property will map to a respective
   `{token}` of the same name.
 
+  _**Note:** The `#` symbol can be used to retrieve the current index of iteration._
+
 ```html
 <ul>
   <template name=item>
-    <li>Hello {name}!</li>
+    <li>Hello {name}! Your number index # is {#}
   </template>
 </ul>
 
@@ -219,8 +221,8 @@ template.bind (context)
   -->
   </template>
 
-  <li>Hello DevPunk!</li>
-  <li>Hello Snuggsi!</li>
+  <li>Hello DevPunk! Your number index # is 0
+  <li>Hello Snuggsi! Your number index # is 1
 </ul>
 ```
 
