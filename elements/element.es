@@ -19,9 +19,7 @@ const Element = (
             return klass => // https://en.wikipedia.org/wiki/Higher-order_function
 
               window.customElements.define
-                ( ...  [].concat ( ... [tag] )
-                  , Custom (klass)
-                  , { constructor })
+                ( tag + '', Custom (klass), { constructor })
       }
 
     // Assign `window.Element.prototype` in case of feature checking on `Element`
