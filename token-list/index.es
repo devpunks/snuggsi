@@ -14,19 +14,14 @@ class TokenList {
     , expression = /{(\w+|#)}/
 
     , visit = node =>
-        node.nodeType === Node.TEXT_NODE
-          ? TEXT_NODE (node)
-          : ELEMENT_NODE (node.attributes)
-
-    , TEXT_NODE = node =>
-        expression.test (node.textContent)
-          && nodes.push (node)
+        node.tagName
+          ? ELEMENT_NODE (node.attributes)
+          : expression.test (node.textContent) && nodes.push (node)
 
     , ELEMENT_NODE = (attrs) =>
-        [].slice.call (attrs)
-        .map (attr =>
-          expression.test (attr.value)
-            && nodes.push (attr))
+        [].slice
+          .call (attrs)
+          .map  (attr => expression.test (attr.value) && nodes.push (attr))
 
     , walker =
         document.createNodeIterator
