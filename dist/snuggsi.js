@@ -232,9 +232,7 @@ void (function (Element) {
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
 
 // https://github.com/webcomponents/template
-var Template = HTMLTemplateElement =
-
-function (template) {
+var Template = function (template) {
 
   template =
     typeof template == 'string'
@@ -308,16 +306,17 @@ function (template) {
 
     fragment.innerHTML = html
 
-    var children =
-      (fragment.content || fragment).childNodes
-
     this.dependents =
-      Array.apply (null, children) // non-live
+      [] // non-live
+        .slice
+        .call
+        ( ( fragment.content || fragment ).childNodes )
+
 
     this.comment.after
       && (ref$1 = this.comment).after.apply ( ref$1, this.dependents )
 
-    !!!  this.comment.after
+    ! this.comment.after
       && this.dependents.reverse ()
          .map (function (dependent) { return this$1.comment.parentNode.insertBefore
              (dependent, this$1.comment.nextSibling); })
@@ -443,13 +442,15 @@ var ParentNode = function (Element) { return ((function (Element) {
     var tokens = [], len = arguments.length - 1;
     while ( len-- > 0 ) tokens[ len ] = arguments[ len + 1 ];
 
+    strings =
+      (ref = []).concat.apply
+        ( ref, [strings] )
 
     return [].slice.call
       (this.querySelectorAll
         (tokens.reduce // denormalize selector
           (function (part, token) { return part + token + strings.shift (); }
-          , (strings = (ref = []).concat.apply ( ref, [strings]))
-              .shift ())))
+          , strings.shift ())))
     var ref;
   };
 
