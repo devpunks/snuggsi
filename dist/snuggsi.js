@@ -309,14 +309,13 @@ var Template = function (template) {
         ( ( fragment.content || fragment ).childNodes )
 
 
-    for (var i$1 = 0, list = this$1.dependents.reverse (); i$1 < list.length; i$1 += 1)
-      {
-      var dependent = list[i$1];
+    var anchor =
+      this.comment.nextSibling
 
-      this$1.comment.parentNode.insertBefore
-        (dependent, this$1.comment.nextSibling)
+    this.dependents
+      .map (function (dependent) { return this$1.comment.parentNode
+          .insertBefore (dependent, anchor); })
     var ref;
-    }
   }
 }
 
