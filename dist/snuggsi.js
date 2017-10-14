@@ -234,26 +234,19 @@ void (function (Element) {
 // https://github.com/webcomponents/template
 var Template = function (template) {
 
-  template =
-    typeof template == 'string'
+  typeof template == 'string'
+    && (template = document.querySelector
+        ('template[name='+template+']'))
 
-      ? document.querySelector ('template[name='+template+']')
+  template.hidden = true
 
-      : this === HTMLTemplateElement
-          ? template.cloneNode (true)
-          : template
+  template.HTML =
+    template.innerHTML
 
-  template
-    .parentNode
-    .replaceChild
-      ( template.comment= document.createComment
-        ( template.name  = template.getAttribute ('name') )
-      , template)
+  template.bind =
+    bind.bind (template)
 
-
-  return Object
-    .defineProperty
-      (template, 'bind', { value: bind })
+  return template
 
   function bind (context, anchor) {
     var this$1 = this;
@@ -261,10 +254,10 @@ var Template = function (template) {
 
     var
       fragment =
-        document.createElement ('template')
+        document.createElement ('section')
 
     , deposit = function (html, context, index) {
-        var clone = this$1.innerHTML
+        var clone = this$1.HTML
 
         typeof context != 'object'
           && ( context  = { self: context })
@@ -279,8 +272,12 @@ var Template = function (template) {
         return html + clone
       }
 
-    ( this.dependents || [] ).map
-      (function (dependent) { return dependent.parentNode.removeChild (dependent); })
+    for (var i = 0, list = (this$1.dependents || [] ); i < list.length; i += 1)
+            {
+      var node = list[i];
+
+      node.parentNode.removeChild (node)
+    }
 
 
     fragment.innerHTML =
@@ -289,21 +286,18 @@ var Template = function (template) {
         .reduce (deposit, '')
 
 
-    this.dependents =
-      [] // non-live
-        .slice
-        .call
-        ( ( fragment.content || fragment ).childNodes )
-
-
     anchor =
-      this.comment.nextSibling
+      this.nextSibling
 
-    for (var i = 0, list = this$1.dependents; i < list.length; i += 1)
-      {
-      var dependent = list[i];
+    for (var i$1 = 0, list$1 = this$1.dependents = // non-live
+            [].slice.call (fragment.childNodes); i$1 < list$1.length; i$1 += 1)
 
-      this$1.comment.parentNode.insertBefore (dependent, anchor)
+        {
+      var dependent = list$1[i$1];
+
+      this$1
+          .parentNode
+          .insertBefore (dependent, anchor)
     }
   }
 }
@@ -587,17 +581,21 @@ var Custom = function (Element) { return ( (function (superclass) {
   };
 
 
-  anonymous.prototype.render = function () {
+  anonymous.prototype.render = function (template) {
     var this$1 = this;
 
+
+    for (var i = 0, list = this$1.templates; i < list.length; i += 1)
+      {
+      template = list[i];
+
+      template.bind
+        (this$1 [template.getAttribute ('name')])
+    }
 
     this
       .tokens
       .bind (this)
-
-    this
-      .templates
-      .map (function (template) { return template.bind (this$1 [template.name]); })
 
     void
       [this ].concat( this.selectAll ('*'))
