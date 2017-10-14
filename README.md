@@ -268,13 +268,13 @@ template.bind (context)
 #### Resulting HTML
 ```html
 <dl>
-    <template name=recipie>
-    <!-- invisible
-      <dt> Step {#}.
-      <dd> {self}.
+  <template name=recipie>
+  <!-- invisible
+    <dt> Step {#}.
+    <dd> {self}.
 
-    -->
-    </template>
+  -->
+  </template>
 
   <dt> Step 1.
   <dd> Preheat oven.
