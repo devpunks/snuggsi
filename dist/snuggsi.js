@@ -5,43 +5,21 @@
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
   // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
 
-var TokenList = function (node) {
+var TokenList = function (node, symbol) {
+  var this$1 = this;
 
-  this
-    .sift (node)
-    .map(this.tokenize, this)
-};
-
-TokenList.prototype.tokenize = function (node) {
-    var this$1 = this;
-
-
-  var
-    insert = function (node) { return function (symbol) { return (this$1 [symbol] = this$1 [symbol] || []).push (node); }; }
-
-  void
-    (node.text = node.textContent)
-      .match (/[^{\}]+(?=})/g)
-      .map (insert (node))
-};
-
-TokenList.prototype.sift = function (node) {
 
   var
     nodes = []
   , expression = /{(\w+|#)}/
 
-  , visit = function (node) { return node.nodeType === Node.TEXT_NODE
-        ? TEXT_NODE (node)
-        : ELEMENT_NODE (node.attributes)
-      && NodeFilter.FILTER_REJECT; } // We don't need 'em
+  , visit = function (node) { return node.tagName
+        ? ELEMENT_NODE (node.attributes)
+        : expression.test (node.textContent) && nodes.push (node); }
 
-  , TEXT_NODE = function (node) { return expression.test (node.textContent)
-        && nodes.push (node); }
-
-  , ELEMENT_NODE = function (attrs) { return []
-        .slice.call (attrs)
-        .map (function (attr) { return expression.test (attr.value) && nodes.push (attr); }); }
+  , ELEMENT_NODE = function (attrs) { return [].slice
+        .call (attrs)
+        .map(function (attr) { return expression.test (attr.value) && nodes.push (attr); }); }
 
   , walker =
       document.createNodeIterator
@@ -49,7 +27,14 @@ TokenList.prototype.sift = function (node) {
 
   while (walker.nextNode ()) { 0 } // Walk all nodes and do nothing.
 
-  return nodes
+  for (var i = 0, list = nodes; i < list.length; i += 1)
+    {
+    node = list[i];
+
+    (node.text = node.textContent)
+      .match (/[^{]+(?=})/g)
+      .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); })
+  }
 };
 
 TokenList.prototype.bind = function (context) {
@@ -59,18 +44,14 @@ TokenList.prototype.bind = function (context) {
   var
     reset = function (symbol) { return this$1 [symbol].map // more than one occurrence
         (function (node) { return node.textContent = node.text; })
-      && [symbol, this$1 [symbol]]; }
+      && symbol; }
 
  // must both run independently not in tandem
 
-  , restore = function (ref) {
-           var symbol = ref[0];
-           var nodes = ref[1];
-
-           return nodes.map ( function (node) { return node.textContent = (ref = node.textContent)
-           .replace.apply ( ref, ['{'+symbol+'}', context [symbol]] )
-             var ref;; });
-    }
+  , restore = function (symbol) { return this$1 [symbol].map (function (node) { return (node.textContent =
+           node.textContent
+             .split ('{'+symbol+'}')
+             .join(context [symbol])); }); }
 
   Object
     .keys (this)
@@ -111,13 +92,15 @@ TokenList.prototype.bind = function (context) {
 //}
 
 var HTMLElement = (
-  function (constructor) {
-    var E = function () {}
-    E.prototype = constructor.prototype
+  function (prototype) {
+    function E () {}
+
+    E.prototype = prototype
+
     return E
   }
     //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
-) (window.HTMLElement)
+) (window.HTMLElement.prototype)
 
 // Preloading - https://w3c.github.io/preload
 // Resource Hints - https://www.w3.org/TR/resource-hints
@@ -208,22 +191,18 @@ void (function (Element) {
 
 
     for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1)
-      {
+        {
       replacement = list[i];
 
-      (slot =
-        (template.content || template).querySelector
-          ('slot[name='+ replacement.getAttribute ('slot') +']'))
-
-        .parentNode
-        .replaceChild (replacement, slot)
+      (template.content || template).querySelector
+          ('slot[name='+ replacement.getAttribute ('slot') +']')
+            .outerHTML = replacement.outerHTML
     }
-
 
     this.innerHTML = template.innerHTML
   }
 
-}) (window.HTMLLinkElement)
+}) ()
 
 // https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 
@@ -234,7 +213,7 @@ void (function (Element) {
 // https://github.com/webcomponents/template
 var Template = function (template) {
 
-  typeof template == 'string'
+  template.length
     && (template = document.querySelector
         ('template[name='+template+']'))
 
@@ -420,15 +399,13 @@ var ParentNode = function (Element) { return ((function (Element) {
     while ( len-- > 0 ) tokens[ len ] = arguments[ len + 1 ];
 
     strings =
-      (ref = []).concat.apply
-        ( ref, [strings] )
+      [].concat ( strings )
 
     return [].slice.call
       (this.querySelectorAll
         (tokens.reduce // denormalize selector
           (function (part, token) { return part + token + strings.shift (); }
           , strings.shift ())))
-    var ref;
   };
 
     return anonymous;
@@ -468,15 +445,10 @@ var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
     //
     // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
 
-    return function (event, render) {
-        if ( render === void 0 ) render = true;
-
-        return (event.prevent = function (_) { return ! (render = false) && event.preventDefault (); })
-
-      && handler.call (this$1, event) !== false // for `return false`
-
-      && render && this$1.render ();
-    } // check render availability
+    return function (event) { return handler.call (this$1, event) !== false
+        // check render availability
+        && event.defaultPrevented
+        || this$1.render (); }
   };
 
     return anonymous;
@@ -491,11 +463,10 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.onconnect = function (event, target) {
+    anonymous.prototype.onconnect = function () {
 
 //  RESERVED FOR IMPORTS WTF IS GOING ON
 //  event
-//    && event.target
 //    && (target = event.target)
 //    && this.mirror
 //      (target.import.querySelector ('template'))
@@ -503,7 +474,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     this.templates =
       this
         .selectAll ('template[name]')
-        .map  (function (template) { return new Template (template); })
+        .map (Template)
 
     this.tokens =
       new TokenList (this)
@@ -535,27 +506,25 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
         this.on ( handler.substr (2), this [handler] )
   };
 
-  anonymous.prototype.register = function (node) {
+  anonymous.prototype.register = function (node, handler, event) {
     var this$1 = this;
 
 
-    var
-      register = function (event, handler) { return /^on/.test (event)
-        // https://www.quirksmode.org/js/events_tradmod.html
-        // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-        && ( handler = (/{\s*(\w+)\s*}/.exec (node [event]) || []) [1])
-        && ( handler = this$1 [handler] )
-        && ( node [event] = this$1.renderable (handler) ); }
+    for (var i = 0, list = node.attributes; i < list.length; i += 1)
+      {
+      var attribute = list[i];
 
-    void []
-      .slice
-      .call (node.attributes)
-      .map  (function (attr) { return attr.name; })
-      .map  (register)
+      /^on/.test (event = attribute.name)
+      // https://www.quirksmode.org/js/events_tradmod.html
+      // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
+      && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
+      && ( node [event] = this$1.renderable (this$1 [handler]) )
+    }
   };
 
     return anonymous;
   }(Element))); }
+
 var Custom = function (Element) { return ( (function (superclass) {
     function anonymous () {
       superclass.apply(this, arguments);
@@ -628,11 +597,8 @@ var Element = (
           // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
           // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-            return function (klass) { return (ref = window.customElements).define.apply
-                ( ref, (ref$1 = []).concat.apply ( ref$1, [tag] ).concat( [Custom (klass)]
-                  , [{ constructor: constructor }] ))
-                var ref;
-                var ref$1;; }
+            return function (klass) { return window.customElements.define
+                ( tag + '', Custom (klass), { constructor: constructor }); }
       }
 
     // Assign `window.Element.prototype` in case of feature checking on `Element`
