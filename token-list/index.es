@@ -22,7 +22,8 @@ class TokenList {
 
     void
       (node.text = node.textContent)
-        .match (/[^{\}]+(?=})/g)
+//      .match (/[^{\}]+(?=})/g)
+        .match (/[^{]+(?=})/g)
         .map   (insert (node))
   }
 
