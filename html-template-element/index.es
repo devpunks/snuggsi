@@ -28,24 +28,10 @@ const Template = function (template) {
     .defineProperty
       (template, 'bind', { value: bind })
 
-  function bind (context) {
-
-    let
-      html     = ''
-    , contexts = [].concat ( ... [context] )
-        // https://dom.spec.whatwg.org/#converting-nodes-into-a-node
+  function bind (context, anchor) {
 
     const
-      keys =
-        'object' === typeof contexts [0]
-          ? Object.keys (contexts [0])    // memoize keys
-          :  []
-          .concat (['#', 'self']) // add helper keys
-
-    , tokens =
-        keys.map (key => '{'+key+'}') // memoize tokens
-
-    , fragment = // create template polyfill here
+      fragment =
         document.createElement ('template')
 
     , deposit = (html, context, index) => {
@@ -56,20 +42,23 @@ const Template = function (template) {
 
         context ['#'] = index
 
-        for (let i=0; i<tokens.length; i++)
+        for (let i in context)
           clone = clone
-            .split (tokens [i])
-            .join  (context [keys [i]])
+            .split ('{'+i+'}')
+            .join  (context [i])
 
         return html + clone
       }
 
-    void ( this.dependents || [] ).map
+    ( this.dependents || [] ).map
       (dependent => dependent.parentNode.removeChild (dependent))
 
-    fragment
-      .innerHTML = contexts
-      .reduce (deposit, '')
+
+    fragment.innerHTML =
+      []
+        .concat (context)
+        .reduce (deposit, '')
+
 
     this.dependents =
       [] // non-live
@@ -78,13 +67,11 @@ const Template = function (template) {
         ( ( fragment.content || fragment ).childNodes )
 
 
-    let anchor =
+    anchor =
       this.comment.nextSibling
 
-    this.dependents
-      .map (dependent =>
-        this.comment.parentNode
-          .insertBefore (dependent, anchor))
+    for (let dependent of this.dependents)
+      this.comment.parentNode.insertBefore (dependent, anchor)
   }
 }
 
