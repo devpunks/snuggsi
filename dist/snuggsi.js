@@ -440,12 +440,11 @@ var ParentNode = function (Element) { return ((function (Element) {
       zip =
         function (part, token) { return part + token + strings.shift (); }
 
-    , selector =
-        tokens.reduce (zip, strings.shift ())
-
     return []
-      .slice
-      .call (this.querySelectorAll (selector))
+      .slice.call
+        (this.querySelectorAll
+          (tokens.reduce
+            (zip, strings.shift ())))
     var ref;
   };
 
@@ -461,15 +460,14 @@ var ParentNode = function (Element) { return ((function (Element) {
     return anonymous;
   }(Element))); }
 
-//function comb
-//  // ElementTraversal interface
-//  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
+//  comb (parent) {
+//    // ElementTraversal interface
+//    // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
 //
-//(parent) {
-//  if (parent.hasChildNodes())
-//    for (let node = parent.firstChild; node; node = node.nextSibling)
-//      comb (node)
-//}
+//    if (parent.hasChildNodes())
+//      for (let node = parent.firstChild; node; node = node.nextSibling)
+//        comb (node)
+//  }
 
 var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
     function anonymous () {
