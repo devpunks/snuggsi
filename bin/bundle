@@ -1,13 +1,12 @@
-cat \
-token-list/index.es \
-elements/html-element.es \
-html-link-element/index.es \
-html-template-element/index.es \
-elements/custom-element-registry.es \
-elements/parent-node.es \
-elements/event-target.es \
-elements/global-event-handlers.es \
-elements/component.es \
-elements/element.es \
-\
+cat                                   \
+  elements/html-element.es            \
+  token-list/index.es                 \
+  html-link-element/index.es          \
+  html-template-element/index.es      \
+  elements/custom-element-registry.es \
+  elements/parent-node.es             \
+  elements/event-target.es            \
+  elements/global-event-handlers.es   \
+  elements/component.es               \
+  elements/element.es                 \
 > dist/snuggsi.es
