@@ -1,11 +1,16 @@
 # bro is installed locally and manually. No npm cli. HELP!
-bro --quality 11 --repeat 1 --input ./dist/*.min.js \
- > ./dist/snuggsi.min.js.br
+bro \
+  --repeat 1 \
+  --quality 11 \
+  --input ./dist/*.min.es \
+> ./dist/snuggsi.min.es.br
 
-bro --quality 11 --repeat 1 --input ./dist/*.min.es \
-  > ./dist/snuggsi.min.es.br
 
-
+bro \
+  --repeat 1 \
+  --quality 11 \
+  --input ./dist/*.min.js \
+> ./dist/snuggsi.min.js.br
 
 # gzip
 
