@@ -98,6 +98,7 @@ Links
 `snuggsi.min.js` ➡️  `snuggsi.min.js.br`
 
 Links
+- [Brotli Compressed Data Format _(rfc7932)_](https://tools.ietf.org/html/rfc7932)
 - http://caniuse.com/#search=brotli
 - https://en.wikipedia.org/wiki/Brotli
 - https://certsimple.com/blog/nginx-brotli
