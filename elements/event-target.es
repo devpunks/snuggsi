@@ -46,13 +46,12 @@ const EventTarget = HTMLElement => // why buble
     //
     // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
 
-    return (event, render = true) =>
-      (event.prevent = _ =>
-         ! (render = false) && event.preventDefault ())
-
-      && handler.call (this, event) !== false // for `return false`
-
-      && render && this.render () // check render availability
+    return event =>
+      // for `return false`
+      handler.call (this, event) !== false
+        // check render availability
+        && event.defaultPrevented
+        || this.render ()
   }
 
 //off (event, listener = 'on' + this [event])
