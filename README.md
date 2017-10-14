@@ -153,8 +153,6 @@ for more details
 ### `<template>` With `Object` Context
 
 ```html
-<section id=lead></section>
-
 <template name=developer>
   <!-- `{name}` will bind to `context` property `name` -->
   <h1>{name}</h1>
@@ -174,9 +172,13 @@ template.bind (context)
 
 #### Resulting HTML
 ```html
-<section id='lead'>
-  <h1>That Beast</h1>
-</section>
+<template name=developer>
+<!-- invisible
+  <h1>{name}</h1>
+ -->
+</template>
+
+<h1>That Beast</h1><!-- template is used as head for tail insertion -->
 ```
 
 
@@ -206,9 +208,10 @@ template.bind (context)
 #### Resulting HTML
 ```html
 <ul>
-  <!-- invisible -->
   <template name=item>
+  <!-- invisible
     <li>Hello {name}!</li>
+  -->
   </template>
 
   <li>Hello DevPunk!</li>
