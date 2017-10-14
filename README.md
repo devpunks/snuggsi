@@ -182,7 +182,12 @@ template.bind (context)
 ```
 
 
-### `<template>` With `Array` Context
+### `<template name>` With Object `Array` Context
+
+  Each `<template name>` will be mapped over each
+  context item within the array. When the array items
+  are objects each property will map to a respective
+  `{token}` of the same name.
 
 ```html
 <ul>
@@ -218,6 +223,69 @@ template.bind (context)
   <li>Hello Snuggsi!</li>
 </ul>
 ```
+
+
+### `<template name>` With Scalar `Array` Context
+
+  Each `<template name>` will be mapped over each
+  context item within the array. When the array items
+  are scalar _(i.e. strings, numbers, booleans)
+  each item will map to a `{self}` helper token.
+
+  _**Note:** The `#` symbol can be used to retrieve the current index of iteration._
+
+```html
+<dl>
+  <template name=recipie>
+    <dt> Step {#}.
+    <dd> {self}.
+  </template>
+</dl>
+
+<script src=//unpkg.com/snuggsi></script>
+<script>
+
+// when context is a collection of scalars
+const
+  template = Template `recipie`
+, context  = [
+    "Preheat oven"
+  , "Place pre-made cake in oven"
+  , "Don't burn the cake"
+  , "Nom Nom"
+  ]
+
+// internal template render for each item in context
+template.bind (context)
+
+</script>
+```
+
+
+#### Resulting HTML
+```html
+<dl>
+  <template name=item>
+  <!-- invisible
+    <li>Hello {name}!</li>
+  -->
+  </template>
+
+  <dt> Step 1.
+  <dd> Preheat oven.
+
+  <dt> Step 2.
+  <dd> Place pre-made cake in oven.
+
+  <dt> Step 3.
+  <dd> Don't burn the cake!
+
+  <dt> Step 4.
+  <dd> Nom Nom!
+
+</dl>
+```
+
 
 ## [Remote Components](/html-link-element#readme)
 
