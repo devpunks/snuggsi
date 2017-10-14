@@ -2,7 +2,7 @@ cat \
 token-list/index.es \
 elements/html-element.es \
 html-link-element/index.es \
-elements/html-template-element.es \
+html-template-element/index.es \
 elements/custom-element-registry.es \
 elements/parent-node.es \
 elements/event-target.es \
