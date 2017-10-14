@@ -18,11 +18,13 @@
 //}
 
 const HTMLElement = (
-  constructor => {
-    const E = function () {}
-    E.prototype = constructor.prototype
+  prototype => {
+    function E () {}
+
+    E.prototype = prototype
+
     return E
   }
     //E.prototype.constructor = constructor // this only checks for typeof HTMLElement
-) (window.HTMLElement)
+) (window.HTMLElement.prototype)
 
