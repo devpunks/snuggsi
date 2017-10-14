@@ -7,35 +7,28 @@
 // https://github.com/webcomponents/template
 const Template = function (template) {
 
-  template =
-    typeof template == 'string'
+  typeof template == 'string'
+    && (template = document.querySelector
+        ('template[name='+template+']'))
 
-      ? document.querySelector ('template[name='+template+']')
+  template.hidden = true
 
-      : this === HTMLTemplateElement
-          ? template.cloneNode (true)
-          : template
+  template.HTML =
+    template.innerHTML
 
-  template
-    .parentNode
-    .replaceChild
-      ( template.comment= document.createComment
-        ( template.name  = template.getAttribute ('name') )
-      , template)
+  template.bind =
+    bind.bind (template)
 
-
-  return Object
-    .defineProperty
-      (template, 'bind', { value: bind })
+  return template
 
   function bind (context, anchor) {
 
     const
       fragment =
-        document.createElement ('template')
+        document.createElement ('section')
 
     , deposit = (html, context, index) => {
-        let clone = this.innerHTML
+        let clone = this.HTML
 
         typeof context != 'object'
           && ( context  = { self: context })
