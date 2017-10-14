@@ -14,34 +14,18 @@ const ParentNode = Element =>
 
 (class extends Element {
 
-  // http://jsfiddle.net/zaqtg/10
-  // https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
-  // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-  // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
-  // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
-  // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
+  select ( )
+    { return this.selectAll ( ... arguments ) [0] }
 
   selectAll ( strings, ... tokens ) {
 
-    strings =
-      [].concat ( ... [strings] )
-
-    const
-      zip =
-        (part, token) =>
-          part + token + strings.shift ()
-
-    return []
-      .slice.call
-        (this.querySelectorAll
-          (tokens.reduce
-            (zip, strings.shift ())))
+    return [].slice.call
+      (this.querySelectorAll
+        (tokens.reduce // denormalize selector
+          ((part, token) => part + token + strings.shift ()
+          , (strings = [].concat ( ... [strings]))
+              .shift ())))
   }
-
-  select ( ... selector )
-    // watch out for clobbering `HTMLInputElement.select ()`
-    // https://developer.mozilla.org/en-US/docs/Web/API/HTMLInputElement/select
-    { return this.selectAll ( ... selector ) [0] }
 
 })
 
