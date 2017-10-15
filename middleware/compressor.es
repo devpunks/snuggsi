@@ -14,10 +14,10 @@
 //   HTTP Accept Header - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
 
 const
-  send   = require ('koa-send')
-, root   = '/'
-, name   = 'snuggsi.'
 , suffix = ''
+  root   = '/'
+, name   = 'snuggsi'
+, send   = require ('koa-send')
 
 , configuration = {
     gzip   : true
@@ -79,6 +79,7 @@ module.exports = async (context, next) =>
 
   , bundle =
       [ name, suffix, extension ]
+        .filter (Boolean)
         .join ``
 
   , resource =
