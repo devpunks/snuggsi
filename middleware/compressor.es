@@ -14,8 +14,8 @@
 //   HTTP Accept Header - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
 
 const
-, suffix = ''
-  root   = '/'
+  suffix = ''
+, root   = '/'
 , name   = 'snuggsi'
 , send   = require ('koa-send')
 
