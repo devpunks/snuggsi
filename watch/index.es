@@ -28,7 +28,6 @@ const
       .filter (Boolean)
       .join ` && `
 
-console.warn (command)
 let times = 0
 
 require ('fs').watch (path, { recursive: true },
