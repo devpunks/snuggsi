@@ -1,5 +1,6 @@
 const
   root      = 'public'
+
 , browse    = require ('./browse')
 , compress  = require ('./compress')
 , negotiate = require ('./negotiate')
