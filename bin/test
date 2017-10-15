@@ -5,11 +5,11 @@
 # https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
 export ROOT=$(pwd)
 
-export FILES="./{server,middleware,elements}/index.test.es"
+export FILES="./{test,middleware,elements}/index.test"
 
 # https://gist.github.com/branneman/8775568
 # https://gist.github.com/branneman/8048520
-export NODE_PATH=$ROOT
+export NODE_PATH=$ROOT:$NODE_PATH
 
 $ROOT/node_modules/.bin/tape \
   -r $ROOT/polyfills \
