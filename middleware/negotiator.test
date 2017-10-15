@@ -1,2 +1,5 @@
-console.log ('what the hell!')
+const
+  negotiator = require ('./').negotiator
+
+console.log ('what the hell!', negotiator)
 
