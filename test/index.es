@@ -1,14 +1,9 @@
-const
-  { describe, browse, serve } = require ('test')
-
-  { test : describe }
-    = require ('tape')
-
 module.exports = {
-  describe
+  { test : describe } = require ('tape')
+
 , browse : require ('./browse.es')
 , test   : require ('tape').test
-, serve  : require ('server/index.es')
+, serve  : require ('./server')
 }
 
 require ('./element.test')
