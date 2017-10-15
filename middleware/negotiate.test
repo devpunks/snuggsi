@@ -1,4 +1,7 @@
 const
-  negotiate = require ('./').negotiate
+  { describe, serve, browse }
+    = require ('test')
+
+, negotiate = require ('./').negotiate
 
 console.log ('what the hell!', negotiate)
