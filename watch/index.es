@@ -41,7 +41,7 @@ require ('fs').watch (path, { recursive: true },
   const predicate =
     /^dist/.test (file) ||
     /^public/.test (file) ||
-  !!! /\.(html|es|css)$/.test (file)
+  !!! /\.(test|html|es|css)$/.test (file)
 
   if ( predicate ) return
 
