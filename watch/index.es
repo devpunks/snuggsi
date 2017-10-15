@@ -11,18 +11,24 @@ const
 , shrink   = 'bin/shrink'
 , publish  = 'bin/publish'
 , transpile= 'bin/transpile'
-, reload   = './node_modules/.bin/browser-sync reload --port=' + BROWSER_PORT
 , clear    = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , message  = `\n Watching => ${path}🔎 👀 \n`
 , echo     = `printf "${message}" && echo "Last Update $(date)"`
 , validate = 'bin/validate-weight || true'
 
-, exec    = require ('child_process').exec
+, exec = require ('child_process').exec
+
+, reload =
+    BROWSER_PORT
+      && './node_modules/.bin/browser-sync reload --port='
+        + BROWSER_PORT
 
 , command =
     [ bundle, transpile, shrink, publish, reload, clear, echo, test, validate ]
+      .filter (Boolean)
       .join ` && `
 
+console.warn (command)
 let times = 0
 
 require ('fs').watch (path, { recursive: true },
