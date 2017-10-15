@@ -1,1 +1,2 @@
-require ('./compressor.test.es')
+require ('./compressor.test')
+require ('./negotiator.test')
