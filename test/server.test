@@ -4,9 +4,11 @@ const
 
 const
   options = { dist: 'dist' }
-, Server  = new (require ('./'))(options)
+, Server  = new (require ('./server'))(options)
 
 describe ('new Server', test => {
+
+  console.warn ('The server', Server)
 
   test.doesNotThrow
     ( _ => new Server (options) )
