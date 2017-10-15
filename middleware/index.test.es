@@ -1,2 +1,2 @@
-require ('./compressor.test')
-require ('./negotiator.test')
+require ('./negotiate.test')
+//require ('./compress.test')
