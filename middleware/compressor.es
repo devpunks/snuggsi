@@ -14,8 +14,7 @@
 //   HTTP Accept Header - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
 
 const
-  send = require ('koa-send')
-
+  send   = require ('koa-send')
 , root   = '/'
 , name   = 'snuggsi.'
 , suffix = ''
@@ -26,13 +25,11 @@ const
   , root   : './dist'
   }
 
-module.exports =
-  async (context, next) =>
+module.exports = async (context, next) =>
 {
   const
-    accept =
-      // HTTP 1.1 `Accept` Header
-      //   - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
+    accept = // HTTP 1.1 `Accept` Header
+             // - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
       context.request.header.accept
 
   , path =
