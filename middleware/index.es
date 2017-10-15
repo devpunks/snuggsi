@@ -1,10 +1,11 @@
 const
   root       = 'public'
-, browser    = require ('./browser.es')
-, compressor = require ('./compressor.es')
-, mixins     = require ('../mixins/middleware.es')
+, browser    = require ('./browser')
+, negotiator = require ('./negotiator')
+, compressor = require ('./compressor')
+, mixins     = require ('../mixins/middleware')
 , assets     = require ('koa-static') (root, {defer: true})
 
 module.exports =
-  { compressor, assets, mixins }
+  { negotiator, compressor, mixins, assets }
 
