@@ -1,9 +1,8 @@
 module.exports = {
-  { test : describe } = require ('tape')
-
-, browse : require ('./browse.es')
-, test   : require ('tape').test
-, serve  : require ('./server')
+  describe : require ('tape').test
+, browse   : require ('./browse')
+, test     : require ('tape').test
+, serve    : require ('./server')
 }
 
 require ('./element.test')
