@@ -1,2 +1,2 @@
 require ('./negotiate.test')
-//require ('./compress.test')
+require ('./compress.test')
