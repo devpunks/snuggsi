@@ -42,13 +42,9 @@ new class CustomElementRegistry {
   }
 
 
-  register (name, constructor) {
-    // perhaps this goes in swizzle
-    (this [name] = constructor)
-      .localName = name
+  register () {
 
-
-    'loading' === document.readyState
+    'loading' == document.readyState
 
       ? document.addEventListener
         ('DOMContentLoaded', this.queue ( ... arguments ))
@@ -60,25 +56,39 @@ new class CustomElementRegistry {
 
 
   queue ( name, constructor ) {
+    // perhaps this goes in swizzle
+//  (this [name] = constructor)
+//    .localName = name // set localName
+
     return event =>
       // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       [].slice
-        .call (document.getElementsByTagName (name))
-        .map  (this.upgrade (constructor))
+        .call ( document.getElementsByTagName (name) )
+        .map  ( this.upgrade ( (this [name] = constructor) ) )
   }
 
 
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
-  upgrade (constructor) {
+  upgrade (proto) {
+
+    console.warn ('Upgrading constructor')
 
     // Here's where we can swizzle
     // see this.swizzle ()
 
-    return element =>
-      (element.prototype = constructor.prototype)
-        && element.connectedCallback
-        && element.connectedCallback ()
+    return element => {
+//    console.warn ('element', proto, element.__proto__);
+
+//    console.warn ((element.prototype = proto.prototype))
+//    console.warn ((element.__proto__ = proto.__proto__))
+
+      Object.setPrototypeOf (element, proto)
+      console.warn ('element', element.connectedCallback);
+
+//      && element.connectedCallback
+//      && element.connectedCallback ()
+    }
   }
 
 // http://nshipster.com/method-swizzling/
