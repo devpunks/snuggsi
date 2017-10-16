@@ -1,8 +1,8 @@
-  // http://jsfiddle.net/zaqtg/10
-  // https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
-  // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-  // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
-  // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
+// http://jsfiddle.net/zaqtg/10
+// https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
+// https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
+// https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
+// https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
 
 class TokenList {
 
