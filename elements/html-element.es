@@ -23,7 +23,7 @@ const HTMLElement =
   function E () {}
 
   E.prototype =
-    HTMLElement.prototype
+    window.HTMLElement.prototype
 
   return E
 })()
