@@ -1,3 +1,10 @@
 const { describe, serve, browse }
   = require ('test')
 
+
+describe ('middleware', test => {
+
+  test.ok (true)
+
+  test.end ()
+})
