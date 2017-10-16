@@ -1,8 +1,8 @@
 #!/bin/bash
 
 export ROOT=$(pwd)
-export ENTRY="$ROOT/" # $ROOT/index.es
+export ENTRY="$ROOT/index"
 
 node \
   --require $ROOT/polyfills \
--- ./index.es
+-- $ENTRY
