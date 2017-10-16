@@ -18,4 +18,4 @@ $ROOT/node_modules/.bin/tape \
   -r $ROOT/polyfills \
   -r $ROOT/test/index.es \
 -- $FILES \
- | $ROOT/node_modules/.bin/tap-nyc
+ | $COVERAGE
