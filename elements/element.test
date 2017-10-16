@@ -1,15 +1,11 @@
-const
-  interface = 'index'
-, { describe, serve, browse }
-    = require ('test')
-
+const { describe, serve, browse }
+  = require ('test')
 
 describe ('new Element', test => {
-  const document = browse (interface)
+  const document = browse ('index')
 
   test.ok
     (document.querySelector `foo-bar`)
 
   test.end ()
 })
-
