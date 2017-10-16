@@ -4,17 +4,16 @@ const
 , app     = new (require ('koa'))
 , cors    = require ('koa-cors')
 
-app
-  .use ( cors ({ methods: ['GET'] }) )
+//app
+//  .use ( cors ({ methods: ['GET'] }) )
 
-  .use ( snuggsi.compressor )
+//  .use ( snuggsi.compressor )
 
-  .use ( snuggsi.mixins )
+//  .use ( snuggsi.mixins )
 
-  .use ( snuggsi.assets )
+//  .use ( snuggsi.assets )
 
-  .listen ( port )
+//  .listen ( port )
 
-console.log
-  ( `listening on PORT ${port}` )
-
+//console.log
+//  ( `listening on PORT ${port}` )
