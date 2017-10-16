@@ -1,6 +1,5 @@
-const
-  { describe, serve, browse }
-    = require ('test')
+const { describe, serve, browse }
+  = require ('test')
 
 const
   // https://nodejs.org/api/http.html#http_http_request_options_callback
