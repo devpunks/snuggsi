@@ -1,5 +1,7 @@
 #!/bin/bash
 
+export ROOT=$(pwd)
+
 node \
   --require ./polyfills/index.js \
 -- ./index.es
