@@ -15,9 +15,6 @@ const Template =
 
   template.hidden = true
 
-  template.HTML =
-    template.innerHTML
-
   template.bind =
     bind.bind (template)
 
@@ -30,7 +27,7 @@ const Template =
         document.createElement ('section')
 
     , deposit = (html, context, index) => {
-        let clone = this.HTML
+        let clone = this.innerHTML
 
         typeof context != 'object'
           && ( context  = { self: context })
