@@ -417,6 +417,10 @@ Element `foo-bar`
 </html>
 ```
 
+### Further Learning
+
+  - ["Web `<link>`ing" - M. Nottingham (_rfc5988_)](https://tools.ietf.org/html/rfc5988)
+
 
 ## Build Process
 
