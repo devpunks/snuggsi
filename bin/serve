@@ -4,5 +4,7 @@ export ROOT=$(pwd)
 export ENTRY="$ROOT/index"
 
 node \
+# Experimental HTTP/2 flag https://nodejs.org/api/cli.html#cli_expose_http2
+# --expose-http2 \
   --require $ROOT/polyfills \
 -- $ENTRY
