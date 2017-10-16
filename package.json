@@ -32,7 +32,6 @@
   ],
   "main": "./dist/snuggsi.min.js",
   "directories": {
-    "doc": "docs",
     "example": "examples"
   },
   "scripts": {
