@@ -2,7 +2,7 @@ const { describe, serve, browse }
   = require ('test')
 
 
-describe ('middleware', test => {
+describe ('unresolved element', test => {
 
   test.ok (true)
 
