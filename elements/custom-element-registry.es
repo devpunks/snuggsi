@@ -84,6 +84,6 @@ new class CustomElementRegistry {
   }
 
   // http://nshipster.com/method-swizzling/
-  swizzle ( name, ... Class ) { }
+//swizzle ( name, ... Class ) { }
 
 }
