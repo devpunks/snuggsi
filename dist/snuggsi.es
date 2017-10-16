@@ -286,13 +286,13 @@ const Template = function (template) {
 new class CustomElementRegistry {
 
   constructor ({ define, get, whenDefined } = customElements ) {
-    window.customElements
+    customElements
       .define = this
-        ._define (_=> {}) // (define)
+        .define (_=> {}) // (define)
         .bind (this)
   }
 
-  _define ( delegate ) {
+  define ( delegate ) {
 
     // this.running = undefined
 
@@ -345,7 +345,7 @@ new class CustomElementRegistry {
         && element.connectedCallback ()
   }
 
-  // http://nshipster.com/method-swizzling/
+// http://nshipster.com/method-swizzling/
 //swizzle ( name, ... Class ) { }
 
 }
