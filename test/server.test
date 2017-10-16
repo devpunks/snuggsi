@@ -5,6 +5,7 @@ const
   options = { dist: 'dist' }
 , Server  = new (require ('./server'))(options)
 
+
 describe ('new Server', test => {
 
   test.doesNotThrow
