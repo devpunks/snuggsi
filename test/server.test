@@ -5,6 +5,7 @@ const
   options = { dist: 'dist' }
 , Server  = serve (options)
 
+
 describe ('new Server', test => {
 
   test.doesNotThrow
