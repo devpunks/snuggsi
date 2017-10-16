@@ -1,0 +1,10 @@
+const { describe, serve, browse }
+  = require ('test')
+
+describe ('middleware', test => {
+
+  test.equal
+    (2, 200)
+
+  test.end ()
+})
