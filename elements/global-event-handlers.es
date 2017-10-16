@@ -42,7 +42,7 @@ const GlobalEventHandlers = Element =>
         .map (Template)
 
     this.tokens =
-      new TokenList (this)
+      new DOMTokenList (this)
 
     super.onconnect
       && super.onconnect ()

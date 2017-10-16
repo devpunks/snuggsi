@@ -33,7 +33,7 @@ Enhancements to `HTMLParentElement` interface
 
 This is a `DocumentFragment` returned of the `<template>` content.
 
-## TokenList
+## DOMTokenList
 
 Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
 
