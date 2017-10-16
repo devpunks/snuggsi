@@ -4,4 +4,5 @@ const { describe, serve, browse }
 , negotiate = require ('./').negotiate
 
 describe ('new Element', test => {
+  test.end ()
 })
