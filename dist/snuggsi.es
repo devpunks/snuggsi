@@ -19,11 +19,11 @@
 
 const HTMLElement =
 
-(prototype => {
+( _ => {
   function E () {}
 
   E.prototype =
-    window.HTMLElement.prototype
+    HTMLElement.prototype
 
   return E
 })()
@@ -198,16 +198,15 @@ void (Element => {
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
 
 // https://github.com/webcomponents/template
-const Template = function (template) {
+const Template =
+
+( template => {
 
   template.length
-    && (template = document.querySelector
-        ('template[name='+template+']'))
+    && ( template = document.querySelector
+       ( 'template[name=' + template + '' + ']' ) )
 
   template.hidden = true
-
-  template.HTML =
-    template.innerHTML
 
   template.bind =
     bind.bind (template)
@@ -221,7 +220,7 @@ const Template = function (template) {
         document.createElement ('section')
 
     , deposit = (html, context, index) => {
-        let clone = this.HTML
+        let clone = this.innerHTML
 
         typeof context != 'object'
           && ( context  = { self: context })
@@ -251,14 +250,14 @@ const Template = function (template) {
       this.nextSibling
 
     for (let dependent of
-          this.dependents = // non-live
+          this.dependents = // non-live nodelist
             [].slice.call (fragment.childNodes))
 
         this
           .parentNode
           .insertBefore (dependent, anchor)
   }
-}
+})
 
 // The CustomElementRegistry Interface
 // WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
@@ -519,8 +518,6 @@ const GlobalEventHandlers = Element =>
 
     super.onconnect
       && super.onconnect ()
-
-    return this
   }
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
@@ -573,9 +570,8 @@ const Custom = Element => // why buble
       (Element.prototype).map
         (this.reflect, this)
 
-    this
-      .onconnect ()
-      .render    ()
+    this.onconnect ()
+    this.render    ()
   }
 
 
@@ -601,31 +597,31 @@ const Custom = Element => // why buble
 // http://2ality.com/2013/09/window.html
 // http://tobyho.com/2013/03/13/window-prop-vs-global-var
 
-const Element = (
-  Element => {
+const Element =
 
-    const E =
-      (tag, constructor) => {
+( _ => {
+
+  const E = tag => {
 
 //      const constructor =// swizzle
 //        typeof tag === 'string'
 //    //    ? HTMLCustomElement
 //    //    : HTMLElement
 
-          //https://gist.github.com/allenwb/53927e46b31564168a1d
-          // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
-          // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
+        //https://gist.github.com/allenwb/53927e46b31564168a1d
+        // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
+        // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-            return klass => // https://en.wikipedia.org/wiki/Higher-order_function
+      return klass => // https://en.wikipedia.org/wiki/Higher-order_function
 
-              window.customElements.define
-                ( tag + '', Custom (klass), { constructor })
-      }
+        window.customElements.define
+          ( tag + '', Custom (klass))
+    }
 
-    // Assign `window.Element.prototype` in case of feature checking on `Element`
-    E.prototype = Element.prototype
+  // Assign `window.Element.prototype` in case of feature checking on `Element`
+//  E.prototype = Element.prototype
 
-    return E
+  return E
 
-}) (window.Element)
+}) ()
 
