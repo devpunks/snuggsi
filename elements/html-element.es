@@ -19,11 +19,11 @@
 
 const HTMLElement =
 
-(prototype => {
+( _ => {
   function E () {}
 
   E.prototype =
-    window.HTMLElement.prototype
+    HTMLElement.prototype
 
   return E
 })()
