@@ -17,4 +17,4 @@ $ROOT/node_modules/.bin/tape \
   -r $ROOT/polyfills \
   -r $ROOT/test/index.es \
 -- $FILES \
- | $COVERAGE
+# | $COVERAGE
