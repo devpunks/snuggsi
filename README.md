@@ -338,7 +338,7 @@ template.bind (context)
 
   <h1>foo-bar custom element</h1>
 
-  <slot name=content>Some Default Content</slot>
+  <slot name="content">Some Default Content</slot>
 
   <ul>
   <template name=bat>
