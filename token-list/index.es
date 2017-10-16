@@ -3,7 +3,6 @@
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
   // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
   // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
-  // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
 
 class TokenList {
 
