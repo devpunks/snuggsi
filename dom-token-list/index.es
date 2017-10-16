@@ -4,7 +4,7 @@
 // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
 // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
 
-class TokenList {
+class DOMTokenList {
 
   constructor (node, symbol) {
 
