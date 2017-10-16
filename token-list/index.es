@@ -15,7 +15,7 @@ class TokenList {
 
     , visit = node =>
         node.tagName
-          && node.tagName != 'TEMPLATE'
+          &&  node.localName != 'template'
             ? ELEMENT_NODE (node.attributes)
             : expression.test (node.textContent) && nodes.push (node)
 
