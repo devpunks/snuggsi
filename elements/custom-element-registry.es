@@ -56,38 +56,26 @@ new class CustomElementRegistry {
 
 
   queue ( name, constructor ) {
-    // perhaps this goes in swizzle
-//  (this [name] = constructor)
-//    .localName = name // set localName
-
     return event =>
       // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       [].slice
         .call ( document.getElementsByTagName (name) )
-        .map  ( this.upgrade ( (this [name] = constructor) ) )
+        .map  ( this.upgrade ( constructor.prototype ) )
   }
 
 
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
-  upgrade (proto) {
-
-    console.warn ('Upgrading constructor')
+  upgrade (constructor) {
 
     // Here's where we can swizzle
     // see this.swizzle ()
 
     return element => {
-//    console.warn ('element', proto, element.__proto__);
-
-//    console.warn ((element.prototype = proto.prototype))
-//    console.warn ((element.__proto__ = proto.__proto__))
-
-      Object.setPrototypeOf (element, proto)
-      console.warn ('element', element.connectedCallback);
-
-//      && element.connectedCallback
-//      && element.connectedCallback ()
+      Object.setPrototypeOf
+        (element, constructor)
+          .connectedCallback
+            && element.connectedCallback ()
     }
   }
 
