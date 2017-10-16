@@ -83,7 +83,7 @@ new class CustomElementRegistry {
         && element.connectedCallback ()
   }
 
-  // http://nshipster.com/method-swizzling/
+// http://nshipster.com/method-swizzling/
 //swizzle ( name, ... Class ) { }
 
 }
