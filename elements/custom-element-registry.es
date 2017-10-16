@@ -73,16 +73,16 @@ new class CustomElementRegistry {
   upgrade (constructor) {
 
     // Here's where we can swizzle
+    // see this.swizzle ()
 
     return element =>
-      Object.setPrototypeOf
-        (element, constructor.prototype)
-
-      .connectedCallback
+      (element.prototype = constructor.prototype)
+        && element.connectedCallback
         && element.connectedCallback ()
   }
 
 // http://nshipster.com/method-swizzling/
-//swizzle ( name, ... Class ) { }
-
+//swizzle ( name, ... Class ) {
+//  see elements/html-custom-element.es
+//}
 }
