@@ -8,8 +8,6 @@ const
 
 describe ('new Server', test => {
 
-  console.warn ('The server', Server)
-
   test.doesNotThrow
     ( _ => new Server (options) )
 
