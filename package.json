@@ -36,7 +36,7 @@
     "example": "examples"
   },
   "scripts": {
-    "start": "node --harmony ./index.es",
+    "start": "node ./index.es",
     "postinstall": "bin/publish",
     "package": "bin/package",
     "test": "./bin/test"
