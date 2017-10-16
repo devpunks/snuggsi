@@ -1,7 +1,7 @@
 const
   app = new (require ('koa'))
 , cors = require ('koa-cors')
-, snuggsi = require ('./middleware/index.es')
+, snuggsi = require ('./middleware')
 
 app
   .use ( cors ({ methods: ['GET'] }) )
