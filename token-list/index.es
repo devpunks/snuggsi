@@ -14,8 +14,9 @@ class TokenList {
     , expression = /{(\w+|#)}/
 
     , visit = node =>
-        ('template' != node.localName)
-          &&  node.localName
+        'template'
+          != node.localName
+          && node.localName
             ? ELEMENT_NODE (node.attributes)
             : expression.test (node.textContent) && nodes.push (node)
 
