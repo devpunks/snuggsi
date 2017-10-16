@@ -34,6 +34,22 @@ class TokenList {
       (node.text = node.textContent)
         .match (/[^{]+(?=})/g)
         .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
+
+
+    function slice (text) {
+      const
+        tokens = []
+
+        // stored regex is faster https://jsperf.com/regexp-indexof-perf
+      , sections =
+          text
+            .replace (/({\w+})/g,
+              (token => tokens.push (token) && '✂️'))
+            .split ('✂️')
+
+      return zip (tokens, sections)
+            .map (element => element && new Text (element))
+    }
   }
 
   bind (context) {
@@ -59,17 +75,4 @@ class TokenList {
       .map  (restore)
   }
 }
-
-//function slice (text, tokens = []) {
-//  const
-//    match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
-//  , replace  = token => (collect (token), '✂️')
-//  , collect  = token => tokens.push (token)
-//  , sections = text
-//      .replace (match, replace)
-//        .split ('✂️')
-
-//  return zip (tokens, sections)
-//        .map (element => element && new Text (element))
-//}
 
