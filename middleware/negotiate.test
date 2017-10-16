@@ -3,5 +3,3 @@ const
     = require ('test')
 
 , negotiate = require ('./').negotiate
-
-console.log ('what the hell!', negotiate)
