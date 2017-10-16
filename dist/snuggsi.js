@@ -19,11 +19,11 @@
 
 var HTMLElement =
 
-(function (prototype) {
+( function (_) {
   function E () {}
 
   E.prototype =
-    window.HTMLElement.prototype
+    HTMLElement.prototype
 
   return E
 })()
@@ -211,16 +211,15 @@ void (function (Element) {
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
 
 // https://github.com/webcomponents/template
-var Template = function (template) {
+var Template =
+
+( function (template) {
 
   template.length
-    && (template = document.querySelector
-        ('template[name='+template+']'))
+    && ( template = document.querySelector
+       ( 'template[name=' + template + '' + ']' ) )
 
   template.hidden = true
-
-  template.HTML =
-    template.innerHTML
 
   template.bind =
     bind.bind (template)
@@ -236,7 +235,7 @@ var Template = function (template) {
         document.createElement ('section')
 
     , deposit = function (html, context, index) {
-        var clone = this$1.HTML
+        var clone = this$1.innerHTML
 
         typeof context != 'object'
           && ( context  = { self: context })
@@ -268,7 +267,7 @@ var Template = function (template) {
     anchor =
       this.nextSibling
 
-    for (var i$1 = 0, list$1 = this$1.dependents = // non-live
+    for (var i$1 = 0, list$1 = this$1.dependents = // non-live nodelist
             [].slice.call (fragment.childNodes); i$1 < list$1.length; i$1 += 1)
 
         {
@@ -279,7 +278,7 @@ var Template = function (template) {
           .insertBefore (dependent, anchor)
     }
   }
-}
+})
 
 // The CustomElementRegistry Interface
 // WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
@@ -474,8 +473,6 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
     Element.prototype.onconnect
       && Element.prototype.onconnect.call (this)
-
-    return this
   };
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
@@ -537,9 +534,8 @@ var Custom = function (Element) { return ( (function (superclass) {
       (Element.prototype).map
         (this.reflect, this)
 
-    this
-      .onconnect ()
-      .render    ()
+    this.onconnect ()
+    this.render    ()
   };
 
 
@@ -575,30 +571,30 @@ var Custom = function (Element) { return ( (function (superclass) {
 // http://2ality.com/2013/09/window.html
 // http://tobyho.com/2013/03/13/window-prop-vs-global-var
 
-var Element = (
-  function (Element) {
+var Element =
 
-    var E =
-      function (tag, constructor) {
+( function (_) {
+
+  var E = function (tag) {
 
 //      const constructor =// swizzle
 //        typeof tag === 'string'
 //    //    ? HTMLCustomElement
 //    //    : HTMLElement
 
-          //https://gist.github.com/allenwb/53927e46b31564168a1d
-          // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
-          // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
+        //https://gist.github.com/allenwb/53927e46b31564168a1d
+        // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
+        // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-            return function (klass) { return window.customElements.define
-                ( tag + '', Custom (klass), { constructor: constructor }); }
-      }
+      return function (klass) { return window.customElements.define
+          ( tag + '', Custom (klass)); }
+    }
 
-    // Assign `window.Element.prototype` in case of feature checking on `Element`
-    E.prototype = Element.prototype
+  // Assign `window.Element.prototype` in case of feature checking on `Element`
+//  E.prototype = Element.prototype
 
-    return E
+  return E
 
-}) (window.Element)
+}) ()
 
 
