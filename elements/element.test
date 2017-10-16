@@ -1,8 +1,11 @@
 const { describe, serve, browse }
   = require ('test')
 
+let document
+
 describe ('new Element', test => {
-  const document = browse ('index')
+
+  document = browse `index`
 
   test.ok
     (document.querySelector `foo-bar`)
