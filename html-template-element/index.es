@@ -57,7 +57,7 @@ const Template =
       this.nextSibling
 
     for (let dependent of
-          this.dependents = // non-live
+          this.dependents = // non-live nodelist
             [].slice.call (fragment.childNodes))
 
         this
