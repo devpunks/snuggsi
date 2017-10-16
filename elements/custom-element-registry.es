@@ -30,7 +30,7 @@ new class CustomElementRegistry {
         .bind (this)
   }
 
-  _define ( delegate = _=> {} ) {
+  _define ( delegate ) {
 
     // this.running = undefined
 
