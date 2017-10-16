@@ -5,7 +5,7 @@ const Element =
 
 ( _ => {
 
-  const E = (tag) => {
+  const E = tag => {
 
 //      const constructor =// swizzle
 //        typeof tag === 'string'
