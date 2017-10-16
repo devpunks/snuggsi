@@ -13,23 +13,26 @@ const Template =
     && ( template = document.querySelector
        ( 'template[name=' + template + '' + ']' ) )
 
-  template.hidden = true
+  let
+    HTML   = template.innerHTML
+  , anchor = template.nextSibling
+
+  console.warn (HTML, anchor)
+  template.innerHTML = ''
 
   template.bind =
     bind.bind (template)
 
   return template
 
-  function bind (context, anchor) {
+  function bind (context) {
 
     const
       fragment =
         document.createElement ('section')
 
     , deposit = (html, context, index) => {
-      console.warn (this.innerHTML)
-
-        let clone = this.innerHTML
+        let clone = HTML
 
         typeof context != 'object'
           && ( context  = { self: context })
@@ -54,9 +57,6 @@ const Template =
         .concat (context)
         .reduce (deposit, '')
 
-
-    anchor =
-      this.nextSibling
 
     for (let dependent of
           this.dependents = // non-live nodelist
