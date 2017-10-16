@@ -32,8 +32,10 @@ const Custom = Element => // why buble
       .bind (this)
 
     void
-      [this, ... this.selectAll ('*')]
-        .map (this.register, this)
+
+    [this]
+      .concat (this.selectAll ('*'))
+      .map    (this.register, this)
 
     super.onidle && super.onidle ()
   }
