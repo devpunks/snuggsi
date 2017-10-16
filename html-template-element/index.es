@@ -27,6 +27,8 @@ const Template =
         document.createElement ('section')
 
     , deposit = (html, context, index) => {
+      console.warn (this.innerHTML)
+
         let clone = this.innerHTML
 
         typeof context != 'object'

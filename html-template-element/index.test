@@ -13,7 +13,7 @@
 // investigate `Text.splitText ()`
 // Recurse through elements and bind event handlers
 // https://developer.mozilla.org/en-US/docs/Web/API/Text/splitText
-/
+//
 // Greatly improve <template> implementaiton
 // https://github.com/tmpvar/jsdom/commit/ceb79457dd01a19f56a615cf6a78598be8ed36b8
 var fetch = resource => fs.readFileSync (resource, `utf-8`)
@@ -23,7 +23,7 @@ var dom = require (`jsdom`)
   , item = `Foo`
   , script = './elements/template.js'
 //, src = [fs.readFileSync (script, 'utf-8')]
-  , template = fetch (`./elements/template.html`)
+  , template = fetch (`./index.html`)
   , element = `<ul id='items'>\n\n</ul>\n\n${template}\n\n`
 
 
@@ -31,7 +31,7 @@ var configuration = {
   //url: 'http://foo.bar.com',
   //html: element,
   // file: a file which jsdom will load HTML from; the resulting document's URL will be a file:// URL,
-  scripts: [script],
+//scripts: [script],
 //src: src
 }
 
