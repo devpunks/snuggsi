@@ -14,7 +14,7 @@ _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` script
 
 *Mime Type* : `application/javascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-7.2))_
 
-*Weight* : ~ 1,400 OCTETS _(1.4kiloBytes)_
+*Weight* : ~ 1,600 OCTETS _(1.6kiloBytes)_
 
 
 ## Glossary
