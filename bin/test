@@ -4,8 +4,10 @@
 
 # https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
 export ROOT=$(pwd)
-
-export FILES="./{test,middleware,elements}/index.test"
+export ENTRY="index.test"
+#export PATHS="{test,middleware,elements}"
+export PATHS="{test,elements}"
+export FILES="./$PATHS/$ENTRY"
 
 # https://gist.github.com/branneman/8775568
 # https://gist.github.com/branneman/8048520
