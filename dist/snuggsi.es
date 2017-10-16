@@ -23,19 +23,18 @@ const HTMLElement =
   function E () {}
 
   E.prototype =
-    HTMLElement.prototype
+    window.HTMLElement.prototype
 
   return E
 })()
 
-  // http://jsfiddle.net/zaqtg/10
-  // https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
-  // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-  // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
-  // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
-  // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
+// http://jsfiddle.net/zaqtg/10
+// https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
+// https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
+// https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
+// https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
 
-class TokenList {
+class DOMTokenList {
 
   constructor (node, symbol) {
 
@@ -44,9 +43,9 @@ class TokenList {
     , expression = /{(\w+|#)}/
 
     , visit = node =>
-        node.tagName
-          ? ELEMENT_NODE (node.attributes)
-          : expression.test (node.textContent) && nodes.push (node)
+        node.localName
+            ? ELEMENT_NODE (node.attributes)
+            : expression.test (node.textContent) && nodes.push (node)
 
     , ELEMENT_NODE = (attrs) =>
         [].slice
@@ -57,12 +56,15 @@ class TokenList {
         document.createNodeIterator
           (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
 
+
     while (walker.nextNode ()) 0 // Walk all nodes and do nothing.
+
 
     for (node of nodes)
       (node.text = node.textContent)
         .match (/[^{]+(?=})/g)
         .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
+
   }
 
   bind (context) {
@@ -88,19 +90,6 @@ class TokenList {
       .map  (restore)
   }
 }
-
-//function slice (text, tokens = []) {
-//  const
-//    match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
-//  , replace  = token => (collect (token), '✂️')
-//  , collect  = token => tokens.push (token)
-//  , sections = text
-//      .replace (match, replace)
-//        .split ('✂️')
-
-//  return zip (tokens, sections)
-//        .map (element => element && new Text (element))
-//}
 
 // Preloading - https://w3c.github.io/preload
 // Resource Hints - https://www.w3.org/TR/resource-hints
@@ -206,21 +195,25 @@ const Template =
     && ( template = document.querySelector
        ( 'template[name=' + template + '' + ']' ) )
 
-  template.hidden = true
+  let
+    HTML   = template.innerHTML
+  , anchor = template.nextSibling
+
+  template.innerHTML = ''
 
   template.bind =
     bind.bind (template)
 
   return template
 
-  function bind (context, anchor) {
+  function bind (context) {
 
     const
       fragment =
         document.createElement ('section')
 
     , deposit = (html, context, index) => {
-        let clone = this.innerHTML
+        let clone = HTML
 
         typeof context != 'object'
           && ( context  = { self: context })
@@ -245,9 +238,6 @@ const Template =
         .concat (context)
         .reduce (deposit, '')
 
-
-    anchor =
-      this.nextSibling
 
     for (let dependent of
           this.dependents = // non-live nodelist
@@ -284,7 +274,7 @@ const Template =
 
 new class CustomElementRegistry {
 
-  constructor ({ define, get, whenDefined } = customElements ) {
+  constructor ({ define /* , get, whenDefined */ } = customElements ) {
     customElements
       .define = this
         .define (_=> {}) // (define)
@@ -299,17 +289,13 @@ new class CustomElementRegistry {
 
     return ( name, constructor ) =>
       (delegate).apply
-        ( window.customElements, this.register ( name, constructor ) )
+        ( customElements, this.register ( name, constructor ) )
   }
 
 
-  register (name, constructor) {
-    // perhaps this goes in swizzle
-    (this [name] = constructor)
-      .localName = name
+  register () {
 
-
-    'loading' === document.readyState
+    'loading' == document.readyState
 
       ? document.addEventListener
         ('DOMContentLoaded', this.queue ( ... arguments ))
@@ -323,10 +309,9 @@ new class CustomElementRegistry {
   queue ( name, constructor ) {
     return event =>
       // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
-      [].slice.call (document.getElementsByTagName (name))
-        // .reverse () // should be able to do depth first
-        .map
-          (this.upgrade (constructor))
+      [].slice
+        .call ( document.getElementsByTagName (name) )
+        .map  ( this.upgrade ( constructor.prototype ) )
   }
 
 
@@ -335,18 +320,20 @@ new class CustomElementRegistry {
   upgrade (constructor) {
 
     // Here's where we can swizzle
+    // see this.swizzle ()
 
-    return element =>
+    return element => {
       Object.setPrototypeOf
-        (element, constructor.prototype)
-
-      .connectedCallback
-        && element.connectedCallback ()
+        (element, constructor)
+          .connectedCallback
+            && element.connectedCallback ()
+    }
   }
 
 // http://nshipster.com/method-swizzling/
-//swizzle ( name, ... Class ) { }
-
+//swizzle ( name, ... Class ) {
+//  see elements/html-custom-element.es
+//}
 }
 const ParentNode = Element =>
 
@@ -514,7 +501,7 @@ const GlobalEventHandlers = Element =>
         .map (Template)
 
     this.tokens =
-      new TokenList (this)
+      new DOMTokenList (this)
 
     super.onconnect
       && super.onconnect ()
@@ -566,9 +553,9 @@ const Custom = Element => // why buble
     super.initialize
       && super.initialize ()
 
-    Object.getOwnPropertyNames
-      (Element.prototype).map
-        (this.reflect, this)
+    Object
+      .getOwnPropertyNames (Element.prototype)
+      .map (this.reflect, this)
 
     this.onconnect ()
     this.render    ()
@@ -586,8 +573,10 @@ const Custom = Element => // why buble
       .bind (this)
 
     void
-      [this, ... this.selectAll ('*')]
-        .map (this.register, this)
+
+    [this]
+      .concat (this.selectAll ('*'))
+      .map    (this.register, this)
 
     super.onidle && super.onidle ()
   }
