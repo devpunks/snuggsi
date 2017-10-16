@@ -4,6 +4,8 @@ const
 , app     = new (require ('koa'))
 , cors    = require ('koa-cors')
 
+console.warn ('snuggsi', snuggsi)
+
 //app
 //  .use ( cors ({ methods: ['GET'] }) )
 
