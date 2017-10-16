@@ -10,8 +10,8 @@ const Template =
 ( template => {
 
   template.length
-    && (template = document.querySelector
-        ('template[name='+template+']'))
+    && ( template = document.querySelector
+       ( 'template[name=' + template + '' + ']' ) )
 
   template.hidden = true
 
