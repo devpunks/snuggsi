@@ -1,2 +1,1 @@
-console.warn ('testing elements')
 require ('./element.test')
