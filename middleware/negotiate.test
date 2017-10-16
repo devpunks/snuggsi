@@ -1,5 +1,4 @@
-const
-  { describe, serve, browse }
-    = require ('test')
+const { describe, serve, browse }
+  = require ('test')
 
 , negotiate = require ('./').negotiate
