@@ -67,5 +67,5 @@ const Template =
           .parentNode
           .insertBefore (dependent, anchor)
   }
-}
+})
 
