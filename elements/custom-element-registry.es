@@ -38,7 +38,7 @@ new class CustomElementRegistry {
 
     return ( name, constructor ) =>
       (delegate).apply
-        ( window.customElements, this.register ( name, constructor ) )
+        ( customElements, this.register ( name, constructor ) )
   }
 
 
