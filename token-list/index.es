@@ -15,8 +15,9 @@ class TokenList {
 
     , visit = node =>
         node.tagName
-          ? ELEMENT_NODE (node.attributes)
-          : expression.test (node.textContent) && nodes.push (node)
+          && node.tagName != 'TEMPLATE'
+            ? ELEMENT_NODE (node.attributes)
+            : expression.test (node.textContent) && nodes.push (node)
 
     , ELEMENT_NODE = (attrs) =>
         [].slice
