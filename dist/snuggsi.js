@@ -23,19 +23,18 @@ var HTMLElement =
   function E () {}
 
   E.prototype =
-    HTMLElement.prototype
+    window.HTMLElement.prototype
 
   return E
 })()
 
-  // http://jsfiddle.net/zaqtg/10
-  // https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
-  // https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-  // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
-  // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
-  // NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_COMMENT | NodeFilter.SHOW_TEXT
+// http://jsfiddle.net/zaqtg/10
+// https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
+// https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
+// https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
+// https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
 
-var TokenList = function (node, symbol) {
+var DOMTokenList = function (node, symbol) {
   var this$1 = this;
 
 
@@ -43,9 +42,9 @@ var TokenList = function (node, symbol) {
     nodes = []
   , expression = /{(\w+|#)}/
 
-  , visit = function (node) { return node.tagName
-        ? ELEMENT_NODE (node.attributes)
-        : expression.test (node.textContent) && nodes.push (node); }
+  , visit = function (node) { return node.localName
+          ? ELEMENT_NODE (node.attributes)
+          : expression.test (node.textContent) && nodes.push (node); }
 
   , ELEMENT_NODE = function (attrs) { return [].slice
         .call (attrs)
@@ -55,7 +54,9 @@ var TokenList = function (node, symbol) {
       document.createNodeIterator
         (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
 
+
   while (walker.nextNode ()) { 0 } // Walk all nodes and do nothing.
+
 
   for (var i = 0, list = nodes; i < list.length; i += 1)
     {
@@ -65,9 +66,10 @@ var TokenList = function (node, symbol) {
       .match (/[^{]+(?=})/g)
       .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); })
   }
+
 };
 
-TokenList.prototype.bind = function (context) {
+DOMTokenList.prototype.bind = function (context) {
     var this$1 = this;
 
 
@@ -88,19 +90,6 @@ TokenList.prototype.bind = function (context) {
     .map(reset)
     .map(restore)
 };
-
-//function slice (text, tokens = []) {
-//  const
-//    match    = /({\w+})/g // stored regex is faster https://jsperf.com/regexp-indexof-perf
-//  , replace  = token => (collect (token), '✂️')
-//  , collect  = token => tokens.push (token)
-//  , sections = text
-//      .replace (match, replace)
-//        .split ('✂️')
-
-//  return zip (tokens, sections)
-//        .map (element => element && new Text (element))
-//}
 
 // Preloading - https://w3c.github.io/preload
 // Resource Hints - https://www.w3.org/TR/resource-hints
@@ -219,14 +208,18 @@ var Template =
     && ( template = document.querySelector
        ( 'template[name=' + template + '' + ']' ) )
 
-  template.hidden = true
+  var
+    HTML   = template.innerHTML
+  , anchor = template.nextSibling
+
+  template.innerHTML = ''
 
   template.bind =
     bind.bind (template)
 
   return template
 
-  function bind (context, anchor) {
+  function bind (context) {
     var this$1 = this;
 
 
@@ -235,7 +228,7 @@ var Template =
         document.createElement ('section')
 
     , deposit = function (html, context, index) {
-        var clone = this$1.innerHTML
+        var clone = HTML
 
         typeof context != 'object'
           && ( context  = { self: context })
@@ -263,9 +256,6 @@ var Template =
         .concat (context)
         .reduce (deposit, '')
 
-
-    anchor =
-      this.nextSibling
 
     for (var i$1 = 0, list$1 = this$1.dependents = // non-live nodelist
             [].slice.call (fragment.childNodes); i$1 < list$1.length; i$1 += 1)
@@ -307,8 +297,6 @@ new (function () {
   function CustomElementRegistry (ref ) {
   if ( ref === void 0 ) ref = customElements;
   var define = ref.define;
-  var get = ref.get;
-  var whenDefined = ref.whenDefined;
 
     customElements
       .define = this
@@ -325,17 +313,13 @@ new (function () {
     //  definition = this.swizzle ( definition );
 
     return function ( name, constructor ) { return (delegate).apply
-        ( window.customElements, this$1.register ( name, constructor ) ); }
+        ( customElements, this$1.register ( name, constructor ) ); }
   };
 
 
-  CustomElementRegistry.prototype.register = function (name, constructor) {
-    // perhaps this goes in swizzle
-    (this [name] = constructor)
-      .localName = name
+  CustomElementRegistry.prototype.register = function () {
 
-
-    'loading' === document.readyState
+    'loading' == document.readyState
 
       ? document.addEventListener
         ('DOMContentLoaded', (ref = this).queue.apply ( ref, arguments ))
@@ -351,10 +335,9 @@ new (function () {
   CustomElementRegistry.prototype.queue = function ( name, constructor ) {
     var this$1 = this;
 
-    return function (event) { return [].slice.call (document.getElementsByTagName (name))
-        // .reverse () // should be able to do depth first
-        .map
-          (this$1.upgrade (constructor)); }
+    return function (event) { return [].slice
+        .call ( document.getElementsByTagName (name) )
+        .map  ( this$1.upgrade ( constructor.prototype ) ); }
   };
 
 
@@ -363,12 +346,14 @@ new (function () {
   CustomElementRegistry.prototype.upgrade = function (constructor) {
 
     // Here's where we can swizzle
+    // see this.swizzle ()
 
-    return function (element) { return Object.setPrototypeOf
-        (element, constructor.prototype)
-
-      .connectedCallback
-        && element.connectedCallback (); }
+    return function (element) {
+      Object.setPrototypeOf
+        (element, constructor)
+          .connectedCallback
+            && element.connectedCallback ()
+    }
   };
 
   return CustomElementRegistry;
@@ -469,7 +454,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
         .map (Template)
 
     this.tokens =
-      new TokenList (this)
+      new DOMTokenList (this)
 
     Element.prototype.onconnect
       && Element.prototype.onconnect.call (this)
@@ -530,9 +515,9 @@ var Custom = function (Element) { return ( (function (superclass) {
     superclass.prototype.initialize
       && superclass.prototype.initialize.call (this)
 
-    Object.getOwnPropertyNames
-      (Element.prototype).map
-        (this.reflect, this)
+    Object
+      .getOwnPropertyNames (Element.prototype)
+      .map (this.reflect, this)
 
     this.onconnect ()
     this.render    ()
@@ -556,8 +541,10 @@ var Custom = function (Element) { return ( (function (superclass) {
       .bind (this)
 
     void
-      [this ].concat( this.selectAll ('*'))
-        .map (this.register, this)
+
+    [this]
+      .concat (this.selectAll ('*'))
+      .map    (this.register, this)
 
     superclass.prototype.onidle && superclass.prototype.onidle.call (this)
   };
