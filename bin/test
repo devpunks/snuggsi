@@ -6,8 +6,9 @@
 export ROOT=$(pwd)
 export ENTRY="index.test"
 #export PATHS="{test,middleware,elements}"
-export PATHS="{test,elements}"
+export PATHS="{test,middleware,elements}"
 export FILES="./$PATHS/$ENTRY"
+export COVERAGE="$ROOT/node_modules/.bin/tap-nyc"
 
 # https://gist.github.com/branneman/8775568
 # https://gist.github.com/branneman/8048520
