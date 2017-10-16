@@ -5,7 +5,9 @@
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
 
 // https://github.com/webcomponents/template
-const Template = function (template) {
+const Template =
+
+( template => {
 
   template.length
     && (template = document.querySelector
