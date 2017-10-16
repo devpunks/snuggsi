@@ -300,7 +300,7 @@ var Template = function (template) {
 //     - https://html.spec.whatwg.org/#cereactions
 
 
-!!! window.customElements
+! window.customElements
   && (window.customElements = {/* microfill */})
 
 
@@ -313,13 +313,12 @@ new (function () {
 
     window.customElements
       .define = this
-        ._define (undefined) // (define)
+        ._define (function (_){}) // (define)
         .bind (this)
   }
 
   CustomElementRegistry.prototype._define = function ( delegate ) {
     var this$1 = this;
-    if ( delegate === void 0 ) delegate = function (_){};
 
 
     // this.running = undefined
@@ -372,12 +371,6 @@ new (function () {
       .connectedCallback
         && element.connectedCallback (); }
   };
-
-  // http://nshipster.com/method-swizzling/
-  CustomElementRegistry.prototype.swizzle = function ( name ) {
-    var Class = [], len = arguments.length - 1;
-    while ( len-- > 0 ) Class[ len ] = arguments[ len + 1 ];
- };
 
   return CustomElementRegistry;
 }())
