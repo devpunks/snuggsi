@@ -1,6 +1,6 @@
 # `bin` Scripts
 
-_Run the following scripts after cloning repository_
+_The following script will clone repository and install developer dependencies_
 
 ```bash
 $ git clone https://github.com/devpunks/snuggsi.git
