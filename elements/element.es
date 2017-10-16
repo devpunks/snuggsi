@@ -5,7 +5,7 @@ const Element =
 
 ( _ => {
 
-  const E = (tag, constructor) => {
+  const E = (tag) => {
 
 //      const constructor =// swizzle
 //        typeof tag === 'string'
@@ -19,7 +19,7 @@ const Element =
       return klass => // https://en.wikipedia.org/wiki/Higher-order_function
 
         window.customElements.define
-          ( tag + '', Custom (klass), { constructor })
+          ( tag + '', Custom (klass))
     }
 
   // Assign `window.Element.prototype` in case of feature checking on `Element`
