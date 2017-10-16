@@ -2,3 +2,6 @@ const { describe, serve, browse }
   = require ('test')
 
 , negotiate = require ('./').negotiate
+
+describe ('new Element', test => {
+})
