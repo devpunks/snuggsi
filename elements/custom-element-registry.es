@@ -62,8 +62,9 @@ new class CustomElementRegistry {
   queue ( name, constructor ) {
     return event =>
       // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
-      for (let tag of document.getElementsByTagName (name))
-          this.upgrade (constructor)
+      [].slice
+        .call (document.getElementsByTagName (name))
+        .map  (this.upgrade (constructor))
   }
 
 
