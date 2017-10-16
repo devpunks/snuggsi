@@ -2,3 +2,10 @@ const { describe, serve, browse }
   = require ('test')
 
 
+describe ('unresolved element', test => {
+
+  test.ok (true)
+
+  test.end ()
+})
+
