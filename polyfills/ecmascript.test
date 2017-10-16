@@ -2,7 +2,7 @@ const { describe, serve, browse }
   = require ('test')
 
 
-describe ('unresolved element', test => {
+describe ('ecmascript extension', test => {
 
   test.ok (true)
 
