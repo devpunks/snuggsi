@@ -9,6 +9,8 @@ export PATHS="{test,middleware,mixins,elements}"
 export FILES="$ROOT/$PATHS/$ENTRY"
 export COVERAGE="$ROOT/node_modules/.bin/tap-nyc"
 
+echo "$FILES"
+
 # https://gist.github.com/branneman/8775568
 # https://gist.github.com/branneman/8048520
 export NODE_PATH=$ROOT:$NODE_PATH
