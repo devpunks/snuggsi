@@ -16,9 +16,8 @@ const Custom = Element => // why buble
       (Element.prototype).map
         (this.reflect, this)
 
-    this
-      .onconnect ()
-      .render    ()
+    this.onconnect ()
+    this.render    ()
   }
 
 
