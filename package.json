@@ -36,7 +36,7 @@
   },
   "scripts": {
     "test": "bin/test",
-    "start": "node ./index.es",
+    "start": "bin/serve",
     "postinstall": "bin/publish",
     "package": "bin/package",
     "postinstall": "bin/publish",
