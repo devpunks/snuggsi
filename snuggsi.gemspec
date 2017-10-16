@@ -7,7 +7,7 @@ Gem::Specification.new do |spec|
   spec.name          = "snuggsi"
   spec.version       = Snuggsi::VERSION
   spec.authors       = ["Snuggs", "Brandon Dees"]
-  spec.email         = ["rashaunstovall@gmail.com"]
+  spec.email         = ["snuggs@github.com"]
 
   spec.summary       = %q{snuggsi ツ - Easy Web Components}
   spec.description   = %q{snuggsi ツ - Easy Web Components}
