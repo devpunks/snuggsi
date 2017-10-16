@@ -17,7 +17,6 @@ const Template =
     HTML   = template.innerHTML
   , anchor = template.nextSibling
 
-  console.warn (HTML, anchor)
   template.innerHTML = ''
 
   template.bind =
