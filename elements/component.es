@@ -12,9 +12,9 @@ const Custom = Element => // why buble
     super.initialize
       && super.initialize ()
 
-    Object.getOwnPropertyNames
-      (Element.prototype).map
-        (this.reflect, this)
+    Object
+      .getOwnPropertyNames (Element.prototype)
+      .map (this.reflect, this)
 
     this.onconnect ()
     this.render    ()
