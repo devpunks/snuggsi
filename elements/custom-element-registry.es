@@ -26,11 +26,11 @@ new class CustomElementRegistry {
   constructor ({ define, get, whenDefined } = customElements ) {
     customElements
       .define = this
-        ._define (_=> {}) // (define)
+        .define (_=> {}) // (define)
         .bind (this)
   }
 
-  _define ( delegate ) {
+  define ( delegate ) {
 
     // this.running = undefined
 
