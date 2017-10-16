@@ -13,9 +13,7 @@ class DOMTokenList {
     , expression = /{(\w+|#)}/
 
     , visit = node =>
-        'template'
-          != node.localName
-          && node.localName
+        node.localName
             ? ELEMENT_NODE (node.attributes)
             : expression.test (node.textContent) && nodes.push (node)
 
