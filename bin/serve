@@ -1,10 +1,7 @@
-#!/bin/bash
-
 export ROOT=$(pwd)
-export ENTRY="$ROOT/index"
+export ENTRY="$ROOT/index.es"
 
 node \
-# Experimental HTTP/2 flag https://nodejs.org/api/cli.html#cli_expose_http2
-# --expose-http2 \
   --require $ROOT/polyfills \
--- $ENTRY
+  --expose-http2 \ # Experimental HTTP/2 flag https://nodejs.org/api/cli.html#cli_expose_http2
+./index.es
