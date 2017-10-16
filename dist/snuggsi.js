@@ -311,13 +311,13 @@ new (function () {
   var get = ref.get;
   var whenDefined = ref.whenDefined;
 
-    window.customElements
+    customElements
       .define = this
-        ._define (function (_){}) // (define)
+        .define (function (_){}) // (define)
         .bind (this)
   }
 
-  CustomElementRegistry.prototype._define = function ( delegate ) {
+  CustomElementRegistry.prototype.define = function ( delegate ) {
     var this$1 = this;
 
 
