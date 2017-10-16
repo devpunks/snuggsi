@@ -279,7 +279,7 @@ const Template = function (template) {
 //     - https://html.spec.whatwg.org/#cereactions
 
 
-!!! window.customElements
+! window.customElements
   && (window.customElements = {/* microfill */})
 
 
@@ -288,11 +288,11 @@ new class CustomElementRegistry {
   constructor ({ define, get, whenDefined } = customElements ) {
     window.customElements
       .define = this
-        ._define (undefined) // (define)
+        ._define (_=> {}) // (define)
         .bind (this)
   }
 
-  _define ( delegate = _=> {} ) {
+  _define ( delegate ) {
 
     // this.running = undefined
 
@@ -346,7 +346,7 @@ new class CustomElementRegistry {
   }
 
   // http://nshipster.com/method-swizzling/
-  swizzle ( name, ... Class ) { }
+//swizzle ( name, ... Class ) { }
 
 }
 const ParentNode = Element =>
