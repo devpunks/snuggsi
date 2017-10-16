@@ -1,7 +1,8 @@
 const
-  app = new (require ('koa'))
-, cors = require ('koa-cors')
-, snuggsi = require ('./middleware')
+  snuggsi = require ('./middleware')
+, port    = process.env.PORT || 80
+, app     = new (require ('koa'))
+, cors    = require ('koa-cors')
 
 app
   .use ( cors ({ methods: ['GET'] }) )
@@ -12,8 +13,8 @@ app
 
   .use ( snuggsi.assets )
 
-  .listen ( process.env.PORT || 80 )
+  .listen ( port )
 
 console.log
-  ( `listening on PORT ${process.env.PORT}` )
+  ( `listening on PORT ${port}` )
 
