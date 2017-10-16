@@ -2,6 +2,8 @@
 
 _The following script will clone repository and install developer dependencies_
 
+If you need support for windows file a ticket with [this link appended to description](http://tldp.org/LDP/abs/html/dosbatch.html).
+
 ```bash
 $ git clone https://github.com/devpunks/snuggsi.git
 $ cd snuggsi && npm i
