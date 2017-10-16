@@ -4,5 +4,5 @@ export ROOT=$(pwd)
 export ENTRY="$ROOT/" # $ROOT/index.es
 
 node \
-  --require ./polyfills/index.js \
+  --require $ROOT/polyfills \
 -- ./index.es
