@@ -1,3 +1,5 @@
+// https://github.com/w3c/webcomponents/issues/665
+//
 'use strict';
 // It's desireable to provide a default stylesheet
 // that's convenient for styling unresolved elements, but
