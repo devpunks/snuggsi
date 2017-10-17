@@ -1,7 +1,7 @@
 const { describe, serve, browse }
   = require ('test')
 
-
+// https://github.com/w3c/webcomponents/issues/665
 describe ('unresolved element', test => {
 
   test.ok (true)

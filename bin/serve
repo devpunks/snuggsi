@@ -3,5 +3,5 @@ export ENTRY="$ROOT/index.es"
 
 node \
   --require $ROOT/polyfills \
-  --expose-http2 \ # Experimental HTTP/2 flag https://nodejs.org/api/cli.html#cli_expose_http2
-./index.es
+$ENTRY
+# --expose-http2 \ # Experimental HTTP/2 flag https://nodejs.org/api/cli.html#cli_expose_http2
