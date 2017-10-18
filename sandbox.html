@@ -16,14 +16,10 @@ void (new MutationObserver (function (mutations) {
 
     m.push ({ added: added [0], removed: removed [0], previous })
   })
-})
+}))
 
-// configuration of the observer:
-var config =
-  { attributes: true, childList: true, characterData: true }
-
-// pass in the target node, as well as the observer options
-observer.observe (target, config)
+.observe
+  (document.body, { childList: true, subtree: true })
 
 setTimeout
   (_ => m.map (r => console.warn (r)), 1000)
