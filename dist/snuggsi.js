@@ -485,15 +485,15 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
     var this$1 = this;
 
 
-    for (var i = 0, list = node.attributes; i < list.length; i += 1)
-      {
+    for (var i = 0, list = [].slice.call (node.attributes); i < list.length; i += 1)
+            {
       var attribute = list[i];
 
       /^on/.test (event = attribute.name)
-      // https://www.quirksmode.org/js/events_tradmod.html
-      // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-      && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
-      && ( node [event] = this$1.renderable (this$1 [handler]) )
+            // https://www.quirksmode.org/js/events_tradmod.html
+            // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
+            && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
+            && ( node [event] = this$1.renderable (this$1 [handler]) )
     }
   };
 
