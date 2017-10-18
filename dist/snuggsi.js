@@ -431,6 +431,75 @@ var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
     return anonymous;
   }(HTMLElement))); }
 
+var GlobalEventHandlers = function (Element) { return ((function (Element) {
+    function anonymous () {
+      Element.apply(this, arguments);
+    }
+
+    if ( Element ) anonymous.__proto__ = Element;
+    anonymous.prototype = Object.create( Element && Element.prototype );
+    anonymous.prototype.constructor = anonymous;
+
+    anonymous.prototype.onconnect = function () {
+
+//  RESERVED FOR IMPORTS WTF IS GOING ON
+//  event
+//    && (target = event.target)
+//    && this.mirror
+//      (target.import.querySelector ('template'))
+
+    this.templates =
+      this
+        .selectAll ('template[name]')
+        .map (Template)
+
+    this.tokens =
+      new DOMTokenList (this)
+
+    Element.prototype.onconnect
+      && Element.prototype.onconnect.call (this)
+  };
+
+  // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
+  // Type Introspection - https://en.wikipedia.org/wiki/Type_introspection
+  //
+  // In computing, type introspection is the ability of a program
+  // to examine the type or properties of an object at runtime.
+  // Some programming languages possess this capability.
+  //
+  // Introspection should not be confused with reflection,
+  // which goes a step further and is the ability for a program to manipulate the values,
+  // meta-data, properties and/or functions of an object at runtime.
+
+  anonymous.prototype.reflect = function (handler) {
+
+    /^on/.test (handler) // `on*`
+      && handler // is a W3C event
+        in HTMLElement.prototype
+
+      && // automagically delegate event
+        this.on ( handler.substr (2), this [handler] )
+  };
+
+  anonymous.prototype.register = function (node, handler, event) {
+    var this$1 = this;
+
+
+    for (var i = 0, list = node.attributes; i < list.length; i += 1)
+      {
+      var attribute = list[i];
+
+      /^on/.test (event = attribute.name)
+      // https://www.quirksmode.org/js/events_tradmod.html
+      // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
+      && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
+      && ( node [event] = this$1.renderable (this$1 [handler]) )
+    }
+  };
+
+    return anonymous;
+  }(Element))); }
+
 var Custom = function (Element) { return ( (function (superclass) {
     function anonymous () {
       superclass.apply(this, arguments);
