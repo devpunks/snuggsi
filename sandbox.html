@@ -1,5 +1,37 @@
 <title>ツsnuggsi Easy Web Components</title>
 
+<body>
+
+<script>
+// select the target node
+var target = document.body //document.getElementById ('some-id')
+var m = []
+
+// create an observer instance
+var observer = new MutationObserver (function (mutations) {
+  console.warn ('firing', arguments [0])
+
+  mutations.forEach(function (mutation) {
+    const {addedNodes: added, removedNodes: removed, previousSibling: previous}
+      = mutation
+
+    m.push ({ added: added [0], removed: removed [0], previous })
+  })
+})
+
+// configuration of the observer:
+var config =
+  { attributes: true, childList: true, characterData: true }
+
+// pass in the target node, as well as the observer options
+observer.observe (target, config)
+
+setTimeout
+  (_ => m.map (r => console.warn (r)), 1000)
+
+
+</script>
+
 <link
   as=style
   rel='preload stylesheet'
