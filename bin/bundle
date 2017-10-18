@@ -6,6 +6,7 @@ cat                                   \
   elements/custom-element-registry.es \
   elements/parent-node.es             \
   elements/event-target.es            \
+  global-event-handlers/index.es      \
   elements/component.es               \
   elements/element.es                 \
 > dist/snuggsi.es
