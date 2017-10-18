@@ -7,8 +7,8 @@
 var m = []
 
 // create an observer instance
-var observer = new MutationObserver (function (mutations) {
-  console.warn ('firing', arguments [0])
+void (new MutationObserver (function (mutations) {
+  console.warn ('firing')
 
   mutations.forEach(function (mutation) {
     const {addedNodes: added, removedNodes: removed, previousSibling: previous}
