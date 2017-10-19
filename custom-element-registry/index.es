@@ -21,7 +21,7 @@
   && (customElements = {/* microfill */})
 
 
-new class CustomElementRegistry {
+new class {
 
   constructor () {
     customElements.define
