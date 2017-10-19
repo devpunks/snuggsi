@@ -104,16 +104,23 @@ DOMTokenList.prototype.bind = function (context) {
 // https://bugs.webkit.org/show_bug.cgi?id=172639
 // https://github.com/whatwg/html/pull/616#issuecomment-180018260
 
-void (function (Element) {
+void (function (_) {
   var xhr = new XMLHttpRequest
 
   for (var i = 0, list = document.querySelectorAll ('link[id*="-"]'); i < list.length; i += 1) {
 
     var link = list[i];
 
+    console.warn ('fuck')
+
+    link.addEventListener
+      ('load', function (event) { return console.log ('AddEventListener', event); })
+
+    link.onload = function (event) { return console.log ('Whatever', event); }
+
     xhr.open ('GET', link.href)
     xhr.responseType = 'document'
-    xhr.onload       = onload
+    xhr.onload = onload
 
     // this is kinda smelly!!!
     xhr.link         = link
@@ -353,18 +360,14 @@ new (function () {
 
 
 // create an observer instance
-window.MutationObserver &&
+//window.MutationObserver &&
 
-new MutationObserver ( function (mutations) {
-  for (var i = 0, list = mutations; i < list.length; i += 1) {
-    var mutation = list[i];
+//new MutationObserver ( mutations => {
+//  for (let mutation of mutations) mutation
+//})
 
-    mutation
-  }
-})
-
-.observe
-  (document.body, { childList: true, subtree: true })
+//.observe
+//  (document.body, { childList: true, subtree: true })
 var ParentNode = function (Element) { return ((function (Element) {
     function anonymous () {
       Element.apply(this, arguments);
