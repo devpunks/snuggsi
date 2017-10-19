@@ -18,8 +18,6 @@ void (_ => {
 
   for (let link of document.querySelectorAll ('link[id*="-"]')) {
 
-    console.warn ('fuck')
-
     link.addEventListener
       ('load', event => console.log ('AddEventListener', event.target.href))
 
