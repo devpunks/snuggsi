@@ -1,4 +1,5 @@
 // Preloading - https://w3c.github.io/preload
+// IE11 Support for Prerender / Prefetch - https://msdn.microsoft.com/en-us/library/dn265039(v=vs.85).aspx
 // Resource Hints - https://www.w3.org/TR/resource-hints
 // https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
 // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
