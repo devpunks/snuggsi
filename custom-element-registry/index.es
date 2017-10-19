@@ -92,21 +92,9 @@ var m = []
 // create an observer instance
 window.MutationObserver &&
 
-new window.MutationObserver (function (mutations) {
-  console.warn ('firing')
-
-  mutations.forEach (function (mutation) {
-    const {addedNodes: added, removedNodes: removed, previousSibling: previous}
-      = mutation
-
-    m.push ({ added: added [0], removed: removed [0], previous })
-  })
+new MutationObserver ( mutations => {
+  for (let mutation of mutations) mutation
 })
 
 .observe
   (document.body, { childList: true, subtree: true })
-
-setTimeout
-  (_ => m.map (r => console.warn (r)), 1000)
-
-
