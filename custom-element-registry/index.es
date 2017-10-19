@@ -29,8 +29,7 @@ new class CustomElementRegistry {
       //= this.define.bind (this,  customElements.define )
   }
 
-  define ( delegate ) {
-
+  define ( native, name, constructor ) {
     // this.running = undefined
 
     //  definition = this.swizzle ( definition );
