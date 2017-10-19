@@ -103,14 +103,21 @@ class DOMTokenList {
 // https://bugs.webkit.org/show_bug.cgi?id=172639
 // https://github.com/whatwg/html/pull/616#issuecomment-180018260
 
-void (Element => {
+void (_ => {
   const xhr = new XMLHttpRequest
 
   for (let link of document.querySelectorAll ('link[id*="-"]')) {
 
+    console.warn ('fuck')
+
+    link.addEventListener
+      ('load', event => console.log ('AddEventListener', event))
+
+    link.onload = event => console.log ('Whatever', event)
+
     xhr.open ('GET', link.href)
     xhr.responseType = 'document'
-    xhr.onload       = onload
+    xhr.onload = onload
 
     // this is kinda smelly!!!
     xhr.link         = link
@@ -328,14 +335,14 @@ new class /* CustomElementRegistry */ {
 
 
 // create an observer instance
-window.MutationObserver &&
+//window.MutationObserver &&
 
-new MutationObserver ( mutations => {
-  for (let mutation of mutations) mutation
-})
+//new MutationObserver ( mutations => {
+//  for (let mutation of mutations) mutation
+//})
 
-.observe
-  (document.body, { childList: true, subtree: true })
+//.observe
+//  (document.body, { childList: true, subtree: true })
 const ParentNode = Element =>
 
   // DOM Levels
