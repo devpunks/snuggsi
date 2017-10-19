@@ -60,23 +60,20 @@ new class CustomElementRegistry {
       // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       [].slice
         .call ( document.getElementsByTagName (name) )
-        .map  ( this.upgrade ( constructor.prototype ) )
+        .map  ( this.upgrade, constructor.prototype )
   }
 
 
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
-  upgrade (constructor) {
+  upgrade (element) {
 
     // Here's where we can swizzle
     // see this.swizzle ()
-
-    return element => {
-      Object.setPrototypeOf
-        (element, constructor)
-          .connectedCallback
-            && element.connectedCallback ()
-    }
+    Object.setPrototypeOf
+      (element, this)
+        .connectedCallback
+          && element.connectedCallback ()
   }
 
 // http://nshipster.com/method-swizzling/
