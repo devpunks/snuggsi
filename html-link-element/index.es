@@ -28,7 +28,7 @@ void (_ => {
     xhr.onload = onload
 
     // this is kinda smelly!!!
-    xhr.link         = link
+    xhr.link = link
     xhr.send ()
   }
 
