@@ -18,7 +18,7 @@
 
 
 ! window.customElements
-  && (window.customElements = {/* microfill */})
+  && (customElements = {/* microfill */})
 
 
 new class CustomElementRegistry {
