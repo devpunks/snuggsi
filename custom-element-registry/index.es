@@ -84,3 +84,29 @@ new class CustomElementRegistry {
 //  see elements/html-custom-element.es
 //}
 }
+
+
+// select the target node
+var m = []
+
+// create an observer instance
+window.MutationObserver &&
+
+new window.MutationObserver (function (mutations) {
+  console.warn ('firing')
+
+  mutations.forEach (function (mutation) {
+    const {addedNodes: added, removedNodes: removed, previousSibling: previous}
+      = mutation
+
+    m.push ({ added: added [0], removed: removed [0], previous })
+  })
+})
+
+.observe
+  (document.body, { childList: true, subtree: true })
+
+setTimeout
+  (_ => m.map (r => console.warn (r)), 1000)
+
+
