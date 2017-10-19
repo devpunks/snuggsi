@@ -72,10 +72,12 @@ new class /* CustomElementRegistry */ {
           && element.connectedCallback ()
   }
 
-// http://nshipster.com/method-swizzling/
-//swizzle ( name, ... Class ) {
-//  see elements/html-custom-element.es
-//}
+  // http://nshipster.com/method-swizzling/
+  swizzle ( name, constructor ) {
+    //see elements/html-custom-element.es
+    new Function
+      ('class extends HTMLElement { constructor() { super() } }')
+  }
 }
 
 

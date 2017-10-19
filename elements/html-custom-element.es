@@ -1,8 +1,2 @@
 
-class HTMLCustomElement extends HTMLElement {
-
-  constructor(_) { return (_ = super(_)).init(), _; }
-
-  init() { /* override as you like */ }
-
-}
+class extends HTMLElement { constructor() { super() } }
