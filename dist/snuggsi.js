@@ -199,9 +199,7 @@ void (function (Element) {
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
 
 // https://github.com/webcomponents/template
-var Template =
-
-( function (template) {
+var Template = function (template) {
 
   template.length
     && ( template = document.querySelector
@@ -267,7 +265,7 @@ var Template =
           .insertBefore (dependent, anchor)
     }
   }
-})
+}
 
 // The CustomElementRegistry Interface
 // WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
@@ -344,12 +342,15 @@ new (function () {
           && element.connectedCallback ()
   };
 
+  // http://nshipster.com/method-swizzling/
+  anonymous.prototype.swizzle = function ( constructor ) {
+    //see elements/html-custom-element.es
+    return new Function ('class extends HTMLElement {}')
+  };
+
   return anonymous;
 }())
 
-
-// select the target node
-var m = []
 
 // create an observer instance
 window.MutationObserver &&
@@ -479,8 +480,8 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
   anonymous.prototype.reflect = function (handler) {
 
-    /^on/.test // is a W3C `on`event
-      (HTMLElement.prototype [handler]) // `on*`
+    /^on/.test (handler) // is a W3C `on`event
+      && handler in HTMLElement.prototype // `on*`
 
       && // automagically delegate event
         this.on ( handler.substr (2), this [handler] )
