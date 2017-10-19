@@ -31,12 +31,10 @@ new class CustomElementRegistry {
 
   define ( native, name, constructor ) {
     // this.running = undefined
-
     //  definition = this.swizzle ( definition );
 
-    return ( name, constructor ) =>
-      (delegate).apply
-        ( customElements, this.register ( name, constructor ) )
+    (native).apply
+      ( customElements, this.register ( name, constructor ) )
   }
 
 
