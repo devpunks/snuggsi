@@ -73,16 +73,12 @@ new class /* CustomElementRegistry */ {
   }
 
   // http://nshipster.com/method-swizzling/
-  swizzle ( name, constructor ) {
+  swizzle ( constructor ) {
     //see elements/html-custom-element.es
-    new Function
-      ('class extends HTMLElement { constructor() { super() } }')
+    return new Function ('class extends HTMLElement {}')
   }
 }
 
-
-// select the target node
-var m = []
 
 // create an observer instance
 window.MutationObserver &&
