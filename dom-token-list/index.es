@@ -14,13 +14,11 @@ class DOMTokenList {
 
     , visit = node =>
         node.localName
-            ? ELEMENT_NODE (node.attributes)
-            : expression.test (node.textContent) && nodes.push (node)
-
-    , ELEMENT_NODE = (attrs) =>
-        [].slice
-          .call (attrs)
-          .map  (attr => expression.test (attr.value) && nodes.push (attr))
+          ? [].slice
+              .call (node.attributes)
+              .map  (attr => expression.test (attr.value) && nodes.push (attr))
+          : expression
+              .test (node.textContent) && nodes.push (node)
 
     , walker =
         document.createNodeIterator
