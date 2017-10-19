@@ -21,9 +21,9 @@ void (_ => {
     console.warn ('fuck')
 
     link.addEventListener
-      ('load', event => console.log ('AddEventListener', event))
+      ('load', event => console.log ('AddEventListener', event.target.href))
 
-    link.onload = event => console.log ('Whatever', event)
+    link.onload = event => console.log ('Whatever', event.target.href)
 
     xhr.open ('GET', link.href)
     xhr.responseType = 'document'
