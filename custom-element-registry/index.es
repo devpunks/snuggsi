@@ -81,11 +81,11 @@ new class /* CustomElementRegistry */ {
 
 
 // create an observer instance
-window.MutationObserver &&
+//window.MutationObserver &&
 
-new MutationObserver ( mutations => {
-  for (let mutation of mutations) mutation
-})
+//new MutationObserver ( mutations => {
+//  for (let mutation of mutations) mutation
+//})
 
-.observe
-  (document.body, { childList: true, subtree: true })
+//.observe
+//  (document.body, { childList: true, subtree: true })
