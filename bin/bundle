@@ -3,7 +3,7 @@ cat                                   \
   dom-token-list/index.es             \
   html-link-element/index.es          \
   html-template-element/index.es      \
-  elements/custom-element-registry.es \
+  custom-element-registry/index.es    \
   elements/parent-node.es             \
   elements/event-target.es            \
   global-event-handlers/index.es      \
