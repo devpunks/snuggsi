@@ -290,17 +290,14 @@ var Template =
 
 
 ! window.customElements
-  && (window.customElements = {/* microfill */})
+  && (customElements = {/* microfill */})
 
 
 new (function () {
-  function CustomElementRegistry (ref ) {
-  if ( ref === void 0 ) ref = customElements;
-  var define = ref.define;
-
+  function CustomElementRegistry (/*{ define, get, whenDefined } = customElements */) {
     customElements
       .define = this
-        .define (function (_){}) // (define)
+        .define (function (_){}) // (customElements.define)
         .bind (this)
   }
 
@@ -321,7 +318,7 @@ new (function () {
 
     'loading' == document.readyState
 
-      ? document.addEventListener
+      ? addEventListener
         ('DOMContentLoaded', (ref = this).queue.apply ( ref, arguments ))
 
       : (ref$1 = this).queue.apply ( ref$1, arguments )()
@@ -337,27 +334,42 @@ new (function () {
 
     return function (event) { return [].slice
         .call ( document.getElementsByTagName (name) )
-        .map  ( this$1.upgrade ( constructor.prototype ) ); }
+        .map  ( this$1.upgrade, constructor.prototype ); }
   };
 
 
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
-  CustomElementRegistry.prototype.upgrade = function (constructor) {
+  CustomElementRegistry.prototype.upgrade = function (element) {
 
     // Here's where we can swizzle
     // see this.swizzle ()
-
-    return function (element) {
-      Object.setPrototypeOf
-        (element, constructor)
-          .connectedCallback
-            && element.connectedCallback ()
-    }
+    Object.setPrototypeOf
+      (element, this)
+        .connectedCallback
+          && element.connectedCallback ()
   };
 
   return CustomElementRegistry;
 }())
+
+
+// select the target node
+var m = []
+
+// create an observer instance
+window.MutationObserver &&
+
+new MutationObserver ( function (mutations) {
+  for (var i = 0, list = mutations; i < list.length; i += 1) {
+    var mutation = list[i];
+
+    mutation
+  }
+})
+
+.observe
+  (document.body, { childList: true, subtree: true })
 var ParentNode = function (Element) { return ((function (Element) {
     function anonymous () {
       Element.apply(this, arguments);
