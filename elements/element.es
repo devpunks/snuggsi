@@ -12,9 +12,9 @@ const Element = tag => (
         // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
         // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-      klass => // https://en.wikipedia.org/wiki/Higher-order_function
+      Element => // https://en.wikipedia.org/wiki/Higher-order_function
         window.customElements.define
-          ( tag + '', Custom (klass))
+          ( tag + '', Custom (Element))
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 //  E.prototype = Element.prototype
