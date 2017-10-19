@@ -23,11 +23,10 @@
 
 new class CustomElementRegistry {
 
-  constructor (/*{ define, get, whenDefined } = customElements */) {
-    customElements
-      .define = this
-        .define (_=> {}) // (customElements.define)
-        .bind (this)
+  constructor () {
+    customElements.define
+      = this.define.bind (this,  _ => 0 )
+      //= this.define.bind (this,  customElements.define )
   }
 
   define ( delegate ) {
