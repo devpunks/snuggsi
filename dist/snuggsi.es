@@ -269,15 +269,15 @@ const Template =
 
 
 ! window.customElements
-  && (window.customElements = {/* microfill */})
+  && (customElements = {/* microfill */})
 
 
 new class CustomElementRegistry {
 
-  constructor ({ define /* , get, whenDefined */ } = customElements ) {
+  constructor (/*{ define, get, whenDefined } = customElements */) {
     customElements
       .define = this
-        .define (_=> {}) // (define)
+        .define (_=> {}) // (customElements.define)
         .bind (this)
   }
 
@@ -297,7 +297,7 @@ new class CustomElementRegistry {
 
     'loading' == document.readyState
 
-      ? document.addEventListener
+      ? addEventListener
         ('DOMContentLoaded', this.queue ( ... arguments ))
 
       : this.queue ( ... arguments )()
@@ -311,23 +311,20 @@ new class CustomElementRegistry {
       // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       [].slice
         .call ( document.getElementsByTagName (name) )
-        .map  ( this.upgrade ( constructor.prototype ) )
+        .map  ( this.upgrade, constructor.prototype )
   }
 
 
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
-  upgrade (constructor) {
+  upgrade (element) {
 
     // Here's where we can swizzle
     // see this.swizzle ()
-
-    return element => {
-      Object.setPrototypeOf
-        (element, constructor)
-          .connectedCallback
-            && element.connectedCallback ()
-    }
+    Object.setPrototypeOf
+      (element, this)
+        .connectedCallback
+          && element.connectedCallback ()
   }
 
 // http://nshipster.com/method-swizzling/
@@ -335,6 +332,20 @@ new class CustomElementRegistry {
 //  see elements/html-custom-element.es
 //}
 }
+
+
+// select the target node
+var m = []
+
+// create an observer instance
+window.MutationObserver &&
+
+new MutationObserver ( mutations => {
+  for (let mutation of mutations) mutation
+})
+
+.observe
+  (document.body, { childList: true, subtree: true })
 const ParentNode = Element =>
 
   // DOM Levels
