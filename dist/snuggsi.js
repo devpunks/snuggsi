@@ -43,12 +43,11 @@ var DOMTokenList = function (node, symbol) {
   , expression = /{(\w+|#)}/
 
   , visit = function (node) { return node.localName
-          ? ELEMENT_NODE (node.attributes)
-          : expression.test (node.textContent) && nodes.push (node); }
-
-  , ELEMENT_NODE = function (attrs) { return [].slice
-        .call (attrs)
-        .map(function (attr) { return expression.test (attr.value) && nodes.push (attr); }); }
+        ? [].slice
+            .call (node.attributes)
+            .map(function (attr) { return expression.test (attr.value) && nodes.push (attr); })
+        : expression
+            .test (node.textContent) && nodes.push (node); }
 
   , walker =
       document.createNodeIterator
@@ -480,9 +479,8 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
   anonymous.prototype.reflect = function (handler) {
 
-    /^on/.test (handler) // `on*`
-      && handler // is a W3C event
-        in HTMLElement.prototype
+    /^on/.test // is a W3C `on`event
+      (HTMLElement.prototype [handler]) // `on*`
 
       && // automagically delegate event
         this.on ( handler.substr (2), this [handler] )
@@ -576,8 +574,8 @@ var Element = function (tag) { return (
         // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
         // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-      function (klass) { return window.customElements.define
-          ( tag + '', Custom (klass)); }
+      function (Element) { return customElements.define
+          ( tag + '', Custom (Element) ); }
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 //  E.prototype = Element.prototype
