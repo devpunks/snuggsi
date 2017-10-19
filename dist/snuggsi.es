@@ -185,9 +185,7 @@ void (Element => {
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
 
 // https://github.com/webcomponents/template
-const Template =
-
-( template => {
+const Template = template => {
 
   template.length
     && ( template = document.querySelector
@@ -245,7 +243,7 @@ const Template =
           .parentNode
           .insertBefore (dependent, anchor)
   }
-})
+}
 
 // The CustomElementRegistry Interface
 // WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
@@ -321,15 +319,13 @@ new class /* CustomElementRegistry */ {
           && element.connectedCallback ()
   }
 
-// http://nshipster.com/method-swizzling/
-//swizzle ( name, ... Class ) {
-//  see elements/html-custom-element.es
-//}
+  // http://nshipster.com/method-swizzling/
+  swizzle ( constructor ) {
+    //see elements/html-custom-element.es
+    return new Function ('class extends HTMLElement {}')
+  }
 }
 
-
-// select the target node
-var m = []
 
 // create an observer instance
 window.MutationObserver &&
@@ -525,8 +521,8 @@ const GlobalEventHandlers = Element =>
 
   reflect (handler) {
 
-    /^on/.test // is a W3C `on`event
-      (HTMLElement.prototype [handler]) // `on*`
+    /^on/.test (handler) // is a W3C `on`event
+      && handler in HTMLElement.prototype // `on*`
 
       && // automagically delegate event
         this.on ( handler.substr (2), this [handler] )
