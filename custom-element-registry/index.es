@@ -46,7 +46,7 @@ new class CustomElementRegistry {
 
     'loading' == document.readyState
 
-      ? document.addEventListener
+      ? addEventListener
         ('DOMContentLoaded', this.queue ( ... arguments ))
 
       : this.queue ( ... arguments )()
