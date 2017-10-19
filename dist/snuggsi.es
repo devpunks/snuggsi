@@ -44,13 +44,11 @@ class DOMTokenList {
 
     , visit = node =>
         node.localName
-            ? ELEMENT_NODE (node.attributes)
-            : expression.test (node.textContent) && nodes.push (node)
-
-    , ELEMENT_NODE = (attrs) =>
-        [].slice
-          .call (attrs)
-          .map  (attr => expression.test (attr.value) && nodes.push (attr))
+          ? [].slice
+              .call (node.attributes)
+              .map  (attr => expression.test (attr.value) && nodes.push (attr))
+          : expression
+              .test (node.textContent) && nodes.push (node)
 
     , walker =
         document.createNodeIterator
@@ -527,9 +525,8 @@ const GlobalEventHandlers = Element =>
 
   reflect (handler) {
 
-    /^on/.test (handler) // `on*`
-      && handler // is a W3C event
-        in HTMLElement.prototype
+    /^on/.test // is a W3C `on`event
+      (HTMLElement.prototype [handler]) // `on*`
 
       && // automagically delegate event
         this.on ( handler.substr (2), this [handler] )
@@ -605,9 +602,9 @@ const Element = tag => (
         // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
         // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-      klass => // https://en.wikipedia.org/wiki/Higher-order_function
-        window.customElements.define
-          ( tag + '', Custom (klass))
+      Element => // https://en.wikipedia.org/wiki/Higher-order_function
+        customElements.define
+          ( tag + '', Custom (Element) )
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 //  E.prototype = Element.prototype
