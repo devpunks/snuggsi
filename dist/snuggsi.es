@@ -274,22 +274,18 @@ const Template =
 
 new class CustomElementRegistry {
 
-  constructor (/*{ define, get, whenDefined } = customElements */) {
-    customElements
-      .define = this
-        .define (_=> {}) // (customElements.define)
-        .bind (this)
+  constructor () {
+    customElements.define
+      = this.define.bind (this,  _ => 0 )
+      //= this.define.bind (this,  customElements.define )
   }
 
-  define ( delegate ) {
-
+  define ( native, name, constructor ) {
     // this.running = undefined
-
     //  definition = this.swizzle ( definition );
 
-    return ( name, constructor ) =>
-      (delegate).apply
-        ( customElements, this.register ( name, constructor ) )
+    (native).apply
+      ( customElements, this.register ( name, constructor ) )
   }
 
 
