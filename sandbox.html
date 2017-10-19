@@ -7,7 +7,7 @@
 var m = []
 
 // create an observer instance
-void (new MutationObserver (function (mutations) {
+new MutationObserver (function (mutations) {
   console.warn ('firing')
 
   mutations.forEach(function (mutation) {
@@ -16,7 +16,7 @@ void (new MutationObserver (function (mutations) {
 
     m.push ({ added: added [0], removed: removed [0], previous })
   })
-}))
+})
 
 .observe
   (document.body, { childList: true, subtree: true })
