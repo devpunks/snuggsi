@@ -294,23 +294,18 @@ var Template =
 
 
 new (function () {
-  function CustomElementRegistry (/*{ define, get, whenDefined } = customElements */) {
-    customElements
-      .define = this
-        .define (function (_){}) // (customElements.define)
-        .bind (this)
+  function CustomElementRegistry () {
+    customElements.define
+      = this.define.bind (this,  function (_) { return 0; } )
+      //= this.define.bind (this,  customElements.define )
   }
 
-  CustomElementRegistry.prototype.define = function ( delegate ) {
-    var this$1 = this;
-
-
+  CustomElementRegistry.prototype.define = function ( native, name, constructor ) {
     // this.running = undefined
-
     //  definition = this.swizzle ( definition );
 
-    return function ( name, constructor ) { return (delegate).apply
-        ( customElements, this$1.register ( name, constructor ) ); }
+    (native).apply
+      ( customElements, this.register ( name, constructor ) )
   };
 
 
