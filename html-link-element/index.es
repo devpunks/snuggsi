@@ -16,6 +16,7 @@
 void (_ => {
   const xhr = new XMLHttpRequest
 
+  // previous links
   for (let link of document.querySelectorAll ('link[id*="-"]')) {
 
     link.addEventListener
@@ -31,6 +32,9 @@ void (_ => {
     xhr.link = link
     xhr.send ()
   }
+
+  // future links
+
 
   function onload () {
     const
@@ -81,6 +85,8 @@ void (_ => {
   }
 
 
+  // Slot stamping
+  // https://github.com/w3c/webcomponents/issues/288
   function stamp (template, insert, replacement) {
 
     for (replacement of this.querySelectorAll ('[slot]'))
