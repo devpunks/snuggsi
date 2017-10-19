@@ -61,9 +61,10 @@ const GlobalEventHandlers = Element =>
 
   reflect (handler) {
 
-    /^on/.test (handler) // `on*`
-      && handler // is a W3C event
-        in HTMLElement.prototype
+      
+    /^on/.test // is a W3C `on`event
+      (HTMLElement.prototype [handler]) // `on*`
+        
 
       && // automagically delegate event
         this.on ( handler.substr (2), this [handler] )
