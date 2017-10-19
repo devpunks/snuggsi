@@ -17,9 +17,16 @@ void (_ => {
 
   for (let link of document.querySelectorAll ('link[id*="-"]')) {
 
+    console.warn ('fuck')
+
+    link.addEventListener
+      ('load', event => console.log ('AddEventListener', event))
+
+    link.onload = event => console.log ('Whatever', event)
+
     xhr.open ('GET', link.href)
     xhr.responseType = 'document'
-    xhr.onload       = onload
+    xhr.onload = onload
 
     // this is kinda smelly!!!
     xhr.link         = link
