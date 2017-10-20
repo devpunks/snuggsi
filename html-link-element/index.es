@@ -85,7 +85,8 @@ const f = (new MutationObserver ( mutations => {
     for (let node of mutation.addedNodes) {
       'link' == node.localName
          && /\-/.test (node.id)
-         && console.warn ('adding link', node.localName);
+         && /^=pre/.test (node.rel)
+         && preload (node)
 
       /\-/.test (node.localName)
         && console.warn ('adding custom element', node.localName)
