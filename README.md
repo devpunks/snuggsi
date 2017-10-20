@@ -141,7 +141,7 @@ The `<template>` is used to define custom element content for use within multipl
 Useful when we need to:
 
 1. Separate a custom element definition into a [Remote Component](/snuggsi#remote-components).
-2. Bind a context (or Javascript object) to the template
+2. Bind a context _(An `Array` or POJO Plain Ol' Javascript `Object`) to the template
 3. Append rendered template to the document.
     - If `context` is an object `bind` a single `<template>`.
     - If `context` is a collection (i.e. `Array`) `bind` a tandem collection of `<template>`s.
