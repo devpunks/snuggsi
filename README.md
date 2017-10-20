@@ -250,7 +250,7 @@ template.bind (context)
 
 // when context is a collection of scalars
 const
-  template = Template `recipie`
+  template = Template `recipe`
 , context  = [
     "Preheat oven"
   , "Place pre-made cake in oven"
