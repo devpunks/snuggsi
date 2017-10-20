@@ -238,7 +238,7 @@ template.bind (context)
 
 ```html
 <dl>
-  <template name=recipie>
+  <template name=recipe>
     <dt> Step {#}.
     <dd> {self}.
 
