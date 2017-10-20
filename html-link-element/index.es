@@ -17,6 +17,7 @@
 // https://github.com/whatwg/html/pull/616#issuecomment-180018260
 // future links
 void (_ => {
+  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
   const onload = link => {
     return function () {
       const
