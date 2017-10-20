@@ -91,6 +91,7 @@ class DOMTokenList {
 
 // Preloading - https://w3c.github.io/preload
 // $$$$ loading capabilities - https://pie.gd/test/script-link-events/
+// $$$$ when is a stylesheet really loaded? https://www.phpied.com/when-is-a-stylesheet-really-loaded/
 // IE11 Support for Prerender / Prefetch - https://msdn.microsoft.com/en-us/library/dn265039(v=vs.85).aspx
 // Resource Hints - https://www.w3.org/TR/resource-hints
 // https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
@@ -107,16 +108,11 @@ class DOMTokenList {
 // https://github.com/whatwg/html/pull/616#issuecomment-180018260
 // future links
 void (_ => {
+  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
   const onload = link => {
     return function () {
       const
-        select =
-          this
-            .response
-            .querySelectorAll
-            .bind (this.response)
-
-      , next = link.nextSibling
+        next = link.nextSibling
 
       , reflect = (clone, node) => attr =>
           node [attr]
@@ -125,10 +121,10 @@ void (_ => {
       for
         (let node of document.querySelectorAll (link.id))
           stamp.call
-            (node, select ('template') [0].cloneNode (true))
+            (node, this.response.querySelectorAll ('template') [0].cloneNode (true))
 
 
-      for (let node of select ('style,link,script')) {
+      for (let node of this.response.querySelectorAll ('style,link,script')) {
         let
           as = node.getAttribute ('as')
 
@@ -151,6 +147,10 @@ void (_ => {
           (link.parentNode.insertBefore
             (document.createElement ('script'), next)
               .src = node.href)
+        ;
+
+        /script|test/.test (as)
+          || reflect (clone, node)('as')
       }
     }
   };
@@ -171,7 +171,7 @@ void (_ => {
 
 
 //create an observer instance
-const f = (new MutationObserver ( mutations => {
+(new MutationObserver ( mutations => {
   for (let mutation of mutations)
     for (let node of mutation.addedNodes) {
       'link' == node.localName
@@ -181,11 +181,11 @@ const f = (new MutationObserver ( mutations => {
       ;
 
       /\-/.test (node.localName)
-        && console.warn ('adding custom element', node.localName, document.readyState)
+        && console.warn ('ce', node.localName, document.readyState)
     }
 }))
 
-f.observe (document.documentElement, { childList: true, subtree: true });
+.observe (document.documentElement, { childList: true, subtree: true })
 
 
 
