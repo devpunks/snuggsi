@@ -14,7 +14,7 @@
 // https://github.com/whatwg/html/commit/179983e9eb99efe417349a40ebb664bd11668ddd
 // https://bugs.webkit.org/show_bug.cgi?id=172639
 // https://github.com/whatwg/html/pull/616#issuecomment-180018260
-
+// future links
 void (_ => {
   const xhr = new XMLHttpRequest
 
