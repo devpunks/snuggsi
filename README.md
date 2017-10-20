@@ -231,7 +231,7 @@ template.bind (context)
 
   Each `<template name>` will be mapped over each
   context item within the array. When the array items
-  are scalar _(i.e. strings, numbers, booleans)
+  are scalar _(i.e. strings, numbers, booleans)_
   each item will map to a `{self}` helper token.
 
   _**Note:** The `#` symbol can be used to retrieve the current index of iteration._
