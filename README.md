@@ -393,9 +393,9 @@ Element `foo-bar`
         -->
         </template>
 
-        <li>Item 0 - Value football
-        <li>Item 1 - Value soccer
-        <li>Item 2 - Value baseball
+        <li>Item 0 - Value football</li>
+        <li>Item 1 - Value soccer</li>
+        <li>Item 2 - Value baseball</li>
       </ul>
     </foo-bar>
 
