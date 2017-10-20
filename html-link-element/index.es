@@ -16,7 +16,14 @@
 // https://github.com/whatwg/html/pull/616#issuecomment-180018260
 // future links
 void (_ => {
-  const xhr = new XMLHttpRequest
+  const onload = link => {
+    return function () {
+      const
+        select =
+          this
+            .response
+            .querySelectorAll
+            .bind (this.response)
 
   // previous links
   for (let link of document.querySelectorAll ('link[id*="-"]')) {
