@@ -384,7 +384,7 @@ Element `foo-bar`
     <foo-bar onclick="onfoo">
       <h1>foo-bar custom element</h1>
 
-      <p slot=content>The quick brown fox jumped over the lazy dog</p>
+      <p slot="content">The quick brown fox jumped over the lazy dog</p>
 
       <ul>
         <template name="bat">
