@@ -186,7 +186,7 @@ template.bind (context)
   are objects each property will map to a respective
   `{token}` of the same name.
 
-  _**Note:** The `#` symbol can be used to retrieve the current index of iteration._
+  _**Note:** The `#` symbol can be used to retrieve the collection's current index of iteration._
 
 ```html
 <ul>
