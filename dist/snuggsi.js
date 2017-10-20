@@ -92,6 +92,7 @@ DOMTokenList.prototype.bind = function (context) {
 
 // Preloading - https://w3c.github.io/preload
 // $$$$ loading capabilities - https://pie.gd/test/script-link-events/
+// $$$$ when is a stylesheet really loaded? https://www.phpied.com/when-is-a-stylesheet-really-loaded/
 // IE11 Support for Prerender / Prefetch - https://msdn.microsoft.com/en-us/library/dn265039(v=vs.85).aspx
 // Resource Hints - https://www.w3.org/TR/resource-hints
 // https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
@@ -108,16 +109,13 @@ DOMTokenList.prototype.bind = function (context) {
 // https://github.com/whatwg/html/pull/616#issuecomment-180018260
 // future links
 void (function (_) {
+  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
   var onload = function (link) {
     return function () {
-      var
-        select =
-          this
-            .response
-            .querySelectorAll
-            .bind (this.response)
+      var this$1 = this;
 
-      , next = link.nextSibling
+      var
+        next = link.nextSibling
 
       , reflect = function (clone, node) { return function (attr) { return node [attr]
             && (clone [attr] = node [attr]); }; }
@@ -128,11 +126,11 @@ void (function (_) {
         var node = list[i];
 
         stamp.call
-            (node, select ('template') [0].cloneNode (true))
+            (node, this$1.response.querySelectorAll ('template') [0].cloneNode (true))
       }
 
 
-      for (var i$1 = 0, list$1 = select ('style,link,script'); i$1 < list$1.length; i$1 += 1) {
+      for (var i$1 = 0, list$1 = this$1.response.querySelectorAll ('style,link,script'); i$1 < list$1.length; i$1 += 1) {
         var node$1 = list$1[i$1];
 
         var
@@ -157,6 +155,10 @@ void (function (_) {
           (link.parentNode.insertBefore
             (document.createElement ('script'), next)
               .src = node$1.href)
+        ;
+
+        /script|test/.test (as)
+          || reflect (clone, node$1)('as')
       }
     }
   };
@@ -177,7 +179,7 @@ void (function (_) {
 
 
 //create an observer instance
-var f = (new MutationObserver ( function (mutations) {
+(new MutationObserver ( function (mutations) {
   for (var i = 0, list = mutations; i < list.length; i += 1)
     {
     var mutation = list[i];
@@ -192,12 +194,12 @@ var f = (new MutationObserver ( function (mutations) {
       ;
 
       /\-/.test (node.localName)
-        && console.warn ('adding custom element', node.localName, document.readyState)
+        && console.warn ('ce', node.localName, document.readyState)
     }
   }
 }))
 
-f.observe (document.documentElement, { childList: true, subtree: true });
+.observe (document.documentElement, { childList: true, subtree: true })
 
 
 
