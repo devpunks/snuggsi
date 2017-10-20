@@ -90,7 +90,7 @@ const f = (new MutationObserver ( mutations => {
       ;
 
       /\-/.test (node.localName)
-        && console.warn ('adding custom element', node.localName)
+        && console.warn ('adding custom element', node.localName, document.readyState)
     }
 }))
 
