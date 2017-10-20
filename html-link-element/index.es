@@ -84,7 +84,7 @@ void (_ => {
 
 
 //create an observer instance
-const f = (new MutationObserver ( mutations => {
+(new MutationObserver ( mutations => {
   for (let mutation of mutations)
     for (let node of mutation.addedNodes) {
       'link' == node.localName
