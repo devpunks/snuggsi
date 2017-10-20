@@ -25,8 +25,7 @@ void (_ => {
             .querySelectorAll
             .bind (this.response)
 
-  // previous links
-  for (let link of document.querySelectorAll ('link[id*="-"]')) {
+      , next = link.nextSibling
 
     link.addEventListener
       ('load', event => console.log ('AddEventListener', event.target.href))
