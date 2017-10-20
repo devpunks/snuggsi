@@ -27,76 +27,78 @@ void (_ => {
 
       , next = link.nextSibling
 
-    link.addEventListener
-      ('load', event => console.log ('AddEventListener', event.target.href))
+      , reflect = (clone, node) => attr =>
+          node [attr]
+            && (clone [attr] = node [attr])
 
-    link.onload = event => console.log ('Whatever', event.target.href)
+      for
+        (let node of document.querySelectorAll (link.id))
+          stamp.call
+            (node, select ('template') [0].cloneNode (true))
+
+
+      for (let node of select ('style,link,script')) {
+        let
+          as = node.getAttribute ('as')
+
+        , clone =
+            document.createElement (node.localName)
+
+
+        void ['src', 'href', 'textContent', 'rel']
+          .map (reflect (clone, node))
+
+        // use rel = 'preload stylesheet' for async
+        // or use media=snuggsi => media || 'all' trick
+        // loadCSS - https://github.com/filamentgroup/loadCSS
+        // http://keithclark.co.uk/articles/loading-css-without-blocking-render
+        'style' == as && (clone.rel = 'stylesheet')
+
+        link.parentNode.insertBefore (clone, next)
+
+        'script' == as &&
+          (link.parentNode.insertBefore
+            (document.createElement ('script'), next)
+              .src = node.href)
+      }
+    }
+  };
+
+
+  [].slice
+    .call (document.querySelectorAll ('link[rel^=pre][id*="-"]'))
+    .map  (preload)
+
+  function preload (link) {
+    const xhr = new XMLHttpRequest
 
     xhr.open ('GET', link.href)
     xhr.responseType = 'document'
-    xhr.onload = onload
-
-    // this is kinda smelly!!!
-    xhr.link = link
+    xhr.onload = onload (link)
     xhr.send ()
   }
 
-  // future links
 
+//create an observer instance
+const f = (new MutationObserver ( mutations => {
+  for (let mutation of mutations)
+    for (let node of mutation.addedNodes) {
+      'link' == node.localName
+         && /\-/.test (node.id)
+         && console.warn ('adding link', node.localName);
 
-  function onload () {
-    const
-      select =
-        this
-          .response
-          .querySelectorAll
-          .bind (this.response)
-
-    , link = this.link
-
-    , next = link.nextSibling
-
-    , reflect = (clone, node) => attr =>
-        node [attr]
-          && (clone [attr] = node [attr])
-
-    for
-      (let node of document.querySelectorAll (link.id))
-        stamp.call
-          (node, select ('template') [0].cloneNode (true))
-
-
-    for (let node of select ('style,link,script')) {
-      let
-        as = node.getAttribute ('as')
-
-      , clone =
-          document.createElement (node.localName)
-
-
-      void ['src', 'href', 'textContent', 'rel']
-        .map (reflect (clone, node))
-
-      // use rel = 'preload stylesheet' for async
-      // or use media=snuggsi => media || 'all' trick
-      // loadCSS - https://github.com/filamentgroup/loadCSS
-      // http://keithclark.co.uk/articles/loading-css-without-blocking-render
-      'style' == as && (clone.rel = 'stylesheet')
-
-      link.parentNode.insertBefore (clone, next)
-
-      'script' == as &&
-        (link.parentNode.insertBefore
-          (document.createElement ('script'), next)
-            .src = node.href)
+      /\-/.test (node.localName)
+        && console.warn ('adding custom element', node.localName)
     }
-  }
+}))
+
+f.observe (document.documentElement, { childList: true, subtree: true });
+
 
 
   // Slot stamping
   // https://github.com/w3c/webcomponents/issues/288
   function stamp (template, insert, replacement) {
-
     for (replacement of this.querySelectorAll ('[slot]'))
         (template.content || template).querySelector
           ('slot[name='+ replacement.getAttribute ('slot') +']')
