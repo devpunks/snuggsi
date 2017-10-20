@@ -231,7 +231,7 @@ template.bind (context)
   are scalar _(i.e. strings, numbers, booleans)_
   each item will map to a `{self}` helper token.
 
-  _**Note:** The `#` symbol can be used to retrieve the collection's current index of iteration._
+  _**Note:** The `#` symbol is used to retrieve the collection's current index of iteration._
 
 ```html
 <dl>
