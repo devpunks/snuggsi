@@ -1,5 +1,6 @@
 // Preloading - https://w3c.github.io/preload
 // $$$$ loading capabilities - https://pie.gd/test/script-link-events/
+// $$$$ when is a stylesheet really loaded? https://www.phpied.com/when-is-a-stylesheet-really-loaded/
 // IE11 Support for Prerender / Prefetch - https://msdn.microsoft.com/en-us/library/dn265039(v=vs.85).aspx
 // Resource Hints - https://www.w3.org/TR/resource-hints
 // https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
