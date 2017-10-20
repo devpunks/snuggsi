@@ -28,7 +28,7 @@ void (_ => {
       for
         (let node of document.querySelectorAll (link.id))
           stamp.call
-            (node, select ('template') [0].cloneNode (true))
+            (node, this.response.querySelectorAll ('template') [0].cloneNode (true))
 
 
       for (let node of select ('style,link,script')) {
