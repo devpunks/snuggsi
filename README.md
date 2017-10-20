@@ -221,8 +221,8 @@ template.bind (context)
   -->
   </template>
 
-  <li>Hello DevPunk! Your number index # is 0
-  <li>Hello Snuggsi! Your number index # is 1
+  <li>Hello DevPunk! Your number index # is 0</li>
+  <li>Hello Snuggsi! Your number index # is 1</li>
 </ul>
 ```
 
