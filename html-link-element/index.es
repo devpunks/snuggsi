@@ -19,13 +19,7 @@ void (_ => {
   const onload = link => {
     return function () {
       const
-        select =
-          this
-            .response
-            .querySelectorAll
-            .bind (this.response)
-
-      , next = link.nextSibling
+        next = link.nextSibling
 
       , reflect = (clone, node) => attr =>
           node [attr]
