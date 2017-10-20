@@ -98,7 +98,7 @@ void (_ => {
     }
 }))
 
-f.observe (document.documentElement, { childList: true, subtree: true });
+.observe (document.documentElement, { childList: true, subtree: true })
 
 
 
