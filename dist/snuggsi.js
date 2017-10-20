@@ -91,11 +91,14 @@ DOMTokenList.prototype.bind = function (context) {
 };
 
 // Preloading - https://w3c.github.io/preload
+// $$$$ loading capabilities - https://pie.gd/test/script-link-events/
+// IE11 Support for Prerender / Prefetch - https://msdn.microsoft.com/en-us/library/dn265039(v=vs.85).aspx
 // Resource Hints - https://www.w3.org/TR/resource-hints
 // https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
 // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
 // https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/12142852/
 // Caching best practices - https://jakearchibald.com/2016/caching-best-practices/
+// $$$$$$ HOT SWAP URL BASE PATHS! https://eager.io/blog/three-real-world-use-cases-for-mutation-observer
 //
 //
 // Link in body
@@ -103,87 +106,103 @@ DOMTokenList.prototype.bind = function (context) {
 // https://github.com/whatwg/html/commit/179983e9eb99efe417349a40ebb664bd11668ddd
 // https://bugs.webkit.org/show_bug.cgi?id=172639
 // https://github.com/whatwg/html/pull/616#issuecomment-180018260
-
+// future links
 void (function (_) {
-  var xhr = new XMLHttpRequest
+  var onload = function (link) {
+    return function () {
+      var
+        select =
+          this
+            .response
+            .querySelectorAll
+            .bind (this.response)
 
-  for (var i = 0, list = document.querySelectorAll ('link[id*="-"]'); i < list.length; i += 1) {
+      , next = link.nextSibling
 
-    var link = list[i];
+      , reflect = function (clone, node) { return function (attr) { return node [attr]
+            && (clone [attr] = node [attr]); }; }
 
-    console.warn ('fuck')
+      for
+        (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
+          {
+        var node = list[i];
 
-    link.addEventListener
-      ('load', function (event) { return console.log ('AddEventListener', event); })
+        stamp.call
+            (node, select ('template') [0].cloneNode (true))
+      }
 
-    link.onload = function (event) { return console.log ('Whatever', event); }
+
+      for (var i$1 = 0, list$1 = select ('style,link,script'); i$1 < list$1.length; i$1 += 1) {
+        var node$1 = list$1[i$1];
+
+        var
+          as = node$1.getAttribute ('as')
+
+        , clone =
+            document.createElement (node$1.localName)
+
+
+        void ['src', 'href', 'textContent', 'rel']
+          .map (reflect (clone, node$1))
+
+        // use rel = 'preload stylesheet' for async
+        // or use media=snuggsi => media || 'all' trick
+        // loadCSS - https://github.com/filamentgroup/loadCSS
+        // http://keithclark.co.uk/articles/loading-css-without-blocking-render
+        'style' == as && (clone.rel = 'stylesheet')
+
+        link.parentNode.insertBefore (clone, next)
+
+        'script' == as &&
+          (link.parentNode.insertBefore
+            (document.createElement ('script'), next)
+              .src = node$1.href)
+      }
+    }
+  };
+
+
+  [].slice
+    .call (document.querySelectorAll ('link[rel^=pre][id*="-"]'))
+    .map  (preload)
+
+  function preload (link) {
+    var xhr = new XMLHttpRequest
 
     xhr.open ('GET', link.href)
     xhr.responseType = 'document'
-    xhr.onload = onload
-
-    // this is kinda smelly!!!
-    xhr.link         = link
+    xhr.onload = onload (link)
     xhr.send ()
   }
 
-  function onload () {
-    var
-      select =
-        this
-          .response
-          .querySelectorAll
-          .bind (this.response)
 
-    , link = this.link
+//create an observer instance
+var f = (new MutationObserver ( function (mutations) {
+  for (var i = 0, list = mutations; i < list.length; i += 1)
+    {
+    var mutation = list[i];
 
-    , next = link.nextSibling
+    for (var i$1 = 0, list$1 = mutation.addedNodes; i$1 < list$1.length; i$1 += 1) {
+      var node = list$1[i$1];
 
-    , reflect = function (clone, node) { return function (attr) { return node [attr]
-          && (clone [attr] = node [attr]); }; }
+        'link' == node.localName
+         && /\-/.test (node.id)
+         && console.warn ('adding link', node.localName);
 
-    for
-      (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
-        {
-      var node = list[i];
-
-      stamp.call
-          (node, select ('template') [0].cloneNode (true))
-    }
-
-
-    for (var i$1 = 0, list$1 = select ('style,link,script'); i$1 < list$1.length; i$1 += 1) {
-      var node$1 = list$1[i$1];
-
-      var
-        as = node$1.getAttribute ('as')
-
-      , clone =
-          document.createElement (node$1.localName)
-
-
-      void ['src', 'href', 'textContent', 'rel']
-        .map (reflect (clone, node$1))
-
-      // use rel = 'preload stylesheet' for async
-      // or use media=snuggsi => media || 'all' trick
-      // loadCSS - https://github.com/filamentgroup/loadCSS
-      // http://keithclark.co.uk/articles/loading-css-without-blocking-render
-      'style' == as && (clone.rel = 'stylesheet')
-
-      link.parentNode.insertBefore (clone, next)
-
-      'script' == as &&
-        (link.parentNode.insertBefore
-          (document.createElement ('script'), next)
-            .src = node$1.href)
+      /\-/.test (node.localName)
+        && console.warn ('adding custom element', node.localName)
     }
   }
+}))
+
+f.observe (document.documentElement, { childList: true, subtree: true });
 
 
+
+  // Slot stamping
+  // https://github.com/w3c/webcomponents/issues/288
   function stamp (template, insert, replacement) {
     var this$1 = this;
-
 
     for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1)
         {
@@ -358,16 +377,6 @@ new (function () {
   return anonymous;
 }())
 
-
-// create an observer instance
-//window.MutationObserver &&
-
-//new MutationObserver ( mutations => {
-//  for (let mutation of mutations) mutation
-//})
-
-//.observe
-//  (document.body, { childList: true, subtree: true })
 var ParentNode = function (Element) { return ((function (Element) {
     function anonymous () {
       Element.apply(this, arguments);
