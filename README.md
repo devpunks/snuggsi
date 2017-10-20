@@ -217,7 +217,7 @@ template.bind (context)
 <ul>
   <template name="item">
   <!-- invisible
-    <li>Hello {name}!</li>
+    <li>Hello {name}! Your index # is {#}
   -->
   </template>
 
