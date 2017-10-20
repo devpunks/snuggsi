@@ -187,8 +187,8 @@ var f = (new MutationObserver ( function (mutations) {
 
         'link' == node.localName
          && /^pre/.test (node.rel)
-         && /\-/.test (node.id)
-         && preload (node)
+           && /\-/.test (node.id)
+             && preload (node)
 
       void
 
