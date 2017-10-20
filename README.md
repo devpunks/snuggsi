@@ -276,17 +276,17 @@ template.bind (context)
   -->
   </template>
 
-  <dt> Step 1.
-  <dd> Preheat oven.
+  <dt> Step 1.</dt>
+  <dd> Preheat oven.</dd>
 
-  <dt> Step 2.
-  <dd> Place pre-made cake in oven.
+  <dt> Step 2.</dt>
+  <dd> Place pre-made cake in oven.</dd>
 
-  <dt> Step 3.
-  <dd> Don't burn the cake!
+  <dt> Step 3.</dt>
+  <dd> Don't burn the cake!</dd>
 
-  <dt> Step 4.
-  <dd> Nom Nom!
+  <dt> Step 4.</dt>
+  <dd> Nom Nom!</dd>
 
 </dl>
 ```
