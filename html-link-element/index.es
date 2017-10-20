@@ -31,7 +31,7 @@ void (_ => {
             (node, this.response.querySelectorAll ('template') [0].cloneNode (true))
 
 
-      for (let node of select ('style,link,script')) {
+      for (let node of this.response.querySelectorAll ('style,link,script')) {
         let
           as = node.getAttribute ('as')
 
