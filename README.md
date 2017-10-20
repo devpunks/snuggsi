@@ -327,7 +327,7 @@ template.bind (context)
 
 
 <foo-bar>
-  <p slot="content">The quick brown fox jumped over the lazy dog
+  <p slot=content>The quick brown fox jumped over the lazy dog
 </foo-bar>
 ```
 
