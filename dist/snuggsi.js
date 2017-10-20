@@ -186,8 +186,11 @@ var f = (new MutationObserver ( function (mutations) {
       var node = list$1[i$1];
 
         'link' == node.localName
+         && /^pre/.test (node.rel)
          && /\-/.test (node.id)
-         && console.warn ('adding link', node.localName);
+         && preload (node)
+
+      void
 
       /\-/.test (node.localName)
         && console.warn ('adding custom element', node.localName)
