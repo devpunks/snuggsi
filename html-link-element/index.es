@@ -88,6 +88,7 @@ const f = (new MutationObserver ( mutations => {
          && /\-/.test (node.id)
          && preload (node)
 
+  void
       /\-/.test (node.localName)
         && console.warn ('adding custom element', node.localName)
     }
