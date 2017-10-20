@@ -13,8 +13,14 @@
 <link
   as=style
   rel=preload
-  href=/examples/header-group/index.css>
-
+  href=/examples/header-group/index.css
+>
+<link
+  as=fetch
+  rel=preload
+  id=github-ribbon
+  href=/examples/github-ribbon
+>
 
 <template>
 
@@ -24,6 +30,8 @@
     <slot name=header><h2>try an example</h2></slot>
     <slot name=subheader>Subheader slogan</slot>
   </hgroup>
+
+  <github-ribbon></github-ribbon>
 
 </template>
 
