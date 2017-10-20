@@ -94,7 +94,7 @@ void (_ => {
       ;
 
       /\-/.test (node.localName)
-        && console.warn ('adding custom element', node.localName, document.readyState)
+        && console.warn ('ce', node.localName, document.readyState)
     }
 }))
 
