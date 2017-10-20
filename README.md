@@ -146,9 +146,6 @@ Useful when we need to:
     - If `context` is an object `bind` a single `<template>`
     - If `context` is a collection _(i.e. an `Array`)_ `bind` a tandem  `<template>` fragment per item
 
-See [MDN `<template>`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
-for more details
-
 
 ### `<template>` With `Object` Context
 
