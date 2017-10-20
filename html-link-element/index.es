@@ -84,8 +84,8 @@ const f = (new MutationObserver ( mutations => {
   for (let mutation of mutations)
     for (let node of mutation.addedNodes) {
       'link' == node.localName
-         && /\-/.test (node.id)
          && /^=pre/.test (node.rel)
+         && /\-/.test (node.id)
          && preload (node)
 
       /\-/.test (node.localName)
