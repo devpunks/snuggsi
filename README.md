@@ -194,7 +194,7 @@ template.bind (context)
 ```html
 <ul>
   <template name=item>
-    <li>Hello {name}! Your number index # is {#}
+    <li>Hello {name}! Your index # is {#}
   </template>
 </ul>
 
