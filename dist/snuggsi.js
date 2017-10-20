@@ -192,7 +192,7 @@ var f = (new MutationObserver ( function (mutations) {
       ;
 
       /\-/.test (node.localName)
-        && console.warn ('adding custom element', node.localName)
+        && console.warn ('adding custom element', node.localName, document.readyState)
     }
   }
 }))
