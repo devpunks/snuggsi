@@ -60,6 +60,10 @@ void (_ => {
           (link.parentNode.insertBefore
             (document.createElement ('script'), next)
               .src = node.href)
+        ;
+
+        /script|test/.test (as)
+          || reflect (clone, node)('as')
       }
     }
   };
