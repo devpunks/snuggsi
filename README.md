@@ -320,7 +320,8 @@ template.bind (context)
   as=fetch
   id=foo-bar
   rel=preload
-  href=foo-bar.html>
+  href=foo-bar.html
+>
 
 <script src=//unpkg.com/snuggsi></script>
 
