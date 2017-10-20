@@ -268,7 +268,7 @@ template.bind (context)
 #### Resulting HTML
 ```html
 <dl>
-  <template name="recipie">
+  <template name="recipe">
   <!-- invisible
     <dt> Step {#}.
     <dd> {self}.
