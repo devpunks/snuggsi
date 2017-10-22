@@ -108,6 +108,7 @@ void (_ => {
 
 
       for (let node of this.response.querySelectorAll ('style,link,script')) {
+
         let
           as = node.getAttribute ('as')
 
@@ -115,7 +116,7 @@ void (_ => {
             document.createElement (node.localName)
 
 
-        void ['src', 'href', 'textContent', 'rel']
+        void ['src', 'href', 'textContent', 'rel', /* media */]
           .map (reflect (clone, node))
 
         // use rel = 'preload stylesheet' for async
