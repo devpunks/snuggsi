@@ -5,13 +5,10 @@ The HTML `<link>` element specifies relationships between the current document a
 
 [Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement)
 
-// future links
-
-// Prefetch implementation
-
-// Resource Hints - https://www.w3.org/TR/resource-hints
 
 ## Resource Hints
+
+  - Resource Hints - https://www.w3.org/TR/resource-hints
 
 
 ### Import _(deprecated)_
