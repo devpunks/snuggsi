@@ -5,7 +5,7 @@
 // media - INTERESTING
 // crossOrigin (experimental)
 // referrerPolicy (experimental)
-// rel - alternative/import/styelsheet/prefetch/preload
+// rel - alternative/import/styelsheet/prefetch/preload/prerender
 // prefetch atribute
 // ? integrity - https://w3c.github.io/webappsec-subresource-integrity/
 // ? load (Edge Chrome M)
