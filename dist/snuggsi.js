@@ -180,6 +180,8 @@ void (function (_) {
 
 //create an observer instance
 (new MutationObserver ( function (mutations) {
+  console.warn ('On it', document.readyState)
+
   for (var i = 0, list = mutations; i < list.length; i += 1)
     {
     var mutation = list[i];
@@ -190,11 +192,11 @@ void (function (_) {
         'link' == node.localName
          && /^pre/.test (node.rel)
            && /\-/.test (node.id)
-             && preload (node)
-      ;
+//           && preload (node)
+//    ,
 
-      /\-/.test (node.localName)
-        && console.warn ('ce', node.localName, document.readyState)
+//    /\-/.test (node.localName)
+//      && console.warn ('ce', node.localName, document.readyState)
     }
   }
 }))
