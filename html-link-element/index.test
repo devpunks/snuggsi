@@ -1,3 +1,6 @@
+const
+  slow_stylesheet = '"http://tools.w3clubs.com/pagr/1.sleep-1.css'
+
 // https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement
 
 // // disabled (stylesheets)
