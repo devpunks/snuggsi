@@ -19,8 +19,8 @@ The HTML `<link>` element specifies relationships between the current document a
 ### Preload
 
   - Preloading - https://w3c.github.io/preload
-  - Preload _"Polyfill"_ - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-as-script-js
-
+  - Preload Script _"Polyfill"_ - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-as-script-js
+  - Preload Style _"Polyfill"_ - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-as-style-js
 ### Prefetch
 
   - IE11 Support for Prerender / Prefetch - https://msdn.microsoft.com/en-us/library/dn265039(v=vs.85).aspx
