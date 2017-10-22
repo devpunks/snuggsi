@@ -172,18 +172,16 @@ void (_ => {
 
 //create an observer instance
 (new MutationObserver ( mutations => {
-  console.warn ('On it', document.readyState)
-
   for (let mutation of mutations)
     for (let node of mutation.addedNodes) {
       'link' == node.localName
          && /^pre/.test (node.rel)
            && /\-/.test (node.id)
-//           && preload (node)
-//    ,
+             && preload (node)
+      ;
 
-//    /\-/.test (node.localName)
-//      && console.warn ('ce', node.localName, document.readyState)
+      /\-/.test (node.localName)
+        && console.warn ('ce', node.localName, document.readyState)
     }
 }))
 
