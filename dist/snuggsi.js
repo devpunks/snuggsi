@@ -177,9 +177,16 @@ void (function (_) {
     xhr.send ()
   }
 
+document.documentElement
+  .addEventListener ('load', console.dir);
 
 //create an observer instance
 (new MutationObserver ( function (mutations) {
+
+  var added = mutations.map (function (mutation) { return mutation.addedNodes.length; })
+
+  console.warn ('SNUGGS', document.readyState, added)
+
   for (var i = 0, list = mutations; i < list.length; i += 1)
     {
     var mutation = list[i];
