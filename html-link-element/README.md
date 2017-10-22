@@ -23,6 +23,8 @@ The HTML `<link>` element specifies relationships between the current document a
 
 ### Prefetch
 
+  - IE11 Support for Prerender / Prefetch - https://msdn.microsoft.com/en-us/library/dn265039(v=vs.85).aspx
+
 
 ### Prerender
 
