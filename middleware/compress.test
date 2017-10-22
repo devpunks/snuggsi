@@ -2,6 +2,7 @@ const { describe, serve, browse }
   = require ('test')
 
 const
+  // https://davidwalsh.name/nodejs-http-request
   // https://nodejs.org/api/http.html#http_http_request_options_callback
   options = {
     /*, host: 'localhost' // default */
