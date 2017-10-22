@@ -19,6 +19,7 @@ The HTML `<link>` element specifies relationships between the current document a
 ### Preload
 
   - Preloading - https://w3c.github.io/preload
+  - Preload _"Polyfill"_ - https://gist.github.com/aFarkas/34dde117000ec7075053
 
 
 ### Prefetch
