@@ -114,6 +114,7 @@ void (function (_) {
 
 
       for (var i$1 = 0, list$1 = this$1.response.querySelectorAll ('style,link,script'); i$1 < list$1.length; i$1 += 1) {
+
         var node$1 = list$1[i$1];
 
         var
@@ -123,7 +124,7 @@ void (function (_) {
             document.createElement (node$1.localName)
 
 
-        void ['src', 'href', 'textContent', 'rel']
+        void ['src', 'href', 'textContent', 'rel' ]
           .map (reflect (clone, node$1))
 
         // use rel = 'preload stylesheet' for async
