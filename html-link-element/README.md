@@ -52,6 +52,7 @@ The HTML `<link>` element specifies relationships between the current document a
 
 ## Implementation Tickets
 
+  - Load CSS - https://github.com/filamentgroup/loadCSS/blob/master/src/loadCSS.js
   - https://bugs.webkit.org/show_bug.cgi?id=3652
   - https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
   - https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/12142852/
