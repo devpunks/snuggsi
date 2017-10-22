@@ -4,8 +4,6 @@ The HTML `<link>` element specifies relationships between the current document a
 
 [Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement)
 
-// https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
-// http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
 // https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/12142852/
 // Caching best practices - https://jakearchibald.com/2016/caching-best-practices/
 // $$$$$$ HOT SWAP URL BASE PATHS! https://eager.io/blog/three-real-world-use-cases-for-mutation-observer
@@ -20,12 +18,18 @@ The HTML `<link>` element specifies relationships between the current document a
 
 // Prefetch implementation
 
-
 // Resource Hints - https://www.w3.org/TR/resource-hints
 
 ## Resource Hints
 
+
+### Import _(deprecated)_
+
+  - http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
+
+
 ### Preload
+
   - Preloading - https://w3c.github.io/preload
 
 
@@ -37,7 +41,7 @@ The HTML `<link>` element specifies relationships between the current document a
   - IE11 Support for Prerender / Prefetch - https://msdn.microsoft.com/en-us/library/dn265039(v=vs.85).aspx
 
 
-#### Onload
+## Onload
 
   - https://dom.spec.whatwg.org/#concept-event-fire
   - $$$$ loading capabilities - https://pie.gd/test/script-link-events/
@@ -45,6 +49,7 @@ The HTML `<link>` element specifies relationships between the current document a
   - https://stackoverflow.com/questions/4488567/is-there-any-way-to-detect-when-a-css-file-has-been-fully-loaded
 
 
-#### Implementation Tickets
+## Implementation Tickets
 
   - https://bugs.webkit.org/show_bug.cgi?id=3652
+  - https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
