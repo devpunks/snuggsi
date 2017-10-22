@@ -24,7 +24,8 @@ The HTML `<link>` element specifies relationships between the current document a
 // future links
 
 // Prefetch implementation
-//
+
+
 ## Preload
 
 
