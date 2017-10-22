@@ -108,7 +108,11 @@ DOMTokenList.prototype.bind = function (context) {
 // https://bugs.webkit.org/show_bug.cgi?id=172639
 // https://github.com/whatwg/html/pull/616#issuecomment-180018260
 // future links
+
+// Prefetch implementation
+//
 void (function (_) {
+  // https://bugs.webkit.org/show_bug.cgi?id=38995
   // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
   var onload = function (link) {
     return function () {
