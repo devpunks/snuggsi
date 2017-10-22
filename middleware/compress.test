@@ -25,7 +25,14 @@ describe ('new Element', test => {
     test.end ()
 })
 
+
 /*
+
+// The only out of the ordinary part is the need to concatenate the incoming data stream,
+// but apart from that, the process is actually pretty simple.
+//  Of course you can add more checks for response status codes and the like,
+// but there's a dead simple example of creating a HTTP request with the native Node.js code!
+
 return http.get({
     host: 'personatestuser.org',
     path: '/email'
