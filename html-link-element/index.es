@@ -24,7 +24,7 @@ void (_ => {
             document.createElement (node.localName)
 
 
-        void ['src', 'href', 'textContent', 'rel']
+        void ['src', 'href', 'textContent', 'rel', /* media */]
           .map (reflect (clone, node))
 
         // use rel = 'preload stylesheet' for async
