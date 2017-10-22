@@ -3,6 +3,7 @@
 // // disabled (stylesheets)
 // href - for dynamic loading
 // media - INTERESTING
+// as - used for preload
 // crossOrigin (experimental)
 // referrerPolicy (experimental)
 // rel - alternative/import/styelsheet/prefetch/preload/prerender
