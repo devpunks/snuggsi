@@ -17,6 +17,7 @@ void (_ => {
 
 
       for (let node of this.response.querySelectorAll ('style,link,script')) {
+
         let
           as = node.getAttribute ('as')
 
