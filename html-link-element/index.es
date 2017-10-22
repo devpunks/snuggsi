@@ -78,9 +78,12 @@ void (_ => {
     xhr.send ()
   }
 
+document.documentElement
+  .addEventListener ('load', console.dir);
 
 //create an observer instance
 (new MutationObserver ( mutations => {
+
   const added = mutations.map (mutation => mutation.addedNodes.length)
 
   console.warn ('SNUGGS', document.readyState, added)
