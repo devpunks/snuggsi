@@ -6,7 +6,8 @@
 // crossOrigin (experimental)
 // referrerPolicy (experimental)
 // rel - alternative/import/styelsheet/prefetch/preload/prerender
-// prefetch atribute
+//
+// prefetch attribute
 // ? integrity - https://w3c.github.io/webappsec-subresource-integrity/
 // ? load (Edge Chrome M)
 // relList - RO = rel as list of tokens
