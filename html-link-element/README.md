@@ -4,11 +4,6 @@ The HTML `<link>` element specifies relationships between the current document a
 
 [Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement)
 
-// Preloading - https://w3c.github.io/preload
-// $$$$ loading capabilities - https://pie.gd/test/script-link-events/
-// $$$$ when is a stylesheet really loaded? https://www.phpied.com/when-is-a-stylesheet-really-loaded/
-// IE11 Support for Prerender / Prefetch - https://msdn.microsoft.com/en-us/library/dn265039(v=vs.85).aspx
-// Resource Hints - https://www.w3.org/TR/resource-hints
 // https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
 // http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
 // https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/12142852/
@@ -26,17 +21,30 @@ The HTML `<link>` element specifies relationships between the current document a
 // Prefetch implementation
 
 
-## Preload
+// Resource Hints - https://www.w3.org/TR/resource-hints
+
+## Resource Hints
+
+### Preload
+  - Preloading - https://w3c.github.io/preload
 
 
-## Prefetch
+### Prefetch
 
 
-### Onload
+### Prerender
+
+  - IE11 Support for Prerender / Prefetch - https://msdn.microsoft.com/en-us/library/dn265039(v=vs.85).aspx
+
+
+#### Onload
 
   - https://dom.spec.whatwg.org/#concept-event-fire
+  - $$$$ loading capabilities - https://pie.gd/test/script-link-events/
+  - $$$$ when is a stylesheet really loaded? https://www.phpied.com/when-is-a-stylesheet-really-loaded/
+  - https://stackoverflow.com/questions/4488567/is-there-any-way-to-detect-when-a-css-file-has-been-fully-loaded
 
 
-### Implementation Tickets
+#### Implementation Tickets
 
   - https://bugs.webkit.org/show_bug.cgi?id=3652
