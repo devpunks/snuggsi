@@ -33,6 +33,9 @@ The HTML `<link>` element specifies relationships between the current document a
 
 ## Onload
 
+  Why `GlobalEventHandlers.onload`?
+
+  - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
   - https://dom.spec.whatwg.org/#concept-event-fire
   - $$$$ loading capabilities - https://pie.gd/test/script-link-events/
   - $$$$ when is a stylesheet really loaded? https://www.phpied.com/when-is-a-stylesheet-really-loaded/
