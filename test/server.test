@@ -4,7 +4,7 @@ const
 
 const
   options = { dist: 'dist' }
-, Server  = new (require ('./server'))(options)
+, Server  = serve (options)
 
 describe ('new Server', test => {
 
