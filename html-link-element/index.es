@@ -7,8 +7,7 @@ void (_ => {
         next =
           link.nextSibling
 
-      , response =
-          link.content = this.response
+      , response = this.response
 
       , reflect = (clone, node) => attr =>
           node [attr]
@@ -18,7 +17,7 @@ void (_ => {
         (let node of document.querySelectorAll (link.id))
       //(let node of document.getElementsByTagName (link.id))
           stamp.call
-            (node, response.querySelectorAll ('template') [0])
+            (node, link.content = response.querySelector ('template'))
 
 
       for (let node of response.querySelectorAll ('style,link,script')) {
