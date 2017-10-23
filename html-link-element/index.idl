@@ -1,3 +1,7 @@
 // Web IDL
 // https://heycam.github.io/webidl
 // https://trac.webkit.org/browser/webkit/trunk/Source/WebCore/html/HTMLLinkElement.idl
+
+
+destinations (as)
+https://github.com/whatwg/fetch/pull/547
