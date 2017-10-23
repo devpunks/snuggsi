@@ -14,6 +14,12 @@ void (_ => {
             document.createElement (node.localName)
 
 
+//        [].slice.call (node.attributes)
+//        .map (attr => attr.name)
+//        .filter (name => name != 'as')
+//        .concat ('textContent')
+//        .map (attr => clone [attr] = node [attr])
+
         void ['id', 'src', 'href', 'textContent', 'rel'/* , media */]
           .map (attr => clone [attr] = node [attr])
 
