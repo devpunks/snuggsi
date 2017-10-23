@@ -37,9 +37,11 @@ void (_ => {
         // or use media=snuggsi => media || 'all' trick
         // loadCSS - https://github.com/filamentgroup/loadCSS
         // http://keithclark.co.uk/articles/loading-css-without-blocking-render
-        'style' == as
+        'style' == as &&
         // https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#markup-based-async-loader
-          && (clone.rel = 'stylesheet')
+          (clone.rel = 'stylesheet')
+
+        console.warn (clone)
 
         link.parentNode.insertBefore (clone, next)
 
@@ -49,7 +51,8 @@ void (_ => {
               .src = node.href)
         ;
 
-        /script|test/.test (as)
+        /^sc|st/.test (as) // script | style
+          // preserves `as` attribute for link rel preload
           || reflect (clone, node)('as')
       }
     }
@@ -79,9 +82,7 @@ void (_ => {
 //create an observer instance
 // Can always default to DOMContentLoaded
 // https://bugs.webkit.org/show_bug.cgi?id=38995#c26
-(new MutationObserver ( mutations => {
-
-  const added = mutations.map (mutation => mutation.addedNodes)
+(new MutationObserver ( (mutations, preload) => {
 
   for (let mutation of mutations)
     for (let node of mutation.addedNodes) {
@@ -89,11 +90,12 @@ void (_ => {
          && /^pre/.test (node.rel)
            && /\-/.test (node.id)
              && preload (node)
-      ;
 
-      /\-/.test (node.localName)
-        && document.getElementById (node.localName).content
-        && stamp .call (node, document.querySelectorAll ('#'+node.localName)[0].content.querySelectorAll ('template')[0])
+      !! /\-/.test (node.localName)
+        &&
+          (content = document.querySelector ('#'+node.localName).content)
+        &&
+          stamp.call (node, content.querySelector ('template'))
     }
 }))
 
