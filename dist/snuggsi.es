@@ -112,7 +112,7 @@ void (_ => {
 //        .map (attr => clone [attr] = node [attr])
 
         void ['id', 'src', 'href', 'textContent', 'rel'/* , media */]
-          .map (attr => clone [attr] = node [attr])
+          .map (attr => node [attr] && (clone [attr] = node [attr]))
 
         // use rel = 'preload stylesheet' for async
         // or use media=snuggsi => media || 'all' trick
