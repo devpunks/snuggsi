@@ -1,23 +1,11 @@
 void (_ => {
-  // https://bugs.webkit.org/show_bug.cgi?id=38995
-  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
-  // https://github.com/w3c/preload/pull/40
-  const onload = link => {
-    return /*process*/ function () {
-      const
-        next = link.nextSibling
-
-      , response = this.response
-
-      for
-        (let node of document.querySelectorAll (link.id))
-      //(let node of document.getElementsByTagName (link.id))
-          stamp.call
-            (node, link.content = response.querySelector ('template'))
 
 
-      for (let node of response.querySelectorAll ('style,link,script')) {
+  const
+    process = (link, nodes) => {
+      let next = link.nextSibling
 
+      for (let node of nodes) {
         let
           // https://chromium.googlesource.com/chromium/src.git/+/0661feafc9a84f03b04dd3719b8aaa255dfaec63/third_party/WebKit/Source/core/loader/LinkLoader.cpp
           as = node.getAttribute ('as')
@@ -50,8 +38,27 @@ void (_ => {
           || (clone.as = node.as)
       }
     }
-  };
 
+  // https://bugs.webkit.org/show_bug.cgi?id=38995
+  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
+  // https://github.com/w3c/preload/pull/40
+  , onload = link =>
+      function () {
+        const
+          response =
+            this.response
+
+        , template =
+            link.content =
+               response.querySelector ('template')
+
+        for (let node of document.querySelectorAll (link.id))
+        //(let node of document.getElementsByTagName (link.id))
+          template && stamp.call (node, template)
+
+
+        process (link, response.querySelectorAll ('style,link,script'))
+      };
 
   [].slice
     .call (document.querySelectorAll ('link[rel^=pre][id*="-"]'))
@@ -76,17 +83,18 @@ void (_ => {
   //create an observer instance
   // Can always default to DOMContentLoaded
   // https://bugs.webkit.org/show_bug.cgi?id=38995#c26
-  (new MutationObserver ( (mutations, preload) => {
+  (new MutationObserver ( mutations => {
 
     for (let mutation of mutations)
       for (let node of mutation.addedNodes) {
-           /^p/.test(node.rel)
+           /^p/.test (node.rel)
              && /\-/.test (node.id)
-               && preload (node)
+             && preload (node)
 
         !! /\-/.test (node.localName)
-          && stamp.call
-            (node, document.querySelector ('#'+node.localName).content)
+          && (link = document.querySelector ('#'+node.localName))
+          && link.content
+          && stamp.call (node, link.content)
       }
   }))
 
@@ -95,13 +103,14 @@ void (_ => {
 
   // Slot stamping
   // https://github.com/w3c/webcomponents/issues/288
-  function stamp (template, insert, replacement) {
+  function stamp (template) {
     template = template.cloneNode (true)
 
-    for (replacement of this.querySelectorAll ('[slot]'))
-        (template.content || template)
-          .querySelector ('slot[name='+ replacement.getAttribute ('slot') +']')
-            .outerHTML = replacement.outerHTML
+    for (let replacement of this.querySelectorAll ('[slot]')) {
+      (template.content || template).querySelector
+       ('slot[name='+ replacement.getAttribute ('slot') +']')
+         .outerHTML = replacement.outerHTML
+    }
 
     this.innerHTML = template.innerHTML
   }
