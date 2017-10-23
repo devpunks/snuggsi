@@ -3,8 +3,6 @@ void (_ => {
   // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
   const onload = link => {
     return /*process*/ function () {
-      console.warn ('ONLOAD SNUGGSIEE', this.readyState)
-
       const
         next =
           link.nextSibling
@@ -69,8 +67,6 @@ void (_ => {
   // https://xhr.spec.whatwg.org/#interface-progressevent
   function preload (link) {
 
-    console.warn ('whaaat', link.onload = event => console.warn ('event', event))
-
     const xhr = new XMLHttpRequest
 
     xhr.onload = onload (link)
@@ -86,8 +82,6 @@ void (_ => {
 (new MutationObserver ( mutations => {
 
   const added = mutations.map (mutation => mutation.addedNodes)
-
-  console.warn ('SNUGGS', document.readyState, added)
 
   for (let mutation of mutations)
     for (let node of mutation.addedNodes) {
@@ -110,13 +104,11 @@ void (_ => {
   // Slot stamping
   // https://github.com/w3c/webcomponents/issues/288
   function stamp (template, insert, replacement) {
-    template =
-      (template.content || template)
-        .cloneNode (true)
+    template = template.cloneNode (true)
 
     for (replacement of this.querySelectorAll ('[slot]'))
-        template.querySelector
-          ('slot[name='+ replacement.getAttribute ('slot') +']')
+        (template.content || template)
+          .querySelector ('slot[name='+ replacement.getAttribute ('slot') +']')
             .outerHTML = replacement.outerHTML
 
     this.innerHTML = template.innerHTML
