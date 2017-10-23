@@ -87,7 +87,7 @@ void (_ => {
       ;
 
       /\-/.test (node.localName)
-        && console.warn ('ce', node.localName, document.getElementById (node.localName).foo)
+        && console.warn ('ce', node.localName, document.getElementById (node.localName).onload)
     }
 }))
 
