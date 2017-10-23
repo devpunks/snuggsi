@@ -64,11 +64,13 @@ void (_ => {
 
     const xhr = new XMLHttpRequest
 
-    xhr.responseType = 'document'
     xhr.onload = onload (link)
     // progress events won't fire unless defining before open
     xhr.open ('GET', link.href)
+    xhr.responseType = 'document'
+    console.warn ('SNUGGSIEE', xhr.readyState)
     xhr.send ()
+    console.warn ('SNUGGSIEE', xhr.readyState)
   }
 
 document.documentElement
