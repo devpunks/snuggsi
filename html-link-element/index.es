@@ -76,6 +76,7 @@ void (_ => {
   }
 
 //create an observer instance
+// Can always default to DOMContentLoaded
 (new MutationObserver ( mutations => {
 
   const added = mutations.map (mutation => mutation.addedNodes)
