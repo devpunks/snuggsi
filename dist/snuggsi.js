@@ -91,126 +91,134 @@ DOMTokenList.prototype.bind = function (context) {
 };
 
 void (function (_) {
-  // https://bugs.webkit.org/show_bug.cgi?id=38995
-  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
-  var onload = function (link) {
-    return function () {
-      var this$1 = this;
 
-      var
-        next = link.nextSibling
 
-      , reflect = function (clone, node) { return function (attr) { return node [attr]
-            && (clone [attr] = node [attr]); }; }
+  var
+    process = function (link, nodes) {
+      var next = link.nextSibling
 
-      for
-        (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
-          {
+      var loop = function () {
         var node = list[i];
 
-        stamp.call
-            (node, this$1.response.querySelectorAll ('template') [0].cloneNode (true))
-      }
-
-
-      for (var i$1 = 0, list$1 = this$1.response.querySelectorAll ('style,link,script'); i$1 < list$1.length; i$1 += 1) {
-
-        var node$1 = list$1[i$1];
-
         var
-          as = node$1.getAttribute ('as')
+          // https://chromium.googlesource.com/chromium/src.git/+/0661feafc9a84f03b04dd3719b8aaa255dfaec63/third_party/WebKit/Source/core/loader/LinkLoader.cpp
+          as = node.getAttribute ('as')
 
         , clone =
-            document.createElement (node$1.localName)
+            document.createElement (node.localName)
 
 
-        void ['src', 'href', 'textContent', 'rel' ]
-          .map (reflect (clone, node$1))
+        void ['id', 'src', 'href', 'textContent', 'rel' ]
+          .map (function (attr) { return clone [attr] = node [attr]; })
 
         // use rel = 'preload stylesheet' for async
         // or use media=snuggsi => media || 'all' trick
         // loadCSS - https://github.com/filamentgroup/loadCSS
         // http://keithclark.co.uk/articles/loading-css-without-blocking-render
-        'style' == as && (clone.rel = 'stylesheet')
+        'style' == as &&
+        // https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#markup-based-async-loader
+          (clone.rel = 'stylesheet')
 
         link.parentNode.insertBefore (clone, next)
 
         'script' == as &&
           (link.parentNode.insertBefore
             (document.createElement ('script'), next)
-              .src = node$1.href)
+              .src = node.href)
         ;
 
-        /script|test/.test (as)
-          || reflect (clone, node$1)('as')
-      }
-    }
-  };
+        /^sc|st/.test (as) // script | style
+          // preserves `as` attribute for link rel preload
+          || (clone.as = node.as)
+      };
 
+      for (var i = 0, list = nodes; i < list.length; i += 1) loop();
+    }
+
+  // https://bugs.webkit.org/show_bug.cgi?id=38995
+  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
+  // https://github.com/w3c/preload/pull/40
+  , onload = function (link) { return function () {
+        var
+          response =
+            this.response
+
+        , template =
+            link.content =
+               response.querySelector ('template')
+
+        for (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
+        //(let node of document.getElementsByTagName (link.id))
+          {
+          var node = list[i];
+
+          template && stamp.call (node, template)
+        }
+
+
+        process (link, response.querySelectorAll ('style,link,script'))
+      }; };
 
   [].slice
     .call (document.querySelectorAll ('link[rel^=pre][id*="-"]'))
     .map  (preload)
 
 
+  // XHR Specs
+  // https://xhr.spec.whatwg.org
   // Progress events
   // https://xhr.spec.whatwg.org/#interface-progressevent
   function preload (link) {
 
     var xhr = new XMLHttpRequest
 
-    xhr.responseType = 'document'
     xhr.onload = onload (link)
     // progress events won't fire unless defining before open
     xhr.open ('GET', link.href)
+    xhr.responseType = 'document'
     xhr.send ()
   }
 
-document.documentElement
-  .addEventListener ('load', console.dir);
+  //create an observer instance
+  // Can always default to DOMContentLoaded
+  // https://bugs.webkit.org/show_bug.cgi?id=38995#c26
+  (new MutationObserver ( function (mutations) {
 
-//create an observer instance
-(new MutationObserver ( function (mutations) {
+    for (var i = 0, list = mutations; i < list.length; i += 1)
+      {
+      var mutation = list[i];
 
-  var added = mutations.map (function (mutation) { return mutation.addedNodes.length; })
+      for (var i$1 = 0, list$1 = mutation.addedNodes; i$1 < list$1.length; i$1 += 1) {
+           var node = list$1[i$1];
 
-  console.warn ('SNUGGS', document.readyState, added)
-
-  for (var i = 0, list = mutations; i < list.length; i += 1)
-    {
-    var mutation = list[i];
-
-    for (var i$1 = 0, list$1 = mutation.addedNodes; i$1 < list$1.length; i$1 += 1) {
-      var node = list$1[i$1];
-
-        'link' == node.localName
-         && /^pre/.test (node.rel)
-           && /\-/.test (node.id)
+          /^p/.test (node.rel)
+             && /\-/.test (node.id)
              && preload (node)
-      ;
 
-      /\-/.test (node.localName)
-        && console.warn ('ce', node.localName, document.readyState)
+        !! /\-/.test (node.localName)
+          && (link = document.querySelector ('#'+node.localName))
+          && link.content
+          && stamp.call (node, link.content)
+      }
     }
-  }
-}))
+  }))
 
-.observe (document.documentElement, { childList: true, subtree: true })
-
+  .observe (document.documentElement, { childList: true, subtree: true })
 
 
   // Slot stamping
   // https://github.com/w3c/webcomponents/issues/288
-  function stamp (template, insert, replacement) {
+  function stamp (template) {
     var this$1 = this;
 
-    for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1)
-        {
-      replacement = list[i];
+    template = template.cloneNode (true)
+
+    for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1) {
+      var replacement = list[i];
 
       (template.content || template).querySelector
-          ('slot[name='+ replacement.getAttribute ('slot') +']')
-            .outerHTML = replacement.outerHTML
+       ('slot[name='+ replacement.getAttribute ('slot') +']')
+         .outerHTML = replacement.outerHTML
     }
 
     this.innerHTML = template.innerHTML
@@ -542,13 +550,13 @@ var Custom = function (Element) { return ( (function (superclass) {
   };
 
 
-  anonymous.prototype.render = function (template) {
+  anonymous.prototype.render = function () {
     var this$1 = this;
 
 
     for (var i = 0, list = this$1.templates; i < list.length; i += 1)
       {
-      template = list[i];
+      var template = list[i];
 
       template.bind
         (this$1 [template.getAttribute ('name')])
