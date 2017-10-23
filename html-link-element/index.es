@@ -4,14 +4,9 @@ void (_ => {
   const onload = link => {
     return /*process*/ function () {
       const
-        next =
-          link.nextSibling
+        next = link.nextSibling
 
       , response = this.response
-
-      , reflect = (clone, node) => attr =>
-          node [attr]
-            && (clone [attr] = node [attr])
 
       for
         (let node of document.querySelectorAll (link.id))
@@ -23,6 +18,7 @@ void (_ => {
       for (let node of response.querySelectorAll ('style,link,script')) {
 
         let
+          // https://chromium.googlesource.com/chromium/src.git/+/0661feafc9a84f03b04dd3719b8aaa255dfaec63/third_party/WebKit/Source/core/loader/LinkLoader.cpp
           as = node.getAttribute ('as')
 
         , clone =
@@ -30,7 +26,7 @@ void (_ => {
 
 
         void ['id', 'src', 'href', 'textContent', 'rel'/* , media */]
-          .map (reflect (clone, node))
+          .map (attr => clone [attr] = node [attr])
 
         // use rel = 'preload stylesheet' for async
         // or use media=snuggsi => media || 'all' trick
@@ -50,7 +46,7 @@ void (_ => {
 
         /^sc|st/.test (as) // script | style
           // preserves `as` attribute for link rel preload
-          || reflect (clone, node)('as')
+          || (clone.as = node.as)
       }
     }
   };
@@ -76,26 +72,24 @@ void (_ => {
     xhr.send ()
   }
 
-//create an observer instance
-// Can always default to DOMContentLoaded
-// https://bugs.webkit.org/show_bug.cgi?id=38995#c26
-(new MutationObserver ( (mutations, preload) => {
+  //create an observer instance
+  // Can always default to DOMContentLoaded
+  // https://bugs.webkit.org/show_bug.cgi?id=38995#c26
+  (new MutationObserver ( (mutations, preload) => {
 
-  for (let mutation of mutations)
-    for (let node of mutation.addedNodes) {
-      'link' == node.localName // del
-         && /^pre/.test (node.rel)
-           && /\-/.test (node.id)
-             && preload (node)
+    for (let mutation of mutations)
+      for (let node of mutation.addedNodes) {
+           /^p/.test(node.rel)
+             && /\-/.test (node.id)
+               && preload (node)
 
-      !! /\-/.test (node.localName)
-        && stamp.call
-          (node, document.querySelector ('#'+node.localName).content)
-    }
-}))
+        !! /\-/.test (node.localName)
+          && stamp.call
+            (node, document.querySelector ('#'+node.localName).content)
+      }
+  }))
 
-.observe (document.documentElement, { childList: true, subtree: true })
-
+  .observe (document.documentElement, { childList: true, subtree: true })
 
 
   // Slot stamping
