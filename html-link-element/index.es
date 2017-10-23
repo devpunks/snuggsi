@@ -54,6 +54,8 @@ void (_ => {
     .map  (preload)
 
 
+  // XHR Specs
+  // https://xhr.spec.whatwg.org
   // Progress events
   // https://xhr.spec.whatwg.org/#interface-progressevent
   function preload (link) {
