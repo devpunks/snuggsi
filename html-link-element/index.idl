@@ -3,14 +3,15 @@
 // https://trac.webkit.org/browser/webkit/trunk/Source/WebCore/html/HTMLLinkElement.idl
 
 
-destinations (as)
-https://github.com/whatwg/fetch/pull/547
-https://github.com/whatwg/html/pull/2588
+//  destinations (as)
+//  https://github.com/w3c/preload/issues/80
+//  https://github.com/whatwg/fetch/pull/547
+//  https://github.com/whatwg/html/pull/2588
 
-w3c/preload
-https://github.com/w3c/preload/pull/91
-https://github.com/w3c/preload
-https://github.com/whatwg/fetch/pull/442
+//  w3c/preload
+//  https://github.com/w3c/preload/pull/91
+//  https://github.com/w3c/preload
+//  https://github.com/whatwg/fetch/pull/442
 [
     ExportMacro=WEBCORE_EXPORT,
     JSGenerateToNativeObject,
