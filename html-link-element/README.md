@@ -18,6 +18,7 @@ The HTML `<link>` element specifies relationships between the current document a
 
 ### Preload
 
+  - Preload. What is it good for? https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for
   - https://developer.microsoft.com/en-us/microsoft-edge/platform/status/preload/
   - Preloading - https://w3c.github.io/preload
   - Preload _"Polyfill"_
