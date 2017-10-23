@@ -2,7 +2,7 @@ void (_ => {
   // https://bugs.webkit.org/show_bug.cgi?id=38995
   // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
   const onload = link => {
-    return function () {
+    return /*process*/ function () {
       console.warn ('ONLOAD SNUGGSIEE', this.readyState)
 
       const
