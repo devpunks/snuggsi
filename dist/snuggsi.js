@@ -159,9 +159,10 @@ void (function (_) {
 
     var xhr = new XMLHttpRequest
 
-    xhr.open ('GET', link.href)
     xhr.responseType = 'document'
     xhr.onload = onload (link)
+    // progress events won't fire unless defining before open
+    xhr.open ('GET', link.href)
     xhr.send ()
   }
 
