@@ -21,9 +21,9 @@ const Custom = Element => // why buble
   }
 
 
-  render (template) {
+  render () {
 
-    for (template of this.templates)
+    for (let template of this.templates)
       template.bind
         (this [template.getAttribute ('name')])
 
