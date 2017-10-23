@@ -90,7 +90,7 @@ document.documentElement
       ;
 
       /\-/.test (node.localName)
-        && console.warn ('ce', node.localName, document.getElementById (node.localName))
+        && console.warn ('ce', node.localName, document.getElementById (node.localName).foo)
     }
 }))
 
