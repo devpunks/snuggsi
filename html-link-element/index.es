@@ -79,13 +79,13 @@ document.documentElement
 //create an observer instance
 (new MutationObserver ( mutations => {
 
-  const added = mutations.map (mutation => mutation.addedNodes.length)
+  const added = mutations.map (mutation => mutation.addedNodes)
 
   console.warn ('SNUGGS', document.readyState, added)
 
   for (let mutation of mutations)
     for (let node of mutation.addedNodes) {
-      'link' == node.localName
+      'link' == node.localName // del
          && /^pre/.test (node.rel)
            && /\-/.test (node.id)
              && preload (node)
