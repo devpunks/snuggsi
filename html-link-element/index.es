@@ -62,6 +62,8 @@ void (_ => {
   // https://xhr.spec.whatwg.org/#interface-progressevent
   function preload (link) {
 
+//  console.warn ('whaaat', link.onload = event => console.warn ('event', event))
+
     const xhr = new XMLHttpRequest
 
     xhr.onload = onload (link)
