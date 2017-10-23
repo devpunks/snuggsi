@@ -71,9 +71,6 @@ void (_ => {
     xhr.send ()
   }
 
-document.documentElement
-  .addEventListener ('load', console.dir);
-
 //create an observer instance
 (new MutationObserver ( mutations => {
 
