@@ -34,7 +34,9 @@ void (_ => {
         // or use media=snuggsi => media || 'all' trick
         // loadCSS - https://github.com/filamentgroup/loadCSS
         // http://keithclark.co.uk/articles/loading-css-without-blocking-render
-        'style' == as && (clone.rel = 'stylesheet')
+        'style' == as
+        // https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#markup-based-async-loader
+          && (clone.rel = 'stylesheet')
 
         link.parentNode.insertBefore (clone, next)
 
