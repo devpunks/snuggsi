@@ -41,8 +41,6 @@ void (_ => {
         // https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#markup-based-async-loader
           (clone.rel = 'stylesheet')
 
-        console.warn (clone)
-
         link.parentNode.insertBefore (clone, next)
 
         'script' == as &&
