@@ -6,7 +6,11 @@ void (_ => {
       console.warn ('ONLOAD SNUGGSIEE', this.readyState)
 
       const
-        next = link.nextSibling
+        next =
+          link.nextSibling
+
+      , response =
+          link.content = this.response
 
       , reflect = (clone, node) => attr =>
           node [attr]
@@ -14,11 +18,12 @@ void (_ => {
 
       for
         (let node of document.querySelectorAll (link.id))
+      //(let node of document.getElementsByTagName (link.id))
           stamp.call
-            (node, this.response.querySelectorAll ('template') [0].cloneNode (true))
+            (node, response.querySelectorAll ('template') [0])
 
 
-      for (let node of this.response.querySelectorAll ('style,link,script')) {
+      for (let node of response.querySelectorAll ('style,link,script')) {
 
         let
           as = node.getAttribute ('as')
@@ -93,7 +98,8 @@ void (_ => {
       ;
 
       /\-/.test (node.localName)
-        && console.warn ('ce', node.localName, document.getElementById (node.localName).onload)
+        && document.getElementById (node.localName).content
+        && stamp .call (node, document.querySelectorAll ('#'+node.localName)[0].content.querySelectorAll ('template')[0])
     }
 }))
 
@@ -104,8 +110,12 @@ void (_ => {
   // Slot stamping
   // https://github.com/w3c/webcomponents/issues/288
   function stamp (template, insert, replacement) {
+    template =
+      (template.content || template)
+        .cloneNode (true)
+
     for (replacement of this.querySelectorAll ('[slot]'))
-        (template.content || template).querySelector
+        template.querySelector
           ('slot[name='+ replacement.getAttribute ('slot') +']')
             .outerHTML = replacement.outerHTML
 
