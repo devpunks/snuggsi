@@ -18,6 +18,7 @@ The HTML `<link>` element specifies relationships between the current document a
 
 ### Preload
 
+  - https://developer.microsoft.com/en-us/microsoft-edge/platform/status/preload/
   - Preloading - https://w3c.github.io/preload
   - Preload _"Polyfill"_
     - Core   - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-core-js
