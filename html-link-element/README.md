@@ -44,6 +44,7 @@ The HTML `<link>` element specifies relationships between the current document a
 
   Why `GlobalEventHandlers.onload`?
 
+  - Queue - https://bugs.webkit.org/show_bug.cgi?id=38995#c26
   - TEST - http://www.phpied.com/files/cssonload/test.html
   - Comment from the past - https://bugs.webkit.org/show_bug.cgi?id=38995#c15
 
