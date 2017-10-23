@@ -11,3 +11,28 @@ w3c/preload
 https://github.com/w3c/preload/pull/91
 https://github.com/w3c/preload
 https://github.com/whatwg/fetch/pull/442
+[
+    ExportMacro=WEBCORE_EXPORT,
+    JSGenerateToNativeObject,
+] interface HTMLLinkElement : HTMLElement {
+    [Reflect] attribute boolean disabled;
+    [Reflect] attribute DOMString charset;
+    [Reflect, URL] attribute USVString href;
+    [Reflect] attribute DOMString hreflang;
+    [Reflect] attribute DOMString media;
+    [Reflect] attribute DOMString rel;
+    [Reflect] attribute DOMString rev;
+    [PutForwards=value] readonly attribute DOMTokenList sizes;
+    [Reflect] attribute DOMString target;
+    [Reflect] attribute DOMString type;
+    attribute DOMString as;
+    attribute DOMString? crossOrigin;
+
+    // DOM Level 2 Style
+    readonly attribute StyleSheet sheet;
+
+    [PutForwards=value] readonly attribute DOMTokenList relList;
+
+    [Reflect] attribute DOMString nonce;
+    [Reflect, EnabledBySetting=SubresourceIntegrity] attribute DOMString integrity;
+};
