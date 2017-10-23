@@ -68,9 +68,7 @@ void (_ => {
     // progress events won't fire unless defining before open
     xhr.open ('GET', link.href)
     xhr.responseType = 'document'
-    console.warn ('SNUGGSIEE', xhr.readyState)
     xhr.send ()
-    console.warn ('SNUGGSIEE', xhr.readyState)
   }
 
 document.documentElement
@@ -92,7 +90,7 @@ document.documentElement
       ;
 
       /\-/.test (node.localName)
-        && console.warn ('ce', node.localName, document.readyState)
+        && console.warn ('ce', node.localName, document.getElementById (node.localName))
     }
 }))
 
