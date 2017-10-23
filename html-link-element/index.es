@@ -90,10 +90,8 @@ void (_ => {
              && preload (node)
 
       !! /\-/.test (node.localName)
-        &&
-          (content = document.querySelector ('#'+node.localName).content)
-        &&
-          stamp.call (node, content.querySelector ('template'))
+        && stamp.call
+          (node, document.querySelector ('#'+node.localName).content)
     }
 }))
 
