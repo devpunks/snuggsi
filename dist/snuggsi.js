@@ -152,7 +152,11 @@ void (function (_) {
     .call (document.querySelectorAll ('link[rel^=pre][id*="-"]'))
     .map  (preload)
 
+
+  // Progress events
+  // https://xhr.spec.whatwg.org/#interface-progressevent
   function preload (link) {
+
     var xhr = new XMLHttpRequest
 
     xhr.open ('GET', link.href)
