@@ -3,6 +3,8 @@ void (_ => {
   // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
   const onload = link => {
     return function () {
+      console.warn ('ONLOAD SNUGGSIEE', this.readyState)
+
       const
         next = link.nextSibling
 
