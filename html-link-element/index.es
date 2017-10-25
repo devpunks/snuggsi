@@ -1,9 +1,9 @@
 void (_ => {
 
 
-  const
+  let
     process = (link, nodes) => {
-      let next = link.nextSibling
+      let anchor = link.nextSibling
 
       for (let node of nodes) {
         let
@@ -11,37 +11,28 @@ void (_ => {
           as = node.getAttribute ('as')
 
         , clone =
-            document.createElement (node.localName)
+            document.createElement
+              ('script' == as ? as : node.localName)
 
+        void
 
-//        [].slice.call (node.attributes)
-//        .map (attr => attr.name)
-//        .filter (name => name != 'as')
-//        .concat ('textContent')
-//        .map (attr => clone [attr] = node [attr])
-
-        void ['id', 'src', 'href', 'textContent', 'rel'/* , media */]
-          .map (attr => node [attr] && (clone [attr] = node [attr]))
+        ['as', 'id', 'src', 'href', 'textContent', 'rel'/* , media */]
+          .map (attr => node [attr] && attr in clone && (clone [attr] = node [attr]))
 
         // use rel = 'preload stylesheet' for async
         // or use media=snuggsi => media || 'all' trick
         // loadCSS - https://github.com/filamentgroup/loadCSS
         // http://keithclark.co.uk/articles/loading-css-without-blocking-render
-        'style' == as &&
+        'style' == as
         // https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#markup-based-async-loader
-          (clone.rel = 'stylesheet')
+          && (clone.rel = 'stylesheet')
 
-        link.parentNode.insertBefore (clone, next)
+        'script' == as // smelly
+          && (clone.src = clone.href)
 
-        'script' == as &&
-          (link.parentNode.insertBefore
-            (document.createElement ('script'), next)
-              .src = node.href)
-        ;
-
-        /^sc|st/.test (as) // script | style
-          // preserves `as` attribute for link rel preload
-          || (clone.as = node.as)
+        link
+          .parentNode
+          .insertBefore (clone, anchor)
       }
     }
 
@@ -50,7 +41,9 @@ void (_ => {
   // https://github.com/w3c/preload/pull/40
   , onload = link =>
       function () {
-        const
+        console.warn (link.id)
+
+        let
           response =
             this.response
 
@@ -67,22 +60,23 @@ void (_ => {
       };
 
   [].slice
-    .call (document.querySelectorAll ('link[rel^=pre][id*="-"]'))
-    .map  (preload)
+    .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
+    .map  (load)
 
 
   // XHR Specs
   // https://xhr.spec.whatwg.org
   // Progress events
   // https://xhr.spec.whatwg.org/#interface-progressevent
-  function preload (link) {
-
-    const xhr = new XMLHttpRequest
+  // Loader - https://trac.webkit.org/browser/trunk/WebCore/loader/loader.cpp
+  function load (link) {
+    let xhr = new XMLHttpRequest
 
     xhr.onload = onload (link)
     // progress events won't fire unless defining before open
     xhr.open ('GET', link.href)
     xhr.responseType = 'document'
+    // Max requests
     xhr.send ()
   }
 
@@ -92,16 +86,20 @@ void (_ => {
   (new MutationObserver ( mutations => {
 
     for (let mutation of mutations)
-      for (let node of mutation.addedNodes) {
+      for (let node of mutation.addedNodes)
            /^p/.test (node.rel)
              && /\-/.test (node.id)
-             && preload (node)
+             && load (node)
+
+        ,
 
         !! /\-/.test (node.localName)
-          && (link = document.querySelector ('#'+node.localName))
-          && link.content
-          && stamp.call (node, link.content)
-      }
+    && console.warn (node)
+
+//          && (link = document.querySelector ('#'+node.localName))
+//          && link.content
+//          && stamp.call (node, link.content)
+//          && customElements.upgrade (node)
   }))
 
   .observe (document.documentElement, { childList: true, subtree: true })
