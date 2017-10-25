@@ -103,7 +103,9 @@ void (_ => {
         void
 
         ['id', 'rel', 'href', 'src', 'textContent', 'as', 'defer', 'crossOrigin'/* , media */]
-          .map (attr => node [attr] && attr in clone && clone.setAttribute (attr, node [attr]))
+          // setAttribute won't work for textContent and likewise explicit set for crossorigin
+          // Mutually exclusive!!! ?!??!?!?!?!?
+          .map (attr => node [attr] && attr in clone && (clone [attr] = node [attr]))
 
         // use rel = 'preload stylesheet' for async
         // or use media=snuggsi => media || 'all' trick
@@ -201,8 +203,13 @@ void (_ => {
 
     let slot
 
-    [].slice.call (template.attributes)
-    .map (attr => this.setAttribute (attr.name, attr.value))
+    []
+      .slice
+      .call (template.attributes)
+      .map  (attr =>
+        !   this.attributes [attr.name]
+        &&  this.setAttribute (attr.name, attr.value))
+
 
     for (let replacement of this.querySelectorAll ('[slot]'))
       (slot = (template.content || template).querySelector
@@ -319,6 +326,7 @@ new class /* CustomElementRegistry */ {
 
 
   define ( name, constructor ) {
+
     this [name] = constructor
 
     // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
