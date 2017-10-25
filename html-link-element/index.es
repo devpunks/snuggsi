@@ -116,7 +116,7 @@ void (_ => {
 
     let slot
 
-    []
+    [] // distribute attributes
       .slice
       .call (template.attributes)
       .map  (attr =>
