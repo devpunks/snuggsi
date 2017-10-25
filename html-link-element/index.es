@@ -104,16 +104,22 @@ void (_ => {
   .observe (document.documentElement, { childList: true, subtree: true })
 
 
-  // Slot stamping
+  // Slot replacement & light DOM stamping
   // https://github.com/w3c/webcomponents/issues/288
+  // https://dom.spec.whatwg.org/#slot-assigned-nodes
   function stamp (template) {
 
-    template = template.cloneNode (true)
+    template =
+      document.importNode (template, true)
+
+    let slot
 
     for (let replacement of this.querySelectorAll ('[slot]'))
-      (template.content || template).querySelector
-       ( 'slot[name=' + replacement.getAttribute ('slot') + ']' )
-           .outerHTML = replacement.outerHTML
+      (slot = (template.content || template).querySelector
+       ( 'slot[name=' + replacement.getAttribute ('slot') + ']' ))
+
+      && // this could be slow
+        slot.parentNode.replaceChild (replacement, slot)
 
     return this.innerHTML = template.innerHTML
   }
