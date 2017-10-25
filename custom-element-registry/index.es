@@ -17,65 +17,42 @@
 //     - https://html.spec.whatwg.org/#cereactions
 
 
-! window.customElements
-  && (customElements = {/* microfill */})
+customElements
+  = customElements
+    || {/* microfill */}
 
 
 new class /* CustomElementRegistry */ {
 
-  constructor () {
-    customElements.define
-      = this.define.bind (this,  _ => 0 )
-      //= this.define.bind (this,  customElements.define )
-  }
-
-  define ( native, name, constructor ) {
-    // this.running = undefined
-    //  definition = this.swizzle ( definition );
-
-    (native).apply
-      ( customElements, this.register ( name, constructor ) )
-  }
+  constructor ()
+    { customElements.define = this.define.bind (this) }
 
 
-  register () {
+  define ( name, constructor ) {
+    this [name] = constructor
 
-    'loading' == document.readyState
+    console.warn ('the constructor', name, this [name])
 
-      ? addEventListener
-        ('DOMContentLoaded', this.queue ( ... arguments ))
+    // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
+    void
 
-      : this.queue ( ... arguments )()
-
-    return arguments
-  }
-
-
-  queue ( name, constructor ) {
-    return event =>
-      // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
-      [].slice
-        .call ( document.getElementsByTagName (name) )
-        .map  ( this.upgrade, constructor.prototype )
+    [].slice
+      .call ( document.getElementsByTagName (name) )
+      .map  ( this.upgrade, this )
   }
 
 
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
-  upgrade (element) {
+  upgrade (node) {
 
     // Here's where we can swizzle
-    // see this.swizzle ()
-    Object.setPrototypeOf
-      (element, this)
-        .connectedCallback
-          && element.connectedCallback ()
-  }
+    // http://nshipster.com/method-swizzling/
+//  new Function ('class extends HTMLElement {}')
 
-  // http://nshipster.com/method-swizzling/
-  swizzle ( constructor ) {
-    //see elements/html-custom-element.es
-    return new Function ('class extends HTMLElement {}')
+    Object.setPrototypeOf
+      (node, this [node.localName].prototype)
+        .connectedCallback ()
   }
 }
 
