@@ -83,12 +83,6 @@ DOMTokenList.prototype.bind = function (context) {
 
 void (function (_) {
 
-  [].slice
-    .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
-    .map  (load)
-
-  void
-
   //create an observer instance
   // Can always default to DOMContentLoaded
   // https://bugs.webkit.org/show_bug.cgi?id=38995#c26
@@ -116,6 +110,13 @@ void (function (_) {
 
   .observe (document.documentElement, { childList: true, subtree: true })
 
+
+  void
+
+
+  [].slice
+    .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
+    .map  (load)
 
 
   // XHR Specs
@@ -146,6 +147,9 @@ void (function (_) {
       response =
         this.response
 
+    , anchor =
+        link.nextChild
+
     , template =
         link.content =
            response.querySelector ('template')
@@ -163,12 +167,12 @@ void (function (_) {
       {
       var node$1 = list$1[i$1];
 
-      process (link.nextSibling, node$1)
+      process (link, node$1, anchor)
     }
   }
 
 
-  function process (anchor, node) {
+  function process (link, node, anchor) {
       var
         // https://chromium.googlesource.com/chromium/src.git/+/0661feafc9a84f03b04dd3719b8aaa255dfaec63/third_party/WebKit/Source/core/loader/LinkLoader.cpp
         as = node.getAttribute ('as')
@@ -195,7 +199,7 @@ void (function (_) {
       'script' == as // smelly
         && (clone.src = clone.href)
 
-      anchor
+      link
         .parentNode
         .insertBefore (clone, anchor)
   }
