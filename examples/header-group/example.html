@@ -9,20 +9,11 @@
 
 
 <!-- debatable ?? -->
-<meta
-  name=header-group
-  content=/examples/header-group
->
 <link
   as=fetch
   rel=preload
   id=header-group
   href=/examples/header-group
->
-<link
-  id=foo-group
-  rel=stylesheet
-  href=//devpunks.herokuapp.com/typography.css
 >
 
 
@@ -43,3 +34,24 @@
 <header-group>
   <h2 slot=header>MrBernnz &amp; Snuggsi Header</h2>
 </header-group>
+
+<script>
+
+Element `header-group`
+
+(class extends HTMLElement {
+
+  constructor ()
+    { console.warn ('Constructing', this) }
+
+  initialize ()
+    { console.warn ('Initializing', this) }
+
+  onconnect ()
+    { console.warn ('Connecting', this) }
+
+  onclick (event)
+    { console.warn ('Clicked', event) }
+})
+
+</script>
