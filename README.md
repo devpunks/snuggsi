@@ -299,7 +299,7 @@ template.bind (context)
   A **snuggsiツ** _"Component"_ supports the following features:
 
   - Self Documenting.
-  - Named `<slot>` replacement.
+  - Named `<slot>` composition &amp; replacement.
   - Components written in pure HTML.
   - Usage of a component `<link>` requires no JavaScript😮.
   - A default `<template>` element used as a _light DOM_ for custom element definitions.
