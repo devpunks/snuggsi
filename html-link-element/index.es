@@ -114,6 +114,9 @@ void (_ => {
 
     let slot
 
+    [].slice.call (template.attributes)
+    .map (attr => this.setAttribute (attr.name, attr.value))
+
     for (let replacement of this.querySelectorAll ('[slot]'))
       (slot = (template.content || template).querySelector
        ( 'slot[name=' + replacement.getAttribute ('slot') + ']' ))
