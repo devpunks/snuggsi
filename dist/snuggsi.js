@@ -83,72 +83,37 @@ DOMTokenList.prototype.bind = function (context) {
 
 void (function (_) {
 
-  var
-    process = function (link, nodes) {
-      var anchor = link.nextSibling
-
-      var loop = function () {
-        var node = list[i];
-
-        var
-          // https://chromium.googlesource.com/chromium/src.git/+/0661feafc9a84f03b04dd3719b8aaa255dfaec63/third_party/WebKit/Source/core/loader/LinkLoader.cpp
-          as = node.getAttribute ('as')
-
-        , clone =
-            document.createElement
-              ('script' == as ? as : node.localName)
-
-        void
-
-        ['id', 'rel', 'href', 'src', 'textContent', 'as', 'defer', 'crossOrigin' ]
-          // setAttribute won't work for textContent and likewise explicit set for crossorigin
-          // Mutually exclusive!!! ?!??!?!?!?!?
-          .map (function (attr) { return node [attr] && attr in clone && (clone [attr] = node [attr]); })
-
-        // use rel = 'preload stylesheet' for async
-        // or use media=snuggsi => media || 'all' trick
-        // loadCSS - https://github.com/filamentgroup/loadCSS
-        // http://keithclark.co.uk/articles/loading-css-without-blocking-render
-        'style' == as
-        // https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#markup-based-async-loader
-          && (clone.rel = 'stylesheet')
-
-        'script' == as // smelly
-          && (clone.src = clone.href)
-
-        link
-          .parentNode
-          .insertBefore (clone, anchor)
-      };
-
-      for (var i = 0, list = nodes; i < list.length; i += 1) loop();
-    }
-
-  // https://bugs.webkit.org/show_bug.cgi?id=38995
-  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
-  // https://github.com/w3c/preload/pull/40
-  , onload = function (link) {
-      link = this.link
-
+  function process (anchor, node) {
       var
-        response =
-          this.response
+        // https://chromium.googlesource.com/chromium/src.git/+/0661feafc9a84f03b04dd3719b8aaa255dfaec63/third_party/WebKit/Source/core/loader/LinkLoader.cpp
+        as = node.getAttribute ('as')
 
-      , template =
-          link.content =
-             response.querySelector ('template')
+      , clone =
+          document.createElement
+            ('script' == as ? as : node.localName)
 
-      for (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
-      //(let node of document.getElementsByTagName (link.id))
-        {
-        var node = list[i];
+      void
 
-        template && stamp.call (node, template)
-      }
+      ['id', 'rel', 'href', 'src', 'textContent', 'as', 'defer', 'crossOrigin' ]
+        // setAttribute won't work for textContent and likewise explicit set for crossorigin
+        // Mutually exclusive!!! ?!??!?!?!?!?
+        .map (function (attr) { return node [attr] && attr in clone && (clone [attr] = node [attr]); })
 
+      // use rel = 'preload stylesheet' for async
+      // or use media=snuggsi => media || 'all' trick
+      // loadCSS - https://github.com/filamentgroup/loadCSS
+      // http://keithclark.co.uk/articles/loading-css-without-blocking-render
+      'style' == as
+      // https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#markup-based-async-loader
+        && (clone.rel = 'stylesheet')
 
-      process (link, response.querySelectorAll ('style,link,script'))
-    }
+      'script' == as // smelly
+        && (clone.src = clone.href)
+
+      anchor
+        .parentNode
+        .insertBefore (clone, anchor)
+  }
 
   void
 
@@ -204,6 +169,37 @@ void (function (_) {
 
   .observe (document.documentElement, { childList: true, subtree: true })
 
+  // https://bugs.webkit.org/show_bug.cgi?id=38995
+  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
+  // https://github.com/w3c/preload/pull/40
+  function onload (link) {
+      link = this.link
+
+      var
+        response =
+          this.response
+
+      , template =
+          link.content =
+             response.querySelector ('template')
+
+      for (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
+      //(let node of document.getElementsByTagName (link.id))
+        {
+        var node = list[i];
+
+        template && stamp.call (node, template)
+      }
+
+
+      for (var i$1 = 0, list$1 = response.querySelectorAll ('style,link,script'); i$1 < list$1.length; i$1 += 1)
+        {
+        var node$1 = list$1[i$1];
+
+        process (link, node$1)
+      }
+    }
+
 
   // Slot replacement & light DOM stamping
   // https://github.com/w3c/webcomponents/issues/288
@@ -217,7 +213,7 @@ void (function (_) {
 
     var slot
 
-    []
+    [] // distribute attributes
       .slice
       .call (template.attributes)
       .map  (function (attr) { return !   this$1.attributes [attr.name]
