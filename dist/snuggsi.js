@@ -203,21 +203,30 @@ void (function (_) {
   .observe (document.documentElement, { childList: true, subtree: true })
 
 
-  // Slot stamping
+  // Slot replacement & light DOM stamping
   // https://github.com/w3c/webcomponents/issues/288
+  // https://dom.spec.whatwg.org/#slot-assigned-nodes
   function stamp (template) {
     var this$1 = this;
 
 
-    template = template.cloneNode (true)
+    template =
+      document.importNode (template, true)
+
+    var slot
+
+    [].slice.call (template.attributes)
+    .map (function (attr) { return this$1.setAttribute (attr.name, attr.value); })
 
     for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1)
       {
       var replacement = list[i];
 
-      (template.content || template).querySelector
-       ( 'slot[name=' + replacement.getAttribute ('slot') + ']' )
-           .outerHTML = replacement.outerHTML
+      (slot = (template.content || template).querySelector
+       ( 'slot[name=' + replacement.getAttribute ('slot') + ']' ))
+
+      && // this could be slow
+        slot.parentNode.replaceChild (replacement, slot)
     }
 
     return this.innerHTML = template.innerHTML
