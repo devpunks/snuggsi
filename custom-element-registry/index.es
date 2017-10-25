@@ -24,14 +24,19 @@ customElements
 
 new class /* CustomElementRegistry */ {
 
-  constructor ()
-    { customElements.define = this.define.bind (this) }
+  constructor () {
+    customElements.define =
+      this.define.bind (this)
+
+    customElements.upgrade =
+      this.upgrade.bind (this)
+  }
 
 
   define ( name, constructor ) {
     this [name] = constructor
 
-    console.warn ('the constructor', name, this [name])
+    console.warn ('Defining', name, this [name])
 
     // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
     void
