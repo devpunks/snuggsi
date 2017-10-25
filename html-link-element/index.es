@@ -1,6 +1,5 @@
 void (_ => {
 
-
   let
     process = (link, nodes) => {
       let anchor = link.nextSibling
@@ -16,8 +15,8 @@ void (_ => {
 
         void
 
-        ['as', 'id', 'src', 'href', 'textContent', 'rel'/* , media */]
-          .map (attr => node [attr] && attr in clone && (clone [attr] = node [attr]))
+        ['id', 'rel', 'href', 'src', 'textContent', 'as', 'defer', 'crossOrigin'/* , media */]
+          .map (attr => node [attr] && attr in clone && clone.setAttribute (attr, node [attr]))
 
         // use rel = 'preload stylesheet' for async
         // or use media=snuggsi => media || 'all' trick
@@ -108,13 +107,13 @@ void (_ => {
   // Slot stamping
   // https://github.com/w3c/webcomponents/issues/288
   function stamp (template) {
+
     template = template.cloneNode (true)
 
-    for (let replacement of this.querySelectorAll ('[slot]')) {
+    for (let replacement of this.querySelectorAll ('[slot]'))
       (template.content || template).querySelector
-       ('slot[name='+ replacement.getAttribute ('slot') +']')
-         .outerHTML = replacement.outerHTML
-    }
+       ( 'slot[name=' + replacement.getAttribute ('slot') + ']' )
+           .outerHTML = replacement.outerHTML
 
     return this.innerHTML = template.innerHTML
   }
