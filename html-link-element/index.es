@@ -94,12 +94,10 @@ void (_ => {
         ,
 
         !! /\-/.test (node.localName)
-    && console.warn (node)
-
-//          && (link = document.querySelector ('#'+node.localName))
-//          && link.content
-//          && stamp.call (node, link.content)
-//          && customElements.upgrade (node)
+            && (link = document.querySelector ('#'+node.localName))
+            && link.content
+            && stamp.call (node, link.content)
+            && customElements.upgrade (node)
   }))
 
   .observe (document.documentElement, { childList: true, subtree: true })
@@ -116,7 +114,7 @@ void (_ => {
          .outerHTML = replacement.outerHTML
     }
 
-    this.innerHTML = template.innerHTML
+    return this.innerHTML = template.innerHTML
   }
 
 }) ()
