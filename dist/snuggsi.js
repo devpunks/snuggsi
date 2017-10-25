@@ -34,20 +34,21 @@ var HTMLElement =
 // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
 // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
 
-var DOMTokenList = function (node, symbol) {
+var DOMTokenList = function (node) {
   var this$1 = this;
 
 
   var
-    nodes = []
-  , expression = /{(\w+|#)}/
+    visit = function (node) { return node.attributes
+        && [].slice
+             .call (node.attributes)
+             .map(collect)
+        || collect (node); }
 
-  , visit = function (node) { return node.localName
-        ? [].slice
-            .call (node.attributes)
-            .map(function (attr) { return expression.test (attr.value) && nodes.push (attr); })
-        : expression
-            .test (node.textContent) && nodes.push (node); }
+  , collect = function (node) { return /{(\w+|#)}/.test (node.textContent)
+        && (node.text = node.textContent)
+            .match (/[^{]+(?=})/g)
+            .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); }); }
 
   , walker =
       document.createNodeIterator
@@ -55,18 +56,8 @@ var DOMTokenList = function (node, symbol) {
 
 
   while (walker.nextNode ()) { 0 } // Walk all nodes and do nothing.
-
-
-  for (var i = 0, list = nodes; i < list.length; i += 1)
-    {
-    node = list[i];
-
-    (node.text = node.textContent)
-      .match (/[^{]+(?=})/g)
-      .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); })
-  }
-
 };
+
 
 DOMTokenList.prototype.bind = function (context) {
     var this$1 = this;
@@ -95,7 +86,7 @@ void (function (_) {
 
   var
     process = function (link, nodes) {
-      var next = link.nextSibling
+      var anchor = link.nextSibling
 
       var loop = function () {
         var node = list[i];
@@ -105,37 +96,28 @@ void (function (_) {
           as = node.getAttribute ('as')
 
         , clone =
-            document.createElement (node.localName)
+            document.createElement
+              ('script' == as ? as : node.localName)
 
+        void
 
-//        [].slice.call (node.attributes)
-//        .map (attr => attr.name)
-//        .filter (name => name != 'as')
-//        .concat ('textContent')
-//        .map (attr => clone [attr] = node [attr])
-
-        void ['id', 'src', 'href', 'textContent', 'rel' ]
-          .map (function (attr) { return node [attr] && (clone [attr] = node [attr]); })
+        ['as', 'id', 'src', 'href', 'textContent', 'rel' ]
+          .map (function (attr) { return node [attr] && attr in clone && (clone [attr] = node [attr]); })
 
         // use rel = 'preload stylesheet' for async
         // or use media=snuggsi => media || 'all' trick
         // loadCSS - https://github.com/filamentgroup/loadCSS
         // http://keithclark.co.uk/articles/loading-css-without-blocking-render
-        'style' == as &&
+        'style' == as
         // https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#markup-based-async-loader
-          (clone.rel = 'stylesheet')
+          && (clone.rel = 'stylesheet')
 
-        link.parentNode.insertBefore (clone, next)
+        'script' == as // smelly
+          && (clone.src = clone.href)
 
-        'script' == as &&
-          (link.parentNode.insertBefore
-            (document.createElement ('script'), next)
-              .src = node.href)
-        ;
-
-        /^sc|st/.test (as) // script | style
-          // preserves `as` attribute for link rel preload
-          || (clone.as = node.as)
+        link
+          .parentNode
+          .insertBefore (clone, anchor)
       };
 
       for (var i = 0, list = nodes; i < list.length; i += 1) loop();
@@ -145,6 +127,8 @@ void (function (_) {
   // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
   // https://github.com/w3c/preload/pull/40
   , onload = function (link) { return function () {
+        console.warn (link.id)
+
         var
           response =
             this.response
@@ -166,22 +150,23 @@ void (function (_) {
       }; };
 
   [].slice
-    .call (document.querySelectorAll ('link[rel^=pre][id*="-"]'))
-    .map  (preload)
+    .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
+    .map  (load)
 
 
   // XHR Specs
   // https://xhr.spec.whatwg.org
   // Progress events
   // https://xhr.spec.whatwg.org/#interface-progressevent
-  function preload (link) {
-
+  // Loader - https://trac.webkit.org/browser/trunk/WebCore/loader/loader.cpp
+  function load (link) {
     var xhr = new XMLHttpRequest
 
     xhr.onload = onload (link)
     // progress events won't fire unless defining before open
     xhr.open ('GET', link.href)
     xhr.responseType = 'document'
+    // Max requests
     xhr.send ()
   }
 
@@ -194,19 +179,23 @@ void (function (_) {
       {
       var mutation = list[i];
 
-      for (var i$1 = 0, list$1 = mutation.addedNodes; i$1 < list$1.length; i$1 += 1) {
-           var node = list$1[i$1];
+      for (var i$1 = 0, list$1 = mutation.addedNodes; i$1 < list$1.length; i$1 += 1)
+           {
+          var node = list$1[i$1];
 
           /^p/.test (node.rel)
              && /\-/.test (node.id)
-             && preload (node)
+             && load (node)
+
+        ,
 
         !! /\-/.test (node.localName)
-          && (link = document.querySelector ('#'+node.localName))
-          && link.content
-          && stamp.call (node, link.content)
-      }
+            && (link = document.querySelector ('#'+node.localName))
+            && link.content
+            && stamp.call (node, link.content)
+            && customElements.upgrade (node)
     }
+        }
   }))
 
   .observe (document.documentElement, { childList: true, subtree: true })
@@ -227,7 +216,7 @@ void (function (_) {
          .outerHTML = replacement.outerHTML
     }
 
-    this.innerHTML = template.innerHTML
+    return this.innerHTML = template.innerHTML
   }
 
 }) ()
@@ -326,66 +315,46 @@ var Template = function (template) {
 //     - https://html.spec.whatwg.org/#cereactions
 
 
-! window.customElements
-  && (customElements = {/* microfill */})
+customElements
+  = customElements
+    || {/* microfill */}
 
 
 new (function () {
   function anonymous () {
-    customElements.define
-      = this.define.bind (this,  function (_) { return 0; } )
-      //= this.define.bind (this,  customElements.define )
+    customElements.define =
+      this.define.bind (this)
+
+    customElements.upgrade =
+      this.upgrade.bind (this)
   }
 
-  anonymous.prototype.define = function ( native, name, constructor ) {
-    // this.running = undefined
-    //  definition = this.swizzle ( definition );
 
-    (native).apply
-      ( customElements, this.register ( name, constructor ) )
-  };
+  anonymous.prototype.define = function ( name, constructor ) {
+    this [name] = constructor
 
+    console.warn ('Defining', name, this [name])
 
-  anonymous.prototype.register = function () {
+    // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
+    void
 
-    'loading' == document.readyState
-
-      ? addEventListener
-        ('DOMContentLoaded', (ref = this).queue.apply ( ref, arguments ))
-
-      : (ref$1 = this).queue.apply ( ref$1, arguments )()
-
-    return arguments
-    var ref;
-    var ref$1;
-  };
-
-
-  anonymous.prototype.queue = function ( name, constructor ) {
-    var this$1 = this;
-
-    return function (event) { return [].slice
-        .call ( document.getElementsByTagName (name) )
-        .map  ( this$1.upgrade, constructor.prototype ); }
+    [].slice
+      .call ( document.getElementsByTagName (name) )
+      .map  ( this.upgrade, this )
   };
 
 
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
-  anonymous.prototype.upgrade = function (element) {
+  anonymous.prototype.upgrade = function (node) {
 
     // Here's where we can swizzle
-    // see this.swizzle ()
-    Object.setPrototypeOf
-      (element, this)
-        .connectedCallback
-          && element.connectedCallback ()
-  };
+    // http://nshipster.com/method-swizzling/
+//  new Function ('class extends HTMLElement {}')
 
-  // http://nshipster.com/method-swizzling/
-  anonymous.prototype.swizzle = function ( constructor ) {
-    //see elements/html-custom-element.es
-    return new Function ('class extends HTMLElement {}')
+    Object.setPrototypeOf
+      (node, this [node.localName].prototype)
+        .connectedCallback ()
   };
 
   return anonymous;
