@@ -101,7 +101,9 @@ void (function (_) {
         void
 
         ['id', 'rel', 'href', 'src', 'textContent', 'as', 'defer', 'crossOrigin' ]
-          .map (function (attr) { return node [attr] && attr in clone && clone.setAttribute (attr, node [attr]); })
+          // setAttribute won't work for textContent and likewise explicit set for crossorigin
+          // Mutually exclusive!!! ?!??!?!?!?!?
+          .map (function (attr) { return node [attr] && attr in clone && (clone [attr] = node [attr]); })
 
         // use rel = 'preload stylesheet' for async
         // or use media=snuggsi => media || 'all' trick
@@ -215,8 +217,12 @@ void (function (_) {
 
     var slot
 
-    [].slice.call (template.attributes)
-    .map (function (attr) { return this$1.setAttribute (attr.name, attr.value); })
+    []
+      .slice
+      .call (template.attributes)
+      .map  (function (attr) { return !   this$1.attributes [attr.name]
+        &&  this$1.setAttribute (attr.name, attr.value); })
+
 
     for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1)
       {
@@ -344,6 +350,7 @@ new (function () {
 
 
   anonymous.prototype.define = function ( name, constructor ) {
+
     this [name] = constructor
 
     // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
