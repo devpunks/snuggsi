@@ -19,6 +19,14 @@ Element `github-ribbon`
 
 (class extends HTMLElement {
 
+  online (event) {
+    console.warn ('We are on the line', this.url)
+  }
+
+  onconnect (event) {
+    console.warn ('ribbon connecting', this.url)
+  }
+
   get url ()
     { return this.getAttribute ('url') }
 })

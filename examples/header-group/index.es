@@ -10,4 +10,6 @@ Element `header-group`
 
   onclick (event)
     { console.warn ('Clicked', event) }
+
+  get url () { return 'SHIT' }
 })
