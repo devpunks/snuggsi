@@ -78,6 +78,29 @@ void (_ => {
 
   .observe (document.documentElement, { childList: true, subtree: true })
 
+  // https://bugs.webkit.org/show_bug.cgi?id=38995
+  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
+  // https://github.com/w3c/preload/pull/40
+  function onload (link) {
+      link = this.link
+
+      let
+        response =
+          this.response
+
+      , template =
+          link.content =
+             response.querySelector ('template')
+
+      for (let node of document.querySelectorAll (link.id))
+      //(let node of document.getElementsByTagName (link.id))
+        template && stamp.call (node, template)
+
+
+      for (let node of response.querySelectorAll ('style,link,script'))
+        process (link, node)
+    }
+
 
   // Slot replacement & light DOM stamping
   // https://github.com/w3c/webcomponents/issues/288
