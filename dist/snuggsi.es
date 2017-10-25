@@ -36,19 +36,21 @@ const HTMLElement =
 
 class DOMTokenList {
 
-  constructor (node, symbol) {
+  constructor (node) {
 
     const
-      nodes = []
-    , expression = /{(\w+|#)}/
+      visit = node =>
+        node.attributes
+          && [].slice
+               .call (node.attributes)
+               .map  (collect)
+          || collect (node)
 
-    , visit = node =>
-        node.localName
-          ? [].slice
-              .call (node.attributes)
-              .map  (attr => expression.test (attr.value) && nodes.push (attr))
-          : expression
-              .test (node.textContent) && nodes.push (node)
+    , collect = node =>
+        /{(\w+|#)}/.test (node.textContent)
+          && (node.text = node.textContent)
+              .match (/[^{]+(?=})/g)
+              .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
 
     , walker =
         document.createNodeIterator
@@ -56,14 +58,8 @@ class DOMTokenList {
 
 
     while (walker.nextNode ()) 0 // Walk all nodes and do nothing.
-
-
-    for (node of nodes)
-      (node.text = node.textContent)
-        .match (/[^{]+(?=})/g)
-        .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
-
   }
+
 
   bind (context) {
 
@@ -75,7 +71,7 @@ class DOMTokenList {
 
    // must both run independently not in tandem
 
-    , restore = (symbol) =>
+    , restore = symbol =>
          this [symbol].map (node =>
            (node.textContent =
              node.textContent
@@ -92,9 +88,9 @@ class DOMTokenList {
 void (_ => {
 
 
-  const
+  let
     process = (link, nodes) => {
-      let next = link.nextSibling
+      let anchor = link.nextSibling
 
       for (let node of nodes) {
         let
@@ -102,37 +98,28 @@ void (_ => {
           as = node.getAttribute ('as')
 
         , clone =
-            document.createElement (node.localName)
+            document.createElement
+              ('script' == as ? as : node.localName)
 
+        void
 
-//        [].slice.call (node.attributes)
-//        .map (attr => attr.name)
-//        .filter (name => name != 'as')
-//        .concat ('textContent')
-//        .map (attr => clone [attr] = node [attr])
-
-        void ['id', 'src', 'href', 'textContent', 'rel'/* , media */]
-          .map (attr => node [attr] && (clone [attr] = node [attr]))
+        ['as', 'id', 'src', 'href', 'textContent', 'rel'/* , media */]
+          .map (attr => node [attr] && attr in clone && (clone [attr] = node [attr]))
 
         // use rel = 'preload stylesheet' for async
         // or use media=snuggsi => media || 'all' trick
         // loadCSS - https://github.com/filamentgroup/loadCSS
         // http://keithclark.co.uk/articles/loading-css-without-blocking-render
-        'style' == as &&
+        'style' == as
         // https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#markup-based-async-loader
-          (clone.rel = 'stylesheet')
+          && (clone.rel = 'stylesheet')
 
-        link.parentNode.insertBefore (clone, next)
+        'script' == as // smelly
+          && (clone.src = clone.href)
 
-        'script' == as &&
-          (link.parentNode.insertBefore
-            (document.createElement ('script'), next)
-              .src = node.href)
-        ;
-
-        /^sc|st/.test (as) // script | style
-          // preserves `as` attribute for link rel preload
-          || (clone.as = node.as)
+        link
+          .parentNode
+          .insertBefore (clone, anchor)
       }
     }
 
@@ -141,7 +128,9 @@ void (_ => {
   // https://github.com/w3c/preload/pull/40
   , onload = link =>
       function () {
-        const
+        console.warn (link.id)
+
+        let
           response =
             this.response
 
@@ -158,22 +147,23 @@ void (_ => {
       };
 
   [].slice
-    .call (document.querySelectorAll ('link[rel^=pre][id*="-"]'))
-    .map  (preload)
+    .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
+    .map  (load)
 
 
   // XHR Specs
   // https://xhr.spec.whatwg.org
   // Progress events
   // https://xhr.spec.whatwg.org/#interface-progressevent
-  function preload (link) {
-
-    const xhr = new XMLHttpRequest
+  // Loader - https://trac.webkit.org/browser/trunk/WebCore/loader/loader.cpp
+  function load (link) {
+    let xhr = new XMLHttpRequest
 
     xhr.onload = onload (link)
     // progress events won't fire unless defining before open
     xhr.open ('GET', link.href)
     xhr.responseType = 'document'
+    // Max requests
     xhr.send ()
   }
 
@@ -183,16 +173,18 @@ void (_ => {
   (new MutationObserver ( mutations => {
 
     for (let mutation of mutations)
-      for (let node of mutation.addedNodes) {
+      for (let node of mutation.addedNodes)
            /^p/.test (node.rel)
              && /\-/.test (node.id)
-             && preload (node)
+             && load (node)
+
+        ,
 
         !! /\-/.test (node.localName)
-          && (link = document.querySelector ('#'+node.localName))
-          && link.content
-          && stamp.call (node, link.content)
-      }
+            && (link = document.querySelector ('#'+node.localName))
+            && link.content
+            && stamp.call (node, link.content)
+            && customElements.upgrade (node)
   }))
 
   .observe (document.documentElement, { childList: true, subtree: true })
@@ -209,7 +201,7 @@ void (_ => {
          .outerHTML = replacement.outerHTML
     }
 
-    this.innerHTML = template.innerHTML
+    return this.innerHTML = template.innerHTML
   }
 
 }) ()
@@ -300,65 +292,47 @@ const Template = template => {
 //     - https://html.spec.whatwg.org/#cereactions
 
 
-! window.customElements
-  && (customElements = {/* microfill */})
+customElements
+  = customElements
+    || {/* microfill */}
 
 
 new class /* CustomElementRegistry */ {
 
   constructor () {
-    customElements.define
-      = this.define.bind (this,  _ => 0 )
-      //= this.define.bind (this,  customElements.define )
-  }
+    customElements.define =
+      this.define.bind (this)
 
-  define ( native, name, constructor ) {
-    // this.running = undefined
-    //  definition = this.swizzle ( definition );
-
-    (native).apply
-      ( customElements, this.register ( name, constructor ) )
+    customElements.upgrade =
+      this.upgrade.bind (this)
   }
 
 
-  register () {
+  define ( name, constructor ) {
+    this [name] = constructor
 
-    'loading' == document.readyState
+    console.warn ('Defining', name, this [name])
 
-      ? addEventListener
-        ('DOMContentLoaded', this.queue ( ... arguments ))
+    // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
+    void
 
-      : this.queue ( ... arguments )()
-
-    return arguments
-  }
-
-
-  queue ( name, constructor ) {
-    return event =>
-      // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
-      [].slice
-        .call ( document.getElementsByTagName (name) )
-        .map  ( this.upgrade, constructor.prototype )
+    [].slice
+      .call ( document.getElementsByTagName (name) )
+      .map  ( this.upgrade, this )
   }
 
 
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
-  upgrade (element) {
+  upgrade (node) {
 
     // Here's where we can swizzle
-    // see this.swizzle ()
-    Object.setPrototypeOf
-      (element, this)
-        .connectedCallback
-          && element.connectedCallback ()
-  }
+    // http://nshipster.com/method-swizzling/
+//  new Function ('class extends HTMLElement {}')
 
-  // http://nshipster.com/method-swizzling/
-  swizzle ( constructor ) {
-    //see elements/html-custom-element.es
-    return new Function ('class extends HTMLElement {}')
+    Object.setPrototypeOf
+      (node, this [node.localName].prototype)
+        .connectedCallback ()
   }
 }
 
