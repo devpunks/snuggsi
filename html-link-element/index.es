@@ -1,5 +1,76 @@
 void (_ => {
 
+  [].slice
+    .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
+    .map  (load)
+
+  void
+
+  //create an observer instance
+  // Can always default to DOMContentLoaded
+  // https://bugs.webkit.org/show_bug.cgi?id=38995#c26
+  (new MutationObserver ( mutations => {
+
+    for (let mutation of mutations)
+      for (let node of mutation.addedNodes) {
+           /^p/.test (node.rel)
+             && /\-/.test (node.id)
+             && load (node)
+
+        !! /\-/.test (node.localName)
+            && (link = document.querySelector ('#'+node.localName))
+            && link.content
+            && stamp.call (node, link.content)
+            && customElements.upgrade (node)
+      }
+  }))
+
+  .observe (document.documentElement, { childList: true, subtree: true })
+
+
+
+  // XHR Specs
+  // https://xhr.spec.whatwg.org
+  // Progress events
+  // https://xhr.spec.whatwg.org/#interface-progressevent
+  // Loader - https://trac.webkit.org/browser/trunk/WebCore/loader/loader.cpp
+  function load (link) {
+    let xhr = new XMLHttpRequest
+
+    xhr.link   = link
+    xhr.onload = onload
+    // progress events won't fire unless defining before open
+    xhr.open ('GET', link.href)
+    xhr.responseType = 'document'
+    // Max requests
+    xhr.send ()
+  }
+
+
+  // https://bugs.webkit.org/show_bug.cgi?id=38995
+  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
+  // https://github.com/w3c/preload/pull/40
+  function onload (link) {
+    link = this.link
+
+    let
+      response =
+        this.response
+
+    , template =
+        link.content =
+           response.querySelector ('template')
+
+    for (let node of document.querySelectorAll (link.id))
+    //(let node of document.getElementsByTagName (link.id))
+      template && stamp.call (node, template)
+
+
+    for (let node of response.querySelectorAll ('style,link,script'))
+      process (link.nextSibling, node)
+  }
+
+
   function process (anchor, node) {
       let
         // https://chromium.googlesource.com/chromium/src.git/+/0661feafc9a84f03b04dd3719b8aaa255dfaec63/third_party/WebKit/Source/core/loader/LinkLoader.cpp
@@ -31,76 +102,6 @@ void (_ => {
         .parentNode
         .insertBefore (clone, anchor)
   }
-
-  void
-
-  [].slice
-    .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
-    .map  (load)
-
-
-  // XHR Specs
-  // https://xhr.spec.whatwg.org
-  // Progress events
-  // https://xhr.spec.whatwg.org/#interface-progressevent
-  // Loader - https://trac.webkit.org/browser/trunk/WebCore/loader/loader.cpp
-  function load (link) {
-    let xhr = new XMLHttpRequest
-
-    xhr.link   = link
-    xhr.onload = onload
-    // progress events won't fire unless defining before open
-    xhr.open ('GET', link.href)
-    xhr.responseType = 'document'
-    // Max requests
-    xhr.send ()
-  }
-
-  //create an observer instance
-  // Can always default to DOMContentLoaded
-  // https://bugs.webkit.org/show_bug.cgi?id=38995#c26
-  (new MutationObserver ( mutations => {
-
-    for (let mutation of mutations)
-      for (let node of mutation.addedNodes)
-           /^p/.test (node.rel)
-             && /\-/.test (node.id)
-             && load (node)
-
-        ,
-
-        !! /\-/.test (node.localName)
-            && (link = document.querySelector ('#'+node.localName))
-            && link.content
-            && stamp.call (node, link.content)
-            && customElements.upgrade (node)
-  }))
-
-  .observe (document.documentElement, { childList: true, subtree: true })
-
-  // https://bugs.webkit.org/show_bug.cgi?id=38995
-  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
-  // https://github.com/w3c/preload/pull/40
-  function onload (link) {
-      link = this.link
-
-      let
-        response =
-          this.response
-
-      , template =
-          link.content =
-             response.querySelector ('template')
-
-      for (let node of document.querySelectorAll (link.id))
-      //(let node of document.getElementsByTagName (link.id))
-        template && stamp.call (node, template)
-
-
-      for (let node of response.querySelectorAll ('style,link,script'))
-        process (link, node)
-    }
-
 
   // Slot replacement & light DOM stamping
   // https://github.com/w3c/webcomponents/issues/288
