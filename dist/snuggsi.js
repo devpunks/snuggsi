@@ -126,28 +126,30 @@ void (function (_) {
   // https://bugs.webkit.org/show_bug.cgi?id=38995
   // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
   // https://github.com/w3c/preload/pull/40
-  , onload = function (link) { return function () {
-        console.warn (link.id)
+  , onload = function (link) {
+      link = this.link
 
-        var
-          response =
-            this.response
+      var
+        response =
+          this.response
 
-        , template =
-            link.content =
-               response.querySelector ('template')
+      , template =
+          link.content =
+             response.querySelector ('template')
 
-        for (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
-        //(let node of document.getElementsByTagName (link.id))
-          {
-          var node = list[i];
+      for (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
+      //(let node of document.getElementsByTagName (link.id))
+        {
+        var node = list[i];
 
-          template && stamp.call (node, template)
-        }
+        template && stamp.call (node, template)
+      }
 
 
-        process (link, response.querySelectorAll ('style,link,script'))
-      }; };
+      process (link, response.querySelectorAll ('style,link,script'))
+    }
+
+  void
 
   [].slice
     .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
@@ -162,7 +164,8 @@ void (function (_) {
   function load (link) {
     var xhr = new XMLHttpRequest
 
-    xhr.onload = onload (link)
+    xhr.link   = link
+    xhr.onload = onload
     // progress events won't fire unless defining before open
     xhr.open ('GET', link.href)
     xhr.responseType = 'document'
