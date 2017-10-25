@@ -39,25 +39,26 @@ void (_ => {
   // https://bugs.webkit.org/show_bug.cgi?id=38995
   // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
   // https://github.com/w3c/preload/pull/40
-  , onload = link =>
-      function () {
-        console.warn (link.id)
+  , onload = function (link) {
+      link = this.link
 
-        let
-          response =
-            this.response
+      let
+        response =
+          this.response
 
-        , template =
-            link.content =
-               response.querySelector ('template')
+      , template =
+          link.content =
+             response.querySelector ('template')
 
-        for (let node of document.querySelectorAll (link.id))
-        //(let node of document.getElementsByTagName (link.id))
-          template && stamp.call (node, template)
+      for (let node of document.querySelectorAll (link.id))
+      //(let node of document.getElementsByTagName (link.id))
+        template && stamp.call (node, template)
 
 
-        process (link, response.querySelectorAll ('style,link,script'))
-      };
+      process (link, response.querySelectorAll ('style,link,script'))
+    }
+
+  void
 
   [].slice
     .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
@@ -72,7 +73,8 @@ void (_ => {
   function load (link) {
     let xhr = new XMLHttpRequest
 
-    xhr.onload = onload (link)
+    xhr.link   = link
+    xhr.onload = onload
     // progress events won't fire unless defining before open
     xhr.open ('GET', link.href)
     xhr.responseType = 'document'
