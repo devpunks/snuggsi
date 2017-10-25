@@ -1,63 +1,36 @@
 void (_ => {
 
-  let
-    process = (link, nodes) => {
-      let anchor = link.nextSibling
-
-      for (let node of nodes) {
-        let
-          // https://chromium.googlesource.com/chromium/src.git/+/0661feafc9a84f03b04dd3719b8aaa255dfaec63/third_party/WebKit/Source/core/loader/LinkLoader.cpp
-          as = node.getAttribute ('as')
-
-        , clone =
-            document.createElement
-              ('script' == as ? as : node.localName)
-
-        void
-
-        ['id', 'rel', 'href', 'src', 'textContent', 'as', 'defer', 'crossOrigin'/* , media */]
-          // setAttribute won't work for textContent and likewise explicit set for crossorigin
-          // Mutually exclusive!!! ?!??!?!?!?!?
-          .map (attr => node [attr] && attr in clone && (clone [attr] = node [attr]))
-
-        // use rel = 'preload stylesheet' for async
-        // or use media=snuggsi => media || 'all' trick
-        // loadCSS - https://github.com/filamentgroup/loadCSS
-        // http://keithclark.co.uk/articles/loading-css-without-blocking-render
-        'style' == as
-        // https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#markup-based-async-loader
-          && (clone.rel = 'stylesheet')
-
-        'script' == as // smelly
-          && (clone.src = clone.href)
-
-        link
-          .parentNode
-          .insertBefore (clone, anchor)
-      }
-    }
-
-  // https://bugs.webkit.org/show_bug.cgi?id=38995
-  // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
-  // https://github.com/w3c/preload/pull/40
-  , onload = function (link) {
-      link = this.link
-
+  function process (anchor, node) {
       let
-        response =
-          this.response
+        // https://chromium.googlesource.com/chromium/src.git/+/0661feafc9a84f03b04dd3719b8aaa255dfaec63/third_party/WebKit/Source/core/loader/LinkLoader.cpp
+        as = node.getAttribute ('as')
 
-      , template =
-          link.content =
-             response.querySelector ('template')
+      , clone =
+          document.createElement
+            ('script' == as ? as : node.localName)
 
-      for (let node of document.querySelectorAll (link.id))
-      //(let node of document.getElementsByTagName (link.id))
-        template && stamp.call (node, template)
+      void
 
+      ['id', 'rel', 'href', 'src', 'textContent', 'as', 'defer', 'crossOrigin'/* , media */]
+        // setAttribute won't work for textContent and likewise explicit set for crossorigin
+        // Mutually exclusive!!! ?!??!?!?!?!?
+        .map (attr => node [attr] && attr in clone && (clone [attr] = node [attr]))
 
-      process (link, response.querySelectorAll ('style,link,script'))
-    }
+      // use rel = 'preload stylesheet' for async
+      // or use media=snuggsi => media || 'all' trick
+      // loadCSS - https://github.com/filamentgroup/loadCSS
+      // http://keithclark.co.uk/articles/loading-css-without-blocking-render
+      'style' == as
+      // https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for/#markup-based-async-loader
+        && (clone.rel = 'stylesheet')
+
+      'script' == as // smelly
+        && (clone.src = clone.href)
+
+      anchor
+        .parentNode
+        .insertBefore (clone, anchor)
+  }
 
   void
 
