@@ -6,19 +6,21 @@
 
 class DOMTokenList {
 
-  constructor (node, symbol) {
+  constructor (node) {
 
     const
-      nodes = []
-    , expression = /{(\w+|#)}/
+      visit = node =>
+        node.attributes
+          && [].slice
+               .call (node.attributes)
+               .map  (collect)
+          || collect (node)
 
-    , visit = node =>
-        node.localName
-          ? [].slice
-              .call (node.attributes)
-              .map  (attr => expression.test (attr.value) && nodes.push (attr))
-          : expression
-              .test (node.textContent) && nodes.push (node)
+    , collect = node =>
+        /{(\w+|#)}/.test (node.textContent)
+          && (node.text = node.textContent)
+              .match (/[^{]+(?=})/g)
+              .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
 
     , walker =
         document.createNodeIterator
@@ -26,14 +28,8 @@ class DOMTokenList {
 
 
     while (walker.nextNode ()) 0 // Walk all nodes and do nothing.
-
-
-    for (node of nodes)
-      (node.text = node.textContent)
-        .match (/[^{]+(?=})/g)
-        .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
-
   }
+
 
   bind (context) {
 
@@ -45,7 +41,7 @@ class DOMTokenList {
 
    // must both run independently not in tandem
 
-    , restore = (symbol) =>
+    , restore = symbol =>
          this [symbol].map (node =>
            (node.textContent =
              node.textContent
