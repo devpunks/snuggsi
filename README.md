@@ -303,7 +303,7 @@ template.bind (context)
   - Components written in pure HTML.
   - Usage of a component `<link>` requires no JavaScript😮.
   - A default `<template>` element used as a _light DOM_ for custom element definitions.
-  - Resource management for scripts, stylesheets, fonts, and other  resources can be declared for use within master document via the `<link>` tag. (_[Learn More](https://github.com/devpunks/snuggsi/tree/master/html-link-element)_)
+  - Resource such as scripts, stylesheets, fonts, and other resources can be declared for use within master document via the `<link>` tag. (_[Learn More](https://github.com/devpunks/snuggsi/tree/master/html-link-element#readme)_)
 
 
 ### Master Document _`index.html`_
