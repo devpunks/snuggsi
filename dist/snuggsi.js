@@ -83,7 +83,6 @@ DOMTokenList.prototype.bind = function (context) {
 
 void (function (_) {
 
-
   var
     process = function (link, nodes) {
       var anchor = link.nextSibling
@@ -101,8 +100,8 @@ void (function (_) {
 
         void
 
-        ['as', 'id', 'src', 'href', 'textContent', 'rel' ]
-          .map (function (attr) { return node [attr] && attr in clone && (clone [attr] = node [attr]); })
+        ['id', 'rel', 'href', 'src', 'textContent', 'as', 'defer', 'crossOrigin' ]
+          .map (function (attr) { return node [attr] && attr in clone && clone.setAttribute (attr, node [attr]); })
 
         // use rel = 'preload stylesheet' for async
         // or use media=snuggsi => media || 'all' trick
@@ -209,14 +208,16 @@ void (function (_) {
   function stamp (template) {
     var this$1 = this;
 
+
     template = template.cloneNode (true)
 
-    for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1) {
+    for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1)
+      {
       var replacement = list[i];
 
       (template.content || template).querySelector
-       ('slot[name='+ replacement.getAttribute ('slot') +']')
-         .outerHTML = replacement.outerHTML
+       ( 'slot[name=' + replacement.getAttribute ('slot') + ']' )
+           .outerHTML = replacement.outerHTML
     }
 
     return this.innerHTML = template.innerHTML
@@ -335,8 +336,6 @@ new (function () {
 
   anonymous.prototype.define = function ( name, constructor ) {
     this [name] = constructor
-
-    console.warn ('Defining', name, this [name])
 
     // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
     void
