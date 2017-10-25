@@ -352,6 +352,10 @@ new (function () {
     // http://nshipster.com/method-swizzling/
 //  new Function ('class extends HTMLElement {}')
 
+    this [node.localName]
+
+    &&
+
     Object.setPrototypeOf
       (node, this [node.localName].prototype)
         .connectedCallback ()
