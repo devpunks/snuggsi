@@ -246,6 +246,7 @@ void (function (_) {
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
 
 // https://github.com/webcomponents/template
+// https://gist.github.com/WebReflection/267689ec54d7267c853c47480bd35282
 var Template = function (template) {
 
   template.length
