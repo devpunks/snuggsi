@@ -18,6 +18,7 @@ The HTML `<link>` element specifies relationships between the current document a
 
 ### Preload
 
+  - Fetch preload, destinations, and module scripts - https://github.com/whatwg/fetch/issues/486
   - Preload. What is it good for? https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for
   - Big Bad Preloader - http://calendar.perfplanet.com/2013/big-bad-preloader
   - https://developer.microsoft.com/en-us/microsoft-edge/platform/status/preload/
