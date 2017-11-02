@@ -127,6 +127,8 @@ void (function (_) {
   function load (link) {
     var xhr = new XMLHttpRequest
 
+    // Destination - https://fetch.spec.whatwg.org/#requestdestination
+
     xhr.link   = link
     xhr.onload = onload
     // progress events won't fire unless defining before open
