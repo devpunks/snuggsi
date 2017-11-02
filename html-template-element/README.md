@@ -6,3 +6,8 @@ Think of a template as a content fragment that is being stored for subsequent us
 
 [Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
 
+## Apple Proposal
+
+  - https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md
+
+
