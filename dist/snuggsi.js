@@ -423,6 +423,40 @@ var ParentNode = function (Element) { return ((function (Element) {
 //        comb (node)
 //  }
 
+var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
+    function anonymous () {
+      HTMLElement.apply(this, arguments);
+    }
+
+    if ( HTMLElement ) anonymous.__proto__ = HTMLElement;
+    anonymous.prototype = Object.create( HTMLElement && HTMLElement.prototype );
+    anonymous.prototype.constructor = anonymous;
+
+    anonymous.prototype.on = function ( event, handler ) {
+
+    this.addEventListener
+      (event, this.renderable (handler))
+  };
+
+  anonymous.prototype.renderable = function ( handler ) {
+    var this$1 = this;
+
+
+    // BIG BUG IN IE!!!
+    //
+    // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
+    //
+    // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
+
+    return function (event) { return handler.call (this$1, event) !== false
+        // check render availability
+        && event.defaultPrevented
+        || this$1.render (); }
+  };
+
+    return anonymous;
+  }(HTMLElement))); }
+
 var GlobalEventHandlers = function (Element) { return ((function (Element) {
     function anonymous () {
       Element.apply(this, arguments);
