@@ -339,7 +339,7 @@ var Template = function (template) {
 new (function () {
   function anonymous () {
 
-    window.customElements
+    customElements
       = window.customElements
         || {/* microfill */}
 
