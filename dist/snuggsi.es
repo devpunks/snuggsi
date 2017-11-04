@@ -317,7 +317,7 @@ new class /* CustomElementRegistry */ {
 
   constructor () {
 
-    window.customElements
+    customElements
       = window.customElements
         || {/* microfill */}
 
