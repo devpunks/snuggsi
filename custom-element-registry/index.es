@@ -21,16 +21,14 @@ new class /* CustomElementRegistry */ {
 
   constructor () {
 
-    customElements
-      = window.customElements
-        || {/* microfill */}
+    (window.customElements
+      =  window.customElements
+      || {/* microfill */})
 
+      .define = this.define.bind (this)
 
-    customElements.define =
-      this.define.bind (this)
-
-    customElements.upgrade =
-      this.upgrade.bind (this)
+    customElements.upgrade
+      = this.upgrade.bind (this)
   }
 
 
