@@ -17,14 +17,15 @@
 //     - https://html.spec.whatwg.org/#cereactions
 
 
-window.customElements
-  = customElements
-    || {/* microfill */}
-
-
 new class /* CustomElementRegistry */ {
 
   constructor () {
+
+    window.customElements
+      = window.customElements
+        || {/* microfill */}
+
+
     customElements.define =
       this.define.bind (this)
 
