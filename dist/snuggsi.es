@@ -313,8 +313,8 @@ const Template = template => {
 //     - https://html.spec.whatwg.org/#cereactions
 
 
-window ['customElements'] =
-  window ['customElements']
+window.customElements =
+  window.customElements
   || {/* microfill */}
 
 new class /* CustomElementRegistry */ {
