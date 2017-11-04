@@ -17,7 +17,7 @@
 //     - https://html.spec.whatwg.org/#cereactions
 
 
-customElements
+window.customElements
   = customElements
     || {/* microfill */}
 
