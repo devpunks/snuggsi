@@ -313,15 +313,16 @@ const Template = template => {
 //     - https://html.spec.whatwg.org/#cereactions
 
 
+window ['customElements'] =
+  window ['customElements']
+  || {/* microfill */}
+
 new class /* CustomElementRegistry */ {
 
   constructor () {
 
-    (window.customElements
-      =  window.customElements
-      || {/* microfill */})
-
-      .define = this.define.bind (this)
+    customElements.define
+      = this.define.bind (this)
 
     customElements.upgrade
       = this.upgrade.bind (this)
