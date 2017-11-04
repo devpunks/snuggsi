@@ -336,13 +336,14 @@ var Template = function (template) {
 //     - https://html.spec.whatwg.org/#cereactions
 
 
-window.customElements
-  = customElements
-    || {/* microfill */}
-
-
 new (function () {
   function anonymous () {
+
+    window.customElements
+      = window.customElements
+        || {/* microfill */}
+
+
     customElements.define =
       this.define.bind (this)
 
