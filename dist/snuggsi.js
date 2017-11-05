@@ -156,8 +156,8 @@ void (function (_) {
         link.content =
            response.querySelector ('template')
 
+    // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
     for (var i = 0, list = document.querySelectorAll (link.id); i < list.length; i += 1)
-    //(let node of document.getElementsByTagName (link.id))
       {
       var node = list[i];
 
@@ -317,25 +317,6 @@ var Template = function (template) {
   }
 }
 
-// The CustomElementRegistry Interface
-// WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
-//
-// HTML Element Constructors
-//   - https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
-//
-// The Custom Elements Spec
-// W3C - https://w3c.github.io/webcomponents/spec/custom/
-// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
-//
-// Legacy webcomponentsjs
-//   - https://github.com/webcomponents/custom-elements/blob/master/src/CustomElementRegistry.js
-//
-//   - CEReactions
-//     - https://github.com/webcomponents/custom-elements/pull/62
-//     - https://html.spec.whatwg.org/multipage/custom-elements.html#cereactions
-//     - https://html.spec.whatwg.org/#cereactions
-
-
 window.customElements =
   window.customElements
   || {/* microfill */}
@@ -355,11 +336,11 @@ new (function () {
 
     this [name] = constructor
 
-    // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
     void
 
     [].slice
-      .call ( document.getElementsByTagName (name) )
+      // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
+      .call ( document.querySelectorAll (name) )
       .map  ( this.upgrade, this )
   };
 
