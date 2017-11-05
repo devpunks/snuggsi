@@ -68,7 +68,6 @@ void (_ => {
            response.querySelector ('template')
 
     for (let node of document.querySelectorAll (link.id))
-    //(let node of document.getElementsByTagName (link.id))
       template && stamp.call (node, template)
 
 
