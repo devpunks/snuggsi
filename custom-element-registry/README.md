@@ -4,7 +4,7 @@ The CustomElementRegistry interface provides methods for registering custom elem
 
 [Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry)
 
-## Apple Proposal
+## The CustomElementRegistry Interface
 
   - https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md
 
