@@ -27,12 +27,12 @@ WHATWG
   Definition Steps
     - https://html.spec.whatwg.org/multipage/custom-elements.html#concept-custom-element-definition-name#element-definition
 
-// Legacy webcomponentsjs
-//   - https://github.com/webcomponents/custom-elements/blob/master/src/CustomElementRegistry.js
-//
-//   - CEReactions
-//     - https://github.com/webcomponents/custom-elements/pull/62
-//     - https://html.spec.whatwg.org/multipage/custom-elements.html#cereactions
-//     - https://html.spec.whatwg.org/#cereactions
+Legacy webcomponentsjs
+   - https://github.com/webcomponents/custom-elements/blob/master/src/CustomElementRegistry.js
+
+   - CEReactions
+     - https://github.com/webcomponents/custom-elements/pull/62
+     - https://html.spec.whatwg.org/multipage/custom-elements.html#cereactions
+     - https://html.spec.whatwg.org/#cereactions
 
 
