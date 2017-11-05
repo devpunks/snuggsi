@@ -67,6 +67,7 @@ void (_ => {
         link.content =
            response.querySelector ('template')
 
+    // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
     for (let node of document.querySelectorAll (link.id))
       template && stamp.call (node, template)
 
