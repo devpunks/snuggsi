@@ -1,0 +1,2 @@
+class Snuggsi::HTMLBundleProcessor
+end
