@@ -18,11 +18,11 @@ new class /* CustomElementRegistry */ {
 
     this [name] = constructor
 
-    // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
     void
 
     [].slice
-      .call ( document.getElementsByTagName (name) )
+      // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
+      .call ( document.querySelectorAll (name) )
       .map  ( this.upgrade, this )
   }
 
