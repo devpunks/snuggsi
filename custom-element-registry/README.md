@@ -6,7 +6,8 @@ The CustomElementRegistry interface provides methods for registering custom elem
 
 ## The CustomElementRegistry Interface
 
-  - https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md
+WHATWG
+  - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
 
 
 // The CustomElementRegistry Interface
