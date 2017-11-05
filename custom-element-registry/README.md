@@ -17,7 +17,7 @@ The CustomElementRegistry interface provides methods for registering custom elem
 //
 // The Custom Elements Spec
 // W3C - https://w3c.github.io/webcomponents/spec/custom/
-// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.htm
+// WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.html
 //
 // Legacy webcomponentsjs
 //   - https://github.com/webcomponents/custom-elements/blob/master/src/CustomElementRegistry.js
