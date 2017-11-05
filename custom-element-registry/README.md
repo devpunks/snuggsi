@@ -12,13 +12,7 @@ WHATWG
 HTML Element Constructors
   - https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
 
-// The CustomElementRegistry Interface
-// WHATWG - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
-//
-// HTML Element Constructors
-//   - https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
-//
-// The Custom Elements Spec
+## The Custom Elements Spec
 // W3C - https://w3c.github.io/webcomponents/spec/custom/
 // WHATWG- https://html.spec.whatwg.org/multipage/custom-elements.html
 //
