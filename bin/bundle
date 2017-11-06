@@ -4,6 +4,7 @@ cat                                \
   html-link-element/index.es       \
   html-template-element/index.es   \
   custom-element-registry/index.es \
+  parent-node/index.es             \
   event-target/index.es            \
   global-event-handlers/index.es   \
   elements/component.es            \
