@@ -7,6 +7,6 @@ cat                                \
   parent-node/index.es             \
   event-target/index.es            \
   global-event-handlers/index.es   \
-  elements/component.es            \
+  component/index.es               \
   elements/element.es              \
 > dist/snuggsi.es
