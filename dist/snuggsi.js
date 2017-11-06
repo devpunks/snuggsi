@@ -365,45 +365,6 @@ new (function () {
   return anonymous;
 }())
 
-var ParentNode = function (Element) { return ((function (Element) {
-    function anonymous () {
-      Element.apply(this, arguments);
-    }
-
-    if ( Element ) anonymous.__proto__ = Element;
-    anonymous.prototype = Object.create( Element && Element.prototype );
-    anonymous.prototype.constructor = anonymous;
-
-    anonymous.prototype.select = function ( )
-    { return (ref = this).selectAll.apply ( ref, arguments ) [0]
-    var ref; };
-
-  anonymous.prototype.selectAll = function ( strings ) {
-    var tokens = [], len = arguments.length - 1;
-    while ( len-- > 0 ) tokens[ len ] = arguments[ len + 1 ];
-
-    strings =
-      [].concat ( strings )
-
-    return [].slice.call
-      (this.querySelectorAll
-        (tokens.reduce // denormalize selector
-          (function (part, token) { return part + token + strings.shift (); }
-          , strings.shift ())))
-  };
-
-    return anonymous;
-  }(Element))); }
-
-//  comb (parent) {
-//    // ElementTraversal interface
-//    // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
-//
-//    if (parent.hasChildNodes())
-//      for (let node = parent.firstChild; node; node = node.nextSibling)
-//        comb (node)
-//  }
-
 var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
     function anonymous () {
       HTMLElement.apply(this, arguments);
