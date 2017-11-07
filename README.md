@@ -101,7 +101,7 @@ _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.
 
 # Quick Tour
 
-## [Element](/elements/element.es)
+## [Custom Elements](/elements/element.es)
 
 Play [Hello World Demo](https://jsfiddle.net/snuggs/w02kL17n)
 
