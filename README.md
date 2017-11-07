@@ -265,7 +265,7 @@ template.bind (context)
 ```
 
 
-#### Resulting HTML
+### Merged Document
 ```html
 <dl>
   <template name="recipe">
