@@ -212,7 +212,7 @@ template.bind (context)
 </script>
 ```
 
-#### Resulting HTML
+### Merged Document
 ```html
 <ul>
   <template name="item">
