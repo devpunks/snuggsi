@@ -88,7 +88,6 @@ _**snuggsiツ** is a [prollyfill](https://github.com/devpunks/snuggsi/wiki/What-
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
   | [Templates](#template) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | [Custom Elements](#element) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | Slot Replacement |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | [Remote Components](#remote-components) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
