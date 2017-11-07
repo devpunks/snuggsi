@@ -332,7 +332,7 @@ template.bind (context)
 ```
 
 
-### Default `<template>` in _`foo-bar.html`_
+### Web Component `<template>` in _`foo-bar.html`_
 
 ```html
 <template onclick=onfoo>
