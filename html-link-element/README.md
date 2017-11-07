@@ -18,6 +18,10 @@ The HTML `<link>` element specifies relationships between the current document a
 
 ### Preload
 
+  Preload, Prefetch And Priorities in Chrome
+
+  https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
+
   - W3C Preload https://github.com/w3c/preload
   - W3C Preload https://github.com/w3c/preload/issues/92
   - W3C Preload Tests - https://w3c-test.org/preload
