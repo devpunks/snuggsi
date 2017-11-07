@@ -170,7 +170,7 @@ template.bind (context)
 </script>
 ```
 
-#### Resulting HTML
+### Merged Document
 ```html
 <template name="developer">
 <!-- invisible
