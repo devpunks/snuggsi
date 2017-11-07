@@ -4,7 +4,8 @@
 
 The appropriate times to obtain the resource are:
 
-  - When the user agent that supports [RFC5988] creates a Document and processes Link headers that contain a preload link.
+  - When the user agent that supports [RFC5988] creates a Document
+    and processes Link headers that contain a preload link.
 
   - When the preload link's link element is inserted into a document.
 
