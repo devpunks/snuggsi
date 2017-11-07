@@ -1,3 +1,29 @@
+// Preload Processing steps
+// - https://w3c.github.io/preload/#x3-1-processing
+/*
+The appropriate times to obtain the resource are:
+
+  - When the user agent that supports [RFC5988] creates a Document and processes Link headers that contain a preload link.
+  -
+  - When the preload link's link element is inserted into a document.
+  -
+  - When the preload link is created on a link element that is already in a document tree.
+  -
+  - When the href attribute of the link element of a preload link that is already in a document tree is changed.
+  -
+  - When the crossorigin attribute of the link element of a preload link that is already in a document tree is set, changed, or removed.
+  -
+  - When the as attribute of the link element of a preload link that is already in a document tree is set or changed to a value that does not or no longer matches the request destination of the previous obtained external resource, if any.
+  -
+  - When the as attribute of the link element of a preload link that is already in a document tree but was previously not obtained due to the as attribute specifying an unsupported request destination is set, removed, or changed.
+  -
+  - When the type attribute of the link element of a preload link that is already in a document tree but was previously not obtained due to the type attribute not specifying a parsable MIME type or specifying an unsupported MIME type for the request destination is set, removed, or changed.
+  -
+  - When the media attribute of the link element of a preload link that is already in a document tree but was not previously obtained due the media attribute's value being not a valid media query list or one that does not match the environment is set, removed, or changed.
+
+
+*/
+
 // https://trac.webkit.org/browser/webkit/trunk/LayoutTests/http/tests/preload
 const
   slow_stylesheet = '"http://tools.w3clubs.com/pagr/1.sleep-1.css'
