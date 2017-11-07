@@ -1,5 +1,7 @@
 // Preload Processing steps
 // - https://w3c.github.io/preload/#x3-1-processing
+// - Blink Preload Tests
+// - Mozilla Preload Issue https://bugzilla.mozilla.org/show_bug.cgi?id=1222633
 /*
 
 The appropriate times to obtain the resource are:
