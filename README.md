@@ -81,6 +81,9 @@ Et Voila _(that's it!)_ ツ
 
 ## Browser Support
 
+_**snuggsiツ** is a [prollyfill](https://github.com/devpunks/snuggsi/wiki/What-is-a-ProllyFill) for the following features:_
+
+
   | Support    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+ | Chrome (Android)* | iOS Safari* |
   | ---------- |:-----:|:-----:|:-------:|:--------:|:----------:|:---------------:|:--------------:|
   | [Templates](#template) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
