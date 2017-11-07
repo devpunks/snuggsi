@@ -18,6 +18,7 @@ The HTML `<link>` element specifies relationships between the current document a
 
 ### Preload
 
+  - W3C Preload https://github.com/w3c/preload
   - W3C Preload Tests - https://w3c-test.org/preload
   - WPT Preload Tests - https://github.com/w3c/web-platform-tests/tree/master/preload
   - https://github.com/w3ctag/design-reviews/issues/202
