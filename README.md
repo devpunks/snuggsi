@@ -292,7 +292,7 @@ template.bind (context)
 ```
 
 
-## [Remote Components](/html-link-element#readme)
+## [Web Components](/html-link-element#readme)
 
   > **Component** - _a part or element of a larger whole._
 
