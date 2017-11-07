@@ -86,7 +86,7 @@ _**snuggsiツ** provides a [prollyfill](https://github.com/devpunks/snuggsi/wiki
 
   | Support    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+ | Android* | iOS Safari* |
   | ---------- |:-----:|:-----:|:-------:|:--------:|:---------:|:--------:|:--------------:|
-  | [Templates](#template) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | [Templates](#templates) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | [Custom Elements](#custom-elements) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | [Web Components](#web-components) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | Slot Replacement |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
