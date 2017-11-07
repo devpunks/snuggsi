@@ -137,7 +137,7 @@ Element `hello-world`
 </script>
 ```
 
-## [Template](/html-template-element#readme)
+## [Templates](/html-template-element#readme)
 
 The `<template>` is used to define custom element content for use within multiple elements.
 
