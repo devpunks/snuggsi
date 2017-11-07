@@ -33,6 +33,11 @@ The HTML `<link>` element specifies relationships between the current document a
     - Script - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-as-script-js
     - Style  - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-as-style-js
 
+#### Preload Use Cases
+
+  https://w3c.github.io/preload/#use-cases
+
+
 
 ### Prefetch
 
