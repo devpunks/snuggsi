@@ -367,7 +367,7 @@ Element `foo-bar`
 ```
 
 
-### Resulting Master Document _`index.html`_
+### Merged Document
 
 ```html
 <!doctype html>
