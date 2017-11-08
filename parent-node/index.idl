@@ -11,6 +11,10 @@ interface ParentNode {
 
   Element? querySelector(DOMString selectors);
   [NewObject] NodeList querySelectorAll(DOMString selectors);
+
+  // snuggsi ツ
+  Element? select(DOMString selectors);
+  [NewObject] Array selectAll(DOMString selectors);
 };
 Document implements ParentNode;
 DocumentFragment implements ParentNode;
