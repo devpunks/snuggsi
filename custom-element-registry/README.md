@@ -8,7 +8,7 @@ The CustomElementRegistry interface provides methods for registering custom elem
 ## The CustomElementRegistry Interface
 
 WHATWG
-  - https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api
+  - https://html.spec.whatwg.org/multipage/custom-elements.html
 
 HTML Element Constructors
   - https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
@@ -17,7 +17,7 @@ HTML Element Constructors
 ## The Custom Elements Spec
 
 W3C
-  - https://w3c.github.io/webcomponents/spec/custom/
+  - https://www.w3.org/TR/custom-elements/
 
 WHATWG
   - https://html.spec.whatwg.org/multipage/custom-elements.html
