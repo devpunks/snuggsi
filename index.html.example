@@ -6,8 +6,8 @@
 
 <link rel=help href=//path/to/specification>
 
-<script defer src=/resources/testharness.js></script>
-<script defer src=/resources/testharnessreport.js></script>
+<script src=/testharness.js></script>
+<script defer src=/testharnessreport.js></script>
 
 <!-- Testing Format https://wiki.csswg.org/test/format -->
 
