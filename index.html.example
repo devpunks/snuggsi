@@ -12,3 +12,26 @@
 <!-- Testing Format https://wiki.csswg.org/test/format -->
 
 <output id=log></output>
+
+<script>
+
+test(function () {
+    assert_true('define' in CustomElementRegistry.prototype, '"define" exists on CustomElementRegistry.prototype');
+    assert_true('define' in customElements, '"define" exists on window.customElements');
+}, 'CustomElementRegistry interface must have define as a method');
+
+test(function () {
+    assert_throws({'name': 'TypeError'}, function () { customElements.define('badname', 1); },
+        'customElements.define must throw a TypeError when the element interface is a number');
+    assert_throws({'name': 'TypeError'}, function () { customElements.define('badname', '123'); },
+        'customElements.define must throw a TypeError when the element interface is a string');
+    assert_throws({'name': 'TypeError'}, function () { customElements.define('badname', {}); },
+        'customElements.define must throw a TypeError when the element interface is an object');
+    assert_throws({'name': 'TypeError'}, function () { customElements.define('badname', []); },
+        'customElements.define must throw a TypeError when the element interface is an array');
+}, 'customElements.define must throw when the element interface is not a constructor');
+test(function () {
+    customElements.define('custom-html-element', HTMLElement);
+}, 'customElements.define must not throw the constructor is HTMLElement');
+
+</script>
