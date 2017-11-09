@@ -14,7 +14,11 @@
 <output id=log></output>
 
 <script>
+/* tests go here
 
-  // tests go here
+  test ('Descriptive test name', test => {
+    assert_true (true, 'Test stub works!')
+  })
 
+*/
 </script>
