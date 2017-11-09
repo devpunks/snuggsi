@@ -1,1 +1,1 @@
-node ./transpile.es > ./dist/snuggsi.js
+node bin/transpile.es > ./dist/snuggsi.js

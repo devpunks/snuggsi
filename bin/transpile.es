@@ -20,4 +20,3 @@ var
     (contents, options)
 
 console.log (result.code)
-
