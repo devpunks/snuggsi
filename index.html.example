@@ -9,7 +9,7 @@
 <script src=/testharness.js></script>
 <script defer src=/testharnessreport.js></script>
 
-<!-- Testing Format https://wiki.csswg.org/test/format -->
+<!-- Testing Format http://web-platform-tests.org/appendix/test-templates.html -->
 
 <output id=log></output>
 
