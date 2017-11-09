@@ -1,0 +1,10 @@
+<!doctype html>
+
+<meta charset=utf8>
+
+<link rel=help href=https://html.spec.whatwg.org/multipage/custom-elements.html#custom-elements-api>
+
+<!-- Testing Format https://wiki.csswg.org/test/format#reference-links -->
+
+<script src=/resources/testharness.js></script>
+<script src=/resources/testharnessreport.js></script>
