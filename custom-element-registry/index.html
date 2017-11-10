@@ -44,7 +44,7 @@ test ('customElements.define must throw when the element interface is not a cons
       , 'customElements.define must throw a TypeError when the element interface is an object')
 
     assert_throws ({'name': 'TypeError'}
-      , function () { customElements.define('badname', []); },
+      , function () { customElements.define('badname', []); }
       , 'customElements.define must throw a TypeError when the element interface is an array')
 })
 
