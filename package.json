@@ -36,10 +36,10 @@
     "example": "examples"
   },
   "scripts": {
-    "start": "node --harmony ./index.es",
-    "postinstall": "bin/publish",
+    "test": "/bin/test",
     "package": "bin/package",
-    "test": "./bin/test"
+    "postinstall": "bin/publish",
+    "start": "node --harmony ./index.es"
   },
   "devDependencies": {
     "tap": "*",
