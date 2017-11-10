@@ -1,4 +1,7 @@
 #!/usr/bin/env node
+
+// https://github.com/jsdom/webidl2js
+
 const
   fs   = require ('fs')
 , path = require ('path')
