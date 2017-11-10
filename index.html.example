@@ -8,7 +8,7 @@
 <link rel=help  href=//path/to/specification>
 
 <script src=./resources/testharness.js></script>
-<script defer src=./resources/testharnessreport.js></script>
+<script src=./resources/testharnessreport.js></script>
 
 <!-- Testing Format http://web-platform-tests.org/appendix/test-templates.html -->
 
