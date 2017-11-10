@@ -14,6 +14,7 @@
 <script src=../resources/testharness.js></script>
 <script src=../resources/testharnessreport.js></script>
 
+<script src=http://www.snuggsi.es></script>
 <script>
 
 test (test => {
@@ -47,9 +48,11 @@ test (test => {
       , 'customElements.define must throw a TypeError when the element interface is an object')
 
     assert_throws ({'name': 'TypeError'}
-      , function () { customElements.define('badname', []) }
+      , function () { customElements.define('badname', []); }
       , 'customElements.define must throw a TypeError when the element interface is an array')
 
 }, 'customElements.define must throw when the element interface is not a constructor')
 
 </script>
+
+<output id=log></output>
