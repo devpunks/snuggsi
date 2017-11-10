@@ -4,10 +4,9 @@
 
 <title>Category: Describe interface</title>
 
-<link rel=help href=//path/to/specification>
-<meta charset="utf-8">
-<title>${1:Test title}</title>
-<link rel="match" href="${2:URL of match}">
+<link rel=match href="${2:URL of match}">
+<link rel=help  href=//path/to/specification>
+
 <script src=/testharness.js></script>
 <script defer src=/testharnessreport.js></script>
 
