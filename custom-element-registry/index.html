@@ -16,20 +16,23 @@
 
 <script>
 
-test ('CustomElementRegistry interface must have define as a method', test => {
+test (test => {
+
   assert_true ('define' in customElements, '`define` exists on window.customElements')
   assert_true ('define' in CustomElementRegistry.prototype, '"define" exists on CustomElementRegistry.prototype')
-})
+
+}, 'CustomElementRegistry interface must have define as a method')
 
 
-test ('customElements.define must not throw the constructor is HTMLElement', test => {
+test (test => {
 
   // where is assert_not_throws ?
   customElements.define ('custom-html-element', HTMLElement)
-})
+
+}, 'customElements.define must not throw the constructor is HTMLElement')
 
 
-test ('customElements.define must throw when the element interface is not a constructor', test => {
+test (test => {
 
     assert_throws ({'name': 'TypeError'}
     , function () { customElements.define ('badname', 1) }
@@ -40,12 +43,13 @@ test ('customElements.define must throw when the element interface is not a cons
     , 'customElements.define must throw a TypeError when the element interface is a string')
 
     assert_throws ({'name': 'TypeError'}
-      , function () { customElements.define('badname', {}); }
+      , function () { customElements.define('badname', {}) }
       , 'customElements.define must throw a TypeError when the element interface is an object')
 
     assert_throws ({'name': 'TypeError'}
-      , function () { customElements.define('badname', []); }
+      , function () { customElements.define('badname', []) }
       , 'customElements.define must throw a TypeError when the element interface is an array')
-})
+
+}, 'customElements.define must throw when the element interface is not a constructor')
 
 </script>
