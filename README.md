@@ -55,13 +55,14 @@
 
 
 ## Why ?
-  1. Because [You _(probably)_ don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
-  2. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
+  1. You prefer to be [D.R.Y.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and build reusable components gradually instead of the steep learning curve of a monolithic application.
+  2. Because [You _(probably)_ don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
+  3. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
      &amp; [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
      are [ready](https://twitter.com/domenic/status/904114041752358913)
      for [production](https://twitter.com/WebReflection/status/761316429559922688)
 
-  3. [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
+  4. [Custom Elements v1](https://www.w3.org/TR/custom-elements) has full
      [support for every modern browser including Internet Explorer 11+ / Edge](#browser-support)
 
 
