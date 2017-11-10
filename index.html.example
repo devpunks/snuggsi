@@ -13,19 +13,27 @@
 <!-- Testing Format http://web-platform-tests.org/appendix/test-templates.html -->
 
 <script>
-/* tests go here
+/*
+  setup ( {} )
+
+  // Example Group
 
   test ('Descriptive test name', test => {
+    // Test case
+
     assert_true (true, 'Test stub works!')
   })
 
 */
 </script>
 
+
 <style>
     ${3:Test CSS}
 </style>
 
+
 ${4:Test content}
+
 
 <output id=log></output>
