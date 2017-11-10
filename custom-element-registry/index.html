@@ -23,6 +23,7 @@ test ('CustomElementRegistry interface must have define as a method', test => {
 
 
 test ('customElements.define must not throw the constructor is HTMLElement', test => {
+
   // where is assert_not_throws ?
   customElements.define ('custom-html-element', HTMLElement)
 })
