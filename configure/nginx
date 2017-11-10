@@ -1,0 +1,17 @@
+#!/bin/bash -e
+
+apt install nginx
+
+rm -f /etc/nginx/sites-enabled/*
+
+cp nginx/conf/http.conf /etc/nginx/conf.d/
+cp nginx/conf/whatwg.conf /etc/nginx/
+cp nginx/conf/whatwg-headers.conf /etc/nginx/
+
+mkdir -p /var/www/http/.well-known/acme-challenge
+
+chown -R deploy:deploy /var/www
+rm -rf /var/www/html
+
+nginx -t
+systemctl reload-or-restart nginx.service
