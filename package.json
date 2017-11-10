@@ -49,6 +49,7 @@
     "tap-nyc": "*",
     "standard": "*",
     "uglify-es": "*",
+    "webidl2js": "*",
     "node-zopfli": "*",
     "browser-sync": "*",
     "devtools-terminal": "*"
