@@ -18,11 +18,11 @@
 
   // Example Group
 
-  test ('Descriptive test name', test => {
+  test (test => {
     // Test case
 
     assert_true (true, 'Test stub works!')
-  })
+  }, 'Descriptive test name')
 
 */
 </script>
