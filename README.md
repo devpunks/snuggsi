@@ -55,7 +55,7 @@
 
 
 ## Why ?
-  1. You prefer to be [D.R.Y.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and build reusable components gradually instead of the steep learning curve of a monolithic application.
+  1. You prefer to be [D.R.Y.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and build reusable components on a gradual learning curve.
   2. Because [You _(probably)_ don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da)
   3. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration)
      &amp; [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
