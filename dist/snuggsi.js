@@ -489,7 +489,6 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
   anonymous.prototype.register = function (node, handler, event) {
     var this$1 = this;
 
-
     for (var i = 0, list = [].slice.call (node.attributes); i < list.length; i += 1)
             {
       var attribute = list[i];
@@ -545,11 +544,12 @@ var Custom = function (Element) { return ( (function (superclass) {
       .tokens
       .bind (this)
 
-    void
+    this.register (this)
 
-    [this]
-      .concat (this.selectAll ('*'))
-      .map    (this.register, this)
+    this
+      // possibly restrict to elements with on event
+      .selectAll ('*')
+      .map (this.register, this)
 
     superclass.prototype.onidle && superclass.prototype.onidle.call (this)
   };
