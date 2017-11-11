@@ -329,15 +329,14 @@ new class /* CustomElementRegistry */ {
 
     // Here's where we can swizzle
     // http://nshipster.com/method-swizzling/
-//  new Function ('class extends HTMLElement {}')
-
+    //  new Function ('class extends HTMLElement {}')
     this [node.localName]
 
     &&
 
-    Object.setPrototypeOf
-      (node, this [node.localName].prototype)
-        .connectedCallback ()
+    Object
+      .setPrototypeOf (node, this [node.localName].prototype)
+      .connectedCallback ()
   }
 }
 
