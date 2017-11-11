@@ -69,7 +69,6 @@ const GlobalEventHandlers = Element =>
   }
 
   register (node, handler, event) {
-
     for (let attribute of
           [].slice.call (node.attributes))
             /^on/.test (event = attribute.name)
