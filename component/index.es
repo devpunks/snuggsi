@@ -31,12 +31,12 @@ const Custom = Element => // why buble
       .tokens
       .bind (this)
 
-    void
+    this.register (this)
 
-    [this]
+    this
       // possibly restrict to elements with on event
-      .concat (this.selectAll ('*'))
-      .map    (this.register, this)
+      .selectAll ('*')
+      .map (this.register, this)
 
     super.onidle && super.onidle ()
   }
