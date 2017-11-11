@@ -55,7 +55,7 @@ var DOMTokenList = function (node) {
         (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
 
 
-  while (walker.nextNode ()) { 0 } // Walk all nodes and do nothing.
+  while (walker.nextNode ()) { null } // Walk all nodes and do nothing.
 };
 
 
@@ -351,15 +351,14 @@ new (function () {
 
     // Here's where we can swizzle
     // http://nshipster.com/method-swizzling/
-//  new Function ('class extends HTMLElement {}')
-
+    //  new Function ('class extends HTMLElement {}')
     this [node.localName]
 
     &&
 
-    Object.setPrototypeOf
-      (node, this [node.localName].prototype)
-        .connectedCallback ()
+    Object
+      .setPrototypeOf (node, this [node.localName].prototype)
+      .connectedCallback ()
   };
 
   return anonymous;
