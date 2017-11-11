@@ -34,6 +34,7 @@ const Custom = Element => // why buble
     void
 
     [this]
+      // possibly restrict to elements with on event
       .concat (this.selectAll ('*'))
       .map    (this.register, this)
 
