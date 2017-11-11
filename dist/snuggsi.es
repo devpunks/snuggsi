@@ -57,7 +57,7 @@ class DOMTokenList {
           (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
 
 
-    while (walker.nextNode ()) 0 // Walk all nodes and do nothing.
+    while (walker.nextNode ()) null // Walk all nodes and do nothing.
   }
 
 
