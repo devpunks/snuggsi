@@ -533,7 +533,6 @@ const GlobalEventHandlers = Element =>
   }
 
   register (node, handler, event) {
-
     for (let attribute of
           [].slice.call (node.attributes))
             /^on/.test (event = attribute.name)
@@ -577,11 +576,12 @@ const Custom = Element => // why buble
       .tokens
       .bind (this)
 
-    void
+    this.register (this)
 
-    [this]
-      .concat (this.selectAll ('*'))
-      .map    (this.register, this)
+    this
+      // possibly restrict to elements with on event
+      .selectAll ('*')
+      .map (this.register, this)
 
     super.onidle && super.onidle ()
   }
