@@ -328,8 +328,6 @@ new class /* CustomElementRegistry */ {
   upgrade (node) {
 
     // Here's where we can swizzle
-    // http://nshipster.com/method-swizzling/
-    //  new Function ('class extends HTMLElement {}')
     this [node.localName]
 
     &&
