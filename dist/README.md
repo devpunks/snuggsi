@@ -124,7 +124,7 @@ Browser Support
 - Safari supports Brotli as of version 10, released September 20, 2016
 
 
-#### Zopfli Compression _(snuggsi.min.br)_
+#### Zopfli Compression _(snuggsi.min.zo)_
 
 `snuggsi.min.es` ➡️  `snuggsi.min.es.zo`
 
