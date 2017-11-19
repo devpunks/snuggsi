@@ -66,7 +66,7 @@ $ bin/cover
 ```
 
 
-## Cover
+## Lint
 
 Uses
 [`JSStandard`](https://github.com/feross/standard)
