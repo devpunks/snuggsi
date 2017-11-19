@@ -12,7 +12,8 @@ $ cd snuggsi && npm i
 Runs the following build process
 
   0. [`compile`](#compile)
-  1. [`cover`](#cover)
+  1. [`cover`](#coverage)
+  1. [`lint`](#lint)
   2. [`distribute`](#distribute)
   3. [`deploy`](#deploy)
 
