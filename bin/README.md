@@ -77,6 +77,15 @@ $ bin/lint
 ```
 
 
+## Distribute
+
+Used to mark revisions of library upstream
+
+```bash
+$ bin/distribute
+```
+
+
 ## Watch Changes
 Watch ecmascripts routine.
 
