@@ -1,4 +1,8 @@
 #!/bin/bash
 
-./node_modules/.bin/standard \
-  ./dist/snuggsi.es
+COMMAND="./node_modules/.bin/standard ./dist/snuggsi.es"
+
+NUMBER_OF_JS_WARNINGS=`${COMMAND}`
+
+echo && echo "⚠️ ⚠️ ⚠️ ${NUMBER_OF_JS_WARNINGS}⚠️ ⚠️ ⚠️  StandardJS Warnings"
+echo
