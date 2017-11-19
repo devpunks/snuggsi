@@ -39,6 +39,7 @@ const Template = template => {
 
         for (let i in context)
           clone = clone
+            // https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript#answer-17606289
             .split ('{'+i+'}')
             .join  (context [i])
 
