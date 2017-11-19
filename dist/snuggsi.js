@@ -281,6 +281,7 @@ var Template = function (template) {
 
         for (var i in context)
           { clone = clone
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Using_special_characters
             // https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript#answer-17606289
             .split ('{'+i+'}')
             .join  (context [i]) }
@@ -296,14 +297,16 @@ var Template = function (template) {
     }
 
 
-    fragment.innerHTML =
-      []
+    fragment.innerHTML
+      =[]
         .concat (context)
         .reduce (deposit, '')
 
 
-    for (var i$1 = 0, list$1 = this$1.dependents = // non-live nodelist
-            [].slice.call (fragment.childNodes); i$1 < list$1.length; i$1 += 1)
+    for (var i$1 = 0, list$1 = this$1.dependents
+          =[]
+            .slice // non-live nodelist
+            .call (fragment.childNodes); i$1 < list$1.length; i$1 += 1)
 
         {
       var dependent = list$1[i$1];
