@@ -14,6 +14,7 @@ The HTML `<link>` element specifies relationships between the current document a
 ### Import _(deprecated)_
 
   - http://w3c.github.io/webcomponents/spec/imports/#h-interface-import
+  - https://github.com/w3c/webcomponents/blob/gh-pages/proposals/HTML-Imports-and-ES-Modules.md
 
 
 ### Preload
