@@ -55,7 +55,7 @@ $ bin/test
 ```
 
 
-## Code Coverage
+## Coverage
 
 Uses
 [`nyc`](https://github.com/istanbuljs/nyc)
