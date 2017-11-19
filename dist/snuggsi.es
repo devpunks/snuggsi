@@ -262,6 +262,7 @@ const Template = template => {
 
         for (let i in context)
           clone = clone
+            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Using_special_characters
             // https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript#answer-17606289
             .split ('{'+i+'}')
             .join  (context [i])
@@ -274,15 +275,16 @@ const Template = template => {
             node.parentNode.removeChild (node)
 
 
-    fragment.innerHTML =
-      []
+    fragment.innerHTML
+      =[]
         .concat (context)
         .reduce (deposit, '')
 
 
-    for (let dependent of
-          this.dependents = // non-live nodelist
-            [].slice.call (fragment.childNodes))
+    for (let dependent of this.dependents
+          =[]
+            .slice // non-live nodelist
+            .call (fragment.childNodes))
 
         this
           .parentNode
