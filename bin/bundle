@@ -1,6 +1,6 @@
 cat                                \
   elements/html-element.es         \
-  dom-token-list/index.es          \
+  token-list/index.es              \
   html-link-element/index.es       \
   html-template-element/index.es   \
   custom-element-registry/index.es \
