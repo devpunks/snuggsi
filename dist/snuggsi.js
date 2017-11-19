@@ -34,7 +34,7 @@ var HTMLElement =
 // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
 // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
 
-var DOMTokenList = function (node) {
+var TokenList = function (node) {
   var this$1 = this;
 
 
@@ -59,26 +59,23 @@ var DOMTokenList = function (node) {
 };
 
 
-DOMTokenList.prototype.bind = function (context) {
+TokenList.prototype.bind = function (context) {
     var this$1 = this;
 
 
   var
-    reset = function (symbol) { return this$1 [symbol].map // more than one occurrence
-        (function (node) { return node.textContent = node.text; })
-      && symbol; }
-
  // must both run independently not in tandem
 
-  , restore = function (symbol) { return this$1 [symbol].map (function (node) { return (node.textContent =
-           node.textContent
-             .split ('{'+symbol+'}')
-             .join(context [symbol])); }); }
+    tokenize = function (symbol) { return function (node) { return (node.textContent
+           = node.textContent
+           .split ('{'+symbol+'}')
+           .join(context [symbol])); }; }
 
-  Object
-    .keys (this)
-    .map(reset)
-    .map(restore)
+  for (var symbol in this$1)
+    { this$1 [symbol].map // more than one occurrence
+      (function (node) { return node.textContent = node.text; })
+
+    && this$1 [symbol].map (tokenize (symbol)) }
 };
 
 void (function (_) {
@@ -458,7 +455,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
         .map (Template)
 
     this.tokens =
-      new DOMTokenList (this)
+      new TokenList (this)
 
     Element.prototype.onconnect
       && Element.prototype.onconnect.call (this)
