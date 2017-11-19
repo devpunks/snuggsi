@@ -86,6 +86,15 @@ $ bin/distribute
 ```
 
 
+## Deploy
+
+Launches web server and library dependency host
+
+```bash
+$ bin/deploy
+```
+
+
 ## Watch Changes
 Watch ecmascripts routine.
 
