@@ -34,24 +34,19 @@ class DOMTokenList {
   bind (context) {
 
     const
-      reset = symbol =>
-        this [symbol].map // more than one occurrence
-          (node => node.textContent = node.text)
-        && symbol
-
    // must both run independently not in tandem
 
-    , restore = symbol =>
-         this [symbol].map (node =>
-           (node.textContent =
-             node.textContent
-               .split ('{'+symbol+'}')
-               .join  (context [symbol])))
+      tokenize = symbol => node =>
+           (node.textContent
+             = node.textContent
+             .split ('{'+symbol+'}')
+             .join  (context [symbol]))
 
-    Object
-      .keys (this)
-      .map  (reset)
-      .map  (restore)
+    for (let symbol in this)
+      this [symbol].map // more than one occurrence
+        (node => node.textContent = node.text)
+
+      && this [symbol].map (tokenize (symbol))
   }
 }
 
