@@ -34,7 +34,7 @@ const HTMLElement =
 // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
 // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
 
-class DOMTokenList {
+class TokenList {
 
   constructor (node) {
 
@@ -64,24 +64,19 @@ class DOMTokenList {
   bind (context) {
 
     const
-      reset = symbol =>
-        this [symbol].map // more than one occurrence
-          (node => node.textContent = node.text)
-        && symbol
-
    // must both run independently not in tandem
 
-    , restore = symbol =>
-         this [symbol].map (node =>
-           (node.textContent =
-             node.textContent
-               .split ('{'+symbol+'}')
-               .join  (context [symbol])))
+      tokenize = symbol => node =>
+           (node.textContent
+             = node.textContent
+             .split ('{'+symbol+'}')
+             .join  (context [symbol]))
 
-    Object
-      .keys (this)
-      .map  (reset)
-      .map  (restore)
+    for (let symbol in this)
+      this [symbol].map // more than one occurrence
+        (node => node.textContent = node.text)
+
+      && this [symbol].map (tokenize (symbol))
   }
 }
 
@@ -504,7 +499,7 @@ const GlobalEventHandlers = Element =>
         .map (Template)
 
     this.tokens =
-      new DOMTokenList (this)
+      new TokenList (this)
 
     super.onconnect
       && super.onconnect ()
