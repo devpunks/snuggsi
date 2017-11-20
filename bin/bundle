@@ -8,5 +8,5 @@ cat                                \
   event-target/index.es            \
   global-event-handlers/index.es   \
   component/index.es               \
-  elements/element.es              \
+  element/index.es                 \
 > dist/snuggsi.es
