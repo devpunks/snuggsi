@@ -18,7 +18,7 @@ const
 function browse (interface) {
 
   const
-    file = read (`${root}elements/${interface}.html`)
+    file = read (`${root}element/${interface}.html`)
   , settings = { runScripts: 'dangerously', virtualConsole: out}
   , dom = new JSDOM (file, settings)
 
