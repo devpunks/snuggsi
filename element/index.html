@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+
+<meta charset=UTF-8>
+<meta name=viewport content='width=device-width, initial-scale=1'>
+
+<title>Element: Constructor</title>
+
+<meta name=author title=dees    href=mailto:me@example.com>
+<meta name=author title=snuggsi href=mailto:me@example.com>
+
+<meta name=assert content="HTMLElement must allow subclassing">
+
+<link rel=help href=https://snuggsi.es/element>
+<link rel=help href=https://html.spec.whatwg.org/#html-element-constructors>
+
+<!--
+<script src="/resources/testharness.js"></script>
+<script src="/resources/testharnessreport.js"></script>
+-->
+
+<div id=log></div>
+
+<script>
+
+  console.log ('\n\nthis is inside jsdom \n\n')
+// failure
+/*
+test (() => {
+
+  Element `foo-bar`
+    (class CustomElementWithInferredTagName extends HTMLElement {})
+
+  assert_throws
+    ({'name': 'TypeError'}, function () { new SomeCustomElement; })
+
+}, 'HTMLElement constructor must throw TypeError when it has not been defined by customElements.define')
+*/
+
+// success
+
+/*
+test (() => {
+
+  Element `foo-bar` (class CustomElementWithInferredTagName extends HTMLElement {})
+
+  const instance = new (Element `foo-bar`)
+
+  assert_equals (instance.localName, 'foo-bar')
+  assert_equals (instance.nodeName, 'Foo Bar')
+
+}, 'HTMLElement constructor must infer the tag name from the element interface')
+
+
+test (() => {
+
+  Element `foo-bar` (class CustomElementWithInferredTagName extends HTMLElement {})
+
+}, 'HTMLElement constructor must allow subclassing a custom element')
+
+
+test (() => {
+
+  Element `foo-bar` (class CustomElementWithInferredTagName extends HTMLElement {})
+
+}, 'HTMLElement constructor must allow subclassing an user-defined subclass of HTMLElement')
+*/
+</script>
+
