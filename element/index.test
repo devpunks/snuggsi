@@ -1,6 +1,6 @@
 const
   interface = 'index'
-, {describe, browse} = require ('./index.test.es')
+, {describe, browse} = require ('../test/index.es')
 
 
 describe ('new Element', test => {
