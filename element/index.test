@@ -1,0 +1,13 @@
+const
+  interface = 'index'
+, {describe, browse} = require ('./index.test.es')
+
+
+describe ('new Element', test => {
+  const document = browse (interface)
+
+  test.ok (document.querySelector `foo-bar`)
+
+  test.end ()
+})
+
