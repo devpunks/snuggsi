@@ -32,6 +32,7 @@ new class /* CustomElementRegistry */ {
   upgrade (node) {
 
     // Here's where we can swizzle
+    // https://github.com/whatwg/html/issues/1704#issuecomment-241881091
     this [node.localName]
 
     &&
