@@ -8,6 +8,15 @@ Think of a template as a content fragment that is being stored for subsequent us
 
 [Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
 
+## `HTMLTemplateElement`
+
+  - [Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement)
+
+### .content
+
+This is a `DocumentFragment` returned of the `<template>` content.
+
+
 ## Apple Proposal
 
   - https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md
