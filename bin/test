@@ -3,7 +3,10 @@
 # Run tape
 
 # https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
-NODE_PATH=$(pwd) \
-  node --harmony ./elements/element.test.es \
-  | ./node_modules/.bin/tap-nyc
+export NODE_PATH=$(pwd)
+
+node                     \
+  --harmony              \
+  ./element/index.test | \
+./node_modules/.bin/tap-nyc
 
