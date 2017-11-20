@@ -1,6 +1,16 @@
 # `ParentNode`
 
-  https://dom.spec.whatwg.org/#interface-parentnode
+  Interface used for parent -> child node relationships.
+
+  - [Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/API/ParentNode)
+
+
+## `.select (selector)`
+
+## `.selectAll (selector)`
+
+
+https://dom.spec.whatwg.org/#interface-parentnode
 
 To convert nodes into a node, given nodes and document, run these steps:
 
