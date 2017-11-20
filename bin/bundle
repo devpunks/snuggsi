@@ -1,5 +1,5 @@
 cat                                \
-  elements/html-element.es         \
+  html-element/index.es            \
   token-list/index.es              \
   html-link-element/index.es       \
   html-template-element/index.es   \
