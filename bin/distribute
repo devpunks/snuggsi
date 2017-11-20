@@ -37,14 +37,10 @@ git add dist/snuggsi.min.js.zo
 git commit -m":muscle: bump ZLIB distribution dist/snuggsi.min.js.zo"
 
 
-git push origin master
-
-
 npm version patch
+
+npm publish
 
 
 git push origin master
 git push origin --tags
-
-
-npm publish
