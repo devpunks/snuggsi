@@ -34,8 +34,6 @@ function B() {
 }
 Also, in general you should do
 
-Object.setPrototypeOf(B.prototype, A.prototype);
-Object.setPrototypeOf(B, A);
 instead of
 
 B.prototype = Object.create(A.prototype);
@@ -48,9 +46,17 @@ for slightly better semantics, including class-side inheritance and not clobberi
   E.prototype =
     window.HTMLElement.prototype
 
+  // Prevent `.constructor` clobbering
+  // E.__proto__ = window.HTMLElement
+
     // https://github.com/whatwg/html/issues/1704
     // E.prototype.__proto__
     //   = (E.__proto__ = HTMLElement).prototype
+
+    // Domenic's method
+    // Object
+    //   .setPrototypeOf
+    //     (Object.setPrototypeOf (B, A).prototype, A.prototype)
 
     return E
 })()
