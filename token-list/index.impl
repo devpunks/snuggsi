@@ -7,6 +7,8 @@
 //   - FIX webidl2js - https://github.com/tmpvar/jsdom/pull/1447/files#r59154073
 // NodeIterator - https://github.com/tmpvar/jsdom/blob/master/lib/jsdom/living/traversal/NodeIterator-impl.js
 
+const idlUtils = require ('../generated/utils')
+
 exports.implementation = class TokenListImpl {
 
   constructor (constructorArgs, privateData) {
