@@ -1,10 +1,14 @@
 // `TokenList`
-//
+// TreWalker -  https://github.com/tmpvar/jsdom/pull/1447
 // NodeIterator - https://github.com/tmpvar/jsdom/blob/master/lib/jsdom/living/traversal/NodeIterator-impl.js
 
 exports.implementation = class TokenListImpl {
 
-  constructor (constructorArgs, privateData) { }
+  constructor (constructorArgs, privateData) {
+
+    const visit
+  
+  }
 
   bind (context) {}
 
