@@ -62,9 +62,15 @@ for slightly better semantics, including class-side inheritance and not clobberi
 })()
 
 // http://jsfiddle.net/zaqtg/10
-// https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
-// https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
 // https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
+//
+// TreeWalker
+//   - https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
+//   - https://github.com/tmpvar/jsdom/pull/1447
+//
+// NodeIterator -
+//   - https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
+//   - https://github.com/tmpvar/jsdom/blob/master/lib/jsdom/living/traversal/NodeIterator-impl.js
 // https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
 
 class TokenList {
