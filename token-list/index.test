@@ -1,1 +1,3 @@
+// https://github.com/tmpvar/jsdom/issues/317
+// https://github.com/w3c/web-platform-tests/tree/master/dom/traversal
 console.log ('what from TokenList')
