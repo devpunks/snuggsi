@@ -18,7 +18,6 @@ This is a `DocumentFragment` returned of the `<template>` content.
 
 
 ## Apple Proposal
-
   - https://github.com/whatwg/html/issues/2254
   - https://github.com/w3c/webcomponents/blob/gh-pages/proposals/Template-Instantiation.md
 
