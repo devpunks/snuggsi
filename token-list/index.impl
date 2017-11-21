@@ -4,4 +4,6 @@
 
 exports.implementation = class TokenListImpl {
 
+  constructor (constructorArgs, privateData) { }
+
 }
