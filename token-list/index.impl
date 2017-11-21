@@ -1,0 +1,7 @@
+// `TokenList`
+//
+// NodeIterator - https://github.com/tmpvar/jsdom/blob/master/lib/jsdom/living/traversal/NodeIterator-impl.js
+
+exports.implementation = class TokenListImpl {
+
+}
