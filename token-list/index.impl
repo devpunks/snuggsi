@@ -1,3 +1,5 @@
+"use strict"
+
 // `TokenList`
 // TreeWalker
 //   - https://github.com/tmpvar/jsdom/pull/1447
