@@ -1,6 +1,5 @@
 [Constructor,
  Exposed=Window]
  partial /*sealed*/ interface TokenList {
-
    void bind(object context)
  }
