@@ -1,5 +1,7 @@
 // `TokenList`
-// TreWalker -  https://github.com/tmpvar/jsdom/pull/1447
+// TreeWalker
+//   - https://github.com/tmpvar/jsdom/pull/1447
+//   - https://github.com/tmpvar/jsdom/blob/bf2d5dd935a925b0407a27b4a725bbc954168fb1/lib/jsdom/living/nodes/Document-impl.js#L680
 // NodeIterator - https://github.com/tmpvar/jsdom/blob/master/lib/jsdom/living/traversal/NodeIterator-impl.js
 
 exports.implementation = class TokenListImpl {
