@@ -106,14 +106,15 @@ Links
 - https://hacks.mozilla.org/2015/11/better-than-gzip-compression-with-brotli
 
 Server Support
-- Ruby _(brotli)_ - https://github.com/miyucy/brotli
+- Apache _(mod_brotli)_ - https://httpd.apache.org/docs/trunk/mod/mod_brotli.html
+- Express _(shrink-ray)_ - https://github.com/aickin/shrink-ray
+- Go _(compress)_ - https://github.com/dsnet/compress
+- IIS _(IIS Brotli)_ - https://www.iis.net/downloads/community/2016/03/iis-brotli
+- Koa _(koa-send)_ - https://github.com/koajs/send
+- NGINX _(ngx_brotli)_ - https://github.com/google/ngx_brotli
 - Node _(brotli)_ - https://www.npmjs.com/package/brotli
 - Node _(iltrob)_ - https://github.com/MayhemYDG/iltorb
-- Koa _(koa-send)_ - https://github.com/koajs/send
-- Express _(shrink-ray)_ - https://github.com/aickin/shrink-ray
-- NGINX _(ngx_brotli)_ - https://github.com/google/ngx_brotli
-- Apache _(mod_brotli)_ - https://httpd.apache.org/docs/trunk/mod/mod_brotli.html
-- IIS _(IIS Brotli)_ - https://www.iis.net/downloads/community/2016/03/iis-brotli
+- Ruby _(brotli)_ - https://github.com/miyucy/brotli
 
 Browser Support
 - http://caniuse.com/#search=brotli
