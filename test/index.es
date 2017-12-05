@@ -5,5 +5,3 @@ module.exports = {
 , browse   : require ('./browse')
 , test     : require ('tape').test
 }
-
-require ('./element.test')
