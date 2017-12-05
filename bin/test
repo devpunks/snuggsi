@@ -17,7 +17,7 @@ export COVERAGE="$ROOT/node_modules/.bin/tap-nyc"
 export NODE_PATH=$ROOT:$NODE_PATH
 
 $ROOT/node_modules/.bin/tape \
-  -r $ROOT/polyfills \
-  -r $ROOT/test/index.es \
--- $FILES \
+  -r $ROOT/polyfills         \
+  -r $ROOT/test/index.es     \
+-- $FILES                    \
  | $COVERAGE
