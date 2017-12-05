@@ -1,4 +1,4 @@
-const { describe, browse }
+const { test, browse, serve }
   = require ('test')
 
 const
