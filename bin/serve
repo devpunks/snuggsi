@@ -3,7 +3,7 @@
 export ROOT=$(pwd)
 export ENTRY="$ROOT/index.es"
 
-node \
+node                        \
   --require $ROOT/polyfills \
-$ENTRY
+-- $ENTRY
 # --expose-http2 \ # Experimental HTTP/2 flag https://nodejs.org/api/cli.html#cli_expose_http2
