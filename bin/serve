@@ -1,3 +1,5 @@
+#!/bin/bash
+
 export ROOT=$(pwd)
 export ENTRY="$ROOT/index.es"
 
