@@ -1,3 +1,5 @@
+console.warn ("whatt")
+
 const
   interface = 'index'
 , {describe, test, browse} = require ('../test/index.es')
