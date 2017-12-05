@@ -1,4 +1,5 @@
-const serve = require ('./server')
+const
+  serve = require ('./server')
 
 module.exports = {
   browse   : require ('./browse')
