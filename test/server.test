@@ -6,11 +6,11 @@ const
 , Server  = serve (options)
 
 
-describe ('new Server', test => {
+test ('new Server', t => {
 
-  test.doesNotThrow
+  t.doesNotThrow
     ( _ => new Server (options) )
 
-  test.end ()
+  t.end ()
 })
 
