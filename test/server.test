@@ -9,7 +9,7 @@ const
 test ('new Server', t => {
 
   t.doesNotThrow
-    ( _ => new Server (options) )
+    ( _ => new Server )
 
   t.end ()
 })
