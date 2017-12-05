@@ -1,8 +1,8 @@
 module.exports =
 
-function () {
+function (options) {
   return class {
-    constructor ( options = {} ) {
+    constructor () {
       const fun = function (middleware) {
 
       }
