@@ -1,1 +1,5 @@
-require ('./server.test')
+const
+  { describe, serve, browse }
+    = require ('test')
+
+serve `.`
