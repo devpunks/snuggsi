@@ -6,19 +6,20 @@ const
 
 console.warn ('snuggsi', snuggsi)
 
-//app
-//  .use ( cors ({ methods: ['GET'] }) )
+  app
+    .use ( cors ({ methods: ['GET'] }) )
 
-//  .use ( snuggsi.compressor )
+    .use ( snuggsi.compress )
 
-//  .use ( snuggsi.mixins )
+    .use ( snuggsi.mixins )
 
-//  .use ( snuggsi.assets )
+    .use ( snuggsi.assets )
 
-//  .listen ( port )
+    .listen ( port )
 
-//console.log
-//  ( `listening on PORT ${port}` )
+  console.log
+    ( `listening on PORT ${port}` )
+
 module.exports =
 
 function (options) {
