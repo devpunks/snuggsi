@@ -1,8 +1,10 @@
+console.log ('snuggs')
+
 const
-  serve = require ('./server')
+  serve = require ('server')
 
 module.exports = {
-  serve
+  serve  : (new require ('server'))
 , browse : require ('./browse')
 , test   : require ('tape').test
 }
