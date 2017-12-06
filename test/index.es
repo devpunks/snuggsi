@@ -1,10 +1,10 @@
 console.log ('snuggs')
 
 const
-  serve = require ('server')
+  options = { port: 3002 }
 
 module.exports = {
-  serve  : (new require ('server'))
+  test   : require ('tape').test
 , browse : require ('./browse')
-, test   : require ('tape').test
+, serve  : new require ('server')(options)
 }
