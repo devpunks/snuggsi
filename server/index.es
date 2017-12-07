@@ -2,6 +2,9 @@ const
   { compress, mixins, assets }
     = require ('middleware')
 
+, server
+    = (new (require ('koa')))
+
 
 module.exports = class {
 
