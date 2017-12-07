@@ -1,6 +1,10 @@
 const
-  server
-    = (new (require ('server')))
+  tape   = require ('tape')
+, server = new (require ('server'))
+
+
+tape
+  .onFinish (_ => server.destroy ())
 
 
 module.exports = {
