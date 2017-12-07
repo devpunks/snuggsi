@@ -7,7 +7,7 @@ module.exports = class {
 
   listen (port) {
 
-    this.port = port
+    this.port = port || 8080
 
     return this
   }
