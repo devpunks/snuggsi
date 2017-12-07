@@ -20,9 +20,9 @@ module.exports = class {
 
       .use ( compress )
 
-      .use ( mixins )
+//    .use ( mixins )
 
-      .use ( assets )
+//    .use ( assets )
 
       .listen ( this.port )
   }
