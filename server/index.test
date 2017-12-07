@@ -2,15 +2,13 @@ const
   { test, browse }
     = require ('test')
 
-let
-  options = { dist: 'dist' }
-, Server  = require ('.')
+, Server
+    = require ('.')
 
 
 test ('new Server', t => {
 
-  t.doesNotThrow
-    ( _ => new Server (options) )
+  t.doesNotThrow ( _ => new Server )
 
   t.end ()
 })
