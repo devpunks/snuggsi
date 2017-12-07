@@ -30,4 +30,8 @@ module.exports = class {
 
       .listen ( this.port )
   }
+
+
+  destroy ()
+    { console.warn (server.close) }
 }
