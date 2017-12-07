@@ -14,4 +14,3 @@ test ('new Server', t => {
 
   t.end ()
 })
-
