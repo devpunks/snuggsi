@@ -8,6 +8,6 @@ module.exports = {
 
 , serve  :
     server
-      .listen (process.env.PORT || 3002)
+      .listen (process.env.PORT)
       .serve.bind (server)
 }
