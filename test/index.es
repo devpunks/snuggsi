@@ -4,7 +4,7 @@ const
 
 
 tape
-  .onFinish (_ => server.destroy ())
+  .onFinish ( _=> server.destroy `` )
 
 
 module.exports = {
