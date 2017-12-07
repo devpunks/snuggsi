@@ -6,5 +6,5 @@ const
 module.exports = {
   test   : require ('tape').test
 , browse : require ('./browse')
-, serve  : new (require ('server')(options))
+, serve  : new ( require ('server') (options) )
 }
