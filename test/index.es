@@ -9,7 +9,7 @@ tape
 
 module.exports = {
 
-  test   : require ('tape').test
+  test   : tape.test
 , browse : require ('./browse')
 
 , serve  :
