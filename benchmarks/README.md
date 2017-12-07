@@ -5,3 +5,4 @@ Load in 4 seconds - https://www.hobo-web.co.uk/your-website-design-should-load-i
 
 ## HyperHTML vs. LitHTML
   - https://www.youtube.com/watch?v=Io6JjgckHbg
+  - https://gist.github.com/WebReflection/fadcc419f5ccaae92bc167d8ff5c611b
