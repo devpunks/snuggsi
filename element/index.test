@@ -1,10 +1,8 @@
-console.warn ("whatt")
-
 const
   interface = 'index'
-, {describe, test, browse} = require ('../test/index.es')
+, {test, browse} = require ('test')
 
-describe ('new Element', test => {
+test ('new Element', t => {
   const document = browse (interface)
 
   test.ok
