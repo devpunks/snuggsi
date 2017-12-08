@@ -6,10 +6,8 @@ const
 
 
 test ('new Element', t => {
-  const document = browse (interface)
 
-  test.ok
-    (document.querySelector `foo-bar`)
+  t.ok (document.querySelector `foo-bar`)
 
-  test.end ()
+  t.end ()
 })
