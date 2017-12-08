@@ -49,6 +49,8 @@ const Template = template => {
 
     for (let node of // removes IE childNodes
           (this.dependents || [] ))
+            // removeChild FAR faster
+            // https://jsperf.com/innerhtml-vs-removechild/15
             node.parentNode.removeChild (node)
 
 
