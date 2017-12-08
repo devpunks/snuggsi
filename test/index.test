@@ -5,3 +5,6 @@ const
 //serve `.`
 test ('describe',
   t => { t.assert (test), t.end () } )
+
+test ('serve',
+  t => { t.assert (serve), t.end () } )
