@@ -8,3 +8,6 @@ test ('describe',
 
 test ('serve',
   t => { t.assert (serve), t.end () } )
+
+test ('browse',
+  t => { t.assert (browse), t.end () } )
