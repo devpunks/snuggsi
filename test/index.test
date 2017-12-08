@@ -2,4 +2,6 @@ const
   { test, serve, browse }
     = require ('.')
 
-serve `.`
+//serve `.`
+test ('describe',
+  t => { t.assert (test), t.end () } )
