@@ -1,6 +1,9 @@
 const
-  interface = 'index'
-, {test, browse} = require ('test')
+  {test, browse}
+    = require ('test')
+
+, document = browse `index`
+
 
 test ('new Element', t => {
   const document = browse (interface)
