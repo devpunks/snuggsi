@@ -48,4 +48,3 @@ function bundle (lib)
 
 
 out.sendTo (console)
-
