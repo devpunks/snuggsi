@@ -8,7 +8,9 @@
   A list of MutationRecord objects called the record queue that is initially empty.
 */
 
-class MutationObserverImpl {
+module.exports.implementation =
+
+class /* MutationObserverImpl */ {
 
   constructor(args, privateData) {
     super (args, privateData)
