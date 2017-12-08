@@ -1,0 +1,28 @@
+/*
+  A MutationObserver object can be used to observe mutations to the tree of nodes.
+
+  Each MutationObserver object has these associated concepts:
+
+  A callback set on creation.
+  A list of nodes on which it is a registered observer’s observer that is initially empty.
+  A list of MutationRecord objects called the record queue that is initially empty.
+*/
+
+class MutationObserverImpl {
+  constructor(args, privateData) {
+    super(args, privateData);
+    this._microtask_queued = false;
+    this.observers = [];
+    this.records = [];
+
+//  this._templateContents = this._ownerDocument.createDocumentFragment();
+  }
+
+  observe()     { }
+  disconnect()  { }
+  takeRecords() { }
+}
+
+module.exports = {
+  implementation: MutationObserverImpl
+}
