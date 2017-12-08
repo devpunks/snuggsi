@@ -5,13 +5,14 @@
 # https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
 export ROOT=$(pwd)
 export ENTRY="index.test"
-export ELEMENTS="element"
-#export ELEMENTS="elements,token-list"
+export API="element"
+#export API="elements,token-list"
 #export PATHS="{test,middleware,mixins,$ELEMENTS}"
-export PATHS="test"
-#export PATHS="{$ELEMENTS}"
+export PATHS="{test,server,$API,}"
 export FILES="$ROOT/$PATHS/$ENTRY"
 export COVERAGE="$ROOT/node_modules/.bin/tap-nyc"
+
+echo $PATHS
 
 # https://gist.github.com/branneman/8775568
 # https://gist.github.com/branneman/8048520
