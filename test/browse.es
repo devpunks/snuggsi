@@ -45,6 +45,9 @@ function bundle (lib)
 function load (id)
   { return read (`${id}.es`) }
 
+function read (path)
+  { return open (find (path), encoding) }
+
 function find (path)
   { return `${path}` }
 
