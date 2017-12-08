@@ -50,9 +50,3 @@ function read (path)
 
 function find (path)
   { return `${path}` }
-
-function bundle (lib)
-  { return load (lib) }
-
-
-out.sendTo (console)
