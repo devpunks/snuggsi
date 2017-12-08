@@ -21,6 +21,8 @@ out.sendTo (console)
 
 function browse (interface) {
 
+  interface + '' // flatten TTSL (Tagged Template String Literal) usage
+
   const
     file = read (`${root}element/${interface}.html`)
   , settings = { runScripts: 'dangerously', virtualConsole: out}
