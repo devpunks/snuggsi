@@ -9,8 +9,6 @@
 */
 
 class MutationObserverImpl {
-  constructor(args, privateData) {
-    super(args, privateData);
 
     this._microtask_queued = false;
     this.observers = [];
