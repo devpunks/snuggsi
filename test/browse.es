@@ -38,8 +38,9 @@ function browse (interface) {
   return document
 }
 
-function read (path)
-  { return open (find (path), encoding) }
+
+function bundle (lib)
+  { return load (lib) }
 
 function load (id)
   { return read (`${id}.es`) }
