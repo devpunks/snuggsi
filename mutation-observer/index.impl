@@ -24,7 +24,3 @@ class /* MutationObserverImpl */ {
   disconnect()  { }
   takeRecords() { }
 }
-
-module.exports = {
-  implementation: MutationObserverImpl
-}
