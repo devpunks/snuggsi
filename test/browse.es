@@ -15,6 +15,10 @@ const
 
 , out     = new VirtualConsole
 
+
+out.sendTo (console)
+
+
 function browse (interface) {
 
   const
