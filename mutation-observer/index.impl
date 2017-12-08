@@ -13,7 +13,9 @@ class MutationObserverImpl {
   constructor(args, privateData) {
     super (args, privateData)
 
-//  this._templateContents = this._ownerDocument.createDocumentFragment();
+    this._microtask_queued = false
+    this._observers = []
+    this._records   = []
   }
 
   observe()     { }
