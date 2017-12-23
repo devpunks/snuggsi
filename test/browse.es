@@ -32,6 +32,7 @@ function browse (interface) {
   document.body.appendChild (script)
   document.body.appendChild (example)
 
+  console.warn (document.documentElement.innerHTML)
   return document
 }
 
