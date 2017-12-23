@@ -35,7 +35,7 @@ function browse (interface) {
   polyfills.textContent
     = [ mutation_observer, '\n' ].join ``
 
-  snuggsi.textContent = bundle
+  snuggsi.textContent = dist
   example.textContent = source
 
   document.body.appendChild (polyfills)
