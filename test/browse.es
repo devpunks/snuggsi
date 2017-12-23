@@ -29,7 +29,9 @@ function browse (interface) {
   , polyfills = script.cloneNode ()
   , mutation_observer
     = read (`${root}polyfills/mutation-observer.js`)
-  , polyfills = mutation_observer + '\n'
+
+  polyfills.textContent
+    = [ mutation_observer, '\n' ].join ``
 
 //snuggsi.textContent  = snuggsi
   example.textContent = source
