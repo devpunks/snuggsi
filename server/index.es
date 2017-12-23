@@ -18,6 +18,8 @@ module.exports = class {
 
   serve (path) {
 
+    this.port = port || 8080
+
     server = server
 
       .use ( require ('koa-cors') ({ methods: ['GET'] }) )
