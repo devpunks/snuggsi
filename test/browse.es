@@ -23,7 +23,7 @@ function browse (interface) {
   , settings = { runScripts: 'dangerously', virtualConsole: (new VirtualConsole).sendTo (console) }
   , document = (new JSDOM (file, settings)).window.document
 
-  , script   = document.createElement ('script')
+  , snuggsi  = document.createElement ('script')
   , example  = script.cloneNode ()
 
 //script.textContent  = snuggsi
