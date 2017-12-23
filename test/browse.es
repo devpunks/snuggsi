@@ -26,6 +26,7 @@ function browse (interface) {
   , script   = document.createElement ('script')
   , snuggsi  = script.cloneNode ()
   , example  = script.cloneNode ()
+  , polyfills = script.cloneNode ()
   , mutation_observer
     = read (`${root}polyfills/mutation-observer.js`)
   , polyfills = mutation_observer + '\n'
