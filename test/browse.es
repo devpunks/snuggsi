@@ -38,11 +38,8 @@ function browse (interface) {
   snuggsi.textContent = dist
   example.textContent = source
 
-  document.body.appendChild (polyfills)
-  document.body.appendChild (snuggsi)
-  document.body.appendChild (example)
+  document.body.append (polyfills, snuggsi, example)
 
-  console.warn (document.documentElement.innerHTML)
   return document
 }
 
