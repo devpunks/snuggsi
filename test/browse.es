@@ -20,6 +20,7 @@ out.sendTo (console)
 
 
 function browse (interface) {
+  console.warn ('browse', interface)
 
   interface + '' // flatten TTSL (Tagged Template String Literal) usage
 
