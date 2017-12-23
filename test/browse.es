@@ -23,7 +23,8 @@ function browse (interface) {
   , settings = { runScripts: 'dangerously', virtualConsole: (new VirtualConsole).sendTo (console) }
   , document = (new JSDOM (file, settings)).window.document
 
-  , snuggsi  = document.createElement ('script')
+  , script   = document.createElement ('script')
+  , snuggsi  = script.cloneNode ()
   , example  = script.cloneNode ()
   , mutation_observer
     = read (`${root}polyfills/mutation-observer.js`)
