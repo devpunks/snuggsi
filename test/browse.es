@@ -30,6 +30,7 @@ function browse (interface) {
   , polyfills = script.cloneNode ()
 
   , mutation_observer
+    // taken from https://github.com/megawac/MutationObserver.js
     = read (`${root}polyfills/mutation-observer.js`)
 
   polyfills.textContent
