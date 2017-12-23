@@ -4,7 +4,7 @@ const
   encoding = 'utf8'
 , root = `${process.env.ROOT}/`
 
-, {JSDOM, VirtualConsole}
+, { JSDOM, VirtualConsole }
     = require ('jsdom')
 , open   = require ('fs').readFileSync
 , bundle = bundle (`${root}/dist/snuggsi`)
