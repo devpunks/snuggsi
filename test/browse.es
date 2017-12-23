@@ -29,7 +29,8 @@ function browse (interface) {
 //script.textContent  = snuggsi
   example.textContent = source
 
-  document.body.appendChild (script)
+  document.body.appendChild (polyfills)
+  document.body.appendChild (snuggsi)
   document.body.appendChild (example)
 
   console.warn (document.documentElement.innerHTML)
