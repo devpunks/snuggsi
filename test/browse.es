@@ -23,9 +23,9 @@ function browse (interface) {
   , settings = { runScripts: 'dangerously', virtualConsole: (new VirtualConsole).sendTo (console) }
   , document = (new JSDOM (file, settings)).window.document
 
-  , script   = document.createElement ('script')
-  , snuggsi  = script.cloneNode ()
-  , example  = script.cloneNode ()
+  , script    = document.createElement ('script')
+  , snuggsi   = script.cloneNode ()
+  , example   = script.cloneNode ()
   , polyfills = script.cloneNode ()
 
   , mutation_observer
