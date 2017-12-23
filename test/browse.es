@@ -29,7 +29,7 @@ function browse (interface) {
     = read (`${root}polyfills/mutation-observer.js`)
   , polyfills = mutation_observer + '\n'
 
-//script.textContent  = snuggsi
+//snuggsi.textContent  = snuggsi
   example.textContent = source
 
   document.body.appendChild (polyfills)
