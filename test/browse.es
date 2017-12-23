@@ -26,7 +26,7 @@ function browse (interface) {
   , script   = document.createElement ('script')
   , example  = script.cloneNode ()
 
-  script.textContent  = snuggsi
+//script.textContent  = snuggsi
   example.textContent = source
 
   document.body.appendChild (script)
