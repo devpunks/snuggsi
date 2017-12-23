@@ -29,6 +29,8 @@ module.exports = class {
 //    .use ( assets )
 
       .listen ( this.port )
+
+    console.warn (server.close)
   }
 
 
