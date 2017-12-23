@@ -15,8 +15,6 @@ const
             // https://github.com/tmpvar/jsdom/pull/1872
 
 function browse (interface) {
-  console.warn ('browse', interface)
-
   interface + '' // flatten TTSL (Tagged Template String Literal) usage
 
   const
