@@ -13,12 +13,6 @@ const
             // Unfortunately no support for custom elements... yet...
             // https://github.com/tmpvar/jsdom/pull/1872
 
-, out     = new VirtualConsole
-
-
-out.sendTo (console)
-
-
 function browse (interface) {
   console.warn ('browse', interface)
 
