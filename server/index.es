@@ -18,7 +18,7 @@ module.exports = class {
 
   serve (path) {
 
-    server
+    server = server
 
       .use ( require ('koa-cors') ({ methods: ['GET'] }) )
 
