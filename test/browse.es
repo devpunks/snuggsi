@@ -20,7 +20,7 @@ function browse (interface) {
 
   const
     file = read (`${root}element/${interface}.html`)
-  , settings = { runScripts: 'dangerously', virtualConsole: out}
+  , settings = { runScripts: 'dangerously', virtualConsole: (new VirtualConsole).sendTo (console) }
   , document = (new JSDOM (file, settings)).window.document
 
   , script   = document.createElement ('script')
