@@ -6,8 +6,6 @@ const
 
 
 test ('new Element', t => {
-  console.warn (document.body.outerHTML)
-
   t.ok (document.querySelector `foo-bar`)
 
   t.end ()
