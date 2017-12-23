@@ -6,7 +6,7 @@ const
 
 , {JSDOM, VirtualConsole} = require ('jsdom')
 , open    = require ('fs').readFileSync
-, snuggsi = bundle (`${root}/dist/snuggsi`)
+, bundle = bundle (`${root}/dist/snuggsi`)
 
 , source  = '' // bundle (`${root}/elements/element.html`)
             // https://github.com/tmpvar/jsdom/issues/1030
