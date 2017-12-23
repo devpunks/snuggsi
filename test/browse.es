@@ -4,8 +4,9 @@ const
   encoding = 'utf8'
 , root = `${process.env.ROOT}/`
 
-, {JSDOM, VirtualConsole} = require ('jsdom')
-, open    = require ('fs').readFileSync
+, {JSDOM, VirtualConsole}
+    = require ('jsdom')
+, open   = require ('fs').readFileSync
 , bundle = bundle (`${root}/dist/snuggsi`)
 
 , source  = '' // bundle (`${root}/elements/element.html`)
