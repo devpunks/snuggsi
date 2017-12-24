@@ -3,7 +3,7 @@ const
 , server = new (require ('server'))
 
 
-tape.onFinish ( server.destroy )
+tape.onFinish ( server.shutdown )
 
 
 module.exports = {
