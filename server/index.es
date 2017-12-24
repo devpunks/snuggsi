@@ -33,8 +33,6 @@ module.exports = class {
   }
 
   listen (port) {
-
-    return this
   }
 
 
