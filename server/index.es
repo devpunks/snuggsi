@@ -3,7 +3,7 @@ const
     = require ('middleware')
 
 , server
-    = (new (require ('koa')))
+    = new (require ('koa'))
 
 
 module.exports = class {
