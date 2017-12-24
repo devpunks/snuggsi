@@ -13,6 +13,7 @@ module.exports = class {
     this.port = port || 8080
 
     console.warn ('server.close', server.close)
+    console.warn ('server.socketIdleTimeout', server.socketIdleTimeout)
 
     return this
   }
