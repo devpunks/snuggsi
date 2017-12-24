@@ -22,7 +22,7 @@ module.exports = class {
 
     server = server
 
-      .use ( require ('koa-cors') ({ methods: ['GET'] }) )
+//    .use ( require ('koa-cors') ({ methods: ['GET'] }) )
 
       .use ( compress )
 
