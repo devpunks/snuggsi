@@ -11,8 +11,22 @@ const
 
 
 http.createServer ((req, res) => {
-
+  console.log ('server: request incoming', this)
+  res.writeHead (205, {'Content-Type': 'application/ecmascript'})
 })
+
+.listen (8181)
+
+
+
+
+
+
+
+
+
+
+
 
 module.exports = class {
 
