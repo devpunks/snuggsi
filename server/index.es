@@ -14,6 +14,7 @@ server
 
 
 
+module.exports = class {
 
 
 
