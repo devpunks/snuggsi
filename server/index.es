@@ -24,7 +24,7 @@ module.exports = class {
 
 //    .use ( require ('koa-cors') ({ methods: ['GET'] }) )
 
-      .use ( compress )
+//    .use ( compress )
 
 //    .use ( mixins )
 
