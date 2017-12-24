@@ -23,7 +23,7 @@ module.exports = class {
       res.end ('foo bar')
     })
 
-    server.on ('connection', connection => {
+    .on ('connection', connection => {
       console.warn ('connection', this, connection)
 
       connection.on ('close', a => {
