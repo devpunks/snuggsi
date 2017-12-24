@@ -49,6 +49,7 @@ i      .listen ( process.env.PORT || 80 )
   }
 
 
-  destroy ()
-    { console.warn (server.close) }
+  destroy () {
+    console.warn ('closing', server.close ())
+  }
 }
