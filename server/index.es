@@ -32,10 +32,6 @@ module.exports = class {
     })
   }
 
-  listen (port) {
-  }
-
-
   serve (path) {
 
     server = server
