@@ -10,27 +10,6 @@ const
 server
     = new (require ('koa'))
 
-server = http.createServer ((req, res) => {
-  console.log ('server: request incoming', this)
-  res.writeHead (205, {'Content-Type': 'application/ecmascript'})
-  res.write ('foo')
-  res.end ('bar')
-})
-
-
-server.on ('connection', connection => {
-  console.warn ('connection', this, connection)
-
-  connection.on ('close', a => {
-    console.warn ('closing connection', a)
-  })
-})
-
-server.listen (8181)
-
-
-
-
 
 
 
