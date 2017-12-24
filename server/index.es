@@ -7,7 +7,10 @@ const
     = require ('http')
 
 
-http.createServer ((req, res) => {
+server
+    = new (require ('koa'))
+
+server = http.createServer ((req, res) => {
   console.log ('server: request incoming', this)
   res.writeHead (205, {'Content-Type': 'application/ecmascript'})
 })
