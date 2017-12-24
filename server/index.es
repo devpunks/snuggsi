@@ -13,6 +13,8 @@ server
 server = http.createServer ((req, res) => {
   console.log ('server: request incoming', this)
   res.writeHead (205, {'Content-Type': 'application/ecmascript'})
+  res.write ('foo')
+  res.end ('bar')
 })
 
 .listen (8181)
