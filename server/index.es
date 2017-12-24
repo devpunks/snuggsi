@@ -32,6 +32,7 @@ module.exports = class {
     })
   }
 
+
   serve (path) {
 
     server = server
