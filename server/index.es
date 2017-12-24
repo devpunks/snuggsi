@@ -50,6 +50,7 @@ i      .listen ( process.env.PORT || 80 )
 
 
   shutdown () {
-    console.warn ('closing', server.close ())
+    console.warn ('closing server')
+    server.close ()
   }
 }
