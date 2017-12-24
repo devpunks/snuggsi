@@ -12,7 +12,7 @@ module.exports = class {
 
     this.port = port || 8080
 
-    console.warn ('closing', server.close)
+    console.warn ('server.close', server.close)
 
     return this
   }
