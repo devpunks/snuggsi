@@ -3,9 +3,6 @@ const
   { compress, mixins, assets }
     = require ('middleware')
 
-, server
-    = new (require ('koa'))
-
 , http
     = require ('http')
 
