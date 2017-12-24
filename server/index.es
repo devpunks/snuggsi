@@ -17,7 +17,16 @@ server = http.createServer ((req, res) => {
   res.end ('bar')
 })
 
-.listen (8181)
+
+server.on ('connection', connection => {
+  console.warn ('connection', this, connection)
+
+  connection.on ('close', a => {
+    console.warn ('closing connection', a)
+  })
+})
+
+server.listen (8181)
 
 
 
