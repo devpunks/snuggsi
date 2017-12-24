@@ -4,8 +4,8 @@
 
 # https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
 export ROOT=$(pwd)
-export ENTRY="index.test"
 export API="element"
+export ENTRY="index.test"
 #export API="elements,token-list"
 #export PATHS="{test,middleware,mixins,$ELEMENTS}"
 export PATHS="{test,server,$API,}"
