@@ -11,8 +11,5 @@ module.exports = {
   test   : tape.test
 , browse : require ('./browse')
 
-, serve  :
-    server
-      .listen (process.env.PORT)
-      .serve.bind (server)
+, serve  : server.serve.bind (server)
 }
