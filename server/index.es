@@ -30,8 +30,6 @@ module.exports = class {
         console.warn ('closing connection', a)
       })
     })
-
-    server.listen (8181)
   }
 
   listen (port) {
