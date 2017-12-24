@@ -34,7 +34,6 @@ module.exports = class {
 
   listen (port) {
 
-    console.warn ('server.close', server.close)
     console.warn ('server.socketIdleTimeout', server.socketIdleTimeout)
 
     return this
