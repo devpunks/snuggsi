@@ -49,7 +49,7 @@ i      .listen ( process.env.PORT || 80 )
   }
 
 
-  destroy () {
+  shutdown () {
     console.warn ('closing', server.close ())
   }
 }
