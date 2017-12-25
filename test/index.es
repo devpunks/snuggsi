@@ -1,3 +1,5 @@
+console.warn ('loading test helper')
+
 const
   tape   = require ('tape')
 , server = new (require ('server'))
