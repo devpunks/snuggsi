@@ -5,5 +5,6 @@ const
     require ('path')
       .resolve (__dirname, '..')
 
-console.warn (path)
+
+console.warn (require (ro))
 // --expose-http2 \ # Experimental HTTP/2 flag https://nodejs.org/api/cli.html#cli_expose_http2
