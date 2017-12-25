@@ -8,4 +8,4 @@ const
 , assets      = require ('koa-static') (root, {defer: true})
 
 module.exports =
-  { browse, negotiate, compress, mixins, assets }
+  { browse, negotiate, compressor, mixins, assets }
