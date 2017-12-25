@@ -43,6 +43,8 @@ module.exports = class {
 //    .use ( assets )
 
        .listen ( port, function () {
+
+         console.warn ('Serving', path + '')
          console.warn ('Listening on port', port)
        })
   }
