@@ -24,7 +24,10 @@ module.exports = class {
 
   serve (path, port = process.env.PORT) {
 
-    console.warn ( assets (path) )
+    path = Boolean (path += '')
+      ? path
+      : 'public'
+
 
     return server
       // CHECK OUT CONNECT FOR MOUNTING MIDDLEWARE!!!!
