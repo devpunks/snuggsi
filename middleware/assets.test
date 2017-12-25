@@ -5,7 +5,8 @@ const
 , { assets }
     = require ('.')
 
-, Server = require ('server')
+, Server
+    = require ('server')
 
 
 test ('assets', t => {
