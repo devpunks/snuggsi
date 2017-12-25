@@ -17,7 +17,7 @@ echo "Covering $MODULES"
 
 # https://gist.github.com/branneman/8775568
 # https://gist.github.com/branneman/8048520
-export NODE_PATH=$ROOT:$NODE_PATH
+export NODE_PATH=$ROOT
 
 $ROOT/node_modules/.bin/tape \
   --require ./               \
