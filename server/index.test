@@ -17,7 +17,15 @@ test ('new Server does not throw', t => {
 
 test ('serve defaults to `public` when called with template literal', t => {
 
-  (new Server).serve ``
+  const { get } = require ('http')
 
-  t.end ()
+  void
+
+  ( new Server ).serve ``
+
+  get ('http://localhost:8181/', response => {
+    console.log (response.headers)
+
+    t.end ()
+  })
 })
