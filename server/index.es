@@ -44,7 +44,9 @@ module.exports = class {
 
 //    .use ( assets )
 
-       .listen ( port || 80 )
+       .listen ( port, function () {
+         console.warn ('Listening on port', port)
+       })
   }
 
 
