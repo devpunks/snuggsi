@@ -34,7 +34,7 @@ module.exports = class {
 
   serve (path, port = 8181) {
 
-    console.warn ('Port', process.env.PORT)
+    console.warn ('Port', port)
 
     server = server
 
