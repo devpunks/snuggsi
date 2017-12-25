@@ -11,7 +11,7 @@ Middleware used for developer tools like browsersync and browser extensions.
 Middleware used for Content Negotiaton.
 
 
-## snuggsi.compress
+## snuggsi.compressor
 
 Middleware used for Content Encoding.
 
