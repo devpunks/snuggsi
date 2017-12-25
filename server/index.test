@@ -22,7 +22,7 @@ test ('serve defaults to `public` when called without argument', t => {
 
 
   get (`http://localhost:${process.env.PORT}/`, response => {
-    console.log (response.statusCode)
+    console.log ('headers', response.headers)
 
     server.close ()
 
