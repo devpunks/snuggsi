@@ -35,7 +35,6 @@
     "test": "bin/test",
     "start": "bin/serve",
     "package": "bin/package",
-    "start": "node ./index.es",
     "postinstall": "bin/publish"
   },
   "devDependencies": {
