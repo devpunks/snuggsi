@@ -1,6 +1,6 @@
 // ONLY KILL KEEP-ALIVE WHEN
 const
-  { compress, mixins, assets }
+  { compressor, mixins, assets }
     = require ('middleware')
 
 , http
