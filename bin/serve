@@ -1,9 +1,9 @@
-#!/bin/bash
+#!/usr/bin/env node
 
-export ROOT=$(pwd)
-export ENTRY="$ROOT/index.es"
 
-node                        \
-  --require $ROOT/polyfills \
--- $ENTRY
-# --expose-http2 \ # Experimental HTTP/2 flag https://nodejs.org/api/cli.html#cli_expose_http2
+const
+  path = require ('path')
+    .resolve (__dirname, '..', 'server')
+
+console.warn (path)
+// --expose-http2 \ # Experimental HTTP/2 flag https://nodejs.org/api/cli.html#cli_expose_http2
