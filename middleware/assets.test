@@ -11,7 +11,8 @@ const
 test ('assets', t => {
 
   console.warn ('assets', assets)
-  console.warn ('Server', Server)
+
+  console.warn (new Server)
 
   t.end ()
 })
