@@ -16,7 +16,7 @@ module.exports = class {
       : 'public'
 
 
-    return server
+    return (new (require ('koa')))
       // CHECK OUT CONNECT FOR MOUNTING MIDDLEWARE!!!!
       // https://github.com/senchalabs/connect#mount-middleware
 
