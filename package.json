@@ -24,7 +24,8 @@
     "url": "git+ssh://git@github.com/devpunks/snuggsi.git"
   },
   "keywords": [ "web", "components" ],
-  "main": "./dist/snuggsi.min.js",
+  "main": "index.es",
+  "unpkg": "./dist/snuggsi.min.js",
   "directories": {
     "example": "examples"
   },
