@@ -1,0 +1,55 @@
+const { describe, serve, browse }
+  = require ('test')
+
+const
+  // https://davidwalsh.name/nodejs-http-request
+  // https://nodejs.org/api/http.html#http_http_request_options_callback
+  options = {
+    /*, host: 'localhost' // default */
+    port    : 8080
+  , method  : 'GET'
+  , headers : {
+      'Accept': '*/*'
+    }
+  , path: '/'
+  }
+
+describe ('new Element', test => {
+
+//request = require ('http').get (options, response => {
+//  test.equal
+//    (response.statusCode, 200)
+
+//})
+
+    test.end ()
+})
+
+
+/*
+
+// The only out of the ordinary part is the need to concatenate the incoming data stream,
+// but apart from that, the process is actually pretty simple.
+//  Of course you can add more checks for response status codes and the like,
+// but there's a dead simple example of creating a HTTP request with the native Node.js code!
+
+return http.get({
+    host: 'personatestuser.org',
+    path: '/email'
+}, function(response) {
+    // Continuously update stream with data
+    var body = '';
+    response.on('data', function(d) {
+        body += d;
+    });
+    response.on('end', function() {
+
+        // Data reception is done, do whatever with it!
+        var parsed = JSON.parse(body);
+        callback({
+            email: parsed.email,
+            password: parsed.pass
+        });
+    });
+});
+*/
