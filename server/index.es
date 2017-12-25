@@ -35,7 +35,7 @@ module.exports = class {
 
       .use ( assets (path) )
 
-       .listen ( port, function () {
+      .listen ( port, function () {
 
          console.warn ('Serving', path + '')
          console.warn ('Listening on port', port)
