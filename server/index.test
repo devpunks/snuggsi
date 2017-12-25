@@ -13,8 +13,3 @@ test ('new Server', t => {
 
   t.end ()
 })
-
-test ('.shutdown', t => {
-
-  t.end ()
-})
