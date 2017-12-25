@@ -23,7 +23,7 @@ module.exports = class {
 
   serve (path, port = process.env.PORT) {
 
-    console.warn ('assets', assets)
+    console.warn ( assets (path) )
 
     return server
 
