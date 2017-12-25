@@ -48,11 +48,4 @@ module.exports = class {
          console.warn ('Listening on port', port)
        })
   }
-
-
-  shutdown (code = 0) {
-    console.warn ('closing server')
-    server.close ()
-    process.exit (code)
-  }
 }
