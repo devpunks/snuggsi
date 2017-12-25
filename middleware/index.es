@@ -7,5 +7,5 @@ module.exports = {
 , assets     : require ('./assets')
 , negotiate  : require ('./negotiate')
 , compressor : require ('./compressor')
-, mixins     : require ('../mixins/middleware')
+, mixins     : require ('mixins/middleware')
 }
