@@ -37,7 +37,6 @@
   "scripts": {
     "test": "bin/test",
     "start": "bin/serve",
-    "postinstall": "bin/publish",
     "package": "bin/package",
     "postinstall": "bin/publish",
     "start": "node --harmony ./index.es"
