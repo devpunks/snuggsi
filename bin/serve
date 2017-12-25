@@ -7,13 +7,4 @@ export PORT=8181
 # https://gist.github.com/branneman/8048520
 export NODE_PATH=$ROOT
 
-, server =
-    `${root}/server`
-
-process.env.Node_Path
-  = [ root, process.env.NODE_PATH ].join `:`
-
-
-console.warn (require (polyfills))
-console.warn (require (server))
-// --expose-http2 \ # Experimental HTTP/2 flag https://nodejs.org/api/cli.html#cli_expose_http2
+echo "Booting snuggsi server on Port $PORT"
