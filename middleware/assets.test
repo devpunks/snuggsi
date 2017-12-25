@@ -1,0 +1,17 @@
+const
+  { test, browse, get }
+    = require ('test')
+
+, { assets }
+    = require ('.')
+
+, Server = require ('server')
+
+
+test ('assets', t => {
+
+  console.warn ('assets', assets)
+  console.warn ('Server', Server)
+
+  t.end ()
+})
