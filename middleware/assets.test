@@ -12,8 +12,6 @@ test ('assets', t => {
 
   var server = (new Server).serve ``
 
-  console.warn ('assets', assets)
-
   server.close ()
   t.end ()
 })
