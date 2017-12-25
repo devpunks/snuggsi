@@ -1,6 +1,4 @@
-const
-  root = 'public'
-
-
-//, assets      = require ('koa-static') (root, {defer: true})
+module.exports = path =>
+  require ('koa-static')
+    ( Boolean (path + '') || 'public', {defer: true} )
 
