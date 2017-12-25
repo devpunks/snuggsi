@@ -10,10 +10,6 @@ const
 server
     = new (require ('koa'))
 
-
-
-
-
 module.exports = class {
 
   constructor () {
