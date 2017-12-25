@@ -1,5 +1,5 @@
 const
-  { test, serve, browse, request }
+  { test, serve, browse, get }
     = require ('.')
 
 
