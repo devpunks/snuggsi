@@ -7,7 +7,6 @@ const
 
 
 test ('new Server does not throw', t => {
-  var s
 
   t.doesNotThrow ( _ => (s = new Server) )
 
