@@ -10,7 +10,7 @@ const
 
 test ('assets', t => {
 
-  console.warn ('assets', assets)
+  var server = (new Server).serve ``
 
   console.warn ((new Server).serve ``)
 
