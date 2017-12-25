@@ -13,3 +13,11 @@ test ('new Server', t => {
 
   t.end ()
 })
+
+
+test ('serve defaults to `public` when called with template literal', t => {
+
+  (new Server).serve ``
+
+  t.end ()
+})
