@@ -27,7 +27,7 @@ module.exports = class {
       console.warn ('connection', this, connection)
 
       connection.on
-        ('close', a => { console.warn ('closing connection', Object.keys (server)) })
+        ('close', a => { console.warn ('closing connection', Object.keys (server._handle)) })
     })
   }
 
