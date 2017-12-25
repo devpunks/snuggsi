@@ -27,6 +27,8 @@ module.exports = class {
     console.warn ( assets (path) )
 
     return server
+      // CHECK OUT CONNECT FOR MOUNTING MIDDLEWARE!!!!
+      // https://github.com/senchalabs/connect#mount-middleware
 
 //    .use ( require ('koa-cors') ({ methods: ['GET'] }) )
 
