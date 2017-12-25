@@ -3,7 +3,7 @@ const
 
 
 require ('tape')
-  .onFinish (server.shutdown)
+  .onFinish (process.exit)
 
 module.exports
   = server.serve.bind (server)
