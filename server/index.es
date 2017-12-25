@@ -22,7 +22,7 @@ module.exports = class {
   }
 
 
-  serve (path, port = process.env.PORT) {
+  serve (path = '', port = process.env.PORT) {
 
     path = Boolean (path += '')
       ? path
