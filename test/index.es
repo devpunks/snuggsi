@@ -1,9 +1,7 @@
 console.warn ('loading test helper')
 
 module.exports = {
-
-  test   : tape.test
+  serve  : require ('./serve')
 , browse : require ('./browse')
-
-, serve  : server.serve.bind (server)
+, test   : require ('tape').test
 }
