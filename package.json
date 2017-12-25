@@ -28,7 +28,7 @@
   "unpkg": "./dist/snuggsi.min.js",
   "module": "./dist/snuggsi.min.es",
   "directories": {
-    "bin": "bin"
+    "bin": "bin",
     "example": "examples"
   },
   "scripts": {
