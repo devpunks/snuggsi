@@ -1,7 +1,5 @@
 const
-  root      = 'public'
-
-, browse      = require ('./browse')
+  browse      = require ('./browse')
 , assets      = require ('./assets')
 , negotiate   = require ('./negotiate')
 , compressor  = require ('./compressor')
