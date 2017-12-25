@@ -21,7 +21,13 @@ test ('serve defaults to `public` when called without argument', t => {
   var server = ( new Server ).serve ``
 
 
-  t.end ()
+  get (`http://localhost:${process.env.PORT}/`, response => {
+    console.log (response.statusCode)
+
+    server.close ()
+
+    t.end ()
+  })
 })
 
 
