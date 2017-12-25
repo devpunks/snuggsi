@@ -53,6 +53,6 @@ module.exports = class {
   shutdown (code = 0) {
     console.warn ('closing server')
     server.close ()
-    process.exit ()
+    process.exit (code)
   }
 }
