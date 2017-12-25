@@ -3,13 +3,6 @@ const
   { compressor, mixins, assets }
     = require ('middleware')
 
-, http
-    = require ('http')
-
-server
-    = new (require ('koa'))
-
-
 
 module.exports = class {
 
