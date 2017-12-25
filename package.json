@@ -26,6 +26,7 @@
   "keywords": [ "web", "components" ],
   "main": "index.es",
   "unpkg": "./dist/snuggsi.min.js",
+  "module": "./dist/snuggsi.min.es",
   "directories": {
     "bin": "bin"
     "example": "examples"
