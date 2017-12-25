@@ -39,7 +39,7 @@
     "start": "bin/serve",
     "package": "bin/package",
     "postinstall": "bin/publish",
-    "start": "node --harmony ./index.es"
+    "start": "node ./index.es"
   },
   "devDependencies": {
     "tap": "*",
