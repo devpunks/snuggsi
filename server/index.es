@@ -52,6 +52,7 @@ module.exports = class {
 
   shutdown () {
     console.warn ('closing server')
-//  server.close ()
+    server.close ()
+    process.exit ()
   }
 }
