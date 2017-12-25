@@ -2,10 +2,10 @@ const
   root      = 'public'
 
 , browse      = require ('./browse')
+, assets      = require ('./assets')
 , negotiate   = require ('./negotiate')
 , compressor  = require ('./compressor')
 , mixins      = require ('../mixins/middleware')
-, assets      = require ('koa-static') (root, {defer: true})
 
 module.exports =
   { browse, negotiate, compressor, mixins, assets }
