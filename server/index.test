@@ -24,7 +24,7 @@ test ('serve defaults to `public` when called with template literal', t => {
   ( new Server ).serve ``
 
   get ('http://localhost:8181/', response => {
-    console.log (response.headers)
+    console.log (response.statusCode)
 
     t.end ()
   })
