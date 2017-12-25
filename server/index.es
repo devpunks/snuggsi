@@ -25,7 +25,7 @@ module.exports = class {
 
     console.warn ('assets', assets)
 
-    server = server
+    return server
 
 //    .use ( require ('koa-cors') ({ methods: ['GET'] }) )
 
