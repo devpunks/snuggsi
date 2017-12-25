@@ -23,13 +23,7 @@
     "type": "git",
     "url": "git+ssh://git@github.com/devpunks/snuggsi.git"
   },
-  "keywords": [
-    "web",
-    "components",
-    "resource",
-    "routing",
-    "templates"
-  ],
+  "keywords": [ "web", "components" ],
   "main": "./dist/snuggsi.min.js",
   "directories": {
     "example": "examples"
