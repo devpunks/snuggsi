@@ -34,7 +34,8 @@ module.exports = class {
 
   serve (path) {
 
-    console.warn (process.env.port)
+    console.warn ('Port', process.env.port)
+
     server = server
 
 //    .use ( require ('koa-cors') ({ methods: ['GET'] }) )
