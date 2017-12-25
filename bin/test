@@ -20,6 +20,6 @@ echo "Covering $MODULES"
 export NODE_PATH=$ROOT:$NODE_PATH
 
 $ROOT/node_modules/.bin/tape \
-  --require ./polyfills      \
+  --require ./               \
 -- $FILES                    \
  | $COVERAGE
