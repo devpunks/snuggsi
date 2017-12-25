@@ -1,3 +1,3 @@
 module.exports = path =>
   require ('koa-static')
-    ( Boolean (path + '') || 'public', { defer: true } )
+    ( Boolean (path += '') ? path : 'public', { defer: true } )
