@@ -13,7 +13,7 @@ export MODULES="{test,server,$API,}"
 export FILES="$ROOT/$MODULES/$ENTRY"
 export COVERAGE="$ROOT/node_modules/.bin/tap-nyc"
 
-echo "Covering $PATHS"
+echo "Covering $MODULES"
 
 # https://gist.github.com/branneman/8775568
 # https://gist.github.com/branneman/8048520
