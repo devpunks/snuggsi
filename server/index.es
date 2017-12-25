@@ -6,13 +6,7 @@ const
 
 module.exports = class {
 
-  constructor () {
-    server = http.createServer ((req, res) => {
-      console.log ('server: request incoming')
-      res.writeHead (205, {'Content-Type': 'application/snuggs'})
-      res.end ('foo bar')
-    })
-  }
+  constructor () { }
 
 
   serve (path = '', port = process.env.PORT) {
