@@ -18,7 +18,7 @@ test ('new Server does not throw', t => {
 
 test ('serve defaults to `public` when called without argument', t => {
 
-  var server = ( new Server ).serve ``
+  var server = ( new Server ).serve ()
 
 
   get (`http://localhost:${process.env.PORT}/`, response => {
