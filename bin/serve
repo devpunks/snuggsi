@@ -3,8 +3,9 @@
 export ROOT=$(pwd)
 export PORT=8181
 
-, polyfills =
-    `${root}/polyfills`
+# https://gist.github.com/branneman/8775568
+# https://gist.github.com/branneman/8048520
+export NODE_PATH=$ROOT
 
 , server =
     `${root}/server`
