@@ -32,7 +32,7 @@ module.exports = class {
   }
 
 
-  serve (path, port = 8181) {
+  serve (path, port = process.env.PORT) {
 
     server = server
 
