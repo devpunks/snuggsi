@@ -27,6 +27,7 @@
   "main": "index.es",
   "unpkg": "./dist/snuggsi.min.js",
   "directories": {
+    "bin": "bin"
     "example": "examples"
   },
   "scripts": {
