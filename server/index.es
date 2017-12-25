@@ -6,7 +6,7 @@ const
 
 module.exports = class {
 
-  constructor () { }
+  constructor () {}
 
 
   serve (path = '', port = process.env.PORT) {
