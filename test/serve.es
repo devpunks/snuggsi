@@ -1,4 +1,6 @@
-const server = new (require ('server'))
+const
+  server = new (require ('server'))
+
 
 require ('tape')
   .onFinish (server.shutdown)
