@@ -29,6 +29,8 @@ module.exports = class {
       connection.on
         ('close', a => { console.warn ('closing connection'); server._handle.close(); server._handle = null })
     })
+
+    console.warn (process.env.PORT)
   }
 
 
