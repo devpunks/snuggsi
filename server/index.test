@@ -17,8 +17,6 @@ test ('new Server does not throw', t => {
 
 test ('serve defaults to `public` when called with template literal', t => {
 
-  void
-
   ( new Server ).serve ``
 
   get ('http://localhost:8181/', response => {
