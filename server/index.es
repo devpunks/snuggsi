@@ -28,7 +28,7 @@ module.exports = class {
 
 //    .use ( mixins )
 
-//    .use ( assets (path) )
+      .use ( assets (path) )
 
       .listen ( port, _ => {
 
