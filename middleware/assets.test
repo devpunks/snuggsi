@@ -14,5 +14,6 @@ test ('assets', t => {
 
   console.warn ('assets', assets)
 
+  server.close ()
   t.end ()
 })
