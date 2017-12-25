@@ -12,7 +12,7 @@ test ('assets', t => {
 
   var server = (new Server).serve ``
 
-  console.warn ((new Server).serve ``)
+  console.warn ('assets', assets)
 
   t.end ()
 })
