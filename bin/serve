@@ -1,9 +1,7 @@
 #!/usr/bin/env bash
 
-const
-  root =
-    require ('path')
-      .resolve (__dirname, '..')
+export ROOT=$(pwd)
+export PORT=8181
 
 , polyfills =
     `${root}/polyfills`
