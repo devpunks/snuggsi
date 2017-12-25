@@ -5,6 +5,16 @@ const
     require ('path')
       .resolve (__dirname, '..')
 
+, polyfills =
+    `${root}/polyfills`
 
-console.warn (require (ro))
+, server =
+    `${root}/server`
+
+process.env.Node_Path
+  = [ root, process.env.NODE_PATH ].join `:`
+
+
+console.warn (require (polyfills))
+console.warn (require (server))
 // --expose-http2 \ # Experimental HTTP/2 flag https://nodejs.org/api/cli.html#cli_expose_http2
