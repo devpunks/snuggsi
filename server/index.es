@@ -33,7 +33,7 @@ module.exports = class {
 
 //    .use ( mixins )
 
-//    .use ( assets )
+      .use ( assets (path) )
 
        .listen ( port, function () {
 
