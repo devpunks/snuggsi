@@ -21,7 +21,7 @@ test ('serve defaults to `public` when called with template literal', t => {
 
 test ('serve defaults to `public` when called with template literal', t => {
 
-  ( new Server ).serve ``
+  var server = ( new Server ).serve ``
 
   // http://taylor.fausak.me/2013/02/17/testing-a-node-js-http-server-with-mocha/
   get (`http://localhost:${process.env.PORT}/`, response => {
