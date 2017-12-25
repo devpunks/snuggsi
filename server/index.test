@@ -18,6 +18,8 @@ test ('serve defaults to `public` when called without argument', t => {
 
   var server = ( new Server ).serve ``
 
+  server.close ()
+
   t.end ()
 })
 
