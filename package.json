@@ -38,8 +38,8 @@
     "test": "bin/test",
     "start": "bin/serve",
     "package": "bin/package",
-    "postinstall": "bin/publish",
-    "start": "node ./index.es"
+    "start": "node ./index.es",
+    "postinstall": "bin/publish"
   },
   "devDependencies": {
     "tap": "*",
