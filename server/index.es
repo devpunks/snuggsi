@@ -46,7 +46,7 @@ module.exports = class {
 
 //    .use ( assets )
 
-       .listen ( process.env.PORT || 80 )
+       .listen ( port || 80 )
   }
 
 
