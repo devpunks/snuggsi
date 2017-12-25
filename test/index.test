@@ -3,7 +3,7 @@ const
     = require ('.')
 
 
-test ('describe',
+test ('test',
   t => { t.assert (test), t.end () } )
 
 test ('serve',
