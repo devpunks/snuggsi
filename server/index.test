@@ -11,7 +11,7 @@ test ('new Server', t => {
 
 //t.doesNotThrow ( _ => (s = new Server) )
 
-  s.serve `public`
+//s.serve `public`
 
   t.end ()
 })
