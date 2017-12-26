@@ -124,12 +124,12 @@ void (function (_) {
   // https://bugs.webkit.org/show_bug.cgi?id=38995#c26
   (new MutationObserver ( function (mutations) {
 
-    for (var i = 0, list = mutations; i < list.length; i += 1)
+    for (var i$1 = 0, list$1 = mutations; i$1 < list$1.length; i$1 += 1)
       {
-      var mutation = list[i];
+      var mutation = list$1[i$1];
 
-      for (var i$1 = 0, list$1 = mutation.addedNodes; i$1 < list$1.length; i$1 += 1) {
-           var node = list$1[i$1];
+      for (var i = 0, list = mutation.addedNodes; i < list.length; i += 1) {
+           var node = list[i];
 
           /^p/.test (node.rel)
              && /\-/.test (node.id)
@@ -329,6 +329,8 @@ var Template = function (template) {
       }
 
     for (var i = 0, list = (this$1.dependents || [] ); i < list.length; i += 1)
+            // removeChild FAR faster
+            // https://jsperf.com/innerhtml-vs-removechild/15
             {
       var node = list[i];
 
