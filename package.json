@@ -60,10 +60,6 @@
     "koa": "*",
     "koa-cors": "*",
     "koa-send": "*",
-    "koa-static": "*",
-    "sugarss": "*",
-    "postcss-cli": "*",
-    "autoprefixer": "*",
-    "postcss-custom-properties": "*"
+    "koa-static": "*"
   }
 }
