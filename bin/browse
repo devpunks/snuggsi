@@ -1,6 +1,8 @@
-# ; expecting PORT
-export PORT="3009"
-export BROWSER_PORT="8989"
+# https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts
+
+export PORT="${PORT:-3009}"
+export BROWSER_PORT="${BROWSER_PORT:-8989}"
+
 
 PORT=$PORT bin/serve \
 & BROWSER_PORT=$BROWSER_PORT \
