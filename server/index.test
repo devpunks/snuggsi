@@ -31,8 +31,7 @@ test ('serve defaults to `public` when called without argument', t => {
 
     response.on ('data', chunk => (raw += chunk))
     response.on ('end', _ => {
-      console.log ('headers', response.headers)
-      console.log ('body', raw)
+      t.equal (raw, open ('./public/favicon.ico', 'utf-8'))
 
       server.close ``
       t.end ()
