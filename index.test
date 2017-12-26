@@ -7,7 +7,7 @@ const
 
 
 test ('snuggsi.Test',
-  t => { t.assert (Test), t.end () })
+  t => { t.skip `when loading tape causes tests to run`, t.end () })
 
 
 test ('snuggsi.Server',
