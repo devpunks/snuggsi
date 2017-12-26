@@ -45,6 +45,7 @@
     "buble": "*",
     "jsdom": "*",
     "tap-nyc": "*",
+    "sugarss": "*",
     "standard": "*",
     "uglify-es": "*",
     "webidl2js": "*",
