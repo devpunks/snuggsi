@@ -13,6 +13,8 @@ test ('assets', t => {
 
   var server = (new Server).serve ``
 
+  t.ok (true)
+
   server.close ()
   t.end ()
 })
