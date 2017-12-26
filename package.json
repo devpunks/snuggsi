@@ -53,7 +53,8 @@
     "postcss-cli": "*",
     "autoprefixer": "*",
     "browser-sync": "*",
-    "devtools-terminal": "*"
+    "devtools-terminal": "*",
+    "postcss-custom-properties": "*"
   },
   "dependencies": {
     "koa": "*",
