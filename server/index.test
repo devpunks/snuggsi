@@ -38,7 +38,7 @@ test ('serve defaults to `public` when called with template literal', t => {
   get (`http://localhost:${process.env.PORT}/`, response => {
     console.log (response.statusCode)
 
-    server.close ()
+    server.close ``
 
     t.end ()
   })
