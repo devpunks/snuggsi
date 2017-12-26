@@ -1,4 +1,3 @@
-// ONLY KILL KEEP-ALIVE WHEN
 const
   { compressor, mixins, assets }
     = require ('middleware')
