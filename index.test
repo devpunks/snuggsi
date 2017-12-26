@@ -2,6 +2,9 @@ const
   { test }
     = require ('test')
 
-, snuggsi = require ('.')
+, { Server }
+    = require ('.')
 
 console.warn ('\n\nindex test', snuggsi)
+
+test ('snuggsi.Server', t => { t.assert (Server), t.end () })
