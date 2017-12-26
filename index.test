@@ -6,5 +6,9 @@ const
     = require ('.')
 
 
+test ('snuggsi.Test',
+  t => { t.assert (Test), t.end () })
+
+
 test ('snuggsi.Server',
   t => { t.assert (Server), t.end () })
