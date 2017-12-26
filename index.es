@@ -1,5 +1,3 @@
-console.warn ("From index bitches")
-
 require ('./polyfills')
 
 module.exports = {
