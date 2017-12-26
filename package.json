@@ -41,7 +41,6 @@
     "postinstall": "bin/publish"
   },
   "devDependencies": {
-    "tap": "*",
     "tape": "*",
     "buble": "*",
     "jsdom": "*",
