@@ -50,6 +50,8 @@
     "uglify-es": "*",
     "webidl2js": "*",
     "node-zopfli": "*",
+    "postcss-cli": "*",
+    "autoprefixer": "*",
     "browser-sync": "*",
     "devtools-terminal": "*"
   },
