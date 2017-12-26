@@ -4,7 +4,7 @@ export ROOT=$(pwd)
 
 # https://gist.github.com/branneman/8775568
 # https://gist.github.com/branneman/8048520
-export NODE_PATH=$ROOT
+export NODE_PATH=$ROOT:$NODE_PATH
 
 echo "Booting snuggsi server on Port $PORT"
 
