@@ -8,3 +8,7 @@ export PORT=8181
 export NODE_PATH=$ROOT
 
 echo "Booting snuggsi server on Port $PORT"
+
+node           \
+  --require ./ \
+-- bin/serve.es
