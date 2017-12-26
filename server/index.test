@@ -4,6 +4,10 @@ const
   { test, browse, get }
     = require ('test')
 
+
+, { readFileSync: open }
+    = require ('fs')
+
 , Server
     = require ('.')
 
