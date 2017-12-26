@@ -49,7 +49,6 @@ test ('serve defaults to `public` when called with template literal', t => {
     console.log (response.statusCode)
 
     server.close ``
-
     t.end ()
   })
 })
