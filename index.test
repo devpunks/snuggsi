@@ -2,8 +2,9 @@ const
   { test }
     = require ('test')
 
-, { Server }
+, { test, Server }
     = require ('.')
+
 
 test ('snuggsi.Server',
   t => { t.assert (Server), t.end () })
