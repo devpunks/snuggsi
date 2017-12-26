@@ -1,1 +1,1 @@
-(new (require ('server'))).serve ``
+(new (require ('..').Server)).serve `public`
