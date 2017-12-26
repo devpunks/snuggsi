@@ -25,9 +25,14 @@ test ('serve defaults to `public` when called without argument', t => {
   get (`http://localhost:${process.env.PORT}/favicon.ico`, response => {
     let raw = ''
 
-    server.close ``
+    response.on ('data', chunk => (raw += chunk))
+    response.on ('end', _ => {
+      console.log ('headers', response.headers)
+      console.log ('body', raw)
 
-    t.end ()
+      server.close ``
+      t.end ()
+    })
   })
 })
 
