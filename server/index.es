@@ -15,8 +15,6 @@ module.exports = class {
       : 'public'
 
 
-    console.warn ('THE PATH IS', path)
-
     return (new (require ('koa')))
       // CHECK OUT CONNECT FOR MOUNTING MIDDLEWARE!!!!
       // https://github.com/senchalabs/connect#mount-middleware
