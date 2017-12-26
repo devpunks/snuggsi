@@ -2,7 +2,7 @@ const
   { test }
     = require ('test')
 
-, { test, Server }
+, { Test, Server }
     = require ('.')
 
 
