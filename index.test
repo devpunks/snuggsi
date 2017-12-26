@@ -5,6 +5,5 @@ const
 , { Server }
     = require ('.')
 
-console.warn ('\n\nindex test', snuggsi)
-
-test ('snuggsi.Server', t => { t.assert (Server), t.end () })
+test ('snuggsi.Server',
+  t => { t.assert (Server), t.end () })
