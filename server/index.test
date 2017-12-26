@@ -22,8 +22,8 @@ test ('serve defaults to `public` when called without argument', t => {
   var server = ( new Server ).serve ()
 
 
-  get (`http://localhost:${process.env.PORT}/favico.ico`, response => {
-    console.log ('headers', response.headers)
+  get (`http://localhost:${process.env.PORT}/favicon.ico`, response => {
+    let raw = ''
 
     server.close ``
 
