@@ -1,10 +1,10 @@
 # https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts
 
-export PORT="${PORT:-3009}"
-export BROWSER_PORT="${BROWSER_PORT:-8989}"
+export PORT="${PORT=3009}"
+export BROWSER_PORT="${BROWSER_PORT=8989}"
 
 
-PORT=$PORT bin/serve \
+PORT=$PORT                   \bin/serve \
 & BROWSER_PORT=$BROWSER_PORT \
   ./node_modules/.bin/browser-sync start \
   --config=./watch/index.es \
