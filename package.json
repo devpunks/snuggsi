@@ -1,6 +1,6 @@
 {
   "name": "snuggsi",
-  "version": "0.12.25",
+  "version": "0.12.26",
   "license": "MIT",
   "author": [
     "Snuggs",
@@ -23,7 +23,10 @@
     "type": "git",
     "url": "git+ssh://git@github.com/devpunks/snuggsi.git"
   },
-  "keywords": [ "web", "components" ],
+  "keywords": [
+    "web",
+    "components"
+  ],
   "main": "./index.es",
   "unpkg": "./dist/snuggsi.min.js",
   "module": "./dist/snuggsi.min.es",
@@ -55,7 +58,6 @@
     "koa-cors": "*",
     "koa-send": "*",
     "koa-static": "*",
-
     "sugarss": "*",
     "postcss-cli": "*",
     "autoprefixer": "*",
