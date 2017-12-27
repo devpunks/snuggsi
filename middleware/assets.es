@@ -1,6 +1,8 @@
 const
   normalize = path =>
-    Boolean (path += '') ? path : 'public'
+    Boolean (path += '')
+      ? path
+      : 'public'
 
 
 module.exports = path =>
