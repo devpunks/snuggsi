@@ -15,6 +15,9 @@ test ('assets', t => {
     server
       = (new Server).serve ``
 
+  console.warn (server)
+
+
   t.ok (true)
 
   server.close ()
