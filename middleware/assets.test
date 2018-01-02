@@ -11,7 +11,9 @@ const
 
 test ('assets', t => {
 
-  var server = (new Server).serve ``
+  const
+    server
+      = (new Server).serve ``
 
   t.ok (true)
 
