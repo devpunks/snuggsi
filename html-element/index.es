@@ -44,6 +44,8 @@ for slightly better semantics, including class-side inheritance and not clobberi
   function E () {}
 
   E.prototype =
+  // E.prototype.__proto__ = ???
+
     window.HTMLElement.prototype
 
   // Prevent `.constructor` clobbering
