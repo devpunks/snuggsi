@@ -45,6 +45,7 @@ for slightly better semantics, including class-side inheritance and not clobberi
 
   E.prototype =
   // E.prototype.__proto__ = ???
+  // https://github.com/visionmedia/supertest/blob/master/lib/agent.js
 
     window.HTMLElement.prototype
 
