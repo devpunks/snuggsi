@@ -8,6 +8,11 @@ const
 , Server
     = require ('server')
 
+, request
+   = require ('request')
+
+
+test ('random location of assets')
 
 test ('assets', t => {
 
