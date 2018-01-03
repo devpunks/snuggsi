@@ -15,7 +15,7 @@ test ('assets', t => {
     server
       = (new Server).serve ``
 
-  console.warn (server)
+  console.warn ( 'function' == server)
 
 
   t.ok (true)
