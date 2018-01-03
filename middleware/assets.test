@@ -20,7 +20,7 @@ test ('assets', t => {
     server
       = (new Server).serve ``
 
-  console.warn ( 'function' == server)
+  request.get ('http://localhost:8181', console.log)
 
 
   t.ok (true)
