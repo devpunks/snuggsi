@@ -46,6 +46,7 @@
     "jsdom": "*",
     "tap-nyc": "*",
     "sugarss": "*",
+    "request": "*",
     "standard": "*",
     "uglify-es": "*",
     "webidl2js": "*",
