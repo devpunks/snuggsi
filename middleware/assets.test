@@ -20,7 +20,8 @@ test ('assets', t => {
     server
       = (new Server).serve ``
 
-  request.get ('http://localhost:8181', console.log)
+  request
+    .get ('http://localhost:8181', response => { })
 
 
   t.ok (true)
