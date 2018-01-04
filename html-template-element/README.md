@@ -24,7 +24,7 @@ This is a `DocumentFragment` returned of the `<template>` content.
 
 
 ### API
-   - https://github.com/w3c/webcomponents/issues/685
+  - https://github.com/w3c/webcomponents/issues/685
   - https://github.com/ComponentKitchen/template-instantiation
 
 
