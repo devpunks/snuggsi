@@ -11,3 +11,7 @@ console.log (Object.keys (assets))
 
 , request
    = require ('request')
+
+test ('Access-Control-Allow-Origin: *', t = {
+
+})
