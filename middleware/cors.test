@@ -17,8 +17,6 @@ test ('Strict-Transport-Security')
 test ('X-Content-Type-Options')
 
 
-
-
 test ('Access-Control-Allow-Origin: *', t => {
 
   const
