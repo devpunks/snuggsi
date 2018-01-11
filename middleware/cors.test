@@ -33,10 +33,9 @@ test ('Access-Control-Allow-Origin: *', t => {
     server
       = (new Server).serve ``
 
-  , response = await fetch ('http://localhost:8181/')
-
-
-  t.equal ('*', response.getHeaders ('access-control-allow-origin'))
+  fetch ('http://localhost:8181/', (_, response) => {
+    t.equal ('*', response.headers ['access-control-allow-origin'])
+  })
 
   server.close ()
   t.end ()
