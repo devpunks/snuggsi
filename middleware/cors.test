@@ -10,7 +10,7 @@ const
 , request
    = require ('request')
 
-test ('Access-Control-Allow-Origin: *', t => {
+test.only ('Access-Control-Allow-Origin: *', t => {
 
   const
     server
