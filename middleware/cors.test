@@ -5,3 +5,9 @@ const
 , assets = require ('.')
 
 console.log (Object.keys (assets))
+
+, Server
+    = require ('server')
+
+, request
+   = require ('request')
