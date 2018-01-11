@@ -27,7 +27,7 @@ test ('X-Frame-Options') // deny
 test ('X-XSS-Protection') // 1; mode-block
 
 
-test ('Access-Control-Allow-Origin: *', async t => {
+test ('Access-Control-Allow-Origin: *', t => {
 
   const
     server
