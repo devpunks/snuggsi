@@ -36,9 +36,7 @@ test ('Access-Control-Allow-Origin: *', async t => {
   , response = await fetch ('http://localhost:8181/')
 
 
-  console.log (response.getHeaders ())
-
-  t.equal ('*', response)
+  t.equal ('*', response.getHeaders ('access-control-allow-origin'))
 
   server.close ()
   t.end ()
