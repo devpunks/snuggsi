@@ -14,6 +14,10 @@ console.log (Object.keys (assets))
 
 test ('Access-Control-Allow-Origin: *', t => {
 
+  const
+    server
+      = (new Server).serve ``
+
   request.get ('http://localhost:8181', response => {
   
   })
