@@ -19,7 +19,7 @@ test ('Access-Control-Allow-Origin: *', t => {
   request.get ('http://localhost:8181/', (_, response) => {
     console.log (response.headers)
 
-    response.headers ['Access-Control-Allow-Origin']
+    t.equal ('*', response.headers ['Access-Control-Allow-Origin'])
   })
 
   server.close ()
