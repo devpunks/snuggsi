@@ -12,6 +12,9 @@ console.log (Object.keys (assets))
 , request
    = require ('request')
 
-test ('Access-Control-Allow-Origin: *', t = {
+test ('Access-Control-Allow-Origin: *', t => {
 
+  request.get ('http://localhost:8181', response => {
+  
+  })
 })
