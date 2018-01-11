@@ -19,6 +19,6 @@ test ('Access-Control-Allow-Origin: *', t => {
       = (new Server).serve ``
 
   request.get ('http://localhost:8181', response => {
-    console.log (response.headers)
+    console.log (arguments)
   })
 })
