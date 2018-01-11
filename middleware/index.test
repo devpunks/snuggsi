@@ -1,4 +1,5 @@
 //require ('./negotiate.test')
 //require ('./compress.test')
+require ('./cors.test')
 require ('./assets.test')
 
