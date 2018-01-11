@@ -14,7 +14,7 @@ const
 test ('Strict-Transport-Security')
 
 
-test ('X-Content-Type-Options')
+test ('X-Content-Type-Options') // nosniff
 
 
 test ('X-XSS-Protection') // 1; mode-block
