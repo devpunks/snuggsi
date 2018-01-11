@@ -19,7 +19,7 @@ module.exports = class {
       // CHECK OUT CONNECT FOR MOUNTING MIDDLEWARE!!!!
       // https://github.com/senchalabs/connect#mount-middleware
 
-//    .use ( require ('koa-cors') ({ methods: ['GET'] }) )
+      .use ( require ('koa-cors') ({ methods: ['GET'] }) )
 
 //    .use ( compressor )
 
