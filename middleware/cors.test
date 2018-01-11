@@ -27,4 +27,5 @@ test ('Access-Control-Allow-Origin: *', t => {
 
 test ('Access-Control-Allow-Origin: *', t => {
 
+  t.end ()
 })
