@@ -26,3 +26,7 @@ test ('Access-Control-Allow-Origin: *', t => {
   server.close ()
   t.end ()
 })
+
+test ('Access-Control-Allow-Origin: *', t => {
+
+})
