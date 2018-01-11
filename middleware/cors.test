@@ -17,6 +17,9 @@ test ('Strict-Transport-Security')
 test ('X-Content-Type-Options')
 
 
+test ('X-XSS-Protection') // 1; mode-block
+
+
 test ('Access-Control-Allow-Origin: *', t => {
 
   const
