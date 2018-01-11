@@ -11,7 +11,7 @@ const
    = require ('request')
 
 
-test ('Strict-Transport-Security')
+test ('Strict-Transport-Security') // max-age=63072000; includeSubDomains; preload
 
 
 test ('X-Content-Type-Options') // nosniff
