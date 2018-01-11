@@ -14,6 +14,7 @@ const
 
 
 // https://github.com/whatwg/misc-server/pull/76
+// https://github.com/whatwg/misc-server/pull/70
 // Warning coming out of koa-cors
 
 test ('Strict-Transport-Security') // max-age=63072000; includeSubDomains; preload
