@@ -33,7 +33,7 @@ test ('Access-Control-Allow-Origin: *', async t => {
     server
       = (new Server).serve ``
 
-  , response = fetch ('http://localhost:8181/')
+  , response = await fetch ('http://localhost:8181/')
 
 
   fetch ('http://localhost:8181/', (_, response) => {
