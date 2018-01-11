@@ -47,6 +47,8 @@
     "tap-nyc": "*",
     "sugarss": "*",
     "request": "*",
+    "node-fetch": "*",
+
     "standard": "*",
     "uglify-es": "*",
     "webidl2js": "*",
