@@ -1,1 +1,4 @@
-console.log ('WASOOOO')
+const
+  { test, browse, get }
+    = require ('test')
+
