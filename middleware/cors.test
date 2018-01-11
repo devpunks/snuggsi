@@ -18,6 +18,8 @@ test ('Access-Control-Allow-Origin: *', t => {
       = (new Server).serve ``
 
   request.get ('http://localhost:8181/', (_, response) => {
+    console.warn (response.headers)
+
     t.equal ('*', response.headers ['access-control-allow-origin'])
   })
 
