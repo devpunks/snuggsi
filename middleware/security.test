@@ -9,8 +9,6 @@ const
   { test, browse, get }
     = require ('test')
 
-, assets = require ('.')
-
 , Server
     = require ('server')
 
