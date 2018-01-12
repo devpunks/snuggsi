@@ -80,7 +80,7 @@ module.exports = async (context, next) =>
   , bundle =
       [ name, suffix, extension ]
         .filter (Boolean)
-        .join ``
+        .join `.`
 
   , resource =
       (path === root)
