@@ -2,7 +2,7 @@ const
   auth = require ('basic-auth')
 
 
-exports = options =>
+module.exports = options =>
 
   async (context, next) => {
 
