@@ -6,7 +6,7 @@ module.exports = options =>
 
   async (context, next, user) => {
 
-    console.warn ('Im lockin you out bitch', auth (context) )
+    console.warn ('Im lockin you out bitch', options, auth (context) )
 
     void
 
