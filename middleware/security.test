@@ -25,11 +25,13 @@ test ('Strict-Transport-Security', t => {
       = (new Server).serve ``
 
   fetch ('http://localhost:8181/', (_, response) => {
-    t.equal ('*', response.headers ['access-control-allow-origin'])
-  })
+    console.warn (response.headers)
 
-  server.close ()
-  t.end ()
+    t.equal ('*', response.headers ['access-control-allow-origin'])
+
+    server.close ()
+    t.end ()
+  })
 })
 
 
