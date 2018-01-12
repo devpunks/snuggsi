@@ -1,6 +1,7 @@
 const
   age = 63072000
 , frame = 'deny'
+, content = 'nosniff'
 , transport = [`max-age=${age}`, 'includeSubDomains', 'preload'].join `; `
 
 
