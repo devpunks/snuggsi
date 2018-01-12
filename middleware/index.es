@@ -3,7 +3,8 @@
 
 module.exports = {
 
-  security   : require ('./security')
+  auth       : require ('./auth')
+, security   : require ('./security')
 , browse     : require ('./browse')
 , assets     : require ('./assets')
 , negotiate  : require ('./negotiate')
