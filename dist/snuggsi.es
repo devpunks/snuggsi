@@ -550,7 +550,6 @@ const GlobalEventHandlers = Element =>
       new TokenList (this)
 
     super.onconnect
-      && super.onconnect
       && super.onconnect ()
   }
 
