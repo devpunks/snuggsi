@@ -25,7 +25,7 @@ test ('Strict-Transport-Security', async t => {
       = (new Server).serve ``
 
 
-  const foo = await fetch ('http://localhost:8181/')
+  const response = await fetch ('http://localhost:8181/')
 
   console.warn (foo)
 
