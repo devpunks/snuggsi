@@ -25,7 +25,7 @@ module.exports = class {
 
       .use ( security () )
 
-//    .use ( compressor )
+      .use ( compressor )
 
 //    .use ( negotiator )
 
