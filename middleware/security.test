@@ -20,7 +20,6 @@ const
 test ('calling next middlewaree')
 
 test ('Strict-Transport-Security', async t => {
-  // max-age=63072000; includeSubDomains; preload
 
   const
     server   = (new Server).serve ``
