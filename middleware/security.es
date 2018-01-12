@@ -10,8 +10,8 @@ module.exports = options =>
     await next ()
 
     context.set
-      ('strict-transport-security', transport)
+      ('x-frame-options', frame)
 
     context.set
-      ('x-frame-options', frame)
+      ('strict-transport-security', transport)
   }
