@@ -8,3 +8,7 @@ const
 
 test ('calling next middlewaree')
 
+
+test ('basic auth with valid credentials', async t => {
+
+})
