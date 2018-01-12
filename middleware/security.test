@@ -54,20 +54,20 @@ test ('Access-Control-Allow-Origin: *', t => {
 //})
 
 //server.close ()
-//t.end ()
-})
-
-
-test ('Access-Control-Allow-Methods: *', t => {
-
-  const
-    server
-      = (new Server).serve ``
-
-  request.get ('http://localhost:8181/', (_, response) => {
-    t.equal ('GET', response.headers ['access-control-allow-methods'])
-  })
-
-  server.close ()
   t.end ()
 })
+
+
+//test ('Access-Control-Allow-Methods: *', t => {
+
+//  const
+//    server
+//      = (new Server).serve ``
+
+//  request.get ('http://localhost:8181/', (_, response) => {
+//    t.equal ('GET', response.headers ['access-control-allow-methods'])
+//  })
+
+//  server.close ()
+//  t.end ()
+//})
