@@ -13,5 +13,5 @@ module.exports = options =>
       ('strict-transport-security', transport)
 
     context.set
-      ('x-frame-options', value)
+      ('x-frame-options', frame)
   }
