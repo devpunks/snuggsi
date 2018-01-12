@@ -66,7 +66,9 @@ test ('X-Content-Type-Options: nosniff', async t => {
 })
 
 
-test ('X-XSS-Protection') // 1; mode-block
+test ('X-XSS-Protection: 1; mode-block', async t => {
+
+})
 
 
 test ('Access-Control-Allow-Origin: *', async t => {
