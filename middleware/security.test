@@ -71,8 +71,6 @@ test ('Access-Control-Allow-Methods: *', async t => {
   , response = await fetch ('http://localhost:8181/')
 
 
-  console.warn (response.headers)
-
   t.equal
     ('GET', response.headers.get ('access-control-allow-methods'))
 
