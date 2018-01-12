@@ -9,10 +9,8 @@ const
   { test, browse, get }
     = require ('test')
 
-, Server
-    = require ('server')
-
-, fetch = require ('node-fetch')
+, Server = require ('server')
+, fetch  = require ('node-fetch')
 
 
 test ('calling next middlewaree')
