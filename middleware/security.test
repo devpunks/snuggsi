@@ -26,7 +26,8 @@ test ('Strict-Transport-Security', async t => {
   , response = await fetch ('http://localhost:8181/')
 
   , age = 63072000
-  , expected = new RegExp (`max-age=${age}`, 'g')
+  , test = [`max-age=${age}`, 'includeSubDomains', 'preload']
+  , expected = new RegExp ( test.join `; ` , 'g')
 
 
   t.ok
