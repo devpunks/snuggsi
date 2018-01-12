@@ -20,10 +20,6 @@ const
 , fetch = require ('node-fetch')
 
 
-// Warning coming out of koa-cors
-// https://github.com/whatwg/misc-server/pull/76
-// https://github.com/whatwg/misc-server/pull/70
-
 test ('calling next middlewaree')
 
 test ('Strict-Transport-Security', async t => {
