@@ -30,10 +30,8 @@ test ('Strict-Transport-Security', async t => {
   , expected = new RegExp (`max-age=${age}`, 'g')
 
 
-  console.warn (response.headers)
-
-//t.equal
-//  (response.headers ['strict-transport-security'].match (age))
+  t.ok
+    (expected.test (response.headers.get ('strict-transport-security')))
 
   server.close ()
   t.end ()
