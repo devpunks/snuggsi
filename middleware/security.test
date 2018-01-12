@@ -29,10 +29,10 @@ test ('Strict-Transport-Security', async t => {
 
   console.warn (response.headers)
 
+  t.equal ('*', response.headers ['strict-transport-security'])
+
   server.close ()
   t.end ()
-
-//  t.equal ('*', response.headers ['access-control-allow-origin'])
 })
 
 
