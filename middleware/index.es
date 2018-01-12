@@ -3,7 +3,8 @@
 
 module.exports = {
 
-  browse     : require ('./browse')
+  security   : require ('./security')
+, browse     : require ('./browse')
 , assets     : require ('./assets')
 , negotiate  : require ('./negotiate')
 , compressor : require ('./compressor')
