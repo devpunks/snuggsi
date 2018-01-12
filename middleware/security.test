@@ -21,15 +21,16 @@ test ('Strict-Transport-Security', async t => {
   // max-age=63072000; includeSubDomains; preload
 
   const
-    server
-      = (new Server).serve ``
+    server = (new Server).serve ``
+  , age    = 63072000
 
 
   const response = await fetch ('http://localhost:8181/')
 
   console.warn (response.headers)
 
-  t.equal ('*', response.headers ['strict-transport-security'])
+  t.equal
+    (response.headers ['strict-transport-security'].match (age))
 
   server.close ()
   t.end ()
