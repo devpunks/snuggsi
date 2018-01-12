@@ -13,6 +13,7 @@ module.exports = options =>
     (user = auth (context))
       && user.name == options.name
       && user.pass == options.password
+
     ? await next ()
     : context.set ('WWW-Authenticate', 'Basic')
       // WWW-Authenticate: Basic realm="Access to the staging site", charset="UTF-8"
