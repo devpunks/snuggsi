@@ -2,8 +2,12 @@ const
   age = 63072000
 , frame = 'deny'
 , content = 'nosniff'
-, xss = [1, `mode=block`].join `; `
-, transport = [`max-age=${age}`, 'includeSubDomains', 'preload'].join `; `
+
+, xss =
+    [1, `mode=block`].join `; `
+
+, transport =
+    [`max-age=${age}`, 'includeSubDomains', 'preload'].join `; `
 
 
 module.exports = options =>
