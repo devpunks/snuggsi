@@ -36,22 +36,29 @@ test ('Strict-Transport-Security', async t => {
 })
 
 
-test ('X-Frame-Options: deny', async t => {
+test ('X-XSS-Protection: 1; mode=block', async t => {
 
   const
     server   = (new Server).serve ``
   , response = await fetch ('http://localhost:8181/')
 
 
-  t.equal
-    ('deny', response.headers.get ('x-frame-options'))
+  , flag = 1
+  , mode = 'block'
+  , test = [flag, `mode=${mode}`]
+  , expected = new RegExp ( test.join `; ` , 'g')
+
+
+  t.ok
+    (expected.test (response.headers.get ('x-xss-protection')))
 
   server.close ()
   t.end ()
+
 })
 
 
-test ('X-Content-Type-Options: nosniff', async t => {
+test ('X-Frame-Options: deny', async t => {
 
   const
     server   = (new Server).serve ``
