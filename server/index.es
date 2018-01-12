@@ -25,7 +25,7 @@ module.exports = class {
 
 //    .use ( mixins )
 
-      .use ( security )
+      .use ( security () )
 
       .use ( assets (path) )
 
