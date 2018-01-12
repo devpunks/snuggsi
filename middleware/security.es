@@ -10,6 +10,7 @@ module.exports = options =>
     await next ()
 
     context.set
+      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
       ('x-frame-options', frame)
 
     context.set
