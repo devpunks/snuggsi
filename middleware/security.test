@@ -27,7 +27,7 @@ test ('Strict-Transport-Security', async t => {
 
   const response = await fetch ('http://localhost:8181/')
 
-  console.warn (foo)
+  console.warn (response.headers)
 
   server.close ()
   t.end ()
