@@ -25,6 +25,8 @@ module.exports = class {
 
 //    .use ( compressor )
 
+//    .use ( negotiator )
+
 //    .use ( mixins )
 
       .use ( assets (path) )
