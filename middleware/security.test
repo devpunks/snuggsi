@@ -17,7 +17,18 @@ const
 // https://github.com/whatwg/misc-server/pull/76
 // https://github.com/whatwg/misc-server/pull/70
 
-test ('Strict-Transport-Security') // max-age=63072000; includeSubDomains; preload
+test ('Strict-Transport-Security', t => {
+  const
+    server
+      = (new Server).serve ``
+
+  fetch ('http://localhost:8181/', (_, response) => {
+    t.equal ('*', response.headers ['access-control-allow-origin'])
+  })
+
+  server.close ()
+  t.end ()
+}) // max-age=63072000; includeSubDomains; preload
 
 
 test ('X-Content-Type-Options') // nosniff
