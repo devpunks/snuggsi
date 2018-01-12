@@ -51,11 +51,6 @@ test ('Access-Control-Allow-Origin: *', async t => {
   , response = await fetch ('http://localhost:8181/')
 
 
-  fetch ('http://localhost:8181/', (_, response) => {
-    t.equal ('*', response.headers ['access-control-allow-origin'])
-  })
-
-
   t.equal
     ('*', response.headers.get ('access-control-allow-origin'))
 
