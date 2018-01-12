@@ -30,7 +30,7 @@ test ('Strict-Transport-Security', t => {
 
   server.close ()
   t.end ()
-}) // max-age=63072000; includeSubDomains; preload
+})
 
 
 test ('X-Content-Type-Options') // nosniff
