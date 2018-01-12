@@ -507,7 +507,6 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
       new TokenList (this)
 
     Element.prototype.onconnect
-      && Element.prototype.onconnect
       && Element.prototype.onconnect.call (this)
   };
 
