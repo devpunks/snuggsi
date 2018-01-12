@@ -109,15 +109,18 @@ TokenList.prototype.bind = function (context) {
  // must both run independently not in tandem
 
     tokenize = function (symbol) { return function (node) { return (node.textContent
-           = node.textContent
-           .split ('{'+symbol+'}')
-           .join(context [symbol])); }; }
+         = node.textContent
+         .split ('{'+symbol+'}')
+         .join(context [symbol])); }; }
+
 
   for (var symbol in this$1)
     { this$1 [symbol].map // more than one occurrence
-      (function (node) { return node.textContent = node.text; })
+      (function (node) { return node.textContent = node.text; }) }
 
-    && this$1 [symbol].map (tokenize (symbol)) }
+
+  for (var symbol$1 in this$1)
+    { this$1 [symbol$1].map (tokenize (symbol$1)) }
 };
 
 void (function (_) {
