@@ -33,7 +33,6 @@ test ('Strict-Transport-Security', async t => {
   t.end ()
 
 //  t.equal ('*', response.headers ['access-control-allow-origin'])
-  })
 })
 
 
