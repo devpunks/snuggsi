@@ -21,9 +21,10 @@ test ('Strict-Transport-Security', async t => {
   // max-age=63072000; includeSubDomains; preload
 
   const
-    server = (new Server).serve ``
-  , age    = 63072000
+  , age = 63072000
+  , expected = `max-age=${age}`
 
+  , server   = (new Server).serve ``
 
   const response = await fetch ('http://localhost:8181/')
 
