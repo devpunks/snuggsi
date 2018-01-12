@@ -53,6 +53,8 @@ function encode (name, password) {
 test ('calling next middlewaree')
 
 
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate
+// WWW-Authenticate: Basic realm="Access to the staging site", charset="UTF-8"
 test.only ('basic auth with valid credentials', async t => {
 
   const
