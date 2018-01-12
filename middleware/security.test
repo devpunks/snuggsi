@@ -46,7 +46,7 @@ test ('X-Frame-Options: deny', async t => {
 
 
   t.equal
-    ('*', response.headers.get ('access-control-allow-origin'))
+    ('deny', response.headers.get ('x-frame-options'))
 
   server.close ()
   t.end ()
