@@ -109,16 +109,19 @@ class TokenList {
    // must both run independently not in tandem
 
       tokenize = symbol => node =>
-           (node.textContent
-             = node.textContent
-             .split ('{'+symbol+'}')
-             .join  (context [symbol]))
+         (node.textContent
+           = node.textContent
+           .split ('{'+symbol+'}')
+           .join  (context [symbol]))
+
 
     for (let symbol in this)
       this [symbol].map // more than one occurrence
         (node => node.textContent = node.text)
 
-      && this [symbol].map (tokenize (symbol))
+
+    for (let symbol in this)
+      this [symbol].map (tokenize (symbol))
   }
 }
 
