@@ -4,12 +4,13 @@ const
 
 module.exports = options =>
 
-  async (context, next) => {
-
+  async (context, next, user) => {
 
     console.warn ('Im lockin you out bitch')
 
-    user
+    void
+
+    (user = auth (context))
       && user.name == options.name
       && user.pass == options.password
     ? await next ()
