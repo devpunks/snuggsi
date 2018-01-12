@@ -20,18 +20,18 @@ const
 test ('Strict-Transport-Security', t => {
   // max-age=63072000; includeSubDomains; preload
 
-//const
-//  server
-//    = (new Server).serve ``
+  const
+    server
+      = (new Server).serve ``
 
-//fetch ('http://localhost:8181/', (_, response) => {
-//  console.warn (response.headers)
+  fetch ('http://localhost:8181/', (_, response) => {
+    console.warn (response.headers)
 
-//  t.equal ('*', response.headers ['access-control-allow-origin'])
+    t.equal ('*', response.headers ['access-control-allow-origin'])
 
-//  server.close ()
+    server.close ()
     t.end ()
-//})
+  })
 })
 
 
