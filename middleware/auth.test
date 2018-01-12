@@ -63,6 +63,8 @@ test.only ('basic auth with valid credentials', async t => {
   , response = await fetch ('http://localhost:8181/', options)
 
 
+  console.warn(response.headers)
+
   t.equal
     ('*', response.headers.get ('access-control-allow-origin'))
 
