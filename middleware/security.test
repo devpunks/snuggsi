@@ -51,6 +51,11 @@ test ('X-Frame-Options: deny', async t => {
 })
 
 
+test ('X-Content-Type-Options: nosniff', async t => {
+
+})
+
+
 test ('X-XSS-Protection') // 1; mode-block
 
 
