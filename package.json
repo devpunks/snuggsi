@@ -62,6 +62,7 @@
     "koa": "*",
     "koa-cors": "*",
     "koa-send": "*",
-    "koa-static": "*"
+    "koa-static": "*",
+    "basic-auth": "*"
   }
 }
