@@ -89,7 +89,7 @@ test ('basic auth with valid credentials', async t => {
   console.warn(response.headers)
 
   t.equal
-    ('*', response.headers.get ('access-control-allow-origin'))
+    ('Basic', response.headers.get ('www-authenticate'))
 
   server.close ()
   t.end ()
