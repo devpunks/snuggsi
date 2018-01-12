@@ -36,8 +36,6 @@ test ('Strict-Transport-Security', async t => {
 })
 
 
-test ('X-Content-Type-Options') // nosniff
-
 test ('X-Frame-Options: deny', async t => {
 
   const
