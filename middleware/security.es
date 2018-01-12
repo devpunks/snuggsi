@@ -14,5 +14,6 @@ module.exports = options =>
       ('x-frame-options', frame)
 
     context.set
+      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
       ('strict-transport-security', transport)
   }
