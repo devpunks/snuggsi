@@ -1,6 +1,6 @@
 const
   age   = 63072000
-, value = [`max-age=${age}`, 'includeSubDomains', 'preload'].join `; `
+, transport = [`max-age=${age}`, 'includeSubDomains', 'preload'].join `; `
 
 
 module.exports = options =>
