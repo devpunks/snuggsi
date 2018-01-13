@@ -109,9 +109,9 @@ TokenList.prototype.bind = function (context) {
  // must both run independently not in tandem
 
     tokenize = function (symbol) { return function (node) { return (node.textContent
-         = node.textContent
-         .split ('{'+symbol+'}')
-         .join(context [symbol])); }; }
+        = node.textContent
+        .split ('{'+symbol+'}')
+        .join(context [symbol])); }; }
 
 
   for (var symbol in this$1)
