@@ -1,7 +1,7 @@
 //require ('./negotiate.test')
 //require ('./compress.test')
 require ('./auth.test')
-require ('./distribution.test')
 require ('./security.test')
+require ('./distribution.test')
 require ('./assets.test')
 
