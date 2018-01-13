@@ -4,11 +4,11 @@
 module.exports = {
 
   auth         : require ('./auth')
-, security     : require ('./security')
-, browse       : require ('./browse')
-, assets       : require ('./assets')
-, distribution : require ('./distribution')
-, negotiate    : require ('./negotiate')
-, compressor   : require ('./compressor')
-, mixins       : require ('mixins/middleware')
+, security   : require ('./security')
+, browse     : require ('./browse')
+, assets     : require ('./assets')
+, librarian  : require ('./librarian')
+, negotiate  : require ('./negotiate')
+, compressor : require ('./compressor')
+, mixins     : require ('mixins/middleware')
 }
