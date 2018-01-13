@@ -3,11 +3,12 @@
 
 module.exports = {
 
-  auth       : require ('./auth')
-, security   : require ('./security')
-, browse     : require ('./browse')
-, assets     : require ('./assets')
-, negotiate  : require ('./negotiate')
-, compressor : require ('./compressor')
-, mixins     : require ('mixins/middleware')
+  auth         : require ('./auth')
+, security     : require ('./security')
+, browse       : require ('./browse')
+, assets       : require ('./assets')
+, distribution : require ('./distribution')
+, negotiate    : require ('./negotiate')
+, compressor   : require ('./compressor')
+, mixins       : require ('mixins/middleware')
 }
