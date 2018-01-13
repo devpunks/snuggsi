@@ -109,10 +109,10 @@ class TokenList {
    // must both run independently not in tandem
 
       tokenize = symbol => node =>
-         (node.textContent
-           = node.textContent
-           .split ('{'+symbol+'}')
-           .join  (context [symbol]))
+        (node.textContent
+          = node.textContent
+          .split ('{'+symbol+'}')
+          .join  (context [symbol]))
 
 
     for (let symbol in this)
