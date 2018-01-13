@@ -1,4 +1,0 @@
-const
-  { test, browse, get }
-    = require ('test')
-
