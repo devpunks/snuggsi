@@ -2,6 +2,6 @@
 //require ('./compress.test')
 require ('./auth.test')
 require ('./security.test')
-require ('./distribution.test')
+require ('./librarian.test')
 require ('./assets.test')
 
