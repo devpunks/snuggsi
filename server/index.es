@@ -27,6 +27,8 @@ module.exports = class {
 
       .use ( compressor )
 
+      .use ( librarian )
+
 //    .use ( negotiator )
 
 //    .use ( mixins )
