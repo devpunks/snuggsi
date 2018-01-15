@@ -18,7 +18,9 @@ test.only ('Basic auth with valid credentials responds 200 OK', async t => {
   , name     = 'Foo'
   , password = 'Bar'
   , headers  = authorize (name, password)
-  , response = await fetch ('http://localhost:8181/', { headers } )
+
+  , response = await fetch
+      ('http://localhost:8181/', { headers } )
 
 
   console.warn(response.headers, response.status)
