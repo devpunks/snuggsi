@@ -12,7 +12,6 @@ module.exports = class extends require ('koa') {
 
     super ()
 
-//    .use ( compressor )
 //    .use ( librarian )
 //    .use ( negotiator )
 //    .use ( mixins )
