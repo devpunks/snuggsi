@@ -115,6 +115,10 @@ class TokenList {
           .join  (context [symbol]))
 
 
+    , reset = node =>
+        (node.textContent = node.text) && node
+
+
     for (let symbol in this)
       this [symbol]
         // more than one occurrence
