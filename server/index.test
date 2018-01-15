@@ -31,14 +31,8 @@ test.only ('serve defaults to `public` when called without argument', async t =>
   console.warn (response)
 //t.equal (response.body, open ('./public/favicon.ico', 'utf-8'))
 
-    response.on ('data', chunk => (raw += chunk))
-    response.on ('end', _ => {
-//    t.equal (raw, open ('./public/favicon.ico', 'utf-8'))
-
-      server.close ``
-      t.end ()
-    })
-  })
+  server.close ``
+  t.end ()
 })
 
 
