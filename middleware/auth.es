@@ -24,4 +24,3 @@ module.exports = options =>
       // WWW-Authenticate: Basic realm="Access to the staging site", charset="UTF-8"
       && context.throw (401))
   }
-
