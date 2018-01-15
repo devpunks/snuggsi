@@ -4,7 +4,9 @@ const
 
 module.exports = options =>
 
-  async (context, next, { name, pass:password } = auth (context)) =>
+  async (context, next, { name, pass:password } = auth (context)) => {
+
+    console.warn (context)
 
     name != options.name
       || password != options.password
@@ -14,3 +16,4 @@ module.exports = options =>
         ? !!! context.set ('WWW-Authenticate', 'Basic') && (context.status = 401)
 
         : await next ()
+  }
