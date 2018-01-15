@@ -13,4 +13,3 @@ module.exports = options =>
       ? (!!! context.set ('WWW-Authenticate', 'Basic') && context.throw (401))
 
       : await next ()
-  }
