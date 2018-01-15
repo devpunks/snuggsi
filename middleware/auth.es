@@ -11,6 +11,6 @@ module.exports = options =>
 
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate
         // WWW-Authenticate: Basic realm="Access to the staging site", charset="UTF-8"
-        ? !!! context.set ('WWW-Authenticate', 'Basic') && context.throw (401)
+        ? !!! context.set ('WWW-Authenticate', 'Basic') && (context.status = 401)
 
         : await next ()
