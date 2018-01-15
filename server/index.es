@@ -8,6 +8,7 @@ module.exports = class {
   constructor ( middleware = [] ) {
 
     console.warn ('middleware', middleware)
+    this.middleware = middleware // eww
   }
 
 
