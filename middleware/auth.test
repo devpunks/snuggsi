@@ -84,7 +84,7 @@ test.only ('invalid name denies access with 401 status code', async t => {
 test ('invalid name denies access with WWW-Authenticate: Basic', async t => {
 
   const
-    server   = (new Server).serve ``
+    server   = (new Server (middleware)).serve ``
   , name     = 'sasdgaregqgads'
   , password = 'Bar'
   , headers  = authorize (name, password)
