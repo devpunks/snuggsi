@@ -23,7 +23,9 @@ test ('new Server does not throw', t => {
 // should this default to current directory ?
 test.only ('serve defaults to `public` when called without argument', async t => {
 
-  var server = ( new Server ).serve ()
+  const
+    server   = ( new Server ).serve ()
+  , response = await fetch (`http://localhost:${process.env.PORT}/favicon.ico`)
 
 
   get (`http://localhost:${process.env.PORT}/favicon.ico`, response => {
