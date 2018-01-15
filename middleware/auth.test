@@ -136,6 +136,7 @@ function authorize (name, password) {
   return { 'Authorization' : `Basic ${ encode (name, password) }` }
 }
 
+
 function encode (name, password) {
   const
     input = `${name}:${password}`
