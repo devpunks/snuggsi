@@ -2,10 +2,17 @@ const
   { test, browse, get }
     = require ('test')
 
-, Server     = require ('server')
-, fetch      = require ('node-fetch')
-, { auth }   =  require ('./')
-, middleware = [ auth ]
+, Server = require ('server')
+, fetch  = require ('node-fetch')
+
+, { auth }
+    = require ('./')
+
+, credentials
+    = { name: 'Foo', password: 'Bar' }
+
+, middleware
+    = [ auth ]
 
 
 test ('calling next middlewaree')
