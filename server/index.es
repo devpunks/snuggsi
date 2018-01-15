@@ -35,20 +35,6 @@ module.exports = class extends require ('koa') {
       // CHECK OUT CONNECT FOR MOUNTING MIDDLEWARE!!!!
       // https://github.com/senchalabs/connect#mount-middleware
 
-      .use ( require ('koa-cors') ({ methods: ['GET'] }) )
-
-      .use ( security () )
-
-      .use ( compressor )
-
-//    .use ( librarian )
-
-//    .use ( negotiator )
-
-//    .use ( mixins )
-
-      .use ( assets (path) )
-
       .listen ( port, _ => {
 
         console.warn (`Serving ${path}/`)
