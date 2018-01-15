@@ -56,7 +56,7 @@ class TokenList {
     for (let symbol in this)
       this [symbol]
         // more than one occurrence
-        .map (node => (node.textContent = node.text) && node)
+        .map (reset)
         .map (tokenize (symbol))
   }
 }
