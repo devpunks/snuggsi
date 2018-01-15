@@ -89,3 +89,9 @@ test ('basic auth with valid credentials', async t => {
   server.close ()
   t.end ()
 })
+
+function authorize (name, password) {
+
+  return { 'Authorization' : `Basic ${ encode (name, password) }` }
+}
+
