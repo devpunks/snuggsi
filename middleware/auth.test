@@ -53,26 +53,31 @@ test ('Basic auth with valid credentials removes WWW-Authenticate', async t => {
 })
 
 
-// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate
-// WWW-Authenticate: Basic realm="Access to the staging site", charset="UTF-8"
-test ('basic auth with valid credentials', async t => {
+test.only ('invalid name denies access with 401 status code', async t => {
 
   const
     server   = (new Server).serve ``
-  , name     = 'Foo'
+  , name     = 'sasdgaregqgads'
   , password = 'Bar'
-  , options  = { headers: authorize (name, password) }
-  , response = await fetch ('http://localhost:8181/', options)
+  , headers  = authorize (name, password)
 
+  , response = await fetch
+      ('http://localhost:8181/', { headers } )
 
-  console.warn(response.headers)
+  console.warn (response.headers, response.status)
 
   t.equal
-    ('Basic', response.headers.get ('www-authenticate'))
+    (response.headers.get ('www-authenticate'), 'Basic')
 
   server.close ()
   t.end ()
 })
+
+
+
+
+
+
 
 function authorize (name, password) {
 
