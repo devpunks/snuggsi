@@ -12,7 +12,6 @@ module.exports = class extends require ('koa') {
 
     super ()
 
-//    .use ( require ('koa-cors') ({ methods: ['GET'] }) )
 //    .use ( security () )
 //    .use ( compressor )
 //    .use ( librarian )
