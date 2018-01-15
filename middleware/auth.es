@@ -4,14 +4,9 @@ const
 
 module.exports = options =>
 
-  async (context, next) => {
+  async (context, next, {name, pass:password} = auth (context)) => {
 
     console.warn ('Im lockin you out bitch', options, auth (context) )
-
-    const
-      { name , pass:password }
-        = auth (context)
-
 
     return name == options.name
       && (password == options.password)
