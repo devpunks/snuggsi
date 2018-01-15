@@ -12,8 +12,7 @@ module.exports = class extends require ('koa') {
     for (middleware of stack)
       this.use (middleware)
 
-    console.warn ('middleware', middleware)
-    this.middleware = middleware // eww
+    console.warn ('middleware', stack, this)
   }
 
 
