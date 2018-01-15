@@ -19,7 +19,7 @@ module.exports = class extends require ('koa') {
 //    .use ( mixins )
 //    .use ( assets (path) )
 
-    stack = stack.concat ( [ cors ] )
+    stack = [ cors ].concat ( stack )
 
     for (let middleware of stack)
       this.use (middleware)
