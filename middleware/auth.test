@@ -131,12 +131,6 @@ test.only ('invalid password denies access with WWW-Authenticate: Basic', async 
 })
 
 
-
-
-
-
-
-
 function authorize (name, password) {
 
   return { 'Authorization' : `Basic ${ encode (name, password) }` }
