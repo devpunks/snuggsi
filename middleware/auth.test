@@ -25,7 +25,7 @@ test.only ('Basic auth with valid credentials responds 200 OK', async t => {
 
   console.warn(response.headers, response.status)
 
-  t.equal
+  t.notEqual
     ('Basic', response.headers.get ('www-authenticate'))
 
   server.close ()
