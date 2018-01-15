@@ -64,7 +64,6 @@ test.only ('invalid name denies access with 401 status code', async t => {
   , response = await fetch
       ('http://localhost:8181/', { headers } )
 
-  console.warn (response.headers, response.status)
 
   t.equal
     (response.headers.get ('www-authenticate'), 'Basic')
