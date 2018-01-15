@@ -174,5 +174,3 @@ function encode (name, password) {
 
   return result
 }
-
-
