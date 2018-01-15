@@ -17,7 +17,7 @@ module.exports = class extends require ('koa') {
 //    .use ( mixins )
 //    .use ( assets (path) )
 
-    for (middleware of stack)
+    for (let middleware of stack)
       this.use (middleware)
 
     console.warn ('middleware', stack, this)
