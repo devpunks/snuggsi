@@ -17,7 +17,6 @@ module.exports = class extends require ('koa') {
 //    .use ( librarian )
 //    .use ( negotiator )
 //    .use ( mixins )
-//    .use ( assets (path) )
 
     stack = [ cors ].concat ( stack )
 
