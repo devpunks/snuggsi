@@ -50,7 +50,8 @@ class TokenList {
 
 
     for (let symbol in this)
-      this [symbol].map // more than one occurrence
+      this [symbol].map
+        // more than one occurrence
         (node => node.textContent = node.text)
 
 
