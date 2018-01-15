@@ -114,13 +114,10 @@ TokenList.prototype.bind = function (context) {
         .join(context [symbol])); }; }
 
 
-  , reset = function (node) { return (node.textContent = node.text) && node; }
-
-
   for (var symbol in this$1)
     { this$1 [symbol]
       // more than one occurrence
-      .map (reset)
+      .map (function (node) { return (node.textContent = node.text) && node; })
       .map (tokenize (symbol)) }
 };
 
