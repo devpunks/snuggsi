@@ -5,7 +5,12 @@ const
 
 module.exports = class extends require ('koa') {
 
-  constructor ( middleware = [] ) {
+  constructor ( stack = [] ) {
+
+    super ()
+
+    for (middleware of stack)
+      this.use (middleware)
 
     console.warn ('middleware', middleware)
     this.middleware = middleware // eww
