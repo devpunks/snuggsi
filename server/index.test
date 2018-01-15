@@ -21,7 +21,7 @@ test ('new Server does not throw', t => {
 
 
 // should this default to current directory ?
-test.only ('serve defaults to `public` when called without argument', t => {
+test.only ('serve defaults to `public` when called without argument', async t => {
 
   var server = ( new Server ).serve ()
 
