@@ -2,6 +2,9 @@ const
   { auth, security, compressor, librarian, mixins, assets }
     = require ('middleware')
 
+, cors
+    = require ('koa-cors') ({ methods: ['GET'] })
+
 
 module.exports = class extends require ('koa') {
 
