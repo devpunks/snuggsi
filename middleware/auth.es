@@ -8,6 +8,13 @@ module.exports = options =>
 
     console.warn ('Im lockin you out bitch', options, auth (context) )
 
+    const
+      { name , pass:password }
+        = auth (context)
+
+
+   console.warn (name, password)
+
     void
 
     (user = auth (context))
