@@ -23,7 +23,8 @@ test.only ('Basic auth with valid credentials responds 200 OK', async t => {
       ('http://localhost:8181/', { headers } )
 
 
-  console.warn(response.headers, response.status)
+  t.equal
+    (response.status, 200)
 
   t.notEqual
     ('Basic', response.headers.get ('www-authenticate'))
