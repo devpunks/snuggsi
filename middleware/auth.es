@@ -15,9 +15,7 @@ module.exports = options =>
 
    console.warn ('creds', name, password)
 
-    void
-
-      && name     == options.name
+    name == options.name
       && password == options.password
 
     ? await next ()
