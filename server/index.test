@@ -28,7 +28,7 @@ test.only ('serve defaults to `public` when called without argument', async t =>
   , response = await fetch (`http://localhost:${process.env.PORT}/favicon.ico`)
 
 
-  console.warn (response)
+    console.warn (Object.keys (response.body))
 //t.equal (response.body, open ('./public/favicon.ico', 'utf-8'))
 
   server.close ``
