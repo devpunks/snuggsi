@@ -4,15 +4,14 @@ const
   { test, browse, get }
     = require ('test')
 
-
 , { readFileSync: open }
     = require ('fs')
 
-, Server
-    = require ('.')
+, { Server }
+    = require ('..')
 
 
-test ('new Server does not throw', t => {
+test.only ('new Server does not throw', t => {
 
   t.doesNotThrow ( _ => new Server )
 
