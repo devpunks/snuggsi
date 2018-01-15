@@ -2,7 +2,7 @@ const
   { auth, security, compressor, librarian, mixins, assets }
     = require ('middleware')
 
-, cors
+, cors // is causing deprecated generator warnings
     = require ('koa-cors') ({ methods: ['GET'] })
 
 
