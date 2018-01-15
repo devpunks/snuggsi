@@ -6,7 +6,7 @@ module.exports = options =>
 
   async (context, next, { name, pass:password } = auth (context)) => {
 
-    console.warn (context)
+    console.warn ('context', context)
 
     name != options.name
       || password != options.password
