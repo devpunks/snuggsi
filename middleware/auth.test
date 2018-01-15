@@ -46,7 +46,7 @@ test ('Basic auth with valid credentials removes WWW-Authenticate', async t => {
 
 
   t.notEqual
-    ('Basic', response.headers.get ('www-authenticate'))
+    (response.headers.get ('www-authenticate'), 'Basic')
 
   server.close ()
   t.end ()
