@@ -113,7 +113,7 @@ test ('invalid password denies access with 401 status code', async t => {
 })
 
 
-test.only ('invalid password denies access with WWW-Authenticate: Basic', async t => {
+test ('invalid password denies access with WWW-Authenticate: Basic', async t => {
 
   const
     server   = (new Server).serve ``
