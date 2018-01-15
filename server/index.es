@@ -31,7 +31,7 @@ module.exports = class extends require ('koa') {
       : 'public'
 
 
-    return (new (require ('koa')))
+    return this
       // CHECK OUT CONNECT FOR MOUNTING MIDDLEWARE!!!!
       // https://github.com/senchalabs/connect#mount-middleware
 
