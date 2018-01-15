@@ -115,12 +115,10 @@ TokenList.prototype.bind = function (context) {
 
 
   for (var symbol in this$1)
-    { this$1 [symbol].map // more than one occurrence
-      (function (node) { return node.textContent = node.text; }) }
-
-
-  for (var symbol$1 in this$1)
-    { this$1 [symbol$1].map (tokenize (symbol$1)) }
+    { this$1 [symbol]
+      // more than one occurrence
+      .map (function (node) { return (node.textContent = node.text) && node; })
+      .map (tokenize (symbol)) }
 };
 
 void (function (_) {
