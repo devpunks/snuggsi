@@ -13,4 +13,4 @@ module.exports = options =>
         // WWW-Authenticate: Basic realm="Access to the staging site", charset="UTF-8"
         ? !!! context.set ('WWW-Authenticate', 'Basic') && context.throw (401)
 
-      : await next ()
+        : await next ()
