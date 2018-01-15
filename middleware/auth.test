@@ -72,7 +72,7 @@ test ('invalid name denies access with 401 status code', async t => {
 })
 
 
-test.only ('invalid name denies access with WWW-Authenticate: Basic', async t => {
+test ('invalid name denies access with WWW-Authenticate: Basic', async t => {
 
   const
     server   = (new Server).serve ``
@@ -90,6 +90,45 @@ test.only ('invalid name denies access with WWW-Authenticate: Basic', async t =>
   server.close ()
   t.end ()
 })
+
+
+//test ('invalid password denies access with 401 status code', async t => {
+
+//  const
+//    server   = (new Server).serve ``
+//  , name     = 'Foo'
+//  , password = 'dfgagarergwr'
+//  , headers  = authorize (name, password)
+
+//  , response = await fetch
+//      ('http://localhost:8181/', { headers } )
+
+
+//  t.equal (response.status, 401)
+
+//  server.close ()
+//  t.end ()
+//})
+
+
+//test ('invalid password denies access with WWW-Authenticate: Basic', async t => {
+
+//  const
+//    server   = (new Server).serve ``
+//  , name     = 'Foo'
+//  , password = 'dfgagarergwr'
+//  , headers  = authorize (name, password)
+
+//  , response = await fetch
+//      ('http://localhost:8181/', { headers } )
+
+
+//  t.equal
+//    (response.headers.get ('www-authenticate'), 'Basic')
+
+//  server.close ()
+//  t.end ()
+//})
 
 
 
