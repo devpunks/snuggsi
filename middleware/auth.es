@@ -13,13 +13,10 @@ module.exports = options =>
         = auth (context)
 
 
-    , authorized =
-        (name == options.name) &&
-        (password == options.password)
+    return name == options.name
+      && (password == options.password)
+      && await next ()
 
-   console.warn ('creds', authorized)
-
-//  ? await next ()
 //  : (context.set ('WWW-Authenticate', 'Basic')
 //    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate
 //    // WWW-Authenticate: Basic realm="Access to the staging site", charset="UTF-8"
