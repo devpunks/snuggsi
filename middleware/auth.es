@@ -13,13 +13,12 @@ module.exports = options =>
         = auth (context)
 
 
-   console.warn (name, password)
+   console.warn ('creds', name, password)
 
     void
 
-    (user = auth (context))
-      && user.name == options.name
-      && user.pass == options.password
+      && name     == options.name
+      && password == options.password
 
     ? await next ()
     : (context.set ('WWW-Authenticate', 'Basic')
