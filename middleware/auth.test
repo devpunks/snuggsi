@@ -26,6 +26,25 @@ test ('Basic auth with valid credentials responds 200 OK', async t => {
   t.equal
     (response.status, 200)
 
+  server.close ()
+  t.end ()
+})
+
+
+// https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate
+// WWW-Authenticate: Basic realm="Access to the staging site", charset="UTF-8"
+test.only ('Basic auth with valid credentials removes WWW-Authenticate', async t => {
+
+  const
+    server   = (new Server).serve ``
+  , name     = 'Foo'
+  , password = 'Bar'
+  , headers  = authorize (name, password)
+
+  , response = await fetch
+      ('http://localhost:8181/', { headers } )
+
+
   t.notEqual
     ('Basic', response.headers.get ('www-authenticate'))
 
