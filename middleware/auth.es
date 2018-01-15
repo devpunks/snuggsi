@@ -4,7 +4,7 @@ const
 
 module.exports = options =>
 
-  async (context, next, {name, pass:password} = auth (context)) => {
+  async (context, next, { name, pass:password } = auth (context)) => {
 
     console.warn ('Im lockin you out bitch', options, auth (context) )
 
