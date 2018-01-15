@@ -12,13 +12,12 @@ module.exports = class extends require ('koa') {
 
     super ()
 
-//    .use ( security () )
 //    .use ( compressor )
 //    .use ( librarian )
 //    .use ( negotiator )
 //    .use ( mixins )
 
-    stack = [ cors ].concat ( stack )
+    stack = [ cors, security () ].concat ( stack )
 
     for (let middleware of stack)
       this.use (middleware)
