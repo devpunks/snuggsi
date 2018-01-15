@@ -3,7 +3,7 @@ const
     = require ('middleware')
 
 
-module.exports = class {
+module.exports = class extends require ('koa') {
 
   constructor ( middleware = [] ) {
 
