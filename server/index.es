@@ -5,7 +5,10 @@ const
 
 module.exports = class {
 
-  constructor () {}
+  constructor ( middleware = [] ) {
+  
+    console.warn ('middleware', middleware)
+  }
 
 
   serve (path = '', port = process.env.PORT) {
