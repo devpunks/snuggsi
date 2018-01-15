@@ -28,7 +28,7 @@
     "components"
   ],
   "main": "./index.es",
-  "unpkg": "./dist/snuggsi.min.js",
+  "unpkg": "./dist/snuggsi.min.es.js",
   "module": "./dist/snuggsi.min.es",
   "directories": {
     "bin": "bin",
