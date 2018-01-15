@@ -9,6 +9,14 @@ module.exports = class extends require ('koa') {
 
     super ()
 
+//    .use ( require ('koa-cors') ({ methods: ['GET'] }) )
+//    .use ( security () )
+//    .use ( compressor )
+//    .use ( librarian )
+//    .use ( negotiator )
+//    .use ( mixins )
+//    .use ( assets (path) )
+
     for (middleware of stack)
       this.use (middleware)
 
