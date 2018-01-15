@@ -21,8 +21,6 @@ module.exports = class {
 
       .use ( require ('koa-cors') ({ methods: ['GET'] }) )
 
-      .use ( auth ( { name: 'Foo', password: 'Bar' } ) )
-
       .use ( security () )
 
       .use ( compressor )
