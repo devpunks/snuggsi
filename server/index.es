@@ -29,9 +29,8 @@ module.exports = class extends require ('koa') {
 
   serve (path = '', port = process.env.PORT) {
 
-    path = Boolean (path += '')
-      ? path
-      : 'public'
+    this.use
+      ( assets (Boolean (path += '') ? path : 'public') )
 
 
     return this
