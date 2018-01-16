@@ -4,7 +4,9 @@ const
 
 module.exports = (source, buffer = []) => {
 
-  return new Promise ((resolve, reject) => {
+  return typeof source === 'string'
+    ? reqd (source, encoding)
+    : new Promise ((resolve, reject) => {
 
     source
       .on ('data', data => buffer.push (data))
