@@ -29,7 +29,8 @@ test.only ('serve defaults to `public` when called without argument', async t =>
 
   const res = await read (expected)
 
-  console.warn ('whaaat', res)
+//console.warn ('whaaat', res)
+  console.warn ('whaaat', read ('./public/index.html'))
 
 //t.equal (response.body, open ('./public/index.html', 'utf-8'))
 
