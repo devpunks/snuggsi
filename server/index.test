@@ -52,7 +52,25 @@ test ('serve defaults to `public` when called with template literal', async t =>
 })
 
 
-test.only ('serving files from a specific directory', async t => {
+test.only ('serving specific directory', async t => {
+
+  const
+    server
+      = ( new Server ).serve ('server/fixtures')
+
+  , { body }
+      = await fetch (`http://localhost:${process.env.PORT}/index.txt`)
+
+
+  t.equal
+    ( await read (body), read `./server/fixtures/index.txt` )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('serving specific directory with template literal', async t => {
 
   const
     server
