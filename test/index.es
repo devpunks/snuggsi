@@ -10,5 +10,6 @@ module.exports = {
 // http://taylor.fausak.me/2013/02/17/testing-a-node-js-http-server-with-mocha/
 , get    : require ('http').get
 , test   : require ('tape').test
-, fetch  : require ('node-fetch')
+, fetch  : ( resource, ... options )
+    => require ('node-fetch') (resource, ... options)
 }
