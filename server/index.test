@@ -30,7 +30,7 @@ test.only ('serve defaults to `public` when called without argument', async t =>
 
 
   t.equal
-    ( await read (response.body), await read ('./public/favicon.ico') )
+    ( await read (body), read ('./public/favicon.ico') )
 
   server.close ``
   t.end ()
