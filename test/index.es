@@ -6,7 +6,8 @@ const
       require ('node-fetch') (resource, ... options)
 
 module.exports = {
-  read   : require ('./read')
+  fetch
+, read   : require ('./read')
 , serve  : require ('./serve')
 , browse : require ('./browse')
 
