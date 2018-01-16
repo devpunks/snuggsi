@@ -8,6 +8,6 @@ module.exports = (source, buffer = []) => {
 
     source
       .on ('data', data => buffer.push (data))
-      .on ('end', _ => promise.resolve (buffer.join ``))
+      .on ('end', _ => resolve (buffer.join ``))
   })
 }
