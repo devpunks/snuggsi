@@ -23,9 +23,9 @@ module.exports = options =>
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Frame-Options
       ('x-frame-options', frame)
 
-//  context.set
-//    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
-//    ('x-content-type-options', content)
+    context.set
+      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-Content-Type-Options
+      ('x-content-type-options', content)
 
     context.set
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
