@@ -13,9 +13,9 @@ module.exports = class extends require ('koa') {
     super ()
 
     stack = [
-      cors
-    , security ()
-    ,/* librarian, negotiator, mixins */
+//    cors
+//  , security ()
+//  ,/* librarian, negotiator, mixins */
     ].concat ( stack )
 
     console.warn (stack)
