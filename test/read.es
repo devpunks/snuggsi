@@ -2,7 +2,7 @@ const
   { readFileSync: read }
     = require ('fs')
 
-module.exports = (source, promise = new Promise, buffer = []) => {
+module.exports = (source, buffer = []) => {
 
   source
     .on ('data', data => buffer.push (data))
