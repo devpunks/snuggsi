@@ -52,7 +52,7 @@ test ('serve defaults to `public` when called with template literal', async t =>
 })
 
 
-test.only ('serving specific directory', async t => {
+test ('serving specific directory', async t => {
 
   const
     server
