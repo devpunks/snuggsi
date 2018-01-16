@@ -3,7 +3,7 @@ const
 , { readFileSync: read }
     = require ('fs')
 
-module.exports = (source, buffer = []) => {
+module.exports = (source, buffer) => {
 
   return typeof source === 'string'
     ? read ( (source + '') , encoding )
