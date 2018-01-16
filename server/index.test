@@ -16,6 +16,29 @@ test ('new Server does not throw', t => {
 })
 
 
+test.only ('middleware collection dependency injection', async t => {
+
+  const
+    middleware
+      = context => context.body = 'Hello World'
+
+  , stack = [ middleware ]
+
+    server
+      = ( new Server ( stack ) ).serve `server/fixtures`
+
+  , response
+      = await fetch (`http://localhost:${process.env.PORT}/index.txt`)
+
+
+  t.equal
+    ( await response.text (), 'Hello World' )
+
+  server.close ``
+  t.end ()
+})
+
+
 test ('serve defaults to `public` when called without argument', async t => {
 
   const
