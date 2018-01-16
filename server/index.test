@@ -27,7 +27,10 @@ test.only ('serve defaults to `public` when called without argument', async t =>
   , expected = await response.body
 
 
-  read (expected)
+  const res = await read (expected)
+
+  console.warn ('whaaat', res)
+
 //t.equal (response.body, open ('./public/index.html', 'utf-8'))
 
   server.close ``
