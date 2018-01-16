@@ -15,9 +15,10 @@ module.exports = class extends require ('koa') {
     stack = [
       cors
     , security ()
-    , compressor
     ,/* librarian, negotiator, mixins */
     ].concat ( stack )
+
+    console.warn (stack)
 
     for (let middleware of stack)
       this.use (middleware)
