@@ -6,7 +6,7 @@ const
 module.exports = (source, buffer = []) => {
 
   return typeof source === 'string'
-    ? reqd (source, encoding)
+    ? read (source, encoding)
     : new Promise ((resolve, reject) => {
 
       source
