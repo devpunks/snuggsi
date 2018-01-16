@@ -46,8 +46,12 @@ test.only ('serve defaults to `public` when called with template literal', async
     server
       = ( new Server ).serve ``
 
-  get (`http://localhost:${process.env.PORT}/`, response => {
-    console.log (response.statusCode)
+  , resource
+      = `http://localhost:${process.env.PORT}/favicon.ico`
+
+  , { body }
+      = await fetch (resource)
+
 
     server.close ``
     t.end ()
