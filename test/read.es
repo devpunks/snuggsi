@@ -5,6 +5,6 @@ const
 module.exports = function (source, buffer = []) {
 
   source
-    .on ('data', buffer.push)
+    .on ('data', data => buffer.push (data))
     .on ('end', _ => console.warn ('ended', buffer))
 }
