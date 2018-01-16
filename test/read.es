@@ -3,5 +3,7 @@ const
     = require ('fs')
 
 module.exports = function (source) {
-  console.log (source)
+  source
+    .on ('data', console.log)
+    .on ('end', _ => console.warn ('ended'))
 }
