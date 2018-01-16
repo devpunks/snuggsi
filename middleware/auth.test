@@ -76,7 +76,7 @@ test.only ('invalid name denies access with 401 status code', async t => {
 
   t.equal (response.status, 401)
 
-  server.close ()
+  server.close ``
   t.end ()
 })
 
