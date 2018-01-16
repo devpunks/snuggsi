@@ -24,9 +24,6 @@ test ('serve defaults to `public` when called without argument', async t => {
     server
       = ( new Server ).serve ()
 
-  , resource
-      = `http://localhost:${process.env.PORT}/favicon.ico`
-
   , { body }
       = await fetch (resource)
 
