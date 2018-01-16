@@ -1,5 +1,9 @@
 console.warn ('loading test helper')
 
+const
+  fetch =
+    ( resource, ... options ) =>
+      require ('node-fetch') (resource, ... options)
 
 module.exports = {
   read   : require ('./read')
