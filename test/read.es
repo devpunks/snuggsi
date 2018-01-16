@@ -2,7 +2,7 @@ const
   { readFileSync: read }
     = require ('fs')
 
-module.exports = function (source, buffer) {
+module.exports = function (source, buffer = []) {
 
   source
     .on ('data', buffer.push)
