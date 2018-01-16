@@ -8,8 +8,8 @@ module.exports = (source, buffer = []) => {
     ? reqd (source, encoding)
     : new Promise ((resolve, reject) => {
 
-    source
-      .on ('data', data => buffer.push (data))
-      .on ('end', _ => resolve (buffer.join ``))
+      source
+        .on ('data', data => buffer.push (data))
+        .on ('end', _ => resolve (buffer.join ``))
   })
 }
