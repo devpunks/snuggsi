@@ -40,7 +40,7 @@ test ('serve defaults to `public` when called without argument', async t => {
 
 
 // should this default to current directory ?
-test ('serve defaults to `public` when called with template literal', t => {
+test.only ('serve defaults to `public` when called with template literal', t => {
 
   var server = ( new Server ).serve ``
 
