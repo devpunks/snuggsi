@@ -53,7 +53,9 @@ test.only ('serve defaults to `public` when called with template literal', async
       = await fetch (resource)
 
 
-    server.close ``
-    t.end ()
-  })
+  t.equal
+    ( await read (body), read `./public/favicon.ico` )
+
+  server.close ``
+  t.end ()
 })
