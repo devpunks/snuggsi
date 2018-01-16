@@ -7,8 +7,6 @@ const
 , { Server }
     = require ('..')
 
-, fetch = require ('node-fetch')
-
 
 test ('new Server does not throw', t => {
 
