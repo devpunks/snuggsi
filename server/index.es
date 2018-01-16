@@ -30,8 +30,8 @@ module.exports = class extends require ('koa') {
     console.warn ('About to serve this bitch up')
 
     this
-      .use ( compressor )
       .use ( assets (Boolean (path += '') ? path : 'public') )
+      .use ( compressor )
 
 
     return this
