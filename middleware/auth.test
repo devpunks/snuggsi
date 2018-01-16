@@ -67,8 +67,8 @@ test.only ('invalid name denies access with 401 status code', async t => {
   const
     password = 'Bar'
   , name     = 'sasdgaregqgads'
-  , password = 'Bar'
   , headers  = authorize (name, password)
+  , server   = (new Server (middleware)).serve ``
 
   , response = await fetch
       ('http://localhost:8181/', { headers } )
