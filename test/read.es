@@ -1,5 +1,6 @@
 const
-  { readFileSync: read }
+  encoding = 'utf-8'
+, { readFileSync: read }
     = require ('fs')
 
 module.exports = (source, buffer = []) => {
