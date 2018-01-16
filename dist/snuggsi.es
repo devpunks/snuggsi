@@ -151,7 +151,7 @@ void (_ => {
 
 
   [].slice
-    .call (document.querySelectorAll (['[rel^=pre][id~="-"]']))
+    .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
     .map  (load)
 
 
