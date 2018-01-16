@@ -16,7 +16,7 @@ test ('new Server does not throw', t => {
 })
 
 
-test.only ('middleware collection dependency injection', async t => {
+test ('middleware collection dependency injection', async t => {
 
   const
     middleware
