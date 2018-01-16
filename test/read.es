@@ -9,8 +9,11 @@ module.exports = (source, buffer) => {
     && typeof source === 'string'
     || Array.isArray (source)
 
-      source
-        .on ('data', data => buffer.push (data))
-        .on ('end' , _ => resolve (buffer.join ``))
-  })
+      ? read ( (source + '') , encoding )
+      : new Promise ((resolve, reject) => {
+
+        source
+          .on ('data', data => buffer.push (data))
+          .on ('end' , _ => resolve (buffer.join ``))
+      })
 }
