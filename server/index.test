@@ -23,7 +23,7 @@ test.only ('serve defaults to `public` when called without argument', async t =>
       = ( new Server ).serve ()
 
   , { body }
-      = await fetch `http://localhost:${process.env.PORT}/favicon.ico`
+      = await fetch (`http://localhost:${process.env.PORT}/favicon.ico`)
 
 
   t.equal
