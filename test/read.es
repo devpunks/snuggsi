@@ -1,4 +1,4 @@
 const
-  { readFileSync: open }
+  { readFileSync: read }
     = require ('fs')
 
