@@ -42,7 +42,7 @@ test ('serve defaults to `public` when called with template literal', async t =>
       = ( new Server ).serve ``
 
   , { body }
-      = await fetch (resource)
+      = await fetch `http://localhost:${process.env.PORT}/favicon.ico`
 
 
   t.equal
