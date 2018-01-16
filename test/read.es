@@ -6,5 +6,8 @@ module.exports = (source, buffer = []) => {
 
   return new Promise ((resolve, reject) => {
 
-  return promise
+    source
+      .on ('data', data => buffer.push (data))
+      .on ('end', _ => promise.resolve (buffer.join ``))
+  })
 }
