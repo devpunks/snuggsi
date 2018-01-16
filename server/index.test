@@ -29,7 +29,7 @@ test.only ('serve defaults to `public` when called without argument', async t =>
   const res = await read (response.body)
 
   console.warn ('whaaat', res)
-  console.warn ('whaaat', await read ('./public/favicon.ico'))
+//console.warn ('whaaat', await read ('./public/favicon.ico'))
 
 //t.equal (response.body, open ('./public/index.html', 'utf-8'))
 
