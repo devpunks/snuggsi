@@ -75,7 +75,7 @@ test ('Strict-Transport-Security', async t => {
     server   = (new Server).serve ``
   , response = await fetch ('http://localhost:8181/')
 
-  , age      = 63072000
+  , age      = 60 * 60 * 24 * 365
   , test     = [`max-age=${age}`, 'includeSubDomains', 'preload']
   , expected = new RegExp ( test.join `; ` , 'g')
 

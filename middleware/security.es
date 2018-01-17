@@ -1,6 +1,6 @@
 const
-  age = 63072000
-, frame = 'deny'
+  age     = 60 * 60 * 24 * 365
+, frame   = 'deny'
 , content = 'nosniff'
 
 , xss =
