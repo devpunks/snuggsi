@@ -3,7 +3,7 @@ const
     = require ('test')
 
 
-test ('compressor', t => {
+test.only ('compressor', t => {
 
   t.end ()
 })
