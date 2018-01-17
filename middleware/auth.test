@@ -134,7 +134,7 @@ test ('invalid password denies access with WWW-Authenticate: Basic', async t => 
   t.equal
     (response.headers.get ('www-authenticate'), 'Basic')
 
-  server.close ()
+  server.close ``
   t.end ()
 })
 
