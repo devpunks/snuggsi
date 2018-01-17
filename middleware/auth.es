@@ -18,4 +18,3 @@ module.exports = options =>
         ? !!! context.set ('WWW-Authenticate', 'Basic') && (context.status = 401)
 
         : await next ()
-  }
