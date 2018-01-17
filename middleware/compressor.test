@@ -3,7 +3,9 @@ const
     = require ('test')
 
 
-, Server = require ('..')
+, { Server }
+    = require ('..')
+
 
 test.only ('compressor', t => {
 
