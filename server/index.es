@@ -29,7 +29,7 @@ module.exports = class extends require ('koa') {
       .use ( compressor )
       .use ( negotiator )
 //    .use ( librarian  )
-      .use (   mixins   )
+//    .use (   mixins   )
       .use ( assets ( Boolean (path += '') ? path : 'public' ) )
 
 
