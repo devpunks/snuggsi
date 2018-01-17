@@ -1,6 +1,7 @@
 //require ('./negotiate.test')
 require ('./auth.test')
 require ('./security.test')
+require ('./compressor.test')
 require ('./librarian.test')
 require ('./assets.test')
 
