@@ -3,7 +3,7 @@ const
     = require ('test')
 
 
-describe ('new Element', test => {
+test ('compressor', test => {
 
   test.end ()
 })
