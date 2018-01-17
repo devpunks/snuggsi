@@ -1,5 +1,5 @@
 const
-  { auth, security, compressor, librarian, mixins, assets }
+  { auth, security, compressor, negotiator, librarian, mixins, assets }
     = require ('middleware')
 
 , cors // is causing deprecated generator warnings
