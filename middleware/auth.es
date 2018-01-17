@@ -1,3 +1,6 @@
+// Based on Hypertext Transfer Protocol (HTTP/1.1): Authentication
+// https://tools.ietf.org/html/rfc7235#section-4.1
+
 const
   auth = require ('basic-auth')
 
