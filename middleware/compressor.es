@@ -1,9 +1,3 @@
-// snuggsi Content negotiation middleware
-//
-//   Please see https://github.com/devpunks/snuggsi/tree/master/dist#readme
-//   for further details.
-//
-//
 // Content Negotiation
 //
 //   References:
