@@ -12,7 +12,7 @@ const
     = require ('./')
 
 , middleware
-    = [ auth ]
+    = [ auth ( credentials ) ]
 
 
 test ('calling next middlewaree')
