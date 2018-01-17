@@ -18,7 +18,7 @@ Middleware used for CSP (Content Security Policy).
 Middleware used for developer tools like browsersync and browser extensions.
 
 
-## snuggsi.negotiate
+## snuggsi.negotiator
 
 Middleware used for Content Negotiaton.
 
