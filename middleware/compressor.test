@@ -3,6 +3,8 @@ const
     = require ('test')
 
 
+, Server = require ('..')
+
 test.only ('compressor', t => {
 
   t.end ()
