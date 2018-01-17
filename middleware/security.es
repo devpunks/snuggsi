@@ -4,7 +4,7 @@ const
 , content = 'nosniff'
 
 , xss =
-    [1, `mode=block`].join `; `
+    [1, 'mode=block'].join `; `
 
 , transport =
     [`max-age=${age}`, 'includeSubDomains', 'preload'].join `; `
