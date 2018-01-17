@@ -9,7 +9,7 @@ const
 test ('calling next middlewaree')
 
 
-test.only ('compressor', t => {
+test.only ('compressor', async t => {
 
   t.end ()
 })
