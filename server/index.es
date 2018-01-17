@@ -26,8 +26,8 @@ module.exports = class extends require ('koa') {
   serve (path = '', port = process.env.PORT) {
 
     this
-      .use ( assets (Boolean (path += '') ? path : 'public') )
       .use ( compressor )
+      .use ( assets (Boolean (path += '') ? path : 'public') )
 
 
     return this
