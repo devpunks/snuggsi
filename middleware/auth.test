@@ -112,6 +112,8 @@ test.only ('invalid password denies access with 401 status code', async t => {
       ('http://localhost:8181/', { headers } )
 
 
+  console.warn (response.headers, response.status)
+
   t.equal (response.status, 401)
 
   server.close ()
