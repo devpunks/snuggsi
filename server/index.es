@@ -25,8 +25,6 @@ module.exports = class extends require ('koa') {
 
   serve (path = '', port = process.env.PORT) {
 
-    console.warn ('About to serve this bitch up')
-
     this
       .use ( assets (Boolean (path += '') ? path : 'public') )
       .use ( compressor )
