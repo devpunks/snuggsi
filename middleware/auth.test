@@ -2,7 +2,8 @@ const
   { test, browse, fetch }
     = require ('test')
 
-, Server = require ('server')
+, { Server }
+    = require ('..')
 
 , credentials
     = { name: 'Foo', password: 'Bar' }
