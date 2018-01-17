@@ -13,9 +13,8 @@ module.exports = class extends require ('koa') {
     super ()
 
     stack = [
-      cors
-    , security ()
-    ,/* librarian, negotiator, mixins */
+      cors        // why is this not a function...
+    , security () // and this IS a function?
     ].concat ( stack )
 
     for (let middleware of stack)
