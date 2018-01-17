@@ -35,6 +35,7 @@ test ('closing server by calling with backticks', t => {
     server
       = ( new Server ).serve ``
 
+
   t.ok ( server.close `` )
 
   t.end ()
