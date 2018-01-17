@@ -5,5 +5,5 @@ const
 
 test ('compressor', t => {
 
-  test.end ()
+  t.end ()
 })
