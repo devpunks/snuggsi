@@ -5,7 +5,5 @@ const
 
 describe ('new Element', test => {
 
-//})
-
-    test.end ()
+  test.end ()
 })
