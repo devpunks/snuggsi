@@ -3,7 +3,6 @@ const
     = require ('test')
 
 , Server = require ('server')
-, fetch  = require ('node-fetch')
 
 , credentials
     = { name: 'Foo', password: 'Bar' }
