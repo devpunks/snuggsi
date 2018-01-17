@@ -27,7 +27,7 @@ module.exports = class extends require ('koa') {
 
     this
       .use ( compressor )
-      .use ( assets (Boolean (path += '') ? path : 'public') )
+      .use ( assets ( Boolean (path += '') ? path : 'public' ) )
 
 
     return this
