@@ -15,8 +15,7 @@ module.exports = options =>
         // https://tools.ietf.org/html/rfc7235#section-4.1
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/WWW-Authenticate
         // WWW-Authenticate: Basic realm="Access to the staging site", charset="UTF-8"
-//      ? !!! context.set ('WWW-Authenticate', 'Basic') && (context.status = 401)
-        ? context.throw (401)
+        ? !!! context.set ('WWW-Authenticate', 'Basic') && (context.status = 401)
 
         : await next ()
   }
