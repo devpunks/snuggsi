@@ -105,7 +105,6 @@ test.only ('invalid password denies access with 401 status code', async t => {
   const
     name     = 'Foo'
   , password = 'dfgagarergwr'
-    server   = (new Server).serve ``
   , headers  = authorize (name, password)
 
   , response = await fetch
