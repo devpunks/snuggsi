@@ -16,9 +16,7 @@ module.exports = class extends require ('koa') {
 //    cors
 //  , security ()
 //  ,/* librarian, negotiator, mixins */
-    ].concat ( stack )
-
-    console.warn (stack)
+//  ].concat ( stack )
 
     for (let middleware of stack)
       this.use (middleware)
