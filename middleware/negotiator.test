@@ -1,0 +1,15 @@
+const
+  { test, browse, fetch }
+    = require ('test')
+
+, { Server }
+    = require ('..')
+
+
+test ('calling next middlewaree')
+
+
+test ('negotiator', async t => {
+
+  t.end ()
+})
