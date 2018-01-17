@@ -12,7 +12,7 @@ module.exports = class extends require ('koa') {
 
     super ()
 
-    stack = [
+//  stack = [
 //    cors
 //  , security ()
 //  ,/* librarian, negotiator, mixins */
