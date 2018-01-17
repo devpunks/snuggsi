@@ -24,7 +24,6 @@ module.exports = class extends require ('koa') {
 
   serve (path = '', port = process.env.PORT) {
 
-    ,/* librarian, negotiator, mixins */
     this
       .use ( compressor )
       .use ( negotiator )
