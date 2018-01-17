@@ -5,7 +5,7 @@ const
   auth = require ('basic-auth')
 
 
-module.exports = options =>
+module.exports = ( options = {} ) =>
 
   async (context, next, { name, pass: password } = auth (context)) =>
 
