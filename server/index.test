@@ -8,7 +8,7 @@ const
     = require ('..')
 
 
-test.only ('new Server does not throw', t => {
+test ('new Server does not throw', t => {
 
   t.doesNotThrow ( _ => new Server )
 
