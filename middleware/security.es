@@ -28,6 +28,7 @@ module.exports = options =>
       ('x-content-type-options', content)
 
     context.set
+      // https://tools.ietf.org/html/rfc6797
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Strict-Transport-Security
       ('strict-transport-security', transport)
   }
