@@ -9,7 +9,7 @@ const
     = { name: 'Foo', password: 'Bar' }
 
 , { auth }
-    = require ('./') ( credentials )
+    = require ('./')
 
 , middleware
     = [ auth ]
