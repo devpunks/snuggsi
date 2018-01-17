@@ -61,7 +61,7 @@ test ('Basic auth with valid credentials removes WWW-Authenticate', async t => {
 })
 
 
-test.only ('invalid name denies access with 401 status code', async t => {
+test ('invalid name denies access with 401 status code', async t => {
 
   const
     password = 'Bar'
