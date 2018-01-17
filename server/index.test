@@ -16,7 +16,7 @@ test ('new Server does not throw', t => {
 })
 
 
-test.only ('closing server', t => {
+test ('closing server', t => {
 
   const
     server
