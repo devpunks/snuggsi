@@ -16,6 +16,18 @@ test ('new Server does not throw', t => {
 })
 
 
+test.only ('closing server by calling with backticks', t => {
+
+  const
+    server
+      = ( new Server ).serve ``
+
+  t.ok ( server.close `` )
+
+  t.end ()
+})
+
+
 test ('middleware collection dependency injection', async t => {
 
   const
