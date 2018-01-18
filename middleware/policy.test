@@ -6,9 +6,7 @@ const
     = require ('..')
 
 
-console.warn ((new Server).serve)
-
-test.only ('calling next middleware')
+test ('calling next middleware')
 
 
 test ('Content-Security-Policy', async t => {
