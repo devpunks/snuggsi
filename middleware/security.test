@@ -11,7 +11,8 @@ const
   { test, fetch }
     = require ('test')
 
-, Server = require ('server')
+, { Server }
+    = require ('..')
 
 
 test ('calling next middleware')
