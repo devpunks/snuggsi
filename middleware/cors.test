@@ -8,7 +8,7 @@ const
 test ('calling next middlewaree')
 
 
-test ('Access-Control-Allow-Origin: *', async t => {
+test.only ('Access-Control-Allow-Origin: *', async t => {
 
   const
     server   = (new Server).serve ``
