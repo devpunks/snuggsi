@@ -44,6 +44,7 @@
     "tape": "*",
     "buble": "*",
     "jsdom": "*",
+    "nyc": "*",
     "tap-nyc": "*",
     "sugarss": "*",
     "request": "*",
