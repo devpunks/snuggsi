@@ -9,4 +9,5 @@ const
     = { methods: ['GET'] }
 
 
-module.exports = cors (options)
+module.exports
+  = cors (options)
