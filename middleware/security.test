@@ -27,7 +27,7 @@ test ('X-XSS-Protection: 1; mode=block', async t => {
   , flag = 1
   , mode = 'block'
   , test = [flag, `mode=${mode}`]
-  , expected = new RegExp ( test.join `; ` , 'g')
+  , expected = new RegExp ( test.join `; ` , 'g' )
 
 
   t.ok
