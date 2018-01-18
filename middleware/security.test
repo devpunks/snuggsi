@@ -8,7 +8,7 @@
 
 
 const
-  { test, browse, get }
+  { test, get }
     = require ('test')
 
 , Server = require ('server')
