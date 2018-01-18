@@ -3,7 +3,8 @@
 
 module.exports = {
 
-  auth         : require ('./auth')
+  auth       : require ('./auth')
+, cors       : require ('./cors')
 , security   : require ('./security')
 , browse     : require ('./browse')
 , assets     : require ('./assets')
