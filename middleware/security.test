@@ -14,7 +14,7 @@ const
 , Server = require ('server')
 
 
-test ('calling next middlewaree')
+test ('calling next middleware')
 
 
 test ('X-XSS-Protection: 1; mode=block', async t => {
