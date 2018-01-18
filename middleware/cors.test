@@ -14,6 +14,7 @@ test.only ('Access-Control-Allow-Origin: *', async t => {
     server   = (new Server).serve ``
   , response = await fetch ('http://localhost:8181/')
 
+  console.warn (response.headers)
 
   t.equal
     ('*', response.headers.get ('access-control-allow-origin'))
