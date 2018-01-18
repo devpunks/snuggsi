@@ -1,9 +1,6 @@
 const
-  { auth, security, compressor, negotiator, librarian, mixins, assets }
+  { auth, cors, security, compressor, negotiator, librarian, mixins, assets }
     = require ('middleware')
-
-, cors // is causing deprecated generator warnings
-    = require ('koa-cors') ({ methods: ['GET'] })
 
 
 module.exports = class extends require ('koa') {
