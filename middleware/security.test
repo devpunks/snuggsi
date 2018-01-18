@@ -12,7 +12,6 @@ const
     = require ('test')
 
 , Server = require ('server')
-, fetch  = require ('node-fetch')
 
 
 test ('calling next middlewaree')
