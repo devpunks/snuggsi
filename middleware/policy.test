@@ -9,10 +9,10 @@ const
 test ('calling next middleware')
 
 
-test ("Content-Security-Policy: report-uri 'self';")
+test ("Content-Security-Policy: report-uri 'self'")
 
 
-test ("Content-Security-Policy: default-src 'none';", async t => {
+test ("Content-Security-Policy: default-src 'none'", async t => {
 
   const
     server   = (new Server).serve ``
@@ -26,12 +26,12 @@ test ("Content-Security-Policy: default-src 'none';", async t => {
 })
 
 
-test ("Content-Security-Policy: frame-src 'self';")
-test ("Content-Security-Policy: connect-src 'self';")
-test ("Content-Security-Policy: img-src 'self' https://cdn.example.com;")
+test ("Content-Security-Policy: frame-src 'self'")
+test ("Content-Security-Policy: connect-src 'self'")
+test ("Content-Security-Policy: img-src 'self' https://cdn.example.com")
 
 
-test.only ("Content-Security-Policy: style-src 'none';", async t => {
+test.only ("Content-Security-Policy: style-src 'none'", async t => {
 
   const
     server   = (new Server).serve ``
@@ -46,4 +46,4 @@ test.only ("Content-Security-Policy: style-src 'none';", async t => {
 })
 
 
-test ("Content-Security-Policy: script-src 'self';")
+test ("Content-Security-Policy: script-src 'self'")
