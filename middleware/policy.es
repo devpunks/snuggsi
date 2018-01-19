@@ -1,7 +1,9 @@
 const
+
   policies = [
-    `default-src 'none';`
+    `default-src 'none';` // `default-src 'self' https://${domain};`
   ]
+
 
 module.exports = options =>
 
