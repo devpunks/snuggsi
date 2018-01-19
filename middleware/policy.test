@@ -41,7 +41,7 @@ test ("Content-Security-Policy: default-src 'none'", async t => {
 })
 
 
-test ("Content-Security-Policy: frame-src 'self'", async t => {
+test ("Content-Security-Policy: frame-src 'none'", async t => {
 
   const
     server   = (new Server).serve ``
@@ -56,7 +56,7 @@ test ("Content-Security-Policy: frame-src 'self'", async t => {
 })
 
 
-test ("Content-Security-Policy: connect-src 'self'", async t => {
+test ("Content-Security-Policy: connect-src 'none'", async t => {
 
   const
     server   = (new Server).serve ``
@@ -71,7 +71,7 @@ test ("Content-Security-Policy: connect-src 'self'", async t => {
 })
 
 
-test ("content-security-policy: img-src 'self'", async t => {
+test ("content-security-policy: img-src 'none'", async t => {
 
   const
     server   = (new Server).serve ``
@@ -101,7 +101,7 @@ test ("Content-Security-Policy: style-src 'none'", async t => {
 })
 
 
-test ("Content-Security-Policy: script-src 'self'", async t => {
+test ("Content-Security-Policy: script-src 'none'", async t => {
 
   const
     server   = (new Server).serve ``
