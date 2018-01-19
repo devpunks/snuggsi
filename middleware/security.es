@@ -13,6 +13,7 @@ const
 module.exports = options =>
 
   async (context, next) => {
+
     await next ()
 
     context.set
