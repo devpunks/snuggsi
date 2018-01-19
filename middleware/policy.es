@@ -2,7 +2,7 @@ const
   defaults // `default-src 'self' https://${domain};`
     = [`'none'`]
 
-, reports // `reports-src ${path};`
+, reports // `report-uri ${path};`
     = Array.from (defaults)
 
 , frames // `frame-src 'self' https://${domain};`
