@@ -25,6 +25,7 @@ const
 
 , scripts
   // Script Nonce for inline <script>
+  // https://csp.withgoogle.com/docs/strict-csp.html
   // `scripts-src 'self' 'nonce-${nonce} https://cdn.example.com`
     = [`'none'`]
 
