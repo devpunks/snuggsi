@@ -27,12 +27,26 @@ test ("Content-Security-Policy: default-src 'none'", async t => {
 })
 
 
-test ("Content-Security-Policy: frame-src 'self'")
+test.only ("Content-Security-Policy: frame-src 'self'", async t => {
+
+  const
+    server   = (new Server).serve ``
+  , response = await fetch ('http://localhost:8181/')
+  , policy   = response.headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes `frame-src 'none'` )
+
+  server.close ``
+  t.end ()
+})
+
+
 test ("Content-Security-Policy: connect-src 'self'")
 test ("Content-Security-Policy: img-src 'self' https://cdn.example.com")
 
 
-test.only ("Content-Security-Policy: style-src 'none'", async t => {
+test ("Content-Security-Policy: style-src 'none'", async t => {
 
   const
     server   = (new Server).serve ``
