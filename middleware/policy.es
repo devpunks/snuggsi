@@ -2,6 +2,9 @@ const
   defaults // `default-src 'self' https://${domain};`
     = [`'none'`]
 
+// Depending on analytics framework,
+// may want to listen for securitypolicyviolation events
+// with JavaScript and collect more information about the client before reporting.
 , reports // `report-uri ${path};`
     = Array.from (defaults)
 
