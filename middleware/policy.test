@@ -9,6 +9,9 @@ const
 test ('calling next middleware')
 
 
+test ("Content-Security-Policy: report-uri 'self';")
+
+
 test ("Content-Security-Policy: default-src 'none';", async t => {
 
   const
