@@ -14,6 +14,9 @@ const
 , images // `image-src 'self' data: https://cdn.example.com`
     = Array.from (defaults)
 
+, fonts // `fonts-src 'self' https://cdn.example.com`
+    = Array.from (defaults)
+
 , styles // `style-src 'self' 'unsafe-inline' https://cdn.example.com`
     = Array.from (defaults)
 
@@ -29,6 +32,7 @@ const
     , `frame-src ${ frames.join ` ` }`
     , `connect-src ${ connects.join ` ` }`
     , `img-src ${ images.join ` ` }`
+    , `font-src ${ fonts.join ` ` }`
     , `style-src ${ styles.join ` ` }`
     , `script-src ${ scripts.join ` ` }`
     ]
