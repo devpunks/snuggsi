@@ -1,3 +1,6 @@
+// Can actually charge for this feature
+// https://report-uri.com/#prices
+
 const
   // `default-src 'self' safari-extension:// chrome-extension:// https://${domain};`
   defaults
