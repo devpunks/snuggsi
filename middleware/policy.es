@@ -17,6 +17,9 @@ const
 , fonts // `font-src 'self' https://cdn.example.com`
     = Array.from (defaults)
 
+, objects // `object-src 'self' https://cdn.example.com`
+    = Array.from (defaults)
+
 , styles // `style-src 'self' 'unsafe-inline' https://cdn.example.com`
     = Array.from (defaults)
 
@@ -33,6 +36,7 @@ const
     , `connect-src ${ connects.join ` ` }`
     , `img-src ${ images.join ` ` }`
     , `font-src ${ fonts.join ` ` }`
+    , `object-src ${ objects.join ` ` }`
     , `style-src ${ styles.join ` ` }`
     , `script-src ${ scripts.join ` ` }`
     ]
