@@ -13,6 +13,11 @@ Middleware used for Authentication.
 
 ## snuggsi.security
 
+Browser security for frames and XSS attacks
+
+
+## snuggsi.policy
+
 Middleware used for CSP (Content Security Policy).
 
   - https://medium.com/square-corner-blog/content-security-policy-for-single-page-web-apps-78f2b2cf1757
