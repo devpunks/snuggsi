@@ -36,6 +36,7 @@ const
 , scripts // Script Nonce for inline <script>
   // https://csp.withgoogle.com/docs/strict-csp.html
   // `scripts-src 'self' 'nonce-${nonce} https://cdn.example.com`
+  // **NEVER EXPOSE!!! Causes XSS attacks** script-src 'unsafe-inline'
     = Array.from (defaults)
 
 , policies
