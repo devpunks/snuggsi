@@ -46,7 +46,12 @@ const
 
 , policies
     = [
-      `report-uri ${ reports.join ` ` }`
+
+    // Reporting directives
+      `report-uri ${ reports.join ` ` }` // backwards compatibility
+//  , `report-to ${ reports.join ` ` }`  // greenfield
+
+    // Fetch directives
     , `default-src ${ defaults.join ` ` }`
     , `frame-src ${ frames.join ` ` }`
     , `connect-src ${ connects.join ` ` }`
@@ -56,6 +61,24 @@ const
     , `media-src ${ medias.join ` ` }`
     , `style-src ${ styles.join ` ` }`
     , `script-src ${ scripts.join ` ` }`
+
+//  , `worker-src ${ workers.join ` ` }`
+
+    // Document directives
+//  , `form-action ${ forms.join ` ` }`
+//  , `frame-ancestors ${ ancestors.join ` ` }`
+//  , `sandbox ${ sandboxes.join ` ` }`
+
+//  // Other directives
+//  // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
+//  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/require-sri-for
+//  , `require-sri-for ${ integrities.join ` ` }`
+//  , `block-all-mixed-content ${ reports.join ` ` }`
+//  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests
+//  , `update-insecure-requests`
+
+//  // DEPRECATED!! See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+//  , `referrer`
     ]
 
 
@@ -65,12 +88,17 @@ module.exports = options =>
 
     await next ()
 
-    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
+
     header
+
+      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
       = 'Content-Security-Policy'
+
       // Is this a security breach?
       // Will someone be able to disable CSP with this?
+      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only
       + ( 'report' in context.request.query ? '-Report-Only' : '' )
+
 
     context
       .set ( header, policies.join `; ` )
