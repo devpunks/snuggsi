@@ -61,6 +61,8 @@ module.exports = options =>
 
     header
       = 'Content-Security-Policy'
+      // Is this a security breach?
+      // Will someone be able to disable CSP with this?
       + ( 'report' in context.request.query ? '-Report-Only' : '' )
 
     context
