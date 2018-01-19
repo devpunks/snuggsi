@@ -65,6 +65,7 @@ module.exports = options =>
 
     await next ()
 
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
     header
       = 'Content-Security-Policy'
       // Is this a security breach?
