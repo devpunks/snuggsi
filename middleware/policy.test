@@ -21,3 +21,8 @@ test ("Content-Security-Policy: default-src 'none';", async t => {
   server.close ``
   t.end ()
 })
+
+
+test ("Content-Security-Policy: script-src 'self';")
+test ("Content-Security-Policy: img-src 'self' https://cdn.example.com;")
+test ("Content-Security-Policy: connect-src 'self';")
