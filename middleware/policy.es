@@ -1,5 +1,6 @@
 const
-  defaults // `default-src 'self' https://${domain};`
+  // `default-src 'self' safari-extension:// chrome-extension:// https://${domain};`
+  defaults
     = [`'none'`]
 
 // Depending on analytics framework,
