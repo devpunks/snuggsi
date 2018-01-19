@@ -55,10 +55,14 @@ const
 
 module.exports = options =>
 
-  async (context, next) => {
+  async (context, next, header) => {
 
     await next ()
 
-    context.set
-      ( 'Content-Security-Policy', policies.join `; ` )
+    header
+      = 'Content-Security-Policy'
+      + ( 'report' in context.request.query ? '-Report-Only' : '' )
+
+    context
+      .set ( header, policies.join `; ` )
   }

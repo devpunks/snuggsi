@@ -9,6 +9,21 @@ const
 test ('calling next middleware')
 
 
+test ('Content-Security-Policy-Report-Only', async t => {
+
+  const
+    server   = (new Server).serve ``
+    // notice ?report
+  , response = await fetch ('http://localhost:8181/?report')
+
+
+  t.ok ( response.headers.get ('Content-Security-Policy-Report-Only') )
+
+  server.close ``
+  t.end ()
+})
+
+
 test (`Content-Security-Policy: report-uri
       'https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce'`
 , async t => {
@@ -24,8 +39,6 @@ test (`Content-Security-Policy: report-uri
   server.close ``
   t.end ()
 })
-
-
 
 
 test ("Content-Security-Policy: default-src 'none'", async t => {
