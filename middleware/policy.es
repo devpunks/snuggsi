@@ -14,7 +14,7 @@ const
 , images // `image-src 'self' data: https://cdn.example.com`
     = Array.from (defaults)
 
-, fonts // `fonts-src 'self' https://cdn.example.com`
+, fonts // `font-src 'self' https://cdn.example.com`
     = Array.from (defaults)
 
 , styles // `style-src 'self' 'unsafe-inline' https://cdn.example.com`
