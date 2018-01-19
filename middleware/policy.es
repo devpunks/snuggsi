@@ -11,9 +11,14 @@ const
   // `style-src 'self' 'unsafe-inline' https://cdn.example.com
     = [`'none'`]
 
+, connects
+  // `connect-src 'self' https://${domain};`
+    = [`'none'`]
+
 , policies = [
   , `default-src ${ defaults.join ` ` };`
   , `frame-src ${ frames.join ` ` };`
+  , `connect-src ${ connects.join ` ` };`
   , `style-src ${ styles.join ` ` };`
   ]
 
