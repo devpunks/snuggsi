@@ -17,7 +17,11 @@ test ('Content-Security-Policy-Report-Only', async t => {
   , response = await fetch ('http://localhost:8181/?report')
 
 
-  t.ok ( response.headers.get ('Content-Security-Policy-Report-Only') )
+  t.notOk
+    ( response.headers.get ('Content-Security-Policy') )
+
+  t.ok
+    ( response.headers.get ('Content-Security-Policy-Report-Only') )
 
   server.close ``
   t.end ()
