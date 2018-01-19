@@ -20,7 +20,7 @@ const
     = [`'none'`]
 
 , scripts
-  // `style-src 'self' https://cdn.example.com
+  // `scripts-src 'self' https://cdn.example.com
     = [`'none'`]
 
 , policies = [
