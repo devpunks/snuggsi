@@ -20,5 +20,5 @@ module.exports = options =>
     await next ()
 
     context.set
-      ( 'Content-Security-Policy', policies.join `; ` )
+      ( 'Content-Security-Policy', policies.join ` ` )
   }
