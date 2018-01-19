@@ -1,33 +1,33 @@
 const
-  reports
-  // `reports-src 'self' https://${domain};`
-    = [`'none'`]
-
   defaults
   // `default-src 'self' https://${domain};`
     = [`'none'`]
 
+, reports
+  // `reports-src 'self' https://${domain};`
+    = Array.from (defaults)
+
 , frames
   // `frame-src 'self' https://${domain};`
-    = [`'none'`]
+    = Array.from (defaults)
 
 , connects
   // `connect-src 'self' https://${domain};`
-    = [`'none'`]
+    = Array.from (defaults)
 
 , images
   // `image-src 'self' data: https://cdn.example.com`
-    = [`'none'`]
+    = Array.from (defaults)
 
 , styles
   // `style-src 'self' 'unsafe-inline' https://cdn.example.com`
-    = [`'none'`]
+    = Array.from (defaults)
 
 , scripts
   // Script Nonce for inline <script>
   // https://csp.withgoogle.com/docs/strict-csp.html
   // `scripts-src 'self' 'nonce-${nonce} https://cdn.example.com`
-    = [`'none'`]
+    = Array.from (defaults)
 
 , policies = [
     `report-uri ${ reports.join ` ` };`
