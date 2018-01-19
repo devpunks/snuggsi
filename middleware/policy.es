@@ -24,13 +24,13 @@ const
 
 , policies
     = [
-      `report-uri ${ reports.join ` ` };`
-    , `default-src ${ defaults.join ` ` };`
-    , `frame-src ${ frames.join ` ` };`
-    , `connect-src ${ connects.join ` ` };`
-    , `img-src ${ images.join ` ` };`
-    , `style-src ${ styles.join ` ` };`
-    , `script-src ${ scripts.join ` ` };`
+      `report-uri ${ reports.join ` ` }`
+    , `default-src ${ defaults.join ` ` }`
+    , `frame-src ${ frames.join ` ` }`
+    , `connect-src ${ connects.join ` ` }`
+    , `img-src ${ images.join ` ` }`
+    , `style-src ${ styles.join ` ` }`
+    , `script-src ${ scripts.join ` ` }`
     ]
 
 
@@ -41,5 +41,5 @@ module.exports = options =>
     await next ()
 
     context.set
-      ( 'Content-Security-Policy', policies.join ` ` )
+      ( 'Content-Security-Policy', policies.join `; ` )
   }
