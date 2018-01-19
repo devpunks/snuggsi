@@ -40,7 +40,8 @@ test.only ("Content-Security-Policy: style-src 'none';", async t => {
 
   console.log (response.headers)
 
-  t.ok (response.headers.get ('content-security-policy'))
+  t.ok
+    (response.headers.get ('content-security-policy').includes `style-src 'none'`)
 
   server.close ``
   t.end ()
