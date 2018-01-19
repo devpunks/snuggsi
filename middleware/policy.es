@@ -16,15 +16,15 @@ const
     = [`'none'`]
 
 , images
-  // `image-src 'self' https://cdn.example.com
+  // `image-src 'self' data: https://cdn.example.com`
     = [`'none'`]
 
 , styles
-  // `style-src 'self' 'unsafe-inline' https://cdn.example.com
+  // `style-src 'self' 'unsafe-inline' https://cdn.example.com`
     = [`'none'`]
 
 , scripts
-  // `scripts-src 'self' https://cdn.example.com
+  // `scripts-src 'self' https://cdn.example.com`
     = [`'none'`]
 
 , policies = [
