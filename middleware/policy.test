@@ -38,8 +38,6 @@ test.only ("Content-Security-Policy: style-src 'none';", async t => {
   , response = await fetch ('http://localhost:8181/')
 
 
-  console.log (response.headers)
-
   t.ok
     (response.headers.get ('content-security-policy').includes `style-src 'none'`)
 
