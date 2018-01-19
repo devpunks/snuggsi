@@ -24,7 +24,8 @@ const
     = [`'none'`]
 
 , scripts
-  // `scripts-src 'self' https://cdn.example.com`
+  // Script Nonce for inline <script>
+  // `scripts-src 'self' 'nonce-${nonce} https://cdn.example.com`
     = [`'none'`]
 
 , policies = [
