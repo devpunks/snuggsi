@@ -15,10 +15,15 @@ const
   // `connect-src 'self' https://${domain};`
     = [`'none'`]
 
+, images
+  // `image-src 'self' https://cdn.example.com
+    = [`'none'`]
+
 , policies = [
   , `default-src ${ defaults.join ` ` };`
   , `frame-src ${ frames.join ` ` };`
   , `connect-src ${ connects.join ` ` };`
+  , `img-src ${ images.join ` ` };`
   , `style-src ${ styles.join ` ` };`
   ]
 
