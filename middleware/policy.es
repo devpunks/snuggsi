@@ -1,7 +1,15 @@
 const
-  policies = [
-    `default-src 'none'` // `default-src 'self' https://${domain};`
-  , `style-src 'none'` // `style-src 'self' 'unsafe-inline' https://cdn.example.com
+  defaults
+  // `default-src 'self' https://${domain};`
+    = [`'none'`]
+
+, styles
+  // `style-src 'self' 'unsafe-inline' https://cdn.example.com
+    = [`'none'`]
+
+, policies = [
+  , `default-src ${ defaults.join ` ` };`
+  , `style-src ${ styles.join ` ` };`
   ]
 
 
