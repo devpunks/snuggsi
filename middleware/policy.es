@@ -10,7 +10,7 @@ const
 // may want to listen for securitypolicyviolation events
 // with JavaScript and collect more information about the client before reporting.
 , reports // `report-uri ${path};`
-    = Array.from (defaults)
+    = ['https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce']
 
 , frames // `frame-src 'self' https://${domain};`
     = Array.from (defaults)

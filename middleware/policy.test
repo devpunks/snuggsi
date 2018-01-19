@@ -9,7 +9,9 @@ const
 test ('calling next middleware')
 
 
-test ("Content-Security-Policy: report-uri 'none'", async t => {
+test (`Content-Security-Policy: report-uri
+      'https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce'`
+, async t => {
 
   const
     server   = (new Server).serve ``
@@ -17,7 +19,7 @@ test ("Content-Security-Policy: report-uri 'none'", async t => {
   , policy   = response.headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes `report-uri 'none'` )
+  t.ok ( policy.includes`report-uri https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce` )
 
   server.close ``
   t.end ()
