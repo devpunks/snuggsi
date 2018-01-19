@@ -1,6 +1,11 @@
 # middleware
 
 
+## snuggsi.cors
+
+Cross Origin Resource Sharing
+
+
 ## snuggsi.auth
 
 Middleware used for Authentication.
