@@ -20,6 +20,7 @@ Browser security for frames and XSS attacks
 
 Middleware used for CSP (Content Security Policy).
 
+  - W3C Web App Security - https://github.com/w3c/webappsec
   - W3C CSP3 Specification - https://w3c.github.io/webappsec-csp
   - W3C Mixed Content (CR) - https://w3c.github.io/webappsec-mixed-content
   - W3C Upgrade Insecure Requests (CR) - https://w3c.github.io/webappsec/specs/upgrade/
