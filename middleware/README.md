@@ -24,6 +24,7 @@ Middleware used for CSP (Content Security Policy).
   - W3C CSP3 Specification - https://w3c.github.io/webappsec-csp
   - W3C Mixed Content (CR) - https://w3c.github.io/webappsec-mixed-content
   - W3C Upgrade Insecure Requests (CR) - https://w3c.github.io/webappsec/specs/upgrade/
+  - Wikipedia Documentation - https://en.wikipedia.org/wiki/Content_Security_Policy
   - MDN Documentation - https://developer.mozilla.org/en-US/docs/Web/HTTP/CSP
   - GOOGLE CSP - https://csp.withgoogle.com/docs/strict-csp.html
   - Mozilla Security Guidelines - https://wiki.mozilla.org/Security/Guidelines/Web_Security#Content_Security_Policy
