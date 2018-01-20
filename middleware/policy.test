@@ -29,7 +29,7 @@ test ('Content-Security-Policy-Report-Only', async t => {
 
 
 test (`Content-Security-Policy: report-uri
-      'https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce'`
+      https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce`
 , async t => {
 
   const
