@@ -32,6 +32,7 @@ Middleware used for CSP (Content Security Policy).
   - https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet
   - Node Security Platform - https://nodesecurity.io/resources
   - Github's CSP Journey - https://githubengineering.com/githubs-csp-journey
+  - Github's post-CSP Journey - https://githubengineering.com/githubs-post-csp-journey
 
 ## snuggsi.route
 
