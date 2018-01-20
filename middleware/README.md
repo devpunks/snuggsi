@@ -30,7 +30,8 @@ Middleware used for CSP (Content Security Policy).
 
 ### Services
 
-  - https://securityheaders.io
+  - Report-Uri - https://report-uri.com
+  - Reporting for security headershttps://securityheaders.io
 
 
 ### Links
