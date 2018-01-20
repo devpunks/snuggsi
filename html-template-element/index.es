@@ -1,6 +1,3 @@
-// https://html.spec.whatwg.org/multipage/scripting.html#the-template-element
-// https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
-// https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 const Template = template => {
 
   template.length
