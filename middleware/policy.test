@@ -41,7 +41,7 @@ test ('Content-Security-Policy: report-to' , async t => {
       = (await fetch ('http://localhost:8181/'))
         .headers.get ('content-security-policy')
 
-  , url = 'https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce'
+  , url = 'https://snuggsi.report-uri.com/r/d/csp/enforce'
 
 
   t.ok ( policy.includes (`report-to ${url}`))

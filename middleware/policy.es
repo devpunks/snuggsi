@@ -13,7 +13,7 @@ const
 // with JavaScript and collect more information about the client before reporting.
 , reports // report-to
     // *DEPRECATED* report-uri
-    = ['https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce']
+    = ['https://snuggsi.report-uri.com/r/d/csp/enforce']
 
 , frames // frame-src
     // *DEPRECATED* child-src fallback
