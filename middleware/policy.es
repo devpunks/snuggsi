@@ -61,6 +61,21 @@ const
     // default-src fallback
     = Array.from (defaults)
 
+, sandboxes // sandbox
+    // default-src fallback
+    = [/*
+      allow-forms
+    , allow-popups
+    , allow-modals
+    , allow-scripts
+    , allow-same-origin
+    , allow-presentation
+    , allow-pointer-lock
+    , allow-top-navigation
+    , allow-orientation-lock
+    , allow-popups-to-escape-sandbox
+    */]
+
 
 , directives = [
   // Reporting directives
@@ -80,7 +95,10 @@ const
 
 // Document directives
   , `base-uri ${ bases.join ` ` }`
-//  , `sandbox ${ sandboxes.join ` ` }`
+  //  `sandbox  ...` is not supported in the <meta> element
+  //  or by the Content-Security-policy-Report-Only header field.
+  //  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox
+  , `sandbox ${ sandboxes.join ` ` }`
 //  , `plugin-types ${ plugins.join ` ` }`
 
 //  Navigation Directives
