@@ -13,6 +13,8 @@ const
     = ['https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce']
 
 , frames // frame-src
+    // *DEPRECATED* child-src fallback
+    // default-src fallback
     = Array.from (defaults)
 
 , connects // connect-src
