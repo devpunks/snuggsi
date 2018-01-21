@@ -44,9 +44,7 @@ const
 
 , scripts // Script Nonce for inline <script>
     // https://csp.withgoogle.com/docs/strict-csp.html
-    // scripts-src
-    // nonce-${nonce}
-    // ** NONCE MUST BE UNIQUE **
+    // nonce-${nonce} ** MUST BE UNIQUE **
     //   https://w3c.github.io/webappsec-csp/#framework-directive-source-list
     // **NEVER EXPOSE!!! Causes XSS attacks** script-src 'unsafe-inline'
     // **THAT BEING SAID...For Safari 😢
