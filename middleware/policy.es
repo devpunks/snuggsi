@@ -9,7 +9,8 @@ const
 // Depending on analytics framework,
 // may want to listen for securitypolicyviolation events
 // with JavaScript and collect more information about the client before reporting.
-, reports // `report-uri ${path};`
+, reports // report-to
+    // *DEPRECATED* report-uri
     = ['https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce']
 
 , frames // frame-src
@@ -53,8 +54,7 @@ const
 
 , policies = [
   // Reporting directives
-    `report-uri ${ reports.join ` ` }` // backwards compatibility
-//  , `report-to ${ reports.join ` ` }`  // greenfield
+  , `report-to ${ reports.join ` ` }`  // greenfield
 
   // Fetch directives
   , `default-src ${ defaults.join ` ` }`
