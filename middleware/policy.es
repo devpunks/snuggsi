@@ -12,30 +12,30 @@ const
 , reports // `report-uri ${path};`
     = ['https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce']
 
-, frames // `frame-src 'self' https://${domain};`
+, frames // frame-src
     = Array.from (defaults)
 
-, connects // `connect-src 'self' https://${domain};`
+, connects // connect-src
     = Array.from (defaults)
 
-, images // `image-src 'self' data: https://cdn.example.com`
+, images // image-src
     = Array.from (defaults)
 
-, fonts // `font-src 'self' https://cdn.example.com`
+, fonts // font-src
     = Array.from (defaults)
 
-, objects // `object-src 'self' https://cdn.example.com`
+, objects // object-src
     = Array.from (defaults)
 
-, medias // `media-src 'self' https://cdn.example.com`
+, medias // media-src
     = Array.from (defaults)
 
-, styles // `style-src 'self' 'unsafe-inline' https://cdn.example.com`
+, styles // style-src
     = Array.from (defaults)
 
 , scripts // Script Nonce for inline <script>
   // https://csp.withgoogle.com/docs/strict-csp.html
-  // scripts-src 'self'
+  // scripts-src
   // nonce-${nonce}
   // ** NONCE MUST BE UNIQUE **
   //   https://w3c.github.io/webappsec-csp/#framework-directive-source-list
@@ -44,7 +44,7 @@ const
   // 'unsafe-inline' // THIS MAY NOT BE TRUE IN 2018
     = Array.from (defaults)
 
-, workers // `worker-src 'self'
+, workers // worker-src
     = Array.from (defaults)
 
 , policies = [
