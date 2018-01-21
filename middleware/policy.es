@@ -44,9 +44,11 @@ const
   // 'unsafe-inline' // THIS MAY NOT BE TRUE IN 2018
     = Array.from (defaults)
 
+, workers // `worker-src 'self'
+    = Array.from (defaults)
+
 , policies
     = [
-
     // Reporting directives
       `report-uri ${ reports.join ` ` }` // backwards compatibility
 //  , `report-to ${ reports.join ` ` }`  // greenfield
@@ -61,8 +63,8 @@ const
     , `media-src ${ medias.join ` ` }`
     , `style-src ${ styles.join ` ` }`
     , `script-src ${ scripts.join ` ` }`
+    , `worker-src ${ workers.join ` ` }`
 
-//  , `worker-src ${ workers.join ` ` }`
 
     // Document directives
 //  , `form-action ${ forms.join ` ` }`

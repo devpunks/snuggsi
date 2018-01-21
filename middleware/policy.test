@@ -12,7 +12,7 @@ test ('calling next middleware')
 test ('Content-Security-Policy-Report-Only', async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
     // notice ?report
   , response = await
@@ -53,7 +53,7 @@ test (`Content-Security-Policy: report-uri
 test ("Content-Security-Policy: default-src 'none'", async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
@@ -206,6 +206,24 @@ test ("Content-Security-Policy: script-src 'none'", async t => {
 
 
   t.ok ( policy.includes `script-src 'none'` )
+
+  server.close ``
+  t.end ()
+})
+
+
+test.only ("Content-Security-Policy: worker-src 'none'", async t => {
+
+  const
+    server   = (new Server).serve ``
+
+  , response = await
+      fetch ('http://localhost:8181/')
+
+  , policy   = response.headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes `worker-src 'none'` )
 
   server.close ``
   t.end ()
