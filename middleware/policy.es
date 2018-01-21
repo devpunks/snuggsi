@@ -19,21 +19,27 @@ const
     = Array.from (defaults)
 
 , connects // connect-src
+    // default-src fallback
     = Array.from (defaults)
 
 , images // image-src
+    // default-src fallback
     = Array.from (defaults)
 
 , fonts // font-src
+    // default-src fallback
     = Array.from (defaults)
 
 , objects // object-src
+    // default-src fallback
     = Array.from (defaults)
 
 , medias // media-src
+    // default-src fallback
     = Array.from (defaults)
 
 , styles // style-src
+    // default-src fallback
     = Array.from (defaults)
 
 , scripts // Script Nonce for inline <script>
