@@ -65,6 +65,10 @@ const
     // default-src fallback
     = Array.from (defaults)
 
+, forms // form-action
+    // default-src fallback
+    = Array.from (defaults)
+
 , sandboxes // sandbox
     // default-src fallback
     = [/*
@@ -106,7 +110,7 @@ const
   , `plugin-types ${ plugins.join ` ` }`
 
 //  Navigation Directives
-//  , `form-action ${ forms.join ` ` }`
+  , `form-action ${ forms.join ` ` }`
 //  , `frame-ancestors ${ ancestors.join ` ` }`
 
 //  // Other directives
