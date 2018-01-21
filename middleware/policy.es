@@ -69,6 +69,10 @@ const
     // default-src fallback
     = Array.from (defaults)
 
+, ancestors // frame-ancestors
+    // default-src fallback
+    = Array.from (defaults)
+
 , sandboxes // sandbox
     // default-src fallback
     = [/*
@@ -111,7 +115,7 @@ const
 
 //  Navigation Directives
   , `form-action ${ forms.join ` ` }`
-//  , `frame-ancestors ${ ancestors.join ` ` }`
+  , `frame-ancestors ${ ancestors.join ` ` }`
 
 //  // Other directives
 //  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests
