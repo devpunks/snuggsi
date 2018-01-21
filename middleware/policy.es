@@ -60,7 +60,7 @@ const
 
 , directives = [
   // Reporting directives
-  , `report-to ${ reports.join ` ` }`  // greenfield
+    `report-to ${ reports.join ` ` }`  // greenfield
 
   // Fetch directives
   , `default-src ${ defaults.join ` ` }`
