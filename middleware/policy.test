@@ -32,7 +32,7 @@ test ('Content-Security-Policy-Report-Only', async t => {
 })
 
 
-test (`Content-Security-Policy: report-to` , async t => {
+test ('Content-Security-Policy: report-to' , async t => {
 
   const
     server = (new Server).serve ``
@@ -51,7 +51,7 @@ test (`Content-Security-Policy: report-to` , async t => {
 })
 
 
-test ("Content-Security-Policy: default-src", async t => {
+test ('Content-Security-Policy: default-src', async t => {
 
   const
     server = (new Server).serve ``
@@ -68,7 +68,7 @@ test ("Content-Security-Policy: default-src", async t => {
 })
 
 
-test ("Content-Security-Policy: frame-src", async t => {
+test ('Content-Security-Policy: frame-src', async t => {
 
   const
     server = (new Server).serve ``
@@ -85,7 +85,7 @@ test ("Content-Security-Policy: frame-src", async t => {
 })
 
 
-test ("Content-Security-Policy: connect-src", async t => {
+test ('Content-Security-Policy: connect-src', async t => {
 
   const
     server = (new Server).serve ``
@@ -102,7 +102,7 @@ test ("Content-Security-Policy: connect-src", async t => {
 })
 
 
-test ("content-security-policy: img-src", async t => {
+test ('content-security-policy: img-src', async t => {
 
   const
     server = (new Server).serve ``
@@ -119,7 +119,7 @@ test ("content-security-policy: img-src", async t => {
 })
 
 
-test ("Content-Security-Policy: font-src", async t => {
+test ('Content-Security-Policy: font-src', async t => {
 
   const
     server = (new Server).serve ``
@@ -136,7 +136,7 @@ test ("Content-Security-Policy: font-src", async t => {
 })
 
 
-test ("Content-Security-Policy: object-src", async t => {
+test ('Content-Security-Policy: object-src', async t => {
 
   const
     server = (new Server).serve ``
@@ -153,7 +153,7 @@ test ("Content-Security-Policy: object-src", async t => {
 })
 
 
-test ("Content-Security-Policy: media-src", async t => {
+test ('Content-Security-Policy: media-src', async t => {
 
   const
     server = (new Server).serve ``
@@ -170,7 +170,7 @@ test ("Content-Security-Policy: media-src", async t => {
 })
 
 
-test ("Content-Security-Policy: style-src", async t => {
+test ('Content-Security-Policy: style-src', async t => {
 
   const
     server = (new Server).serve ``
@@ -187,7 +187,7 @@ test ("Content-Security-Policy: style-src", async t => {
 })
 
 
-test ("Content-Security-Policy: script-src", async t => {
+test ('Content-Security-Policy: script-src', async t => {
 
   const
     server = (new Server).serve ``
@@ -204,7 +204,7 @@ test ("Content-Security-Policy: script-src", async t => {
 })
 
 
-test ("Content-Security-Policy: worker-src", async t => {
+test ('Content-Security-Policy: worker-src', async t => {
 
   const
     server = (new Server).serve ``
@@ -221,7 +221,7 @@ test ("Content-Security-Policy: worker-src", async t => {
 })
 
 
-test ("Content-Security-Policy: base-uri", async t => {
+test ('Content-Security-Policy: base-uri', async t => {
 
   const
     server = (new Server).serve ``
@@ -238,7 +238,7 @@ test ("Content-Security-Policy: base-uri", async t => {
 })
 
 
-test ("Content-Security-Policy: sandbox", async t => {
+test ('Content-Security-Policy: sandbox', async t => {
 
   const
     server = (new Server).serve ``
@@ -255,7 +255,7 @@ test ("Content-Security-Policy: sandbox", async t => {
 })
 
 
-test ("Content-Security-Policy: plugin-types", async t => {
+test ('Content-Security-Policy: plugin-types', async t => {
 
   const
     server = (new Server).serve ``
@@ -272,7 +272,7 @@ test ("Content-Security-Policy: plugin-types", async t => {
 })
 
 
-test ("Content-Security-Policy: form-action", async t => {
+test ('Content-Security-Policy: form-action', async t => {
 
   const
     server = (new Server).serve ``
@@ -289,7 +289,7 @@ test ("Content-Security-Policy: form-action", async t => {
 })
 
 
-test ("Content-Security-Policy: frame-ancestors", async t => {
+test ('Content-Security-Policy: frame-ancestors', async t => {
 
   const
     server = (new Server).serve ``
@@ -306,7 +306,7 @@ test ("Content-Security-Policy: frame-ancestors", async t => {
 })
 
 
-test ("Content-Security-Policy: block-all-mixed-content", async t => {
+test ('Content-Security-Policy: block-all-mixed-content', async t => {
 
   const
     server = (new Server).serve ``
@@ -323,7 +323,7 @@ test ("Content-Security-Policy: block-all-mixed-content", async t => {
 })
 
 
-test ("Content-Security-Policy: update-insecure-requests", async t => {
+test ('Content-Security-Policy: update-insecure-requests', async t => {
 
   const
     server = (new Server).serve ``
