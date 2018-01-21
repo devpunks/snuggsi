@@ -2,7 +2,7 @@
 // https://report-uri.com/#prices
 
 const
-  // `default-src 'self' safari-extension:// chrome-extension:// https://${domain};`
+//schemes = ['safari-extension://', 'chrome-extension://', 'https://', 'http://']
   defaults
     = [`'none'`]
 
