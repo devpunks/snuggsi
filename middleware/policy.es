@@ -6,6 +6,8 @@ const
   defaults
     = [`'none'`]
 
+, INSECURE = true
+
 // Depending on analytics framework,
 // may want to listen for securitypolicyviolation events
 // with JavaScript and collect more information about the client before reporting.
