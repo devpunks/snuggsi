@@ -57,6 +57,11 @@ const
     // script-src fallback
     = Array.from (scripts)
 
+, bases // base-uri
+    // default-src fallback
+    = Array.from (defaults)
+
+
 , directives = [
   // Reporting directives
     `report-to ${ reports.join ` ` }`
@@ -74,7 +79,7 @@ const
   , `worker-src ${ workers.join ` ` }`
 
 // Document directives
-//  , `base-uri ${ bases.join ` ` }`
+  , `base-uri ${ bases.join ` ` }`
 //  , `sandbox ${ sandboxes.join ` ` }`
 //  , `plugin-types ${ plugins.join ` ` }`
 

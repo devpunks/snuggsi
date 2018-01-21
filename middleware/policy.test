@@ -230,6 +230,24 @@ test ("Content-Security-Policy: worker-src", async t => {
 })
 
 
+test ("Content-Security-Policy: base-uri", async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , response = await
+      fetch ('http://localhost:8181/')
+
+  , policy = response.headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`base-uri ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
 test ("Content-Security-Policy: block-all-mixed-content", async t => {
 
   const
