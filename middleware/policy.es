@@ -52,7 +52,7 @@ const
     // script-src fallback
     = Array.from (scripts)
 
-, policies = [
+, directives = [
   // Reporting directives
   , `report-to ${ reports.join ` ` }`  // greenfield
 
@@ -106,5 +106,5 @@ module.exports = options =>
 
 
     context
-      .set ( header, policies.join `; ` )
+      .set ( header, directives.join `; ` )
   }
