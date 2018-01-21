@@ -35,12 +35,12 @@ test ('Content-Security-Policy-Report-Only', async t => {
 test (`Content-Security-Policy: report-to` , async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes`report-to https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce` )
@@ -58,7 +58,7 @@ test ("Content-Security-Policy: default-src", async t => {
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes (`default-src ${defaults}`) )
@@ -71,12 +71,12 @@ test ("Content-Security-Policy: default-src", async t => {
 test ("Content-Security-Policy: frame-src", async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes (`frame-src ${defaults}`) )
@@ -89,12 +89,12 @@ test ("Content-Security-Policy: frame-src", async t => {
 test ("Content-Security-Policy: connect-src", async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes (`connect-src ${defaults}`) )
@@ -107,12 +107,12 @@ test ("Content-Security-Policy: connect-src", async t => {
 test ("content-security-policy: img-src", async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes (`img-src ${defaults}`) )
@@ -125,12 +125,12 @@ test ("content-security-policy: img-src", async t => {
 test ("Content-Security-Policy: font-src", async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes (`font-src ${defaults}`) )
@@ -143,12 +143,12 @@ test ("Content-Security-Policy: font-src", async t => {
 test ("Content-Security-Policy: object-src", async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes (`object-src ${defaults}`) )
@@ -161,12 +161,12 @@ test ("Content-Security-Policy: object-src", async t => {
 test ("Content-Security-Policy: media-src", async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes (`media-src ${defaults}`) )
@@ -179,12 +179,12 @@ test ("Content-Security-Policy: media-src", async t => {
 test ("Content-Security-Policy: style-src", async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes (`style-src ${defaults}`) )
@@ -197,12 +197,12 @@ test ("Content-Security-Policy: style-src", async t => {
 test ("Content-Security-Policy: script-src", async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes (`script-src ${defaults}`) )
@@ -215,12 +215,12 @@ test ("Content-Security-Policy: script-src", async t => {
 test ("Content-Security-Policy: worker-src", async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes (`worker-src ${defaults}`) )
@@ -233,12 +233,12 @@ test ("Content-Security-Policy: worker-src", async t => {
 test ("Content-Security-Policy: block-all-mixed-content", async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes (`block-all-mixed-content`) )
@@ -251,12 +251,12 @@ test ("Content-Security-Policy: block-all-mixed-content", async t => {
 test ("Content-Security-Policy: update-insecure-requests", async t => {
 
   const
-    server   = (new Server).serve ``
+    server = (new Server).serve ``
 
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy   = response.headers.get ('content-security-policy')
+  , policy = response.headers.get ('content-security-policy')
 
 
   t.notOk ( policy.includes (`update-insecure-requests`) )
