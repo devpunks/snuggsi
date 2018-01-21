@@ -47,26 +47,25 @@ const
 , workers // `worker-src 'self'
     = Array.from (defaults)
 
-, policies
-    = [
-    // Reporting directives
-      `report-uri ${ reports.join ` ` }` // backwards compatibility
+, policies = [
+  // Reporting directives
+    `report-uri ${ reports.join ` ` }` // backwards compatibility
 //  , `report-to ${ reports.join ` ` }`  // greenfield
 
-    // Fetch directives
-    , `default-src ${ defaults.join ` ` }`
-    , `frame-src ${ frames.join ` ` }`
-    , `connect-src ${ connects.join ` ` }`
-    , `img-src ${ images.join ` ` }`
-    , `font-src ${ fonts.join ` ` }`
-    , `object-src ${ objects.join ` ` }`
-    , `media-src ${ medias.join ` ` }`
-    , `style-src ${ styles.join ` ` }`
-    , `script-src ${ scripts.join ` ` }`
-    , `worker-src ${ workers.join ` ` }`
+  // Fetch directives
+  , `default-src ${ defaults.join ` ` }`
+  , `frame-src ${ frames.join ` ` }`
+  , `connect-src ${ connects.join ` ` }`
+  , `img-src ${ images.join ` ` }`
+  , `font-src ${ fonts.join ` ` }`
+  , `object-src ${ objects.join ` ` }`
+  , `media-src ${ medias.join ` ` }`
+  , `style-src ${ styles.join ` ` }`
+  , `script-src ${ scripts.join ` ` }`
+  , `worker-src ${ workers.join ` ` }`
 
 
-    // Document directives
+  // Document directives
 //  , `form-action ${ forms.join ` ` }`
 //  , `frame-ancestors ${ ancestors.join ` ` }`
 //  , `sandbox ${ sandboxes.join ` ` }`
@@ -81,7 +80,7 @@ const
 
 //  // DEPRECATED!! See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
 //  , `referrer`
-    ]
+  ]
 
 
 module.exports = options =>
