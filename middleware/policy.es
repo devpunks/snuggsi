@@ -73,8 +73,7 @@ const
   , `script-src ${ scripts.join ` ` }`
   , `worker-src ${ workers.join ` ` }`
 
-
-  // Document directives
+// Document directives
 //  , `form-action ${ forms.join ` ` }`
 //  , `frame-ancestors ${ ancestors.join ` ` }`
 //  , `sandbox ${ sandboxes.join ` ` }`
@@ -83,6 +82,7 @@ const
 //  // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
 //  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/require-sri-for
 //  , `require-sri-for ${ integrities.join ` ` }`
+
 //  , `block-all-mixed-content ${ reports.join ` ` }`
 //  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests
 //  , `update-insecure-requests`
