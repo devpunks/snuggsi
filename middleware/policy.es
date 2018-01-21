@@ -99,8 +99,6 @@ module.exports = options =>
 
 
     header
-
-      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
       = 'Content-Security-Policy'
 
       // Is this a security breach?
