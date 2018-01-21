@@ -88,7 +88,6 @@ const
     , allow-popups-to-escape-sandbox
     */]
 
-
 , directives = [
   // Reporting directives
     `report-to ${ reports.join ` ` }`
