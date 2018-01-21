@@ -45,7 +45,8 @@ const
     = Array.from (defaults)
 
 , workers // worker-src
-    = Array.from (defaults)
+    // script-src fallback
+    = Array.from (scripts)
 
 , policies = [
   // Reporting directives
