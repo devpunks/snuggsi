@@ -61,16 +61,14 @@ test ("Content-Security-Policy: default-src", async t => {
   , policy   = response.headers.get ('content-security-policy')
 
 
-  console.log (policy, `default-src ${defaults}`)
-
-  t.ok ( policy.includes `default-src ${defaults}` )
+  t.ok ( policy.includes (`default-src ${defaults}`) )
 
   server.close ``
   t.end ()
 })
 
 
-test ("Content-Security-Policy: frame-src 'none'", async t => {
+test ("Content-Security-Policy: frame-src", async t => {
 
   const
     server   = (new Server).serve ``
@@ -81,14 +79,14 @@ test ("Content-Security-Policy: frame-src 'none'", async t => {
   , policy   = response.headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes `frame-src 'none'` )
+  t.ok ( policy.includes (`frame-src ${defaults}`) )
 
   server.close ``
   t.end ()
 })
 
 
-test ("Content-Security-Policy: connect-src 'none'", async t => {
+test ("Content-Security-Policy: connect-src", async t => {
 
   const
     server   = (new Server).serve ``
@@ -99,14 +97,14 @@ test ("Content-Security-Policy: connect-src 'none'", async t => {
   , policy   = response.headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes `connect-src 'none'` )
+  t.ok ( policy.includes (`connect-src ${defaults}`) )
 
   server.close ``
   t.end ()
 })
 
 
-test ("content-security-policy: img-src 'none'", async t => {
+test ("content-security-policy: img-src", async t => {
 
   const
     server   = (new Server).serve ``
@@ -117,14 +115,14 @@ test ("content-security-policy: img-src 'none'", async t => {
   , policy   = response.headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes `img-src 'none'` )
+  t.ok ( policy.includes (`img-src ${defaults}`) )
 
   server.close ``
   t.end ()
 })
 
 
-test ("Content-Security-Policy: font-src 'none'", async t => {
+test ("Content-Security-Policy: font-src", async t => {
 
   const
     server   = (new Server).serve ``
@@ -135,14 +133,14 @@ test ("Content-Security-Policy: font-src 'none'", async t => {
   , policy   = response.headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes `font-src 'none'` )
+  t.ok ( policy.includes (`font-src ${defaults}`) )
 
   server.close ``
   t.end ()
 })
 
 
-test ("Content-Security-Policy: object-src 'none'", async t => {
+test ("Content-Security-Policy: object-src", async t => {
 
   const
     server   = (new Server).serve ``
@@ -153,14 +151,14 @@ test ("Content-Security-Policy: object-src 'none'", async t => {
   , policy   = response.headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes `object-src 'none'` )
+  t.ok ( policy.includes (`object-src ${defaults}`) )
 
   server.close ``
   t.end ()
 })
 
 
-test ("Content-Security-Policy: media-src 'none'", async t => {
+test ("Content-Security-Policy: media-src", async t => {
 
   const
     server   = (new Server).serve ``
@@ -171,14 +169,14 @@ test ("Content-Security-Policy: media-src 'none'", async t => {
   , policy   = response.headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes `media-src 'none'` )
+  t.ok ( policy.includes (`media-src ${defaults}`) )
 
   server.close ``
   t.end ()
 })
 
 
-test ("Content-Security-Policy: style-src 'none'", async t => {
+test ("Content-Security-Policy: style-src", async t => {
 
   const
     server   = (new Server).serve ``
@@ -189,14 +187,14 @@ test ("Content-Security-Policy: style-src 'none'", async t => {
   , policy   = response.headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes `style-src 'none'` )
+  t.ok ( policy.includes (`style-src ${defaults}`) )
 
   server.close ``
   t.end ()
 })
 
 
-test ("Content-Security-Policy: script-src 'none'", async t => {
+test ("Content-Security-Policy: script-src", async t => {
 
   const
     server   = (new Server).serve ``
@@ -207,14 +205,14 @@ test ("Content-Security-Policy: script-src 'none'", async t => {
   , policy   = response.headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes `script-src 'none'` )
+  t.ok ( policy.includes (`script-src ${defaults}`) )
 
   server.close ``
   t.end ()
 })
 
 
-test ("Content-Security-Policy: worker-src 'none'", async t => {
+test ("Content-Security-Policy: worker-src", async t => {
 
   const
     server   = (new Server).serve ``
@@ -225,7 +223,7 @@ test ("Content-Security-Policy: worker-src 'none'", async t => {
   , policy   = response.headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes `worker-src 'none'` )
+  t.ok ( policy.includes (`worker-src ${defaults}`) )
 
   server.close ``
   t.end ()
