@@ -5,6 +5,8 @@ const
 , { Server }
     = require ('..')
 
+, defaults = [`'none'`].join `; `
+
 
 test ('calling next middleware')
 
@@ -30,9 +32,7 @@ test ('Content-Security-Policy-Report-Only', async t => {
 })
 
 
-test (`Content-Security-Policy: report-to
-      https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce`
-, async t => {
+test (`Content-Security-Policy: report-to` , async t => {
 
   const
     server   = (new Server).serve ``
@@ -50,7 +50,7 @@ test (`Content-Security-Policy: report-to
 })
 
 
-test ("Content-Security-Policy: default-src 'none'", async t => {
+test ("Content-Security-Policy: default-src", async t => {
 
   const
     server = (new Server).serve ``
@@ -61,7 +61,9 @@ test ("Content-Security-Policy: default-src 'none'", async t => {
   , policy   = response.headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes `default-src 'none'` )
+  console.log (policy, `default-src ${defaults}`)
+
+  t.ok ( policy.includes `default-src ${defaults}` )
 
   server.close ``
   t.end ()
