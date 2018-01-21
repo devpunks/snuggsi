@@ -40,7 +40,9 @@ test (`Content-Security-Policy: report-to` , async t => {
   , response = await
       fetch ('http://localhost:8181/')
 
-  , policy = response.headers.get ('content-security-policy')
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
 
 
   t.ok ( policy.includes`report-to https://ffb4d440b7878d6a1d371906dbe25fcd.report-uri.com/r/d/csp/enforce` )
