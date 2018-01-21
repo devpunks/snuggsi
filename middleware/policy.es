@@ -61,6 +61,10 @@ const
     // default-src fallback
     = Array.from (defaults)
 
+, plugins // plugin-types
+    // default-src fallback
+    = Array.from (defaults)
+
 , sandboxes // sandbox
     // default-src fallback
     = [/*
@@ -99,7 +103,7 @@ const
   //  or by the Content-Security-policy-Report-Only header field.
   //  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox
   , `sandbox ${ sandboxes.join ` ` }`
-//  , `plugin-types ${ plugins.join ` ` }`
+  , `plugin-types ${ plugins.join ` ` }`
 
 //  Navigation Directives
 //  , `form-action ${ forms.join ` ` }`
