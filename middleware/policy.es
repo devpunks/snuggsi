@@ -74,18 +74,21 @@ const
   , `worker-src ${ workers.join ` ` }`
 
 // Document directives
+//  , `base-uri ${ bases.join ` ` }`
+//  , `sandbox ${ sandboxes.join ` ` }`
+//  , `plugin-types ${ plugins.join ` ` }`
+
+//  Navigation Directives
 //  , `form-action ${ forms.join ` ` }`
 //  , `frame-ancestors ${ ancestors.join ` ` }`
-//  , `sandbox ${ sandboxes.join ` ` }`
 
 //  // Other directives
+//  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests
+  , (SECURE ? `block-all-mixed-content` : `update-insecure-requests`)
+
 //  // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
 //  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/require-sri-for
 //  , `require-sri-for ${ integrities.join ` ` }`
-
-  , (SECURE ? `block-all-mixed-content` : `update-insecure-requests`)
-
-//  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests
 
 //  // DEPRECATED!! See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
 //  , `referrer`
