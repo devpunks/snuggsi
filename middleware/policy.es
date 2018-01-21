@@ -6,7 +6,7 @@ const
   defaults
     = [`'none'`]
 
-, INSECURE = true
+, SECURE = true
 
 // Depending on analytics framework,
 // may want to listen for securitypolicyviolation events
@@ -83,9 +83,9 @@ const
 //  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/require-sri-for
 //  , `require-sri-for ${ integrities.join ` ` }`
 
-//  , `block-all-mixed-content ${ reports.join ` ` }`
+  , (SECURE ? `block-all-mixed-content` : `update-insecure-requests`)
+
 //  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests
-//  , `update-insecure-requests`
 
 //  // DEPRECATED!! See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
 //  , `referrer`
