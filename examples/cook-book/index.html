@@ -167,7 +167,10 @@ const
 
 
 tradesChannel.bind ('trade', function (data) {
-  console.warn (new Date, data)
+
+  document
+    .getElementById ('price')
+    .textContent = `$ ${data.price}`
 })
 
 </script>
