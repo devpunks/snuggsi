@@ -13,6 +13,9 @@ The less circulating supply the higher the price.
 ### Total Supply
 
 
+## Maximum Supply
+
+
 
 ## Security Checklist
 
