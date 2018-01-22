@@ -1,0 +1,156 @@
+<!doctype html>
+
+
+<title>&lt;hello-world&gt;</title>
+
+<meta name=viewport content=width=device-width,initial-scale=1>
+
+<link rel=stylesheet href=http://www.devpunks.com/typography.css>
+<link rel=stylesheet href=hello-world/index.css>
+
+<link
+  as=fetch
+  rel=preload
+  id=header-group
+  href=/examples/header-group>
+
+<link rel=stylesheet href=/typography.css>
+<link rel=stylesheet href=hello-world/index.css>
+
+<script src=/></script>
+
+<header-group>
+  <h2 slot=header>&lt;crypto-cookbook&gt;</h2>
+  <a  slot=subheader title='See more component examples' href=/examples>See more component examples</a>
+</header-group>
+
+<cook-book>
+<table>
+
+  <thead>
+    <tr>
+      <td>Name
+      <td>Market Cap
+      <td>24hr. Volume
+      <td>Circulating Supply
+      <td>Total Supply
+      <td>Maximum Supply
+      <td>Utility
+      <td>Price
+      <td>24hr. Spread / Change
+      <td>Time Released
+      <td>Historic Performance
+      <td>Quarterly Ratings
+      <td>Average Score
+    </tr>
+  </thead>
+
+  <tbody>
+    <tr>
+      <td colspan=13>Foo</td>
+    </tr>
+    
+    <tr>
+      <td><!-- Name -->
+        <output name=rating>9</output>
+        <section style='font-weight:bold;'>
+          <a
+            style='margin:0 0 1em; display: block;text-align: center;'
+            rel=external
+            target=coinmarketcap
+            title='Bitcoin (BTC)'
+            href=https://coinmarketcap.com/currencies/bitcoin>
+              BTC
+          </a> Bitcoin
+        </section>
+
+
+      <td><!-- Market Cap -->
+        <output name=rating>9</output>
+        <var name=value>$ 224 <strong>B</strong></var>
+
+      <td><!-- Volume -->
+        <output name=rating>9</output>
+        <var name=value>$ 11.2 <strong>B</strong></var>
+
+      <td><!-- Circulating Supply -->
+        <output name=rating>9</output>
+        <var name=value>16.8 <strong>M</strong></var>
+
+      <td><!-- Total Supply -->
+        <output name=rating>9</output>
+        <var name=value>21<strong>M</strong></var>
+
+      <td><!-- Maximum Supply -->
+        <output name=rating>9</output>
+        <var name=value>21 <strong>M</strong></var>
+
+      <td><!-- Utility -->
+        <output name=rating>?</output>
+        <var name=value>?</var>
+
+      <td><!-- Price -->
+        <output name=rating>3</output>
+        <var name=value>$13 664,90 <strong>USD</strong></var>
+
+      <td><!-- Price -->
+        <output name=rating>3</output>
+        <var name=value>-5 <strong>%</strong></var>
+
+      <td><!-- Time Released -->
+        <output name=rating>9</output>
+        <var name=value>Yes</var>
+        
+      <td><!-- Performance -->
+        <output name=rating>9</output>
+        <var name=value>Longevity</var>
+
+      <td><!-- Quarterly Ratings -->
+        <output name=rating>6</output>
+        <var name=value>Market News</var>
+
+      <td><!-- Score (Average of all the ratings combined -->
+        <output name=rating>8</output>
+        <var name=value>Very Good</var>
+
+<!--
+      <td>
+        <output name=rating>9</output>
+        <var name=value>16.8 <strong>M</strong></var>
+
+-->
+    </tr>
+  </tbody>
+
+</table>
+</cook-book>
+
+
+<style>
+
+cook-book table {
+  font-size: 0.6em;
+  line-height: 1em;
+}
+
+cook-book table {
+  background: #eee;
+  color: #444;
+  width: 100vw;
+  text-align: left;
+  margin: 2em 0;
+}
+cook-book thead {
+  font-weight: bold;
+  font-size: 0.9em;
+}
+cook-book td {
+  outline: 2px dashed #aaa;
+  padding: 1em;
+}
+
+output { display: block; background: white; margin: 1.4em 0; font-size: 2.2em; text-align: center;  }
+</style>
+
+
+<script src=/browser-sync.es></script>
