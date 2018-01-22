@@ -161,6 +161,7 @@ void (_ => {
   // https://xhr.spec.whatwg.org/#interface-progressevent
   // Loader - https://trac.webkit.org/browser/trunk/WebCore/loader/loader.cpp
   function load (link) {
+
     let xhr = new XMLHttpRequest
 
     // Destination - https://fetch.spec.whatwg.org/#requestdestination
