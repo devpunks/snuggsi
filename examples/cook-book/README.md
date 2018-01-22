@@ -21,4 +21,6 @@ The less circulating supply the higher the price.
 
 - [ ] 2FA
 
+## Historic Performance
 
+The length of time available to public.
