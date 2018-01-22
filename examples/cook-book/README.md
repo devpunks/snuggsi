@@ -2,7 +2,7 @@
 
 The amount of underlying asset in circulating supply multiplied by price per asset.
 
-If you wanted to buy / alot there is more room.
+If you wanted to buy / sell alot there is more room.
 
 
 ### Circulating Supply
