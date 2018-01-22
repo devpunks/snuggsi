@@ -1,6 +1,6 @@
 ### Market Cap
 
-How much volume is traded vs amount of underlying asset in circulation.
+The amount of underlying asset in circulating supply multiplied by price per asset.
 
 If you wanted to buy / alot there is more room.
 
