@@ -154,10 +154,8 @@ Element `cook-book`
 
 (class extends HTMLElement {
 
-  initialize () { }
-
-  onconnect (heartbeat = 15000)
-    { setInterval ( this.fetch.bind (this), heartbeat ) }
+  onconnect ()
+    { this.fetch () }
 
   get coins () {
     return ( this.context.coins || [] )
