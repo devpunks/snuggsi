@@ -117,9 +117,6 @@
         <output name=rating>8</output>
         <var name=value>Very Good</var>
 
-    </tr>
-  </tbody>
-
 </table>
 </cook-book>
 
@@ -160,11 +157,8 @@ Element `cook-book`
     this.context.coins = []
   }
 
-  onconnect () {
-    fetch ( 'https://api.coinmarketcap.com/v1/ticker/?limit=0' )
-      .then ( response => response.json () )
-      .then ( coins => (this.context.coins = coins) )
-      .then ( this.render.bind (this) )
+  onconnect (heartbeat = 15000) {
+    setInterval (this.fetch.bind (this), heartbeat)
   }
 
   get coins () {
