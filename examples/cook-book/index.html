@@ -172,31 +172,6 @@ Element `cook-book`
       .map (coin => { return { name: coin.name, symbol: coin.symbol } })
   }
 
-    onconnect () {
-      fetch ('https://api.coinmarketcap.com/v1/ticker/?limit=0')
-      .then (response => response.json ())
-      .then (coins => { this.context.coins = coins; this.render () })
-    }
-
-    get coins () {
-      return this.context.coins
-        .map (coin => { return { name: coin.name, symbol: coin.symbol } })
-    }
-  })
-
-const
-  pusher
-    = new Pusher ('de504dc5763aeef9ff52')
-
-, tradesChannel
-    = pusher.subscribe ('live_trades')
-
-
-tradesChannel.bind ('trade', function (data) {
-
-  document
-    .getElementById ('price')
-    .textContent = `$ ${data.price}`
 })
 
 </script>
