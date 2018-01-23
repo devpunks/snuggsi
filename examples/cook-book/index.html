@@ -156,9 +156,8 @@ Element `cook-book`
 
   initialize () { }
 
-  onconnect (heartbeat = 15000) {
-    setInterval (this.fetch.bind (this), heartbeat)
-  }
+  onconnect (heartbeat = 15000)
+    { setInterval ( this.fetch.bind (this), heartbeat ) }
 
   get coins () {
     return ( this.context.coins || [] )
