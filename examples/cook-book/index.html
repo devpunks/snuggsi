@@ -17,7 +17,7 @@
 <link rel=stylesheet href=/typography.css>
 <link rel=stylesheet href=hello-world/index.css>
 
-<script src=/></script>
+<script src=//unpkg.com/snuggsi></script>
 
 <header-group>
   <h2 slot=header>&lt;crypto-cookbook&gt;</h2>
@@ -27,11 +27,12 @@
 <p>We're cooking! Learn how to put together a recipe that works for you!</p>
 
 <cook-book>
+
 <table>
 
   <thead>
     <tr>
-      <td>Name
+      <td>Coin Name
       <td>Market Cap
       <td>24hr. Volume
       <td>Circulating Supply
@@ -49,7 +50,14 @@
 
   <tbody>
     <tr>
-      <td colspan=13>Foo</td>
+      <td colspan=13>
+<label>Search: </label>
+ <select>
+   <template name=coins>
+     <option>{name} ({symbol})
+   </template>
+ </select>
+      </td>
     </tr>
     
     <tr>
@@ -157,6 +165,25 @@ output { display: block; background: white; margin: 1.4em 0; font-size: 2.2em; t
 
 <script src=https://d3dy5gmtp8yhk7.cloudfront.net/2.1/pusher.min.js></script>
 <script>
+
+  Element `cook-book`
+
+  (class extends HTMLElement {
+    initialize () {
+      this.context.coins = []
+    }
+
+    onconnect () {
+      fetch ('https://api.coinmarketcap.com/v1/ticker/?limit=0')
+      .then (response => response.json ())
+      .then (coins => { this.context.coins = coins; this.render () })
+    }
+
+    get coins () {
+      return this.context.coins
+        .map (coin => { return { name: coin.name, symbol: coin.symbol } })
+    }
+  })
 
 const
   pusher
