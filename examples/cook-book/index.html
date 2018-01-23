@@ -153,9 +153,8 @@ output { display: block; background: white; margin: 1.4em 0; font-size: 2.2em; t
 Element `cook-book`
 
 (class extends HTMLElement {
-  initialize () {
-    this.context.coins = []
-  }
+
+  initialize () { }
 
   onconnect (heartbeat = 15000) {
     setInterval (this.fetch.bind (this), heartbeat)
