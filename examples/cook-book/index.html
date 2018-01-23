@@ -155,10 +155,22 @@ output { display: block; background: white; margin: 1.4em 0; font-size: 2.2em; t
 
 Element `cook-book`
 
-  (class extends HTMLElement {
-    initialize () {
-      this.context.coins = []
-    }
+(class extends HTMLElement {
+  initialize () {
+    this.context.coins = []
+  }
+
+  onconnect () {
+    fetch ( 'https://api.coinmarketcap.com/v1/ticker/?limit=0' )
+      .then ( response => response.json () )
+      .then ( coins => (this.context.coins = coins) )
+      .then ( this.render.bind (this) )
+  }
+
+  get coins () {
+    return this.context.coins
+      .map (coin => { return { name: coin.name, symbol: coin.symbol } })
+  }
 
     onconnect () {
       fetch ('https://api.coinmarketcap.com/v1/ticker/?limit=0')
