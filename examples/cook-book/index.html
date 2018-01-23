@@ -162,8 +162,8 @@ Element `cook-book`
   }
 
   get coins () {
-    return this.context.coins
-      .map (coin => { return { name: coin.name, symbol: coin.symbol } })
+    return ( this.context.coins || [] )
+      .map ( coin => ({ name: coin.name, symbol: coin.symbol }) )
   }
 
   fetch () {
