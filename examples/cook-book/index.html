@@ -178,11 +178,8 @@ Element `cook-book`
   }
 
   get recipes () {
-    const
-      recipes = this.coins.filter
-        (coin => this.context.recipes.includes (coin.symbol))
-
-    console.warn (recipes)
+    returnthis.coins.filter
+      (coin => this.context.recipes.includes (coin.symbol))
   }
 
 })
