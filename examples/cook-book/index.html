@@ -166,6 +166,15 @@ Element `cook-book`
       .map (coin => { return { name: coin.name, symbol: coin.symbol } })
   }
 
+  fetch () {
+    console.warn ('fetching')
+
+    fetch ( 'https://api.coinmarketcap.com/v1/ticker/?limit=0' )
+      .then ( response => response.json () )
+      .then ( coins => (this.context.coins = coins) )
+      .then ( this.render.bind (this) )
+  }
+
 })
 
 </script>
