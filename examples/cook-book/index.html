@@ -153,6 +153,11 @@ Element `cook-book`
 
 (class extends HTMLElement {
 
+  initialize () {
+    this.context.recipes
+      = ['BTC', 'ETH', 'LTC']
+  }
+
   onconnect ()
     { this.fetch () }
 
