@@ -40,107 +40,114 @@
       <td>Historic Performance
       <td>Quarterly Ratings
       <td>Average Score
-
-  <tbody>
-    <tr>
-      <td colspan=13>
-        <label>Search: </label>
-
-        <select>
-        <template name=coins>
-          <option>{name} ({symbol})
-        </template>
-        </select>
-      </td>
     </tr>
+  </thead>
 
-    <template name=recipes>
-    <tr>
-      <td><!-- Name -->
-        <output name=rating>9</output>
+<!--
+//<tbody>
+//  <tr>
+//    <td colspan=13>
+//      <label>Search: </label>
 
-        <section style='font-weight:bold;'>
-          <a
-            style='margin:0 0 1em; display: block;text-align: center;'
-            rel=external
-            target=coinmarketcap
-            title='{name} ({symbol})'
-            href=https://coinmarketcap.com/currencies/{name}>
-              {name}
-          </a>
-            
-          (<strong>{symbol}</strong>)
-        </section>
-      </td>
+//      <select>
+//      <template name=coins>
+//        <option>{name} ({symbol})
+//      </template>
+//      </select>
+//    </td>
+//  </tr>
+
+//  <tr>
+//  </tr>
 
 
-      <td><!-- Market Cap -->
-        <output name=rating>9</output>
-        <var name=value>$ 224 <strong>B</strong></var>
-      </td>
-
-      <td><!-- Volume -->
-        <output name=rating>9</output>
-        <var name=value>$ 11.2 <strong>B</strong></var>
-      </td>
-
-      <td><!-- Circulating Supply -->
-        <output name=rating>9</output>
-        <var name=value>16.8 <strong>M</strong></var>
-      </td>
-
-      <td><!-- Total Supply -->
-        <output name=rating>9</output>
-        <var name=value>21<strong>M</strong></var>
-      </td>
-
-      <td><!-- Maximum Supply -->
-        <output name=rating>9</output>
-        <var name=value>21 <strong>M</strong></var>
-      </td>
-
-      <td><!-- Utility -->
-        <output name=rating>?</output>
-        <var name=value>?</var>
-      </td>
-
-      <td><!-- Price -->
-        <output name=rating>3</output>
-        <var name=value id=price>$ 0 <strong>USD</strong></var>
-      </td>
-
-      <td><!-- Price -->
-        <output name=rating>3</output>
-        <var name=value>-5 <strong>%</strong></var>
-      </td>
-
-      <td><!-- Time Released -->
-        <output name=rating>9</output>
-        <var name=value>Yes</var>
-      </td>
-
-      <td><!-- Performance -->
-        <output name=rating>9</output>
-        <var name=value>Longevity</var>
-      </td>
-
-      <td><!-- Quarterly Ratings -->
-        <output name=rating>6</output>
-        <var name=value>Market News</var>
-      </td>
-
-      <td><!-- Score (Average of all the ratings combined -->
-        <output name=rating>8</output>
-        <var name=value>Very Good</var>
-      </td>
-
-    </tr>
-
-    </template>
-
-  </tbody>
+//</tbody>
+-->
 
 </table>
+
+  <template name=recipes>
+  <tr>
+    <td><!-- Name -->
+      <output name=rating>9</output>
+
+      <section style='font-weight:bold;'>
+        <a
+          style='margin:0 0 1em; display: block;text-align: center;'
+          rel=external
+          target=coinmarketcap
+          title='{name} ({symbol})'
+          href=https://coinmarketcap.com/currencies/{name}>
+            {name}
+        </a>
+          
+        (<strong>{symbol}</strong>)
+      </section>
+    </td>
+
+
+    <td><!-- Market Cap -->
+      <output name=rating>9</output>
+      <var name=value>$ 224 <strong>B</strong></var>
+    </td>
+
+    <td><!-- Volume -->
+      <output name=rating>9</output>
+      <var name=value>$ 11.2 <strong>B</strong></var>
+    </td>
+
+    <td><!-- Circulating Supply -->
+      <output name=rating>9</output>
+      <var name=value>16.8 <strong>M</strong></var>
+    </td>
+
+    <td><!-- Total Supply -->
+      <output name=rating>9</output>
+      <var name=value>21<strong>M</strong></var>
+    </td>
+
+    <td><!-- Maximum Supply -->
+      <output name=rating>9</output>
+      <var name=value>21 <strong>M</strong></var>
+    </td>
+
+    <td><!-- Utility -->
+      <output name=rating>?</output>
+      <var name=value>?</var>
+    </td>
+
+    <td><!-- Price -->
+      <output name=rating>3</output>
+      <var name=value id=price>$ 0 <strong>USD</strong></var>
+    </td>
+
+    <td><!-- Price -->
+      <output name=rating>3</output>
+      <var name=value>-5 <strong>%</strong></var>
+    </td>
+
+    <td><!-- Time Released -->
+      <output name=rating>9</output>
+      <var name=value>Yes</var>
+    </td>
+
+    <td><!-- Performance -->
+      <output name=rating>9</output>
+      <var name=value>Longevity</var>
+    </td>
+
+    <td><!-- Quarterly Ratings -->
+      <output name=rating>6</output>
+      <var name=value>Market News</var>
+    </td>
+
+    <td><!-- Score (Average of all the ratings combined -->
+      <output name=rating>8</output>
+      <var name=value>Very Good</var>
+    </td>
+
+  </tr>
+  </template>
 
 </cook-book>
 
