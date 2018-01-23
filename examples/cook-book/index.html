@@ -178,7 +178,11 @@ Element `cook-book`
   }
 
   get recipes () {
-    return ['BTC', 'ETH', 'LTC']
+    const
+      recipes = this.coins.filter
+        (coin => this.context.recipes.includes (coin.symbol))
+
+    console.warn (recipes)
   }
 
 })
