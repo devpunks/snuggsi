@@ -172,6 +172,10 @@ Element `cook-book`
       .then ( _ => setTimeout (this.fetch.bind (this), heartbeat) )
   }
 
+  get recipes () {
+    return ['BTC', 'ETH', 'LTC']
+  }
+
 })
 
 </script>
