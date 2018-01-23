@@ -163,7 +163,7 @@ Element `cook-book`
       .slice (0, 10) // top 10 tokens
   }
 
-  fetch () {
+  fetch (heartbeat = 15000) {
     console.warn ('fetching')
 
     fetch ( 'https://api.coinmarketcap.com/v1/ticker/?limit=0' )
