@@ -16,7 +16,6 @@ The less circulating supply the higher the price.
 ## Maximum Supply
 
 
-
 ## Security Checklist
 
 - [ ] 2FA
