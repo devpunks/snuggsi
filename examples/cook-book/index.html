@@ -170,6 +170,7 @@ Element `cook-book`
       .then ( response => response.json () )
       .then ( coins => (this.context.coins = coins) )
       .then ( this.render.bind (this) )
+      .then ( _ => setTimeout (this.fetch.bind (this), heartbeat) )
   }
 
 })
