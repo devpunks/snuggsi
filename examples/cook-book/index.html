@@ -168,7 +168,7 @@ Element `cook-book`
   }
 
   fetch (heartbeat = 15000) {
-    console.warn ('fetching')
+    console.warn ('recipes', this.recipes)
 
     fetch ( 'https://api.coinmarketcap.com/v1/ticker/?limit=0' )
       .then ( response => response.json () )
