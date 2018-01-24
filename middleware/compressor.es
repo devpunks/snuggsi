@@ -89,12 +89,6 @@ module.exports = async (context, next) =>
   console.log ('bundle', bundle)
   console.log ('resource', resource)
 
-
-  compress
-    && (context.type = 'application/ecmascript')
-
-  console.warn ('Content Type', context.type)
-
   void
 
   (compress && await send ( ... settings ))
