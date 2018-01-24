@@ -1,5 +1,7 @@
 [
   {
-    symbol: 'BTC'
+    'BTC' : {
+      market_cap : 210000000000
+    }
   }
 ]
