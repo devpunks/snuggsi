@@ -63,8 +63,8 @@ module.exports = async (context, next) =>
         // example - `*/*;q=0.8`
         .test (accept)
 
-  , compress =
-      library && (ecmascript || javascript)
+  , compress
+      = ecmascript || javascript
 
   , extension =
       ecmascript // default
