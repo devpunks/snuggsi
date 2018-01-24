@@ -200,10 +200,10 @@ Element `cook-book`
     console.warn ('recipes', this.recipes)
 
     fetch ( 'https://api.coinmarketcap.com/v1/ticker/?limit=0' )
-      .then ( response => response.json () )
-      .then ( coins => (this.context.coins = coins) )
-      .then ( this.render.bind (this) )
-      .then ( _ => setTimeout (this.fetch.bind (this), heartbeat) )
+    .then ( response => response.json () )
+    .then ( coins => (this.context.coins = coins) )
+    .then ( this.render.bind (this) )
+    .then ( _ => setTimeout (this.fetch.bind (this), heartbeat) )
   }
 
   get recipes () {
