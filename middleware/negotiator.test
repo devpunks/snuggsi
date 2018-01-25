@@ -28,6 +28,7 @@ test.only ('GET / defaults to dist/snuggsi.min.js', async t => {
   console.warn (type)
 
   t.notOk (response.headers.get ('content-encoding'))
+  t.ok (type.match (/application\/javascript/))
 
   server.close ``
   t.end ()
