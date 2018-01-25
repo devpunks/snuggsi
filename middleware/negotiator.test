@@ -1,5 +1,5 @@
 const
-  { test, browse, fetch }
+  { test, serve, fetch }
     = require ('test')
 
 , { Server }
