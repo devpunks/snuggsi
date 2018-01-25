@@ -94,8 +94,7 @@ module.exports = async (context, next) =>
 
   await send ( ... settings )
 
-  compress
-    && (context.type = 'application/ecmascript')
+//(library && compress && await send ( ... settings ))
 
   console.warn ('Content Type', compress, context.type)
 }
