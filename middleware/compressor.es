@@ -52,16 +52,16 @@ module.exports = async (context, next) =>
         // example - `application/javascript`
         .test (accept)
 
-    || // , Or with accept-params
+//  || // , Or with accept-params
 
-      // (classic) Accept: #( media-range [ accept-params ] )`
-      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation/List_of_default_Accept_values
-      /\*\/\*;q=\d\.\d$/ // MSIE 6.0-11.0
-        // type    - *
-        // subtype - *
-        // qfactor - q=0.8
-        // example - `*/*;q=0.8`
-        .test (accept)
+//    // (classic) Accept: #( media-range [ accept-params ] )`
+//    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation/List_of_default_Accept_values
+//    /\*\/\*;q=\d\.\d$/ // MSIE 6.0-11.0
+//      // type    - *
+//      // subtype - *
+//      // qfactor - q=0.8
+//      // example - `*/*;q=0.8`
+//      .test (accept)
 
   , compress
       = ecmascript || javascript
