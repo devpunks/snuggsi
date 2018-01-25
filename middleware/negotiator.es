@@ -25,32 +25,32 @@ module.exports = async (context, next) =>
              // - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
       context.request.header.accept
 
-  , path =
-      // WHATWG URL path Spec
-      //   URL path - https://url.spec.whatwg.org/#concept-url-path
-      //   pathname - https://url.spec.whatwg.org/#dom-url-pathname
-      context.path
+//, path =
+//    // WHATWG URL path Spec
+//    //   URL path - https://url.spec.whatwg.org/#concept-url-path
+//    //   pathname - https://url.spec.whatwg.org/#dom-url-pathname
+//    context.path
 
-  , library =
-      // `/` root
-      // or `/snuggsi` in URL path
-      /^(\/|\/snuggsi.+)$/
-        .test (path)
+//, library =
+//    // `/` root
+//    // or `/snuggsi` in URL path
+//    /^(\/|\/snuggsi.+)$/
+//      .test (path)
 
-  , ecmascript = // (evergreen) Accept: #( media-range )`
-      /^\*\/\*$/ // Chrome, Edge, Firefox, Safari, iOS Safari, Android
-        // type    - *
-        // subtype - *
-        // example - `*/*`
-        .test (accept)
+//, ecmascript = // (evergreen) Accept: #( media-range )`
+//    /^\*\/\*$/ // Chrome, Edge, Firefox, Safari, iOS Safari, Android
+//      // type    - *
+//      // subtype - *
+//      // example - `*/*`
+//      .test (accept)
 
-  , javascript =
-      // (classic) Accept: #( media-range )`
-      /application\/javascript/ // MSIE 6.0-11.0
-        // type    - application
-        // subtype - javascript
-        // example - `application/javascript`
-        .test (accept)
+//, javascript =
+//    // (classic) Accept: #( media-range )`
+//    /application\/javascript/ // MSIE 6.0-11.0
+//      // type    - application
+//      // subtype - javascript
+//      // example - `application/javascript`
+//      .test (accept)
 
 //  || // , Or with accept-params
 
