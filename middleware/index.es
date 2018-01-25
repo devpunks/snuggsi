@@ -9,7 +9,6 @@ module.exports = {
 , browse     : require ('./browse')
 , assets     : require ('./assets')
 , compressor : require ('./compressor')
-, librarian  : require ('./librarian')
 , negotiator : require ('./negotiator')
 , mixins     : require ('mixins/middleware')
 }
