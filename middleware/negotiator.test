@@ -25,7 +25,7 @@ test.only ('GET / defaults to dist/snuggsi.min.js', async t => {
       = await response.text ()
 
 
-  console.warn (response.headers)
+  console.warn (type)
 
   t.equal (body, dist)
 
