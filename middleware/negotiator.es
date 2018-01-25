@@ -17,7 +17,11 @@ module.exports = async (context, next) =>
   const
     accept = // HTTP 1.1 `Accept` Header
              // - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
-      context.request.header ['accept']
+      context.get ('Accept')
+
+  , encoding = // HTTP1.1 `Accept-Encoding` Header
+               // http://tools.ietf.org/html/7231#section-5.3.4
+      context.get ('Accept-Encoding')
 
 //, path =
 //    // WHATWG URL path Spec
