@@ -40,6 +40,7 @@ class TokenList {
   bind (context) {
 
     const
+    // FOR GOD'S SAKE PLEASE TEST THIS!!!
    // must both run independently not in tandem
 
       tokenize = symbol => node =>
