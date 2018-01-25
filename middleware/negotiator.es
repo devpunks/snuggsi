@@ -14,7 +14,7 @@ const
 
 , options = {
     gzip   : false
-  , brotli : true
+  , brotli : false
   , root   : './dist'
   }
 
