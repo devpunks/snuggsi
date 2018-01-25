@@ -49,6 +49,9 @@ class TokenList {
           .join  (context [symbol]))
 
 
+    for (let symbol in this) void (0)
+
+
     for (let symbol in this)
       this [symbol]
         // more than one occurrence
