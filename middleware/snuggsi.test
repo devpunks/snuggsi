@@ -1,0 +1,17 @@
+const
+  { test, serve, read, fetch }
+    = require ('test')
+
+, { Server }
+    = require ('..')
+
+
+test ('calling next middlewaree')
+
+
+test.only ('GET / defaults to dist/snuggsi.min.js', async t => {
+
+  console.warn ('from snuggsi test')
+
+  t.end ()
+})
