@@ -8,7 +8,6 @@ module.exports = {
 , security   : require ('./security')
 , browse     : require ('./browse')
 , assets     : require ('./assets')
-, compressor : require ('./compressor')
 , negotiator : require ('./negotiator')
 , mixins     : require ('mixins/middleware')
 }
