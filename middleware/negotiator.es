@@ -12,8 +12,8 @@ const
 , name   = 'snuggsi'
 , send   = require ('koa-send')
 
-, configuration = {
-    gzip   : true
+, options = {
+    gzip   : false
   , brotli : true
   , root   : './dist'
   }
