@@ -1,7 +1,6 @@
 require ('./auth.test')
 require ('./cors.test')
 require ('./security.test')
-require ('./compressor.test')
 require ('./negotiator.test')
 require ('./assets.test')
 
