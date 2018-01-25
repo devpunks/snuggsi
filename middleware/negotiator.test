@@ -11,8 +11,20 @@ test ('calling next middlewaree')
 
 test.only ('GET / defaults to dist/snuggsi.min.js', async t => {
 
-  const server = serve ``
-  , body = await (await fetch ('http://localhost:8181/')).text ()
+  const
+    server = serve ``
+  , dist   = read `dist/snuggsi.min.js.gz`
+
+  , response
+      = await fetch ('http://localhost:8181/')
+
+  , body
+      = await response.text ()
+
+
+  console.warn (response.headers)
+
+  t.equal (body, dist)
 
   server.close ``
   t.end ()
