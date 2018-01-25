@@ -12,12 +12,6 @@ const
 , name   = 'snuggsi'
 , send   = require ('koa-send')
 
-, options = {
-    gzip   : false
-  , brotli : false
-  , root   : './dist'
-  }
-
 module.exports = async (context, next) =>
 {
   const
