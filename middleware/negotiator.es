@@ -92,7 +92,7 @@ module.exports = async (context, next) =>
 //void
 
 
-  || await next ()
+  await send ( ... settings )
 
   compress
     && (context.type = 'application/ecmascript')
