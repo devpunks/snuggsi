@@ -18,6 +18,9 @@ test.only ('GET / defaults to dist/snuggsi.min.js', async t => {
   , response
       = await fetch ('http://localhost:8181/')
 
+  , type
+      = response.headers.get ('content-type')
+
   , body
       = await response.text ()
 
