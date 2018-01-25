@@ -82,7 +82,7 @@ module.exports = async (context, next) =>
 //      : path   // requested resource
 
   , settings =
-      [context, resource, configuration]
+      [context, resource, options]
 
   console.log ('\n\naccept', accept)
   console.log ('\n\npath', path)
