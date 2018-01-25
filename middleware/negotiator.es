@@ -76,10 +76,10 @@ module.exports = async (context, next) =>
         .filter (Boolean)
         .join `.`
 
-  , resource =
-      (path === root)
-        ? bundle // default resource
-        : path   // requested resource
+  , resource = bundle
+//    (path === root)
+//      ? bundle // default resource
+//      : path   // requested resource
 
   , settings =
       [context, resource, configuration]
