@@ -16,7 +16,7 @@ test.only ('GET / defaults to dist/snuggsi.min.js', async t => {
   , dist   = read `dist/snuggsi.min.js`
 
   , options
-      = { headers: { 'Accept' : '*/*' } }
+      = { compress: false, headers: { 'Accept' : '*/*' } }
 
   , response
       = await fetch ('http://localhost:8181/', options)
