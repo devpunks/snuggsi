@@ -66,10 +66,10 @@ module.exports = async (context, next) =>
 //, compress
 //    = ecmascript || javascript
 
-  , extension =
-      ecmascript // default
-        ? 'es'   // Ecmascript extension
-        : 'js'   // Javascript extension
+  , extension = 'js'
+//    ecmascript // default
+//      ? 'es'   // Ecmascript extension
+//      : 'js'   // Javascript extension
 
   , bundle =
       [ name, suffix, extension ]
