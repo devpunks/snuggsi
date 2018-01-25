@@ -25,8 +25,6 @@ test.only ('GET / defaults to dist/snuggsi.min.js', async t => {
       = await response.text ()
 
 
-  console.warn (type)
-
   t.notOk (response.headers.get ('content-encoding'))
   t.ok (type.match (/application\/javascript/))
   t.ok (type.match (/charset=utf-8/))
