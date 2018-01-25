@@ -11,6 +11,5 @@ module.exports = {
 , compressor : require ('./compressor')
 , librarian  : require ('./librarian')
 , negotiator : require ('./negotiator')
-, compressor : require ('./compressor')
 , mixins     : require ('mixins/middleware')
 }
