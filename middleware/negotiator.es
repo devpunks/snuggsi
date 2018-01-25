@@ -91,7 +91,6 @@ module.exports = async (context, next) =>
 
 //void
 
-  (library && compress && await send ( ... settings ))
 
   || await next ()
 
