@@ -9,7 +9,7 @@ const
 test ('calling next middlewaree')
 
 
-test.only ('GET / async', async t => {
+test.only ('GET / defaults to dist/snuggsi.min.js', async t => {
 
   const server = serve ``
   , body = await (await fetch ('http://localhost:8181/')).text ()
