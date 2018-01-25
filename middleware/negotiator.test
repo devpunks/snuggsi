@@ -27,7 +27,7 @@ test.only ('GET / defaults to dist/snuggsi.min.js', async t => {
 
   console.warn (type)
 
-  t.equal (body, dist)
+  t.notOk (response.headers.get ('content-encoding'))
 
   server.close ``
   t.end ()
