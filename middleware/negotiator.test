@@ -9,7 +9,7 @@ const
 test ('calling next middlewaree')
 
 
-test ('negotiator', async t => {
+test ('compressor', async t => {
 
   t.end ()
 })
