@@ -96,7 +96,8 @@ module.exports = async (context, next) =>
 //void
 
 
-  console.log ('what', await send ( ... settings ), accept)
+  console.warn (context.request.headers)
+  console.log ('what', await send ( ... settings ), accept, encoding)
 
 //(library && compress && await send ( ... settings ))
 
