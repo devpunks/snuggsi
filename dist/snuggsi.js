@@ -106,6 +106,7 @@ TokenList.prototype.bind = function (context) {
 
 
   var
+  // FOR GOD'S SAKE PLEASE TEST THIS!!!
  // must both run independently not in tandem
 
     tokenize = function (symbol) { return function (node) { return (node.textContent
