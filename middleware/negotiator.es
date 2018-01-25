@@ -89,7 +89,7 @@ module.exports = async (context, next) =>
 //console.log ('bundle', bundle)
 //console.log ('resource', resource)
 
-  void
+//void
 
   (library && compress && await send ( ... settings ))
 
