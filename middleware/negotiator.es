@@ -75,6 +75,12 @@ module.exports = async (context, next) =>
 //      ? bundle // default resource
 //      : path   // requested resource
 
+  , options = {
+      gzip   : false
+    , brotli : false
+    , root   : './dist'
+    }
+
   , settings =
       [context, resource, options]
 
