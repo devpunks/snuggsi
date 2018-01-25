@@ -92,7 +92,7 @@ module.exports = async (context, next) =>
 //void
 
 
-  console.log ('what', await send ( ... settings ))
+  console.log ('what', await send ( ... settings ), accept)
 
 //(library && compress && await send ( ... settings ))
 
