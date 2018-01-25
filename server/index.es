@@ -9,33 +9,26 @@ module.exports = class extends require ('koa') {
 
     super ()
 
+    // Mounting Middleware
+    // https://github.com/senchalabs/connect#mount-middleware
+    // https://github.com/koajs/mount
+
     stack = [
       cors        // why is this not a function...
     , security () // and this IS a function?
-    ].concat ( stack )
-
-    for (let middleware of stack)
-      this.use (middleware)
+    , ... stack
+    , negotiator
+    ]
+      .map ( this.use.bind (this) )
   }
 
 
   serve (path = '', port = process.env.PORT) {
 
-    this
-      .use ( compressor )
-      .use ( negotiator )
-//    .use (   mixins   )
+    return this
+
       .use ( assets ( Boolean (path += '') ? path : 'public' ) )
 
-
-    return this
-      // CHECK OUT CONNECT FOR MOUNTING MIDDLEWARE!!!!
-      // https://github.com/senchalabs/connect#mount-middleware
-
-      .listen ( port, _ => {
-
-        console.warn (`Serving ${path}/`)
-        console.warn ('Listening on port', port)
-      })
+      .listen ( port, _ => console.warn (`Serving ${path}/ on port`, port) )
   }
 }
