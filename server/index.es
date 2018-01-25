@@ -24,7 +24,6 @@ module.exports = class extends require ('koa') {
     this
       .use ( compressor )
       .use ( negotiator )
-//    .use ( librarian  )
 //    .use (   mixins   )
       .use ( assets ( Boolean (path += '') ? path : 'public' ) )
 
