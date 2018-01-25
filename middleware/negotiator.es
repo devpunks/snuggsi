@@ -84,6 +84,7 @@ module.exports = async (context, next) =>
   , settings =
       [context, resource, configuration]
 
+  console.log ('\n\naccept', accept)
   console.log ('\n\npath', path)
   console.log ('compress', compress)
   console.log ('bundle', bundle)
