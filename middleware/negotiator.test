@@ -11,5 +11,9 @@ test ('calling next middlewaree')
 
 test.only ('GET / async', async t => {
 
+  const server = serve ``
+  , body = await (await fetch ('http://localhost:8181/')).text ()
+
+  server.close ``
   t.end ()
 })
