@@ -27,7 +27,7 @@ test.only ('GET / defaults to dist/snuggsi.min.js', async t => {
   , body
       = await read (response.body)
 
-  console.log (body)
+  // console.log (body)
 
 
   t.notOk (response.headers.get ('content-encoding'))
