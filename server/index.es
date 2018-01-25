@@ -1,5 +1,5 @@
 const
-  { auth, cors, security, compressor, negotiator, librarian, mixins, assets }
+  { auth, cors, security, compressor, negotiator, mixins, assets }
     = require ('middleware')
 
 
@@ -24,7 +24,6 @@ module.exports = class extends require ('koa') {
     this
       .use ( compressor )
       .use ( negotiator )
-//    .use ( librarian  )
 //    .use (   mixins   )
       .use ( assets ( Boolean (path += '') ? path : 'public' ) )
 
