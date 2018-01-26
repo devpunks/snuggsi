@@ -32,7 +32,8 @@ module.exports = async (context, next) =>
       /^\/snuggsi$/.test (context.path)
 
   , debug =
-      request.query.debug
+      context.request
+        .query.debug
 
   , extension = 'js'
 //    ecmascript // default
