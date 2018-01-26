@@ -38,7 +38,7 @@ module.exports = async (context, next) =>
       = /^\/snuggsi$/.test (context.path)
 
   , ecmascript
-      = 'br' === encoding
+      = /br/.test (encoding)
 
   , extension
       = ecmascript
