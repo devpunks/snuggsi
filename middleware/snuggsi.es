@@ -35,7 +35,7 @@ module.exports = async (context, next) =>
         &&  context.acceptsEncodings (['*', 'gzip'])
 
   , extension
-      = ecmascript
+      = brotli
         ? 'es'   // Ecmascript extension
         : 'js'   // Javascript extension
 
