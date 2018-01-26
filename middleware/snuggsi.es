@@ -29,7 +29,7 @@ module.exports = async (context, next) =>
   , path // WHATWG URL path Spec
       //   URL path - https://url.spec.whatwg.org/#concept-url-path
       //   pathname - https://url.spec.whatwg.org/#dom-url-pathname
-      /^\/snuggsi$/.test (context.path)
+      = /^\/snuggsi$/.test (context.path)
 
   , debug =
       context.request
