@@ -60,7 +60,7 @@ module.exports = async (context, next) =>
   
   /^\/snuggsi$/.test (context.path)
     ? await send ( ... settings )
-      && ecmascript
+      && brotli
       && context.set ('Content-Type', 'application/ecmascript; charset=utf-8')
     : await next ()
 }
