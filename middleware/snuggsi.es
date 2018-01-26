@@ -51,8 +51,8 @@ module.exports = async (context, next) =>
   , options
       = { root , gzip, brotli }
 
-  , settings =
-      [context, resource, options]
+  , settings
+      = [context, resource, options]
 
 
   console.warn ('\n\npath', context.path, accept, resource, options, encodings, debug)
