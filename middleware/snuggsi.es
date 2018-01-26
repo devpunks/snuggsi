@@ -12,5 +12,7 @@ module.exports = async (context, next) =>
 //    context.vary ('Accept-Encoding')
 
   console.warn ('Vary', context.vary ('Accept-Encoding'))
+  console.warn ('Vary', context.vary ('Accept'))
+
   return await next ()
 }
