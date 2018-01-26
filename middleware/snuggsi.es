@@ -42,7 +42,7 @@ module.exports = async (context, next) =>
       = /^\/snuggsi$/.test (context.path)
 
   , ecmascript
-      = /br/.test (encoding)
+      = encodings.includes ('br')
 
   , extension
       = ecmascript
