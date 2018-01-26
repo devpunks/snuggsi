@@ -40,6 +40,11 @@ module.exports = async (context, next) =>
         .filter (Boolean)
         .join `.`
 
+  , resource = bundle
+//    (path === root)
+//      ? bundle // default resource
+//      : path   // requested resource
+
   console.warn (accept, encoding, path)
 
   return await next ()
