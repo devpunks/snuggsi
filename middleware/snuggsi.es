@@ -38,7 +38,7 @@ module.exports = async (context, next) =>
   , compress = encoding
 
   , bundle =
-      [ name, suffix, extension ]
+      [ name, encoding ? suffix : '', extension ]
         .filter (Boolean)
         .join `.`
 
