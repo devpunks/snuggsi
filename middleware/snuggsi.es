@@ -64,7 +64,6 @@ module.exports = async (context, next) =>
       root
     , gzip   : !!! debug && gzip
     , brotli : !!! debug && ecmascript
-    , gzip   : !!! debug && !!! ecmascript
     }
 
   , settings =
