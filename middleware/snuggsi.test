@@ -13,7 +13,7 @@ test.only ('GET /snuggsi', async t => {
   , dist   = read `dist/snuggsi.min.js`
 
   , options
-      = { compress: false, headers: { 'Accept' : '*/*' } }
+      = { compress: false }
 
   , response
       = await fetch ('http://localhost:8181/snuggsi', options)
