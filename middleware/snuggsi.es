@@ -35,6 +35,11 @@ module.exports = async (context, next) =>
 //      ? 'es'   // Ecmascript extension
 //      : 'js'   // Javascript extension
 
+  , bundle =
+      [ name, suffix, extension ]
+        .filter (Boolean)
+        .join `.`
+
   console.warn (accept, encoding, path)
 
   return await next ()
