@@ -10,7 +10,7 @@ test.only ('GET /snuggsi', async t => {
 
   const
     server = serve ``
-  , dist   = read `dist/snuggsi.min.js`
+  , body   = read `dist/snuggsi.js`
 
   , options
       = { compress: false }
