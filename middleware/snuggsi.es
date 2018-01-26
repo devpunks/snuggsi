@@ -51,6 +51,9 @@ module.exports = async (context, next) =>
     , root   : './dist'
     }
 
+  , settings =
+      [context, resource, options]
+
   console.warn (accept, encoding, path)
 
   return await next ()
