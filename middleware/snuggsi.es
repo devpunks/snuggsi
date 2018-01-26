@@ -45,6 +45,12 @@ module.exports = async (context, next) =>
 //      ? bundle // default resource
 //      : path   // requested resource
 
+  , options = {
+      gzip   : false
+    , brotli : false
+    , root   : './dist'
+    }
+
   console.warn (accept, encoding, path)
 
   return await next ()
