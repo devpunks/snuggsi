@@ -1,5 +1,5 @@
 const
-  { cors, security, negotiator, assets }
+  { cors, security, snuggsi, negotiator, assets }
     = require ('middleware')
 
 
