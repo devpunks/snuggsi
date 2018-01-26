@@ -55,8 +55,8 @@ module.exports = async (context, next) =>
 //      : path   // requested resource
 
   , options = {
-      gzip   : false
-    , brotli : false
+      gzip   : !!! debug
+    , brotli : !!! debug
     , root   : './dist'
     }
 
