@@ -29,7 +29,7 @@ module.exports = async (context, next) =>
       = !!! debug
         &&  context.acceptsEncodings (['br'])
 
-  , ecmascript // HTTP1.1 `Accept-Encoding` Header
+  , gzip // HTTP1.1 `Accept-Encoding` Header
       // http://tools.ietf.org/html/7231#section-5.3.4
       = context.acceptsEncodings (['br'])
 
