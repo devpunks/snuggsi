@@ -62,5 +62,5 @@ module.exports = async (context, next) =>
 
   path
     ? await send ( ... settings )
-    : null
+    : await next ()
 }
