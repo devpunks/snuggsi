@@ -90,3 +90,32 @@ test ('GET /snuggsi?debug Accept-Encoding: identity', async t => {
 })
 
 
+test.only ('GET /snuggsi?debug Accept-Encoding: identity', async t => {
+
+  const
+    server = serve ``
+  , body   = read `dist/snuggsi.js`
+
+  , options
+      = { compress: false , headers: { 'Accept-Encoding' : 'identity' } }
+
+  , response
+      = await fetch ('http://localhost:8181/snuggsi?debug', options)
+
+  , type
+      = response.headers.get ('content-type')
+
+
+  console.warn (response.headers)
+
+  t.ok (type.match (/charset=utf-8/))
+  t.ok (type.match (/application\/javascript/))
+  t.equal ( await read (response.body), body )
+
+  t.notOk (response.headers.get ('content-encoding'))
+
+  server.close ``
+  t.end ()
+})
+
+
