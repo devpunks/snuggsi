@@ -74,8 +74,6 @@ test ('GET /snuggsi?debug Accept-Encoding: identity', async t => {
       = response.headers.get ('content-type')
 
 
-  console.warn (response.headers)
-
   t.notOk (response.headers.get ('content-encoding'))
   t.ok (type.match (/application\/javascript/))
   t.ok (type.match (/charset=utf-8/))
