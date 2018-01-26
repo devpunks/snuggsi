@@ -133,8 +133,6 @@ test ('GET /snuggsi?debug Accept-Encoding: br', async t => {
       = response.headers.get ('content-type')
 
 
-  console.warn (response.headers)
-
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/ecmascript/))
   t.equal ( await read (response.body), body )
