@@ -37,10 +37,13 @@ module.exports = async (context, next) =>
   , debug
       = 'debug' in context.request.query
 
-  , extension = 'js'
-//    ecmascript // default
-//      ? 'es'   // Ecmascript extension
-//      : 'js'   // Javascript extension
+  , ecmascript
+      = 'br' === encoding
+
+  , extension
+      = ecmascript
+        ? 'es'   // Ecmascript extension
+        : 'js'   // Javascript extension
 
   , compress = encode
 
