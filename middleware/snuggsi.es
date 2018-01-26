@@ -36,11 +36,6 @@ module.exports = async (context, next) =>
         .map  (encodings.includes.bind (encodings))
         .some (Boolean)
 
-  , path // WHATWG URL path Spec
-      //   URL path - https://url.spec.whatwg.org/#concept-url-path
-      //   pathname - https://url.spec.whatwg.org/#dom-url-pathname
-      = /^\/snuggsi$/.test (context.path)
-
   , ecmascript
       = encodings.includes ('br')
 
