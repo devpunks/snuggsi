@@ -63,6 +63,7 @@ module.exports = async (context, next) =>
       [context, resource, options]
 
 
+  console.warn ('\n\npath', context.path, accept, resource, options, encodings, debug)
   !! // void
   
   /^\/snuggsi$/.test (context.path)
