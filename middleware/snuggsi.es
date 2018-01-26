@@ -48,11 +48,8 @@ module.exports = async (context, next) =>
         .filter (Boolean)
         .join `.`
 
-  , options = {
-      root
-    , gzip   : !!! debug && gzip
-    , brotli : !!! debug && ecmascript
-    }
+  , options
+      = { root , gzip, brotli }
 
   , settings =
       [context, resource, options]
