@@ -30,5 +30,8 @@ module.exports = async (context, next) =>
       //   pathname - https://url.spec.whatwg.org/#dom-url-pathname
       /^\/snuggsi$/.test (context.path)
 
+
+  console.warn (accept, encoding, path)
+
   return await next ()
 }
