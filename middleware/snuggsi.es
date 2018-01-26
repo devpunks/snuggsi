@@ -53,8 +53,6 @@ module.exports = async (context, next) =>
         .filter (Boolean)
         .join `.`
 
-  , resource = bundle
-
   , options = {
       root
     , gzip   : !!! debug && gzip
