@@ -97,7 +97,7 @@ test.only ('GET /snuggsi?debug Accept-Encoding: gzip', async t => {
   , body   = read `dist/snuggsi.js`
 
   , options
-      = { compress: false , headers: { 'Accept-Encoding' : 'identity' } }
+      = { compress: false , headers: { 'Accept-Encoding' : 'gzip' } }
 
   , response
       = await fetch ('http://localhost:8181/snuggsi?debug', options)
