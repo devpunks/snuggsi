@@ -22,8 +22,6 @@ module.exports = async (context, next) =>
 
   , encoding = // HTTP1.1 `Accept-Encoding` Header
                // http://tools.ietf.org/html/7231#section-5.3.4
-    //    what is this vary?
-//    context.vary ('Accept-Encoding')
       context.get ('Accept-Encoding')
 
 //, path =
