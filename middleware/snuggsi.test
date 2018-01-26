@@ -2,9 +2,6 @@ const
   { test, serve, read, fetch }
     = require ('test')
 
-, { Server }
-    = require ('..')
-
 
 test ('calling next middlewaree')
 
