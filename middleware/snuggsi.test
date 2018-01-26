@@ -166,7 +166,7 @@ test ('GET /snuggsi Accept-Encoding: identity', async t => {
 })
 
 
-test.only ('GET /snuggsi Accept-Encoding: gzip', async t => {
+test ('GET /snuggsi Accept-Encoding: gzip', async t => {
 
   const
     server = serve ``
