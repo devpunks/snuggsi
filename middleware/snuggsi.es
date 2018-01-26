@@ -48,7 +48,7 @@ module.exports = async (context, next) =>
       ( gzip || ecmascript )
         ? suffix : ''
 
-  , bundle =
+  , resource =
       [ name, minified, extension ]
         .filter (Boolean)
         .join `.`
