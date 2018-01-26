@@ -26,8 +26,7 @@ module.exports = async (context, next) =>
       = !!! ['', 'identity']
         .includes ( context.get ('Accept-Encoding') )
 
-  , path =
-      // WHATWG URL path Spec
+  , path // WHATWG URL path Spec
       //   URL path - https://url.spec.whatwg.org/#concept-url-path
       //   pathname - https://url.spec.whatwg.org/#dom-url-pathname
       /^\/snuggsi$/.test (context.path)
