@@ -62,4 +62,31 @@ test ('GET /snuggsi?debug', async t => {
 })
 
 
+test.only ('GET /snuggsi?debug', async t => {
+
+  const
+    server = serve ``
+  , body   = read `dist/snuggsi.js`
+
+  , options
+      = { compress: false }
+
+  , response
+      = await fetch ('http://localhost:8181/snuggsi?debug', options)
+
+  , type
+      = response.headers.get ('content-type')
+
+
+  console.warn (response.headers)
+
+  t.notOk (response.headers.get ('content-encoding'))
+  t.ok (type.match (/application\/javascript/))
+  t.ok (type.match (/charset=utf-8/))
+  t.equal ( await read (response.body), body )
+
+  server.close ``
+  t.end ()
+})
+
 
