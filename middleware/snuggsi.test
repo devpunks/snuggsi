@@ -173,7 +173,7 @@ test ('GET /snuggsi Accept-Encoding: *', async t => {
   , body   = read `dist/snuggsi.min.js.gz`
 
   , options
-      = { compress: false , headers: { 'Accept-Encoding' : 'gzip' } }
+      = { compress: false , headers: { 'Accept-Encoding' : '*' } }
 
   , response
       = await fetch ('http://localhost:8181/snuggsi', options)
