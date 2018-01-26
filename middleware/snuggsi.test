@@ -6,32 +6,6 @@ const
 test ('calling next middlewaree')
 
 
-test ('GET /snuggsi', async t => {
-
-  const
-    server = serve ``
-  , body   = read `dist/snuggsi.js`
-
-  , options
-      = { compress: false }
-
-  , response
-      = await fetch ('http://localhost:8181/snuggsi', options)
-
-  , type
-      = response.headers.get ('content-type')
-
-
-  t.notOk (response.headers.get ('content-encoding'))
-  t.ok (type.match (/application\/javascript/))
-  t.ok (type.match (/charset=utf-8/))
-  t.equal ( await read (response.body), body )
-
-  server.close ``
-  t.end ()
-})
-
-
 test ('GET /snuggsi?debug', async t => {
 
   const
@@ -132,6 +106,32 @@ test ('GET /snuggsi?debug Accept-Encoding: br', async t => {
   t.equal ( await read (response.body), body )
 
   t.notOk (response.headers.get ('content-encoding'))
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('GET /snuggsi', async t => {
+
+  const
+    server = serve ``
+  , body   = read `dist/snuggsi.js`
+
+  , options
+      = { compress: false }
+
+  , response
+      = await fetch ('http://localhost:8181/snuggsi', options)
+
+  , type
+      = response.headers.get ('content-type')
+
+
+  t.notOk (response.headers.get ('content-encoding'))
+  t.ok (type.match (/application\/javascript/))
+  t.ok (type.match (/charset=utf-8/))
+  t.equal ( await read (response.body), body )
 
   server.close ``
   t.end ()
