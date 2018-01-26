@@ -62,7 +62,7 @@ test ('GET /snuggsi?debug', async t => {
 })
 
 
-test.only ('GET /snuggsi?debug', async t => {
+test ('GET /snuggsi?debug Accept-Encoding: identity', async t => {
 
   const
     server = serve ``
