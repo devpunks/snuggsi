@@ -56,7 +56,9 @@ module.exports = async (context, next) =>
   , settings =
       [context, resource, options]
 
-  console.warn (accept, encoding, path)
+  console.warn (accept, settings, encoding, path)
+  console.warn ('path and compress', `Path: ${path} Compress: ${compress} Encoding: ${encoding}`)
+  console.warn ('headers', context.request.headers)
 
   return await next ()
 }
