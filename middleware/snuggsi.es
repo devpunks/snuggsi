@@ -30,10 +30,11 @@ module.exports = async (context, next) =>
         .replace (/ /g, '')
         .split (',')
 
-  , encode // HTTP1.1 `Accept-Encoding` Header
+  , gzip // HTTP1.1 `Accept-Encoding` Header
       // http://tools.ietf.org/html/7231#section-5.3.4
-      = !!! debug
-        && !!! ['', 'identity'].includes (encoding)
+      = ['*', 'gzip']
+        .map  (encodings.includes.bind (encodings))
+        .some (Boolean)
 
   , path // WHATWG URL path Spec
       //   URL path - https://url.spec.whatwg.org/#concept-url-path
