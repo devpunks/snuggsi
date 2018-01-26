@@ -16,6 +16,7 @@ module.exports = class extends require ('koa') {
     stack = [
       cors        // why is this not a function...
     , security () // and this IS a function?
+    , snuggsi
     , ... stack
     , negotiator
     ]
