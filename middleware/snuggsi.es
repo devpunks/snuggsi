@@ -45,7 +45,7 @@ module.exports = async (context, next) =>
         ? 'es'   // Ecmascript extension
         : 'js'   // Javascript extension
 
-  , compress = encode
+  , compress = encode // Not needed?
 
   , minified = encode ? suffix : ''
 
