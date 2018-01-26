@@ -7,7 +7,8 @@ module.exports = {
 , cors       : require ('./cors')
 , security   : require ('./security')
 , browse     : require ('./browse')
-, assets     : require ('./assets')
+, snuggsi    : require ('./snuggsi')
 , negotiator : require ('./negotiator')
+, assets     : require ('./assets')
 , mixins     : require ('mixins/middleware')
 }
