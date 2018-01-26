@@ -37,9 +37,6 @@ module.exports = async (context, next) =>
       //   pathname - https://url.spec.whatwg.org/#dom-url-pathname
       = /^\/snuggsi$/.test (context.path)
 
-  , debug
-      = 'debug' in context.request.query
-
   , ecmascript
       = 'br' === encoding
 
