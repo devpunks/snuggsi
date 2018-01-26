@@ -16,9 +16,10 @@ const
 module.exports = async (context, next) =>
 {
   const
-    accept = // HTTP 1.1 `Accept` Header
-             // - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
-      context.get ('Accept')
+    accept // HTTP 1.1 `Accept` Header
+      // - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
+      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding
+      = context.get ('Accept')
 
   , encode = // HTTP1.1 `Accept-Encoding` Header
                // http://tools.ietf.org/html/7231#section-5.3.4
