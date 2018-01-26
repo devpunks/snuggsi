@@ -192,14 +192,14 @@ test ('GET /snuggsi Accept-Encoding: *', async t => {
 })
 
 
-test.only ('GET /snuggsi Accept-Encoding: *', async t => {
+test ('GET /snuggsi Accept-Encoding: gzip', async t => {
 
   const
     server = serve ``
   , body   = read `dist/snuggsi.min.js.gz`
 
   , options
-      = { compress: false , headers: { 'Accept-Encoding' : '*' } }
+      = { compress: false , headers: { 'Accept-Encoding' : 'gzip' } }
 
   , response
       = await fetch ('http://localhost:8181/snuggsi', options)
