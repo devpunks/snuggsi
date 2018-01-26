@@ -28,7 +28,7 @@ module.exports = async (context, next) =>
       // WHATWG URL path Spec
       //   URL path - https://url.spec.whatwg.org/#concept-url-path
       //   pathname - https://url.spec.whatwg.org/#dom-url-pathname
-      context.path
+      /^\/snuggsi$/.test (context.path)
 
   return await next ()
 }
