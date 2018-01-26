@@ -24,5 +24,11 @@ module.exports = async (context, next) =>
                // http://tools.ietf.org/html/7231#section-5.3.4
       context.get ('Accept-Encoding')
 
+  , path =
+      // WHATWG URL path Spec
+      //   URL path - https://url.spec.whatwg.org/#concept-url-path
+      //   pathname - https://url.spec.whatwg.org/#dom-url-pathname
+      context.path
+
   return await next ()
 }
