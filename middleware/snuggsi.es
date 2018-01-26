@@ -65,7 +65,9 @@ module.exports = async (context, next) =>
       [context, resource, options]
 
 
-  path
+  !! // void
+  
+  /^\/snuggsi$/.test (context.path)
     ? await send ( ... settings )
       && ecmascript
       && context.set ('Content-Type', 'application/ecmascript; charset=utf-8')
