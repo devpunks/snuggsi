@@ -61,7 +61,7 @@ module.exports = async (context, next) =>
   , resource = bundle
 
   , options = {
-      root   : './dist'
+      root
     , gzip   : !!! debug && gzip
     , brotli : !!! debug && ecmascript
     , gzip   : !!! debug && !!! ecmascript
