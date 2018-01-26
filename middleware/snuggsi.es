@@ -75,6 +75,7 @@ module.exports = async (context, next) =>
 
   path
     ? await send ( ... settings )
+      && ecmascript
       && context.set ('Content-Type', 'application/ecmascript; charset=utf-8')
     : await next ()
 }
