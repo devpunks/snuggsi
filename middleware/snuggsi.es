@@ -35,6 +35,8 @@ module.exports = async (context, next) =>
 //      ? 'es'   // Ecmascript extension
 //      : 'js'   // Javascript extension
 
+  , compress = accept
+
   , bundle =
       [ name, suffix, extension ]
         .filter (Boolean)
