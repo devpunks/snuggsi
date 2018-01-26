@@ -34,8 +34,9 @@ module.exports = async (context, next) =>
       // http://tools.ietf.org/html/7231#section-5.3.4
       = context.acceptsEncodings (['*', 'gzip'])
 
-  , ecmascript
-      = encodings.includes ('br')
+  , ecmascript // HTTP1.1 `Accept-Encoding` Header
+      // http://tools.ietf.org/html/7231#section-5.3.4
+      = context.acceptsEncodings (['br'])
 
   , extension
       = ecmascript
