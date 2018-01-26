@@ -69,7 +69,7 @@ test ('GET /snuggsi?debug Accept-Encoding: identity', async t => {
   , body   = read `dist/snuggsi.js`
 
   , options
-      = { compress: false }
+      = { compress: false , headers: { 'Accept-Encoding' : 'identity' } }
 
   , response
       = await fetch ('http://localhost:8181/snuggsi?debug', options)
