@@ -60,5 +60,7 @@ module.exports = async (context, next) =>
   console.warn ('path and compress', `Path: ${path} Compress: ${compress} Encoding: ${encoding}`)
   console.warn ('headers', context.request.headers)
 
-  return await next ()
+  path
+    ? await send ( ... settings )
+    : null
 }
