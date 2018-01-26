@@ -60,9 +60,9 @@ module.exports = async (context, next) =>
 //      : path   // requested resource
 
   , options = {
-      gzip   : !!! debug
-    , brotli : !!! debug
-    , root   : './dist'
+      root   : './dist'
+    , brotli : !!! debug && ecmascript
+    , gzip   : !!! debug && !!! ecmascript
     }
 
   , settings =
