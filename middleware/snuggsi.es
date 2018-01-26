@@ -24,13 +24,7 @@ module.exports = async (context, next) =>
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding
       = context.get ('Accept')
 
-  , encodings // HTTP1.1 `Accept-Encoding` Header
-      = context
-        .get ('Accept-Encoding')
-        .replace (/ /g, '')
-        .split (',')
-
-  , gzip // HTTP1.1 `Accept-Encoding` Header
+  , brotli // HTTP1.1 `Accept-Encoding` Header
       // http://tools.ietf.org/html/7231#section-5.3.4
       = context.acceptsEncodings (['*', 'gzip'])
 
