@@ -65,6 +65,7 @@ module.exports = async (context, next) =>
 
   , options = {
       root   : './dist'
+    , gzip   : !!! debug && gzip
     , brotli : !!! debug && ecmascript
     , gzip   : !!! debug && !!! ecmascript
     }
