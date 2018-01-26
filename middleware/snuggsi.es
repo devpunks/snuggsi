@@ -41,7 +41,7 @@ module.exports = async (context, next) =>
   , minified = encode ? suffix : ''
 
   , bundle =
-      [ name, encoding ? suffix : '', extension ]
+      [ name, minified, extension ]
         .filter (Boolean)
         .join `.`
 
