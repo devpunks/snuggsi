@@ -30,6 +30,10 @@ module.exports = async (context, next) =>
       //   pathname - https://url.spec.whatwg.org/#dom-url-pathname
       /^\/snuggsi$/.test (context.path)
 
+  , extension = 'js'
+//    ecmascript // default
+//      ? 'es'   // Ecmascript extension
+//      : 'js'   // Javascript extension
 
   console.warn (accept, encoding, path)
 
