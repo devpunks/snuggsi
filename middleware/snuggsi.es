@@ -64,9 +64,6 @@ module.exports = async (context, next) =>
   , settings =
       [context, resource, options]
 
-  console.warn ('gzip', gzip)
-  console.warn (accept, resource, options, encodings, path, debug)
-  console.warn ('headers', context.request.headers)
 
   path
     ? await send ( ... settings )
