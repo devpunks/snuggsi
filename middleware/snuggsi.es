@@ -8,8 +8,8 @@
 
 module.exports = async (context, next) =>
 {
-    //    what is this vary?
-//    context.vary ('Accept-Encoding')
+  // what is this vary?
+  // context.vary ('Accept-Encoding')
 
   return await next ()
 }
