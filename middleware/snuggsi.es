@@ -40,7 +40,7 @@ module.exports = async (context, next) =>
         : 'js'   // Javascript extension
 
   , minified =
-      ( gzip || ecmascript )
+      ( gzip || brotli )
         ? suffix : ''
 
   , resource =
