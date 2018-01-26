@@ -59,9 +59,6 @@ module.exports = async (context, next) =>
         .join `.`
 
   , resource = bundle
-//    (path === root)
-//      ? bundle // default resource
-//      : path   // requested resource
 
   , options = {
       root   : './dist'
