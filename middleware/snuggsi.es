@@ -22,7 +22,8 @@ module.exports = async (context, next) =>
 
   , encode = // HTTP1.1 `Accept-Encoding` Header
                // http://tools.ietf.org/html/7231#section-5.3.4
-      context.get ('Accept-Encoding')
+      !!! ['', 'identity']
+        .includes ( context.get ('Accept-Encoding') )
 
   , path =
       // WHATWG URL path Spec
