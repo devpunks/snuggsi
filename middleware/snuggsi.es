@@ -35,9 +35,8 @@ module.exports = async (context, next) =>
         &&  !! context.acceptsEncodings (['*', 'gzip'])
 
   , extension
-      = brotli
-        ? 'es'   // Ecmascript extension
-        : 'js'   // Javascript extension
+      = (context.path.match (/\.(es|js)$/) || []) [1]
+        || (brotli ? 'es' : 'js')
 
   , minified =
       ( gzip || brotli )
