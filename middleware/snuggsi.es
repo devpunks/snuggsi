@@ -27,7 +27,7 @@ module.exports = async (context, next) =>
   , brotli // HTTP1.1 `Accept-Encoding` Header
       // http://tools.ietf.org/html/7231#section-5.3.4
       = !!! debug
-        &&  context.acceptsEncodings (['br'])
+        &&  !! context.acceptsEncodings (['br'])
 
   , gzip // HTTP1.1 `Accept-Encoding` Header
       // http://tools.ietf.org/html/7231#section-5.3.4
