@@ -10,7 +10,6 @@ lib
 .bundle
 Rakefile
 snuggsi-*.gem
-snuggsi.gemspec
 NOTES
 .DS_Store
 public/*.html
