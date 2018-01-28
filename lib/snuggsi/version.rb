@@ -1,3 +1,3 @@
 module Snuggsi
-  VERSION = '0.12.75'
+  VERSION = '0.12.76'
 end
