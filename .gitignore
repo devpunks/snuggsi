@@ -8,7 +8,6 @@ npm-debug.log
 doc
 lib
 .bundle
-Gemfile*
 Rakefile
 snuggsi-*.gem
 snuggsi.gemspec
