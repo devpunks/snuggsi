@@ -325,7 +325,7 @@ test ('GET /snuggsi.es Accept-Encoding: identity', async t => {
 })
 
 
-test.only ('GET /snuggsi.es Accept-Encoding: *', async t => {
+test ('GET /snuggsi.es Accept-Encoding: *', async t => {
 
   const
     server = serve ``
