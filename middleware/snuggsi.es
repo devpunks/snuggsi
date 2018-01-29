@@ -34,6 +34,10 @@ module.exports = async (context, next) =>
       = !!! debug
         &&  !! context.acceptsEncodings (['*', 'gzip'])
 
+  , snuggsi
+      = /^\/snuggsi(\.es|\.js)*$/
+        .test (context.path)
+
   , extension
       = (context.path.match (/\.(es|js)$/) || []) [1]
         || (brotli ? 'es' : 'js')
@@ -56,8 +60,8 @@ module.exports = async (context, next) =>
 
   console.warn ('\n\npath', context.path, extension, accept, resource, options, context.get ('Accept-Encoding'), debug)
   !! // void
-  
-  /^\/snuggsi(\.es|\.js)*$/.test (context.path)
+
+  snuggsi
     ? await send ( ... settings )
       && brotli
       && context.set ('Content-Type', 'application/ecmascript; charset=utf-8')
