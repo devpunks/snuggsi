@@ -32,8 +32,8 @@ module.exports = async (context, next) =>
 
   , gzip // HTTP1.1 `Accept-Encoding` Header
       // http://tools.ietf.org/html/7231#section-5.3.4
-      = !!! debug
-        &&  !! context.acceptsEncodings (['*', 'gzip'])
+      = !! context.acceptsEncodings (['*', 'gzip'])
+        && !!! debug
 
   , snuggsi
       = /^\/snuggsi(\.es|\.js)*$/
