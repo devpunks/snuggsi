@@ -271,7 +271,7 @@ test ('GET /snuggsi.es', async t => {
 })
 
 
-test.only ('GET /snuggsi.es?debug', async t => {
+test ('GET /snuggsi.es?debug', async t => {
 
   const
     server = serve ``
