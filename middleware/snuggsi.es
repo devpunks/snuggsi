@@ -26,8 +26,9 @@ module.exports = async (context, next) =>
 
   , brotli // HTTP1.1 `Accept-Encoding` Header
       // http://tools.ietf.org/html/7231#section-5.3.4
-      = !!! debug
-        &&  !! context.acceptsEncodings (['br'])
+      // https://github.com/koajs/koa/blob/master/docs/api/request.md#content-negotiation
+      = !! context.get ('Accept-Encoding').includes ('br')
+        && !!! debug
 
   , gzip // HTTP1.1 `Accept-Encoding` Header
       // http://tools.ietf.org/html/7231#section-5.3.4
