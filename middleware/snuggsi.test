@@ -254,7 +254,7 @@ test.only ('GET /snuggsi.es', async t => {
       = { compress: false , headers: { 'Accept-Encoding' : 'br' } }
 
   , response
-      = await fetch ('http://localhost:8181/snuggsi.js', options)
+      = await fetch ('http://localhost:8181/snuggsi.es', options)
 
   , type
       = response.headers.get ('content-type')
