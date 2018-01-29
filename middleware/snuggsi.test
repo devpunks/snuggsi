@@ -271,7 +271,34 @@ test ('GET /snuggsi.es', async t => {
 })
 
 
-test.only ('GET /snuggsi.es Accept-Encoding: identity', async t => {
+test.only ('GET /snuggsi.es?debug', async t => {
+
+  const
+    server = serve ``
+  , body   = read `dist/snuggsi.es`
+
+  , options
+      = { compress: false }
+
+  , response
+      = await fetch ('http://localhost:8181/snuggsi.es?debug', options)
+
+  , type
+      = response.headers.get ('content-type')
+
+
+  t.ok (type.match (/charset=utf-8/))
+  t.ok (type.match (/application\/ecmascript/))
+  t.equal ( await read (response.body), body )
+
+  t.notOk (response.headers.get ('content-encoding'))
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('GET /snuggsi.es Accept-Encoding: identity', async t => {
 
   const
     server = serve ``
