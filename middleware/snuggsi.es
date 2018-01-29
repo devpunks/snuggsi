@@ -63,7 +63,7 @@ module.exports = async (context, next) =>
 
   snuggsi
     ? await send ( ... settings )
-      && brotli
+      && extension === 'es'
       && context.set ('Content-Type', 'application/ecmascript; charset=utf-8')
     : await next ()
 }
