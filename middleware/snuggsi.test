@@ -381,7 +381,7 @@ test ('GET /snuggsi.es Accept-Encoding: gzip', async t => {
 })
 
 
-test.only ('GET /snuggsi.es Accept-Encoding: br', async t => {
+test ('GET /snuggsi.es Accept-Encoding: br', async t => {
 
   const
     server = serve ``
@@ -403,6 +403,33 @@ test.only ('GET /snuggsi.es Accept-Encoding: br', async t => {
   t.ok (type.match (/application\/ecmascript/))
   t.equal ( await read (response.body), body )
   t.equal ( response.headers.get ('content-encoding'), 'br' )
+
+  server.close ``
+  t.end ()
+})
+
+
+test.only ('GET /snuggsi.js', async t => {
+
+  const
+    server = serve ``
+  , body   = read `dist/snuggsi.js`
+
+  , options
+      = { compress: false }
+
+  , response
+      = await fetch ('http://localhost:8181/snuggsi.js', options)
+
+  , type
+      = response.headers.get ('content-type')
+
+
+  t.ok (type.match (/charset=utf-8/))
+  t.ok (type.match (/application\/javascript/))
+  t.equal ( await read (response.body), body )
+
+  t.notOk (response.headers.get ('content-encoding'))
 
   server.close ``
   t.end ()
