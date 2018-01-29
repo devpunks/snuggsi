@@ -244,14 +244,14 @@ test ('GET /snuggsi Accept-Encoding: br', async t => {
 })
 
 
-test.only ('GET /snuggsi.es', async t => {
+test ('GET /snuggsi.es', async t => {
 
   const
     server = serve ``
   , body   = read `dist/snuggsi.min.es.br`
 
   , options
-      = { compress: false , headers: { 'Accept-Encoding' : 'br' } }
+      = { compress: false }
 
   , response
       = await fetch ('http://localhost:8181/snuggsi.es', options)
