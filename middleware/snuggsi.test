@@ -436,7 +436,7 @@ test ('GET /snuggsi.js', async t => {
 })
 
 
-test.only ('GET /snuggsi.js?debug', async t => {
+test ('GET /snuggsi.js?debug', async t => {
 
   const
     server = serve ``
@@ -447,6 +447,32 @@ test.only ('GET /snuggsi.js?debug', async t => {
 
   , response
       = await fetch ('http://localhost:8181/snuggsi.js?debug', options)
+
+  , type
+      = response.headers.get ('content-type')
+
+
+  t.ok (type.match (/charset=utf-8/))
+  t.ok (type.match (/application\/javascript/))
+  t.equal ( await read (response.body), body )
+
+  t.notOk (response.headers.get ('content-encoding'))
+
+  server.close ``
+  t.end ()
+})
+
+test.only ('GET /snuggsi.es Accept-Encoding: identity', async t => {
+
+  const
+    server = serve ``
+  , body   = read `dist/snuggsi.js`
+
+  , options
+      = { compress: false , headers: { 'Accept-Encoding' : 'identity' } }
+
+  , response
+      = await fetch ('http://localhost:8181/snuggsi.js', options)
 
   , type
       = response.headers.get ('content-type')
