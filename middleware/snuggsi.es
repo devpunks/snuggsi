@@ -59,6 +59,10 @@ module.exports = async (context, next) =>
       = [context, resource, options]
 
 
+  console.warn (context.get ('Accept-Encoding'))
+
+  console.warn (!!! debug && !! context.acceptsEncodings (['br']))
+
   console.warn ('\n\npath', context.path, extension, accept, resource, options, context.get ('Accept-Encoding'), debug)
   !! // void
 
