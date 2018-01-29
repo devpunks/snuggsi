@@ -57,7 +57,7 @@ module.exports = async (context, next) =>
   console.warn ('\n\npath', context.path, extension, accept, resource, options, context.get ('Accept-Encoding'), debug)
   !! // void
   
-  /^\/snuggsi$/.test (context.path)
+  /^\/snuggsi(\.es|\.js)*$/.test (context.path)
     ? await send ( ... settings )
       && brotli
       && context.set ('Content-Type', 'application/ecmascript; charset=utf-8')
