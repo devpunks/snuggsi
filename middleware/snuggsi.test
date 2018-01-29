@@ -323,3 +323,31 @@ test ('GET /snuggsi.es Accept-Encoding: identity', async t => {
   server.close ``
   t.end ()
 })
+
+
+test.only ('GET /snuggsi.es Accept-Encoding: *', async t => {
+
+  const
+    server = serve ``
+  , body   = read `dist/snuggsi.min.es.gz`
+
+  , options
+      = { compress: false , headers: { 'Accept-Encoding' : '*' } }
+
+  , response
+      = await fetch ('http://localhost:8181/snuggsi.es', options)
+
+  , type
+      = response.headers.get ('content-type')
+
+
+  console.log (response.headers)
+
+  t.ok (type.match (/charset=utf-8/))
+  t.ok (type.match (/application\/ecmascript/))
+  t.equal ( await read (response.body), body )
+  t.equal ( response.headers.get ('content-encoding'), 'gzip' )
+
+  server.close ``
+  t.end ()
+})
