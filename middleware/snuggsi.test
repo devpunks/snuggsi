@@ -535,7 +535,7 @@ test ('GET /snuggsi.js Accept-Encoding: gzip', async t => {
 })
 
 
-test.only ('GET /snuggsi.js Accept-Encoding: br', async t => {
+test ('GET /snuggsi.js Accept-Encoding: br', async t => {
 
   const
     server = serve ``
