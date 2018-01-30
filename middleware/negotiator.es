@@ -12,5 +12,6 @@ const
 
 module.exports = async (context, next) =>
 {
+//console.warn (Object.keys (context), context.originalUrl)
   await next ()
 }
