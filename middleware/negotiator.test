@@ -6,7 +6,7 @@ const
 test ('calling next middlewaree')
 
 
-test.only ('GET / defaults to dist/snuggsi.min.js', async t => {
+test.only ('GET /', async t => {
 
   const
     server = serve ``
