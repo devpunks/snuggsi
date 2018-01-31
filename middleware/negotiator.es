@@ -45,6 +45,6 @@ module.exports = async (context, next, type) =>
   console.log ('Type', type, context.accepts ('html'))
   await next ()
   console.log ('Type', type)
-  console.log ('type', context.accepts (['html', 'css', 'ecmascript', 'javascript', 'json']))
-  console.log ('html', html, 'css', css, 'es', es, 'js', js, 'json', json)
+  console.log ('type', context.accepts (['text', 'html', 'css', 'ecma', 'javascript', 'json']))
+  console.log ('text', text, 'html', html, 'css', css, 'es', es, 'js', js, 'json', json)
 }
