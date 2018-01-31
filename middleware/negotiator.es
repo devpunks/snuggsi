@@ -31,20 +31,12 @@ module.exports = async (context, next, type) =>
   , resource
       = context.path
 
-  , html
-      = context.accepts ('html')
-
-  , css
-      = context.accepts ('css')
-
-  , es
-      = context.accepts ('ecmascript')
-
-  , js
-      = context.accepts ('javascript')
-
-  , json
-      = context.accepts ('json')
+  , css  = accepts ('css')
+  , text = accepts ('text')
+  , html = accepts ('html')
+  , json = accepts ('json')
+  , es   = accepts ('ecma')
+  , js   = accepts ('javascript')
 
 
   type = context.type
