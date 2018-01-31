@@ -12,11 +12,12 @@ test.only ('GET /', async t => {
     server = serve ``
   , dist   = read `public/index.html`
 
-  , headers
-      = { 'Accept' : 'text/css', 'Accept-Encoding': 'identity' }
   , options
 //    = { compress: false, headers: { 'Accept' : '*/*' } }
       = { compress: false, headers  }
+
+  , headers
+      = { 'Accept' : 'application/ecmascript;q=0.9, */*;q=0.8', 'Accept-Encoding': 'identity' }
 
   , response
       = await fetch ('http://localhost:8181/index.html?debug', options)
