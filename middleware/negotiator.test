@@ -12,9 +12,11 @@ test.only ('GET /', async t => {
     server = serve ``
   , dist   = read `public/index.html`
 
+  , headers
+      = { 'Accept' : 'text/css', 'Accept-Encoding': 'identity' }
   , options
 //    = { compress: false, headers: { 'Accept' : '*/*' } }
-      = { compress: false, headers: { 'Accept' : '*/*' } }
+      = { compress: false, headers  }
 
   , response
       = await fetch ('http://localhost:8181/index.html', options)
