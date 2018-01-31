@@ -10,7 +10,15 @@ const
   send = require ('koa-send')
 
 
-module.exports = async (context, next) =>
+class Representation {
+
+  get mime () { }
+  get type () { }
+  get encoding () { }
+  get language () { }
+}
+
+module.exports = async (context, next, type) =>
 {
 //console.warn (Object.keys (context), context.originalUrl)
   await next ()
