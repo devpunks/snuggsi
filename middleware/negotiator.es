@@ -26,7 +26,7 @@ module.exports = async (context, next, type) =>
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding
       // List of default accept values
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation/List_of_default_Accept_values
-      = context.accept
+      = context.accepts.bind (context)
 
   , resource
       = context.path
