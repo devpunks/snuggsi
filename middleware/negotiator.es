@@ -37,7 +37,7 @@ module.exports = async (context, next, type) =>
   , html = accepts ('html')
   , json = accepts ('json')
   , es   = accepts ('ecma')
-  , js   = accepts ('javascript')
+  , js   = accepts ('js')
 
 
   type = context.type
