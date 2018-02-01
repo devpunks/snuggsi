@@ -43,9 +43,8 @@ module.exports = async (context, next, type) =>
   type = context.type
 
 //console.warn (accept.headers, accept.negotiator, type)
-  console.log ('Type', type, context.accepts ('html'))
   await next ()
   console.log ('Type', type)
-  console.log ('type', context.accepts (['text', 'html', 'css', 'ecma', 'javascript', 'json']))
+  console.log ('\n\n', context.path, context.get ('Accept'), ' type', context.accepts (['text', 'html', 'css', 'ecma', 'js', 'json']))
   console.log ('text', text, 'html', html, 'css', css, 'es', es, 'js', js, 'json', json)
 }
