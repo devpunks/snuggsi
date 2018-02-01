@@ -4,8 +4,9 @@
 //     WHATWG URL Spec - https://url.spec.whatwg.org
 //     Wikipedia - https://en.wikipedia.org/wiki/Content_negotiation
 //     MDN - https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation
-//     HTTP Accept Header - https://www.w3.org/Protocols/rfc2616/rfc2616-sec14.html#sec14.1
-
+//     https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation/List_of_default_Accept_values
+//     https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+//     https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types
 const
   send = require ('koa-send')
 
