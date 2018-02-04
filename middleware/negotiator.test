@@ -16,11 +16,10 @@ test.only ('GET /', async t => {
       = { 'Accept' : 'text/html;q=0.9, text/plain;q=0.6, */*;q=0.8', 'Accept-Encoding': 'identity' }
 
   , options
-//    = { compress: false, headers: { 'Accept' : '*/*' } }
       = { compress: false, headers  }
 
   , response
-      = await fetch ('http://localhost:8181/index.html?debug', options)
+      = await fetch ('http://localhost:8181/index.html', options)
 
   , type
       = response.headers.get ('content-type')
