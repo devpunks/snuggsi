@@ -39,8 +39,6 @@ module.exports = async (context, next, type) =>
   , es   = accepts ('ecma')
   , js   = accepts ('js')
 
-  console.log (context.path, context.request.headers)
-
   type = context.type
 
 //console.warn (accept.headers, accept.negotiator, type)
