@@ -603,7 +603,7 @@ const Custom = Element => // why buble
     this.context = {}
 
     super.initialize
-      && await super.initialize ()
+      && super.initialize ()
 
     Object
       .getOwnPropertyNames (Element.prototype)
