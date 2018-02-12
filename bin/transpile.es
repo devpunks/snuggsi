@@ -8,7 +8,8 @@ var
       arrow: true,
       modules: false,
       dangerousForOf: true,
-      templateString: false
+      templateString: false,
+      reservedProperties: true
     },
 
     // prevent function expressions generated from class methods
