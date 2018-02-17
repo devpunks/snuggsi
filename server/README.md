@@ -16,3 +16,13 @@ const
 ```
 
 ## .serve
+
+Serve a specified directory as root
+
+```javascript
+const
+  { Server }
+    = require ('snuggsi')
+
+(new Server).serve  ``
+```
