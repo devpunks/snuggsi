@@ -14,3 +14,5 @@ const
   .mount ( 'foo', resource `bar` )
   .serve  ``
 ```
+
+## .serve
