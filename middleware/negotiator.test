@@ -29,8 +29,6 @@ test.only ('GET /', async t => {
   , body
       = await read (response.body)
 
-//console.warn (body)
-
   t.notOk (response.headers.get ('content-encoding'))
 //t.ok (type.match (/application\/javascript/))
 //t.ok (type.match (/charset=utf-8/))
