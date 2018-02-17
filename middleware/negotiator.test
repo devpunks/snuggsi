@@ -6,7 +6,7 @@ const
 test ('calling next middleware')
 
 
-test.only ('GET /', async t => {
+test ('GET /', async t => {
 
   const
     server = serve ``
