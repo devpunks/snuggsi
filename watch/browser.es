@@ -11,7 +11,7 @@ module.exports = {
   proxy
 , "port": `${process.env.BROWSER_PORT}`
 , "files": [] // ['public'] since we explicitly fire reload from watch
-, "startPath": "/index.html"
+, "startPath": "/index"
 , "logPrefix": "snuggsiツ"
 }
 
