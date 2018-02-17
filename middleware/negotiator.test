@@ -3,7 +3,7 @@ const
     = require ('test')
 
 
-test ('calling next middlewaree')
+test ('calling next middleware')
 
 
 test.only ('GET /', async t => {
