@@ -1,4 +1,5 @@
 // https://codereview.chromium.org/1987413002/
+// https://github.com/whatwg/fetch/pull/442
 //
 // Requests with useStreamOnResponse flag don't reuse preloaded resources
 // https://bugs.chromium.org/p/chromium/issues/detail?id=652228
