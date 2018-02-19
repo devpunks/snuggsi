@@ -1,3 +1,5 @@
+require ('./mount.test')
+
 const
   { test, read, fetch }
     = require ('test')
