@@ -16,7 +16,7 @@
 //
 // w3c preload Tighter definition of "load was successful"
 // https://github.com/w3c/preload/issues/83
-void (_ => {
+; (_ => {
 
   //create an observer instance
   // Can always default to DOMContentLoaded
