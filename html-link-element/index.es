@@ -2,6 +2,9 @@
 // https://github.com/whatwg/fetch/pull/442
 // https://chromium.googlesource.com/chromium/src.git/+/a5a314d3249ecf1c291b417fbe067e8c2a65fad2
 //
+// Link rel preload as attribute doesn't support the as=document value
+// https://bugs.chromium.org/p/chromium/issues/detail?id=593267
+//
 // Requests with useStreamOnResponse flag don't reuse preloaded resources
 // https://bugs.chromium.org/p/chromium/issues/detail?id=652228
 //
