@@ -6,6 +6,9 @@
 //
 // Spurious warning preloading script
 // https://bugs.chromium.org/p/chromium/issues/detail?id=655698
+//
+// WPT
+// https://github.com/w3c/web-platform-tests/pull/4505
 void (_ => {
 
   //create an observer instance
