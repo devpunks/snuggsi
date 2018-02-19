@@ -51,9 +51,9 @@ void (_ => {
   }
 
 
+  // https://github.com/w3c/preload/pull/40
   // https://bugs.webkit.org/show_bug.cgi?id=38995
   // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
-  // https://github.com/w3c/preload/pull/40
   function onload (link) {
     link = this.link
 
