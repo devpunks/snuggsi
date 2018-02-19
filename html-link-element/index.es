@@ -1,4 +1,4 @@
-// https://codereview.chromium.org/1987413002/
+// https://codereview.chromium.org/1987413002
 // https://github.com/whatwg/fetch/pull/442
 // https://bugs.chromium.org/p/chromium/issues/detail?id=655698
 //
