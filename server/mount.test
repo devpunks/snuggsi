@@ -1,0 +1,26 @@
+const
+  { test, serve, read, fetch }
+    = require ('test')
+
+, { Server }
+    = require ('..')
+
+
+test.only ('mount resource location to an endpoint', async t => {
+
+  const
+    server =
+      ( new Server )
+        .mount `foo`
+        .serve `public`
+
+  , { body }
+      = await fetch (`http://localhost:${process.env.PORT}/favicon.ico`)
+
+
+  t.equal
+    ( await read (body), read `./public/favicon.ico` )
+
+  server.close ``
+  t.end ()
+})
