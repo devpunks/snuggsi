@@ -126,7 +126,25 @@ TokenList.prototype.bind = function (context) {
       .map (tokenize (symbol$1)) }
 };
 
-void (function (_) {
+// https://codereview.chromium.org/1987413002
+// https://github.com/whatwg/fetch/pull/442
+// https://chromium.googlesource.com/chromium/src.git/+/a5a314d3249ecf1c291b417fbe067e8c2a65fad2
+//
+// Link rel preload as attribute doesn't support the as=document value
+// https://bugs.chromium.org/p/chromium/issues/detail?id=593267
+//
+// Requests with useStreamOnResponse flag don't reuse preloaded resources
+// https://bugs.chromium.org/p/chromium/issues/detail?id=652228
+//
+// Spurious warning preloading script
+// https://bugs.chromium.org/p/chromium/issues/detail?id=655698
+//
+// WPT
+// https://github.com/w3c/web-platform-tests/pull/4505
+//
+// w3c preload Tighter definition of "load was successful"
+// https://github.com/w3c/preload/issues/83
+; (function (_) {
 
   //create an observer instance
   // Can always default to DOMContentLoaded
@@ -185,9 +203,9 @@ void (function (_) {
   }
 
 
+  // https://github.com/w3c/preload/pull/40
   // https://bugs.webkit.org/show_bug.cgi?id=38995
   // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
-  // https://github.com/w3c/preload/pull/40
   function onload (link) {
     link = this.link
 
