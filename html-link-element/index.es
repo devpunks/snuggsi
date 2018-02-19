@@ -3,6 +3,9 @@
 //
 // Requests with useStreamOnResponse flag don't reuse preloaded resources
 // https://bugs.chromium.org/p/chromium/issues/detail?id=652228
+//
+// Spurious warning preloading script
+// https://bugs.chromium.org/p/chromium/issues/detail?id=655698
 void (_ => {
 
   //create an observer instance
