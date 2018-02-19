@@ -1,4 +1,7 @@
 // https://codereview.chromium.org/1987413002/
+//
+// Requests with useStreamOnResponse flag don't reuse preloaded resources
+// https://bugs.chromium.org/p/chromium/issues/detail?id=652228
 void (_ => {
 
   //create an observer instance
