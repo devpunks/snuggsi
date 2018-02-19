@@ -9,6 +9,9 @@
 //
 // WPT
 // https://github.com/w3c/web-platform-tests/pull/4505
+//
+// w3c preload Tighter definition of "load was successful"
+// https://github.com/w3c/preload/issues/83
 void (_ => {
 
   //create an observer instance
