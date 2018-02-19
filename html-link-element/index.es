@@ -74,7 +74,9 @@ void (_ => {
   // https://www.w3.org/TR/html5/document-metadata.html#the-link-element
   function onload () {
     let
-      response =
+      link = this.link
+
+    , response =
         this.response
 
     , anchor =
