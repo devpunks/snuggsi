@@ -9,8 +9,8 @@ test ('calling next middleware')
 test.only ('GET /', async t => {
 
   const
-    server = serve ``
-  , dist   = read `public/index.html`
+    server = serve `server/fixtures`
+  , dist   = read `server/fixtures/index.html`
 
   , headers = {
       'Accept' :
