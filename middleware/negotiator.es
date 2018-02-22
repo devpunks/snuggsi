@@ -33,10 +33,9 @@ module.exports = async (context, next, type) =>
 
   type = context.type
 
-//console.warn (accept.headers, accept.negotiator, type)
   await next ()
 
-  console.log ('Type', type)
-  console.log ('\n\n', context.path, context.request.headers, context.get ('Accept'), ' type', context.accepts (['text', 'html', 'css', 'ecma', 'js', 'json']))
-  console.log ('text', text, 'html', html, 'css', css, 'es', es, 'js', js, 'json', json)
+//console.log ('Type', type)
+//console.log ('\n\n', context.path, context.request.headers, context.get ('Accept'), ' type', context.accepts (['text', 'html', 'css', 'ecma', 'js', 'json']))
+//console.log ('text', text, 'html', html, 'css', css, 'es', es, 'js', js, 'json', json)
 }
