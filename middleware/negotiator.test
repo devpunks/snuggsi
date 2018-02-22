@@ -22,7 +22,7 @@ test.only ('GET /', async t => {
 
   , response
       = await fetch
-          ('http://localhost:8181/index.html', options)
+          ('http://localhost:8181/', options)
 
   , type
       = response.headers.get ('content-type')
