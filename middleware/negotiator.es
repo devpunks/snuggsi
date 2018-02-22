@@ -24,7 +24,7 @@ module.exports = async (context, next) =>
   , resource
       = context.path
 
-  , text = accepts `txt`
+  , txt  = accepts `txt`
 //, css  = accepts ('css')
 //, html = accepts ('html')
 //, json = accepts ('json')
