@@ -11,14 +11,6 @@ const
   send = require ('koa-send')
 
 
-class Representation {
-
-  get mime () { }
-  get type () { }
-  get encoding () { }
-  get language () { }
-}
-
 module.exports = async (context, next, type) =>
 {
   const
