@@ -21,7 +21,8 @@ test.only ('GET /', async t => {
       = { compress: false, headers  }
 
   , response
-      = await fetch ('http://localhost:8181/index.html', options)
+      = await fetch
+          ('http://localhost:8181/index.html', options)
 
   , type
       = response.headers.get ('content-type')
