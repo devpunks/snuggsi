@@ -11,7 +11,7 @@ const
   send = require ('koa-send')
 
 
-module.exports = async (context, next, type) =>
+module.exports = async (context, next) =>
 {
   const
     accepts // HTTP 1.1 `Accept` Header
