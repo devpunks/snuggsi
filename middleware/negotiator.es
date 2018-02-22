@@ -31,6 +31,8 @@ module.exports = async (context, next) =>
 //, es   = accepts ('ecma')
 //, js   = accepts ('js')
 
+  , extensions = [txt]
+
   await next ()
 
   console.log (text, resource)
