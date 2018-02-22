@@ -25,12 +25,11 @@ module.exports = async (context, next) =>
       = context.path
 
   , text = accepts ('text')
-  , html = accepts ('html')
-  , json = accepts ('json')
-  , es   = accepts ('ecma')
-  , js   = accepts ('js')
-
-  type = context.type
+//, css  = accepts ('css')
+//, html = accepts ('html')
+//, json = accepts ('json')
+//, es   = accepts ('ecma')
+//, js   = accepts ('js')
 
   await next ()
 
