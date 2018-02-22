@@ -20,9 +20,10 @@ test.only ('GET /', async t => {
   , options
       = { compress: false, headers  }
 
+  , resource = '/'
   , response
       = await fetch
-          ('http://localhost:8181/', options)
+          (`http://localhost:8181${resource}`, options)
 
   , type
       = response.headers.get ('content-type')
