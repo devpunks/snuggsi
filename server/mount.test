@@ -6,7 +6,7 @@ const
     = require ('..')
 
 
-test.only ('mount resource location to an endpoint', async t => {
+test ('mount resource location to an endpoint', async t => {
 
   const
     server =
