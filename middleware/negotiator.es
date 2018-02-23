@@ -32,6 +32,7 @@ module.exports = async (context, next) =>
 //, js   = accepts ('js')
 
   , extensions = [txt]
+  , extension  = extensions.find (Boolean)
 
   await next ()
 
