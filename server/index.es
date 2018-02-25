@@ -23,6 +23,7 @@ module.exports = class extends require ('koa') {
     const
       message
         = `Serving ${path}/ on port ${port}`
+
     , root
         = assets ( Boolean (path += '') ? path : 'public' )
 
