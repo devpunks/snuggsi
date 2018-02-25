@@ -25,16 +25,14 @@ module.exports = class extends require ('koa') {
 
 
   serve (path = '', port = process.env.PORT) {
-
     const
       message
         = `Serving ${path}/ on port ${port}`
-
+    , root
+        = assets ( Boolean (path += '') ? path : 'public' )
 
     return this
-
-      .use ( assets ( Boolean (path += '') ? path : 'public' ) )
-
+      .use (root)
       .listen ( port, _ => console.warn (message) )
   }
 }
