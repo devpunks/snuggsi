@@ -35,6 +35,6 @@ module.exports = class extends require ('koa') {
 
       .use ( assets ( Boolean (path += '') ? path : 'public' ) )
 
-      .listen ( port, _ => console.warn (`Serving ${path}/ on port`, port) )
+      .listen ( port, _ => console.warn (message) )
   }
 }
