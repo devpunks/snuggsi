@@ -6,7 +6,6 @@ const
 module.exports = class extends require ('koa') {
 
   constructor ( stack = [] ) {
-
     super ()
 
     stack = [
