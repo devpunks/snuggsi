@@ -83,7 +83,7 @@ test ('serve defaults to `public` when called without argument', async t => {
 })
 
 
-test.only ('serve defaults to `public` when called with empty template literal', async t => {
+test ('serve defaults to `public` when called with empty template literal', async t => {
 
   const
     server
