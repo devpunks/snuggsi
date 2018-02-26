@@ -22,6 +22,6 @@ test.only ('assets', async t => {
 
   t.ok (true)
 
-  server.close ()
+  server.close ``
   t.end ()
 })
