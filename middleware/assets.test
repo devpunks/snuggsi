@@ -14,7 +14,7 @@ const
 
 test.only ('random location of assets')
 
-test ('assets', t => {
+test ('assets', async t => {
 
   const
     server
