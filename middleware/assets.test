@@ -20,8 +20,7 @@ test ('assets', async t => {
     server
       = (new Server).serve ``
 
-  request
-    .get ('http://localhost:8181', response => { })
+  await fetch ('http://localhost:8181')
 
 
   t.ok (true)
