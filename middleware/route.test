@@ -2,7 +2,10 @@ const
   { test, fetch }
     = require ('test')
 
-test.only ('assets', async t => {
+, { Server }
+    = require ('..')
+
+test.only ('route URI to middleware', async t => {
 
   const
     server
