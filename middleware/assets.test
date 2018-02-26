@@ -5,11 +5,8 @@ const
 , { assets }
     = require ('.')
 
-, Server
-    = require ('server')
-
-, request
-   = require ('request')
+, { Server }
+    = require ('..')
 
 
 test.only ('random location of assets')
