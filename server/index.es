@@ -8,13 +8,13 @@ module.exports = class extends require ('koa') {
   constructor ( middleware = [] ) {
     super ()
 
-    stack = [
-      cors        // why is this not a function...
+    void [
+      cors        // why is this NOT a function...
     , security () // and this IS a function?
 //  , snuggsi
-//  , ... stack
     , negotiator
     ]
+      .concat (middleware)
       .map ( this.use.bind (this) )
   }
 
