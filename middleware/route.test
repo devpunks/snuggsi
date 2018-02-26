@@ -12,8 +12,12 @@ const
 test ('route URI to middleware', async t => {
 
   const
-    server
-      = (new Server).serve ``
+    middleware
+      = [ route ('/foo/', console.log) ]
+
+  , server
+      = (new Server (middleware))
+      .serve ``
 
   , response
       = await fetch ('http://localhost:8181/foo/')
@@ -24,7 +28,7 @@ test ('route URI to middleware', async t => {
   , status = response.status
 
 
-  console.log (status, await read (body))
+  console.log (route, status, await read (body))
 
   t.ok (true)
 
