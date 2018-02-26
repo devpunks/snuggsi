@@ -1,10 +1,6 @@
-module.exports = (uri, middleware) => {
+module.exports = (uri, middleware) =>
 
-  console.warn ('⚠ Add Routing', uri, middleware)
-
-  return async function (context, next) {
+  async (context, next) =>
     uri !== context.path
       ? await next (context)
       : await middleware (context)
-  }
-}
