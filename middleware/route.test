@@ -2,16 +2,7 @@ const
   { test, fetch }
     = require ('test')
 
-, { assets }
-    = require ('.')
-
-, { Server }
-    = require ('..')
-
-
-test ('random location of assets')
-
-test ('assets', async t => {
+test.only ('assets', async t => {
 
   const
     server
@@ -22,6 +13,6 @@ test ('assets', async t => {
 
   t.ok (true)
 
-  server.close ``
+  server.close ()
   t.end ()
 })
