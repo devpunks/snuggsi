@@ -2,6 +2,7 @@ require ('./auth.test')
 require ('./cors.test')
 require ('./security.test')
 require ('./snuggsi.test')
+require ('./route.test')
 require ('./negotiator.test')
 require ('./assets.test')
 
