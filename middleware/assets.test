@@ -9,9 +9,9 @@ const
     = require ('..')
 
 
-test.only ('random location of assets')
+test ('random location of assets')
 
-test ('assets', async t => {
+test.only ('assets', async t => {
 
   const
     server
