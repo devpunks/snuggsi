@@ -42,7 +42,7 @@ test ('closing server by calling with backticks', t => {
 })
 
 
-test.only ('middleware collection dependency injection', async t => {
+test ('middleware collection dependency injection', async t => {
 
   const
     middleware
