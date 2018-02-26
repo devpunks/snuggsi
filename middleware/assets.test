@@ -1,5 +1,5 @@
 const
-  { test, browse, get }
+  { test, browse }
     = require ('test')
 
 , { assets }
@@ -12,7 +12,7 @@ const
    = require ('request')
 
 
-test ('random location of assets')
+test.only ('random location of assets')
 
 test ('assets', t => {
 
