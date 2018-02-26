@@ -28,7 +28,7 @@ test.only ('route URI to middleware', async t => {
   , status = response.status
 
 
-  console.log (route, status, await read (body))
+  console.log (status, await read (body))
 
   t.ok (true)
 
