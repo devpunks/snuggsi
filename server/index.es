@@ -20,6 +20,7 @@ module.exports = class extends require ('koa') {
 
 
   serve (path = '', port = process.env.PORT) {
+
     const
       message
         = `Serving ${path}/ on port ${port}`
