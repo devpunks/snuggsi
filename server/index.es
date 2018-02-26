@@ -14,8 +14,8 @@ module.exports = class extends require ('koa') {
 //  , snuggsi
     , negotiator
     ]
-      .concat (middleware)
-      .map ( this.use.bind (this) )
+    .concat (middleware)
+    .map ( this.use.bind (this) )
   }
 
 
