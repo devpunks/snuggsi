@@ -1,11 +1,13 @@
-console.warn ('Routing')
-
 module.exports = (uri, middleware) => {
 
   console.warn ('Routing', uri, middleware)
 
   return async function (context, next) {
+    console.warn ('path', context.path, context.path === uri)
     console.warn ('Holy shit', context, next)
-    await next ()
+
+    uri !== context.path
+      ? await next (context)
+      : await middleware (context)
   }
 }
