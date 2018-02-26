@@ -13,7 +13,7 @@ test.only ('route URI to middleware', async t => {
 
   const
     middleware
-      = [ route ('/foo/', console.log) ]
+      = [ route ('/foo/', (context) => { context.body = 'Shazam'; console.log ('From shazam', context) }) ]
 
   , server
       = (new Server (middleware))
