@@ -8,6 +8,7 @@ module.exports = {
 , security   : require ('./security')
 , browse     : require ('./browse')
 , snuggsi    : require ('./snuggsi')
+, route      : require ('./route')
 , negotiator : require ('./negotiator')
 , assets     : require ('./assets')
 , mixins     : require ('mixins/middleware')
