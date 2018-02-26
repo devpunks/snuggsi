@@ -54,7 +54,7 @@ test.only ('middleware collection dependency injection', async t => {
       = ( new Server ( stack ) ).serve `server/fixtures`
 
   , response
-      = await fetch (`http://localhost:${process.env.PORT}/index.txt`)
+      = await fetch (`http://localhost:${process.env.PORT}/`)
 
 
   t.equal
