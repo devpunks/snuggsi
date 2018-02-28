@@ -12,10 +12,12 @@ const
 test.only ('route URI to middleware', async t => {
 
   const
-    middleware
+    body
+      = 'Shazam'
+
+  , middleware
       = (context) =>
-          (context.body = 'Shazam')
-            && console.log ('From shazam', context)
+          (context.body = body)
 
   , stack
       = [ route ('/foo/', middleware) ]
@@ -27,15 +29,11 @@ test.only ('route URI to middleware', async t => {
   , response
       = await fetch ('http://localhost:8181/foo/')
 
-  , body
-      = await response.body
-
   , status = response.status
 
 
-  console.log (status, await read (body))
-
-  t.ok (true)
+  t.equal
+    (body, await read (response.body))
 
   server.close ``
   t.end ()
