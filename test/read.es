@@ -1,7 +1,19 @@
 const
   encoding = 'utf-8'
+
 , { readFileSync: read }
     = require ('fs')
+
+, chunked = source =>
+    resolve => {
+      console.log ('this', this)
+
+//: new Promise (resolve =>
+//    source
+//      .on ('data', buffer.push)
+//      .on ('end' , _ => resolve (buffer.join ``))
+//  )
+    }
 
 module.exports = (source, buffer) =>
 
