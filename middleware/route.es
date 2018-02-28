@@ -1,6 +1,6 @@
 module.exports = (uri, middleware) => {
 
-  console.warn ('uri', /{(\w+|#)}/.test (uri))
+  console.warn ('uri', uri.match (/[^{]+(?=})/g))
 
 /*
 
