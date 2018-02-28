@@ -1,10 +1,13 @@
 const
-  { test, serve, browse, fetch, get }
+  { test, serve, browse, fetch, read, get }
     = require ('.')
 
 
-test ('test',
-  t => { t.assert (test), t.end () } )
+test ('fetch',
+  t => { t.assert (fetch), t.end () } )
+
+test ('read',
+  t => { t.assert (read), t.end () } )
 
 test ('serve',
   t => { t.assert (serve), t.end () } )
@@ -12,8 +15,8 @@ test ('serve',
 test ('browse',
   t => { t.assert (browse), t.end () } )
 
-test ('fetch',
-  t => { t.assert (fetch), t.end () } )
-
 test ('get',
   t => { t.assert (get), t.end () } )
+
+test ('test',
+  t => { t.assert (test), t.end () } )
