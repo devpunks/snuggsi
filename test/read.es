@@ -4,15 +4,11 @@ const
 , { readFileSync: read }
     = require ('fs')
 
-, chunked = source =>
-    resolve => {
-      console.log ('this', this)
-
-//: new Promise (resolve =>
-//    source
-//      .on ('data', buffer.push)
-//      .on ('end' , _ => resolve (buffer.join ``))
-//  )
+, join = buffer =>
+    function (resolve) {
+      this
+        .on ('data', buffer.push)
+        .on ('end' , _ => resolve (buffer.join ``))
     }
 
 module.exports = (source, buffer) =>
