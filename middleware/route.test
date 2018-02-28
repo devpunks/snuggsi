@@ -44,7 +44,10 @@ test ('route URI to middleware', async t => {
 test ('URI without route', async t => {
 
   const
-    server
+    stack
+      = [ route (uri, middleware) ]
+
+  , server
       = (new Server (stack))
       .serve ``
 
