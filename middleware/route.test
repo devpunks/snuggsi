@@ -8,15 +8,16 @@ const
 , { Server }
     = require ('..')
 
-, body
-    = 'Shazam'
+, uri = '/foo/'
+
+, body = 'Shazam'
 
 , middleware
     = (context) =>
         (context.body = body)
 
 , stack
-    = [ route ('/foo/', middleware) ]
+    = [ route (uri, middleware) ]
 
 
 test ('route URI to middleware', async t => {
@@ -27,7 +28,7 @@ test ('route URI to middleware', async t => {
       .serve ``
 
   , response
-      = await fetch ('http://localhost:8181/foo/')
+      = await fetch (`http://localhost:8181${uri}`)
 
   , status = response.status
 
