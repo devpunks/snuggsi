@@ -3,9 +3,9 @@ const
 , { readFileSync: read }
     = require ('fs')
 
-module.exports = (source, buffer) => {
+module.exports = (source, buffer) =>
 
-  return (buffer = [])
+  (buffer = [])
     && typeof source === 'string'
     || Array.isArray (source)
 
@@ -16,4 +16,3 @@ module.exports = (source, buffer) => {
           .on ('data', data => buffer.push (data))
           .on ('end' , _ => resolve (buffer.join ``))
       })
-}
