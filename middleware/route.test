@@ -8,21 +8,21 @@ const
 , { Server }
     = require ('..')
 
+, body
+    = 'Shazam'
+
+, middleware
+    = (context) =>
+        (context.body = body)
+
+, stack
+    = [ route ('/foo/', middleware) ]
+
 
 test.only ('route URI to middleware', async t => {
 
   const
-    body
-      = 'Shazam'
-
-  , middleware
-      = (context) =>
-          (context.body = body)
-
-  , stack
-      = [ route ('/foo/', middleware) ]
-
-  , server
+    server
       = (new Server (stack))
       .serve ``
 
