@@ -11,6 +11,7 @@ const
         .on ('end' , _ => resolve (buffer.join ``))
     }
 
+
 module.exports = (source, buffer) =>
 
   (buffer = [])
