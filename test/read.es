@@ -15,4 +15,4 @@ module.exports = (source, buffer) =>
           source
             .on ('data', data => buffer.push (data))
             .on ('end' , _ => resolve (buffer.join ``))
-      )
+        )
