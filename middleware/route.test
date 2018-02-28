@@ -45,16 +45,16 @@ test.only ('route URI with {token} to middleware', async t => {
 
   const
     token = '{timestamp}'
-  , path  = `${uri}/{timestamp}`
+  , path  = `${uri}${token}`
   , timestamp = (new Date).getTime ``
-  , stack = [ route (path, middleware) ]
+  , stack = [ route (path, console.log) ]
 
  ,  server
       = (new Server (stack))
       .serve ``
 
   , response
-      = await fetch (`http://localhost:8181${uri}/${timestamp}`)
+      = await fetch (`http://localhost:8181${uri}${timestamp}`)
 
   , status = response.status
 
