@@ -41,6 +41,33 @@ test ('route URI to middleware', async t => {
 })
 
 
+test.only ('route URI with {token} to middleware', async t => {
+
+  const
+    token = '{timestamp}'
+  , path  = `${uri}/{timestamp}`
+  , timestamp = (new Date).getTime ``
+  , stack = [ route (path, middleware) ]
+
+ ,  server
+      = (new Server (stack))
+      .serve ``
+
+  , response
+      = await fetch (`http://localhost:8181${uri}/${timestamp}`)
+
+  , status = response.status
+
+
+  t.equal (200, status)
+
+  t.equal (body, await read (response.body))
+
+  server.close ``
+  t.end ()
+})
+
+
 test ('URI without route', async t => {
 
   const
