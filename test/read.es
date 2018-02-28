@@ -10,9 +10,8 @@ module.exports = (source, buffer) =>
     || Array.isArray (source)
 
       ? read ( (source + '') , encoding )
-      : new Promise ((resolve, reject) =>
-
-        source
-          .on ('data', data => buffer.push (data))
-          .on ('end' , _ => resolve (buffer.join ``))
+      : new Promise (resolve =>
+          source
+            .on ('data', data => buffer.push (data))
+            .on ('end' , _ => resolve (buffer.join ``))
       )
