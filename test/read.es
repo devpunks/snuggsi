@@ -18,10 +18,8 @@ module.exports = (source, buffer) =>
     && typeof source === 'string'
     || Array.isArray (source)
 
-      ? read ( source + '', encoding )
+      ? read
+          ( source + '', encoding )
 
-      : new Promise (resolve =>
-          source
-            .on ('data', buffer.push)
-            .on ('end' , _ => resolve (buffer.join ``))
-        )
+      : new Promise
+         ( join (buffer).bind (source) )
