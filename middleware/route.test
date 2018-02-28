@@ -19,7 +19,7 @@ const
     = [ route ('/foo/', middleware) ]
 
 
-test.only ('route URI to middleware', async t => {
+test ('route URI to middleware', async t => {
 
   const
     server
@@ -35,6 +35,26 @@ test.only ('route URI to middleware', async t => {
   t.equal (200, status)
 
   t.equal (body, await read (response.body))
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('URI without route', async t => {
+
+  const
+    server
+      = (new Server (stack))
+      .serve ``
+
+  , response
+      = await fetch ('http://localhost:8181/adsfadsf/')
+
+  , status = response.status
+
+
+  t.equal (404, status)
 
   server.close ``
   t.end ()
