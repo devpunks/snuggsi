@@ -13,6 +13,6 @@ module.exports = (source, buffer) =>
 
       : new Promise (resolve =>
           source
-            .on ('data', data => buffer.push (data))
+            .on ('data', buffer.push)
             .on ('end' , _ => resolve (buffer.join ``))
         )
