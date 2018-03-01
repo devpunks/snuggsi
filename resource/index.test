@@ -28,10 +28,10 @@ test.only ('new Resource', async t => {
   , response =
       await fetch ( ... endpoint )
 
-  , { body } = response
+  , { status, body } = response
 
 
-  console.warn ('The Body', await read (body))
+  console.warn ('The Body', status, await read (body))
 
   server.close ``
   t.end ()
