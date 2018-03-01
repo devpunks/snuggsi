@@ -2,7 +2,7 @@ module.exports =
 
 class {
 
-  patch (context) {
-    console.warn ('Wow this is really patching!')
+  get (context) {
+    console.warn ('Wow this is really GETing!', context)
   }
 }
