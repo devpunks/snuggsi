@@ -27,6 +27,7 @@ for (method of METHODS)
     , verb     = context.method.toLowerCase ()
     , action   = resource [verb]
 
-//  r [context.method.toLowerCase ()] ()
+    action (context, next)
+    resource.subscribe ()
   }
 }
