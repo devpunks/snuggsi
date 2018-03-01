@@ -24,14 +24,6 @@ for (method of METHODS)
   console.log ('WHAT', (new Resource).get ())
   console.log ('WHAT', (new Resource).subscribe ())
 
-//(new Assigned)
-
-//var
-//  r = new Resource
-//, s = (new )
-
-     // .patch (context, next)
-
   return function (context, next) {
 
 //  r [context.method.toLowerCase ()] ()
