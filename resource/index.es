@@ -13,11 +13,14 @@ const
     , options = [ this, property, { value, writable } ]
 
 
-      , options = [ this, property, { value, writable } ]
+    return Object.defineProperty ( ... options )
+  }
 
 
-      return Object.defineProperty ( ... options )
-    }
+module.exports = (path) => {
+  const
+    resource = new class extends
+      require (`${path}/index.es`) { }
 
   for (method of METHODS)
     !!!  (method in resource)
