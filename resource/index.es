@@ -6,13 +6,17 @@ const
 
 module.exports = path => {
 
-//const Resource = require (`${path}/index.es`)
+  var
+    r = new Resource
+  , s = (new require (`${path}/index.es`))
 
+     // .patch (context, next)
+
+  console.log ('s', s)
 
   return function (context, next) {
-//  (new Resource).patch (context, next)
 
-    console.warn ('GETting resource from', path, context)
+    r [context.method.toLowerCase ()] ()
   }
 }
 
