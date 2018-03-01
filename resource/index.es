@@ -11,6 +11,8 @@ module.exports = path => {
   var Resource = class extends User { }
 
 for (method of METHODS)
+  !!!   Resource.prototype [method]
+    && (Resource.prototype [method] =
 
   Resource.prototype [method] =
     function (method) {
