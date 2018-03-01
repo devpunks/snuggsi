@@ -2,7 +2,7 @@ module.exports =
 
 class {
 
-  initialize () {
+  constructor () {
     console.warn ('This CAN be called from initialization')
   }
 
