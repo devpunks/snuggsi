@@ -25,8 +25,8 @@ for (method of METHODS)
   return function (context, next) {
     const
       resource = new Resource
-    , verb     = context.method.toLowerCase ()
-    , action   = resource [verb]
+    , verb     = context.method
+    , action   = resource [verb.toLowerCase ()]
 
     action (context, next)
     resource.subscribe ()
