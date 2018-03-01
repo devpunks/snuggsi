@@ -9,18 +9,18 @@ module.exports = (path) => {
     resource = new class extends
       require (`${path}/index.es`) { }
 
-  function define (property) {
-    const
-      writable = false
+  , define = function (property) {
+      const
+        writable = false
 
-    , value = (context, next) =>
-        console.warn (method.toUpperCase (), 'being called from derived Resource')
+      , value = (context, next) =>
+          console.warn (method.toUpperCase (), 'being called from derived Resource')
 
-    , options = [ this, property, { value, writable } ]
+      , options = [ this, property, { value, writable } ]
 
 
-    return Object.defineProperty ( ... options )
-  }
+      return Object.defineProperty ( ... options )
+    }
 
   for (method of METHODS)
     !!!  (method in resource)
