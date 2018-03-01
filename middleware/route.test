@@ -41,9 +41,7 @@ test ('route URI to middleware', async t => {
 })
 
 
-test ('partial /foo/{bar}baz/')
-
-test.only ('route URI with {token} to middleware', async t => {
+test ('route URI with {token} to middleware', async t => {
 
   const
     token = '{timestamp}'
