@@ -3,11 +3,11 @@ const
     = require ('http').METHODS
 
 
-module.exports =
+module.exports = path => {
 
-class {
+  require (path + '')
 
-  get (context) {
-    console.warn ('GETting resource')
+  return function (context, next) {
+    console.warn ('GETting resource from', path, context)
   }
 }
