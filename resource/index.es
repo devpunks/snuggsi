@@ -4,7 +4,6 @@ const
     .map  ( method => method.toLowerCase () )
 
 
-
 module.exports = path => {
 
 //const Resource = require (`${path}/index.es`)
