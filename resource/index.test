@@ -13,7 +13,7 @@ const
 test.only ('new Resource', t => {
 
   const
-//  stack = [ route ('/foo', Resource `server/fixtures` )
+    stack = [ route ]
     server =
       (new Server)
       .serve ``
