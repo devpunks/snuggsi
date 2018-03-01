@@ -16,6 +16,11 @@ const
 test.only ('new Resource', async t => {
 
   const
+    method = 'POST'
+
+  , endpoint =
+      [ URL, { method } ]
+
     server =
       (new Server ( [ route ] ))
       .serve ``
