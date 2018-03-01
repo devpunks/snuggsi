@@ -18,4 +18,8 @@ class {
   post (context) {
     console.warn ('Wow this is really POSTing!', context)
   }
+
+  delete (context) {
+    console.warn ('Wow this is really DELETEing!', context)
+  }
 }
