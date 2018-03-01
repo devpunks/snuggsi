@@ -16,7 +16,7 @@ test.only ('new Resource', async t => {
 
   const
     server =
-      (new Server (stack))
+      (new Server ( [ route ] ))
       .serve ``
 
   , { body } =
