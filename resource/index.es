@@ -5,11 +5,11 @@ const
 
 module.exports = path => {
 
-  const Resource = require (path + '')
-
-  console.log ('Requiring', require ('server/fixtures'))
+  const Resource = require (`${path}/index.es`)
 
   return function (context, next) {
+    (new Resource).patch ()
+
     console.warn ('GETting resource from', path, context)
   }
 }
