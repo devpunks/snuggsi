@@ -21,8 +21,8 @@ module.exports = (path) => {
           }
         } (method))
 
-    const
-      resource = new Resource
+
+  console.log ('in', resource.subscribe,  !!! ('subscribe' in resource))
 
   return function (context, next) {
     const
