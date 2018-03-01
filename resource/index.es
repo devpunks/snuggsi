@@ -18,6 +18,15 @@ var Resource = class { }
 
   console.log ('Assigned', Object.getOwnPropertyNames (Assigned))
 
+for (method of METHODS)
+
+  Resource.prototype [method] =
+    function (method) {
+      return (context, next) => {
+        console.warn (method.toUpperCase (), 'is being called from base Resource')
+      }
+    } (method)
+
 //(new Assigned)
 
 //var
