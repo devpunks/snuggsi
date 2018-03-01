@@ -1,5 +1,7 @@
 const
-  { test, read, fetch }
+  path = '/foo'
+
+, { test, read, fetch }
     = require ('test')
 
 , { Server, Resource }
