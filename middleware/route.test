@@ -41,13 +41,21 @@ test ('route URI to middleware', async t => {
 })
 
 
+test ('partial /foo/{bar}baz/')
+
 test.only ('route URI with {token} to middleware', async t => {
 
   const
     token = '{timestamp}'
   , path  = `${uri}${token}`
-  , timestamp = (new Date).getTime ``
-  , stack = [ route (path, console.log) ]
+  , timestamp = (new Date)
+      .getTime `` + ''
+
+  , echo = context =>
+      t.equal (timestamp, context.params.timestamp)
+
+  , stack =
+      [ route (path, echo) ]
 
  ,  server
       = (new Server (stack))
@@ -57,11 +65,6 @@ test.only ('route URI with {token} to middleware', async t => {
       = await fetch (`http://localhost:8181${uri}${timestamp}`)
 
   , status = response.status
-
-
-  t.equal (200, status)
-
-  t.equal (body, await read (response.body))
 
   server.close ``
   t.end ()
