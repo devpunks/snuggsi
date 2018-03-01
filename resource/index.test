@@ -23,7 +23,7 @@ test.only ('new Resource', async t => {
       await fetch (`http://localhost:8181${path}`, { method: 'POST'})
 
 
-  console.warn (await read (body))
+  console.warn ('The Body', await read (body))
 
   server.close ``
   t.end ()
