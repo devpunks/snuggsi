@@ -12,7 +12,7 @@ const
       .route  ( path, Resource `server/fixtures` )
 
 
-test.only ('new Resource', t => {
+test.only ('new Resource', async t => {
 
   const
     stack = [ route ]
