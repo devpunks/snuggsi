@@ -21,9 +21,6 @@ for (method of METHODS)
         }
       } (method))
 
-  console.log ('WHAT', (new Resource).get ())
-  console.log ('WHAT', (new Resource).subscribe ())
-
   return function (context, next) {
 
 //  r [context.method.toLowerCase ()] ()
