@@ -10,9 +10,14 @@ class {
     console.warn ('THIS SHOULD NEVER GET CALLED!!', context)
   }
 
-  get (context) {
-    console.warn ('Wow this is really GETing!', context)
-  }
+// Mandatory Methods
+//get (context) {
+//  console.warn ('Wow this is really GETing!', context)
+//}
+
+//head (context) {
+//  console.warn ('Wow this is really HEADing!', context)
+//}
 
   put (context) {
     console.warn ('Wow this is really PUTing!', context)
