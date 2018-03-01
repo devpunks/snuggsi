@@ -1,6 +1,6 @@
 # snuggsi.Server
 
-_Snuggsi ツ conventions that feel right at `$HOME`_
+_snuggsi ツ Server - Feel right at `$HOME`_
 
 
 ## .mount
