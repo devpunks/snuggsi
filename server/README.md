@@ -1,5 +1,7 @@
 # snuggsi.Server
 
+_Conventions that feel right at `/home/`_
+
 
 ## .mount
 
