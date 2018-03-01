@@ -10,4 +10,8 @@ class {
   put (context) {
     console.warn ('Wow this is really PUTing!', context)
   }
+
+  patch (context) {
+    console.warn ('Wow this is really PATCHing!', context)
+  }
 }
