@@ -7,7 +7,7 @@ const
 
 test.only ('new Resource', t => {
 
-  console.warn (new Resource `server/fixtures`)
+  console.warn (Resource `server/fixtures`)
 
   t.end ()
 })
