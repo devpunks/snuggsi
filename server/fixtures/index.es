@@ -6,7 +6,7 @@ class {
     console.warn ('This CAN be called from initialization')
   }
 
-  foo (context) {
+  static foo (context) {
     console.warn ('THIS SHOULD NEVER GET CALLED!!', context)
   }
 
