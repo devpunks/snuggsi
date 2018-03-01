@@ -1,4 +1,6 @@
-//console.log `Hello World`
+module.exports = class {
 
-//console.log `The quick brown fox jumped over the lazy dog`
-
+  patch (context) {
+    console.warn ('Wow this is really patching!')
+  }
+}
