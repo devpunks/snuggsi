@@ -19,7 +19,12 @@ const
 module.exports = (path) => {
   const
     resource = new class extends
-      require (`${path}/index.es`) { }
+    require (`${path}/index.es`) {
+
+      constructor () {
+        console.warn ('Constructing extension')
+      }
+    }
 
   for (method of METHODS)
     !!!  (method in resource)
