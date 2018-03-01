@@ -5,7 +5,7 @@ const
 , { Server, Resource }
     = require ('..')
 
-, { route }
+, route
     = require ('../middleware')
 
 test.only ('new Resource', t => {
