@@ -14,12 +14,14 @@ for (method of METHODS)
   !!!   Resource.prototype [method]
     && (Resource.prototype [method] =
 
-  Resource.prototype [method] =
-    function (method) {
-      return (context, next) => {
-        console.warn (method.toUpperCase (), 'is being called from base Resource')
-      }
-    } (method)
+      function (method) {
+        return (context, next) => {
+          console.warn
+            (method.toUpperCase (), 'is being called from base Resource')
+        }
+      } (method))
+
+  console.log ('WHAT', (new Resource).get ())
 
 //(new Assigned)
 
