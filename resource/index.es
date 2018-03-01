@@ -25,8 +25,8 @@ var Resource = class { }
 for (method of METHODS)
 
   Resource.prototype [method] =
-    function () {
+    function (method) {
       return (context, next) => {
-        console.warn ('This is being called from base Resource')
+        console.warn (method.toUpperCase (), 'is being called from base Resource')
       }
     } (method)
