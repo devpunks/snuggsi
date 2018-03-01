@@ -5,6 +5,9 @@ const
 
 
 module.exports = (path) => {
+  const
+    resource = new class extends
+      require (`${path}/index.es`) { }
 
   var Resource = class extends require (`${path}/index.es`) { }
 
