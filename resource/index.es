@@ -37,4 +37,3 @@ for (method of METHODS)
 //  r [context.method.toLowerCase ()] ()
   }
 }
-
