@@ -2,11 +2,9 @@ const
   { test, read, fetch }
     = require ('test')
 
-, { Server }
+, { Resource }
     = require ('..')
 
-test.only ('new Server does not throw', t => {
-  t.doesNotThrow ( _ => new Server )
-
+test.only ('new Resource', t => {
   t.end ()
 })
