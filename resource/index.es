@@ -41,7 +41,7 @@ module.exports = (path) => {
     // of being able to call an action within an action.
     , action   = resource [ method.toLowerCase () ]
 
-    resource.subscribe ()
+    resource.subscribe (context)
     await action ( context, ... _ )
   }
 }
