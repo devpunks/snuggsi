@@ -6,9 +6,7 @@ const
 
 module.exports = path => {
 
-  var User = require (`${path}/index.es`)
-
-  var Resource = class extends User { }
+var Resource = class extends require (`${path}/index.es`) { }
 
 for (method of METHODS)
   !!!   Resource.prototype [method]
