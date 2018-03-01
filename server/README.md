@@ -25,5 +25,5 @@ const
   { Server }
     = require ('snuggsi')
 
-(new Server).serve  ``
+(new Server).serve  `path/to/static/assets`
 ```
