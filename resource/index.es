@@ -30,7 +30,7 @@ module.exports = (path) => {
   return async function (context, ... _ ) {
     const
     { method } = context
-    , action   = resource [method.toLowerCase ()]
+    , action   = resource [ method.toLowerCase () ]
 
     resource.subscribe ()
     await action ( context, ... _ )
