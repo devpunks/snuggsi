@@ -1,6 +1,6 @@
 # snuggsi.Server
 
-_Conventions that feel right at `/home/`_
+_Conventions that feel right at `$HOME`_
 
 
 ## .mount
