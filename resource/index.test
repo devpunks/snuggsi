@@ -5,6 +5,9 @@ const
 , { Server, Resource }
     = require ('..')
 
+, { route }
+    = require ('../middleware')
+
 test.only ('new Resource', t => {
 
   console.warn (Resource `server/fixtures`({ method: 'PATCH' }))
