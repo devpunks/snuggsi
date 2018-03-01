@@ -2,6 +2,14 @@ module.exports =
 
 class {
 
+  initialize () {
+    console.warn ('This CAN be called from initialization')
+  }
+
+  foo (context) {
+    console.warn ('THIS SHOULD NEVER GET CALLED!!', context)
+  }
+
   get (context) {
     console.warn ('Wow this is really GETing!', context)
   }
