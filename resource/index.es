@@ -9,6 +9,8 @@ const
 
     , value =
         (context, next) => console.warn
+          // 405 Method Not Allowed
+          // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
           ( method.toUpperCase (), 'being called from derived Resource', context.throw (405) )
 
 
