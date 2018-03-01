@@ -35,6 +35,6 @@ module.exports = (path) => {
     , action   = resource [method.toLowerCase ()]
 
     resource.subscribe ()
-    action (context, next)
+    await action ( context, ... _ )
   }
 }
