@@ -10,8 +10,6 @@ module.exports = (path) => {
       require (`${path}/index.es`) { }
 
   function define (property) {
-    console.warn (this, method)
-
     const
       writable = false
 
