@@ -12,8 +12,6 @@ const
 
     , options = [ this, property, { value, writable } ]
 
-      , value = (context, next) =>
-          console.warn (method.toUpperCase (), 'being called from derived Resource')
 
       , options = [ this, property, { value, writable } ]
 
