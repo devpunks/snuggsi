@@ -7,7 +7,8 @@ const
 
 module.exports = path => {
 
-  const Resource = require (`${path}/index.es`)
+//const Resource = require (`${path}/index.es`)
+
 
   return function (context, next) {
 //  (new Resource).patch (context, next)
@@ -16,9 +17,12 @@ module.exports = path => {
   }
 }
 
-class Resource {
-
-}
+var Resource = class { }
 
 for (method of METHODS)
-  console.warn (method)
+  Resource.prototype [method] =
+    function () {
+      return (context, next) => {
+        console.warn ('This is being called from base Resource')
+      }
+    } (method)
