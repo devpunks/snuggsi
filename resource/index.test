@@ -5,6 +5,13 @@ const
 , { Server }
     = require ('..')
 
+void function () {
+
+  var snuggs = 'damn'
+
+  require ('..')
+} ()
+
 test.only ('new Server does not throw', t => {
   t.doesNotThrow ( _ => new Server )
 
