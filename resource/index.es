@@ -9,10 +9,9 @@ module.exports = (path) => {
     resource = new class extends
       require (`${path}/index.es`) { }
 
-  for (method of METHODS)
-    !!!  (method in resource)
+  for
+    (method of METHODS) !!! (method in resource)
       && (resource [method] =
-
         function (method) {
           return (context, next) => {
             console.warn
