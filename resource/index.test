@@ -19,7 +19,7 @@ test.only ('new Resource', async t => {
     method = 'PATCH'
 
   , endpoint =
-      [ URL, { method } ]
+      [ `${URL}14`, { method } ]
 
     server =
       (new Server ( [ route ] ))
