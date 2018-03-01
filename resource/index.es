@@ -10,9 +10,7 @@ const
     , value = (context, next) =>
         console.warn (method.toUpperCase (), 'being called from derived Resource')
 
-  , define = function (property) {
-      const
-        writable = false
+    , options = [ this, property, { value, writable } ]
 
       , value = (context, next) =>
           console.warn (method.toUpperCase (), 'being called from derived Resource')
