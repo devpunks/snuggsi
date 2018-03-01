@@ -36,6 +36,9 @@ module.exports = (path) => {
       && ( method in define.call (resource, method) )
 
 
+  void // to give you a moment to think about what just happened ...
+
+
   return async function (context, ... _ ) {
     const
     { method } = context
