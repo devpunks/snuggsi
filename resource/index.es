@@ -6,6 +6,8 @@ const
 
 module.exports = path => {
 
+var Resource = class { }
+
   var User = require (`${path}/index.es`)
 
   console.log ('User', User.prototype, User)
