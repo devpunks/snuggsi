@@ -15,7 +15,7 @@ test.only ('new Resource', t => {
   const
     stack = [ route ]
     server =
-      (new Server)
+      (new Server (stack))
       .serve ``
 
   console.warn (Resource `server/fixtures`({ method: 'PATCH' }))
