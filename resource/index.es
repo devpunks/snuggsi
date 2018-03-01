@@ -31,9 +31,9 @@ module.exports = (path) => {
     }
 
 
-  for    (method of METHODS)
-    !!!  (method in resource)
-      && (method in define.call (resource, method))
+  for    ( method of METHODS )
+    !!!  ( method in resource )
+      && ( method in define.call (resource, method) )
 
 
   return async function (context, ... _ ) {
