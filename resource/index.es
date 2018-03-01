@@ -30,7 +30,7 @@ module.exports = (path) => {
       }
     }
 
-  for (method of METHODS)
+  for    (method of METHODS)
     !!!  (method in resource)
       && (method in define.call (resource, method))
 
