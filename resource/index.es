@@ -4,7 +4,7 @@ const
     .map  ( method => method.toLowerCase () )
 
 
-module.exports = path => {
+module.exports = (path) => {
 
   var Resource = class extends require (`${path}/index.es`) { }
 
