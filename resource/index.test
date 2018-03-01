@@ -2,12 +2,12 @@ const
   { test, read, fetch }
     = require ('test')
 
-, { Resource }
+, { Server, Resource }
     = require ('..')
 
 test.only ('new Resource', t => {
 
-  console.warn (Resource `server/fixtures`())
+  console.warn (Resource `server/fixtures`({ method: 'PATCH' }))
 
   t.end ()
 })
