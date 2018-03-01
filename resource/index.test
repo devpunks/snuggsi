@@ -1,5 +1,5 @@
 const
-  path = '/foo'
+  path = '/foo/'
 , URL  = `http://localhost:8181${path}`
 
 , { test, read, fetch }
