@@ -41,7 +41,7 @@ module.exports = (path) => {
     // should be binding however
     // must understand implications
     // of being able to call an action within an action.
-    , action   = resource [ method.toLowerCase () ]
+    , endpoint = resource [ method.toLowerCase () ]
 
     resource.subscribe (context)
     await action ( context, ... _ )
