@@ -9,7 +9,7 @@ export API="element"
 export ENTRY="index.test"
 #export API="elements,token-list"
 #export PATHS="{test,middleware,mixins,$ELEMENTS}"
-export MODULES="{.,test,server,middleware,$API}"
+export MODULES="{.,test,server,resource,middleware,$API}"
 export FILES="$ROOT/$MODULES/$ENTRY"
 export COVERAGE="$ROOT/node_modules/.bin/tap-nyc"
 
