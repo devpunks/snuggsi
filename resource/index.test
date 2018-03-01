@@ -10,7 +10,7 @@ const
 
 , route
     = require ('../middleware')
-      .route  ( path, Resource `server/fixtures` )
+      .route  ( `${path}{id}`, Resource `server/fixtures` )
 
 
 test.only ('new Resource', async t => {
