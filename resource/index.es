@@ -1,6 +1,8 @@
 const
-  methods
-    = require ('http').METHODS
+  METHODS = Array
+    .from ( require ('http').METHODS )
+    .map  ( method => method.toLowerCase () )
+
 
 
 module.exports = path => {
