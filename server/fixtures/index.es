@@ -11,10 +11,12 @@ class {
   }
 
 // Mandatory Methods
+// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
+//
 //get (context) {
 //  console.warn ('Wow this is really GETing!', context)
 //}
-
+//
 //head (context) {
 //  console.warn ('Wow this is really HEADing!', context)
 //}
