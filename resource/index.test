@@ -17,9 +17,7 @@ const
 test.only ('new Resource', async t => {
 
   const
-    stack = [ route ]
-
-  , server =
+    server =
       (new Server (stack))
       .serve ``
 
