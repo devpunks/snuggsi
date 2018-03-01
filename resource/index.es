@@ -8,7 +8,7 @@ module.exports = path => {
   const Resource = require (`${path}/index.es`)
 
   return function (context, next) {
-    (new Resource).patch ()
+    (new Resource).patch (context)
 
     console.warn ('GETting resource from', path, context)
   }
