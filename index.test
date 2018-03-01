@@ -12,3 +12,7 @@ test ('snuggsi.Test',
 
 test ('snuggsi.Server',
   t => { t.assert (Server), t.end () })
+
+
+test ('snuggsi.Resource',
+  t => { t.assert (Resource), t.end () })
