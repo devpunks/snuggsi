@@ -19,6 +19,8 @@ module.exports = (path) => {
           }
         } (method))
 
+    const
+      resource = new Resource
 
   return function (context, next) {
     const
