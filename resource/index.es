@@ -23,7 +23,7 @@ const
   }
 
 
-module.exports = (path) => {
+module.exports = path => {
   const
     resource = new class extends
     require (`${path}/index.es`) {
