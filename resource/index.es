@@ -44,6 +44,6 @@ module.exports = (path) => {
     , endpoint = resource [ method.toLowerCase () ]
 
     resource.subscribe (context)
-    await action ( context, ... _ )
+    await endpoint ( context, ... _ )
   }
 }
