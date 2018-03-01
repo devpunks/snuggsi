@@ -22,7 +22,7 @@ test.only ('new Resource', async t => {
   , endpoint = [`http://localhost:8181${path}`, { method: 'POST'}]
 
   , { body } =
-      await fetch (`http://localhost:8181${path}`, { method: 'POST'})
+      await fetch ( ... endpoint )
 
 
   console.warn ('The Body', await read (body))
