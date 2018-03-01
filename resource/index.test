@@ -10,7 +10,14 @@ const
 
 test.only ('new Resource', t => {
 
+  const
+//  stack = [ route ('/foo', Resource `server/fixtures` )
+    server =
+      (new Server)
+      .serve ``
+
   console.warn (Resource `server/fixtures`({ method: 'PATCH' }))
 
+  server.close ``
   t.end ()
 })
