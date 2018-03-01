@@ -7,8 +7,9 @@ const
     const
       writable = false
 
-    , value = (context, next) =>
-        console.warn (method.toUpperCase (), 'being called from derived Resource')
+    , value =
+        (context, next) => console.warn
+          ( method.toUpperCase (), 'being called from derived Resource' )
 
 
     return Object.defineProperty
