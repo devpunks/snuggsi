@@ -7,10 +7,8 @@ const
     const
       writable = false
 
-module.exports = (path) => {
-  const
-    resource = new class extends
-      require (`${path}/index.es`) { }
+    , value = (context, next) =>
+        console.warn (method.toUpperCase (), 'being called from derived Resource')
 
   , define = function (property) {
       const
