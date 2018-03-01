@@ -23,7 +23,8 @@ test.only ('new Resource', async t => {
 
   , { body } = await fetch (`http://localhost:8181${path}`)
 
-  console.warn (Resource `server/fixtures`({ method: 'PATCH' }))
+
+  console.warn (await read (body))
 
   server.close ``
   t.end ()
