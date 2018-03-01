@@ -8,13 +8,7 @@ module.exports = path => {
 
   var User = require (`${path}/index.es`)
 
-  console.log ('User', User.prototype, User)
-
-  console.log ('Resource', Resource.prototype, User)
-
-  var Assigned = Object.assign (Resource, User.prototype)
-
-  console.log ('Assigned', Object.getOwnPropertyNames (Assigned))
+  var Resource = class extends User { }
 
 for (method of METHODS)
 
