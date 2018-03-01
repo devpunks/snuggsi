@@ -25,7 +25,7 @@ module.exports = (path) => {
     { method } = context
     , action   = resource [method.toLowerCase ()]
 
-    action (context, next)
     resource.subscribe ()
+    action (context, next)
   }
 }
