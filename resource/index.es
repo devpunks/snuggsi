@@ -26,9 +26,8 @@ module.exports = (path) => {
 
   return function (context, next) {
     const
-      resource = new Resource
-    , verb     = context.method
-    , action   = resource [verb.toLowerCase ()]
+    { method } = context
+    , action   = resource [method.toLowerCase ()]
 
     action (context, next)
     resource.subscribe ()
