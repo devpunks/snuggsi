@@ -22,6 +22,7 @@ module.exports = (path) => {
     require (`${path}/index.es`) {
 
       constructor () {
+        super ()
         console.warn ('Constructing extension')
       }
     }
