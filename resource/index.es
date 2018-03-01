@@ -9,7 +9,7 @@ const
 
     , value =
         (context, next) => console.warn
-          ( method.toUpperCase (), 'being called from derived Resource' )
+          ( method.toUpperCase (), 'being called from derived Resource', context.throw (405) )
 
 
     return Object.defineProperty
