@@ -21,7 +21,8 @@ test.only ('new Resource', async t => {
       (new Server (stack))
       .serve ``
 
-  , { body } = await fetch (`http://localhost:8181${path}`)
+  , { body } =
+      await fetch (`http://localhost:8181${path}`)
 
 
   console.warn (await read (body))
