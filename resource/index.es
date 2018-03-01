@@ -5,7 +5,9 @@ const
 
 module.exports = path => {
 
-  require (path + '')
+  const Resource = require (path + '')
+
+  console.log ('Requiring', require ('server/fixtures'))
 
   return function (context, next) {
     console.warn ('GETting resource from', path, context)
