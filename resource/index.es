@@ -6,9 +6,7 @@ const
 
 module.exports = path => {
 
-  var
-    r = new Resource
-  , s = (new require (`${path}/index.es`))
+  var User = require (`${path}/index.es`)
 
      // .patch (context, next)
 
