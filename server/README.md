@@ -12,9 +12,8 @@ const
   { Server }
     = require ('snuggsi')
 
-(new Server)
+(new Server).serve  ``
   .mount ( 'foo', resource `bar` )
-  .serve  ``
 ```
 
 ## .serve
