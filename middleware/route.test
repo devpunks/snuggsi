@@ -47,7 +47,7 @@ test.only ('route URI with {token} to middleware', async t => {
     token = '{timestamp}'
   , path  = `${uri}${token}`
   , timestamp = (new Date)
-      .getTime `` + ''
+      .getTime `` + '' // convert to string
 
   , echo = context =>
       t.equal (timestamp, context.params.timestamp)
