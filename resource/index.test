@@ -6,5 +6,8 @@ const
     = require ('..')
 
 test.only ('new Resource', t => {
+
+  console.warn (new Resource `server/fixtures`)
+
   t.end ()
 })
