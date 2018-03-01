@@ -20,6 +20,7 @@ module.exports = path => {
 var Resource = class { }
 
 for (method of METHODS)
+
   Resource.prototype [method] =
     function () {
       return (context, next) => {
