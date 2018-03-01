@@ -21,6 +21,7 @@ for (method of METHODS)
         }
       } (method))
 
+
   return function (context, next) {
     const
       resource = new Resource
