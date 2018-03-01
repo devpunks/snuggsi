@@ -9,11 +9,10 @@ module.exports = (path) => {
     resource = new class extends
       require (`${path}/index.es`) { }
 
-  var Resource = class extends require (`${path}/index.es`) { }
 
   for (method of METHODS)
-    !!!   Resource.prototype [method]
-      && (Resource.prototype [method] =
+    !!!  (method in resource)
+      && (resource [method] =
 
         function (method) {
           return (context, next) => {
