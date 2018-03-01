@@ -3,6 +3,9 @@ const
     .from ( require ('http').METHODS )
     .map  ( method => method.toLowerCase () )
 
+, define = function (property) {
+    const
+      writable = false
 
 module.exports = (path) => {
   const
