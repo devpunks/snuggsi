@@ -10,10 +10,9 @@ const
     , value = (context, next) =>
         console.warn (method.toUpperCase (), 'being called from derived Resource')
 
-    , options = [ this, property, { value, writable } ]
 
-
-    return Object.defineProperty ( ... options )
+    return Object.defineProperty
+      ( this, property, { value, writable } )
   }
 
 
