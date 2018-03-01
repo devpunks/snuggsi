@@ -35,6 +35,9 @@ module.exports = (path) => {
   return async function (context, ... _ ) {
     const
     { method } = context
+    // should be binding however
+    // must understand implications
+    // of being able to call an action within an action.
     , action   = resource [ method.toLowerCase () ]
 
     resource.subscribe ()
