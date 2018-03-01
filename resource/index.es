@@ -41,13 +41,3 @@ for (method of METHODS)
   }
 }
 
-var Resource = class { }
-
-for (method of METHODS)
-
-  Resource.prototype [method] =
-    function (method) {
-      return (context, next) => {
-        console.warn (method.toUpperCase (), 'is being called from base Resource')
-      }
-    } (method)
