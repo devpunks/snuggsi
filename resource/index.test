@@ -25,9 +25,6 @@ test.only ('new Resource', async t => {
       (new Server ( [ route ] ))
       .serve ``
 
-  , endpoint =
-      [`http://localhost:8181${path}`, { method: 'POST'}]
-
   , { body } =
       await fetch ( ... endpoint )
 
