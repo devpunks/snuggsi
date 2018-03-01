@@ -16,11 +16,17 @@ module.exports = path => {
 
   console.log ('Assigned', Object.getOwnPropertyNames (Assigned))
 
-  console.log ('s', s)
+//(new Assigned)
+
+//var
+//  r = new Resource
+//, s = (new )
+
+     // .patch (context, next)
 
   return function (context, next) {
 
-    r [context.method.toLowerCase ()] ()
+//  r [context.method.toLowerCase ()] ()
   }
 }
 
