@@ -32,7 +32,7 @@ module.exports = (uri, middleware) => {
     console.warn ('middleware', middleware [context.method.toLowerCase ()], context)
 
     !!! test (context.path)
-      ? await next (context, ... _ )
-      : await middleware (parameterized (context), next ... _ )
+      ? await next (context)
+      : await middleware (parameterized (context), next)
   }
 }
