@@ -69,6 +69,33 @@ test ('route URI with {token} to middleware', async t => {
 })
 
 
+test.only ('route URI with encoded {token} to middleware', async t => {
+
+  const
+    token = '{timestamp}'
+  , path  = `${uri}${token}`
+  , timestamp = (new Date)
+      .getTime `` + '' // convert to string
+
+  , echo = context =>
+      t.equal (timestamp, context.params.timestamp)
+
+  , stack =
+      [ route (path, echo) ]
+
+ ,  server
+      = (new Server (stack))
+      .serve ``
+
+  , response
+      = await fetch (`http://localhost:8181${uri}${timestamp}`)
+
+  , status = response.status
+
+  server.close ``
+  t.end ()
+})
+
 test ('URI without route', async t => {
 
   const
