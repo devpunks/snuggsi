@@ -43,6 +43,7 @@ module.exports = ( uri, resource ) => {
 
 
   return async ( context, next, middleware ) => {
+    console.log (typeof resource)
 
     !!! test (context.path)
       ? await next (context)
