@@ -12,13 +12,13 @@ module.exports = path => {
       }
 
       get (context)
-        { context.response.status = 200 }
+        { context.status = 200 }
 
       head (context)
-        { context.response.status = 200 }
+        { context.status = 200 }
 
       options (context)
-        { context.response.status = 200 }
+        { context.status = 200 }
     }
 
   return resource
