@@ -16,7 +16,7 @@ const
 test.only ('new Resource', async t => {
 
   const
-    method = 'GET'
+    method = 'HEAD'
 
   , endpoint =
       [ `${URL}14`, { method } ]
