@@ -43,6 +43,7 @@ module.exports = ( uri, resource ) => {
 
 
   return async ( context, next, middleware ) => {
+
     !!! test (context.path)
       ? await next (context)
       : (!!! context.set ({ allow }))
