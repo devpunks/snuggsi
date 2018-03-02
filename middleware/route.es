@@ -24,8 +24,9 @@ module.exports = (uri, resource) => {
       (method => method.toLowerCase () in resource)
       .join `, `
 
-  , expression = new RegExp
-      (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
+  , expression =
+      new RegExp
+        (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
   , test = expression.test
       .bind (expression)
