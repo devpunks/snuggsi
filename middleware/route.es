@@ -33,9 +33,13 @@ module.exports = ( uri, resource ) => {
   , allowed = (context, { method } = context ) => {
       // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
-      allow
-        .concat (MANDATORY)
-        .includes (method)
+      allow.includes (method)
+
+      || // 405 Method Not Allowed
+         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
+        ( !!! context.set ({ allow }) )
+          &&  context.throw (405)
+
 
 //    (context, next) => console.warn
 //      // 405 Method Not Allowed
