@@ -11,7 +11,8 @@ module.exports = path => {
         console.warn ('Constructing extension')
       }
 
-      get (context) { context.status = 200 }
+      get (context)
+        { context.status = 200 }
 
       head (context) {}
 
