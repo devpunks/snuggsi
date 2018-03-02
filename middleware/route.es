@@ -22,9 +22,8 @@ module.exports = ( uri, resource ) => {
     tokens =
       uri.match (/[^{]+(?=})/g)
 
-  , expression =
-      new RegExp
-        (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
+  , expression = new RegExp
+      (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
   , test = expression.test.bind (expression)
 
