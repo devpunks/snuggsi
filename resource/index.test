@@ -16,7 +16,7 @@ const
 test.only ('new Resource', async t => {
 
   const
-    method = 'TRACE'
+    method = 'GET'
 
   , endpoint =
       [ `${URL}14`, { method } ]
