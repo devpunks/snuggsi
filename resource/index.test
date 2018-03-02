@@ -31,8 +31,6 @@ test.only ('new Resource', async t => {
   , { status, body } = response
 
 
-  console.warn ('The Body', response.headers, status, await read (await body))
-
   server.close ``
   t.end ()
 })
