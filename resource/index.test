@@ -16,7 +16,7 @@ const
 test.only ('new Resource', async t => {
 
   const
-    method = 'GET'
+    method = 'OPTIONS'
 
   , endpoint =
       [ `${URL}14`, { method } ]
@@ -29,6 +29,8 @@ test.only ('new Resource', async t => {
       await fetch ( ... endpoint )
 
   , { status, body } = response
+
+  console.warn ('Resp', status, response.headers,  await response.text ())
 
 
   server.close ``

@@ -37,20 +37,25 @@ module.exports = ( uri, resource ) => {
 
   , allowed = async (context, { method } = context ) => {
 
-      ( context = parameterize (context) )
-        && (typeof resource == 'function')
-        && await resource (context)
-
-      ; // eww
-
       (typeof resource == 'object')
-        // Method allowance
-        && allow.includes (method)
-        // Call endpoint with paramaterized context
-        && !!! await resource [method.toLowerCase ()] (context)
-        || context.throw (405,  { headers: { allow } } )
-        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
-        // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
+        && !!! allow.includes (method)
+        && context.throw (405,  { headers: { allow } } )
+
+
+//    ( context = parameterize (context) )
+//      && (typeof resource == 'function')
+//      && await resource (context)
+
+//    ; // eww
+
+//    (typeof resource == 'object')
+//      // Method allowance
+//      && allow.includes (method)
+//      // Call endpoint with paramaterized context
+//        ? await resource [method.toLowerCase ()] (context)
+//        : 
+//      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
+//      // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
     }
 
   return async ( context, next ) => {
