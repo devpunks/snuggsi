@@ -16,7 +16,7 @@ const
       (context.body = body)
 
 
-test.only ('route URI to middleware', async t => {
+test ('route URI to middleware', async t => {
 
   const
     stack
