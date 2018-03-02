@@ -10,6 +10,8 @@ module.exports = path => {
         super ()
         console.warn ('Constructing extension')
       }
+
+      get () {}
     }
 
   return resource
