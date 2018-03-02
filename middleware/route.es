@@ -37,11 +37,8 @@ module.exports = ( uri, resource ) => {
          // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
           context.throw (405,  { headers: { allow } } )
 
-      void
-
-      (!!! context.set ({ allow }))
-          && await (resource [thod.toLowerCase ()] || resource)
-            (parameterized (context), next)
+//    await (resource [method.toLowerCase ()] || resource)
+//      (parameterized (context), next)
     }
 
   , parameterized = (context, params = {}) =>
