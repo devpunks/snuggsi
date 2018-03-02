@@ -29,12 +29,10 @@ module.exports = (uri, resource) => {
 
 
   return async ( context, next, middleware ) => {
-    middleware = resource
-      [context.method.toLowerCase ()]
-        || resource
 
     !!! test (context.path)
       ? await next (context)
-      : await resource (parameterized (context), next)
+      : await (resource [context.method.toLowerCase ()] || resource)
+          (parameterized (context), next)
   }
 }
