@@ -41,6 +41,7 @@ module.exports = ( uri, resource ) => {
         && (typeof resource == 'function')
         && await resource (context)
 
+      ; // eww
 
       (typeof resource == 'object')
         // Method allowance
