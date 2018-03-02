@@ -93,7 +93,7 @@ test.only ('route URI with encoded {token} to middleware', async t => {
       .serve ``
 
   , response
-      = await fetch (`http://localhost:8181${uri}${timestamp}`)
+      = await fetch (`http://localhost:8181${uri}${value}`)
 
   , status = response.status
 
