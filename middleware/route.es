@@ -16,8 +16,6 @@ const
 
 module.exports = (uri, resource) => {
 
-  console.warn ("rpto", 'put' in resource)
-
   const
     tokens =
       uri.match (/[^{]+(?=})/g)
