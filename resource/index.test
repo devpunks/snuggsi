@@ -16,7 +16,7 @@ const
 test.only ('new Resource', async t => {
 
   const
-    method = 'PATCH'
+    method = 'POST'
 
   , endpoint =
       [ `${URL}14`, { method } ]
