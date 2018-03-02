@@ -23,7 +23,7 @@ module.exports = (uri, middleware) => {
         && []
           .splice
           .call (context.path.match (expression), 1) // remove 1st
-          .map  ((value, index) => context.params [tokens [index]] = value)
+          .map  ((value, index) => context.params [tokens [index]] = decode (value))
 
         && context
 
