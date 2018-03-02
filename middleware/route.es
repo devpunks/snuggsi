@@ -11,7 +11,7 @@ module.exports = (uri, middleware) => {
       uri.match (/[^{]+(?=})/g)
 
   , expression = new RegExp
-      (uri.replace (/{\w+}/g, '([A-Za-z0-9\-\_]+)'))
+      (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
   
   , test = expression.test
       .bind (expression)
