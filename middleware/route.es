@@ -21,6 +21,12 @@ module.exports = (uri, resource) => {
     tokens =
       uri.match (/[^{]+(?=})/g)
 
+  , allow =
+      Object
+        .getOwnPropertyNames (resource)
+        .map (method => method.toUpperCase ())
+        .join `, `
+
   , expression = new RegExp
       (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
