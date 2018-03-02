@@ -35,10 +35,6 @@ module.exports = ( uri, resource ) => {
          // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
           context.throw (405,  { headers: { allow } } )
 
-
-//    (context, next) => console.warn
-//      ( method.toUpperCase (), 'being called from derived Resource', context.throw (405) )
-
       void
 
       (!!! context.set ({ allow }))
