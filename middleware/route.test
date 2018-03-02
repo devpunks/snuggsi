@@ -72,13 +72,18 @@ test ('route URI with {token} to middleware', async t => {
 test.only ('route URI with encoded {token} to middleware', async t => {
 
   const
-    token = '{timestamp}'
+    token = '{encoded}'
   , path  = `${uri}${token}`
-  , timestamp = (new Date)
-      .getTime `` + '' // convert to string
+
+  , [ decoder, encoder ]
+      = [decodeURIComponent, encodeRIComponent]
+
+  , value
+      = encoder ('Foo name+ståle')
 
   , echo = context =>
-      t.equal (timestamp, context.params.timestamp)
+     !!! console.warn (context) &&
+      t.equal (decodevalue, context.params.encoded)
 
   , stack =
       [ route (path, echo) ]
