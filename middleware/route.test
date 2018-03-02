@@ -98,6 +98,7 @@ test.only ('route URI with encoded {token} to middleware', async t => {
   t.end ()
 })
 
+
 test ('URI without route', async t => {
 
   const
