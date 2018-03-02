@@ -44,13 +44,15 @@ module.exports = ( uri, resource ) => {
       ; // eww
 
       (typeof resource == 'object')
-        // Method allowance
-        && allow.includes (method)
-        // Call endpoint with paramaterized context
-        && !!! await resource [method.toLowerCase ()] (context)
-        || context.throw (405,  { headers: { allow } } )
-        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
-        // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
+        && console.warn ('WTF DUDE', resource);
+
+//      // Method allowance
+//      && allow.includes (method)
+//      // Call endpoint with paramaterized context
+//      && !!! await resource [method.toLowerCase ()] (context)
+//      || context.throw (405,  { headers: { allow } } )
+//      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
+//      // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
     }
 
   return async ( context, next ) => {
