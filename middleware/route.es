@@ -12,7 +12,6 @@ const
     // MDN Request Methods
     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
     .from ( require ('http').METHODS )
-    .map  ( method => method.toLowerCase () )
 
 
 module.exports = (uri, resource) => {
