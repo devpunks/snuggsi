@@ -30,7 +30,6 @@ module.exports = ( uri, resource ) => {
 
   , allow = METHODS.filter
       (method => method.toLowerCase () in resource)
-      .join `, `
 
   , allowed = (context, context.method ) => {
       // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
