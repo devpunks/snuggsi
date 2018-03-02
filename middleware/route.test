@@ -13,7 +13,9 @@ const
 
 , middleware
     = (context) =>
+        !!! console.warn ('Context', context) &&
         (context.body = body)
+        && (context.status = 200)
 
 
 test.only ('route URI to middleware', async t => {
