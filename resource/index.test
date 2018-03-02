@@ -13,7 +13,7 @@ const
       .route  ( `${path}{id}`, Resource `server/fixtures` )
 
 
-test.only ('new Resource', async t => {
+test ('new Resource', async t => {
 
   const
     method = 'GET'
