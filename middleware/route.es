@@ -28,8 +28,10 @@ module.exports = (uri, resource) => {
         && context
 
 
-  return async ( context, next, ... _ ) => {
-    console.warn ('middleware', middleware [context.method.toLowerCase ()], context)
+  return async ( context, next, middleware ) => {
+    middleware = resource
+      [context.method.toLowerCase ()]
+        || resource
 
     !!! test (context.path)
       ? await next (context)
