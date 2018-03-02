@@ -1,8 +1,10 @@
-const decoder
+const
   // decodeURI
-  = decodeURIComponent
- // since these are user defined best to decode everything
- // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
+  // since these are user defined best to decode everything
+  // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
+  [ decode, encode ]
+    = [decodeURIComponent, encodeRIComponent]
+
 
 module.exports = (uri, middleware) => {
 

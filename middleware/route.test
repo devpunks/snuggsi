@@ -76,7 +76,7 @@ test.only ('route URI with encoded {token} to middleware', async t => {
     value = 'Foo name+ståle'
   , path  = `${uri}${token}`
 
-  , [ decoder, encoder ]
+  , [ decode, encode ]
       = [decodeURIComponent, encodeRIComponent]
 
   , echo = context =>
@@ -90,8 +90,8 @@ test.only ('route URI with encoded {token} to middleware', async t => {
       = (new Server (stack))
       .serve ``
 
-  , response
-      = await fetch (`http://localhost:8181${uri}${value}`)
+  , response = await fetch
+      (`http://localhost:8181${uri}${ encode (value) }`)
 
   , status = response.status
 
