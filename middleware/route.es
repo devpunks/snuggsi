@@ -32,6 +32,11 @@ module.exports = ( uri, resource ) => {
       expression.test
         .bind (expression)
 
+  , disallow =
+      // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
+      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
+      function () {}
+
   , parameterized = (context, params = {}) =>
       ('params' in context || (context.params = {}))
         && []
