@@ -41,7 +41,8 @@ module.exports = ( uri, resource ) => {
 
         && context
 
-  , disallow = function () {}
+  , disallow =
+      function () {}
 
 
   return async ( context, next, middleware ) => {
