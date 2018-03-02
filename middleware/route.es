@@ -42,14 +42,12 @@ module.exports = ( uri, resource ) => {
 
 
 //    (context, next) => console.warn
-//      // 405 Method Not Allowed
-//      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
 //      ( method.toUpperCase (), 'being called from derived Resource', context.throw (405) )
 
       void
 
       (!!! context.set ({ allow }))
-          && await (resource [method.toLowerCase ()] || resource)
+          && await (resource [thod.toLowerCase ()] || resource)
             (parameterized (context), next)
     }
 
