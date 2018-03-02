@@ -43,6 +43,7 @@ module.exports = ( uri, resource ) => {
 
   , disallow = function () {}
 
+
   return async ( context, next, middleware ) => {
 
     !!! test (context.path)
