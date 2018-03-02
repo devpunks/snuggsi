@@ -1,34 +1,6 @@
 // Web Resource
 // https://en.wikipedia.org/wiki/Web_resource
 
-const
-  MANDATORY
-   = ['GET', 'HEAD', 'OPTIONS']
-
-, METHODS = Array
-    // HTTP Method Definitions
-    // https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
-    // MDN Request Methods
-    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
-    .from ( require ('http').METHODS )
-    .map  ( method => method.toLowerCase () )
-
-, define = function (property) {
-    const
-      writable = false
-
-    , value =
-        (context, next) => console.warn
-          // 405 Method Not Allowed
-          // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
-          ( method.toUpperCase (), 'being called from derived Resource', context.throw (405) )
-
-
-    return Object.defineProperty
-      ( this, property, { value, writable } )
-  }
-
-
 module.exports = path => {
   const
     resource = new class extends
