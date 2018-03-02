@@ -1,3 +1,6 @@
+// Web Resource
+// https://en.wikipedia.org/wiki/Web_resource
+
 const
   METHODS = Array
     // HTTP Method Definitions
