@@ -9,6 +9,12 @@ const
     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
     .from ( require ('http').METHODS )
 
+  // decodeURI
+  // since these are user defined best to decode everything
+  // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
+, [ decode, encode ]
+    = [decodeURIComponent, encodeURIComponent]
+
 
 module.exports = ( uri, resource ) => {
 
