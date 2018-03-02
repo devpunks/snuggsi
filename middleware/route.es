@@ -35,6 +35,6 @@ module.exports = (uri, resource) => {
 
     !!! test (context.path)
       ? await next (context)
-      : await middleware (parameterized (context), next)
+      : await resource (parameterized (context), next)
   }
 }
