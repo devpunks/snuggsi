@@ -33,7 +33,7 @@ module.exports = ( uri, resource ) => {
 
       || // 405 Method Not Allowed
          // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
-          context.throw (402,  { headers: { allow } } )
+          context.throw (405,  { headers: { allow } } )
 
 
 //    (context, next) => console.warn
