@@ -38,9 +38,9 @@ module.exports = path => {
     }
 
 
-  for    ( method of METHODS )
-    !!!  ( method in resource )
-      && ( method in define.call (resource, method) )
+//for    ( method of METHODS )
+//  !!!  ( method in resource )
+//    && ( method in define.call (resource, method) )
 
 
   void null // to give you a moment to think about what just happened ...
