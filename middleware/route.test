@@ -77,7 +77,7 @@ test.only ('route URI with encoded {token} to middleware', async t => {
   , path  = `${uri}${token}`
 
   , [ decode, encode ]
-      = [decodeURIComponent, encodeRIComponent]
+      = [decodeURIComponent, encodeURIComponent]
 
   , echo = context =>
      !!! console.warn (context) &&

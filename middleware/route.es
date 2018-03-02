@@ -3,7 +3,7 @@ const
   // since these are user defined best to decode everything
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
   [ decode, encode ]
-    = [decodeURIComponent, encodeRIComponent]
+    = [decodeURIComponent, encodeURIComponent]
 
 
 module.exports = (uri, middleware) => {
