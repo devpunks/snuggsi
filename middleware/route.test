@@ -16,7 +16,7 @@ const
       (context.body = body)
 
 
-test ('route URI to middleware', async t => {
+test.only ('route URI to middleware', async t => {
 
   const
     stack
@@ -30,6 +30,8 @@ test ('route URI to middleware', async t => {
       = await fetch (`http://localhost:8181${uri}`)
 
   , status = response.status
+
+  console.warn ('headers', status, response.headers)
 
   t.equal (200, status)
   t.equal (body, await response.text ())
