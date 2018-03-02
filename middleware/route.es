@@ -14,7 +14,7 @@ const
     .from ( require ('http').METHODS )
 
 
-module.exports = (uri, resource) => {
+module.exports = ( uri, resource ) => {
 
   const
     tokens =
