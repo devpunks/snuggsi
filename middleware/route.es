@@ -19,8 +19,7 @@ const
 module.exports = ( uri, resource ) => {
 
   const
-    tokens =
-      uri.match (/[^{]+(?=})/g)
+    tokens = uri.match (/[^{]+(?=})/g)
 
   , expression = new RegExp
       (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
