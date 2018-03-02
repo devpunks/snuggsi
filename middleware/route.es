@@ -23,9 +23,8 @@ module.exports = ( uri, resource ) => {
 
   , test = expression.test.bind (expression)
 
-  , allow = METHODS
-      .filter (method => method.toLowerCase () in resource)
-      .concat (MANDATORY)
+  , allow = METHODS.filter
+      (method => method.toLowerCase () in resource)
 
   , allowed = (context, { method } = context ) => {
       // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
