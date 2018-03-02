@@ -6,7 +6,7 @@ const
     = [decodeURIComponent, encodeURIComponent]
 
 
-module.exports = (uri, middleware) => {
+module.exports = (uri, resource) => {
 
   const
     tokens =
