@@ -30,8 +30,9 @@ module.exports = (uri, resource) => {
       new RegExp
         (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
-  , test = expression.test
-      .bind (expression)
+  , test =
+      expression.test
+        .bind (expression)
 
   , parameterized = (context, params = {}) =>
       ('params' in context || (context.params = {}))
