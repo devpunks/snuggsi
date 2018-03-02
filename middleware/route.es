@@ -45,6 +45,8 @@ module.exports = (uri, resource) => {
 
   return async ( context, next, middleware ) => {
 
+    console.log (context.set ({ allow }))
+
     !!! test (context.path)
       ? await next (context)
       : await (resource [context.method.toLowerCase ()] || resource)
