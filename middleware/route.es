@@ -1,10 +1,6 @@
 const
-  // decodeURI
-  // since these are user defined best to decode everything
-  // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
-  [ decode, encode ]
-    = [decodeURIComponent, encodeURIComponent]
-
+  MANDATORY
+   = ['GET', 'HEAD', 'OPTIONS']
 
 , METHODS = Array
     // HTTP Method Definitions
