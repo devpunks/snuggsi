@@ -14,7 +14,8 @@ module.exports = path => {
       get (context)
         { context.status = 200 }
 
-      head (context) {}
+      head (context)
+        { context.status = 200 }
 
       options (context) {}
     }
