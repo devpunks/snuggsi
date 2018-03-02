@@ -26,14 +26,14 @@ module.exports = ( uri, resource ) => {
   , allow = METHODS.filter
       (method => method.toLowerCase () in resource)
 
-  , allowed = (context, { method } = context ) => {
+  , allowed = async (context, { method } = context ) => {
 
-    console.warn (resource)
-    console.warn (typeof resource)
-    ;
+//  console.warn (resource)
+//  console.warn (typeof resource)
+//  ;
 
       (typeof resource == 'function')
-        && resource (parameterized (context))
+        && await resource (context)
 //      && allow.includes (method)
 //      // Check Method Not Allowed
 //      && !!! resource [method.toLowerCase ()] (context)
