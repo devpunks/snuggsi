@@ -23,17 +23,23 @@ module.exports = ( uri, resource ) => {
 
   , test = expression.test.bind (expression)
 
+  , parameterize = (context, params = {}) =>
+      ('params' in context || (context.params = {}))
+        && []
+          .splice
+          .call (context.path.match (expression), 1) // remove 1st
+          .map  ((value, index) => context.params [tokens [index]] = decode (value))
+
+        && context
+
   , allow = METHODS.filter
       (method => method.toLowerCase () in resource)
 
   , allowed = async (context, { method } = context ) => {
 
-    console.warn (resource (context))
-//  console.warn (typeof resource)
-//  ;
-
-//    (typeof resource == 'function')
-//      && await resource (context)
+      ( context = parameterize (context) )
+        && (typeof resource == 'function')
+        && await resource (context)
 //      && allow.includes (method)
 //      // Check Method Not Allowed
 //      && !!! resource [method.toLowerCase ()] (context)
@@ -41,16 +47,6 @@ module.exports = ( uri, resource ) => {
 //      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
 //      // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
     }
-
-//, parameterized = (context, params = {}) =>
-//    ('params' in context || (context.params = {}))
-//      && []
-//        .splice
-//        .call (context.path.match (expression), 1) // remove 1st
-//        .map  ((value, index) => context.params [tokens [index]] = decode (value))
-
-//      && context
-
 
   return async ( context, next ) => {
 
