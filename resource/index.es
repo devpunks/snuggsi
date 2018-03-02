@@ -13,7 +13,7 @@ module.exports = path => {
 
       get (context) {}
 
-      head () {}
+      head (context) {}
 
       options () {}
     }
