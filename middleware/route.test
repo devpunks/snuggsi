@@ -32,6 +32,8 @@ test.only ('route URI to middleware', async t => {
   , status = response.status
 
 
+  console.warn (status, response.headers)
+
   t.equal (200, status)
   t.equal (body, await read (response.body))
 
