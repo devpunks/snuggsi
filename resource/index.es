@@ -1,25 +1,21 @@
 // Web Resource
 // https://en.wikipedia.org/wiki/Web_resource
 
-module.exports = path => {
-  const
-    resource = new class extends
-    require (`${path}/index.es`) {
+module.exports = path =>
 
-      constructor () {
-        super ()
-        console.warn ('Constructing extension')
-      }
+new class extends require (`${path}/index.es`) {
 
-      get (context)
-        { context.status = 200 }
+  constructor () {
+    super ()
+    console.warn ('Constructing extension')
+  }
 
-      head (context)
-        { context.status = 200 }
+  get (context)
+    { context.status = 200 }
 
-      options (context)
-        { context.status = 200 }
-    }
+  head (context)
+    { context.status = 200 }
 
-  return resource
+  options (context)
+    { context.status = 200 }
 }
