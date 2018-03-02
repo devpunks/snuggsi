@@ -79,9 +79,6 @@ test.only ('route URI with encoded {token} to middleware', async t => {
   , [ decoder, encoder ]
       = [decodeURIComponent, encodeRIComponent]
 
-  , value
-      = encoder ('Foo name+ståle')
-
   , echo = context =>
      !!! console.warn (context) &&
       t.equal (decodevalue, context.params.encoded)
