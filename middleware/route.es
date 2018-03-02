@@ -32,14 +32,14 @@ module.exports = ( uri, resource ) => {
   , allowed = (context, { method } = context ) => {
       // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
-      allow
-        .concat (MANDATORY)
+    console.log ('allow', allow)
+      allow.concat (MANDATORY)
         .includes (method)
 
-      (context, next) => console.warn
-        // 405 Method Not Allowed
-        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
-        ( method.toUpperCase (), 'being called from derived Resource', context.throw (405) )
+//    (context, next) => console.warn
+//      // 405 Method Not Allowed
+//      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
+//      ( method.toUpperCase (), 'being called from derived Resource', context.throw (405) )
 
       void
 
