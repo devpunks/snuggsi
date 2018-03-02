@@ -58,6 +58,7 @@ module.exports = ( uri, resource ) => {
         && await resource [method.toLowerCase ()] (context)
     }
 
+
   return async ( context, next ) => {
     !!! test (context.path)
       ? await next (context)
