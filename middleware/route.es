@@ -28,31 +28,28 @@ module.exports = ( uri, resource ) => {
 
   , allowed = async (context, { method } = context ) => {
 
-//  console.warn (resource)
+    console.warn (resource (context))
 //  console.warn (typeof resource)
 //  ;
 
-      (typeof resource == 'function')
-        && await resource (context)
+//    (typeof resource == 'function')
+//      && await resource (context)
 //      && allow.includes (method)
 //      // Check Method Not Allowed
 //      && !!! resource [method.toLowerCase ()] (context)
 //      || context.throw (405,  { headers: { allow } } )
 //      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
 //      // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
-
-//    await (resource [method.toLowerCase ()] || resource)
-//      (parameterized (context), next)
     }
 
-  , parameterized = (context, params = {}) =>
-      ('params' in context || (context.params = {}))
-        && []
-          .splice
-          .call (context.path.match (expression), 1) // remove 1st
-          .map  ((value, index) => context.params [tokens [index]] = decode (value))
+//, parameterized = (context, params = {}) =>
+//    ('params' in context || (context.params = {}))
+//      && []
+//        .splice
+//        .call (context.path.match (expression), 1) // remove 1st
+//        .map  ((value, index) => context.params [tokens [index]] = decode (value))
 
-        && context
+//      && context
 
 
   return async ( context, next ) => {
