@@ -36,7 +36,7 @@ module.exports = ( uri, resource ) => {
   , allowed = (context, { method } = context ) => {
       // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
-      console.log ('Allow', method, allow.includes (method))
+      console.log ('Allow', method, allow.concat (MANDATORY).includes (method))
 
       void
 
