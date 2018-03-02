@@ -69,7 +69,7 @@ test ('route URI with {token} to middleware', async t => {
 })
 
 
-test.only ('route URI with encoded {token} to middleware', async t => {
+test ('route URI with encoded {token} to middleware', async t => {
 
   const
     token = '{encoded}'
