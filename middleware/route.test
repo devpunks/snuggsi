@@ -13,9 +13,7 @@ const
 
 , middleware
     = (context) =>
-        !!! console.warn ('Context', context) &&
-        (context.body = body)
-        && (context.status = 200)
+      (context.body = body)
 
 
 test.only ('route URI to middleware', async t => {
@@ -33,9 +31,8 @@ test.only ('route URI to middleware', async t => {
 
   , status = response.status
 
-
   t.equal (200, status)
-  t.equal (body, await read (response.body))
+  t.equal (body, await response.text ())
 
   server.close ``
   t.end ()
