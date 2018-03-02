@@ -15,7 +15,7 @@ module.exports = path => {
 
       head (context) {}
 
-      options () {}
+      options (context) {}
     }
 
   return resource
