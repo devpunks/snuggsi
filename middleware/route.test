@@ -80,7 +80,6 @@ test.only ('route URI with encoded {token} to middleware', async t => {
       = [decodeURIComponent, encodeURIComponent]
 
   , echo = context =>
-     !!! console.warn (context) &&
       t.equal (value, context.params.encoded)
 
   , stack =
