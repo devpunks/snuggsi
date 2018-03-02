@@ -30,8 +30,7 @@ module.exports = ( uri, resource ) => {
       // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
 
-      (typeof resource === 'object')
-        && allow.includes (method)
+      (allow.includes (method) && resource [method.toLowerCase ()] ())
         || // 405 Method Not Allowed
            // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
           context.throw (405,  { headers: { allow } } )
