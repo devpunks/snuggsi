@@ -46,15 +46,17 @@ module.exports = path => {
   void null // to give you a moment to think about what just happened ...
 
 
-  return async function (context, ... _ ) {
-    const
-    { method } = context
-    // should be binding however
-    // must understand implications
-    // of being able to call an action within an action.
-    , endpoint = resource [ method.toLowerCase () ]
+  return resource
 
-    resource.subscribe (context)
-    await endpoint ( context, ... _ )
-  }
+//return async function (context, ... _ ) {
+//  const
+//  { method } = context
+//  // should be binding however
+//  // must understand implications
+//  // of being able to call an action within an action.
+//  , endpoint = resource [ method.toLowerCase () ]
+
+//  resource.subscribe (context)
+//  await endpoint ( context, ... _ )
+//}
 }
