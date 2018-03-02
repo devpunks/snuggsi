@@ -20,10 +20,6 @@ module.exports = ( uri, resource ) => {
     tokens =
       uri.match (/[^{]+(?=})/g)
 
-  , allow = METHODS.filter
-      (method => method.toLowerCase () in resource)
-      .join `, `
-
   , expression =
       new RegExp
         (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
