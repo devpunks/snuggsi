@@ -45,8 +45,6 @@ module.exports = ( uri, resource ) => {
         // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
 
 
-      context = parameterize (context)
-
       (typeof resource == 'function')
         && await resource (context)
 
