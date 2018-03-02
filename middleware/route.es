@@ -28,9 +28,6 @@ module.exports = ( uri, resource ) => {
 
   , allowed = (context, { method } = context ) => {
 
-    console.warn (typeof resource)
-    void
-
       (typeof resource == 'function')
         && resource (parameterized (context))
 //      && allow.includes (method)
