@@ -32,9 +32,8 @@ module.exports = ( uri, resource ) => {
 
       (typeof resource === 'object')
         && allow.includes (method)
-
-      || // 405 Method Not Allowed
-         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
+        || // 405 Method Not Allowed
+           // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
           context.throw (405,  { headers: { allow } } )
 
 //    await (resource [method.toLowerCase ()] || resource)
