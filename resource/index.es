@@ -14,6 +14,8 @@ module.exports = path => {
       get () {}
 
       head () {}
+
+      options () {}
     }
 
   return resource
