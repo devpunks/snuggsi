@@ -73,6 +73,7 @@ test.only ('route URI with encoded {token} to middleware', async t => {
 
   const
     token = '{encoded}'
+    value = 'Foo name+ståle'
   , path  = `${uri}${token}`
 
   , [ decoder, encoder ]
