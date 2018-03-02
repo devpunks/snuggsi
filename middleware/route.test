@@ -33,7 +33,6 @@ test.only ('route URI to middleware', async t => {
 
 
   t.equal (200, status)
-
   t.equal (body, await read (response.body))
 
   server.close ``
