@@ -44,7 +44,7 @@ module.exports = ( uri, resource ) => {
       void
 
       (!!! context.set ({ allow }))
-          && await (resource [context.method.toLowerCase ()] || resource)
+          && await (resource [method.toLowerCase ()] || resource)
             (parameterized (context), next)
     }
 
