@@ -21,7 +21,7 @@ module.exports = ( uri, resource ) => {
   , expression = new RegExp
       (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
-  , test = expression.test.bind (expression)
+  , route = expression.test.bind (expression)
 
   , parameterize = (context, params = {}) =>
       ('params' in context || (context.params = {}))
