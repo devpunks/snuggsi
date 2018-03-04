@@ -58,7 +58,7 @@ module.exports = ( uri, resource ) => {
 
 
   return async ( context, next ) =>
-    !!! route (context.path)
-      ? await next (context)
-      : await allowed ( parameterize (context) )
+    !!! route  (context.path)
+      ? await  next (context)
+      : await  allowed ( parameterize (context) )
 }
