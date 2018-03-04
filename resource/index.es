@@ -1,5 +1,4 @@
-// Web Resource
-// https://en.wikipedia.org/wiki/Web_resource
+// Web Resource - https://en.wikipedia.org/wiki/Web_resource
 
 module.exports = path =>
 
