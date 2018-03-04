@@ -12,7 +12,7 @@ const
 , body = 'Shazam'
 
 , middleware
-    = (context) =>
+    = context =>
       (context.body = body)
 
 
