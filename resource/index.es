@@ -14,9 +14,9 @@ new class extends require (`${path}/index.es`) {
     // should be done by CORS
     { context.status = 200 }
 
-  get (context)
+  head (context)
     { context.status = 200 }
 
-  head (context)
+  get (context)
     { context.status = 200 }
 }
