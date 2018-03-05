@@ -1,5 +1,7 @@
 # `Resource`
 
+# Request Methods
+
 ## References
 
   - Web Resource - https://en.wikipedia.org/wiki/Web_resource
