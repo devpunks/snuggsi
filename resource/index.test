@@ -35,7 +35,7 @@ test.only ('Allowed methods', async t => {
 
     console.warn ('method', method, URL, status, headers)
 
-    t.equals (200, status, headers)
+    t.equals (201, status)
   }
 
   server.close ``
