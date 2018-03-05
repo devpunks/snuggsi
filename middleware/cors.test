@@ -18,7 +18,7 @@ test ('Access-Control-Allow-Origin: *', async t => {
   t.equal
     ('*', response.headers.get ('access-control-allow-origin'))
 
-  server.close ()
+  server.close ``
   t.end ()
 })
 
