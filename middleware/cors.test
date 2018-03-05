@@ -33,6 +33,6 @@ test ('Access-Control-Allow-Methods: *', async t => {
   t.equal
     ('GET', response.headers.get ('access-control-allow-methods'))
 
-  server.close ()
+  server.close ``
   t.end ()
 })
