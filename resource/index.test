@@ -28,7 +28,7 @@ const
 test.only ('new Resource', async t => {
 
   const
-    method = 'OPTIONS'
+    method = 'TRACE'
 
   , endpoint =
       [ `${URL}14`, { method } ]
@@ -42,7 +42,7 @@ test.only ('new Resource', async t => {
 
   , { status, body } = response
 
-  console.warn ('Resp', status, response.headers,  await response.text ())
+  console.warn ('Resp', status, response.headers,  await response.text (), NONSAFE_METHODS, SAFE_METHODS)
 
 
   server.close ``
