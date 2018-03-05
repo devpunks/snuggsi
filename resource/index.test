@@ -29,13 +29,14 @@ test.only ('Allowed methods', async t => {
 
   for (method of SAFE_METHODS) {
     let
-      endpoint = [ URL, { method } ]
-    , response = await fetch ( `${URL}14` )
-    , { status, headers } = response
+      endpoint
+        = [ `${URL}14`, { method } ]
 
-    console.warn ('method', method, URL, status, headers)
+    , { status, headers }
+        = await fetch ( ... endpoint )
 
-    t.equals (201, status)
+    t.notOk ('allowed' in headers)
+    t.ok ( [200,204].includes (status) )
   }
 
   server.close ``
@@ -48,8 +49,8 @@ test ('new Resource', async t => {
   const
     method = 'TRACE'
 
-  , endpoint =
-      [ `${URL}14`, { method } ]
+  , endpoint
+      = [ `${URL}14`, { method } ]
 
   , server =
       (new Server ( [ route ] ))
