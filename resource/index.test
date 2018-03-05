@@ -23,12 +23,12 @@ const
 test.only ('new Resource', async t => {
 
   const
-    method = 'TRACE'
+    method = 'OPTIONS'
 
   , endpoint =
       [ `${URL}14`, { method } ]
 
-    server =
+  , server =
       (new Server ( [ route ] ))
       .serve ``
 
