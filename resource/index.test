@@ -25,7 +25,11 @@ const
     (method => !!! SAFE_METHODS.includes (method))
 
 
-test.only ('new Resource', async t => {
+test.only ('default allowed methods', async t => {
+})
+
+
+test ('new Resource', async t => {
 
   const
     method = 'TRACE'
