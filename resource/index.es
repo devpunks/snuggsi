@@ -8,13 +8,13 @@ new class extends require (`${path}/index.es`) {
     console.warn ('Constructing extension', path)
   }
 
-  options (context)
-    // should be done by CORS
-    { context.status = 201 }
+//options (context)
+//  // should be done by CORS
+//  { context.status = 200 }
 
   head (context)
-    { context.status = 201 }
+    { context.status = 200 }
 
   get (context)
-    { context.status = 201 }
+    { context.status = 200 }
 }
