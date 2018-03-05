@@ -19,6 +19,8 @@ const
     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
     .from ( require ('http').METHODS )
 
+, SAFE_METHODS = ['OPTIONS', 'HEAD', 'GET']
+
 
 test.only ('new Resource', async t => {
 
