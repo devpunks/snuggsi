@@ -21,7 +21,22 @@ const
     (method => !!! SAFE_METHODS.includes (method))
 
 
-test.only ('default allowed methods', async t => {
+test.only ('Allowed methods', async t => {
+  const
+    server =
+      (new Server ( [ route ] ))
+      .serve ``
+
+  for (method of SAFE_METHODS) {
+    let
+      endpoint = [ URL, { method } ]
+    , response = await fetch ( `${URL}14` )
+
+    console.warn ('method', method, URL, response.headers, response.status)
+  }
+
+  server.close ``
+  t.end ()
 })
 
 
