@@ -31,8 +31,11 @@ test.only ('Allowed methods', async t => {
     let
       endpoint = [ URL, { method } ]
     , response = await fetch ( `${URL}14` )
+    , { status, headers } = response
 
-    console.warn ('method', method, URL, response.headers, response.status)
+    console.warn ('method', method, URL, status, headers)
+
+    t.equals (200, status, headers)
   }
 
   server.close ``
