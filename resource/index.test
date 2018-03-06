@@ -39,31 +39,8 @@ test ('Default Resource allowed methods', async t => {
     let { status, headers }
       = await fetch ( `${URL}14`, { method } )
 
-    t.notOk ('allow' in headers)
+    t.notOk (headers.get ('allow'))
     t.ok ( [200,204].includes (status) )
-  }
-
-  server.close ``
-  t.end ()
-})
-
-
-test.only ('Default Resource disallowed methods', async t => {
-  const
-    resource = Resource ``
-
-  , server =
-      (new Server ( [ route (resource) ] ))
-      .serve ``
-
-
-  for (method of UNSAFE_METHODS) {
-
-    let { status, headers }
-      = await fetch ( `${URL}14`, { method } )
-
-    t.equals ( DEFAULT_METHODS.join `, `, headers.get ('allow') )
-    t.equals ( 405, status )
   }
 
   server.close ``
@@ -92,6 +69,32 @@ test ('Defined Resource allowed methods', async t => {
 
     t.notEqual ( 405, status )
     t.notOk (headers.get ('allow') )
+  }
+
+  server.close ``
+  t.end ()
+})
+
+
+test.only ('Default Resource disallowed methods', async t => {
+  const
+    resource = Resource ``
+
+  , server =
+      (new Server ( [ route (resource) ] ))
+      .serve ``
+
+
+  for (method of UNSAFE_METHODS) {
+
+    let { status, headers }
+      = await fetch ( `${URL}14`, { method } )
+
+    , methods = headers.get ('allow').split `, `
+    , check = allowed => methods.every (method => allowed.includes (method))
+
+    t.equals ( 405, status )
+    t.ok ( check (DEFAULT_METHODS) )
   }
 
   server.close ``
