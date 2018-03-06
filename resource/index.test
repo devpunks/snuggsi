@@ -20,7 +20,28 @@ const
     (method => !!! SAFE_METHODS.includes (method))
 
 
-test.only ('Default Resource allowed methods', async t => {
+test ('Default Resource allowed methods', async t => {
+  const
+    resource = Resource ``
+
+  , server =
+      (new Server ( [ route (resource) ] ))
+      .serve ``
+
+  for (method of SAFE_METHODS) {
+    let { status, headers }
+      = await fetch ( `${URL}14`, { method } )
+
+    t.notOk ('allowed' in headers)
+    t.ok ( [200].includes (status) )
+  }
+
+  server.close ``
+  t.end ()
+})
+
+
+test.only ('Default Resource disallowed methods', async t => {
   const
     resource = Resource ``
 
