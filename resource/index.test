@@ -113,7 +113,7 @@ test.only ('Defined Resource disallowed methods', async t => {
 
   , wtf = METHODS
       .filter (message => message !== 'CONNECT')
-  // why the heck do we have to do this janky shit ?
+      // why the heck do we have to do this janky shit ?
       .filter (message => message !== 'OPTIONS')
       .filter (name => !!! allow.includes (name))
 
