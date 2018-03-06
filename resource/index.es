@@ -3,7 +3,7 @@ const
     Boolean (... (path = [].concat (path)))
       ? require (`${path}/index.es`)
       : class {}
-;
+
 
 module.exports = path => {
 
