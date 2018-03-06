@@ -72,6 +72,8 @@ test.only ('Defined Resource allowed methods', async t => {
         .filter (unique)
 
   for (method of DEFINED_METHODS) {
+    console.warn (method)
+
     let
       { status, headers }
         = await fetch ( `${URL}14`, { method } )
@@ -93,8 +95,10 @@ test ('Default Resource disallowed methods', async t => {
       (new Server ( [ route (resource) ] ))
       .serve ``
 
+  , DISALLOWED_METHODS = UNSAFE_METHODS
 
-  for (method of UNSAFE_METHODS) {
+
+  for (method of DISALLOWED_METHODS) {
 
     let { status, headers }
       = await fetch ( `${URL}14`, { method } )
