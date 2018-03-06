@@ -23,7 +23,7 @@ const
 
 test.only ('Default Resource', async t => {
   const
-    resource = Resource = Resource ``
+    resource = Resource  ``
 
   , server =
       (new Server ( [ route (resource) ] ))
