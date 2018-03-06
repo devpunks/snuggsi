@@ -17,6 +17,7 @@ const
 , METHODS = [ ... require ('http').METHODS ]
     // for some reason connect won't work
     .filter (method => method !== 'CONNECT')
+    .filter (method => method !== 'OPTIONS') // cors?
 
 , SAFE_METHODS = ['OPTIONS', ... DEFAULT_METHODS ]
 
@@ -135,7 +136,6 @@ test.only ('Defined Resource disallowed methods', async t => {
         .filter (unique)
 
   , DISALLOWED_METHODS = METHODS
-      .filter (method => method !== 'OPTIONS') // cors?
       .filter (name => !!! ALLOWED_METHODS.includes (name))
 
 
