@@ -39,7 +39,9 @@ test ('Default Resource allowed methods', async t => {
       (new Server ( [ route (resource) ] ))
       .serve ``
 
-  for (method of SAFE_METHODS) {
+  , ALLOWED_METHODS = SAFE_METHODS
+
+  for (method of ALLOWED_METHODS) {
     let { status, headers }
       = await fetch ( `${URL}14`, { method } )
 
@@ -52,7 +54,7 @@ test ('Default Resource allowed methods', async t => {
 })
 
 
-test.only ('Defined Resource allowed methods', async t => {
+test ('Defined Resource allowed methods', async t => {
   const
     { __proto__: proto } = resource
       = Resource `server/fixtures`
@@ -67,11 +69,11 @@ test.only ('Defined Resource allowed methods', async t => {
 
 
   , ALLOWED_METHODS
-      = [ ... DEFAULT_METHODS, ... DEFINED_METHODS ]
+      = [ ... SAFE_METHODS, ... DEFINED_METHODS ]
         .filter (method => METHODS.includes (method))
         .filter (unique)
 
-  for (method of DEFINED_METHODS) {
+  for (method of ALLOWED_METHODS) {
     console.warn (method)
 
     let
@@ -114,7 +116,7 @@ test ('Default Resource disallowed methods', async t => {
 })
 
 
-test ('Defined Resource disallowed methods', async t => {
+test.only ('Defined Resource disallowed methods', async t => {
   const
     { __proto__: proto } = resource
       = Resource `server/fixtures`
