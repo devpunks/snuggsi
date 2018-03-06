@@ -12,8 +12,7 @@ const
     require ('../middleware')
     .route  ( `${path}{id}`, resource )
 
-, METHODS = Array
-    .from ( require ('http').METHODS )
+, METHODS = [ ... require ('http').METHODS ]
 
 , SAFE_METHODS = ['OPTIONS', 'HEAD', 'GET']
 
