@@ -1,6 +1,12 @@
-module.exports = path =>
+const
+  Base = path =>
+    Boolean (... (path = [].concat (path)))
+      ? require (`${path}/index.es`)
+      : Object
 
-new class extends require (`${path}/index.es`) {
+module.exports = path => {
+
+new class extends Base (path) {
 
   constructor () { super ()
     console.warn ('Constructing extension', path)
@@ -19,4 +25,5 @@ new class extends require (`${path}/index.es`) {
 //purge (context)
 //  // http://restcookbook.com/Basics/caching/
 //  { context.status = 202 }
+}
 }
