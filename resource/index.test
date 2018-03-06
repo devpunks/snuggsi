@@ -66,44 +66,27 @@ test ('Default Resource disallowed methods', async t => {
 })
 
 
-test ('Allowed methods', async t => {
+test.only ('Define Resource allowed methods', async t => {
   const
-    server =
-      (new Server ( [ route ] ))
+    resource = Resource `server/fixtures`
+
+  , server =
+      (new Server ( [ route (resource) ] ))
       .serve ``
 
-  for (method of SAFE_METHODS) {
+  , DEFINED_METHODS
+      = Object.getOwnPropertyNames
+        (require ('server/fixtures/index.es').prototype)
+      .filter (name => METHODS.includes (name.toUpperCase ()))
+
+
+  for (method of DEFINED_METHODS) {
     let { status, headers }
       = await fetch ( `${URL}14`, { method } )
 
-    t.notOk ('allowed' in headers)
-    t.ok ( [200,204].includes (status) )
+    t.notEqual ( DEFAULT_METHODS.join `, `, headers.get ('allow') )
+    t.notEqual ( 405, status )
   }
-
-  server.close ``
-  t.end ()
-})
-
-
-test ('new Resource', async t => {
-
-  const
-    method = 'TRACE'
-
-  , endpoint
-      = [ `${URL}14`, { method } ]
-
-  , server =
-      (new Server ( [ route ] ))
-      .serve ``
-
-  , response =
-      await fetch ( ... endpoint )
-
-  , { status, body } = response
-
-  console.warn ('Resp', status, response.headers,  await response.text (), NONSAFE_METHODS, SAFE_METHODS)
-
 
   server.close ``
   t.end ()
