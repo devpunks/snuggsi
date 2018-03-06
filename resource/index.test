@@ -130,9 +130,10 @@ test.only ('Defined Resource disallowed methods', async t => {
 
     , methods = headers.get ('allow').split `, `
     , included = method => methods.includes (method)
+    , check = allowed => allowed.every (included)
 
     t.equal ( 405, status )
-    t.ok ( ALLOWED_METHODS.every (included) )
+    t.ok ( check (ALLOWED_METHODS) )
   }
 
   server.close ``
