@@ -71,7 +71,7 @@ test ('Default Resource disallowed methods', async t => {
 })
 
 
-test.only ('Defined Resource allowed methods', async t => {
+test ('Defined Resource allowed methods', async t => {
   const
     { __proto__: proto } = resource
       = Resource `server/fixtures`
@@ -99,7 +99,7 @@ test.only ('Defined Resource allowed methods', async t => {
 })
 
 
-test ('Defined Resource disallowed methods', async t => {
+test.only ('Defined Resource disallowed methods', async t => {
   const
     { __proto__: proto } = resource
       = Resource `server/fixtures`
@@ -119,7 +119,7 @@ test ('Defined Resource disallowed methods', async t => {
 
   , DISALLOWED_METHODS = METHODS
       // why the heck do we have to do this janky shit ?
-      .filter (message => message !== 'OPTIONS')
+      .filter (method => method !== 'OPTIONS')
       .filter (name => !!! ALLOWED_METHODS.includes (name))
 
 
@@ -129,10 +129,10 @@ test ('Defined Resource disallowed methods', async t => {
       = await fetch ( `${URL}14`, { method } )
 
     , methods = headers.get ('allow').split `, `
-    , allow = method => methods.includes (method)
+    , included = method => methods.includes (method)
 
     t.equal ( 405, status )
-    t.ok ( ALLOWED_METHODS.every (allow) )
+    t.ok ( ALLOWED_METHODS.every (included) )
   }
 
   server.close ``
