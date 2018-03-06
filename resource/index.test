@@ -9,8 +9,8 @@ const
     = require ('..')
 
 , route = resource =>
-    = require ('../middleware')
-      .route  ( `${path}{id}`, resource )
+    require ('../middleware')
+    .route  ( `${path}{id}`, resource )
 
 , METHODS = Array
     .from ( require ('http').METHODS )
