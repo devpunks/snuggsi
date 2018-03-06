@@ -9,7 +9,7 @@
 ## References
 
   - Rest Cookbook -  http://restcookbook.com/
-  - HTTP Status Codes - https://httpstatuses.com/204
+  - HTTP Status Codes - https://httpstatuses.com/
   - Pagination - http://restcookbook.com/Resources/pagination/
   - Web Resource - https://en.wikipedia.org/wiki/Web_resource
   - HTTP Request Methods - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
