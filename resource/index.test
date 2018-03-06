@@ -21,6 +21,9 @@ const
 , UNSAFE_METHODS = METHODS.filter
     (method => !!! SAFE_METHODS.includes (method))
 
+, unique = (method, index, methods) =>
+    methods.indexOf (method) === index
+
 
 test ('Default Resource allowed methods', async t => {
   const
@@ -106,10 +109,9 @@ test.only ('Defined Resource disallowed methods', async t => {
         (require ('server/fixtures/index.es').prototype)
       .map (method => method.toUpperCase ())
 
-  , allow = DEFAULT_METHODS
-      .concat (DEFINED_METHODS)
-      .filter ((v, i, a) => a.indexOf (v) === i)
+  , allow = [ ... DEFAULT_METHODS, ... DEFINED_METHODS ]
       .filter (method => METHODS.includes (method))
+      .filter (unique)
 
   , wtf = METHODS
       .filter (message => message !== 'CONNECT')
