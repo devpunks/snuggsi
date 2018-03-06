@@ -26,6 +26,10 @@ const
 , unique = (method, index, methods) =>
     methods.indexOf (method) === index
 
+, compare = (left, right) =>
+    left.slice ().sort ().join `,`
+      == right.slice ().sort ().join `,`
+
 
 test ('Default Resource allowed methods', async t => {
   const
@@ -91,11 +95,11 @@ test.only ('Default Resource disallowed methods', async t => {
     let { status, headers }
       = await fetch ( `${URL}14`, { method } )
 
-    , methods = headers.get ('allow').split `, `
-    , check = allowed => methods.every (method => allowed.includes (method))
+    , allowed = headers.get ('allow').split `, `
+    , check = methods => allowed.every (method => allowed.includes (method))
 
     t.equals ( 405, status )
-    t.ok ( check (DEFAULT_METHODS) )
+    t.ok ( compare (allowed, DEFAULT_METHODS) )
   }
 
   server.close ``
