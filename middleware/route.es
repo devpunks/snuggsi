@@ -23,7 +23,7 @@ module.exports = ( uri, resource ) => {
 
   , match = expression.test.bind (expression)
 
-  , parameterize = (context, params = {}) =>
+  , parameterized = (context, params = {}) =>
       ('params' in context || (context.params = {}))
         && []
           .splice
