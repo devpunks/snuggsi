@@ -2,11 +2,12 @@ const
   Base = path =>
     Boolean (... (path = [].concat (path)))
       ? require (`${path}/index.es`)
-      : Object
+      : class {}
+;
 
 module.exports = path => {
 
-new class extends Base (path) {
+return new class extends Base (path) {
 
   constructor () { super ()
     console.warn ('Constructing extension', path)
