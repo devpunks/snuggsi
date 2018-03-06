@@ -12,9 +12,11 @@ const
     require ('../middleware')
     .route  ( `${path}{id}`, resource )
 
+, DEFAULT_METHODS = [ 'HEAD', 'GET' ]
+
 , METHODS = [ ... require ('http').METHODS ]
 
-, SAFE_METHODS = ['OPTIONS', 'HEAD', 'GET']
+, SAFE_METHODS = ['OPTIONS', ... DEFAULT_METHODS ]
 
 , NONSAFE_METHODS = METHODS.filter
     (method => !!! SAFE_METHODS.includes (method))
