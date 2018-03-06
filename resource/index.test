@@ -66,7 +66,7 @@ test ('Default Resource disallowed methods', async t => {
 })
 
 
-test ('Define Resource allowed methods', async t => {
+test ('Defined Resource allowed methods', async t => {
   const
     resource = Resource `server/fixtures`
 
@@ -93,7 +93,7 @@ test ('Define Resource allowed methods', async t => {
 })
 
 
-test.only ('Define Resource disallowed methods', async t => {
+test.only ('Defined Resource disallowed methods', async t => {
   const
     resource = Resource `server/fixtures`
 
