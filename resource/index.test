@@ -98,15 +98,15 @@ test ('Defined Resource allowed methods', async t => {
 
 test.only ('Defined Resource disallowed methods', async t => {
   const
-    resource = Resource `server/fixtures`
+    { __proto__: proto } = resource
+      = Resource `server/fixtures`
 
   , server =
       (new Server ( [ route (resource) ] ))
       .serve ``
 
-  , DEFINED_METHODS
-      = Object.getOwnPropertyNames
-        (require ('server/fixtures/index.es').prototype)
+  , DEFINED_METHODS = Object
+      .getOwnPropertyNames (Object.getPrototypeOf (proto))
       .map (method => method.toUpperCase ())
 
   , allow = [ ... DEFAULT_METHODS, ... DEFINED_METHODS ]
@@ -121,13 +121,15 @@ test.only ('Defined Resource disallowed methods', async t => {
 
 
   for (method of wtf) {
+
     let { status, headers }
       = await fetch ( `${URL}14`, { method } )
 
-    t.ok
-      ( allow.every (method =>  headers._headers ['allow'][0].includes (method) ) )
+    , methods = headers.get ('allow').split `, `
+    , allowed = method => methods.includes (method)
 
     t.equal ( 405, status )
+    t.ok    ( allow.every (allowed) )
   }
 
   server.close ``
