@@ -15,6 +15,8 @@ const
 , DEFAULT_METHODS = [ 'GET', 'HEAD'  ]
 
 , METHODS = [ ... require ('http').METHODS ]
+    // for some reason connect won't work
+    .filter (method => method !== 'CONNECT')
 
 , SAFE_METHODS = ['OPTIONS', ... DEFAULT_METHODS ]
 
