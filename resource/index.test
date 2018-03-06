@@ -12,13 +12,13 @@ const
     require ('../middleware')
     .route  ( `${path}{id}`, resource )
 
-, DEFAULT_METHODS = [ 'HEAD', 'GET' ]
+, DEFAULT_METHODS = [ 'GET', 'HEAD'  ]
 
 , METHODS = [ ... require ('http').METHODS ]
 
 , SAFE_METHODS = ['OPTIONS', ... DEFAULT_METHODS ]
 
-, NONSAFE_METHODS = METHODS.filter
+, UNSAFE_METHODS = METHODS.filter
     (method => !!! SAFE_METHODS.includes (method))
 
 
@@ -34,8 +34,8 @@ test ('Default Resource allowed methods', async t => {
     let { status, headers }
       = await fetch ( `${URL}14`, { method } )
 
-    t.notOk ('allowed' in headers)
-    t.ok ( [200].includes (status) )
+    t.notOk ('allow' in headers)
+    t.ok ( [200,204].includes (status) )
   }
 
   server.close ``
@@ -51,12 +51,14 @@ test.only ('Default Resource disallowed methods', async t => {
       (new Server ( [ route (resource) ] ))
       .serve ``
 
-  for (method of SAFE_METHODS) {
+
+  for (method of UNSAFE_METHODS.filter (message => message !== 'CONNECT')) {
+
     let { status, headers }
       = await fetch ( `${URL}14`, { method } )
 
-    t.notOk ('allowed' in headers)
-    t.ok ( [200,204].includes (status) )
+    t.equals ( DEFAULT_METHODS.join `, `, headers.get ('allow') )
+    t.equals ( 405, status )
   }
 
   server.close ``
