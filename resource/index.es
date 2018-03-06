@@ -5,9 +5,9 @@ const
       : class {}
 
 
-module.exports = path => {
+module.exports = path =>
 
-return new class extends Base (path) {
+new class extends Base (path) {
 
   constructor () { super ()
     console.warn ('Constructing extension', path)
@@ -26,5 +26,4 @@ return new class extends Base (path) {
 //purge (context)
 //  // http://restcookbook.com/Basics/caching/
 //  { context.status = 202 }
-}
 }
