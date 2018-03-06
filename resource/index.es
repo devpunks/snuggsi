@@ -1,5 +1,3 @@
-// Web Resource - https://en.wikipedia.org/wiki/Web_resource
-
 module.exports = path =>
 
 new class extends require (`${path}/index.es`) {
