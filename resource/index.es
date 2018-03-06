@@ -17,6 +17,9 @@ new class extends Base (path) {
 //  // should be done by CORS
 //  { context.status = 200 }
 
+// Mandatory Methods
+// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
+//
   head (context)
     { context.status = 200 }
 
