@@ -118,8 +118,7 @@ test.only ('Defined Resource disallowed methods', async t => {
         .filter (unique)
 
   , DISALLOWED_METHODS = METHODS
-      // why the heck do we have to do this janky shit ?
-      .filter (method => method !== 'OPTIONS')
+      .filter (method => method !== 'OPTIONS') // cors?
       .filter (name => !!! ALLOWED_METHODS.includes (name))
 
 
