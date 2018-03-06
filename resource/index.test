@@ -28,12 +28,8 @@ test.only ('Allowed methods', async t => {
       .serve ``
 
   for (method of SAFE_METHODS) {
-    let
-      endpoint
-        = [ `${URL}14`, { method } ]
-
-    , { status, headers }
-        = await fetch ( ... endpoint )
+    let { status, headers }
+      = await fetch ( `${URL}14`, { method } )
 
     t.notOk ('allowed' in headers)
     t.ok ( [200,204].includes (status) )
