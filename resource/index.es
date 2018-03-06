@@ -17,4 +17,8 @@ new class extends require (`${path}/index.es`) {
 
   get (context)
     { context.status = 200 }
+
+//purge (context)
+//  // http://restcookbook.com/Basics/caching/
+//  { context.status = 202 }
 }
