@@ -112,26 +112,27 @@ test ('Defined Resource disallowed methods', async t => {
       .getOwnPropertyNames (Object.getPrototypeOf (proto))
       .map (method => method.toUpperCase ())
 
-  , allow = [ ... DEFAULT_METHODS, ... DEFINED_METHODS ]
-      .filter (method => METHODS.includes (method))
-      .filter (unique)
+  , ALLOWED_METHODS
+      = [ ... DEFAULT_METHODS, ... DEFINED_METHODS ]
+        .filter (method => METHODS.includes (method))
+        .filter (unique)
 
-  , wtf = METHODS
+  , DISALLOWED_METHODS = METHODS
       // why the heck do we have to do this janky shit ?
       .filter (message => message !== 'OPTIONS')
-      .filter (name => !!! allow.includes (name))
+      .filter (name => !!! ALLOWED_METHODS.includes (name))
 
 
-  for (method of wtf) {
+  for (method of DISALLOWED_METHODS) {
 
     let { status, headers }
       = await fetch ( `${URL}14`, { method } )
 
     , methods = headers.get ('allow').split `, `
-    , allowed = method => methods.includes (method)
+    , allow = method => methods.includes (method)
 
     t.equal ( 405, status )
-    t.ok    ( allow.every (allowed) )
+    t.ok ( ALLOWED_METHODS.every (allow) )
   }
 
   server.close ``
