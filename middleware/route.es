@@ -35,7 +35,7 @@ module.exports = ( uri, resource ) => {
   , allow = METHODS.filter
       (method => method.toLowerCase () in resource)
 
-  , allowed = async (context, { method } = context ) => {
+  , route = async (context, { method } = context ) => {
 
       (typeof resource == 'object')
         // Method Not Allowed
@@ -60,5 +60,5 @@ module.exports = ( uri, resource ) => {
   return async ( context, next ) =>
     !!! match  (context.path)
       ? await  next (context)
-      : await  allowed ( parameterize (context) )
+      : await  route ( parameterize (context) )
 }
