@@ -8,9 +8,9 @@ const
 , { Server, Resource }
     = require ('..')
 
-, route
+, route = resource =>
     = require ('../middleware')
-      .route  ( `${path}{id}`, Resource `server/fixtures` )
+      .route  ( `${path}{id}`, resource )
 
 , METHODS = Array
     .from ( require ('http').METHODS )
@@ -21,7 +21,28 @@ const
     (method => !!! SAFE_METHODS.includes (method))
 
 
-test.only ('Allowed methods', async t => {
+test.only ('Default Resource', async t => {
+  const
+    resource = Resource = Resource ``
+
+  , server =
+      (new Server ( [ route (resource) ] ))
+      .serve ``
+
+//for (method of SAFE_METHODS) {
+//  let { status, headers }
+//    = await fetch ( `${URL}14`, { method } )
+
+//  t.notOk ('allowed' in headers)
+//  t.ok ( [200,204].includes (status) )
+//}
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Allowed methods', async t => {
   const
     server =
       (new Server ( [ route ] ))
