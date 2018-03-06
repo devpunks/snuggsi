@@ -66,7 +66,7 @@ test ('Default Resource disallowed methods', async t => {
 })
 
 
-test.only ('Define Resource allowed methods', async t => {
+test ('Define Resource allowed methods', async t => {
   const
     resource = Resource `server/fixtures`
 
@@ -86,6 +86,46 @@ test.only ('Define Resource allowed methods', async t => {
 
     t.notEqual ( DEFAULT_METHODS.join `, `, headers.get ('allow') )
     t.notEqual ( 405, status )
+  }
+
+  server.close ``
+  t.end ()
+})
+
+
+test.only ('Define Resource disallowed methods', async t => {
+  const
+    resource = Resource `server/fixtures`
+
+  , server =
+      (new Server ( [ route (resource) ] ))
+      .serve ``
+
+  , DEFINED_METHODS
+      = Object.getOwnPropertyNames
+        (require ('server/fixtures/index.es').prototype)
+      .map (method => method.toUpperCase ())
+
+  , allow = DEFAULT_METHODS
+      .concat (DEFINED_METHODS)
+      .filter ((v, i, a) => a.indexOf (v) === i)
+      .filter (method => METHODS.includes (method))
+
+  , wtf = METHODS
+      .filter (message => message !== 'CONNECT')
+  // why the heck do we have to do this janky shit ?
+      .filter (message => message !== 'OPTIONS')
+      .filter (name => !!! allow.includes (name))
+
+
+  for (method of wtf) {
+    let { status, headers }
+      = await fetch ( `${URL}14`, { method } )
+
+    t.ok
+      ( allow.every (method =>  headers._headers ['allow'][0].includes (method) ) )
+
+    t.equal ( 405, status )
   }
 
   server.close ``
