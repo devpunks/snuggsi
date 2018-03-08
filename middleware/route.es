@@ -27,5 +27,5 @@ module.exports = (uri, resource, tokens, match = capture (uri)) =>
       && (method = method.toLowerCase ())
       && (tokens = uri.match (/[^{]+(?=})/g))
       && (handle = (resource [method] || resource)
-        ? await handle (parameterized (context, tokens)
+        ? await handle (parameterized (context, tokens))
         : await next (context)
