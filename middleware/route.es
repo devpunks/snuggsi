@@ -5,7 +5,7 @@ const
   [ decode, encode ]
     = [ decodeURIComponent, encodeURIComponent ]
 
-, parameterized = (context, params = {}) =>
+, parameterized = context =>
     ('params' in context || (context.params = {}))
       && []
         .splice
