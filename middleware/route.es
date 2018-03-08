@@ -7,10 +7,9 @@ const
 , capture = uri => new RegExp
     (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
-, route = (context) => {
+, parameterized = (context, tokens) => {
     'params' in context || (context.params = {})
 
-    parameterize:
       []
         .splice.call (context.path.match (prepare), 1)
         .map  ((value, index) =>
@@ -28,5 +27,5 @@ module.exports = (uri, resource, tokens, match = capture (uri)) =>
       && (method = method.toLowerCase ())
       && (tokens = uri.match (/[^{]+(?=})/g))
       && (handle = (resource [method] || resource)
-        ? await handle (context)
+        ? await handle (parameterized (context, tokens)
         : await next (context)
