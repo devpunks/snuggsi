@@ -15,14 +15,14 @@ const
 
 , tokens = uri => uri.match (/[^{]+(?=})/g)
 
-, capture (uri) = new RegExp
+, capture = uri => new RegExp
     (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
 
 module.exports = ( uri, resource, expression) => {
 
   return async (context, next, { method } = context) =>
-    capture.test (context.path)
+    capture (uri).test (context.path)
       && (method = method.toLowerCase ())
         ? await  (resource [method] || resource) ( /* parameterized */ (context))
         : await  next (context)
