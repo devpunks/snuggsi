@@ -5,6 +5,9 @@ const
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
   decode = decodeURIComponent
 
+, capture = uri => new RegExp
+    (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
+
 , parameterized = context => {
     'params' in context || (context.params = {})
 
@@ -15,9 +18,6 @@ const
 
     return context
   }
-
-, capture = uri => new RegExp
-    (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
 
 module.exports = (uri, resource, tokens, match = capture (uri)) =>
