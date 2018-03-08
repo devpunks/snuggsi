@@ -16,7 +16,7 @@ const
     new RegExp (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
 , match = (uri, expression = prepare (uri)) =>
-    expression.test.bind (expression)
+    expression.test (uri)
 
 , allowed = method => METHODS.filter
     (method => method.toLowerCase () in resource)
@@ -36,7 +36,8 @@ module.exports = ( uri, resource ) => {
   const
     tokens = uri.match (/[^{]+(?=})/g)
 
-  , mat = match (uri)
+  , match = new RegExp
+      (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
   , allow = METHODS.filter
       (method => method.toLowerCase () in resource)
@@ -54,8 +55,8 @@ module.exports = ( uri, resource ) => {
 
 
   return async (context, next) =>
-    !!! mat  (context.path)
-      ? await  next (context)
+    match.test (context.path)
       : await  route ((context))
+      ? await  next (context)
 //    : await  route (parameterized (context))
 }
