@@ -1,5 +1,4 @@
 const
-
   // decodeURI
   // since these are user defined best to decode everything
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
@@ -8,7 +7,7 @@ const
 , capture = uri => new RegExp
     (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
-, parameterized = context => {
+, route = (context) => {
     'params' in context || (context.params = {})
 
     []
@@ -27,5 +26,6 @@ module.exports = (uri, resource, tokens, match = capture (uri)) =>
     match.test (context.path)
       && (method = method.toLowerCase ())
       && (tokens = uri.match (/[^{]+(?=})/g))
-        ? await (resource [method] || resource) (context)
+      && (handle = (resource [method] || resource)
+        ? await handle (context)
         : await next (context)
