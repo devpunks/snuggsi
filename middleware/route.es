@@ -46,7 +46,7 @@ module.exports = ( uri, resource ) => {
 
 
     middleware:
-      typeof resource == 'function'
+      typeof resource === 'function'
         && await resource (context)
 
 
