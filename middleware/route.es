@@ -14,7 +14,7 @@ const
       && context
 
 
-, tokenize = uri => uri.match (/[^{]+(?=})/g)
+, tokens = uri => uri.match (/[^{]+(?=})/g)
 
 
 module.exports = ( uri, resource ) => {
@@ -34,7 +34,7 @@ module.exports = ( uri, resource ) => {
 
 
   return async (context, next) =>
-    match.test (context.path)
+    capture (context.path)
       ? await  route ( /* parameterized */ (context))
       : await  next (context)
 }
