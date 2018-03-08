@@ -9,7 +9,7 @@ const
     = require ('..')
 
 , route = resource =>
-    require ('../middleware')
+    require ( '../middleware' )
     .route  ( `${path}{id}`, resource )
 
 , body = 'Shazam'
