@@ -12,12 +12,6 @@ const
 , [ decode, encode ]
     = [ decodeURIComponent, encodeURIComponent ]
 
-, prepare = uri =>
-    new RegExp (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
-
-, match = (uri, expression = prepare (uri)) =>
-    expression.test (uri)
-
 , allowed = method => METHODS.filter
     (method => method.toLowerCase () in resource)
 
