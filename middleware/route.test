@@ -1,37 +1,41 @@
 const
-  { test, fetch, read }
+  path = '/foo/'
+, URL  = `http://localhost:8181${path}`
+
+, { test, read, fetch }
     = require ('test')
 
-, { route }
-    = require ('.')
-
-, { Server }
+, { Server, Resource }
     = require ('..')
 
-, uri  = '/foo/'
+, route = resource =>
+    require ('../middleware')
+    .route  ( `${path}{id}`, resource )
+
 , body = 'Shazam'
 
 , middleware
     = context =>
+    !!! (console.log ('WTF', context)) &&
       (context.body = body)
+        && (context.status = 200)
 
 
-test ('route URI to middleware', async t => {
+test.only ('route URI to middleware', async t => {
 
   const
     stack
-      = [ route (uri, middleware) ]
+      = [ route (middleware) ]
 
   , server
       = (new Server (stack))
       .serve ``
 
   , response
-      = await fetch (`http://localhost:8181${uri}`)
+      = await fetch (`${URL}14`)
 
-  , status = response.status
+  , { status} = response
 
-  console.warn ('headers', status, response.headers)
 
   t.equal (200, status)
   t.equal (body, await response.text ())
