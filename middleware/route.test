@@ -49,7 +49,7 @@ test ('route URI with {token} to middleware', async t => {
 
   const
     token = '{timestamp}'
-  , path  = `${uri}${token}`
+  , path  = `${path}${token}`
   , timestamp = (new Date)
       .getTime `` + '' // convert to string
 
@@ -64,7 +64,7 @@ test ('route URI with {token} to middleware', async t => {
       .serve ``
 
   , response
-      = await fetch (`http://localhost:8181${uri}${timestamp}`)
+      = await fetch (`http://localhost:8181${path}${timestamp}`)
 
   , status = response.status
 
@@ -78,7 +78,7 @@ test ('route URI with encoded {token} to middleware', async t => {
   const
     token = '{encoded}'
     value = 'Foo name+ståle'
-  , path  = `${uri}${token}`
+  , path  = `${path}${token}`
 
   , [ decode, encode ]
       = [decodeURIComponent, encodeURIComponent]
@@ -94,7 +94,7 @@ test ('route URI with encoded {token} to middleware', async t => {
       .serve ``
 
   , response = await fetch
-      (`http://localhost:8181${uri}${ encode (value) }`)
+      (`http://localhost:8181${path}${ encode (value) }`)
 
   , status = response.status
 
@@ -107,7 +107,7 @@ test ('URI without route', async t => {
 
   const
     stack
-      = [ route (uri, middleware) ]
+      = [ route (path, middleware) ]
 
   , server
       = (new Server (stack))
