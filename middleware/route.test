@@ -31,7 +31,7 @@ test.only ('route URI to middleware', async t => {
   , response
       = await fetch (`${URL}14`)
 
-  , { status} = response
+  , { status } = response
 
 
   t.equal (200, status)
