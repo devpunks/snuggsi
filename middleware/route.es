@@ -12,9 +12,6 @@ const
 , [ decode, encode ]
     = [ decodeURIComponent, encodeURIComponent ]
 
-, allowed = method => METHODS.filter
-    (method => method.toLowerCase () in resource)
-
 , parameterized = (context, params = {}) =>
     ('params' in context || (context.params = {}))
       && []
