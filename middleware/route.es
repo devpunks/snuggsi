@@ -30,11 +30,11 @@ module.exports = ( uri, resource ) => {
   const
     tokens = uri.match (/[^{]+(?=})/g)
 
-  , match = new RegExp
-      (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
-
   , allow = METHODS.filter
       (method => method.toLowerCase () in resource)
+
+  , match = new RegExp
+      (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
   , route = async (context, { method } = context ) => {
 
