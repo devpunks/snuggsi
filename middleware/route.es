@@ -17,10 +17,12 @@ const
     (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
 
-module.exports = (uri, resource, match = capture (uri)) =>
+module.exports = (uri, resource, tokens, match = capture (uri)) =>
 
   async (context, next, { method } = context) =>
 
-    match.test (context.path) && (method = method.toLowerCase ())
-      ? await (resource [method] || resource) (context)
-      : await next (context)
+    match.test (context.path)
+      && (method = method.toLowerCase ())
+      && (tokens = uri.match (/[^{]+(?=})/g))
+        ? await (resource [method] || resource) (context)
+        : await next (context)
