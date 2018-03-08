@@ -5,11 +5,14 @@ const
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
   decode = decodeURIComponent
 
-, parameterized = context =>
-    ('params' in context || (context.params = {}))
-      && [].splice.call (context.path.match (prepare), 1) // remove 1st
+, parameterized = context => {
+    'params' in context || (context.params = {})
+
+      && [].splice.call (context.path.match (prepare), 1)
         .map  ((value, index) => context.params [tokens [index]] = decode (value))
-      && context
+
+    return context
+  }
 
 , capture = uri => new RegExp
     (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
