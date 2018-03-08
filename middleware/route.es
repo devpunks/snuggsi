@@ -15,7 +15,6 @@ module.exports = (uri, resource, match = capture (uri)) =>
 
   async (context, next, { method } = context) =>
 
-    match.test (context.path)
-      && (method = method.toLowerCase ())
-        ? await (resource [method] || resource) (context)
-        : await next (context)
+    match.test (context.path) && (method = method.toLowerCase ())
+      ? await (resource [method] || resource) (context)
+      : await next (context)
