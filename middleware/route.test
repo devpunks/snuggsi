@@ -1,6 +1,6 @@
 const
   path = '/foo/'
-, URL  = `http://localhost:8181${path}`
+, URI  = `http://localhost:8181${path}`
 
 , { test, read, fetch }
     = require ('test')
@@ -29,7 +29,7 @@ test ('route URI', async t => {
       .serve ``
 
   , response
-      = await fetch (`${URL}14`)
+      = await fetch (`${URI}14`)
 
   , { status } = response
 
