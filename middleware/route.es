@@ -40,16 +40,8 @@ module.exports = ( uri, resource ) => {
 
   , route = async (context, { method } = context ) => {
 
-      (typeof resource == 'object')
-        // Method Not Allowed
-        && !!! allow.includes (method)
+      typeof resource == 'object' && allow.includes (method)
         && context.throw (405,  { headers: { allow } } )
-        // https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
-        // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
-
-
-      typeof resource === 'object'
-        && allow.includes (method)
         && await resource [method.toLowerCase ()] (context)
 
 
