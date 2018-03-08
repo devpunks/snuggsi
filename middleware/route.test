@@ -18,7 +18,7 @@ const
     (context.body = body)
 
 
-test.only ('route URI', async t => {
+test ('route URI', async t => {
 
   const
     stack
