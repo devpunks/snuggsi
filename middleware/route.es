@@ -34,10 +34,9 @@ module.exports = ( uri, resource ) => {
 
   , route = async (context, { method } = context ) => {
 
-      typeof resource == 'object' && allow.includes (method)
-        && context.throw (405,  { headers: { allow } } )
+      typeof resource == 'object'
         && await resource [method.toLowerCase ()] (context)
-
+//      && context.throw (405,  { headers: { allow } } )
 
       typeof resource === 'function'
         && await resource (context)
@@ -46,7 +45,6 @@ module.exports = ( uri, resource ) => {
 
   return async (context, next) =>
     match.test (context.path)
-      ? await  route ((context))
+      ? await  route ( /* parameterized */ (context))
       : await  next (context)
-//    : await  route (parameterized (context))
 }
