@@ -19,7 +19,7 @@ const
     (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
 
-module.exports = ( uri, resource, expression) =>
+module.exports = (uri, resource, expression) =>
 
   async (context, next, { method } = context) =>
     capture (uri).test (context.path)
