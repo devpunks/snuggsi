@@ -14,12 +14,13 @@ const
       && context
 
 
+, tokenize = uri => uri.match (/[^{]+(?=})/g)
+
+
 module.exports = ( uri, resource ) => {
 
   const
-    tokens = uri.match (/[^{]+(?=})/g)
-
-  , match = new RegExp
+    match = new RegExp
       (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
   , route = async (context, { method } = context ) => {
