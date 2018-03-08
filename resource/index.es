@@ -1,5 +1,12 @@
 const
-  Base = path =>
+  METHODS = Array
+    // HTTP Method Definitions
+    // https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
+    // MDN Request Methods
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+    .from ( require ('http').METHODS )
+
+, Base = path =>
     Boolean (... (path = [].concat (path)))
       ? require (`${path}/index.es`)
       : class {}
@@ -11,6 +18,11 @@ new class extends Base (path) {
 
   constructor () { super ()
     console.warn ('Constructing extension', path)
+  }
+
+  allowed () {
+    return METHODS.filter
+      (method => method.toLowerCase () in resource)
   }
 
 //options (context)
