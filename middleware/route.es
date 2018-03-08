@@ -1,11 +1,5 @@
 const
-  // decodeURI
-  // since these are user defined best to decode everything
-  // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
-  [ decode, encode ]
-    = [ decodeURIComponent, encodeURIComponent ]
-
-, parameterized = context =>
+  parameterized = context =>
     ('params' in context || (context.params = {}))
       && []
         .splice
