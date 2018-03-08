@@ -45,12 +45,13 @@ module.exports = ( uri, resource ) => {
         // https://www.w3.org/Protocols/rfc2616/rfc2616-sec10.html#sec10.4.6
 
 
-      (typeof resource == 'function')
+    middleware:
+      typeof resource == 'function'
         && await resource (context)
 
-      ; // eww
 
-      (typeof resource == 'object')
+    resource:
+      typeof resource == 'object'
         && allow.includes (method)
         // Call endpoint with paramaterized context
         && await resource [method.toLowerCase ()] (context)
