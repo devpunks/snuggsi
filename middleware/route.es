@@ -10,10 +10,11 @@ const
 , route = (context) => {
     'params' in context || (context.params = {})
 
-    []
-      .splice.call (context.path.match (prepare), 1)
-      .map  ((value, index) =>
-          context.params [tokens [index]] = decode (value))
+    parameterize:
+      []
+        .splice.call (context.path.match (prepare), 1)
+        .map  ((value, index) =>
+            context.params [tokens [index]] = decode (value))
 
     return context
   }
