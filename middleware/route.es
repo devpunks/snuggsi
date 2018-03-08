@@ -14,6 +14,7 @@ const
 module.exports = (uri, resource) =>
 
   async (context, next, { method } = context) =>
+
     capture (uri).test (context.path)
       && (method = method.toLowerCase ())
         ? await (resource [method] || resource) (context)
