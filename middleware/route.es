@@ -13,22 +13,17 @@ const
         .map  ((value, index) => context.params [tokens [index]] = decode (value))
       && context
 
-
 , tokens = uri => uri.match (/[^{]+(?=})/g)
 
-
-module.exports = ( uri, resource ) => {
-
-  const
-    capture = new RegExp
-      (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
-
-  , route = async (context, { method } = context ) =>
-      await (resource [method.toLowerCase ()] || resource) (context)
+, capture (uri) = new RegExp
+    (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
 
-  return async (context, next) =>
+module.exports = ( uri, resource, expression) => {
+
+  return async (context, next, { method } = context) =>
     capture.test (context.path)
-      ? await  route ( /* parameterized */ (context))
-      : await  next (context)
+      && (method = method.toLowerCase ())
+        ? await  (resource [method] || resource) ( /* parameterized */ (context))
+        : await  next (context)
 }
