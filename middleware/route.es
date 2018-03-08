@@ -22,8 +22,9 @@ const
 module.exports = ( uri, resource, expression) => {
 
   return async (context, next, { method } = context) =>
+
     capture (uri).test (context.path)
       && (method = method.toLowerCase ())
-        ? await  (resource [method] || resource) ( /* parameterized */ (context))
+        ? await  (resource [method] || resource) (context)
         : await  next (context)
 }
