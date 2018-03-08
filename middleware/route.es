@@ -36,6 +36,8 @@ module.exports = ( uri, resource ) => {
   const
     tokens = uri.match (/[^{]+(?=})/g)
 
+  , mat = match (uri)
+
   , allow = METHODS.filter
       (method => method.toLowerCase () in resource)
 
@@ -52,7 +54,8 @@ module.exports = ( uri, resource ) => {
 
 
   return async (context, next) =>
-    !!! match  (context.path)
+    !!! mat  (context.path)
       ? await  next (context)
-      : await  route (parameterized (context))
+      : await  route ((context))
+//    : await  route (parameterized (context))
 }
