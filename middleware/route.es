@@ -51,7 +51,7 @@ module.exports = ( uri, resource ) => {
 
 
     resource:
-      typeof resource == 'object'
+      typeof resource === 'object'
         && allow.includes (method)
         // Call endpoint with paramaterized context
         && await resource [method.toLowerCase ()] (context)
