@@ -14,11 +14,8 @@ const
 
 , body = 'Shazam'
 
-, middleware
-    = context =>
-    !!! (console.log ('WTF', context)) &&
-      (context.body = body)
-        && (context.status = 200)
+, middleware = context =>
+    (context.body = body)
 
 
 test.only ('route URI to middleware', async t => {
