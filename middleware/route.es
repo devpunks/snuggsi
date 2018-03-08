@@ -1,11 +1,4 @@
 const
-  METHODS = Array
-    // HTTP Method Definitions
-    // https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
-    // MDN Request Methods
-    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
-    .from ( require ('http').METHODS )
-
   // decodeURI
   // since these are user defined best to decode everything
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
@@ -25,9 +18,6 @@ module.exports = ( uri, resource ) => {
 
   const
     tokens = uri.match (/[^{]+(?=})/g)
-
-  , allow = METHODS.filter
-      (method => method.toLowerCase () in resource)
 
   , match = new RegExp
       (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
