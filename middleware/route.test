@@ -42,7 +42,7 @@ test.only ('route URI', async t => {
 })
 
 
-test ('route URI with {token} to middleware', async t => {
+test ('route URI with {token}', async t => {
 
   const
     token = '{timestamp}'
