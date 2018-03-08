@@ -12,28 +12,29 @@ const
 , [ decode, encode ]
     = [ decodeURIComponent, encodeURIComponent ]
 
-, expression = new RegExp
-    (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
+, prepare = uri =>
+    new RegExp (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
-, match = expression.test.bind (expression)
+, match = (uri, expression = prepare (uri)) =>
+    expression.test.bind (expression)
 
 , allowed = method => METHODS.filter
     (method => method.toLowerCase () in resource)
+
+, parameterized = (context, params = {}) =>
+    ('params' in context || (context.params = {}))
+      && []
+        .splice
+        .call (context.path.match (prepare), 1) // remove 1st
+        .map  ((value, index) => context.params [tokens [index]] = decode (value))
+
+      && context
 
 
 module.exports = ( uri, resource ) => {
 
   const
     tokens = uri.match (/[^{]+(?=})/g)
-
-  , parameterized = (context, params = {}) =>
-      ('params' in context || (context.params = {}))
-        && []
-          .splice
-          .call (context.path.match (expression), 1) // remove 1st
-          .map  ((value, index) => context.params [tokens [index]] = decode (value))
-
-        && context
 
   , allow = METHODS.filter
       (method => method.toLowerCase () in resource)
