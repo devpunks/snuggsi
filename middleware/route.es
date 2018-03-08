@@ -21,7 +21,6 @@ const
         .splice
         .call (context.path.match (prepare), 1) // remove 1st
         .map  ((value, index) => context.params [tokens [index]] = decode (value))
-
       && context
 
 
