@@ -70,7 +70,7 @@ test ('route URI with {token}', async t => {
 })
 
 
-test ('route URI with encoded {token} to middleware', async t => {
+test ('route URI with encoded {token}', async t => {
 
   const
     token = '{encoded}'
