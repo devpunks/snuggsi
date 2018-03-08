@@ -56,7 +56,7 @@ module.exports = ( uri, resource ) => {
 
   return async (context, next) =>
     match.test (context.path)
-      : await  route ((context))
-      ? await  next (context)
+      ? await  route ((context))
+      : await  next (context)
 //    : await  route (parameterized (context))
 }
