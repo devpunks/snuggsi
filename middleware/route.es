@@ -26,7 +26,6 @@ module.exports = ( uri, resource ) => {
 
       typeof resource == 'object'
         && await resource [method.toLowerCase ()] (context)
-//      && context.throw (405,  { headers: { allow } } )
 
       typeof resource === 'function'
         && await resource (context)
