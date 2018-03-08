@@ -25,6 +25,8 @@ new class extends Base (path) {
       (method => method.toLowerCase () in resource)
   }
 
+//      && context.throw (405,  { headers: { allow } } )
+//
 //options (context)
 //  // should be done by CORS
 //  { context.status = 200 }
