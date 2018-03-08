@@ -10,18 +10,21 @@ const
   // since these are user defined best to decode everything
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
 , [ decode, encode ]
-    = [decodeURIComponent, encodeURIComponent]
+    = [ decodeURIComponent, encodeURIComponent ]
+
+, expression = new RegExp
+    (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
+
+, match = expression.test.bind (expression)
+
+, allowed = method => METHODS.filter
+    (method => method.toLowerCase () in resource)
 
 
 module.exports = ( uri, resource ) => {
 
   const
     tokens = uri.match (/[^{]+(?=})/g)
-
-  , expression = new RegExp
-      (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
-
-  , match = expression.test.bind (expression)
 
   , parameterized = (context, params = {}) =>
       ('params' in context || (context.params = {}))
