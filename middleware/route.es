@@ -23,10 +23,8 @@ module.exports = ( uri, resource ) => {
     capture = new RegExp
       (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
-  , route = async (context, { method } = context ) => {
-
+  , route = async (context, { method } = context ) =>
       await (resource [method.toLowerCase ()] || resource) (context)
-    }
 
 
   return async (context, next) =>
