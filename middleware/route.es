@@ -1,5 +1,11 @@
 const
-  parameterized = context =>
+
+  // decodeURI
+  // since these are user defined best to decode everything
+  // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
+  decode = decodeURIComponent
+
+, parameterized = context =>
     ('params' in context || (context.params = {}))
       && [].splice.call (context.path.match (prepare), 1) // remove 1st
         .map  ((value, index) => context.params [tokens [index]] = decode (value))
