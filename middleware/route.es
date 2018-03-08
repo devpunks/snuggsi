@@ -11,8 +11,6 @@ const
         .map  ((value, index) => context.params [tokens [index]] = decode (value))
       && context
 
-, tokens = uri => uri.match (/[^{]+(?=})/g)
-
 , capture = uri => new RegExp
     (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
