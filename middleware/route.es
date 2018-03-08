@@ -2,7 +2,7 @@ const
   // decodeURI
   // since these are user defined best to decode everything
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
-, [ decode, encode ]
+  [ decode, encode ]
     = [ decodeURIComponent, encodeURIComponent ]
 
 , parameterized = (context, params = {}) =>
