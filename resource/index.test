@@ -12,7 +12,7 @@ const
     require ('../middleware')
     .route  ( `${path}{id}`, resource )
 
-, DEFAULT_METHODS = [ 'GET', 'HEAD'  ]
+, DEFAULT_METHODS = ['GET', 'HEAD']
 
 , METHODS = [ ... require ('http').METHODS ]
     // for some reason connect won't work
