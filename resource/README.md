@@ -15,3 +15,4 @@
   - HTTP Request Methods - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
   - HTTP Method Definitions - https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
   - Asyncronous POST - http://restcookbook.com/Resources/asynchroneous-operations/
+  - HTTP over MVC - https://github.com/aspnet/Mvc/issues/5532
