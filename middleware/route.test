@@ -16,6 +16,25 @@ const
     (context.body = body)
 
 
+test.only ('URI without route', async t => {
+
+  const
+    stack =
+      [ route (path, middleware) ]
+
+  , server =
+      (new Server (stack)).serve ``
+
+  , response = await fetch (`${URI}adsfadsf`)
+
+
+  t.equal (404, response.status)
+
+  server.close ``
+  t.end ()
+})
+
+
 test ('route URI', async t => {
 
   const
@@ -74,25 +93,6 @@ test ('decoding route URI encoded {token} parameters', async t => {
       (new Server (stack)).serve ``
 
   , response = await fetch (`${URI}${encoded}`)
-
-  server.close ``
-  t.end ()
-})
-
-
-test.only ('URI without route', async t => {
-
-  const
-    stack =
-      [ route (path, middleware) ]
-
-  , server =
-      (new Server (stack)).serve ``
-
-  , response = await fetch (`${URI}adsfadsf`)
-
-
-  t.equal (404, response.status)
 
   server.close ``
   t.end ()
