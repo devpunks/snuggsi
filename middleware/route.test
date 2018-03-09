@@ -68,8 +68,9 @@ test ('route URI {token} parameters', async t => {
 test ('route URI encoded {token} parameters', async t => {
 
   const
-    token  = '{encoded}'
-  , value  = 'ツname+ståle'
+    token   = '{encoded}'
+  , value   = 'ツname+ståle'
+  , encoded = encodeURIComponent (value)
 
   , echo = context =>
       t.equal (value, context.params.encoded)
@@ -82,7 +83,7 @@ test ('route URI encoded {token} parameters', async t => {
       .serve ``
 
   , response = await fetch
-      (`${URI}${ encodeURIComponent (value) }`)
+      (`${URI}${encoded}`)
 
   , status = response.status
 
