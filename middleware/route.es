@@ -7,7 +7,8 @@ const
     (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
 
 , parameterize = (match, context, tokens) => {
-    'params' in context || (context.params = {})
+    'params' in context
+      || (context.params = {})
 
     void []
       .splice.call (context.path.match (match), 1)
