@@ -55,7 +55,7 @@ test ('Default Resource allowed methods', async t => {
 })
 
 
-test.only ('Defined Resource allowed methods', async t => {
+test ('Defined Resource allowed methods', async t => {
   const
     { __proto__: proto } = resource
       = Resource `server/fixtures`
