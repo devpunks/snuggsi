@@ -25,7 +25,7 @@ test ('route URI', async t => {
  ,  server =
       (new Server (stack)).serve ``
 
-  , response = await fetch (`${URI}14`)
+  , response = await fetch (URI)
 
 
   t.equal (200, response.status)
@@ -80,7 +80,7 @@ test ('decoding route URI encoded {token} parameters', async t => {
 })
 
 
-test ('URI without route', async t => {
+test.only ('URI without route', async t => {
 
   const
     stack =
