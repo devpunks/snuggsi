@@ -32,7 +32,7 @@ const
       == right.slice ().sort ().join `,`
 
 
-test.only ('Default Resource allowed methods', async t => {
+test ('Default Resource allowed methods', async t => {
   const
     resource = Resource ``
 
@@ -55,7 +55,7 @@ test.only ('Default Resource allowed methods', async t => {
 })
 
 
-test ('Defined Resource allowed methods', async t => {
+test.only ('Defined Resource allowed methods', async t => {
   const
     { __proto__: proto } = resource
       = Resource `server/fixtures`
