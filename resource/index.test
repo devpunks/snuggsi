@@ -32,7 +32,7 @@ const
       == right.slice ().sort ().join `,`
 
 
-test ('Default Resource allowed methods', async t => {
+test.only ('Default Resource allowed methods', async t => {
   const
     resource = Resource ``
 
