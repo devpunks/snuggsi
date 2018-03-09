@@ -90,7 +90,7 @@ test ('Defined Resource allowed methods', async t => {
 })
 
 
-test.only ('Default Resource disallowed methods', async t => {
+test ('Default Resource disallowed methods', async t => {
   const
     resource = Resource ``
 
