@@ -19,13 +19,13 @@ const
   }
 
 
-module.exports = (uri, resource, tokens, match = capture (uri)) =>
+module.exports = (uri, resource, tokens, match = capture (uri)) => {
 
-  async (context, next, { method } = context) =>
+  tokens = uri.match (/[^{]+(?=})/g)
 
+  return async (context, next, handle, { method } = context) =>
     match.test (context.path)
-      && (method = method.toLowerCase ())
-      && (tokens = uri.match (/[^{]+(?=})/g))
-      && (handle = resource [method] || resource)
+      && (handle = resource [method.toLowerCase ()] || resource)
         ? await handle (parameterize (match, context, tokens))
         : await next (context)
+}
