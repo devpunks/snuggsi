@@ -60,8 +60,6 @@ test ('route URI with {token}', async t => {
   , response
       = await fetch (`${URI}${timestamp}`)
 
-  , status = response.status
-
   server.close ``
   t.end ()
 })
