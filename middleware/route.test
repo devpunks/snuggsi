@@ -93,7 +93,7 @@ test ('route URI with encoded {token}', async t => {
 })
 
 
-test.only ('URI without route', async t => {
+test ('URI without route', async t => {
 
   const
     stack
