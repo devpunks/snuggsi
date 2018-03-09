@@ -20,7 +20,7 @@ test ('route URI', async t => {
 
   const
     stack =
-      [ route (`${path}`, middleware) ]
+      [ route (path, middleware) ]
 
   , server =
       (new Server (stack)).serve ``
