@@ -3,7 +3,7 @@ const
 , body = 'Shazam'
 , URI  = `http://localhost:8181${path}`
 
-, { test, read, fetch }
+, { test, fetch }
     = require ('test')
 
 , { Server, Resource }
