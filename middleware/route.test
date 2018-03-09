@@ -71,8 +71,7 @@ test ('route URI with encoded {token}', async t => {
 
   const
     token  = '{encoded}'
-    value  = 'Foo name+ståle'
-  , encode = encodeURIComponent
+  , value  = 'Foo name+ståle'
 
   , echo = context =>
       t.equal (value, context.params.encoded)
@@ -85,7 +84,7 @@ test ('route URI with encoded {token}', async t => {
       .serve ``
 
   , response = await fetch
-      (`http://localhost:8181${path}${ encode (value) }`)
+      (`http://localhost:8181${path}${ encodeURIComponent (value) }`)
 
   , status = response.status
 
