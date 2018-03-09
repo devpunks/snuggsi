@@ -1,5 +1,6 @@
 const
   path = '/foo/'
+, body = 'Shazam'
 , URI  = `http://localhost:8181${path}`
 
 , { test, read, fetch }
@@ -8,17 +9,14 @@ const
 , { Server, Resource }
     = require ('..')
 
-, route = resource =>
-    require ( '../middleware' )
-    .route  ( `${path}{id}`, resource )
-
-, body = 'Shazam'
+, { route }
+    = require ('../middleware')
 
 , middleware = context =>
     (context.body = body)
 
 
-test.only ('route URI', async t => {
+test ('route URI', async t => {
 
   const
     stack
@@ -42,11 +40,10 @@ test.only ('route URI', async t => {
 })
 
 
-test ('route URI with {token}', async t => {
+test.only ('route URI with {token}', async t => {
 
   const
     token = '{timestamp}'
-  , path  = `${path}${token}`
   , timestamp = (new Date)
       .getTime `` + '' // convert to string
 
@@ -54,14 +51,14 @@ test ('route URI with {token}', async t => {
       t.equal (timestamp, context.params.timestamp)
 
   , stack =
-      [ route (path, echo) ]
+      [ route (`${path}${token}`, echo) ]
 
  ,  server
       = (new Server (stack))
       .serve ``
 
   , response
-      = await fetch (`http://localhost:8181${path}${timestamp}`)
+      = await fetch (`${URI}${timestamp}`)
 
   , status = response.status
 
