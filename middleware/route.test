@@ -69,7 +69,7 @@ test ('route URI encoded {token} parameters', async t => {
 
   const
     token  = '{encoded}'
-  , value  = 'Foo name+ståle'
+  , value  = 'ツname+ståle'
 
   , echo = context =>
       t.equal (value, context.params.encoded)
