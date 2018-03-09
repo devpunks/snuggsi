@@ -20,7 +20,7 @@ test ('route URI', async t => {
 
   const
     stack
-      = [ route (middleware) ]
+      = [ route (`${path}`, middleware) ]
 
   , server
       = (new Server (stack))
@@ -40,7 +40,7 @@ test ('route URI', async t => {
 })
 
 
-test.only ('route URI with {token}', async t => {
+test ('route URI with {token}', async t => {
 
   const
     token = '{timestamp}'
@@ -67,21 +67,18 @@ test.only ('route URI with {token}', async t => {
 })
 
 
-test ('route URI with encoded {token}', async t => {
+test.only ('route URI with encoded {token}', async t => {
 
   const
-    token = '{encoded}'
-    value = 'Foo name+ståle'
-  , path  = `${path}${token}`
-
-  , [ decode, encode ]
-      = [decodeURIComponent, encodeURIComponent]
+    token  = '{encoded}'
+    value  = 'Foo name+ståle'
+  , encode = encodeURIComponent
 
   , echo = context =>
       t.equal (value, context.params.encoded)
 
   , stack =
-      [ route (path, echo) ]
+      [ route (`${path}${token}`, echo) ]
 
  ,  server
       = (new Server (stack))
