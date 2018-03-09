@@ -19,18 +19,16 @@ const
 test ('route URI', async t => {
 
   const
-    stack
-      = [ route (`${path}`, middleware) ]
+    stack =
+      [ route (`${path}`, middleware) ]
 
  ,  server =
       (new Server (stack)).serve ``
 
   , response = await fetch (`${URI}14`)
 
-  , { status } = response
 
-
-  t.equal (200, status)
+  t.equal (200, response.status)
   t.equal (body, await response.text ())
 
   server.close ``
@@ -41,15 +39,13 @@ test ('route URI', async t => {
 test ('route URI {token} parameters', async t => {
 
   const
-    token = '{timestamp}'
-  , timestamp = (new Date)
-      .getTime `` + '' // convert to string
+    timestamp = (new Date).getTime `` + '' // convert to string
 
   , echo = context =>
       t.equal (timestamp, context.params.timestamp)
 
   , stack =
-      [ route (`${path}${token}`, echo) ]
+      [ route (`${path}{timestamp}`, echo) ]
 
  ,  server =
       (new Server (stack)).serve ``
@@ -61,21 +57,21 @@ test ('route URI {token} parameters', async t => {
 })
 
 
-test ('route URI encoded {token} parameters', async t => {
+test ('decoding route URI encoded {token} parameters', async t => {
 
   const
-    token   = '{encoded}'
-  , value   = 'ツname+ståle'
+    value   = 'ツname+ståle'
   , encoded = encodeURIComponent (value)
+  , decoded = decodeURIComponent (encoded)
 
   , echo = context =>
-      t.equal (value, context.params.encoded)
+      t.equal (decoded, context.params.decoded)
 
   , stack =
-      [ route (`${path}${token}`, echo) ]
+      [ route (`${path}{decoded}`, echo) ]
 
- ,  server
-      = (new Server (stack)).serve ``
+ ,  server =
+      (new Server (stack)).serve ``
 
   , response = await fetch (`${URI}${encoded}`)
 
@@ -87,19 +83,16 @@ test ('route URI encoded {token} parameters', async t => {
 test ('URI without route', async t => {
 
   const
-    stack
-      = [ route (path, middleware) ]
+    stack =
+      [ route (path, middleware) ]
 
  ,  server =
       (new Server (stack)).serve ``
 
-  , response
-      = await fetch (`${URI}adsfadsf/`)
-
-  , status = response.status
+  , response = await fetch (`${URI}adsfadsf`)
 
 
-  t.equal (404, status)
+  t.equal (404, response.status)
 
   server.close ``
   t.end ()
