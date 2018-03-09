@@ -82,7 +82,7 @@ test ('route URI encoded {token} parameters', async t => {
       .serve ``
 
   , response = await fetch
-      (`http://localhost:8181${path}${ encodeURIComponent (value) }`)
+      (`${URI}${ encodeURIComponent (value) }`)
 
   , status = response.status
 
@@ -102,7 +102,7 @@ test ('URI without route', async t => {
       .serve ``
 
   , response
-      = await fetch ('http://localhost:8181/adsfadsf/')
+      = await fetch (`${URI}adsfadsf/`)
 
   , status = response.status
 
