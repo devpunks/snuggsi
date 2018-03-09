@@ -1,5 +1,4 @@
 const
-  // decodeURI
   // since these are user defined best to decode everything
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
   decode = decodeURIComponent
@@ -12,8 +11,8 @@ const
 
     void []
       .splice.call (context.path.match (match), 1)
-      .map  ((value, index) =>
-          context.params [tokens [index]] = decode (value))
+      .map ((value, index) =>
+        context.params [tokens [index]] = decode (value))
 
     return context
   }
