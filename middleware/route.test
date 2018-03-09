@@ -40,7 +40,7 @@ test ('route URI', async t => {
 })
 
 
-test ('route URI parameters with {token}', async t => {
+test ('route URI {token} parameters', async t => {
 
   const
     token = '{timestamp}'
@@ -65,7 +65,7 @@ test ('route URI parameters with {token}', async t => {
 })
 
 
-test ('route URI parameters with encoded {token}', async t => {
+test ('route URI encoded {token} parameters', async t => {
 
   const
     token  = '{encoded}'
