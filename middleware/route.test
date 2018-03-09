@@ -22,7 +22,7 @@ test ('route URI', async t => {
     stack =
       [ route (`${path}`, middleware) ]
 
- ,  server =
+  , server =
       (new Server (stack)).serve ``
 
   , response = await fetch (URI)
@@ -47,7 +47,7 @@ test ('route URI {token} parameters', async t => {
   , stack =
       [ route (`${path}{timestamp}`, echo) ]
 
- ,  server =
+  , server =
       (new Server (stack)).serve ``
 
   , response = await fetch (`${URI}${timestamp}`)
@@ -70,7 +70,7 @@ test ('decoding route URI encoded {token} parameters', async t => {
   , stack =
       [ route (`${path}{decoded}`, echo) ]
 
- ,  server =
+  , server =
       (new Server (stack)).serve ``
 
   , response = await fetch (`${URI}${encoded}`)
@@ -86,7 +86,7 @@ test.only ('URI without route', async t => {
     stack =
       [ route (path, middleware) ]
 
- ,  server =
+  , server =
       (new Server (stack)).serve ``
 
   , response = await fetch (`${URI}adsfadsf`)
