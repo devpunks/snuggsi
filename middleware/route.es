@@ -4,7 +4,7 @@ const
   decode = decodeURIComponent
 
 , capture = uri => new RegExp
-    (uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)'))
+    (`/^${ uri.replace (/{\w+}/g, '([A-Za-z%0-9\-\_]+)') }$/`)
 
 , parameterize = (match, context, tokens) => {
     'params' in context
