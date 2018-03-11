@@ -24,6 +24,7 @@ module.exports = (uri, resource, tokens, match = capture (uri)) => {
   tokens = uri.match (/[^{]+(?=})/g)
 
   return async (context, next, handle, { method } = context) =>
+
     match.test (context.path)
       && (handle = resource [method.toLowerCase ()] || resource)
         ? await handle (parameterize (match, context, tokens))
