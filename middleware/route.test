@@ -89,7 +89,7 @@ test.only ('decoding route URI encoded {token} parameters', async t => {
   , decoded = decodeURIComponent (encoded)
 
   , echo = context =>
-      (context.body = context.params.timestamp)
+      (context.body = context.params.decoded)
 
   , stack =
       [ route (`${path}{decoded}`, echo) ]
@@ -99,8 +99,8 @@ test.only ('decoding route URI encoded {token} parameters', async t => {
 
   , response = await fetch (`${URI}${encoded}`)
 
+    t.equal (value, await response.text ())
     t.equal (200, response.status)
-    t.equal (timestamp, await response.text ())
 
   server.close ``
   t.end ()
