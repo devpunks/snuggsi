@@ -86,7 +86,7 @@ test ('route URI {token} parameters', async t => {
 test.only ('decoding route URI encoded {token} parameters', async t => {
 
   const
-    value   = '^ツ &,.*+()[]ståle32?$?'
+    value = '¯\_(ツ)_/¯ ^&,.*+(|)[]å32$?'
   , encoded = encodeURIComponent (value)
   , decoded = decodeURIComponent (encoded)
 
