@@ -5,7 +5,7 @@ const
   tokens  = [/{\w+}/g, '([A-Za-z%0-9\-\_]+)']
 
 , capture = (uri, pattern = uri.replace ( ... tokens )) =>
-    new RegExp (`/^${ pattern }$/`)
+    new RegExp (`^${ pattern }$`)
 
 , parameterize = (match, context, tokens) => {
     'params' in context
@@ -26,7 +26,7 @@ module.exports = (uri, resource, tokens, match = capture (uri)) => {
 
   return async (context, next, handle, { method } = context) => {
 
-    console.warn (context.path, tokens, match.test (context.path))
+    console.warn (context.path, tokens, match, match.test (context.path))
 
     match.test (context.path)
       && (handle = resource [method.toLowerCase ()] || resource)
