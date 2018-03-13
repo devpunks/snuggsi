@@ -55,7 +55,7 @@ test ('route URI', async t => {
 })
 
 
-test ('route URI {token} parameters', async t => {
+test.only ('route URI {token} parameters', async t => {
 
   const
     timestamp = (new Date).getTime `` + '' // convert to string
@@ -70,6 +70,8 @@ test ('route URI {token} parameters', async t => {
       (new Server (stack)).serve ``
 
   , response = await fetch (`${URI}${timestamp}`)
+
+    t.equal (200, response.status)
 
   server.close ``
   t.end ()
