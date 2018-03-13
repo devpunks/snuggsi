@@ -16,7 +16,9 @@ const
     (context.body = body)
 
 
-test.only ('URI without route', async t => {
+test ('URI without route', async t => {
+
+  require ('fs').
 
   const
     stack =
@@ -55,7 +57,7 @@ test ('route URI', async t => {
 })
 
 
-test.only ('route URI {token} parameters', async t => {
+test ('route URI {token} parameters', async t => {
 
   const
     timestamp = (new Date).getTime `` + '' // convert to string
@@ -79,15 +81,15 @@ test.only ('route URI {token} parameters', async t => {
 })
 
 
-test ('decoding route URI encoded {token} parameters', async t => {
+test.only ('decoding route URI encoded {token} parameters', async t => {
 
   const
-    value   = 'ツname+ståle'
+    value   = 'ツname+ståle32'
   , encoded = encodeURIComponent (value)
   , decoded = decodeURIComponent (encoded)
 
   , echo = context =>
-      t.equal (decoded, context.params.decoded)
+      (context.body = context.params.timestamp)
 
   , stack =
       [ route (`${path}{decoded}`, echo) ]
@@ -96,6 +98,9 @@ test ('decoding route URI encoded {token} parameters', async t => {
       (new Server (stack)).serve ``
 
   , response = await fetch (`${URI}${encoded}`)
+
+    t.equal (200, response.status)
+    t.equal (timestamp, await response.text ())
 
   server.close ``
   t.end ()
