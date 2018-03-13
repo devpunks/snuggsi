@@ -60,7 +60,9 @@ test ('route URI', async t => {
 test ('route URI {token} parameters', async t => {
 
   const
-    timestamp = (new Date).getTime `` + '' // convert to string
+    timestamp
+      = (new Date).getTime ``
+      + '' // convert to string
 
   , echo = context =>
       (context.body = context.params.timestamp)
@@ -84,7 +86,33 @@ test ('route URI {token} parameters', async t => {
 test.only ('decoding route URI encoded {token} parameters', async t => {
 
   const
-    value   = 'ツname+ståle32'
+    value   = '^ツ &,.*+()[]ståle32?$?'
+  , encoded = encodeURIComponent (value)
+  , decoded = decodeURIComponent (encoded)
+
+  , echo = context =>
+      (context.body = context.params.decoded)
+
+  , stack =
+      [ route (`${path}{decoded}`, echo) ]
+
+  , server =
+      (new Server (stack)).serve ``
+
+  , response = await fetch (`${URI}${encoded}`)
+
+    t.equal (value, await response.text ())
+    t.equal (200, response.status)
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('', async t => {
+
+  const
+    value   = 'index.txt'
   , encoded = encodeURIComponent (value)
   , decoded = decodeURIComponent (encoded)
 
