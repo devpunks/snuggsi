@@ -26,7 +26,7 @@ module.exports = (uri, resource, tokens, match = capture (uri)) => {
 
   return async (context, next, handle, { method } = context) => {
 
-    console.warn (context.path, tokens, match, match.test (context.path))
+    console.warn (context.path, tokens, match, match.test (context.path), resource)
 
     match.test (context.path)
       && (handle = resource [method.toLowerCase ()] || resource)

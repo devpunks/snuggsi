@@ -61,7 +61,7 @@ test.only ('route URI {token} parameters', async t => {
     timestamp = (new Date).getTime `` + '' // convert to string
 
   , echo = context =>
-      t.equal (timestamp, context.params.timestamp)
+      (context.body = context.params.timestamp)
 
   , stack =
       [ route (`${path}{timestamp}`, echo) ]
@@ -72,6 +72,7 @@ test.only ('route URI {token} parameters', async t => {
   , response = await fetch (`${URI}${timestamp}`)
 
     t.equal (200, response.status)
+    t.equal (timestamp, await response.text ())
 
   server.close ``
   t.end ()
