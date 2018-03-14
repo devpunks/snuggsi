@@ -21,6 +21,7 @@ _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` script
 
   - [TC39 - ECMAScript _formerly TC39-TG1)_](https://ecma-international.org/memento/TC39.htm)
   - [IANA `application/ecmascript` Media Type](https://www.iana.org/assignments/media-types/application/ecmascript)
+  - [IETF ECMAScript Media Types Updates](https://datatracker.ietf.org/doc/draft-bfarias-javascript-mjs/)
   - [ECMASCript Media Type Specification _(rfc4329 Section 8.2)_](https://tools.ietf.org/html/rfc4329#section-8.2)
   - [Why you should know `application/ecmascript`](https://stackoverflow.com/questions/9664282/difference-between-application-x-javascript-and-text-javascript-content-types)
 
