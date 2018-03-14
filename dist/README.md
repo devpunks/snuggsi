@@ -16,6 +16,8 @@ _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` script
 
 ### ECMAScript Standardization
 
+  Solves the "Duplicate Directory" problem - https://github.com/dherman/defense-of-dot-js/blob/master/proposal.md#poly-packages
+
   - [TC39 - ECMAScript _formerly TC39-TG1)_](https://ecma-international.org/memento/TC39.htm)
   - [IANA `application/ecmascript` Media Type](https://www.iana.org/assignments/media-types/application/ecmascript)
   - [ECMASCript Media Type Specification _(rfc4329 Section 8.2)_](https://tools.ietf.org/html/rfc4329#section-8.2)
