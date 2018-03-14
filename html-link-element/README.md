@@ -39,6 +39,7 @@ The HTML `<link>` element specifies relationships between the current document a
     - Script - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-as-script-js
     - Style  - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-as-style-js
 
+
 #### Preload Use Cases
 
   https://w3c.github.io/preload/#use-cases
@@ -46,7 +47,6 @@ The HTML `<link>` element specifies relationships between the current document a
 #### Bugs
 
   - Firefox - https://bugzilla.mozilla.org/show_bug.cgi?id=1405761
-
 
 ### Prefetch
 
@@ -56,8 +56,6 @@ The HTML `<link>` element specifies relationships between the current document a
 ### Prerender
 
   - IE11 Support for Prerender / Prefetch - https://msdn.microsoft.com/en-us/library/dn265039(v=vs.85).aspx
-
-
 
 
 ## Onload
