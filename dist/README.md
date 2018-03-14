@@ -8,7 +8,8 @@ _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` script
   - [Content Negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation)
 
 
-  - [MDN MIME Types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types)
+  - [MDN MIME Types List](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types)
+  - [MDN HTTP MIME Types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)
   - [WHATWG MIME Types](https://html.spec.whatwg.org/#javascript-mime-type)
   - [WHATWG MIME Sniffing](https://mimesniff.spec.whatwg.org/#javascript-mime-type)
   - [WHATWG/W3C approval of media types](https://github.com/w3c/webcomponents/issues/645#issuecomment-317338144)
