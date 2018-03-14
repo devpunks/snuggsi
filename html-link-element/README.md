@@ -83,7 +83,8 @@ The HTML `<link>` element specifies relationships between the current document a
 
 ## Implementation Tickets
 
-  - Chromium Bugs - https://bugs.chromium.org/p/chromium/issues/detail?id=67522
+  - Link rel preload as attribute doesn't support document value - https://bugs.chromium.org/p/chromium/issues/detail?id=593267
+  - Implement load event for `link` element - https://bugs.chromium.org/p/chromium/issues/detail?id=67522
   - https://bugzilla.mozilla.org/show_bug.cgi?id=185236
   - Load CSS - https://github.com/filamentgroup/loadCSS/blob/master/src/loadCSS.js
   - CSS Preload - https://github.com/filamentgroup/loadCSS/blob/master/src/cssrelpreload.js
