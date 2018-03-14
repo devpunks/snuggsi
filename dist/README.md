@@ -6,8 +6,6 @@ _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` script
 ## Glossary
 
   - [Content Negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation)
-
-
   - [MDN MIME Types List](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types/Complete_list_of_MIME_types)
   - [MDN HTTP MIME Types](https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types)
   - [WHATWG MIME Types](https://html.spec.whatwg.org/#javascript-mime-type)
