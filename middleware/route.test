@@ -83,7 +83,7 @@ test ('route URI {token} parameters', async t => {
 })
 
 
-test.only ('decoding route URI encoded {token} parameters', async t => {
+test ('decoding route URI encoded {token} parameters', async t => {
 
   const
     value = '¯\_(ツ)_/¯ ^&,.*+(|)[]å32$?'
@@ -109,7 +109,7 @@ test.only ('decoding route URI encoded {token} parameters', async t => {
 })
 
 
-test ('', async t => {
+test.only ('', async t => {
 
   const
     value   = 'index.txt'
