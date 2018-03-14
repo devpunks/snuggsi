@@ -6,6 +6,11 @@
 - MDN Request Methods - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
 
 
+## MIME Sniffing
+
+  - https://mimesniff.spec.whatwg.org/#javascript-mime-type
+  
+
 ## References
 
   - Rest Cookbook -  http://restcookbook.com/
