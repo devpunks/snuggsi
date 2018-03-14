@@ -34,6 +34,7 @@ _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` script
   - ESM (ECMAScript Module) Detection in Node.js - https://github.com/nodejs/node/wiki/ES6-Module-Detection-in-Node#detection-problem
   - Node.js EPS - https://github.com/bmeck/node-eps/blob/a1eab9bf023bbe13a79ddb18f0622a5d57215f9b/002-es-modules.md#461-default-imports
   - Point script to module script WHATWG - https://github.com/whatwg/html/issues/1013
+  - Correct usage of mime types - https://github.com/bmeck/I-D/issues/16
 
 
 ### Javascript Standardization
