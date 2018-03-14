@@ -25,6 +25,7 @@ Middleware used for Content Negotiaton.
 
   - https://github.com/whatwg/mimesniff/issues/42
   - https://github.com/w3c/preload/issues/113
+  - MDN HTTP MIME Types - https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
 
 
 ## snuggsi.compressor
