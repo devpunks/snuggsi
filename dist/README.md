@@ -24,6 +24,11 @@ _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` script
   - [Why you should know `application/ecmascript`](https://stackoverflow.com/questions/9664282/difference-between-application-x-javascript-and-text-javascript-content-types)
 
 
+#### References
+
+  - 2Ality Module Specifiers - http://2ality.com/2017/05/es-module-specifiers.html
+
+
 ### Javascript Standardization
 
   - [IANA `application/javascript` Media Type](https://www.iana.org/assignments/media-types/application/javascript)
