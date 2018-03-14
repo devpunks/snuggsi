@@ -3,6 +3,30 @@
 _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` scripts used within the build pipeline._
 
 
+## Glossary
+
+  - [Content Negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation)
+
+
+  - [Javascript MIME types](https://html.spec.whatwg.org/#javascript-mime-type)
+  - [WHATWG MIME Sniffing](https://mimesniff.spec.whatwg.org/#javascript-mime-type)
+  - [WHATWG/W3C approval of media types](https://github.com/w3c/webcomponents/issues/645#issuecomment-317338144)
+
+
+### ECMAScript Standardization
+
+  - [TC39 - ECMAScript _formerly TC39-TG1)_](https://ecma-international.org/memento/TC39.htm)
+  - [IANA `application/ecmascript` Media Type](https://www.iana.org/assignments/media-types/application/ecmascript)
+  - [ECMASCript Media Type Specification _(rfc4329 Section 8.2)_](https://tools.ietf.org/html/rfc4329#section-8.2)
+  - [Why you should know `application/ecmascript`](https://stackoverflow.com/questions/9664282/difference-between-application-x-javascript-and-text-javascript-content-types)
+
+
+### Javascript Standardization
+
+  - [IANA `application/javascript` Media Type](https://www.iana.org/assignments/media-types/application/javascript)
+  - [Javascript Media Type Specification _(rfc4329 Section 7.2)_](https://tools.ietf.org/html/rfc4329#section-7.2)
+
+
 ## `snuggsi.min.es.br`
 
 *Mime Type* : `application/ecmascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-8.2))_
@@ -17,12 +41,8 @@ _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` script
 *Weight* : ~ 1,600 OCTETS _(1.6kiloBytes)_
 
 
-## Glossary
-  - [Content Negotiation](https://developer.mozilla.org/en-US/docs/Web/HTTP/Content_negotiation)
-  - [Javascript MIME types](https://html.spec.whatwg.org/#javascript-mime-type)
-  - [Scripting Media Types _(rfc4329)_](https://www.rfc-editor.org/rfc/rfc4329.txt)
-  - [WHATWG/W3c approval of media types](https://github.com/w3c/webcomponents/issues/645#issuecomment-317338144)
-  - [why you should know `application/ecmascript`](https://stackoverflow.com/questions/9664282/difference-between-application-x-javascript-and-text-javascript-content-types)
+### Networking
+
   - [Difference between Ethernet frame and Packet](https://www.youtube.com/watch?v=wcSee63SIlg)
   - [MTU _(Maximum Transmission Unit)_](https://en.wikipedia.org/wiki/Maximum_transmission_unit)
   - [_(Ethernet)_ Frame](https://en.wikipedia.org/wiki/Ethernet_frame)
