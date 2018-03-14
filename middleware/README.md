@@ -23,6 +23,8 @@ Middleware used for developer tools like browsersync and browser extensions.
 
 Middleware used for Content Negotiaton.
 
+  - https://github.com/whatwg/mimesniff/issues/42
+
 
 ## snuggsi.compressor
 
