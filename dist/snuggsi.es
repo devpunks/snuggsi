@@ -73,8 +73,8 @@ for slightly better semantics, including class-side inheritance and not clobberi
 //
 // NodeIterator -
 //   - https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
+//   - https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
 //   - https://github.com/tmpvar/jsdom/blob/master/lib/jsdom/living/traversal/NodeIterator-impl.js
-// https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
 
 class TokenList {
 
