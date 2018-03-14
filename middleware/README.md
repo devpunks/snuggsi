@@ -24,6 +24,7 @@ Middleware used for developer tools like browsersync and browser extensions.
 Middleware used for Content Negotiaton.
 
   - https://github.com/whatwg/mimesniff/issues/42
+  - https://github.com/w3c/preload/issues/113
 
 
 ## snuggsi.compressor
