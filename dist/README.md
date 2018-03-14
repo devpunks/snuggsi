@@ -11,6 +11,7 @@ _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` script
   - [WHATWG MIME Types](https://html.spec.whatwg.org/#javascript-mime-type)
   - [WHATWG MIME Sniffing](https://mimesniff.spec.whatwg.org/#javascript-mime-type)
   - [WHATWG/W3C approval of media types](https://github.com/w3c/webcomponents/issues/645#issuecomment-317338144)
+  - [IETF Media Type Specifications and Registration Procedures _(rfc6838)_](https://tools.ietf.org/html/rfc6838)
 
 
 ### ECMAScript Standardization
