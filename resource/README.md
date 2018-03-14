@@ -4,11 +4,15 @@
 
 - HTTP Method Definitions - https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
 - MDN Request Methods - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+- Handling A Resource - https://mimesniff.spec.whatwg.org/#handling-a-resource
 
 
 ## MIME Sniffing
 
   - https://mimesniff.spec.whatwg.org/#javascript-mime-type
+  - Matching a MIME type pattern - https://mimesniff.spec.whatwg.org/#matching-a-mime-type-pattern
+  - Determining the computed MIME type of a resource - https://mimesniff.spec.whatwg.org/#matching-an-image-type-pattern
+  - Context-Specific sniffing - https://mimesniff.spec.whatwg.org/#context-specific-sniffing
   
 
 ## References
