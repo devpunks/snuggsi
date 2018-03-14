@@ -27,6 +27,7 @@ _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` script
 
 #### References
 
+  - WHATWG Fetch Preload desitinations and module scripts - https://tools.ietf.org/html/rfc6838
   - 2Ality Module Specifiers - http://2ality.com/2017/05/es-module-specifiers.html
   - The state of Webpack modules - https://medium.com/webpack/the-state-of-javascript-modules-4636d1774358
   - ECMAScript Modules - https://hackernoon.com/node-js-tc-39-and-modules-a1118aecf95e
