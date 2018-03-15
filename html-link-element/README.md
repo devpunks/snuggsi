@@ -40,6 +40,7 @@ The HTML `<link>` element specifies relationships between the current document a
     - Core   - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-core-js
     - Script - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-as-script-js
     - Style  - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-as-style-js
+    - Firefox "Accept Header for images has been simplified" - https://www.fxsitecompat.com/en-CA/docs/2016/accept-header-for-images-has-been-simplified/
 
 
 #### Preload Use Cases
