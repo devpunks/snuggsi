@@ -23,6 +23,7 @@ The HTML `<link>` element specifies relationships between the current document a
 
   https://medium.com/reloading/preload-prefetch-and-priorities-in-chrome-776165961bbf
 
+  - WHATWG Fetching - https://fetch.spec.whatwg.org/#fetching
   - WHATWG Obtaining a link element - https://w3c.github.io/html/document-metadata.html#obtain
   - W3C Preload https://github.com/w3c/preload
   - W3C Preload https://github.com/w3c/preload/issues/92
