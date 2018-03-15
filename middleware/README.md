@@ -23,6 +23,7 @@ Middleware used for developer tools like browsersync and browser extensions.
 
 Middleware used for Content Negotiaton.
 
+  - Oye vey! https://wiki.whatwg.org/wiki/Why_not_conneg
   - https://github.com/whatwg/mimesniff/issues/42
   - https://github.com/w3c/preload/issues/113
   - MDN HTTP MIME Types - https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
