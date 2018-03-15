@@ -6,6 +6,7 @@ _snuggsi ツ Server - Feel right at `$HOME`_
 ## Media MIME Types
 
   - MDN Properly COnfiguring Server MIME Types - https://developer.mozilla.org/en-US/docs/Web/Security/Securing_your_site/Configuring_server_MIME_types
+  - Brendan Eich / Douglas Crockford discussion on application/ecmascript - https://mail.mozilla.org/pipermail/es-discuss/2011-August/016267.html
 
 ## .mount
 
