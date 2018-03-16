@@ -13,6 +13,10 @@ Middleware used for CSP (Content Security Policy).
   - https://medium.com/square-corner-blog/content-security-policy-for-single-page-web-apps-78f2b2cf1757
   - https://www.owasp.org/index.php/HTTP_Strict_Transport_Security_Cheat_Sheet
 
+## snuggsi.router
+
+Used for routing.
+
 
 ## snuggsi.browse
 
