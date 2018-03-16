@@ -1,3 +1,4 @@
+// https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 const
   // since these are user defined best to decode everything
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent

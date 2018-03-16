@@ -18,6 +18,7 @@ Middleware used for CSP (Content Security Policy).
 Used for routing.
 
   - https://www.w3.org/Provider/Style/URI.html
+  - Why you should always add a trailing `/` - https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 
 
 ## snuggsi.browse
