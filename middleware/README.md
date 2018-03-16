@@ -17,6 +17,8 @@ Middleware used for CSP (Content Security Policy).
 
 Used for routing.
 
+  - https://www.w3.org/Provider/Style/URI.html
+
 
 ## snuggsi.browse
 
