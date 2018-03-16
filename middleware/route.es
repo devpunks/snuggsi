@@ -33,6 +33,5 @@ module.exports = (uri, resource, tokens, match = capture (uri)) => {
         : await next (context)
 
     console.warn (decode (encode (context.path)), tokens, match, match.test (context.path), resource, context.params)
-
   }
 }
