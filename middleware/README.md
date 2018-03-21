@@ -30,11 +30,12 @@ Middleware used for developer tools like browsersync and browser extensions.
 
 Middleware used for Content Negotiaton.
 
-  - Media Types rfc2046 - https://www.ietf.org/rfc/rfc2046
-  - Oye vey! https://wiki.whatwg.org/wiki/Why_not_conneg
-  - https://github.com/whatwg/mimesniff/issues/42
   - https://github.com/w3c/preload/issues/113
+  - https://github.com/whatwg/mimesniff/issues/42
+  - Oye vey! https://wiki.whatwg.org/wiki/Why_not_conneg
+  - Media Types (part II) rfc2046 - https://www.ietf.org/rfc/rfc2046
   - MDN HTTP MIME Types - https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
+  - MIME (Multipurpose Internet Mail Extensions) Types (part I) rfc2045 - https://www.ietf.org/rfc/rfc2045
 
 
 ## snuggsi.compressor
