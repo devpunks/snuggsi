@@ -36,6 +36,7 @@ Middleware used for Content Negotiaton.
   - Media Types (part II) rfc2046 - https://www.ietf.org/rfc/rfc2046
   - MIME (Multipurpose Internet Mail Extensions) Types (part I) rfc2045 - https://www.ietf.org/rfc/rfc2045
   - Picking the right mime type - https://www.maxcdn.com/one/tutorial/mime-types/
+  - Require servers to use `text/javascript` - https://github.com/whatwg/html/pull/3096
   - MDN HTTP MIME Types - https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/MIME_types
 
 
