@@ -30,6 +30,7 @@ Middleware used for developer tools like browsersync and browser extensions.
 
 Middleware used for Content Negotiaton.
 
+  - Media Types frc2046 - https://www.ietf.org/rfc/rfc2046.txt
   - Oye vey! https://wiki.whatwg.org/wiki/Why_not_conneg
   - https://github.com/whatwg/mimesniff/issues/42
   - https://github.com/w3c/preload/issues/113
