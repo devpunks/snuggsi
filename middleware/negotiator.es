@@ -36,7 +36,7 @@ module.exports = async (context, next) =>
 
   await next ()
 
-  console.log (extension, resource)
+  //console.log (extension, resource)
 
 //console.log ('Type', type)
 //console.log ('\n\n', context.path, context.request.headers, context.get ('Accept'), ' type', context.accepts (['text', 'html', 'css', 'ecma', 'js', 'json']))
