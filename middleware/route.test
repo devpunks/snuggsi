@@ -125,7 +125,7 @@ test.only ('', async t => {
   , server =
       (new Server (stack)).serve ``
 
-  , response = await fetch (`${URI}${encoded}`)
+  , response = await fetch (`${URI}${value}`)
 
     t.equal (value, await response.text ())
     t.equal (200, response.status)
