@@ -7,7 +7,7 @@ export NODE_PATH=$ROOT
 # https://gist.github.com/branneman/8048520
 
 export SPEC="$ROOT/node_modules/.bin/tap-spec"
-export COVERAGE="$ROOT/node_modules/.bin/tap-nyc"
+export COVER="$ROOT/node_modules/.bin/tap-nyc --reporter=lcov"
 # https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
 
 export API="element"
@@ -20,7 +20,7 @@ export FILES="$ROOT/$MODULES/$ENTRY"
 echo "Covering $FILES"
 
 
-$ROOT/node_modules/.bin/tape \
+$ROOT/node_modules/.bin/tape --coverage \
   --require ./               \
   -- $FILES                  \
-  |  $SPEC                   \
+  |  $SPEC
