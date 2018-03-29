@@ -1,21 +1,12 @@
 console.warn ('loading test helper')
 
 const
-  tape
+  { test }
     = require ('tape')
-
-, { test }
-    = tape
 
 , fetch
     = ( resource, ... options ) =>
       require ('node-fetch') (resource, ... options)
-
-
-tape
-  .createStream ()
-  .pipe (require ('tap-spec') ())
-  .pipe (process.stdout)
 
 
 module.exports = {

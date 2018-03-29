@@ -1,25 +1,26 @@
 #!/usr/bin/env bash
 
-# Run tape
-
-# https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
-export ROOT=$(pwd)
 export PORT=8181
-export API="element"
-export ENTRY="index.test"
-#export API="elements,token-list"
-#export PATHS="{test,middleware,mixins,$ELEMENTS}"
-export MODULES="{.,test,server,resource,middleware,$API}"
-export FILES="$ROOT/$MODULES/$ENTRY"
-export COVERAGE="$ROOT/node_modules/.bin/tap-nyc"
-
-echo "Covering $MODULES"
-
+export ROOT=$(pwd)
+export NODE_PATH=$ROOT
 # https://gist.github.com/branneman/8775568
 # https://gist.github.com/branneman/8048520
-export NODE_PATH=$ROOT
+
+export SPEC="$ROOT/node_modules/.bin/tap-spec"
+export COVERAGE="$ROOT/node_modules/.bin/tap-nyc"
+# https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
+
+export API="element"
+#export API="elements,token-list"
+
+export ENTRY="index.test"
+export MODULES="{.,test,server,resource,middleware,$API}"
+export FILES="$ROOT/$MODULES/$ENTRY"
+
+echo "Covering $FILES"
+
 
 $ROOT/node_modules/.bin/tape \
   --require ./               \
 -- $FILES                    \
- | $COVERAGE
+ | $SPEC                     \
