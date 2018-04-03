@@ -177,9 +177,6 @@ test.only ('surrogate subresource identity suffix after path', async t => {
 //  t.equal (200, response.status)
     t.equal (id, await response.text ())
 
-  console.warn (response.status)
-
-
   server.close ``
   t.end ()
 })
