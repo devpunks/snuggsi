@@ -47,7 +47,5 @@ module.exports = (uri, resource, tokens, match) => {
     match.test (context.path)
       ? await handle (parameterize (match, context, tokens))
       : await next (context)
-
-    // console.warn (decode (encode (context.path)), tokens, match, match.test (context.path), resource, context.params)
   }
 }
