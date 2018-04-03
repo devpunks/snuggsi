@@ -3,7 +3,7 @@ const
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
 
 , characters
-    = '([()A-Za-z%0-9\*\-\_]+)'
+    = '([()A-Za-z%0-9\\*\\-\\_\\.]+)'
 
 , tokens
     = [ /{\w+}/g, characters ]
@@ -35,7 +35,8 @@ module.exports = (uri, resource) => {
       '/' === uri.slice (-1)
     // https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 
-  , match  = normalize (`${uri}${ trailing ? `${characters}*` : '' }`)
+  , characters = '[()A-Za-z%0-9\\*\\-\\_\\.]*'
+  , match  = normalize (`${uri}${ trailing ? `${characters}` : '' }`)
   , tokens = uri.match (/[^{]+(?=})/g) || []
 
   return async (context, next, { method } = context) => {
