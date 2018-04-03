@@ -1,9 +1,7 @@
-// https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 const
   // since these are user defined best to decode everything
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
-  [encode, decode]
-    = [ encodeURIComponent, decodeURIComponent ]
+  decode = [ encodeURIComponent, decodeURIComponent ]
 
 , characters
     = '([()A-Za-z%0-9\*\-\_]+)'
@@ -38,6 +36,7 @@ module.exports = (uri, resource, tokens, match) => {
     const
       identify = handle.length > 1
     , trailing = uri.slice (-1) === '/'
+    // https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 
     match  = capture (uri)
 

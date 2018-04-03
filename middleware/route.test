@@ -155,15 +155,17 @@ test.only ('surrogate subresource identity suffix after path', async t => {
       (context.body = id)
 
   , stack =
-      [ route (`${path}`, echo) ]
+      [ route (( path + `/` ), echo ) ]
 
   , server =
       (new Server (stack)).serve ``
 
-  , response = await fetch (`${URI}`)
+  , response = await fetch (`${URI}/${id}`)
 
 //  t.equal (200, response.status)
-//  t.equal (id, await response.text ())
+    t.equal (id, await response.text ())
+
+  console.warn (response.status)
 
 
   server.close ``
