@@ -107,7 +107,7 @@ test ('decoding route URI encoded {token} parameters', async t => {
 })
 
 
-test.only ('Testin bitch', async t => {
+test.only ('path identity', async t => {
 
   const
     value   = 'index.txt'
