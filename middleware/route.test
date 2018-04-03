@@ -61,7 +61,7 @@ test ('route URI', async t => {
 })
 
 
-test.only ('route URI segment {token} parameters', async t => {
+test ('route URI segment {token} parameters', async t => {
 
   const
     date  = new Date
@@ -147,7 +147,7 @@ test ('decoding route URI encoded {token} parameters', async t => {
 })
 
 
-test ('surrogate subresource identity {token} in path', async t => {
+test.only ('surrogate subresource identity {token} in path', async t => {
 
   const
     id   = 'abc123'
