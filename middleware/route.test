@@ -174,7 +174,7 @@ test.only ('surrogate subresource identity suffix after path', async t => {
 
   , response = await fetch (`${URI}/${id}`)
 
-//  t.equal (200, response.status)
+    t.equal (200, response.status)
     t.equal (id, await response.text ())
 
   server.close ``
