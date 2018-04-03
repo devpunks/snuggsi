@@ -27,18 +27,26 @@ const
   }
 
 
-module.exports = (uri, resource, tokens, match = capture (uri)) => {
+module.exports = (uri, resource, tokens, match) => {
 
   tokens = uri.match (/[^{]+(?=})/g)
 
   return async (context, next, handle, { method } = context) => {
 
+    handle = resource [method.toLowerCase ()] || resource
+
+    const
+      identify = handle.length > 1
+    , trailing = uri.slice (-1) === '/'
+
+    match  = capture (uri)
+
     console.warn ('context: %s \n path: %s \n\n', context, context.path)
+    console.warn (trailing, identify)
 
     match.test (context.path)
-      && (handle = resource [method.toLowerCase ()] || resource)
-        ? await handle (parameterize (match, context, tokens))
-        : await next (context)
+      ? await handle (parameterize (match, context, tokens))
+      : await next (context)
 
     // console.warn (decode (encode (context.path)), tokens, match, match.test (context.path), resource, context.params)
   }

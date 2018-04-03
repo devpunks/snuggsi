@@ -87,26 +87,30 @@ test ('route URI segment {token} parameter', async t => {
 })
 
 
-test ('route URI partial {token} parameter', async t => {
+test.only ('route URI partial {token} parameter', async t => {
 
   const
-    timestamp
-      = (new Date).getTime ``
-      + '' // convert to string
+    date  = new Date
+  , day   = date.getUTCDate ()
+  , month = date.getUTCMonth ()
+  , year  = date.getUTCFullYear ()
+  , expected = (new Date (year, month, day)).toString ()
 
-  , echo = context =>
-      (context.body = context.params.timestamp)
+  , middleware =
+      (context, { year, month, day } = context.params) =>
+        (context.body = new Date (year, month day).toString ())
 
   , stack =
-      [ route (`${path}partial-{timestamp}`, echo) ]
+      [ route (`${path}/{year}-{month}-{day}`, middleware) ]
 
   , server =
       (new Server (stack)).serve ``
 
-  , response = await fetch (`${URI}partial-${timestamp}`)
+  , response =
+      await fetch (`${URI}/${year}-${month}-${day}`)
 
     t.equal (200, response.status)
-    t.equal (timestamp, await response.text ())
+    t.equal (expected, await response.text ())
 
   server.close ``
   t.end ()
@@ -131,34 +135,31 @@ test ('decoding route URI encoded {token} parameters', async t => {
 
   , response = await fetch (`${URI}${encoded}`)
 
-    t.equal (value, await response.text ())
     t.equal (200, response.status)
+    t.equal (value, await response.text ())
 
   server.close ``
   t.end ()
 })
 
 
-test.only ('path identity', async t => {
+test ('surrogate subresource identity {token} in path', async t => {
 
   const
-    value   = 'index.txt'
-  , encoded = encodeURIComponent (value)
-  , decoded = decodeURIComponent (encoded)
-
-  , echo = context =>
-      (context.body = context.params.decoded)
+    id   = 'abc123'
+  , echo = (context, id) =>
+      (context.body = id)
 
   , stack =
-      [ route (`${path}{decoded}`, echo) ]
+      [ route (`${path}`, echo) ]
 
   , server =
       (new Server (stack)).serve ``
 
-  , response = await fetch (`${URI}${value}`)
+  , response = await fetch (`${URI}`)
 
-    t.equal (value, await response.text ())
-    t.equal (200, response.status)
+//  t.equal (200, response.status)
+//  t.equal (id, await response.text ())
 
 
   server.close ``
