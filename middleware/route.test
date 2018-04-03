@@ -87,7 +87,7 @@ test ('route URI segment {token} parameter', async t => {
 })
 
 
-test.only ('route URI partial {token} parameter', async t => {
+test ('route URI partial {token} parameter', async t => {
 
   const
     timestamp
@@ -139,7 +139,7 @@ test ('decoding route URI encoded {token} parameters', async t => {
 })
 
 
-test ('path identity', async t => {
+test.only ('path identity', async t => {
 
   const
     value   = 'index.txt'
