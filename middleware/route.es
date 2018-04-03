@@ -8,7 +8,7 @@ const
 , tokens
     = [ /{\w+}/g, characters ]
 
-, capture = uri =>
+, normalize = uri =>
     new RegExp (`^${ uri.replace ( ... tokens ) }$`)
 
 , parameterize = (match, context, tokens) => {
@@ -17,33 +17,34 @@ const
 
     void []
       .splice.call (context.path.match (match), 1)
+      .filter (value => value !== undefined)
       .map ((value, index) =>
         context.params [tokens [index]] = decode (value))
 
     return context
   }
 
+, identify = uri =>
+    uri.split `/`.pop `` || undefined
 
-module.exports = (uri, resource, tokens, match) => {
 
-  tokens = uri.match (/[^{]+(?=})/g)
+module.exports = (uri, resource) => {
 
-  return async (context, next, handle, { method } = context) => {
-
-    handle = resource [method.toLowerCase ()] || resource
-
-    const
-      identify = handle.length > 1
-    , trailing = uri.slice (-1) === '/'
+  const
+    trailing =
+      '/' === uri.slice (-1)
     // https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 
-    match  = capture (uri)
+  , match  = normalize (`${uri}${ trailing ? `${characters}*` : '' }`)
+  , tokens = uri.match (/[^{]+(?=})/g) || []
 
-    console.warn ('context: %s \n path: %s \n\n', context, context.path)
-    console.warn (trailing, identify)
+  return async (context, next, { method } = context) => {
+
+    const
+      handle = resource [method.toLowerCase ()] || resource
 
     match.test (context.path)
-      ? await handle (parameterize (match, context, tokens))
+      ? await handle (parameterize (match, context, tokens), trailing && identify (context.path))
       : await next (context)
   }
 }

@@ -70,9 +70,15 @@ test ('route URI segment {token} parameters', async t => {
   , year  = date.getUTCFullYear ()
   , expected = (new Date (year, month, day)).toString ()
 
-  , middleware =
-      (context, { year, month, day } = context.params) =>
-        (context.body = new Date (year, month, day).toString ())
+  , middleware = (context) => {
+      const
+        params = context.params
+      , year   = params.year
+      , month  = params.month
+      , day    = params.day
+
+      context.body = (new Date (year, month, day)).toString ()
+    }
 
   , stack =
       [ route (`${path}/{year}/{month}/{day}`, middleware) ]
@@ -100,9 +106,15 @@ test ('route URI partial {token} parameters', async t => {
   , year  = date.getUTCFullYear ()
   , expected = (new Date (year, month, day)).toString ()
 
-  , middleware =
-      (context, { year, month, day } = context.params) =>
-        (context.body = new Date (year, month, day).toString ())
+  , middleware = (context) => {
+      const
+        params = context.params
+      , year   = params.year
+      , month  = params.month
+      , day    = params.day
+
+      context.body = (new Date (year, month, day)).toString ()
+    }
 
   , stack =
       [ route (`${path}/{year}-{month}-{day}`, middleware) ]
