@@ -1,7 +1,6 @@
 const
-  // since these are user defined best to decode everything
+  decode = decodeURIComponent
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
-  decode = [ encodeURIComponent, decodeURIComponent ]
 
 , characters
     = '([()A-Za-z%0-9\*\-\_]+)'
