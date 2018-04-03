@@ -41,7 +41,7 @@ test ('URI without route', async t => {
 })
 
 
-test ('route URI', async t => {
+test ('URI with route', async t => {
 
   const
     stack =
