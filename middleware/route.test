@@ -147,7 +147,7 @@ test ('decoding route URI encoded {token} parameters', async t => {
 })
 
 
-test.only ('surrogate subresource identity {token} in path', async t => {
+test.only ('surrogate subresource identity suffix after path', async t => {
 
   const
     id   = 'abc123'
