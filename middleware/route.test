@@ -41,7 +41,7 @@ test ('URI without route', async t => {
 })
 
 
-test.only ('route URI', async t => {
+test ('route URI', async t => {
 
   const
     stack =
@@ -61,7 +61,7 @@ test.only ('route URI', async t => {
 })
 
 
-test ('route URI {token} parameters', async t => {
+test ('route URI segment {token} parameter', async t => {
 
   const
     timestamp
@@ -72,12 +72,38 @@ test ('route URI {token} parameters', async t => {
       (context.body = context.params.timestamp)
 
   , stack =
-      [ route (`${path}{timestamp}`, echo) ]
+      [ route (`${path}/{timestamp}/`, echo) ]
 
   , server =
       (new Server (stack)).serve ``
 
-  , response = await fetch (`${URI}${timestamp}`)
+  , response = await fetch (`${URI}/${timestamp}/`)
+
+    t.equal (200, response.status)
+    t.equal (timestamp, await response.text ())
+
+  server.close ``
+  t.end ()
+})
+
+
+test.only ('route URI partial {token} parameter', async t => {
+
+  const
+    timestamp
+      = (new Date).getTime ``
+      + '' // convert to string
+
+  , echo = context =>
+      (context.body = context.params.timestamp)
+
+  , stack =
+      [ route (`${path}partial-{timestamp}`, echo) ]
+
+  , server =
+      (new Server (stack)).serve ``
+
+  , response = await fetch (`${URI}partial-${timestamp}`)
 
     t.equal (200, response.status)
     t.equal (timestamp, await response.text ())
