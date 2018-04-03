@@ -39,13 +39,12 @@ module.exports = (uri, resource) => {
   , match  = normalize (`${uri}${ trailing ? `${characters}` : '' }`)
   , tokens = uri.match (/[^{]+(?=})/g) || []
 
-  return async (context, next, { method } = context) => {
 
-    const
-      handle = resource [method.toLowerCase ()] || resource
+  return async (context, next, handle, { method } = context) =>
 
-    match.test (context.path)
+    (handle = resource [method.toLowerCase ()] || resource)
+
+    && match.test (context.path)
       ? await handle (parameterize (match, context, tokens), trailing && identify (context.path))
       : await next (context)
-  }
 }
