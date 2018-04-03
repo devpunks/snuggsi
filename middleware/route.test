@@ -1,7 +1,8 @@
 const
   path = '/foo'
 , body = 'Shazam'
-, URI  = `http://localhost:8181${path}`
+, domain = `http://localhost:8181`
+, URI  = `${domain}/${path}`
 
 , { test, fetch }
     = require ('test')
@@ -19,18 +20,18 @@ const
 test.only ('URI without route', async t => {
 
   const
-    stack =
-      [ route (path, middleware) ]
-
-  , path = Math
+    path = Math
       .random()
       .toString(36)
       .replace(/[^a-z]/g, '')
 
+  , stack =
+      [ route (`${path}`, middleware) ]
+
   , server =
       (new Server (stack)).serve ``
 
-  , response = await fetch (`/adsfadsf`)
+  , response = await fetch (`${domain}/${path}`)
 
 
   t.equal (404, response.status)
