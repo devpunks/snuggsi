@@ -2,7 +2,7 @@ const
   path = '/foo'
 , body = 'Shazam'
 , domain = `http://localhost:8181`
-, URI  = `${domain}/${path}`
+, URI  = `${domain}${path}`
 
 , { test, fetch }
     = require ('test')
@@ -17,7 +17,7 @@ const
     (context.body = body)
 
 
-test.only ('URI without route', async t => {
+test ('URI without route', async t => {
 
   const
     path = Math
@@ -41,7 +41,7 @@ test.only ('URI without route', async t => {
 })
 
 
-test ('route URI', async t => {
+test.only ('route URI', async t => {
 
   const
     stack =
