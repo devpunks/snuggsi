@@ -28,6 +28,8 @@ module.exports = (uri, resource, tokens, match = capture (uri)) => {
 
   return async (context, next, handle, { method } = context) => {
 
+    console.warn ('context: %s \n path: %s \n\n', context, context.path)
+
     match.test (context.path)
       && (handle = resource [method.toLowerCase ()] || resource)
         ? await handle (parameterize (match, context, tokens))
