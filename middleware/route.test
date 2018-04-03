@@ -1,5 +1,5 @@
 const
-  path = '/foo/'
+  path = '/foo'
 , body = 'Shazam'
 , URI  = `http://localhost:8181${path}`
 
