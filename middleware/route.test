@@ -16,16 +16,21 @@ const
     (context.body = body)
 
 
-test ('URI without route', async t => {
+test.only ('URI without route', async t => {
 
   const
     stack =
       [ route (path, middleware) ]
 
+  , path = Math
+      .random()
+      .toString(36)
+      .replace(/[^a-z]/g, '')
+
   , server =
       (new Server (stack)).serve ``
 
-  , response = await fetch (`${URI}adsfadsf`)
+  , response = await fetch (`/adsfadsf`)
 
 
   t.equal (404, response.status)
@@ -107,7 +112,7 @@ test ('decoding route URI encoded {token} parameters', async t => {
 })
 
 
-test.only ('path identity', async t => {
+test ('path identity', async t => {
 
   const
     value   = 'index.txt'
