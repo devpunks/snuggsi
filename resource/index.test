@@ -32,7 +32,7 @@ const
       == right.slice ().sort ().join `,`
 
 
-test ('Default Resource allowed methods', async t => {
+test.only ('Default Resource allowed methods', async t => {
   const
     resource = Resource ``
 
@@ -47,7 +47,7 @@ test ('Default Resource allowed methods', async t => {
       = await fetch ( `${URL}14`, { method } )
 
     t.notOk (headers.get ('allow'))
-    t.ok ( [200,204].includes (status) )
+    t.ok ([ 200, 20 ].includes (status), method)
   }
 
   server.close ``
@@ -117,7 +117,7 @@ test ('Default Resource disallowed methods', async t => {
 })
 
 
-test.only ('Defined Resource disallowed methods', async t => {
+test ('Defined Resource disallowed methods', async t => {
   const
     { __proto__: proto } = resource
       = Resource `server/fixtures`
