@@ -1,10 +1,10 @@
 const
-  METHODS = Array
+  METHODS =
     // HTTP Method Definitions
     // https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
     // MDN Request Methods
     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
-    .from ( require ('http').METHODS )
+    [ ... require ('http').METHODS ]
 
 , Base = path =>
     Boolean (... (path = [].concat (path)))
