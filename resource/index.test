@@ -145,7 +145,8 @@ test ('Defined Resource disallowed methods', async t => {
       { status, headers }
         = await fetch ( `${URL}14`, { method } )
 
-    , allowed = headers.get ('allow').split `, `
+    , allowed
+        = headers.get ('allow').split `, `
 
     t.equal ( 405, status )
     t.ok ( compare (allowed, ALLOWED_METHODS) )
