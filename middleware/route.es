@@ -40,11 +40,14 @@ module.exports = (uri, resource) => {
   , tokens = uri.match (/[^{]+(?=})/g) || []
 
 
-  return async (context, next, handle, { method } = context) =>
+  return async (context, next, handle, { method } = context) => {
 
-    (handle = resource [method.toLowerCase ()] || resource)
+    handle = resource [method.toLowerCase ()] || resource
 
-    && match.test (context.path)
+    console.warn ('The handle', method, handle)
+
+    match.test (context.path)
       ? await handle (parameterize (match, context, tokens), trailing && identify (context.path))
       : await next (context)
+  }
 }
