@@ -15,6 +15,7 @@ const
       ? require (`${path}/index.es`)
       : class {}
 
+console.warn ('Valid HTTP Methods: ', METHODS.join `, `)
 
 module.exports = path =>
 
