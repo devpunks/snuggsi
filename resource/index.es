@@ -22,6 +22,10 @@ new class extends Base (path) {
 
   constructor () { super ()
     console.warn ('Constructing extension', path)
+    console.log (Object.getOwnPropertyNames (this))
+
+    for (let prop in this)
+      console.warn ('prop', prop)
   }
 
   allowed () {
@@ -40,9 +44,6 @@ new class extends Base (path) {
 //  // should be done by CORS
 //  { context.status = 200 }
 
-// Mandatory Methods
-// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
-//
   head (context)
     { context.status = 200 }
 
