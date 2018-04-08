@@ -25,6 +25,11 @@ new class extends Base (path) {
       (method => method.toLowerCase () in resource)
   }
 
+  acl (context) {
+    console.warn ("This is ACL", context)
+
+  }
+
 //      && context.throw (405,  { headers: { allow } } )
 //
 //options (context)
