@@ -6,6 +6,10 @@ const
     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
     [ ... require ('http').METHODS ]
 
+// Mandatory Methods
+// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
+//
+
 , Base = path =>
     Boolean (... (path = [].concat (path)))
       ? require (`${path}/index.es`)
