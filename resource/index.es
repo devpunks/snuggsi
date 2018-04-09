@@ -23,10 +23,30 @@ new class extends Base (path) {
 
   constructor () { super ()
     console.warn ('Constructing extension', path)
-    console.log (Object.getOwnPropertyNames (this))
+
+    console.warn ('keys', Object.keys (this))
+    console.warn ('getOwnProperyNames', Object.getOwnPropertyNames (this))
+
+    console.warn ('before')
 
     for (let prop in this)
       console.warn ('prop', prop)
+
+    Object.defineProperty(this, 'snuggs', {
+        value: 42,
+        enumerable: true,
+        writable: false
+    })
+
+    this.facts = 'foo'
+
+    console.warn ('after')
+    for (let prop in this)
+      console.warn ('prop', prop)
+
+    console.warn ('keys', Object.keys (this))
+    console.warn ('getOwnProperyNames', Object.getOwnPropertyNames (this))
+
   }
 
   allowed () {

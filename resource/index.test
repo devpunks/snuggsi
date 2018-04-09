@@ -101,6 +101,8 @@ test.only ('Default Resource disallowed methods', async t => {
   , DISALLOWED_METHODS = UNSAFE_METHODS
 
 
+  console.warn (DISALLOWED_METHODS)
+
   for (method of DISALLOWED_METHODS) {
 
     let { status, headers }
