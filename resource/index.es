@@ -16,14 +16,14 @@ const
     = METHODS.filter
       (method => !!! SAFE_METHODS.includes (method))
 
+, filter = resource =>
+    METHODS.filter
+      (method => resource [method.toLowerCase ()])
+
 , Base = path =>
     Boolean (... (path = [].concat (path)))
       ? require (`${path}/index.es`)
       : class { get foo () { return 'bar' } }
-
-, filter = resource =>
-    METHODS.filter
-      (method => resource [method.toLowerCase ()])
 
 
 module.exports = path =>
