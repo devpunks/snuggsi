@@ -1,10 +1,13 @@
 const
-  METHODS =
+  METHODS
     // HTTP Method Definitions
     // https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
     // MDN Request Methods
     // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
-    [ ... require ('http').METHODS ]
+    = [ ... require ('http').METHODS ]
+
+, DEFAULT_METHODS = ['GET', 'HEAD']
+, SAFE_METHODS    = [ ... DEFAULT_METHODS, 'OPTIONS', 'TRACE' ]
 
 // Mandatory Methods
 // See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
@@ -16,6 +19,8 @@ const
       : class {}
 
 console.warn ('Valid HTTP Methods: ', METHODS.join `, `)
+console.warn ('Default Mthods: ', DEFAULT_METHODS)
+console.warn ('Safe Mthods: ', SAFE_METHODS)
 
 module.exports = path =>
 
