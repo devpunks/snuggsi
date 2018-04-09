@@ -7,7 +7,7 @@ const
       .filter (method => method !== 'OPTIONS') // cors?
 
 , DEFAULT_METHODS
-    = ['GET', 'HEAD']
+    = [ 'GET', 'HEAD' ]
 
 , SAFE_METHODS
     = [ ... DEFAULT_METHODS ]
