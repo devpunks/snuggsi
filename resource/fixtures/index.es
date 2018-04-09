@@ -6,24 +6,23 @@ class {
     console.warn ('This CAN be called from initialization')
   }
 
-  static foo (context) {
-    console.warn ('THIS SHOULD NEVER GET CALLED!!', context)
-  }
-
   put (context) {
-    console.warn ('Wow this is really PUTing!', context)
+    context.status = 200
+    console.warn ('Wow this is really PUTing!', context.method)
   }
 
   patch (context) {
-    console.warn ('Wow this is really PATCHing!', context.params)
-    console.warn ('This', context.body = 'SHAZAAAAAM!!!!')
+    context.status = 200
+    console.warn ('Wow this is really PATCHing!', context.method)
   }
 
   post (context) {
-    console.warn ('Wow this is really POSTing!', context)
+    context.status = 200
+    console.warn ('Wow this is really POSTing!', context.method)
   }
 
   delete (context) {
-    console.warn ('Wow this is really DELETEing!', context)
+    context.status = 200
+    console.warn ('Wow this is really DELETEing!', context.method)
   }
 }

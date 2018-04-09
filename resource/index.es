@@ -35,6 +35,8 @@ new class extends Base (path) {
     const allow = filter (this)
 
     for (let method of UNSAFE_METHODS)
+      allow.includes (method) ||
+
       Object.defineProperty (this, method.toLowerCase (), {
         enumerable: true,
         value: function (context) {

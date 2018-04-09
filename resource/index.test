@@ -102,9 +102,10 @@ test.only ('Defined Resource allowed methods', async t => {
 
 
   , ALLOWED_METHODS
-      = [ ... SAFE_METHODS, ... DEFINED_METHODS ]
+      = [ ... DEFAULT_METHODS, ... DEFINED_METHODS ]
         .filter (method => METHODS.includes (method))
         .filter (unique)
+
 
   for (method of ALLOWED_METHODS) {
     let
