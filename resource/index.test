@@ -16,10 +16,11 @@ const
 
 , METHODS = [ ... require ('http').METHODS ]
     // for some reason connect won't work
+    .filter (method => method !== 'TRACE')
     .filter (method => method !== 'CONNECT')
     .filter (method => method !== 'OPTIONS') // cors?
 
-, SAFE_METHODS = ['OPTIONS', 'TRACE', ... DEFAULT_METHODS ]
+, SAFE_METHODS = [ ... DEFAULT_METHODS ]
 
 , UNSAFE_METHODS = METHODS.filter
     (method => !!! SAFE_METHODS.includes (method))
@@ -102,10 +103,10 @@ test.only ('Default Resource disallowed methods', async t => {
   , DISALLOWED_METHODS = UNSAFE_METHODS
 
 
-console.warn ('\nValid HTTP Methods: ', METHODS.join `, `)
-console.warn ('\nDefault Mthods: ', DEFAULT_METHODS.join `, `)
-console.warn ('\nSafe Mthods: ', SAFE_METHODS.join `, `)
-console.warn ('\nUnsafe Mthods: ', UNSAFE_METHODS.join `, `)
+console.warn ('\nValid HTTP Methods: ',METHODS.length, METHODS.join `, `)
+console.warn ('\nDefault Methods: ', DEFAULT_METHODS.length, DEFAULT_METHODS.join `, `)
+console.warn ('\nSafe Methods: ', SAFE_METHODS.length, SAFE_METHODS.join `, `)
+console.warn ('\nUnsafe Methods: ', UNSAFE_METHODS.length, UNSAFE_METHODS.join `, `)
 
   for (method of DISALLOWED_METHODS) {
 
