@@ -21,6 +21,10 @@ const
       ? require (`${path}/index.es`)
       : class { get foo () { return 'bar' } }
 
+, filter = resource =>
+    METHODS.filter
+      (method => resource [method.toLowerCase ()])
+
 
 module.exports = path =>
 
@@ -28,21 +32,15 @@ new class extends Base (path) {
 
   constructor () { super ()
 
-    for (let prop in this)
-      console.warn ('prop', prop)
+    const allow = filter (this)
 
     for (let method of UNSAFE_METHODS)
       Object.defineProperty (this, method.toLowerCase (), {
         enumerable: true,
         value: function (context) {
-          context.throw (405,  { headers: { allow: this.allowed } } )
+          context.throw (405,  { headers: { allow } } )
         }.bind (this)
       })
-  }
-
-  get allowed () {
-    return METHODS.filter
-      (method => method.toLowerCase () in this)
   }
 
   head (context)
@@ -51,7 +49,6 @@ new class extends Base (path) {
   get (context)
     { context.throw (404) }
 
-//
 //options (context)
 //  // should be done by CORS
 //  { context.status = 200 }

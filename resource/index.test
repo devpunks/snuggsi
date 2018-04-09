@@ -103,22 +103,17 @@ test.only ('Default Resource disallowed methods', async t => {
   , DISALLOWED_METHODS = UNSAFE_METHODS
 
 
-console.warn ('\nValid HTTP Methods: ',METHODS.length, METHODS.join `, `)
-console.warn ('\nDefault Methods: ', DEFAULT_METHODS.length, DEFAULT_METHODS.join `, `)
-console.warn ('\nSafe Methods: ', SAFE_METHODS.length, SAFE_METHODS.join `, `)
-console.warn ('\nUnsafe Methods: ', UNSAFE_METHODS.length, UNSAFE_METHODS.join `, `)
-
   for (method of DISALLOWED_METHODS) {
 
     let
       { status, headers }
         = await fetch ( `${URL}14`, { method } )
 
-//  , allowed
-//      = headers.get ('allow').split `, `
+    , allowed
+        = headers.get ('allow').split `, `
 
     t.equals ( 405, status )
-//  t.ok ( compare (allowed, DEFAULT_METHODS) )
+    t.ok ( compare (allowed, DEFAULT_METHODS) )
   }
 
   server.close ``
