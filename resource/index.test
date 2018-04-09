@@ -34,7 +34,7 @@ const
       == right.slice ().sort ().join `,`
 
 
-test ('Default Resource allowed methods', async t => {
+test.only ('Default Resource allowed methods', async t => {
   const
     resource = Resource ``
 
@@ -42,14 +42,14 @@ test ('Default Resource allowed methods', async t => {
       (new Server ( [ route (resource) ] ))
       .serve ``
 
-  , ALLOWED_METHODS = SAFE_METHODS
+  , ALLOWED_METHODS = DEFAULT_METHODS
 
   for (method of ALLOWED_METHODS) {
     let { status, headers }
-      = await fetch ( `${URL}14`, { method } )
+      = await fetch ( URL, { method } )
 
+    t.equal (200, status)
     t.notOk (headers.get ('allow'))
-    t.ok ([ 200, 204 ].includes (status))
   }
 
   server.close ``
@@ -90,7 +90,7 @@ test ('Defined Resource allowed methods', async t => {
 })
 
 
-test.only ('Default Resource disallowed methods', async t => {
+test ('Default Resource disallowed methods', async t => {
   const
     resource = Resource ``
 
@@ -100,7 +100,6 @@ test.only ('Default Resource disallowed methods', async t => {
 
   , DISALLOWED_METHODS = METHODS.filter
     (method => !!! DEFAULT_METHODS.includes (method))
-
 
 
   for (method of DISALLOWED_METHODS) {
