@@ -10,7 +10,7 @@ const
 
 , route = resource =>
     require ('../middleware')
-    .route  ( `${path}{id}`, resource )
+    .route  ( `${path}`, resource )
 
 , DEFAULT_METHODS = ['GET', 'HEAD']
 
@@ -77,11 +77,9 @@ test ('Defined Resource allowed methods', async t => {
         .filter (unique)
 
   for (method of ALLOWED_METHODS) {
-    console.warn (method)
-
     let
       { status, headers }
-        = await fetch ( `${URL}14`, { method } )
+        = await fetch ( URL, { method } )
 
     t.notEqual ( 405, status )
     t.notOk (headers.get ('allow') )
@@ -107,7 +105,7 @@ test.only ('Default Resource disallowed methods', async t => {
 
     let
       { status, headers }
-        = await fetch ( `${URL}14`, { method } )
+        = await fetch ( URL, { method } )
 
     , allowed
         = headers.get ('allow').split `, `
