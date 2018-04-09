@@ -28,26 +28,32 @@ new class extends Base (path) {
 
   constructor () { super ()
 
-    let allow = ['GET', 'HEAD']
+    for (let prop in this)
+      console.warn ('prop', prop)
 
     for (let method of UNSAFE_METHODS)
       Object.defineProperty (this, method.toLowerCase (), {
         enumerable: true,
         value: function (context) {
-          context.throw (405,  { headers: { allow } } )
+          context.throw (405,  { headers: { allow: this.allowed } } )
         }.bind (this)
       })
   }
 
+  get allowed () {
+    return METHODS.filter
+      (method => method.toLowerCase () in this)
+  }
+
+  head (context)
+    { context.throw (404) }
+
+  get (context)
+    { context.throw (404) }
+
 //
 //options (context)
 //  // should be done by CORS
-//  { context.status = 200 }
-
-//head (context)
-//  { context.status = 200 }
-
-//get (context)
 //  { context.status = 200 }
 
 //purge (context)
