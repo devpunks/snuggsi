@@ -12,20 +12,15 @@ const
 , UNSAFE_METHODS = METHODS.filter
     (method => !!! SAFE_METHODS.includes (method))
 
-// Mandatory Methods
-// See: https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
-//
 
 , Base = path =>
     Boolean (... (path = [].concat (path)))
       ? require (`${path}/index.es`)
       : class {}
 
-
 , allowed = method =>
     METHODS.filter
       (method => method.toLowerCase () in this)
-
 
 
 console.warn ('Valid HTTP Methods: ', METHODS.join `, `)
