@@ -7,7 +7,7 @@ const
 , { test, fetch }
     = require ('test')
 
-, { Server, Resource }
+, { Server }
     = require ('..')
 
 , { route }

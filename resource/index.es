@@ -22,7 +22,7 @@ const
 
 , Base = path =>
     Boolean (... (path = [].concat (path)))
-      ? require (`${path}/index.es`)
+      ? require (`${path}index.es`)
       : class { }
 
 

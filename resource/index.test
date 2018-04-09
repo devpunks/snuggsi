@@ -90,7 +90,7 @@ test ('Default Resource disallowed methods', async t => {
 test.only ('Defined Resource allowed methods', async t => {
   const
     { __proto__: proto } = resource
-      = Resource `server/fixtures`
+      = Resource `server/fixtures/`
 
   , server =
       (new Server ( [ route (resource) ] ))
@@ -123,7 +123,7 @@ test.only ('Defined Resource allowed methods', async t => {
 test ('Defined Resource disallowed methods', async t => {
   const
     { __proto__: proto } = resource
-      = Resource `server/fixtures`
+      = Resource `server/fixtures/`
 
   , server =
       (new Server ( [ route (resource) ] ))
