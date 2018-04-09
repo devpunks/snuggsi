@@ -8,7 +8,6 @@ const
 , UNSAFE_METHODS = METHODS.filter
     (method => !!! SAFE_METHODS.includes (method))
 
-
 , Base = path =>
     Boolean (... (path = [].concat (path)))
       ? require (`${path}/index.es`)
@@ -18,11 +17,6 @@ const
     METHODS.filter
       (method => method.toLowerCase () in this)
 
-
-console.warn ('Valid HTTP Methods: ', METHODS.join `, `)
-console.warn ('Default Mthods: ', DEFAULT_METHODS.join `, `)
-console.warn ('Safe Mthods: ', SAFE_METHODS.join `, `)
-console.warn ('Unsafe Mthods: ', UNSAFE_METHODS.join `, `)
 
 module.exports = path =>
 
