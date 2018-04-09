@@ -24,8 +24,6 @@ new class extends Base (path) {
 
   constructor () { super ()
 
-    console.warn ('Constructing extension', path)
-
     let allow = ['GET', 'HEAD']
 
     for (let method of UNSAFE_METHODS)
