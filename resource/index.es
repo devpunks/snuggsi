@@ -1,21 +1,21 @@
 const
   METHODS
     = [ ... require ('http').METHODS ]
+      // for some reason connect won't work
+      .filter (method => method !== 'TRACE')
+      .filter (method => method !== 'CONNECT')
+      .filter (method => method !== 'OPTIONS') // cors?
 
 , DEFAULT_METHODS = ['GET', 'HEAD']
-, SAFE_METHODS    = [ ... DEFAULT_METHODS, 'OPTIONS', 'TRACE' ]
+, SAFE_METHODS    = [ ... DEFAULT_METHODS ]
 
-, UNSAFE_METHODS = METHODS.filter
+, UNSAFE_METHODS  = METHODS.filter
     (method => !!! SAFE_METHODS.includes (method))
 
 , Base = path =>
     Boolean (... (path = [].concat (path)))
       ? require (`${path}/index.es`)
-      : class {}
-
-, allowed = method =>
-    METHODS.filter
-      (method => method.toLowerCase () in this)
+      : class { get foo () { return 'bar' } }
 
 
 module.exports = path =>
