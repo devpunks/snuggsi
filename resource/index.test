@@ -99,13 +99,13 @@ test.only ('Default Resource disallowed methods', async t => {
       (new Server ( [ route (resource) ] ))
       .serve ``
 
-  , DISALLOWED_METHODS = ['ACL'] // UNSAFE_METHODS
+  , DISALLOWED_METHODS = UNSAFE_METHODS
 
 
-console.warn ('Valid HTTP Methods: ', METHODS.join `, `)
-console.warn ('Default Mthods: ', DEFAULT_METHODS.join `, `)
-console.warn ('Safe Mthods: ', SAFE_METHODS.join `, `)
-console.warn ('Unsafe Mthods: ', UNSAFE_METHODS.join `, `)
+console.warn ('\nValid HTTP Methods: ', METHODS.join `, `)
+console.warn ('\nDefault Mthods: ', DEFAULT_METHODS.join `, `)
+console.warn ('\nSafe Mthods: ', SAFE_METHODS.join `, `)
+console.warn ('\nUnsafe Mthods: ', UNSAFE_METHODS.join `, `)
 
   for (method of DISALLOWED_METHODS) {
 
