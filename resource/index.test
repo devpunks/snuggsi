@@ -102,6 +102,11 @@ test.only ('Default Resource disallowed methods', async t => {
   , DISALLOWED_METHODS = ['ACL'] // UNSAFE_METHODS
 
 
+console.warn ('Valid HTTP Methods: ', METHODS.join `, `)
+console.warn ('Default Mthods: ', DEFAULT_METHODS.join `, `)
+console.warn ('Safe Mthods: ', SAFE_METHODS.join `, `)
+console.warn ('Unsafe Mthods: ', UNSAFE_METHODS.join `, `)
+
   for (method of DISALLOWED_METHODS) {
 
     let
