@@ -23,7 +23,7 @@ const
 , Base = path =>
     Boolean (... (path = [].concat (path)))
       ? require (`${path}/index.es`)
-      : class { get foo () { return 'bar' } }
+      : class { }
 
 
 module.exports = path =>
