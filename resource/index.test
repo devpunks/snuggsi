@@ -98,7 +98,9 @@ test.only ('Default Resource disallowed methods', async t => {
       (new Server ( [ route (resource) ] ))
       .serve ``
 
-  , DISALLOWED_METHODS = UNSAFE_METHODS
+  , DISALLOWED_METHODS = METHODS.filter
+    (method => !!! DEFAULT_METHODS.includes (method))
+
 
 
   for (method of DISALLOWED_METHODS) {
