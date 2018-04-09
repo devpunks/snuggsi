@@ -57,6 +57,36 @@ test ('Default Resource allowed methods', async t => {
 })
 
 
+test ('Default Resource disallowed methods', async t => {
+  const
+    resource = Resource ``
+
+  , server =
+      (new Server ( [ route (resource) ] ))
+      .serve ``
+
+  , DISALLOWED_METHODS = METHODS.filter
+    (method => !!! DEFAULT_METHODS.includes (method))
+
+
+  for (method of DISALLOWED_METHODS) {
+
+    let
+      { status, headers }
+        = await fetch ( URL, { method } )
+
+    , allowed
+        = headers.get ('allow').split `, `
+
+    t.equals ( 405, status )
+    t.ok ( compare (allowed, DEFAULT_METHODS) )
+  }
+
+  server.close ``
+  t.end ()
+})
+
+
 test.only ('Defined Resource allowed methods', async t => {
   const
     { __proto__: proto } = resource
@@ -83,36 +113,6 @@ test.only ('Defined Resource allowed methods', async t => {
 
     t.notEqual ( 405, status )
     t.notOk (headers.get ('allow') )
-  }
-
-  server.close ``
-  t.end ()
-})
-
-
-test ('Default Resource disallowed methods', async t => {
-  const
-    resource = Resource ``
-
-  , server =
-      (new Server ( [ route (resource) ] ))
-      .serve ``
-
-  , DISALLOWED_METHODS = METHODS.filter
-    (method => !!! DEFAULT_METHODS.includes (method))
-
-
-  for (method of DISALLOWED_METHODS) {
-
-    let
-      { status, headers }
-        = await fetch ( URL, { method } )
-
-    , allowed
-        = headers.get ('allow').split `, `
-
-    t.equals ( 405, status )
-    t.ok ( compare (allowed, DEFAULT_METHODS) )
   }
 
   server.close ``
