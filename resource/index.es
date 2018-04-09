@@ -44,10 +44,10 @@ new class extends Base (path) {
   }
 
   head (context)
-    { context.throw (404) }
+    { context.status = 200 }
 
   get (context)
-    { context.throw (404) }
+    { context.status = 200 }
 
 //options (context)
 //  // should be done by CORS
