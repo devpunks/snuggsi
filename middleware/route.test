@@ -125,8 +125,8 @@ test ('route URI partial {token} parameters', async t => {
   , response =
       await fetch (`${URI}/${year}-${month}-${day}`)
 
-    t.equal (200, response.status)
-    t.equal (expected, await response.text ())
+  t.equal (200, response.status)
+  t.equal (expected, await response.text ())
 
   server.close ``
   t.end ()
