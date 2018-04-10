@@ -1,5 +1,7 @@
 const
-  METHODS
+  send = require ('koa-send')
+
+, METHODS
     = [ ... require ('http').METHODS ]
       // for some reason connect won't work
       .filter (method => method !== 'TRACE')
@@ -50,7 +52,7 @@ new class extends Base (path) {
 
   get (context, identity) {
     console.warn ('identity:', identity)
-    console.dir (context.path)
+    console.dir (context.path, send)
 
     context.status = 200
   }
