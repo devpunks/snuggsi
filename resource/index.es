@@ -63,6 +63,8 @@ new class extends Base (path) {
 
 function mount (point) { }
 
+const filesystem = require ('fs')
+
 async function send (context, path) {
 
   // piped streamed responses
@@ -76,10 +78,11 @@ async function send (context, path) {
     , file = `${process.cwd ()}${path}`
     , options = { index, extensions }
 
-    const filesystem = require ('fs')
+    , stats = await meta (file))
 
-    filesystem.stat (file, console.log)
-    filesystem.exists (file, console.log)
+    context.type = file
+      .split `.`
+      .pop ``
 
     context.body =
       filesystem.createReadStream (file)
@@ -87,4 +90,11 @@ async function send (context, path) {
     // test path security
     // `..` or even worse `/`
     // What about paths with special characters?
+}
+
+// stat order of magnitude slower than native
+// https://github.com/nodejs/node-v0.x-archive/issues/6662
+async function meta (file, promise) {
+  new Promise (resolve => filesystem.stat
+      (file, (error, statistics) => resolve (statistics)))
 }
