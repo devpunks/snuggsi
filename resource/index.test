@@ -160,11 +160,11 @@ test ('Defined Resource disallowed methods', async t => {
   t.end ()
 })
 
-test.only ('GET assets via subresource identity', async t => {
+test ('GET subresource assets', async t => {
 
   const
     point = `/resource/fixtures/`
-    resource = Resource (point)
+  , resource = Resource (point)
 
   , assets // loop resource
       = ['index.html']
