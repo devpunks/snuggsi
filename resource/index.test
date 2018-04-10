@@ -176,19 +176,24 @@ test.only ('GET assets via subresource identity', async t => {
   for (asset of assets) {
 
     let
-      response = await fetch
+      expected = await read
+        ( `.${point}${asset}` )
+
+    , response = await fetch
         ( `${URL}${asset}` )
 
-    , { status, headers }
-        = response
+    , { status, headers } = response
 
-    , expected = await read
-        ( `.${point}${asset}` )
+    , type = headers.get ('content-type')
+
+    , length = headers.get ('content-length')
 
     console.dir (status)
     console.dir (headers)
 
     t.equal ( 200, status )
+    t.equal (length, expected.length)
+    t.equal (type, 'text/html; charset=utf-8')
     t.equal ( expected, await response.text () )
   }
 
