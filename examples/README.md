@@ -1,6 +1,8 @@
 # snuggsi ツ - Easy Web Components
 
+
 ## [Component Registry](http://snuggsi.herokuapp.com/examples)
+
 
 ## The Template
 
@@ -8,6 +10,7 @@ See [MDN &lt;template&gt;](https://developer.mozilla.org/en-US/docs/Web/HTML/Ele
 for more details
 
   - `<template>`
+
 
 ## Custom Elements
 
