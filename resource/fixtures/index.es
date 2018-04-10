@@ -8,7 +8,7 @@ class {
 
   get (context, id) {
     'ping' === id
-      && (context.body = 'SHAZAAAM!')
+      && (context.body = 'pong')
   }
 
   put (context) {
