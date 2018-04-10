@@ -3,6 +3,7 @@
 **Create RealWorld App**
 
 https://github.com/koajs/koa/issues/979
+https://github.com/gothinkster/realworld
 
 
 ## [Component Registry](http://snuggsi.herokuapp.com/examples)
