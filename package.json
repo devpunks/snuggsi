@@ -63,7 +63,6 @@
   "dependencies": {
     "koa": "*",
     "koa-cors": "*",
-    "koa-send": "*",
     "koa-static": "*",
     "basic-auth": "*"
   }
