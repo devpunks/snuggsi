@@ -187,8 +187,6 @@ test.only ('GET assets via subresource identity', async t => {
     , type   = headers.get ('content-type')
     , length = headers.get ('content-length')
 
-    console.dir (headers)
-
     t.equal ( expected, await response.text () )
     t.equal (type, 'text/html; charset=utf-8')
     t.ok (length == expected.length)
