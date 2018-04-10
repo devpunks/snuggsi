@@ -174,11 +174,16 @@ test.only ('GET assets via subresource identity', async t => {
 
   for (asset of assets) {
 
-    let { status, headers }
-      = await fetch ( `${URL}${asset}`)
+    let
+      response
+        = await fetch ( `${URL}${asset}`)
+
+    , { status, headers }
+        = response
 
     console.dir (status)
     console.dir (headers)
+    console.warn ('HTML!!!', await read (response.body))
 
   //t.equal ( 200, status )
   //t.notOk ( headers.get ('allow') )
