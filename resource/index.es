@@ -66,6 +66,8 @@ function mount (point) { }
 
 async function send (context, path, send = require ('koa-send')) {
 
+  // piped streamed responses
+  // https://github.com/pillarjs/send/blob/master/test/send.js#L22-L24
     const
       extensions = []
     , index = undefined
