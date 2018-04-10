@@ -1,5 +1,7 @@
 const
-  METHODS
+  filesystem = require ('fs')
+
+, METHODS
     = [ ... require ('http').METHODS ]
       // for some reason connect won't work
       .filter (method => method !== 'TRACE')
@@ -68,8 +70,6 @@ new class extends Base (path) {
 }
 
 function mount (point) { }
-
-const filesystem = require ('fs')
 
 async function send (context, path) {
 
