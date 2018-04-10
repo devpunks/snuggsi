@@ -216,7 +216,7 @@ test.only ('GET subresource with predefined body', async t => {
   , { status, headers } = response
 
 
-  console.warn (status, headers)
+  t.equal ( 200, status )
 
   server.close ``
   t.end ()

@@ -6,9 +6,9 @@ class {
     console.warn ('This CAN be called from initialization')
   }
 
-  get (context) {
-    console.warn ('Holy mother of God')
-    context.body = 'SHAZAAAM!'
+  get (context, id) {
+    'ping' === id
+      && (context.body = 'SHAZAAAM!')
   }
 
   put (context) {

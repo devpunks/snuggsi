@@ -61,7 +61,8 @@ new class extends Base (path) {
     super.get
       && super.get (context, identity)
 
-    context.body || await send (context, `${path}${identity}`)
+    context.body
+      || await send (context, `${path}${identity}`)
   }
 
 //options (context)
