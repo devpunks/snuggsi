@@ -1,1 +1,1 @@
-alert ('Hello NOMODULE Resource!')
+alert ('Hello nomodule Resource!')
