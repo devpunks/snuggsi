@@ -1,3 +1,3 @@
 alert ('Hello MODULE Resource!')
 
-import './foo.mjs'
+import './dependency.mjs'
