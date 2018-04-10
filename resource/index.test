@@ -183,7 +183,7 @@ test.only ('GET assets via subresource identity', async t => {
 
     console.dir (status)
     console.dir (headers)
-    console.warn ('HTML!!!', await read (response.body))
+    console.warn ('HTML!!!', await response.text ())
 
   //t.equal ( 200, status )
   //t.notOk ( headers.get ('allow') )
