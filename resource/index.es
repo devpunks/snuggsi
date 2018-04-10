@@ -57,7 +57,11 @@ new class extends Base (path) {
     { context.status = 200 }
 
   async get (context, identity) {
-    await send (context, `${path}${identity}`)
+
+    super.get
+      && super.get (context, identity)
+
+    context.body || await send (context, `${path}${identity}`)
   }
 
 //options (context)
