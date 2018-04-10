@@ -50,6 +50,7 @@ new class extends Base (path) {
 
   async get (context, identity) {
     await send (context, `${path}${identity}`)
+
   }
 
 //options (context)
@@ -73,11 +74,14 @@ async function send (context, path, send = require ('koa-send')) {
 
     const filesystem = require ('fs')
 
-    var a = filesystem.stat (file, console.log)
+    filesystem.stat (file, console.log)
+    filesystem.exists (file, console.log)
 
-    console.warn (send, a, file, options)
+    console.warn (send, file, options)
 
-    send (context, file, {})
+//  await send (context, file, {})
+
+    context.body = 'SHAZZZAAAM!!'
 
     // test path security
     // `..` or even worse `/`
