@@ -80,11 +80,14 @@ async function send (context, path) {
   // HTTP Range Requests - https://tools.ietf.org/html/rfc7233
     const
       file = `${process.cwd ()}${path}`
-    , { size } = await meta (file)
+    , { size, mtime } = await meta (file)
 
 
     context.body =
       filesystem.createReadStream (file)
+
+    context.set
+      ('last-modified', mtime.toUTCString())
 
     context.set
       ('content-length', size)
