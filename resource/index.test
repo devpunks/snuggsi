@@ -166,7 +166,7 @@ test.only ('GET assets via subresource identity', async t => {
     point = `/resource/fixtures/`
     resource = Resource (point)
 
-  , assets
+  , assets // loop resource
       = ['index.html']
 
   , server =
@@ -184,17 +184,15 @@ test.only ('GET assets via subresource identity', async t => {
 
     , { status, headers } = response
 
-    , type = headers.get ('content-type')
-
+    , type   = headers.get ('content-type')
     , length = headers.get ('content-length')
 
-    console.dir (status)
     console.dir (headers)
 
-    t.equal ( 200, status )
-    t.equal (length, expected.length)
-    t.equal (type, 'text/html; charset=utf-8')
     t.equal ( expected, await response.text () )
+    t.equal (type, 'text/html; charset=utf-8')
+    t.ok (length == expected.length)
+    t.equal ( 200, status )
   }
 
   server.close ``
