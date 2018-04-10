@@ -6,6 +6,11 @@ class {
     console.warn ('This CAN be called from initialization')
   }
 
+  get (context) {
+    console.warn ('Holy mother of God')
+    context.body = 'SHAZAAAM!'
+  }
+
   put (context) {
     context.status = 200
     console.warn ('Wow this is really PUTing!', context.method)

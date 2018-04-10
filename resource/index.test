@@ -199,3 +199,25 @@ test ('GET subresource assets', async t => {
   server.close ``
   t.end ()
 })
+
+
+test.only ('GET subresource with predefined body', async t => {
+
+  const
+    resource = Resource `/resource/fixtures/`
+
+  , server =
+      (new Server ( [ route (resource) ] ))
+      .serve ``
+
+  , response = await fetch
+      ( `${URL}ping` )
+
+  , { status, headers } = response
+
+
+  console.warn (status, headers)
+
+  server.close ``
+  t.end ()
+})
