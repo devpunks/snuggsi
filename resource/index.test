@@ -217,6 +217,7 @@ test.only ('GET subresource with predefined body', async t => {
 
 
   t.equal ( 200, status )
+  t.equal ( 'pong', await response.text () )
 
   server.close ``
   t.end ()
