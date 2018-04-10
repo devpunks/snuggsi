@@ -1,3 +1,3 @@
-alert ('Hello MODULE Resource!')
+alert ('Hello module Resource!')
 
 import './dependency.mjs'
