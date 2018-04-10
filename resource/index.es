@@ -68,6 +68,7 @@ async function send (context, path, send = require ('koa-send')) {
 
   // piped streamed responses
   // https://github.com/koajs/koa/issues/944
+  // https://github.com/claudetech/koa-stream
   // https://github.com/pillarjs/send/blob/master/test/send.js#L22-L24
   // HTTP Range Requests - https://tools.ietf.org/html/rfc7233
     const
