@@ -121,7 +121,7 @@ test ('Defined Resource allowed methods', async t => {
 })
 
 
-test.only ('Defined Resource disallowed methods', async t => {
+test ('Defined Resource disallowed methods', async t => {
   const
     { __proto__: proto } = resource
       = Resource `/resource/fixtures/`
@@ -154,6 +154,34 @@ test.only ('Defined Resource disallowed methods', async t => {
 
     t.equal ( 405, status )
     t.ok ( compare (allowed, ALLOWED_METHODS) )
+  }
+
+  server.close ``
+  t.end ()
+})
+
+test.only ('GET assets via subresource identity', async t => {
+
+  const
+    resource = Resource `/resource/fixtures/`
+
+  , assets
+      = ['index.html']
+
+  , server =
+      (new Server ( [ route (resource) ] ))
+      .serve ``
+
+  for (asset of assets) {
+
+    let { status, headers }
+      = await fetch ( `${URL}${asset}`)
+
+    console.dir (status)
+    console.dir (headers)
+
+  //t.equal ( 200, status )
+  //t.notOk ( headers.get ('allow') )
   }
 
   server.close ``

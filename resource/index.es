@@ -48,8 +48,12 @@ new class extends Base (path) {
   head (context)
     { context.status = 200 }
 
-  get (context)
-    { context.status = 200 }
+  get (context, identity) {
+    console.warn ('identity:', identity)
+    console.dir (context.path)
+
+    context.status = 200
+  }
 
 //options (context)
 //  // should be done by CORS
