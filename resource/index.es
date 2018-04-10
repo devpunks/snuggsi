@@ -25,6 +25,12 @@ const
       ? require (`${process.cwd ()}${path}index.es`)
       : class { }
 
+// stat order of magnitude slower than native
+// https://github.com/nodejs/node-v0.x-archive/issues/6662
+, meta = file =>
+    new Promise (resolve => filesystem.stat
+      (file, (error, statistics) => resolve (statistics)))
+
 
 module.exports = path =>
 
@@ -73,28 +79,21 @@ async function send (context, path) {
   // https://github.com/pillarjs/send/blob/master/test/send.js#L22-L24
   // HTTP Range Requests - https://tools.ietf.org/html/rfc7233
     const
-      extensions = []
-    , index = undefined
-    , file = `${process.cwd ()}${path}`
-    , options = { index, extensions }
+      file = `${process.cwd ()}${path}`
+    , { size } = await meta (file)
 
-    , stats = await meta (file))
+
+    context.body =
+      filesystem.createReadStream (file)
+
+    context.set
+      ('content-length', size)
 
     context.type = file
       .split `.`
       .pop ``
 
-    context.body =
-      filesystem.createReadStream (file)
-
     // test path security
     // `..` or even worse `/`
     // What about paths with special characters?
-}
-
-// stat order of magnitude slower than native
-// https://github.com/nodejs/node-v0.x-archive/issues/6662
-async function meta (file, promise) {
-  new Promise (resolve => filesystem.stat
-      (file, (error, statistics) => resolve (statistics)))
 }
