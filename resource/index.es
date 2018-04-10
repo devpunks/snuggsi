@@ -50,7 +50,6 @@ new class extends Base (path) {
 
   async get (context, identity) {
     await send (context, `${path}${identity}`)
-
   }
 
 //options (context)
@@ -64,7 +63,7 @@ new class extends Base (path) {
 
 function mount (point) { }
 
-async function send (context, path, send = require ('koa-send')) {
+async function send (context, path) {
 
   // piped streamed responses
   // https://github.com/koajs/koa/issues/944
@@ -82,11 +81,8 @@ async function send (context, path, send = require ('koa-send')) {
     filesystem.stat (file, console.log)
     filesystem.exists (file, console.log)
 
-    console.warn (send, file, options)
-
-//  await send (context, file, {})
-
-    context.body = 'SHAZZZAAAM!!'
+    context.body =
+      filesystem.createReadStream (file)
 
     // test path security
     // `..` or even worse `/`

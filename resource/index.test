@@ -163,7 +163,8 @@ test ('Defined Resource disallowed methods', async t => {
 test.only ('GET assets via subresource identity', async t => {
 
   const
-    resource = Resource `/resource/fixtures/`
+    point = `/resource/fixtures/`
+    resource = Resource (point)
 
   , assets
       = ['index.html']
@@ -175,18 +176,20 @@ test.only ('GET assets via subresource identity', async t => {
   for (asset of assets) {
 
     let
-      response
-        = await fetch ( `${URL}${asset}`)
+      response = await fetch
+        ( `${URL}${asset}` )
 
     , { status, headers }
         = response
 
+    , expected = await read
+        ( `.${point}${asset}` )
+
     console.dir (status)
     console.dir (headers)
-    console.warn ('HTML!!!', await response.text ())
 
-  //t.equal ( 200, status )
-  //t.notOk ( headers.get ('allow') )
+    t.equal ( 200, status )
+    t.equal ( expected, await response.text () )
   }
 
   server.close ``
