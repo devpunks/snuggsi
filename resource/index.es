@@ -73,12 +73,13 @@ async function send (context, path, send = require ('koa-send')) {
 
     const filesystem = require ('fs')
 
-    filesystem.stat (file, console.log)
+    var a = filesystem.stat (file, console.log)
 
-    console.warn (send, context.path, options)
+    console.warn (send, a, file, options)
 
-    send (context, file, options)
+    send (context, file, {})
 
     // test path security
     // `..` or even worse `/`
+    // What about paths with special characters?
 }
