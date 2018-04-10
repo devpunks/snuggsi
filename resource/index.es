@@ -1,7 +1,5 @@
 const
-  send = require ('koa-send')
-
-, METHODS
+  METHODS
     = [ ... require ('http').METHODS ]
       // for some reason connect won't work
       .filter (method => method !== 'TRACE')
@@ -50,11 +48,8 @@ new class extends Base (path) {
   head (context)
     { context.status = 200 }
 
-  get (context, identity) {
-    console.warn ('identity:', identity)
-    console.dir (context.path, send)
-
-    context.status = 200
+  async get (context, identity) {
+    await send (context, `${path}${identity}`)
   }
 
 //options (context)
@@ -64,4 +59,26 @@ new class extends Base (path) {
 //purge (context)
 //  // http://restcookbook.com/Basics/caching/
 //  { context.status = 202 }
+}
+
+function mount (point) { }
+
+async function send (context, path, send = require ('koa-send')) {
+
+    const
+      extensions = []
+    , index = undefined
+    , file = `${process.cwd ()}${path}`
+    , options = { index, extensions }
+
+    const filesystem = require ('fs')
+
+    filesystem.stat (file, console.log)
+
+    console.warn (send, context.path, options)
+
+    send (context, file, options)
+
+    // test path security
+    // `..` or even worse `/`
 }
