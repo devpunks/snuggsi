@@ -85,7 +85,7 @@ async function send (context, path) {
   // HTTP Range Requests - https://tools.ietf.org/html/rfc7233
     const
       file = `${process.cwd ()}${path}`
-    , { size, mtime } = await meta (file)
+    , { size, mtime } = await stat (file)
 
 
     context.body =
