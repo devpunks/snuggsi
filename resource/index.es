@@ -1,5 +1,10 @@
 const
-  filesystem = require ('fs')
+  filesystem
+    = require ('fs')
+
+, stat
+    = require ('util')
+      .promisify (filesystem.stat)
 
 , METHODS
     = [ ... require ('http').METHODS ]
