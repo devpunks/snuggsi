@@ -201,7 +201,7 @@ test ('GET subresource assets', async t => {
 })
 
 
-test.only ('GET subresource with predefined body', async t => {
+test ('GET subresource with predefined body', async t => {
 
   const
     resource = Resource `/resource/fixtures/`
