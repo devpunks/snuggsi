@@ -1,5 +1,8 @@
 const
-  filesystem
+  root
+    = process.cwd ``
+
+, filesystem
     = require ('fs')
 
 , stat
