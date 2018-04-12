@@ -88,18 +88,10 @@ async function send (context, path) {
     , { size, mtime } = await stat (file)
 
 
-    context.body =
-      filesystem.createReadStream (file)
-
-    context.set
-      ('last-modified', mtime.toUTCString())
-
-    context.set
-      ('content-length', size)
-
-    context.type = file
-      .split `.`
-      .pop ``
+    context.body = read (file)
+    context.type = file.split `.`.pop ``
+    context.set ('content-length', size)
+    context.set ('last-modified' , mtime.toUTCString())
 
     // test path security
     // `..` or even worse `/`
