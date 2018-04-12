@@ -32,12 +32,6 @@ const
       ? require (`${process.cwd ()}${path}index.es`)
       : class { }
 
-// stat order of magnitude slower than native
-// https://github.com/nodejs/node-v0.x-archive/issues/6662
-, meta = file =>
-    new Promise (resolve => filesystem.stat
-      (file, (error, statistics) => resolve (statistics)))
-
 
 module.exports = path =>
 
