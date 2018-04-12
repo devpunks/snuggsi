@@ -65,7 +65,7 @@ new class extends Base (path) {
       // test path security
       // `..` or even worse `/`
       // What about paths with special characters?
-      || await send (context, process.cwd () + path + identity)
+      || await send (context, root + path + identity)
   }
 
 //options (context)
