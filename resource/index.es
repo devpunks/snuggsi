@@ -37,18 +37,14 @@ module.exports = path =>
 
 new class extends Base (path) {
 
-  constructor () { super ()
-
-    const allow = filter (this)
+  constructor (allow = filter (super ()), headers = { allow }) {
 
     for (let method of UNSAFE_METHODS)
       allow.includes (method) ||
 
       Object.defineProperty (this, method.toLowerCase (), {
         enumerable: true,
-        value: function (context) {
-          context.throw (405,  { headers: { allow } } )
-        }.bind (this)
+        value (context) { context.throw (405,  { headers }) }
       })
   }
 
@@ -61,7 +57,10 @@ new class extends Base (path) {
     ( context, identity )
 
     context.body
-      || await send (context, `${path}${identity}`)
+      // test path security
+      // `..` or even worse `/`
+      // What about paths with special characters?
+      || await send (context, process.cwd () + path + identity)
   }
 
 //options (context)
@@ -76,24 +75,20 @@ new class extends Base (path) {
 function mount (point) { }
 
 // Inded overflow https://github.com/koajs/send/pull/99/files
-async function send (context, path) {
+async function send (context, file) {
 
   // piped streamed responses
   // https://github.com/koajs/koa/issues/944
   // https://github.com/claudetech/koa-stream
   // https://github.com/pillarjs/send/blob/master/test/send.js#L22-L24
   // HTTP Range Requests - https://tools.ietf.org/html/rfc7233
+
     const
-      file = `${process.cwd ()}${path}`
-    , { size, mtime } = await stat (file)
+      { size, mtime } = await stat (file)
 
 
     context.body = read (file)
     context.type = file.split `.`.pop ``
-    context.set ('content-length', size)
-    context.set ('last-modified' , mtime.toUTCString())
-
-    // test path security
-    // `..` or even worse `/`
-    // What about paths with special characters?
+    context.set  ( 'content-length', size )
+    context.set  ( 'last-modified' , mtime.toUTCString `` )
 }
