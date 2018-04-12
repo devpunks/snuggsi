@@ -57,8 +57,8 @@ new class extends Base (path) {
 
   async get (context, identity) {
 
-    super.get
-      && super.get (context, identity)
+    ( super.get || ( _ => _ ) )
+    ( context, identity )
 
     context.body
       || await send (context, `${path}${identity}`)
