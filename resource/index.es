@@ -31,8 +31,10 @@ const
       (method => resource [method.toLowerCase ()])
 
 , Base = path =>
-    Boolean (... (path = [].concat (path)))
-      ? require (`${process.cwd ()}${path}index.es`)
+    !!! console.warn ('path', path)
+
+    Boolean ( path + '')
+      ? require (`${root}${path}index.es`)
       : class { }
 
 
