@@ -59,7 +59,7 @@ new class extends Base (path = path + '') {
     ( super.get || ( _ => _ ) )
     ( context, identity )
 
-    context.body
+    !!! context.body
       // test path security
       // `..` or even worse `/`
       // What about paths with special characters?
