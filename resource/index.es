@@ -27,12 +27,6 @@ const
       .filter (method => method !== 'CONNECT')
       .filter (method => method !== 'OPTIONS') // cors?
 
-, DEFAULT_METHODS
-    = [ 'GET', 'HEAD' ]
-
-, SAFE_METHODS
-    = [ ... DEFAULT_METHODS ]
-
 , UNSAFE_METHODS
     = METHODS.filter
       (method => !!! SAFE_METHODS.includes (method))
