@@ -8,7 +8,7 @@ const
       : class { }
 
 , filesystem
-   = require ('fs')
+    = require ('fs')
 
 , stat
     = require ('util')
