@@ -38,7 +38,7 @@ const
 
 module.exports = path =>
 
-new class extends Base (path) {
+new class extends Base (path = path + '') {
 
   constructor (allow = filter (super ()), headers = { allow }) {
 
@@ -63,7 +63,7 @@ new class extends Base (path) {
       // test path security
       // `..` or even worse `/`
       // What about paths with special characters?
-      || await send (context, root + path + identity)
+      || path && await send (context, root + identity)
   }
 
 //options (context)
