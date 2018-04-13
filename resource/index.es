@@ -8,11 +8,17 @@ const
       : class { }
 
 , filesystem
-    = require ('fs')
+   = require ('fs')
 
 , stat
     = require ('util')
       .promisify (filesystem.stat)
+
+, DEFAULT_METHODS
+    = [ 'GET', 'HEAD' ]
+
+, SAFE_METHODS
+    = [ ... DEFAULT_METHODS ]
 
 , METHODS
     = [ ... require ('http').METHODS ]
