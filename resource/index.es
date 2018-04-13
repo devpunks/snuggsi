@@ -1,6 +1,11 @@
 const
-  root
-    = process.cwd ``
+  entry = 'index.es'
+, root  = process.cwd ``
+
+, Base = path =>
+    !! path
+      ? require (`${root}${path}${entry}`)
+      : class { }
 
 , filesystem
     = require ('fs')
