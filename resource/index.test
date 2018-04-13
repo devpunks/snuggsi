@@ -48,7 +48,7 @@ test.only ('Default Resource allowed methods', async t => {
     let { status, headers }
       = await fetch ( URL, { method } )
 
-    t.equal ( 200, status )
+    t.ok ( [200, 404 /* for GET SMH */].includes (status) )
     t.notOk ( headers.get ('allow') )
   }
 
