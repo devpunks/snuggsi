@@ -33,14 +33,7 @@ const
 
 , filter = resource =>
     METHODS.filter
-      (method => resource [method.toLowerCase ()])
-
-, Base = path =>
-    !!! console.warn ('path', path)
-
-    Boolean ( path + '')
-      ? require (`${root}${path}index.es`)
-      : class { }
+      (method => method.toLowerCase () in resource)
 
 
 module.exports = path =>
