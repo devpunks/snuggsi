@@ -2,17 +2,17 @@ const
   entry = 'index.es'
 , root  = process.cwd ``
 
-, Base = path =>
-    !! path
-      ? require (`${root}${path}${entry}`)
-      : class { }
-
 , filesystem
     = require ('fs')
 
 , stat
     = require ('util')
       .promisify (filesystem.stat)
+
+, Base = path =>
+    !! path
+      ? require (`${root}${path}${entry}`)
+      : class { }
 
 , DEFAULT_METHODS
     = [ 'GET', 'HEAD' ]
