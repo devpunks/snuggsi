@@ -31,7 +31,7 @@ const
     = METHODS.filter
       (method => !!! SAFE_METHODS.includes (method))
 
-, filter = resource =>
+, scan = resource =>
     METHODS.filter
       (method => method.toLowerCase () in resource)
 
@@ -40,7 +40,7 @@ module.exports = path =>
 
 new class extends Base (path = path + '') {
 
-  constructor (allow = filter (super ()), headers = { allow }) {
+  constructor (allow = scan (super ()), headers = { allow }) {
 
     for (let method of UNSAFE_METHODS)
       allow.includes (method) ||
