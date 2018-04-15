@@ -35,6 +35,7 @@ const
     METHODS.filter
       (method => method.toLowerCase () in resource)
 
+, disable = resource =>
 
 module.exports = path =>
 
