@@ -2,6 +2,10 @@ const
   decode = decodeURIComponent
   // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
 
+, identify = uri =>
+    uri.split `/`.pop ``
+      || undefined
+
 , characters
     = '([()A-Za-z%0-9\\*\\-\\_\\.]+)'
 
@@ -23,10 +27,6 @@ const
 
     return context
   }
-
-, identify = uri =>
-    uri.split `/`.pop ``
-      || undefined
 
 
 module.exports = (uri, resource) => {
