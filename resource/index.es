@@ -82,16 +82,16 @@ function mount (point) { }
 async function send (context, file) {
 
   const
+  , { promisify }
+      = require ('util')
+
     // potentially use non blocking method
     // https://code-maven.com/reading-a-file-with-nodejs
     { stat, readFile: read }
       = require ('fs')
 
-  , { promisify }
-      = require ('util')
-
   , { size, mtime }
-      = await  promisify (stat) (file)
+      = await promisify (stat) (file)
 
   , headers = {
       'content-length' : size
