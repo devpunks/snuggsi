@@ -49,6 +49,7 @@ new class extends Base (path = path + '') {
   head (context)
     { context.status = 200 }
 
+
   async get (context, identity) {
 
     ( super.get || ( _ => _ ) )
