@@ -2,13 +2,6 @@ const
   entry = 'index.es'
 , root  = process.cwd ``
 
-, filesystem
-    = require ('fs')
-
-, stat
-    = require ('util')
-      .promisify (filesystem.stat)
-
 , Base = path =>
     !! path
       ? require (`${root}${path}${entry}`)
@@ -82,12 +75,17 @@ function mount (point) { }
 // Inded overflow https://github.com/koajs/send/pull/99/files
 async function send (context, file) {
 
-    const
-      { size, mtime } = await stat (file)
+  const
+    { stat }
+      = require ('fs')
+
+  , { size, mtime }
+      = await require ('util')
+        .promisify (stat) (file)
 
 
-    context.body = read (file)
-    context.type = file.split `.`.pop ``
-    context.set  ( 'content-length', size )
-    context.set  ( 'last-modified' , mtime.toUTCString `` )
+  context.body = read (file)
+  context.type = file.split `.`.pop ``
+  context.set  ( 'content-length', size )
+  context.set  ( 'last-modified' , mtime.toUTCString `` )
 }

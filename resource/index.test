@@ -1,9 +1,11 @@
+
 const
-  path = '/foo/'
+ { test, read, fetch }
+    = require ('test')
+
+, path = '/foo/'
 , URL  = `http://localhost:8181${path}`
 
-, { test, read, fetch }
-    = require ('test')
 
 , { Server, Resource }
     = require ('..')
@@ -34,7 +36,7 @@ const
       == right.slice ().sort ().join `,`
 
 
-test.only ('Default Resource allowed methods', async t => {
+test ('Default Resource allowed methods', async t => {
   const
     resource = Resource ``
 
@@ -160,7 +162,7 @@ test ('Defined Resource disallowed methods', async t => {
   t.end ()
 })
 
-test ('GET subresource assets', async t => {
+test.only ('GET subresource assets', async t => {
 
   const
     point = `/resource/fixtures/`
