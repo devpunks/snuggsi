@@ -85,8 +85,6 @@ async function send (context, file) {
   , { promisify }
       = require ('util')
 
-    // potentially use non blocking method
-    // https://code-maven.com/reading-a-file-with-nodejs
     { stat, readFile: read }
       = require ('fs')
 
