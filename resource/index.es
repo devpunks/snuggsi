@@ -50,11 +50,7 @@ new class extends Base (path = path + '') {
 
     for (let method of UNSAFE_METHODS)
       allow.includes (method) ||
-
-      Object.defineProperty (this, method.toLowerCase (), {
-        enumerable: true,
-        value (context) { context.throw (405,  { headers }) }
-      })
+      disable ( this, method.toLowerCase `` )
   }
 
   head (context)
