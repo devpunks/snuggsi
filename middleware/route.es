@@ -25,7 +25,8 @@ const
   }
 
 , identify = uri =>
-    uri.split `/`.pop `` || undefined
+    uri.split `/`.pop ``
+      || undefined
 
 
 module.exports = (uri, resource) => {
