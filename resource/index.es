@@ -54,16 +54,18 @@ new class extends Base (path = path + '') {
     ( super.get || ( _ => _ ) )
     ( context, identity )
 
-    !!! context.body
-      // test path security
-      // `..` or even worse `/`
-      // What about paths with special characters?
-      || path && await send (context, root + identity)
+    !! context.body
+    // test path security
+    // `..` or even worse `/`
+    // What about paths with special characters?
+    || await send
+      (context, [ root, path, identity].join `` )
   }
 
 //options (context)
 //  // should be done by CORS
 //  { context.status = 200 }
+
 
 //purge (context)
 //  // http://restcookbook.com/Basics/caching/
@@ -73,11 +75,12 @@ new class extends Base (path = path + '') {
 
 function mount (point) { }
 
+
 // Index overflow https://github.com/koajs/send/pull/99/files
 async function send (context, file) {
 
   const
-    { stat }
+    { stat, readFileSync: read }
       = require ('fs')
 
   , { size, mtime }
