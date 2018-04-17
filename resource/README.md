@@ -7,6 +7,15 @@
 - Handling A Resource - https://mimesniff.spec.whatwg.org/#handling-a-resource
 
 
+## Response Streams
+
+  - piped streamed responses
+  - https://github.com/koajs/koa/issues/944
+  - https://github.com/claudetech/koa-stream
+  - https://github.com/pillarjs/send/blob/master/test/send.js#L22-L24
+  - HTTP Range Requests - https://tools.ietf.org/html/rfc7233
+
+
 ## MIME Sniffing
 
   - https://mimesniff.spec.whatwg.org/#javascript-mime-type
