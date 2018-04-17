@@ -84,18 +84,20 @@ async function send (context, file) {
   const
     // potentially use non blocking method
     // https://code-maven.com/reading-a-file-with-nodejs
-    { stat, readFileSync: read }
+    { stat, readFile: read }
       = require ('fs')
 
+  , { promisify }
+      = require ('util')
+
   , { size, mtime }
-      = await require ('util')
-        .promisify (stat) (file)
+      = await  promisify (stat) (file)
 
   , headers = {
       'content-length' : size
     , 'last-modified'  : mtime.toUTCString `` }
 
   context.set  ( headers )
-  context.body = read (file)
   context.type = file.split `.`.pop ``
+  context.body = await promisify (read) (file)
 }
