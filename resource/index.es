@@ -3,9 +3,9 @@ const
 , root  = process.cwd ``
 
 , Base = path =>
-    !! path
-      ? require (`${root}${path}${entry}`)
-      : class { }
+    !!! path
+      ? class { }
+      : require (`${root}${path}${entry}`)
 
 , DEFAULT_METHODS
     = [ 'GET', 'HEAD' ]
