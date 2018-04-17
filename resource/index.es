@@ -35,8 +35,8 @@ const
     METHODS.filter
       (method => method.toLowerCase () in resource)
 
-, disable = resource =>
-    Object.defineProperty (this, method.toLowerCase (), {
+, disable = (resource, method) =>
+    Object.defineProperty (resource, method, {
       enumerable: true,
       value (context) { context.throw (405,  { headers }) }
     })
