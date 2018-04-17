@@ -70,9 +70,10 @@ new class extends Base (path = path + '') {
 //  { context.status = 202 }
 }
 
+
 function mount (point) { }
 
-// Inded overflow https://github.com/koajs/send/pull/99/files
+// Index overflow https://github.com/koajs/send/pull/99/files
 async function send (context, file) {
 
   const
@@ -83,9 +84,11 @@ async function send (context, file) {
       = await require ('util')
         .promisify (stat) (file)
 
+  , headers = {
+      'content-length' : size
+    , 'last-modified'  : mtime.toUTCString `` }
 
+  context.set  ( headers )
   context.body = read (file)
   context.type = file.split `.`.pop ``
-  context.set  ( 'content-length', size )
-  context.set  ( 'last-modified' , mtime.toUTCString `` )
 }
