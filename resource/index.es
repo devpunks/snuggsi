@@ -1,5 +1,5 @@
 const
-  entry = 'index.es'
+  entry = `index.es`
 , root  = process.cwd ``
 
 , Base = path =>
