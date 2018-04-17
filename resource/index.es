@@ -36,6 +36,11 @@ const
       (method => method.toLowerCase () in resource)
 
 , disable = resource =>
+    Object.defineProperty (this, method.toLowerCase (), {
+      enumerable: true,
+      value (context) { context.throw (405,  { headers }) }
+    })
+
 
 module.exports = path =>
 
