@@ -82,6 +82,8 @@ function mount (point) { }
 async function send (context, file) {
 
   const
+    // potentially use non blocking method
+    // https://code-maven.com/reading-a-file-with-nodejs
     { stat, readFileSync: read }
       = require ('fs')
 
