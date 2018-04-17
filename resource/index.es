@@ -63,6 +63,7 @@ new class extends Base (path = path + '') {
       (context, [ root, path, identity].join `` )
   }
 
+
 //options (context)
 //  // should be done by CORS
 //  { context.status = 200 }
