@@ -82,12 +82,6 @@ function mount (point) { }
 // Inded overflow https://github.com/koajs/send/pull/99/files
 async function send (context, file) {
 
-  // piped streamed responses
-  // https://github.com/koajs/koa/issues/944
-  // https://github.com/claudetech/koa-stream
-  // https://github.com/pillarjs/send/blob/master/test/send.js#L22-L24
-  // HTTP Range Requests - https://tools.ietf.org/html/rfc7233
-
     const
       { size, mtime } = await stat (file)
 
