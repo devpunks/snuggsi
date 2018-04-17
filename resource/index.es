@@ -49,8 +49,8 @@ new class extends Base (path = path + '') {
   constructor (allow = scan (super ()), headers = { allow }) {
 
     for (let method of UNSAFE_METHODS)
-      allow.includes (method) ||
-      disable ( this, method.toLowerCase `` )
+      allow.includes (method)
+        || disable (this, method)
   }
 
   head (context)
