@@ -34,6 +34,7 @@ const
       value (context) { context.throw (405,  { headers }) }
     })
 
+
 module.exports = path =>
 
 new class extends Base (path = path + '') {
