@@ -15,8 +15,8 @@ const
 
 , METHODS
     = [ ... require ('http').METHODS ]
-      // for some reason connect won't work
       .filter (method => method !== 'TRACE')
+      // for some reason connect won't work
       .filter (method => method !== 'CONNECT')
       .filter (method => method !== 'OPTIONS') // cors?
 
