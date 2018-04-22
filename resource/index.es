@@ -82,10 +82,10 @@ function mount (point) { }
 async function send (context, file) {
 
   const
-  , { promisify }
+    { promisify }
       = require ('util')
 
-    { stat, readFile: read }
+  , { stat, readFile: read }
       = require ('fs')
 
   , { size, mtime }
