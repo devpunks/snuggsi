@@ -162,7 +162,7 @@ test ('Defined Resource disallowed methods', async t => {
   t.end ()
 })
 
-test.only ('GET subresource assets', async t => {
+test ('GET subresource assets', async t => {
 
   const
     point = `/resource/fixtures/`
