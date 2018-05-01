@@ -17,8 +17,6 @@ export ENTRY="index.test"
 export MODULES="{.,test,server,resource,middleware,$API}"
 export FILES="$ROOT/$MODULES/$ENTRY"
 
-echo "Covering $FILES"
-
 export FILES="$ROOT/resource/index.test"
 
 $ROOT/node_modules/.bin/tape \
