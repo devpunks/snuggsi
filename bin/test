@@ -19,7 +19,9 @@ export FILES="$ROOT/$MODULES/$ENTRY"
 
 export FILES="$ROOT/resource/index.test"
 
-$ROOT/node_modules/.bin/tape \
-  --require ./               \
-  -- $FILES                  \
-  |  $SPEC
+echo "Covering $FILES"
+
+  $ROOT/node_modules/.bin/tape \
+    --require ./               \
+    -- $FILES                  \
+#   |  $SPEC
