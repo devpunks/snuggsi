@@ -218,6 +218,7 @@ test ('Deny GET */index.es subresource', async t => {
 
   , { status } = response
 
+
   t.equal ( 404, status )
 
 
