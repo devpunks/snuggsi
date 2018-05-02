@@ -23,17 +23,22 @@ test ('calling next middlewaree')
 test ('Basic auth with valid credentials responds 200 OK', async t => {
 
   const
-    server   = (new Server (middleware)).serve ``
-  , name     = 'Foo'
+    name     = 'Foo'
   , password = 'Bar'
+  , expected = 'Access Granted'
+  , echo     = context => context.body = expected
+  , server   = (new Server ([ ... middleware, echo ])).serve ``
   , headers  = authorize (name, password)
-
   , response = await fetch
       ('http://localhost:8181/', { headers } )
 
 
   t.equal
     (response.status, 200)
+
+  t.equal
+    (await response.text ``, expected)
+
 
   server.close ``
   t.end ()
@@ -45,11 +50,10 @@ test ('Basic auth with valid credentials responds 200 OK', async t => {
 test ('Basic auth with valid credentials removes WWW-Authenticate', async t => {
 
   const
-    server   = (new Server (middleware)).serve ``
-  , name     = 'Foo'
+    name     = 'Foo'
   , password = 'Bar'
+  , server   = (new Server (middleware)).serve ``
   , headers  = authorize (name, password)
-
   , response = await fetch
       ('http://localhost:8181/', { headers } )
 

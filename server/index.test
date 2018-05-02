@@ -119,12 +119,16 @@ test ('serving specific directory', async t => {
     server
       = ( new Server ).serve ('server/fixtures')
 
-  , { body }
+  , response
       = await fetch (`http://localhost:${process.env.PORT}/index.txt`)
 
 
   t.equal
-    ( await read (body), read `./server/fixtures/index.txt` )
+    (200, response.status)
+
+  t.equal
+    ( await response.text ``, await read `./server/fixtures/index.txt` )
+
 
   server.close ``
   t.end ()
@@ -137,12 +141,16 @@ test ('serving specific directory with template literal', async t => {
     server
       = ( new Server ).serve `server/fixtures`
 
-  , { body }
+  , response
       = await fetch (`http://localhost:${process.env.PORT}/index.txt`)
 
 
   t.equal
-    ( await read (body), read `./server/fixtures/index.txt` )
+    (200, response.status)
+
+  t.equal
+    ( await response.text ``, await read `./server/fixtures/index.txt` )
+
 
   server.close ``
   t.end ()
