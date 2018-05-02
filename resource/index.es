@@ -87,7 +87,7 @@ async function send (context, file) {
     { promisify }
       = require ('util')
 
-  , { stat, readFile: read }
+  , { stat, readFile: read, readFileSync: sync }
       = require ('fs')
 
   , { size, mtime }
@@ -100,5 +100,4 @@ async function send (context, file) {
   context.set  ( headers )
   context.type = file.split `.`.pop ``
   context.body = await promisify (read) (file)
-  console.warn ('sending', context.type, file, size, mtime, context.body)
 }
