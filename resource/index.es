@@ -24,8 +24,8 @@ const
     = METHODS.filter
       (method => !!! SAFE_METHODS.includes (method))
 
-, scan = resource =>
-    METHODS.filter
+, scan
+    = resource => METHODS.filter
       (method => method.toLowerCase () in resource)
 
 , disable = (resource, method, value, enumerable = true) =>
@@ -59,27 +59,23 @@ new class extends Base (path = path + '') {
       ( context, identity )
 
     !! context.body
-    // test path security
-    // `..` or even worse `/`
+    // test path security `..` or even worse `/`
     // What about paths with special characters?
     || Boolean (identity) && identity !== entry
     && await send (context, [ root, path, identity ].join `` )
   }
 
 
-//options (context)
-//  // should be done by CORS
+//options (context) // should be done by CORS
 //  { context.status = 200 }
 
 
-//purge (context)
-//  // http://restcookbook.com/Basics/caching/
+//purge (context) // http://restcookbook.com/Basics/caching/
 //  { context.status = 202 }
 }
 
 
-function mount (point) {
-  // Negotiation requires efficient directory traversal.
+function mount (point) { // Negotiation requires efficient directory traversal.
   // https://codehabitude.com/2015/10/11/evolving-a-node-js-directory-walk/
 }
 
