@@ -28,11 +28,9 @@ const
     METHODS.filter
       (method => method.toLowerCase () in resource)
 
-, disable = (resource, method) =>
-    Object.defineProperty (resource, method, {
-      enumerable: true,
-      value (context) { context.throw (405,  { headers }) }
-    })
+, disable = (resource, method, value, enumerable = true) =>
+    Object.defineProperty
+      (resource, method.toLowerCase (), { enumerable, value })
 
 
 module.exports = path =>
@@ -48,7 +46,7 @@ new class extends Base (path = path + '') {
 
     for (let method of UNSAFE_METHODS)
       allow.includes (method)
-        || disable (this, method.toLowerCase ())
+        || disable (this, method, endpoint)
   }
 
   head (context)
@@ -57,13 +55,8 @@ new class extends Base (path = path + '') {
 
   async get (context, identity) {
 
-    const func = ( super.get || ( _ => _ ) )
-
-    console.log (context, identity, super.get)
-
-    undefined;
-
-    func ( context, identity )
+    ( super.get || ( _ => _ ) )
+      ( context, identity )
 
     !! context.body
     // test path security
@@ -91,7 +84,6 @@ function mount (point) { }
 // Index overflow https://github.com/koajs/send/pull/99/files
 async function send (context, file) {
 
-  console.log ('sending!', context.path, file)
   const
     { promisify }
       = require ('util')
