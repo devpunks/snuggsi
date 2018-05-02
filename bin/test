@@ -17,14 +17,17 @@ export ENTRY="index.test"
 export MODULES="{.,test,server,resource,middleware,$API}"
 export FILES="$ROOT/$MODULES/$ENTRY"
 
+
 if [ $# -ne 0 ]
   then
     export FILES="$ROOT/$1"
 fi
 
+
 echo "Covering $FILES"
 
-  $ROOT/node_modules/.bin/tape \
-    --require ./               \
-    -- $FILES                  \
-    |  $SPEC
+
+$ROOT/node_modules/.bin/tape \
+  --require ./               \
+  -- $FILES                  \
+  |  $SPEC
