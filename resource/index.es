@@ -65,7 +65,7 @@ new class extends Base (path = path + '') {
     // `..` or even worse `/`
     // What about paths with special characters?
     || await send
-      (context, [ root, path, identity].join `` )
+      (context, [ root, path, identity ].join `` )
   }
 
 
