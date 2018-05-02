@@ -17,7 +17,7 @@
   "homepage": "https://github.com/devpunks/snuggsi#readme",
   "engines": {
     "npm": "5.0.x",
-    "node": "8.1.x"
+    "node": "9.8.x"
   },
   "repository": {
     "type": "git",
