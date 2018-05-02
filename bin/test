@@ -1,32 +1,24 @@
 #!/usr/bin/env bash
 
-export PORT=8181
-export ROOT=$(pwd)
-export NODE_PATH=$ROOT
 # https://gist.github.com/branneman/8775568
 # https://gist.github.com/branneman/8048520
-
-export SPEC="$ROOT/node_modules/.bin/tap-spec"
-export COVER="$ROOT/node_modules/.bin/tap-nyc"
 # https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
 
+export PORT=8181
+export ROOT=$(pwd)
 export API="element"
-#export API="elements,token-list"
-
+export NODE_PATH=$ROOT
 export ENTRY="index.test"
-export MODULES="{.,test,server,resource,middleware,$API}"
-export FILES="$ROOT/$MODULES/$ENTRY"
-
-
-if [ $# -ne 0 ]
-  then export FILES="$ROOT/$1"
-fi
-
+export TEST="$ROOT/node_modules/.bin/tape"
+export SPEC="$ROOT/node_modules/.bin/tap-spec"
+export COVER="$ROOT/node_modules/.bin/tap-nyc"
+export LIBRARIES=".,test,server,resource,middleware"
+export TESTS=${1:-"{$LIBRARIES,$API}/$ENTRY"}
+export FILES="$ROOT/$TESTS"
 
 echo "Covering $FILES"
 
-
-$ROOT/node_modules/.bin/tape \
-  --require ./               \
-  -- $FILES                  \
+$TEST          \
+  --require ./ \
+  -- $FILES    \
   |  $SPEC
