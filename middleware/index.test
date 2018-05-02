@@ -1,8 +1,8 @@
 require ('./auth.test')
 require ('./cors.test')
 require ('./security.test')
-require ('./snuggsi.test')
+//require ('./snuggsi.test')
+//require ('./negotiator.test')
 require ('./route.test')
-require ('./negotiator.test')
 require ('./assets.test')
 
