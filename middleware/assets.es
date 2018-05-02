@@ -1,3 +1,10 @@
-module.exports = path =>
-  require ('koa-static')
-    ( path, { defer: true } )
+const
+  route
+    = require ('./route')
+
+, Resource
+    = require ('resource')
+
+
+module.exports =
+  path => route ('/', Resource (`/${path}/`))

@@ -1,6 +1,6 @@
 require ('./polyfills')
 
 module.exports = {
-  Server   : require ('server')
-, Resource : require ('resource')
+  Resource : require ('resource')
+, Server   : require ('server')
 }
