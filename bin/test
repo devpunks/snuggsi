@@ -15,7 +15,7 @@ export COVER="$ROOT/node_modules/.bin/tap-nyc"
 export LIBRARIES=".,test,server,resource,middleware"
 export TESTS=$ROOT/${1:-"{$LIBRARIES,$API}/$ENTRY"}
 
-echo "Covering $FILES"
+echo "Covering $TESTS"
 
 $TEST          \
   --require ./ \
