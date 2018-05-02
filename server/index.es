@@ -12,7 +12,7 @@ module.exports = class extends require ('koa') {
       cors        // why is this NOT a function...
     , security () // and this IS a function?
 //  , snuggsi
-    , negotiator
+//  , negotiator
     ]
     .concat (middleware)
     .map (this.use.bind (this))
