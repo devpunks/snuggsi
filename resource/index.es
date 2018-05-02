@@ -85,6 +85,7 @@ function mount (point) { }
 // Index overflow https://github.com/koajs/send/pull/99/files
 async function send (context, file) {
 
+  console.log ('sending!', context.path, file)
   const
     { promisify }
       = require ('util')
