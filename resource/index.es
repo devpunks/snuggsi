@@ -54,7 +54,7 @@ new class extends Base (path = path + '') {
 
     const func = ( super.get || ( _ => _ ) )
 
-    console.log (context, identity)
+    console.log (context, identity, super.get)
 
     undefined;
 
