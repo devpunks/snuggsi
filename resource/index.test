@@ -203,6 +203,29 @@ test ('GET subresource assets', async t => {
 })
 
 
+test ('Deny GET */index.es subresource', async t => {
+
+  const
+    point = `/resource/fixtures/`
+  , resource = Resource (point)
+
+  , server =
+      (new Server ( [ route (resource) ] ))
+      .serve ``
+
+  , response = await fetch
+      ( `${URL}index.es` )
+
+  , { status } = response
+
+  t.equal ( 404, status )
+
+
+  server.close ``
+  t.end ()
+})
+
+
 test ('GET subresource with predefined body', async t => {
 
   const
