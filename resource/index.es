@@ -52,12 +52,13 @@ new class extends Base (path = path + '') {
 
   async get (context, identity) {
 
+    const func = ( super.get || ( _ => _ ) )
+
     console.log (context, identity)
 
-    undefined
+    undefined;
 
-    ( super.get || ( _ => _ ) )
-    ( context, identity )
+    func ( context, identity )
 
     !! context.body
     // test path security
