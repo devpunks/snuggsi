@@ -19,8 +19,7 @@ export FILES="$ROOT/$MODULES/$ENTRY"
 
 
 if [ $# -ne 0 ]
-  then
-    export FILES="$ROOT/$1"
+  then export FILES="$ROOT/$1"
 fi
 
 
