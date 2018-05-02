@@ -62,7 +62,7 @@ new class extends Base (path = path + '') {
     // test path security
     // `..` or even worse `/`
     // What about paths with special characters?
-    || identity
+    || Boolean (identity) && identity !== entry
     && await send (context, [ root, path, identity ].join `` )
   }
 
