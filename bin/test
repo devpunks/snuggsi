@@ -17,7 +17,10 @@ export ENTRY="index.test"
 export MODULES="{.,test,server,resource,middleware,$API}"
 export FILES="$ROOT/$MODULES/$ENTRY"
 
-export FILES="$ROOT/resource/index.test"
+if [ $# -ne 0 ]
+  then
+    export FILES="$ROOT/$1"
+fi
 
 echo "Covering $FILES"
 
