@@ -95,8 +95,8 @@ async function send (context, file) {
       = await promisify (stat) (file)
 
   , headers = {
-      'content-length' : size
-    , 'last-modified'  : mtime.toUTCString `` }
+      'Content-Length' : size
+    , 'Last-Modified'  : mtime.toUTCString `` }
 
   context.set  ( headers )
   context.type = file.split `.`.pop ``

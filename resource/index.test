@@ -186,9 +186,9 @@ test ('GET subresource assets', async t => {
 
     , { status, headers } = response
 
-    , type     = headers.get ('content-type')
-    , length   = headers.get ('content-length')
-    , modified = headers.get ('last-modified')
+    , type     = headers.get ('Content-Type')
+    , length   = headers.get ('Content-Length')
+    , modified = headers.get ('Last-Modified')
 
 
     t.equal ( expected, await response.text () )
