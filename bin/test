@@ -13,12 +13,11 @@ export TEST="$ROOT/node_modules/.bin/tape"
 export SPEC="$ROOT/node_modules/.bin/tap-spec"
 export COVER="$ROOT/node_modules/.bin/tap-nyc"
 export LIBRARIES=".,test,server,resource,middleware"
-export TESTS=${1:-"{$LIBRARIES,$API}/$ENTRY"}
-export FILES="$ROOT/$TESTS"
+export TESTS=$ROOT/${1:-"{$LIBRARIES,$API}/$ENTRY"}
 
 echo "Covering $FILES"
 
 $TEST          \
   --require ./ \
-  -- $FILES    \
+  -- $TESTS    \
   |  $SPEC
