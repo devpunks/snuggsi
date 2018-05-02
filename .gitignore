@@ -15,6 +15,5 @@ NOTES
 .DS_Store
 public/*.html
 public/examples
-public/*.es
 public/*.css
 
