@@ -24,4 +24,4 @@ echo "Covering $FILES"
   $ROOT/node_modules/.bin/tape \
     --require ./               \
     -- $FILES                  \
-#   |  $SPEC
+    |  $SPEC
