@@ -45,6 +45,8 @@ module.exports = (uri, resource) => {
 
     handle = resource [method.toLowerCase ()] || resource
 
+    console.warn ('the handle', method, handle)
+
     match.test (context.path)
       ? await handle (parameterize (match, context, tokens), trailing && identify (context.path))
       : await next (context)
