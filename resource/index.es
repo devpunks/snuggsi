@@ -52,6 +52,10 @@ new class extends Base (path = path + '') {
 
   async get (context, identity) {
 
+    console.log (context, identity)
+
+    undefined
+
     ( super.get || ( _ => _ ) )
     ( context, identity )
 
