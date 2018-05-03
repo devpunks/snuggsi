@@ -32,6 +32,13 @@ const
     Object.defineProperty
       (resource, method.toLowerCase (), { enumerable, value })
 
+, promisify
+    = ( operation ) =>
+      ( ... args  ) =>
+      new Promise ( (resolve, reject) =>
+        operation ( ... args, (error, response) =>
+          error ? reject (error) : resolve (response)))
+
 
 module.exports = path =>
 
@@ -84,10 +91,7 @@ function mount (point) { // Negotiation requires efficient directory traversal.
 async function send (context, file) {
 
   const
-    { promisify }
-      = require ('util')
-
-  , { stat, readFile: read, readFileSync: sync }
+    { stat, readFile: read }
       = require ('fs')
 
   , { size, mtime }
