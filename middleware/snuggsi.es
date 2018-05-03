@@ -44,7 +44,9 @@ module.exports = async (context, next) =>
         || (brotli ? 'es' : 'js')
 
   , minified =
-      ( (gzip || brotli) && !!! debug )
+      ('/snuggsi' === context.path)
+        && ( !!! debug )
+        && ( gzip || brotli)
         ? suffix : ''
 
   , resource =
