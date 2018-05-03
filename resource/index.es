@@ -60,7 +60,9 @@ new class extends Base (path = path + '') {
     { context.status = 200 }
 
 
-  async get (context, identity) {
+  async get (context, identity = 'index.html') {
+
+    console.warn ('identity', identity);
 
     ( super.get || ( _ => _ ) )
       ( context, identity )
@@ -68,7 +70,7 @@ new class extends Base (path = path + '') {
     !! context.body
     // test path security `..` or even worse `/`
     // What about paths with special characters?
-    || Boolean (identity) && identity !== entry
+    || identity !== entry
     && await send (context, [ root, path, identity ].join `` )
   }
 
