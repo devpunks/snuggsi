@@ -38,6 +38,8 @@ module.exports = async (context, next) =>
   , snuggsi
       = /^\/snuggsi(\.es|\.js)*$/
         .test (context.path)
+      || ('/'  === context.path)
+      && !!! context.get ('accept').includes ('html')
 
   , extension
       = (context.path.match (/\.(es|js)$/) || []) [1]
@@ -63,6 +65,7 @@ module.exports = async (context, next) =>
 
   !! (debug || !!! brotli || !!! gzip)
   && context.set ('Content-Encoding', 'identity')
+
 
   snuggsi
     ? await send ( ... settings )

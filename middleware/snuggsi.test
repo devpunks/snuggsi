@@ -6,6 +6,33 @@ const
 test ('calling next middlewaree')
 
 
+test ('GET / Accept: */*', async t => {
+
+  const
+    server = serve ``
+  , body   = read `dist/snuggsi.js`
+
+  , options
+      = { compress: false , headers: { 'Accept-Encoding' : '*' } }
+
+  , response
+      = await fetch ('http://localhost:8181/', options)
+
+  , type
+      = response.headers.get ('content-type')
+
+
+  t.ok (type.match (/charset=utf-8/))
+  t.ok (type.match (/application\/javascript/))
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
+
+
+  server.close ``
+  t.end ()
+})
+
+
 test ('GET /snuggsi?debug', async t => {
 
   const
