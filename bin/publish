@@ -1,5 +1,8 @@
 #!/bin/bash
 
+rm -rf ./public/examples/*
+cp -fr ./examples     ./public
+
 cp -f  ./sandbox.html ./public
 cp -f  ./index.html   ./public
 cp -f  ./index.css    ./public
