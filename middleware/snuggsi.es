@@ -39,7 +39,7 @@ module.exports = async (context, next) =>
       = /^\/snuggsi(\.es|\.js)*$/
         .test (context.path)
       || ('/'  === context.path)
-      && !!! context.get ('accept').includes ('html')
+      && !!! context.get ('accept').includes `html`
 
   , extension
       = (context.path.match (/\.(es|js)$/) || []) [1]

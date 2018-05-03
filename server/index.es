@@ -11,10 +11,9 @@ module.exports = class extends require ('koa') {
     void [
       cors        // why is this NOT a function...
     , security () // and this IS a function?
-    , snuggsi
 //  , negotiator
     ]
-    .concat (middleware)
+    .concat (middleware, snuggsi)
     .map (this.use.bind (this))
   }
 
