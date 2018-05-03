@@ -24,16 +24,16 @@ module.exports = async (context, next) =>
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Accept-Encoding
       = context.get ('Accept')
 
-  , brotli // HTTP1.1 `Accept-Encoding` Header
-      // http://tools.ietf.org/html/7231#section-5.3.4
-      // https://github.com/koajs/koa/blob/master/docs/api/request.md#content-negotiation
-      = !! context.get ('Accept-Encoding').includes ('br')
-        && !!! debug
+    // HTTP1.1 `Accept-Encoding` Header
+    // http://tools.ietf.org/html/7231#section-5.3.4
+    // https://github.com/koajs/koa/blob/master/docs/api/request.md#content-negotiation
+  , brotli
+      = context.acceptsEncodings ('identity', 'br')
+        === 'br'
 
-  , gzip // HTTP1.1 `Accept-Encoding` Header
-      // http://tools.ietf.org/html/7231#section-5.3.4
-      = !! context.acceptsEncodings (['*', 'gzip'])
-        && !!! debug
+  , gzip
+      = context.acceptsEncodings ('identity', 'gzip')
+        === 'gzip'
 
   , snuggsi
       = /^\/snuggsi(\.es|\.js)*$/
@@ -44,7 +44,7 @@ module.exports = async (context, next) =>
         || (brotli ? 'es' : 'js')
 
   , minified =
-      ( gzip || brotli )
+      ( (gzip || brotli) && !!! debug )
         ? suffix : ''
 
   , resource =
@@ -53,18 +53,14 @@ module.exports = async (context, next) =>
         .join `.`
 
   , options
-      = { root , gzip, brotli }
+      = { root , gzip: gzip && !!! debug, brotli: brotli && !!! debug }
 
   , settings
       = [context, resource, options]
 
 
-  // console.warn (context.get ('Accept-Encoding'))
-
-  // console.warn (!!! debug && !! context.acceptsEncodings (['br']))
-
-  // console.warn ('\n\npath', context.path, extension, accept, resource, options, context.get ('Accept-Encoding'), debug)
-  !! // void
+  !! (debug || !!! brotli || !!! gzip)
+  && context.set ('Content-Encoding', 'identity')
 
   snuggsi
     ? await send ( ... settings )

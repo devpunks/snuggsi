@@ -22,10 +22,11 @@ test ('GET /snuggsi?debug', async t => {
       = response.headers.get ('content-type')
 
 
-  t.notOk (response.headers.get ('content-encoding'))
-  t.ok (type.match (/application\/javascript/))
   t.ok (type.match (/charset=utf-8/))
-  t.equal ( await read (response.body), body )
+  t.ok (type.match (/application\/javascript/))
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
+
 
   server.close ``
   t.end ()
@@ -48,10 +49,11 @@ test ('GET /snuggsi?debug Accept-Encoding: identity', async t => {
       = response.headers.get ('content-type')
 
 
-  t.notOk (response.headers.get ('content-encoding'))
-  t.ok (type.match (/application\/javascript/))
   t.ok (type.match (/charset=utf-8/))
-  t.equal ( await read (response.body), body )
+  t.ok (type.match (/application\/javascript/))
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
+
 
   server.close ``
   t.end ()
@@ -76,9 +78,9 @@ test ('GET /snuggsi?debug Accept-Encoding: gzip', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/javascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
 
-  t.notOk (response.headers.get ('content-encoding'))
 
   server.close ``
   t.end ()
@@ -103,9 +105,9 @@ test ('GET /snuggsi?debug Accept-Encoding: br', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/ecmascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
 
-  t.notOk (response.headers.get ('content-encoding'))
 
   server.close ``
   t.end ()
@@ -130,9 +132,9 @@ test ('GET /snuggsi', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/javascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
 
-  t.notOk (response.headers.get ('content-encoding'))
 
   server.close ``
   t.end ()
@@ -157,9 +159,9 @@ test ('GET /snuggsi Accept-Encoding: identity', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/javascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
 
-  t.notOk (response.headers.get ('content-encoding'))
 
   server.close ``
   t.end ()
@@ -170,7 +172,7 @@ test ('GET /snuggsi Accept-Encoding: *', async t => {
 
   const
     server = serve ``
-  , body   = read `dist/snuggsi.min.js.gz`
+  , body   = read `dist/snuggsi.js`
 
   , options
       = { compress: false , headers: { 'Accept-Encoding' : '*' } }
@@ -184,8 +186,9 @@ test ('GET /snuggsi Accept-Encoding: *', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/javascript/))
-  t.equal ( await read (response.body), body )
-  t.equal ( response.headers.get ('content-encoding'), 'gzip' )
+  t.equal ( await response.text ``, await body )
+  t.equal ( response.headers.get ('content-encoding'), 'identity' )
+
 
   server.close ``
   t.end ()
@@ -210,8 +213,9 @@ test ('GET /snuggsi Accept-Encoding: gzip', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/javascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
   t.equal ( response.headers.get ('content-encoding'), 'gzip' )
+
 
   server.close ``
   t.end ()
@@ -236,8 +240,9 @@ test ('GET /snuggsi Accept-Encoding: br', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/ecmascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
   t.equal ( response.headers.get ('content-encoding'), 'br' )
+
 
   server.close ``
   t.end ()
@@ -248,7 +253,7 @@ test ('GET /snuggsi.es', async t => {
 
   const
     server = serve ``
-  , body   = read `dist/snuggsi.min.es.br`
+  , body   = read `dist/snuggsi.es`
 
   , options
       = { compress: false }
@@ -262,9 +267,9 @@ test ('GET /snuggsi.es', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/ecmascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
 
-  t.notOk (response.headers.get ('content-encoding'))
 
   server.close ``
   t.end ()
@@ -289,9 +294,9 @@ test ('GET /snuggsi.es?debug', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/ecmascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
 
-  t.notOk (response.headers.get ('content-encoding'))
 
   server.close ``
   t.end ()
@@ -316,9 +321,9 @@ test ('GET /snuggsi.es Accept-Encoding: identity', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/ecmascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
 
-  t.notOk (response.headers.get ('content-encoding'))
 
   server.close ``
   t.end ()
@@ -329,7 +334,7 @@ test ('GET /snuggsi.es Accept-Encoding: *', async t => {
 
   const
     server = serve ``
-  , body   = read `dist/snuggsi.min.es.gz`
+  , body   = read `dist/snuggsi.es`
 
   , options
       = { compress: false , headers: { 'Accept-Encoding' : '*' } }
@@ -343,8 +348,9 @@ test ('GET /snuggsi.es Accept-Encoding: *', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/ecmascript/))
-  t.equal ( await read (response.body), body )
-  t.equal ( response.headers.get ('content-encoding'), 'gzip' )
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
+
 
   server.close ``
   t.end ()
@@ -369,8 +375,9 @@ test ('GET /snuggsi.es Accept-Encoding: gzip', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/ecmascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
   t.equal ( response.headers.get ('content-encoding'), 'gzip' )
+
 
   server.close ``
   t.end ()
@@ -395,7 +402,7 @@ test ('GET /snuggsi.es Accept-Encoding: br', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/ecmascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
   t.equal ( response.headers.get ('content-encoding'), 'br' )
 
   server.close ``
@@ -421,9 +428,9 @@ test ('GET /snuggsi.js', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/javascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
 
-  t.notOk (response.headers.get ('content-encoding'))
 
   server.close ``
   t.end ()
@@ -448,9 +455,9 @@ test ('GET /snuggsi.js?debug', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/javascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
 
-  t.notOk (response.headers.get ('content-encoding'))
 
   server.close ``
   t.end ()
@@ -474,9 +481,9 @@ test ('GET /snuggsi.es Accept-Encoding: identity', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/javascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
+  t.equal ('identity', response.headers.get ('content-encoding'))
 
-  t.notOk (response.headers.get ('content-encoding'))
 
   server.close ``
   t.end ()
@@ -487,7 +494,7 @@ test ('GET /snuggsi.js Accept-Encoding: *', async t => {
 
   const
     server = serve ``
-  , body   = read `dist/snuggsi.min.js.gz`
+  , body   = read `dist/snuggsi.js`
 
   , options
       = { compress: false , headers: { 'Accept-Encoding' : '*' } }
@@ -501,8 +508,9 @@ test ('GET /snuggsi.js Accept-Encoding: *', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/javascript/))
-  t.equal ( await read (response.body), body )
-  t.equal ( response.headers.get ('content-encoding'), 'gzip' )
+  t.equal ( await response.text ``, await body )
+  t.equal ( response.headers.get ('content-encoding'), 'identity' )
+
 
   server.close ``
   t.end ()
@@ -527,7 +535,7 @@ test ('GET /snuggsi.js Accept-Encoding: gzip', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/javascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
   t.equal ( response.headers.get ('content-encoding'), 'gzip' )
 
   server.close ``
@@ -553,8 +561,9 @@ test ('GET /snuggsi.js Accept-Encoding: br', async t => {
 
   t.ok (type.match (/charset=utf-8/))
   t.ok (type.match (/application\/javascript/))
-  t.equal ( await read (response.body), body )
+  t.equal ( await response.text ``, await body )
   t.equal ( response.headers.get ('content-encoding'), 'br' )
+
 
   server.close ``
   t.end ()
