@@ -33,6 +33,31 @@ test ('GET / Accept: */*', async t => {
 })
 
 
+test ('GET / Accept: text/html', async t => {
+
+  const
+    server = serve ``
+  , body   = read `dist/snuggsi.js`
+
+  , options
+      = { compress: false , headers: { 'Accept' : 'text/html', 'Accept-Encoding' : '*' } }
+
+  , response
+      = await fetch ('http://localhost:8181/', options)
+
+  , type
+      = response.headers.get ('content-type')
+
+
+  t.notOk (type.match (/application\/javascript/))
+  t.notEqual ( await response.text ``, await body )
+
+
+  server.close ``
+  t.end ()
+})
+
+
 test ('GET /snuggsi?debug', async t => {
 
   const
