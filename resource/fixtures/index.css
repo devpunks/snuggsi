@@ -1,3 +1,7 @@
+caption {
+  display: block;
+}
+
 video, img {
   width: 50vw;
   height: 38vw;
