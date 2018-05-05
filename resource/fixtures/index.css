@@ -1,6 +1,7 @@
 figure, body, caption, video, audio, img {
   display: block;
   text-align: center;
+  margin: 1em auto 3em;
 }
 
 video, img {
