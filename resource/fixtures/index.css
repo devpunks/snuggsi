@@ -1,4 +1,4 @@
-caption {
+figure, caption, video, audio, img {
   display: block;
 }
 
