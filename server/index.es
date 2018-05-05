@@ -8,15 +8,15 @@ module.exports = class extends require ('koa') {
   constructor ( middleware = [] ) {
     super ()
 
-    void [
+    console.warn ('Negotiator', typeof negotiator)
+
+    for (let slice of [
       cors        // why is this NOT a function...
     , security () // and this IS a function?
+    , ... middleware
+//  , negotiator
     , snuggsi
-    , negotiator
-    , middleware
-    ]
-    .concat ()
-    .map (this.use.bind (this))
+    ]) this.use (slice)
   }
 
 
