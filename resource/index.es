@@ -72,6 +72,8 @@ new class extends Base (path = path + '') {
     // What about paths with special characters?
     || identity !== entry
     && await send (context, [ root, path, identity ].join `` )
+
+    console.dir (context.headers)
   }
 
 
