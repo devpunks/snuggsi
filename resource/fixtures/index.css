@@ -1,5 +1,6 @@
-figure, caption, video, audio, img {
+figure, body, caption, video, audio, img {
   display: block;
+  text-align: center;
 }
 
 video, img {
