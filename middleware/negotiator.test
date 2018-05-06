@@ -10,17 +10,17 @@ test ('GET /', async t => {
   , server = serve `server/fixtures`
   , dist   = read  `server/fixtures/index.html`
 
-  , headers = {
-      'Accept'  : 'text/html'
-    , 'Accept-Encoding' : 'identity'
+  , options  = {
+      compress : false
+    , headers  :
+        { 'Accept' : 'text/html', 'Accept-Encoding' : 'identity' }
     }
-  , options  = { compress: false, headers  }
   , { body, headers } = await fetch (URI, options)
   , encoding = headers.get ('content-encoding')
   , type = headers.get ('content-type')
 
 
-  t.notOk (response.headers.get ('content-encoding'))
+  t.notOk (encoding)
 //t.ok (type.match (/application\/javascript/))
 //t.ok (type.match (/charset=utf-8/))
   t.equal (body, dist)
