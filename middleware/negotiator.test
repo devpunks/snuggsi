@@ -13,8 +13,8 @@ test ('GET /', async t => {
   , dist   = read  `server/fixtures/index.html`
 
   , headers = {
-      'Accept-Encoding' : 'identity',
-      'Accept'  : 'text/html;q=0.9, text/plain;q=0.6, */*;q=0.8'
+      'Accept'  : 'text/html',
+      'Accept-Encoding' : 'identity'
     }
 
   , options
