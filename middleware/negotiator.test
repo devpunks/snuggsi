@@ -10,11 +10,11 @@ test ('GET /', async t => {
 
   const
     server = serve `server/fixtures`
-  , dist   = read `server/fixtures/index.html`
+  , dist   = read  `server/fixtures/index.html`
 
   , headers = {
-      'Accept' : '*/*'
-//      'text/html;q=0.9, text/plain;q=0.6, */*;q=0.8', 'Accept-Encoding': 'identity'
+      'Accept-Encoding' : 'identity',
+      'Accept'  : 'text/html;q=0.9, text/plain;q=0.6, */*;q=0.8'
     }
 
   , options
