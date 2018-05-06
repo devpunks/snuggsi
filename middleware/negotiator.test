@@ -3,13 +3,13 @@ const
     = require ('test')
 
 
-test ('GET /', async t => {
+test ('Resource HTML GET / Accept: text/html', async t => {
 
   const
-    URI     = `http://localhost:8181/`
+    accept  = 'text/html'
+  , URI     = `http://localhost:8181/`
   , server  = serve `server/fixtures`
   , dist    = read  `server/fixtures/index.html`
-  , accept  = 'text/html'
   , options = {
       compress : false
     , headers  : { accept, 'Accept-Encoding' : 'identity' } }
