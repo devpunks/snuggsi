@@ -9,17 +9,14 @@ test ('GET /', async t => {
     URI     = `http://localhost:8181/`
   , server  = serve `server/fixtures`
   , dist    = read  `server/fixtures/index.html`
+  , accept  = 'text/html'
   , options = {
       compress : false
-    , headers  :
-        { 'Accept' : 'text/html', 'Accept-Encoding' : 'identity' }
-    }
+    , headers  : { accept, 'Accept-Encoding' : 'identity' } }
   , { body, headers } = await fetch (URI, options)
-  , encoding = headers.get ('content-encoding')
-  , type     = headers.get ('content-type')
+  , type = headers.get ('content-type')
 
-
-  t.notOk (encoding)
+  t.notOk (headers.get ('content-encoding'))
 //t.ok (type.match (/application\/javascript/))
 //t.ok (type.match (/charset=utf-8/))
   t.equal (body, dist)
