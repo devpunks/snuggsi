@@ -8,16 +8,15 @@ test ('GET /', async t => {
   const
     server = serve `server/fixtures`
   , dist   = read  `server/fixtures/index.html`
+  , URI    = `http://localhost:8181/`
 
   , headers = {
       'Accept'  : 'text/html'
     , 'Accept-Encoding' : 'identity'
     }
 
-  , resource = '/'
   , options  = { compress: false, headers  }
-  , response = await fetch
-      (`http://localhost:8181${resource}`, options)
+  , response = await fetch (URI, options)
 
   , body = await read (response.body)
   , type = response.headers.get ('content-type')
