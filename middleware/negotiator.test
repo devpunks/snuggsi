@@ -6,18 +6,17 @@ const
 test ('GET /', async t => {
 
   const
-    URI    = `http://localhost:8181/`
-  , server = serve `server/fixtures`
-  , dist   = read  `server/fixtures/index.html`
-
-  , options  = {
+    URI     = `http://localhost:8181/`
+  , server  = serve `server/fixtures`
+  , dist    = read  `server/fixtures/index.html`
+  , options = {
       compress : false
     , headers  :
         { 'Accept' : 'text/html', 'Accept-Encoding' : 'identity' }
     }
   , { body, headers } = await fetch (URI, options)
   , encoding = headers.get ('content-encoding')
-  , type = headers.get ('content-type')
+  , type     = headers.get ('content-type')
 
 
   t.notOk (encoding)
