@@ -36,6 +36,9 @@ const
       == right.slice ().sort ().join `,`
 
 
+test ('Distribute media to CDN')
+test ('Caching HTML, JSON, Javascript, and CSS')
+
 test ('Default Resource allowed methods', async t => {
   const
     resource = Resource ``
