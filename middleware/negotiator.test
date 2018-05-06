@@ -14,12 +14,10 @@ test ('GET /', async t => {
       'Accept'  : 'text/html'
     , 'Accept-Encoding' : 'identity'
     }
-
   , options  = { compress: false, headers  }
-  , response = await fetch (URI, options)
-
-  , body = await read (response.body)
-  , type = response.headers.get ('content-type')
+  , { body, headers } = await fetch (URI, options)
+  , encoding = headers.get ('content-encoding')
+  , type = headers.get ('content-type')
 
 
   t.notOk (response.headers.get ('content-encoding'))
