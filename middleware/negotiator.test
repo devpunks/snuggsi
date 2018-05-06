@@ -13,23 +13,18 @@ test ('GET /', async t => {
   , dist   = read  `server/fixtures/index.html`
 
   , headers = {
-      'Accept'  : 'text/html',
-      'Accept-Encoding' : 'identity'
+      'Accept'  : 'text/html'
+    , 'Accept-Encoding' : 'identity'
     }
 
-  , options
-      = { compress: false, headers  }
-
   , resource = '/'
-  , response
-      = await fetch
-          (`http://localhost:8181${resource}`, options)
+  , options  = { compress: false, headers  }
+  , response = await fetch
+      (`http://localhost:8181${resource}`, options)
 
-  , type
-      = response.headers.get ('content-type')
+  , body = await read (response.body)
+  , type = response.headers.get ('content-type')
 
-  , body
-      = await read (response.body)
 
   t.notOk (response.headers.get ('content-encoding'))
 //t.ok (type.match (/application\/javascript/))
