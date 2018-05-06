@@ -34,6 +34,8 @@ module.exports = async (context, next) =>
   , extensions = [txt]
   , extension  = extensions.find (Boolean)
 
+  console.warn ('negotiating')
+
   await next ()
 
   //console.log (extension, resource)
