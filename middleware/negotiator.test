@@ -12,7 +12,7 @@ test.only ('Resource HTML GET / Accept: text/html', async t => {
   , dist    = read  `resource/fixtures/index.html`
   , options = {
       compress : false
-    , headers  : { accept, 'Accept-Encoding' : 'identity' } }
+    , headers  : { accept } }
   , { body, headers } = await fetch (URI, options)
   , type = headers.get ('content-type')
 
