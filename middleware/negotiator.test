@@ -13,10 +13,12 @@ test.only ('Resource HTML GET / Accept: text/html', async t => {
   , options = {
       compress : false
     , headers  : { accept } }
-  , { body, headers } = await fetch (URI, options)
+  , { status, headers, body } = await fetch (URI, options)
   , type = headers.get ('content-type')
 
-  t.notOk (headers.get ('content-encoding'))
+//t.notOk
+console.log ('type', headers.get ('content-type'))
+console.log ('status', status)
 //t.ok (type.match (/application\/javascript/))
 //t.ok (type.match (/charset=utf-8/))
 //t.equal (body, dist)
