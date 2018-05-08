@@ -41,5 +41,5 @@ module.exports = async (context, next) =>
   //console.log (extension, resource)
 
   console.log ('\n\n', context.path, context.request.headers, context.get ('Accept'), ' type', context.accepts (['text', 'html', 'css', 'ecma', 'js', 'json']))
-  console.log ('text', text, 'html', html, 'css', css, 'es', es, 'js', js, 'json', json)
+  console.log ('text', txt, 'html', html, 'css', css, 'es', es, 'js', js, 'json', json)
 }
