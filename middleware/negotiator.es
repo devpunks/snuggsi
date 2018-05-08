@@ -25,18 +25,18 @@ module.exports = async (context, next) =>
       = context.path
 
   , txt  = accepts `txt`
-  , css  = accepts ('css')
-  , html = accepts ('html')
-  , json = accepts ('json')
-  , es   = accepts ('ecma')
-  , js   = accepts ('js')
+  , html = accepts `html`
+  , css  = accepts `css`
+  , json = accepts `json`
+  , js   = accepts `js`
+  , es   = accepts `ecma`
 
   , extensions = [txt]
   , extension  = extensions.find (Boolean)
 
   console.warn ('negotiating')
 
-  //console.log (extension, resource)
+  console.log ('extension resource', extensions, resource)
 
   console.log ('\n\n', context.path, context.request.headers, context.get ('Accept'), ' type', context.accepts (['text', 'html', 'css', 'json', 'js', 'ecma']))
   console.log ('text', txt, 'html', html, 'css', css, 'json', json, 'js', js, 'es', es)
