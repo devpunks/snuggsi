@@ -25,11 +25,11 @@ module.exports = async (context, next) =>
       = context.path
 
   , txt  = accepts `txt`
-//, css  = accepts ('css')
-//, html = accepts ('html')
-//, json = accepts ('json')
-//, es   = accepts ('ecma')
-//, js   = accepts ('js')
+  , css  = accepts ('css')
+  , html = accepts ('html')
+  , json = accepts ('json')
+  , es   = accepts ('ecma')
+  , js   = accepts ('js')
 
   , extensions = [txt]
   , extension  = extensions.find (Boolean)
