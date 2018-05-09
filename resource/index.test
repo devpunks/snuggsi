@@ -42,7 +42,7 @@ test ('Distribute media to CDN')
 test ('Caching HTML, JSON, Javascript, and CSS')
 
 
-test ('Default Resource allowed methods', async t => {
+test.only ('Default Resource allowed methods', async t => {
   const
     resource = Resource ``
 
@@ -54,7 +54,11 @@ test ('Default Resource allowed methods', async t => {
 
   for (method of ALLOWED_METHODS) {
     let { status, headers }
-      = await fetch ( URL, { method } )
+      = await fetch ( URL + 'index.html', { method } )
+
+
+    console.warn (URL, method, headers, status)
+
 
     t.ok ( [200, 404 /* for GET SMH */].includes (status) )
     t.notOk ( headers.get ('allow') )
