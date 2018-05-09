@@ -61,6 +61,11 @@ new class extends Base (path = path + '') {
 
 
   // What about HEAD? Shouldn't they be coupled?
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods/HEAD
+  // If the result of a HEAD request shows that a cached resource after a GET request is now outdated, the cache is invalidated, even if no GET request has been made.
+  // async head (context, identity = 'index.html') {}
+
+
   async get (context, identity = 'index.html') {
 
     console.warn ('identity', identity);
@@ -71,7 +76,8 @@ new class extends Base (path = path + '') {
     !! context.body
     // test path security `..` or even worse `/`
     // What about paths with special characters?
-    || identity !== entry
+    || path
+    && identity !== entry
     && await send (context, [ root, path, identity ].join `` )
   }
 
