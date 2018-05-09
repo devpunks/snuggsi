@@ -26,11 +26,11 @@ const
 
 , scan
     = resource => METHODS.filter
-      (method => method.toLowerCase () in resource)
+      (method => method.toLowerCase `` in resource)
 
 , disable = (resource, method, value, enumerable = true) =>
     Object.defineProperty
-      (resource, method.toLowerCase (), { enumerable, value })
+      (resource, method.toLowerCase ``, { enumerable, value })
 
 , promisify
     = ( operation ) =>

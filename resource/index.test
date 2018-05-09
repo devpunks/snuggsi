@@ -39,6 +39,8 @@ const
 test ('Distribute media to CDN')
 
 
+test ('HEAD Resource response')
+
 test ('Caching HTML, JSON, Javascript, and CSS')
 
 
