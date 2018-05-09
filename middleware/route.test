@@ -21,9 +21,9 @@ test ('URI without route', async t => {
 
   const
     path = Math
-      .random()
-      .toString(36)
-      .replace(/[^a-z]/g, '')
+      .random ``
+      .toString (36)
+      .replace (/[^a-z]/g, '')
 
   , stack =
       [ route (`${path}`, middleware) ]
