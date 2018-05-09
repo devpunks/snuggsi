@@ -143,12 +143,8 @@ test ('decoding route URI encoded {token} parameters', async t => {
   , echo = context =>
       (context.body = context.params.decoded)
 
-  , stack =
-      [ route (`${path}{decoded}`, echo) ]
-
-  , server =
-      (new Server (stack)).serve ``
-
+  , stack = [ route (`${path}{decoded}`, echo) ]
+  , server = (new Server (stack)).serve ``
   , response = await fetch (`${URI}${encoded}`)
 
     t.equal (200, response.status)
