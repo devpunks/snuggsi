@@ -70,14 +70,11 @@ test ('route URI segment {token} parameters', async t => {
   , year  = date.getUTCFullYear ``
   , expected = (new Date (year, month, day)).toString ``
 
-  , middleware = (context) => {
-      const
-        params = context.params
-      , year   = params.year
-      , month  = params.month
-      , day    = params.day
+  , middleware = context => {
+      const { year, month, day } = context.params
 
-      context.body = (new Date (year, month, day)).toString ()
+      context.body =
+        (new Date (year, month, day)).toString ``
     }
 
   , stack =
