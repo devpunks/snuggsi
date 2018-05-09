@@ -60,6 +60,7 @@ new class extends Base (path = path + '') {
     { context.status = 200 }
 
 
+  // What about HEAD? Shouldn't they be coupled?
   async get (context, identity = 'index.html') {
 
     console.warn ('identity', identity);
