@@ -65,10 +65,10 @@ test ('route URI segment {token} parameters', async t => {
 
   const
     date  = new Date
-  , day   = date.getUTCDate ()
-  , month = date.getUTCMonth ()
-  , year  = date.getUTCFullYear ()
-  , expected = (new Date (year, month, day)).toString ()
+  , day   = date.getUTCDate ``
+  , month = date.getUTCMonth ``
+  , year  = date.getUTCFullYear ``
+  , expected = (new Date (year, month, day)).toString ``
 
   , middleware = (context) => {
       const
