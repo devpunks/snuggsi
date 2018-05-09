@@ -54,7 +54,7 @@ test ('URI with route', async t => {
 
 
   t.equal (200, response.status)
-  t.equal (body, await response.text ())
+  t.equal (body, await response.text ``)
 
   server.close ``
   t.end ()
@@ -87,7 +87,7 @@ test ('route URI segment {token} parameters', async t => {
       await fetch (`${URI}/${year}/${month}/${day}`)
 
     t.equal (200, response.status)
-    t.equal (expected, await response.text ())
+    t.equal ( expected, await response.text `` )
 
   server.close ``
   t.end ()
@@ -103,14 +103,11 @@ test ('route URI partial {token} parameters', async t => {
   , year  = date.getUTCFullYear ``
   , expected = (new Date (year, month, day)).toString ``
 
-  , middleware = (context) => {
-      const
-        params = context.params
-      , year   = params.year
-      , month  = params.month
-      , day    = params.day
+  , middleware = context => {
+      const { year, month, day } = context.params
 
-      context.body = (new Date (year, month, day)).toString ()
+      context.body =
+        (new Date (year, month, day)).toString ``
     }
 
   , stack =
@@ -123,7 +120,7 @@ test ('route URI partial {token} parameters', async t => {
       await fetch (`${URI}/${year}-${month}-${day}`)
 
   t.equal (200, response.status)
-  t.equal (expected, await response.text ())
+  t.equal ( expected, await response.text `` )
 
   server.close ``
   t.end ()
@@ -145,7 +142,7 @@ test ('decoding route URI encoded {token} parameters', async t => {
   , response = await fetch (`${URI}${encoded}`)
 
     t.equal (200, response.status)
-    t.equal (value, await response.text ())
+    t.equal (value, await response.text ``)
 
   server.close ``
   t.end ()
@@ -168,7 +165,7 @@ test ('surrogate subresource identity suffix after path', async t => {
   , response = await fetch (`${URI}/${id}`)
 
     t.equal (200, response.status)
-    t.equal (id, await response.text ())
+    t.equal (id, await response.text ``)
 
   server.close ``
   t.end ()
