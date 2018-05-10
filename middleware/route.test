@@ -41,6 +41,22 @@ test ('URI without route', async t => {
 })
 
 
+test ('route URI without endpoint', async t => {
+  // https://tools.ietf.org/html/rfc7231#section-6.6.2
+
+  const
+    endpoint = undefined
+  , stack  = [ route (path, endpoint) ]
+  , server = (new Server (stack)).serve ``
+  , response = await fetch (URI)
+
+  t.equal (501, response.status)
+
+  server.close ``
+  t.end ()
+})
+
+
 test ('URI with route', async t => {
 
   const
