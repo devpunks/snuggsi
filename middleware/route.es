@@ -43,6 +43,7 @@ module.exports = (uri, resource) => {
 
   return async (context, next, handle, { method } = context) => {
 
+    resource = resource || (context => context.status = 501)
     handle = resource [method.toLowerCase ()] || resource
 
     match.test (context.path)
