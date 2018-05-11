@@ -21,13 +21,12 @@ const
 , normalize  = uri =>
     RegExp (`^${ trailing (uri).replace ( ... tokenizer ) }$`)
 
-, decoded = tokens =>
+, tokenized = (uri, tokens = uri.match (/[^{]+(?=})/g)) =>
     (params, value, index) =>
       params [tokens [index]] = decode (value)
 
 , parameterize = (uri, [ _ , ... params ], context) =>
-    context.params = params.reduce
-      (decoded (uri.match (/[^{]+(?=})/g) || []), {})
+    context.params = params.reduce (tokenized (uri), {})
 
 
 module.exports = (uri, endpoint = unspecified) =>
