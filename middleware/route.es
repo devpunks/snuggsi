@@ -28,6 +28,7 @@ const
 module.exports = (uri, endpoint = unspecified) =>
 
   async (context, next, { method } = context, matched) =>
+
     (matched = normalize (uri).exec (context.path))
       && (context.params = parameterize (uri, matched, context))
       && (endpoint = endpoint [method.toLowerCase ()] || endpoint)
