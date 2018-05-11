@@ -1,3 +1,4 @@
+require ('./negotiate.test')
 
 const
  { test, read, fetch }

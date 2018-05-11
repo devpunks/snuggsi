@@ -1,0 +1,34 @@
+const
+  { test, serve, read, fetch }
+    = require ('test')
+
+
+test.only ('Resource HTML GET / Accept: text/html', async t => {
+
+  const
+    extension = 'html'
+    charset   = 'charset=utf-8'
+    accept    = `text/${extension}`
+  , URI       = `http://localhost:8181/`
+  , server    = serve `resource/fixtures`
+  , expected  = read (`resource/fixtures/index.${extension}`)
+  , options   = {
+      compress : false
+    , headers  : { accept } }
+  , response = await fetch (URI, options)
+  , { status, headers } = response
+  , type = headers.get ('content-type')
+  , length   = headers.get ('Content-Length')
+  , modified = headers.get ('Last-Modified')
+
+
+  t.ok (modified)
+  t.equal ( status, 200 )
+  t.ok (type.match (accept))
+  t.ok (type.match (charset))
+  t.ok (length == expected.length)
+  t.equal ( expected, await response.text `` )
+
+  server.close ``
+  t.end ()
+})

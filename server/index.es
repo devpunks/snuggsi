@@ -10,7 +10,6 @@ module.exports = class extends require ('koa') {
     for (let slice of [
       cors        // why is this NOT a function...
     , security `` // and this IS a function?
-    , negotiator
     , ... middleware
     , snuggsi
     ]) this.use (slice)
