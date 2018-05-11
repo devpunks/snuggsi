@@ -5,10 +5,7 @@ const
 
 module.exports = class extends require ('koa') {
 
-  constructor ( middleware = [] ) {
-    super ()
-
-    console.warn ('Negotiator', typeof negotiator)
+  constructor ( middleware = [] ) { super () 
 
     for (let slice of [
       cors        // why is this NOT a function...
