@@ -151,7 +151,7 @@ test ('decoding route URI encoded {token} parameters', async t => {
   , decoded = decodeURIComponent (encoded)
 
   , echo = context =>
-      (context.body = context.params.decoded)
+      context.body = context.params.decoded
 
   , stack = [ route (`${path}{decoded}`, echo) ]
   , server = (new Server (stack)).serve ``
@@ -170,7 +170,7 @@ test ('surrogate subresource identity suffix after path', async t => {
   const
     id   = 'abc123'
   , echo = (context, id) =>
-      (context.body = id)
+      context.body = id
 
   , stack =
       [ route (( path + `/` ), echo ) ]
@@ -193,7 +193,7 @@ test ('surrogate subresource identity invalid `/` character', async t => {
   const
     id   = 'abc/123'
   , echo = (context, id) =>
-      (context.body = id)
+      context.body = id
 
   , stack =
       [ route (( path + `/` ), echo ) ]
