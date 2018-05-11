@@ -8,7 +8,7 @@ const
 , identify = uri =>
     uri.split `/`.pop ``
 
-, surrogate = uri =>
+, trailing = uri =>
     uri +=
       ( '/' === uri.slice (-1) )
       ? `${characters}*`
@@ -19,7 +19,7 @@ const
 , tokenizer  = [ /{\w+}/g, `(${characters}+)` ]
 
 , normalize  = uri =>
-    RegExp (`^${ surrogate (uri).replace ( ... tokenizer ) }$`)
+    RegExp (`^${ trailing (uri).replace ( ... tokenizer ) }$`)
 
 , decoded = tokens =>
     (params, value, index) =>
