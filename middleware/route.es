@@ -21,7 +21,7 @@ const
       params [tokens [index]] = decode (value)
 
 , parameterize = (uri, [ _ , ... params ], context) =>
-    params.reduce
+    context.params = params.reduce
       (decoded (uri.match (/[^{]+(?=})/g) || []), {})
 
 
@@ -30,7 +30,7 @@ module.exports = (uri, endpoint = unspecified) =>
   async (context, next, { method } = context, matched) =>
 
     (matched = normalize (uri).exec (context.path))
-      && (context.params = parameterize (uri, matched, context))
+      && parameterize (uri, matched, context)
       && (endpoint = endpoint [method.toLowerCase ()] || endpoint)
         ? await endpoint (context, identify (context.path))
         : await next (context)
