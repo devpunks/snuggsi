@@ -37,7 +37,7 @@ module.exports = (uri, resource) => {
     // https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 
   , characters = '[()A-Za-z%0-9\\*\\-\\_\\.]*'
-  , match  = normalize (`${uri}${ trailing ? `${characters}` : '' }`)
+  , match  = normalize (`${uri}${ trailing ? characters : '' }`)
   , tokens = uri.match (/[^{]+(?=})/g) || []
 
 
