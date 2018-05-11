@@ -7,26 +7,21 @@ const
       ? class { }
       : require (`${root}${path}${entry}`)
 
-, DEFAULT_METHODS
-    = [ 'GET', 'HEAD' ]
+, DEFAULT_METHODS = [ 'GET', 'HEAD' ]
 
-, SAFE_METHODS
-    = [ ... DEFAULT_METHODS ]
+, SAFE_METHODS = [ ... DEFAULT_METHODS ]
 
-, METHODS
-    = [ ... require ('http').METHODS ]
-      .filter (method => method !== 'TRACE')
-      // for some reason connect won't work
-      .filter (method => method !== 'CONNECT')
-      .filter (method => method !== 'OPTIONS') // cors?
+, METHODS = [ ... require ('http').METHODS ]
+    .filter (method => method !== 'TRACE')
+    // for some reason connect won't work
+    .filter (method => method !== 'CONNECT')
+    .filter (method => method !== 'OPTIONS') // cors?
 
-, UNSAFE_METHODS
-    = METHODS.filter
-      (method => !!! SAFE_METHODS.includes (method))
+, UNSAFE_METHODS = METHODS
+    .filter (method => !!! SAFE_METHODS.includes (method))
 
-, scan
-    = resource => METHODS.filter
-      (method => method.toLowerCase `` in resource)
+, scan = resource =>
+    METHODS.filter (method => method.toLowerCase `` in resource)
 
 , disable = (resource, method, value, enumerable = true) =>
     Object.defineProperty

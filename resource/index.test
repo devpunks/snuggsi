@@ -44,7 +44,7 @@ test ('HEAD Resource response')
 test ('Caching HTML, JSON, Javascript, and CSS')
 
 
-test.only ('Default Resource allowed methods', async t => {
+test ('Default Resource allowed methods', async t => {
   const
     resource = Resource ``
 
