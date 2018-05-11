@@ -10,7 +10,7 @@ const
 
 , trailing = uri =>
     uri +=
-      ( `/` === uri.slice (-1) )
+      /\/$/.test (uri)
       ? `${characters}*`
       : ``
 
