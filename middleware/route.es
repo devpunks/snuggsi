@@ -1,12 +1,14 @@
+// https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
+// https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
+
 const
   decode = decodeURIComponent
-  // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
 
-, unspecified = context => context.status = 501
+, unspecified = context =>
+    context.status = 501
 
 , identify = uri =>
     uri.split `/`.pop ``
-    // https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 
 , characters = '[()A-Za-z%0-9\\*\\-\\_\\.]'
 , tokenizer  = [ /{\w+}/g, `(${characters}+)` ]
