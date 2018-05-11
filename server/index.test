@@ -59,19 +59,22 @@ test ('middleware collection dependency injection', async t => {
 
   const
     middleware = context =>
-      context.body = 'Hello World'
+      !!! console.warn ('WTF') &&
+      context.set ('test', 'Hello World')
 
   , stack = [ middleware ]
 
     server
       = ( new Server ( stack ) ).serve `server/fixtures`
 
-  , response
+  , { headers }
       = await fetch (`http://localhost:${process.env.PORT}/`)
 
 
+  console.dir (headers)
+
   t.equal
-    ( await response.text ``, 'Hello World' )
+    ( headers.get ('test'), 'Hello World' )
 
   server.close ``
   t.end ()

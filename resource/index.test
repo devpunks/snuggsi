@@ -67,9 +67,6 @@ test ('Default Resource allowed methods', async t => {
       = await fetch ( URL + 'index.html', { method } )
 
 
-    console.warn (URL, method, headers, status)
-
-
     t.ok ( [200, 404 /* for GET SMH */].includes (status) )
     t.notOk ( headers.get ('allow') )
   }
@@ -181,41 +178,6 @@ test ('Defined Resource disallowed methods', async t => {
   server.close ``
   t.end ()
 })
-
-test ('GET default subresource Accept: text/html', async t => {
-
-  const
-    point = `/resource/fixtures/`
-  , resource = Resource (point)
-
-  , server =
-      (new Server ( [ route (resource) ] ))
-      .serve ``
-
-  , expected = await read
-      ( `.${point}index.html` )
-
-  , response = await fetch
-      ( `${URL}`, { headers : { 'Accept' : 'text/html' } } )
-
-  , { status, headers } = response
-
-  , type     = headers.get ('Content-Type')
-  , length   = headers.get ('Content-Length')
-  , modified = headers.get ('Last-Modified')
-
-
-  t.equal ( expected, await response.text `` )
-  t.equal (type, 'text/html; charset=utf-8')
-  t.ok (length == expected.length)
-  t.equal ( 200, status )
-  t.ok (modified)
-
-
-  server.close ``
-  t.end ()
-})
-
 
 test ('GET subresource assets', async t => {
 
