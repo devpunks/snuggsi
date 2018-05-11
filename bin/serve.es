@@ -7,6 +7,7 @@ const
 
 middleware = [
   route (`/hello/`, Resource `/resource/fixtures/`)
+, route (`/examples/`, Resource `/examples/`)
 ]
 
 void
