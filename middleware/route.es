@@ -25,18 +25,14 @@ const
     && context
 
 
-module.exports = (uri, resource) => {
+module.exports = (uri, resource = context => context.status = 501) => {
     // https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 
   const
     match  = normalize (uri)
   , tokens = uri.match (/[^{]+(?=})/g) || []
 
-
-  console.warn (match, tokens)
-
   return async (context, next, handle, { method } = context) => {
-    resource = resource || (context => context.status = 501)
     handle   = resource [method.toLowerCase ()] || resource
 
     match.test (context.path)
