@@ -14,7 +14,7 @@ const
     = require ('../middleware')
 
 , middleware = context =>
-    (context.body = body)
+    context.body = body
 
 
 test ('URI without route', async t => {
@@ -31,10 +31,10 @@ test ('URI without route', async t => {
   , server =
       (new Server (stack)).serve ``
 
-  , response = await fetch (`${domain}/${path}`)
+  , { status } = await fetch (`${domain}/${path}`)
 
 
-  t.equal (404, response.status)
+  t.equal (status, 404)
 
   server.close ``
   t.end ()
@@ -48,9 +48,9 @@ test ('route URI without endpoint', async t => {
     endpoint = undefined
   , stack  = [ route (path, endpoint) ]
   , server = (new Server (stack)).serve ``
-  , response = await fetch (URI)
+  , { status } = await fetch (URI)
 
-  t.equal (501, response.status)
+  t.equal (status, 501)
 
   server.close ``
   t.end ()
@@ -201,9 +201,9 @@ test ('surrogate subresource identity invalid `/` character', async t => {
   , server =
       (new Server (stack)).serve ``
 
-  , response = await fetch (`${URI}/${id}`)
+  , { status } = await fetch (`${URI}/${id}`)
 
-    t.equal (404, response.status)
+    t.equal (status, 404)
 
   server.close ``
   t.end ()

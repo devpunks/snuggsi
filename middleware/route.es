@@ -25,18 +25,17 @@ const
     && context
 
 
-module.exports = (uri, resource = context => context.status = 501) => {
+module.exports = (uri, endpoint = context => context.status = 501) => {
     // https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 
   const
     match  = normalize (uri)
   , tokens = uri.match (/[^{]+(?=})/g) || []
 
-  return async (context, next, handle, { method } = context) => {
-    handle   = resource [method.toLowerCase ()] || resource
-
+  return async (context, next, { method } = context) =>
     match.test (context.path)
-      ? await handle (parameterize (match, context, tokens), identify (context.path))
-      : await next (context)
-  }
+      && (context  = parameterize (match, context, tokens))
+      && (endpoint = endpoint [method.toLowerCase ()] || endpoint)
+        ? await (endpoint) (context, identify (context.path))
+        : await next (context)
 }
