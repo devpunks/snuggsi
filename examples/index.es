@@ -1,5 +1,7 @@
-console.warn ('this is coming from examples wohoo')
+module.exports =
 
-const
-  { routes }
-    = require ('./')
+class {
+  get (context, element) {
+    console.warn ('Getting', element)
+  }
+}
