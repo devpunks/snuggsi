@@ -165,6 +165,28 @@ test ('decoding route URI encoded {token} parameters', async t => {
 })
 
 
+test ('surrogate subresource undefined identity', async t => {
+
+  const
+    echo = (context, id) =>
+      context.body = (id === undefined)
+
+  , stack =
+      [ route (( path + `/` ), echo ) ]
+
+  , server =
+      (new Server (stack)).serve ``
+
+  , response = await fetch (`${URI}/`)
+
+    t.equal (200, response.status)
+    t.equal ('true', await response.text ``)
+
+  server.close ``
+  t.end ()
+})
+
+
 test ('surrogate subresource identity suffix after path', async t => {
 
   const
