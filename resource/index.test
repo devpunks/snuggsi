@@ -41,6 +41,10 @@ test ('Distribute media to CDN')
 
 test ('HEAD Resource response')
 
+
+test ('OPTIONS Resource response')
+
+
 test ('Caching HTML, JSON, Javascript, and CSS')
 
 
