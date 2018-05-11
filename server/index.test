@@ -58,7 +58,7 @@ test ('middleware collection dependency injection', async t => {
 
 
   t.equal
-    ( await response.text (), 'Hello World' )
+    ( await response.text ``, 'Hello World' )
 
   server.close ``
   t.end ()
