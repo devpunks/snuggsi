@@ -2,21 +2,24 @@
 // https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 
 const
-  decode = decodeURIComponent
-
-, unspecified = context =>
+  unspecified = context =>
     context.status = 501
 
 , identify = uri =>
     uri.split `/`.pop ``
 
+, surrogate = uri =>
+    uri +=
+      ( '/' === uri.slice (-1) )
+      ? `${characters}*`
+      : ''
+
+, decode     = decodeURIComponent
 , characters = '[()A-Za-z%0-9\\*\\-\\_\\.]'
 , tokenizer  = [ /{\w+}/g, `(${characters}+)` ]
 
-, normalize  =
-    (uri, trailing = '/' === uri.slice (-1)) =>
-      (uri = [uri, trailing ? `${characters}*` : ''].join `` )
-        && RegExp (`^${ uri.replace ( ... tokenizer ) }$`)
+, normalize  = uri =>
+    RegExp (`^${ surrogate (uri).replace ( ... tokenizer ) }$`)
 
 , decoded = tokens =>
     (params, value, index) =>
