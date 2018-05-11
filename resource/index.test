@@ -17,10 +17,14 @@ const
 , DEFAULT_METHODS = ['GET', 'HEAD']
 
 , METHODS = [ ... require ('http').METHODS ]
+    // cors?
+    .filter (method => method !== 'OPTIONS')
     // for some reason connect won't work
-    .filter (method => method !== 'TRACE')
     .filter (method => method !== 'CONNECT')
-    .filter (method => method !== 'OPTIONS') // cors?
+    // Buggs @brandondees?
+    .filter (method => method !== 'TRACE')
+    // Bind must be called on a function?
+    .filter (method => method !== 'BIND')
 
 , SAFE_METHODS = [ ... DEFAULT_METHODS ]
 
