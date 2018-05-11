@@ -29,6 +29,19 @@ test ('closing server', t => {
 })
 
 
+test ('closing server with backticks', t => {
+
+  const
+    server
+      = ( new Server ).serve ``
+
+
+  t.ok ( server.close `` )
+
+  t.end ()
+})
+
+
 test ('closing server by calling with backticks', t => {
 
   const
