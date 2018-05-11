@@ -7,6 +7,7 @@ const
 
 , identify = uri =>
     uri.split `/`.pop ``
+    || undefined
 
 , trailing = uri =>
     uri +=

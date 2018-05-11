@@ -19,8 +19,8 @@ test ('Resource HTML GET / Accept: text/html', async t => {
   , length   = headers.get ('Content-Length')
   , modified = headers.get ('Last-Modified')
 
-console.log ('type', headers.get ('content-type'))
-console.log ('status', status)
+//console.log ('type', headers.get ('content-type'))
+//console.log ('status', status)
 //t.ok (type.match (/application\/javascript/))
 //t.ok (type.match (/charset=utf-8/))
 //t.equal ( expected, await response.text `` )
