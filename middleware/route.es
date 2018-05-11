@@ -10,9 +10,9 @@ const
 
 , trailing = uri =>
     uri +=
-      ( '/' === uri.slice (-1) )
+      ( `/` === uri.slice (-1) )
       ? `${characters}*`
-      : ''
+      : ``
 
 , decode     = decodeURIComponent
 , characters = '[()A-Za-z%0-9\\*\\-\\_\\.]'
