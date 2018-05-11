@@ -16,13 +16,15 @@ const
       (uri = [uri, trailing ? `${characters}*` : ''].join `` )
         && RegExp (`^${ uri.replace ( ... tokenizer ) }$`)
 
-, parameterize = (uri, matched, context, tokens) =>
-    ( tokens = uri.match (/[^{]+(?=})/g) || [])
-    && [ ... matched ]
+, decoded = tokens =>
+    (params, value, index) =>
+      params [tokens [index]] = decode (value)
+
+, parameterize = (uri, matched, context) =>
+    [ ... matched ]
       .splice (1)
 //    .filter (Boolean)
-      .reduce ((params, value, index) =>
-        params [tokens [index]] = decode (value), {})
+      .reduce (decoded (uri.match (/[^{]+(?=})/g) || []), {})
 
 
 module.exports = (uri, endpoint = unspecified) =>
