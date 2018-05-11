@@ -68,8 +68,6 @@ new class extends Base (path = path + '') {
 
   async get (context, identity = 'index.html') {
 
-    console.warn ('identity', identity);
-
     ( super.get || ( _ => _ ) )
       ( context, identity )
 
