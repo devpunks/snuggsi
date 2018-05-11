@@ -23,7 +23,8 @@ const
 
 , tokenized = (uri, tokens = uri.match (/[^{]+(?=})/g)) =>
     (params, value, index) =>
-      params [tokens [index]] = decode (value)
+      (params [tokens [index]] = decode (value))
+        && params
 
 , parameterize = (uri, [ _ , ... params ], context) =>
     context.params = params.reduce (tokenized (uri), {})
