@@ -1,6 +1,7 @@
 const
   entry = `index.es`
 , root  = process.cwd ``
+, negotiate = require ('./negotiate')
 
 , Base = path =>
     !!! path
@@ -65,7 +66,7 @@ new class extends Base (path = path + '') {
   // async head (context, identity = 'index.html') {}
 
 
-  async get (context, identity = 'index.html') {
+  async get (context, identity = negotiate (context)) {
 
     ( super.get || ( _ => _ ) )
       ( context, identity )
