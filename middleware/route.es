@@ -20,11 +20,9 @@ const
     (params, value, index) =>
       params [tokens [index]] = decode (value)
 
-, parameterize = (uri, matched, context) =>
-    [ ... matched ]
-      .splice (1)
-//    .filter (Boolean)
-      .reduce (decoded (uri.match (/[^{]+(?=})/g) || []), {})
+, parameterize = (uri, [ _ , ... params ], context) =>
+    params.reduce
+      (decoded (uri.match (/[^{]+(?=})/g) || []), {})
 
 
 module.exports = (uri, endpoint = unspecified) =>
