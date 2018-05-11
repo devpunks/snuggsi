@@ -12,10 +12,14 @@ const
 , SAFE_METHODS = [ ... DEFAULT_METHODS ]
 
 , METHODS = [ ... require ('http').METHODS ]
-    .filter (method => method !== 'TRACE')
+    // cors?
+    .filter (method => method !== 'OPTIONS')
     // for some reason connect won't work
     .filter (method => method !== 'CONNECT')
-    .filter (method => method !== 'OPTIONS') // cors?
+    // Buggs @brandondees?
+    .filter (method => method !== 'TRACE')
+    // Bind must be called on a function?
+    .filter (method => method !== 'BIND')
 
 , UNSAFE_METHODS = METHODS
     .filter (method => !!! SAFE_METHODS.includes (method))
