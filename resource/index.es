@@ -98,6 +98,7 @@ function mount (point) { // Negotiation requires efficient directory traversal.
 
 
 // Index overflow https://github.com/koajs/send/pull/99/files
+// readFile is FAR SLOWER - https://stackoverflow.com/questions/4589732#answer-4590651
 async function send (context, file) {
 
   const
