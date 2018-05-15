@@ -88,11 +88,14 @@ class TokenList {
                .map  (collect)
           || collect (node)
 
-    , collect = node =>
+    , collect = node => {
+        console.log ('text content', node.textContent);
+
         /{(\w+|#)}/.test (node.textContent)
           && (node.text = node.textContent)
               .match (/[^{]+(?=})/g)
               .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
+    }
 
     , walker =
         document.createNodeIterator
