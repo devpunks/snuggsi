@@ -1,38 +1,38 @@
 <title>snuggsi ツ - Autocomplete Dropdown List</title>
 
 <meta charset=UTF-8>
-<meta name=viewport content='width=device-width, initial-scale=1'>
+<meta name=viewport content='width=device-width,initial-scale=1'>
 
 <script src=/></script>
-<script name=polyfill src=https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
 
-<link rel=stylesheet href=https://devpunks.herokuapp.com/typography.css>
+<link rel=stylesheet href=/typography.css>
 
 <header-group>
-  <h2 slot=header>&lt:auto-complete&gt;</h2>
-  <a  slot=subheader Title='See more componentexamples' href=/examples>See more component examples</a>
+  <h2 slot=header>&lt;auto-complete&gt;</h2>
+  <a  slot=subheader Title='See more component examples' href=/examples/>See more component examples</a>
 </header-group>
-<!-- import works inline body -->
-<link rel=import href=/examples/header-group>
 
 
 <p>
   This is a refactor of
-  <a href='https://jsfiddle.net/nomzz/Kp3s7'>https://jsfiddle.net/nomzz/Kp3s7</a>
+  <a href=https://jsfiddle.net/nomzz/Kp3s7>https://jsfiddle.net/nomzz/Kp3s7</a>
 </p>
+
 
 <h1>Autocomplete Countries</h1>
 
 <auto-complete>
-  <form action='#'>
-    <label for='search'>Search</label>
-    <input id='search' list='results' placeholder='Search'>
+  <form action=#>
+    <label for=search>Search</label>
+    <input id=search list=results placeholder=Search>
 
-    <datalist id='results'></datalist>
+    <datalist id=results>
+      <template name=items>
+        <option value={self}>
+      </template>
+    </datalist>
   </form>
 
-<script src='http://www.devpunks.com/examples/filter.es' defer> </script>
-<script src='./autocomplete.es' defer></script>
+  <script src=filter.js defer> </script>
+  <script src=autocomplete.js defer></script>
 </auto-complete>
-
-<script src='../../vendor/browser-sync.es'></script>
