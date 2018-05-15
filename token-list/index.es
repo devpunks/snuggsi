@@ -53,9 +53,12 @@ class TokenList {
           .join  (context [symbol]))
 
 
-    for (let symbol in this)
+    for (let symbol in this) {
+      console.log ('symbol', symbol)
+
       this [symbol]
         .map (node => (node.textContent = node.text) && node)
+    }
 
 
     for (let symbol in this)
