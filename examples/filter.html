@@ -28,7 +28,11 @@
     <input id='search' placeholder='Search'>
   </form>
 
-  <ul></ul>
+  <ul>
+    <template name=items>
+      <li><a href=#{slug}>{name}</a>
+    </template>
+  </ul>
 
   <script src='http://www.devpunks.com/examples/filter.es' defer> </script>
 </list-filter>
