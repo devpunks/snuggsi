@@ -87,10 +87,14 @@ var TokenList = function (node) {
              .map(collect)
         || collect (node); }
 
-  , collect = function (node) { return /{(\w+|#)}/.test (node.textContent)
+  , collect = function (node) {
+      console.log ('text content', node.textContent);
+
+      /{(\w+|#)}/.test (node.textContent)
         && (node.text = node.textContent)
             .match (/[^{]+(?=})/g)
-            .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); }); }
+            .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); })
+  }
 
   , walker =
       document.createNodeIterator
@@ -115,9 +119,12 @@ TokenList.prototype.bind = function (context) {
         .join(context [symbol])); }; }
 
 
-  for (var symbol in this$1)
-    { this$1 [symbol]
-      .map (function (node) { return (node.textContent = node.text) && node; }) }
+  for (var symbol in this$1) {
+    console.log ('symbol', symbol)
+
+    this$1 [symbol]
+      .map (function (node) { return (node.textContent = node.text) && node; })
+  }
 
 
   for (var symbol$1 in this$1)
