@@ -14,12 +14,7 @@ const
 
 module.exports = source =>
 
-  (buffer = [])
-    && typeof source === 'string'
+  typeof source === 'string'
     || Array.isArray (source)
-
-      ? read
-          ( source + '', encoding )
-
-      : new Promise
-         ( join (buffer).bind (source) )
+      ? read ( source + '', encoding )
+      : new Promise ( join (source) )
