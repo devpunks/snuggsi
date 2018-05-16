@@ -12,7 +12,7 @@ const
     }
 
 
-module.exports = (source, buffer) =>
+module.exports = source =>
 
   (buffer = [])
     && typeof source === 'string'
