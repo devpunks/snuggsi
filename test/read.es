@@ -4,9 +4,9 @@ const
 , { readFileSync: read }
     = require ('fs')
 
-, join = (buffer = []) =>
-    function (then) {
-      this
+, join = (source, buffer = []) =>
+    then =>
+      source
         .on ('data', buffer.push)
         .on ('end' , _ => then (buffer.join ``))
     }
