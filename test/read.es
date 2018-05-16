@@ -5,11 +5,9 @@ const
     = require ('fs')
 
 , join = (source, buffer = []) =>
-    then =>
-      source
-        .on ('data', buffer.push)
-        .on ('end' , _ => then (buffer.join ``))
-    }
+    then => source
+      .on ('data', buffer.push)
+      .on ('end' , _ => then (buffer.join ``))
 
 
 module.exports = source =>
