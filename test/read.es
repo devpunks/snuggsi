@@ -5,10 +5,10 @@ const
     = require ('fs')
 
 , join = buffer =>
-    function (resolve) {
+    function (then) {
       this
         .on ('data', buffer.push)
-        .on ('end' , _ => resolve (buffer.join ``))
+        .on ('end' , _ => then (buffer.join ``))
     }
 
 
