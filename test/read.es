@@ -15,4 +15,4 @@ module.exports = source =>
   typeof source === 'string'
     || Array.isArray (source)
       ? read ( source + '', encoding )
-      : new Promise ( join (source) )
+      : new Promise ( join ( source ) )
