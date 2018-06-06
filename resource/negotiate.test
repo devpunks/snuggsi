@@ -152,7 +152,7 @@ test ('Resource JS GET / Accept: application/javascript', async t => {
 })
 
 
-test ('Resource JS GET / Accept: text/javascript', async t => {
+test.only ('Resource JS GET / Accept: text/javascript', async t => {
 
   const
     accept    = 'text/javascript'
