@@ -48,7 +48,8 @@ test ('Resource HTML GET / Accept: text/html', async t => {
     , headers  : { accept } }
   , response = await fetch (URI, options)
   , { status, headers } = response
-  , type = headers.get ('content-type')
+
+  , type     = headers.get ('content-type')
   , length   = headers.get ('Content-Length')
   , modified = headers.get ('Last-Modified')
 
