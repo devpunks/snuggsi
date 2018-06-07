@@ -1,6 +1,6 @@
 module.exports = context => {
 
-  console.warn ('accepts', context.accepts ('txt'), context.headers)
+  console.warn ('accepts', context.accepts `txt`, context.headers)
 
   return 'index.' + context.accepts
     // HTTP 1.1 `Accept` Header
