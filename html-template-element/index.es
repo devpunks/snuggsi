@@ -1,12 +1,10 @@
 // https://html.spec.whatwg.org/multipage/scripting.html#the-template-element
 // https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
 
-// https://github.com/WebReflection/hyperHTML/pull/100
-
 // https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
-
-// https://github.com/webcomponents/template
 // https://gist.github.com/WebReflection/267689ec54d7267c853c47480bd35282
+// https://github.com/WebReflection/hyperHTML/pull/100
+// https://github.com/webcomponents/template
 const Template = template => {
 
   template.length
