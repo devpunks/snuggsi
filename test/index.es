@@ -15,15 +15,6 @@ finish (process.exit)
 module.exports = {
   test
 , fetch
-<<<<<<< HEAD
-
-// See chunked responses
-// http://taylor.fausak.me/2013/02/17/testing-a-node-js-http-server-with-mocha/
-, get    : require ('http')
-, read   : require ('./read')
-, serve  : require ('./serve')
-, browse : require ('./browse')
-=======
 , read   : require ('./read')
 , serve  : require ('./serve')
 , browse : require ('./browse')
@@ -31,5 +22,4 @@ module.exports = {
 // See chunked responses
 // http://taylor.fausak.me/2013/02/17/testing-a-node-js-http-server-with-mocha/
 , get    : require ('http').get
->>>>>>> Update test helper functionality
 }
