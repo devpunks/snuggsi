@@ -5,7 +5,7 @@ require ('./snuggsi.test')
 require ('./route.test')
 require ('./policy.test')
 // require ('./compressor.test')
-require ('./negotiator.test')
+// require ('./negotiator.test')
 require ('./librarian.test')
 require ('./assets.test')
 
