@@ -8,11 +8,8 @@
 
 
 const
-  { test, fetch }
+  { test, fetch, serve }
     = require ('test')
-
-, { Server }
-    = require ('..')
 
 
 test ('calling next middleware')
@@ -21,7 +18,7 @@ test ('calling next middleware')
 test ('X-XSS-Protection: 1; mode=block', async t => {
 
   const
-    server   = (new Server).serve ``
+    server   = serve ``
   , response = await fetch ('http://localhost:8181/')
 
 
@@ -43,7 +40,7 @@ test ('X-XSS-Protection: 1; mode=block', async t => {
 test ('X-Frame-Options: deny', async t => {
 
   const
-    server   = (new Server).serve ``
+    server   = serve ``
   , response = await fetch ('http://localhost:8181/')
 
 
@@ -58,7 +55,7 @@ test ('X-Frame-Options: deny', async t => {
 test ('X-Content-Type-Options: nosniff', async t => {
 
   const
-    server   = (new Server).serve ``
+    server   = serve ``
   , response = await fetch ('http://localhost:8181/')
 
 
@@ -73,7 +70,7 @@ test ('X-Content-Type-Options: nosniff', async t => {
 test ('Strict-Transport-Security', async t => {
 
   const
-    server   = (new Server).serve ``
+    server   = serve ``
   , response = await fetch ('http://localhost:8181/')
 
   , age      = 60 * 60 * 24 * 365
