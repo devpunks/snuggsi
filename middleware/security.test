@@ -34,7 +34,7 @@ test ('X-XSS-Protection: 1; mode=block', async t => {
   t.ok
     (expected.test (response.headers.get ('x-xss-protection')))
 
-  server.close ()
+  server.close ``
   t.end ()
 
 })
@@ -50,7 +50,7 @@ test ('X-Frame-Options: deny', async t => {
   t.equal
     ('deny', response.headers.get ('x-frame-options'))
 
-  server.close ()
+  server.close ``
   t.end ()
 })
 
@@ -65,7 +65,7 @@ test ('X-Content-Type-Options: nosniff', async t => {
   t.equal
     ('nosniff', response.headers.get ('x-content-type-options'))
 
-  server.close ()
+  server.close ``
   t.end ()
 })
 
@@ -84,6 +84,6 @@ test ('Strict-Transport-Security', async t => {
   t.ok
     (expected.test (response.headers.get ('strict-transport-security')))
 
-  server.close ()
+  server.close ``
   t.end ()
 })
