@@ -1,5 +1,6 @@
 # Templates
 
+  - WHATWG HTML template element https://html.spec.whatwg.org/multipage/scripting.html#the-template-element
 
 ## `<template>`
 
