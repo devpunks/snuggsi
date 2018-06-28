@@ -36,3 +36,10 @@ This is a `DocumentFragment` returned of the `<template>` content.
   - ["[templates] Ensure that template instantiation actually improves the platform" #704](https://github.com/w3c/webcomponents/issues/704)
 
 
+## References
+
+  - https://gist.github.com/WebReflection/267689ec54d7267c853c47480bd35282
+  - https://github.com/WebReflection/hyperHTML/pull/100
+  - https://github.com/webcomponents/template
+
+
