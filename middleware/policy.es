@@ -71,7 +71,7 @@ const
 
 , ancestors // frame-ancestors
     // default-src fallback
-    = Array.from (defaults)
+    = defaults
 
 , sandboxes // sandbox
     // default-src fallback
