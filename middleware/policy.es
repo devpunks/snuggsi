@@ -55,7 +55,7 @@ const
 
 , workers // worker-src
     // script-src fallback
-    = Array.from (scripts)
+    = scripts
 
 , bases // base-uri
     // default-src fallback
