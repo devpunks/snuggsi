@@ -67,7 +67,7 @@ const
 
 , forms // form-action
     // default-src fallback
-    = Array.from (defaults)
+    = defaults
 
 , ancestors // frame-ancestors
     // default-src fallback
