@@ -26,7 +26,7 @@ const
 
 , images // image-src
     // default-src fallback
-    = Array.from (defaults)
+    = defaults
 
 , fonts // font-src
     // default-src fallback
