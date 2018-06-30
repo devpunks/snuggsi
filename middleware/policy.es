@@ -18,7 +18,7 @@ const
 , frames // frame-src
     // *DEPRECATED* child-src fallback
     // default-src fallback
-    = Array.from (defaults)
+    = defaults
 
 , connects // connect-src
     // default-src fallback
