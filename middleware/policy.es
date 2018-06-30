@@ -30,7 +30,7 @@ const
 
 , fonts // font-src
     // default-src fallback
-    = Array.from (defaults)
+    = defaults
 
 , objects // object-src
     // default-src fallback
