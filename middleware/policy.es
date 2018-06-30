@@ -42,7 +42,7 @@ const
 
 , styles // style-src
     // default-src fallback
-    = Array.from (defaults)
+    = defaults
 
 , scripts // Script Nonce for inline <script>
     // nonce-${nonce} ** MUST BE UNIQUE **
