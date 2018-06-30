@@ -59,11 +59,11 @@ const
 
 , bases // base-uri
     // default-src fallback
-    = Array.from (defaults)
+    = defaults
 
 , plugins // plugin-types
     // default-src fallback
-    = Array.from (defaults)
+    = defaults
 
 , forms // form-action
     // default-src fallback
