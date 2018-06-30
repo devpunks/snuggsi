@@ -22,7 +22,7 @@ const
 
 , connects // connect-src
     // default-src fallback
-    = Array.from (defaults)
+    = defaults
 
 , images // image-src
     // default-src fallback
