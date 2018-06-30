@@ -51,7 +51,7 @@ const
     // **THAT BEING SAID...For Safari 😢
     // 'unsafe-inline' // THIS MAY NOT BE TRUE IN 2018
     // default-src fallback
-    = Array.from (defaults)
+    = defaults
 
 , workers // worker-src
     // script-src fallback
