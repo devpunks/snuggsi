@@ -38,7 +38,7 @@ const
 
 , medias // media-src
     // default-src fallback
-    = Array.from (defaults)
+    = defaults
 
 , styles // style-src
     // default-src fallback
