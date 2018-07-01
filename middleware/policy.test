@@ -156,6 +156,8 @@ test.only ("Content-Security-Policy: object-src 'none'", async t => {
 
 
 test ("Content-Security-Policy: object-src 'self'; plugin-types", async t => {
+  // only available when object-src is NOT 'none'
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/plugin-types#Examples
 
   const
     server  = serve ``
