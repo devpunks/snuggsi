@@ -266,7 +266,9 @@ test ('Content-Security-Policy: plugin-types', async t => {
         .headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes (`plugin-types ${defaults}`) )
+  console.warn (policy)
+
+  t.ok ( policy.includes (`plugin-types ${plugins}`) )
 
   server.close ``
   t.end ()
