@@ -136,15 +136,17 @@ test ('Content-Security-Policy: font-src', async t => {
 })
 
 
-test ('Content-Security-Policy: object-src', async t => {
+test.only ('Content-Security-Policy: object-src', async t => {
 
   const
-    server = (new Server).serve ``
+    server = serve ``
 
   , policy
       = (await fetch ('http://localhost:8181/'))
         .headers.get ('content-security-policy')
 
+
+  console.warn (policy)
 
   t.ok ( policy.includes (`object-src 'none'`) )
 
@@ -153,7 +155,7 @@ test ('Content-Security-Policy: object-src', async t => {
 })
 
 
-test.only ('Content-Security-Policy: plugin-types', async t => {
+test ('Content-Security-Policy: plugin-types', async t => {
 
   const
     server  = serve ``
@@ -163,8 +165,6 @@ test.only ('Content-Security-Policy: plugin-types', async t => {
       = (await fetch ('http://localhost:8181/'))
         .headers.get ('content-security-policy')
 
-
-  console.warn (policy)
 
   t.ok ( policy.includes (`plugin-types ${plugins}`) )
 
