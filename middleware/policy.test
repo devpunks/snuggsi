@@ -146,7 +146,7 @@ test ('Content-Security-Policy: object-src', async t => {
         .headers.get ('content-security-policy')
 
 
-  t.ok ( policy.includes (`object-src ${defaults}`) )
+  t.ok ( policy.includes (`object-src 'none'`) )
 
   server.close ``
   t.end ()
