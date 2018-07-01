@@ -99,6 +99,7 @@ const
   , `img-src ${ images.join ` ` }`
   , `font-src ${ fonts.join ` ` }`
   , `object-src ${ objects.join ` ` }`
+  , `plugin-types ${ plugins.join ` ` }`
   , `media-src ${ medias.join ` ` }`
   , `style-src ${ styles.join ` ` }`
   , `script-src ${ scripts.join ` ` }`
@@ -110,7 +111,6 @@ const
   //  or by the Content-Security-policy-Report-Only header field.
   //  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox
   , `sandbox ${ sandboxes.join ` ` }`
-  , `plugin-types ${ plugins.join ` ` }`
 
 //  Navigation Directives
   , `form-action ${ forms.join ` ` }`
