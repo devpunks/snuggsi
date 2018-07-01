@@ -5,7 +5,7 @@ const
 , { Server }
     = require ('..')
 
-, defaults = [`'none'`].join `; `
+, defaults = [`'self'`].join `; `
 
 
 test ('calling next middleware')

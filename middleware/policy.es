@@ -4,7 +4,7 @@
 const
 //schemes = ['safari-extension://', 'chrome-extension://', 'https://', 'http://']
   defaults
-    = [`'none'`]
+    = [`'self'`]
 
 , SECURE = true
 
