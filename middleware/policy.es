@@ -63,7 +63,7 @@ const
 
 , plugins // plugin-types
     // default-src fallback
-    = defaults
+    = ['audio/*', 'video/*']
 
 , forms // form-action
     // default-src fallback
