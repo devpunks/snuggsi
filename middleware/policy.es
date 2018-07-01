@@ -34,7 +34,7 @@ const
 
 , objects // object-src
     // default-src fallback
-    = defaults
+    = [`'none'`]
 
 , medias // media-src
     // default-src fallback
