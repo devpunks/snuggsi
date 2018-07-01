@@ -141,14 +141,16 @@ test.only ("Content-Security-Policy: object-src 'none'", async t => {
   const
     server = serve ``
 
-  , policy
+  , { headers }
       = (await fetch ('http://localhost:8181/'))
-        .headers.get ('content-security-policy')
+
+  , policy = headers.get ('content-security-policy')
 
 
   console.warn (policy)
 
   t.ok ( policy.includes (`object-src 'none'`) )
+  t.notOk ( policy.includes (`plugin-types`) )
 
   server.close ``
   t.end ()
