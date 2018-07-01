@@ -153,6 +153,26 @@ test ('Content-Security-Policy: object-src', async t => {
 })
 
 
+test.only ('Content-Security-Policy: plugin-types', async t => {
+
+  const
+    server  = serve ``
+  , plugins = ['audio/*', 'video/*'].join ` `
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  console.warn (policy)
+
+  t.ok ( policy.includes (`plugin-types ${plugins}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
 test ('Content-Security-Policy: media-src', async t => {
 
   const
@@ -249,26 +269,6 @@ test ('Content-Security-Policy: sandbox', async t => {
 
 
   t.ok ( policy.includes (`sandbox`) )
-
-  server.close ``
-  t.end ()
-})
-
-
-test ('Content-Security-Policy: plugin-types', async t => {
-
-  const
-    server  = serve ``
-  , plugins = ['audio/*', 'video/*'].join ` `
-
-  , policy
-      = (await fetch ('http://localhost:8181/'))
-        .headers.get ('content-security-policy')
-
-
-  console.warn (policy)
-
-  t.ok ( policy.includes (`plugin-types ${plugins}`) )
 
   server.close ``
   t.end ()
