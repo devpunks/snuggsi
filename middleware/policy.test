@@ -1,5 +1,5 @@
 const
-  { test, fetch }
+  { test, fetch, serve }
     = require ('test')
 
 , { Server }
@@ -54,7 +54,7 @@ test ('Content-Security-Policy: report-to' , async t => {
 test ('Content-Security-Policy: default-src', async t => {
 
   const
-    server = (new Server).serve ``
+    server = serve ``
 
   , policy
       = (await fetch ('http://localhost:8181/'))
