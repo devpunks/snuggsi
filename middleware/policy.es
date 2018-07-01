@@ -99,7 +99,9 @@ const
   , `img-src ${ images.join ` ` }`
   , `font-src ${ fonts.join ` ` }`
   , `object-src ${ objects.join ` ` }`
-  , `plugin-types ${ plugins.join ` ` }`
+  , !!! objects.includes (`'none'`)
+      ? `plugin-types ${ plugins.join ` ` }`
+      : ''
   , `media-src ${ medias.join ` ` }`
   , `style-src ${ styles.join ` ` }`
   , `script-src ${ scripts.join ` ` }`
