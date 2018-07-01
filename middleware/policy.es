@@ -147,6 +147,5 @@ module.exports = options =>
       + ( 'report' in context.request.query ? '-Report-Only' : '' )
 
 
-    context
-      .set ( header, directives.join `; ` )
+    context .set ( header, directives.filter (Boolean).join `; ` )
   }
