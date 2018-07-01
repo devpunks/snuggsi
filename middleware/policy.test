@@ -136,7 +136,7 @@ test ('Content-Security-Policy: font-src', async t => {
 })
 
 
-test.only ('Content-Security-Policy: object-src', async t => {
+test.only ("Content-Security-Policy: object-src 'none'", async t => {
 
   const
     server = serve ``
@@ -155,7 +155,7 @@ test.only ('Content-Security-Policy: object-src', async t => {
 })
 
 
-test ('Content-Security-Policy: plugin-types', async t => {
+test ("Content-Security-Policy: object-src 'self'; plugin-types", async t => {
 
   const
     server  = serve ``
