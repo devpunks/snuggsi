@@ -258,7 +258,8 @@ test ('Content-Security-Policy: sandbox', async t => {
 test ('Content-Security-Policy: plugin-types', async t => {
 
   const
-    server = serve ``
+    server  = serve ``
+  , plugins = ['audio/*', 'video/*'].join ` `
 
   , policy
       = (await fetch ('http://localhost:8181/'))
