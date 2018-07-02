@@ -23,10 +23,7 @@ const
 , connects = defaults   // connect-src
 , objects  = ["'none'"] // object-src
 
-, workers // worker-src
-    // script-src fallback
-    = scripts
-
+, workers   = scripts // worker-src // script-src fallback
 , bases     = defaults // base-uri
 , forms     = defaults // form-action
 , plugins   = ['audio/*', 'video/*'] // plugin-types
