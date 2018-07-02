@@ -6,8 +6,8 @@
 
   1. - `text/*`
   2. - `image/*`
-  3. - `script/*`
-  4. - `style/*`
+  3. - `style/*`
+  4. - `script/*`
 
 ## Request Methods
 
