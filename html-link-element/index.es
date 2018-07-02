@@ -104,6 +104,7 @@ void (_ => {
         // https://html.spec.whatwg.org/multipage/scripting.html#prepare-a-script
         // Classic script graph - https://html.spec.whatwg.org/multipage/webappapis.html#fetch-a-classic-script
         // Module script tree - https://html.spec.whatwg.org/multipage/webappapis.html#fetch-a-module-script-tree
+        // Concept Script script - https://html.spec.whatwg.org/multipage/scripting.html#concept-script-script
         as = node.getAttribute ('as')
 
       , clone =
