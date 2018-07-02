@@ -20,7 +20,7 @@ const
 , font      = defaults   // font-src
 , media     = defaults   // media-src
 , connect   = defaults   // connect-src
-, forms     = defaults   // form-action
+, form      = defaults   // form-action
 , ancestors = defaults   // frame-ancestors
 , frame     = defaults   // frame-src // *DEPRECATED* child-src fallback
 , worker    = script     // worker-src // script-src fallback
@@ -61,16 +61,16 @@ const
       ? `plugin-types ${ plugins.join ` ` }`
       : ''
 
+//  Navigation Directives
+  , `form-action ${ form.join ` ` }`
+  , `frame-ancestors ${ ancestors.join ` ` }`
+
 // Document directives
   , `base-uri ${ base.join ` ` }`
   , `sandbox ${ sandboxes.join ` ` }`
   //  `sandbox  ...` is not supported in the <meta> element
   //  or by the Content-Security-policy-Report-Only header field.
   //  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox
-
-//  Navigation Directives
-  , `form-action ${ forms.join ` ` }`
-  , `frame-ancestors ${ ancestors.join ` ` }`
 
 //  // Other directives
 //  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests
