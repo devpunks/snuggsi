@@ -87,7 +87,7 @@ const
 
 module.exports = options =>
 
-  async (context, next, header) => {
+  async (context, next) => {
 
       // Is this a security breach?
       // Will someone be able to disable CSP with this?
