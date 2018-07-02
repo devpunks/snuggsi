@@ -66,7 +66,7 @@ const
 
 // Document directives
   , `base-uri ${ base.join ` ` }`
-  , `sandbox ${ sandboxe.join ` ` }`
+  , `sandbox ${ sandbox.join ` ` }`
   //  `sandbox  ...` is not supported in the <meta> element
   //  or by the Content-Security-policy-Report-Only header field.
   //  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox
