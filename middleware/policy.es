@@ -28,9 +28,8 @@ const
 , objects   = ["'none'"] // object-src
 , plugins   = ['audio/*', 'video/*'] // plugin-types
 
-, sandboxes // sandbox
-    // default-src fallback
-    = [/*
+, sandboxes = defaults ||// sandbox
+  [/*
       allow-forms
     , allow-popups
     , allow-modals
@@ -41,7 +40,7 @@ const
     , allow-top-navigation
     , allow-orientation-lock
     , allow-popups-to-escape-sandbox
-    */]
+  */]
 
 , directives = [
   // Reporting directives
