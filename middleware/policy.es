@@ -22,7 +22,7 @@ const
 , medias   = defaults   // media-src
 , frames   = defaults   // frame-src // *DEPRECATED* child-src fallback
 , connects = defaults   // connect-src
-, objects  = [`'none'`] // object-src
+, objects  = ["'none'"] // object-src
 
 , workers // worker-src
     // script-src fallback
