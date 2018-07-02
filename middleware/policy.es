@@ -12,32 +12,14 @@ const
 // Depending on analytics framework,
 // may want to listen for securitypolicyviolation events
 // with JavaScript and collect more information about the client before reporting.
-, reports // report-to
-    // *DEPRECATED* report-uri
-    = ['https://snuggsi.report-uri.com/r/d/csp/enforce']
-
-, frames // frame-src
-    // *DEPRECATED* child-src fallback
-    = defaults
-
-, connects // connect-src
-    = defaults
-
-, images // img-src
-    = defaults
-
-, fonts // font-src
-    = defaults
-
-, objects // object-src
-    = [`'none'`]
-
-, medias // media-src
-    = defaults
-
-, styles // style-src
-    = defaults
-
+, reports  = ['https://snuggsi.report-uri.com/r/d/csp/enforce'] // report-to // *DEPRECATED* report-uri
+, frames   = defaults // frame-src // *DEPRECATED* child-src fallback
+, connects = defaults // connect-src
+, images   = defaults // img-src
+, fonts    = defaults // font-src
+, medias   = defaults // media-src
+, styles   = defaults // style-src
+, objects  = [`'none'`] // object-src
 , scripts // Script Nonce for inline <script>
     // nonce-${nonce} ** MUST BE UNIQUE **
     //   https://w3c.github.io/webappsec-csp/#framework-directive-source-list
