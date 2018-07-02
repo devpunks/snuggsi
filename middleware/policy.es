@@ -8,6 +8,7 @@ const
 // may want to listen for securitypolicyviolation events
 // with JavaScript and collect more information about the client before reporting.
 , report    = ['https://snuggsi.report-uri.com/r/d/csp/enforce'] // report-to // *DEPRECATED* report-uri
+
 , defaults  = ["'self'"] // default-src
 , img       = defaults   // img-src
 , style     = defaults   // style-src
@@ -17,6 +18,7 @@ const
   // **THAT BEING SAID...For Safari 😢
   // 'unsafe-inline' // THIS MAY NOT BE TRUE IN 2018
 , script    = defaults   // script-src Script Nonce for inline <script>
+
 , font      = defaults   // font-src
 , media     = defaults   // media-src
 , connect   = defaults   // connect-src
@@ -24,8 +26,10 @@ const
 , worker    = script     // worker-src // script-src fallback
 , object    = ["'none'"] // object-src
 , plugin    = ['audio/*', 'video/*'] // plugin-types when object != 'none'
+
 , form      = defaults   // form-action
 , ancestors = defaults   // frame-ancestors
+
 , base      = defaults   // base-uri
 , sandbox   = defaults ||// sandbox
   [/*
@@ -50,6 +54,7 @@ const
   , `img-src ${ img.join ` ` }`
   , `style-src ${ style.join ` ` }`
   , `script-src ${ script.join ` ` }`
+
   , `font-src ${ font.join ` ` }`
   , `media-src ${ media.join ` ` }`
   , `connect-src ${ connect.join ` ` }`
