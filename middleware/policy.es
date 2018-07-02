@@ -62,11 +62,11 @@ const
   , `worker-src ${ workers.join ` ` }`
 
 // Document directives
+  , `sandbox ${ sandboxes.join ` ` }`
   , `base-uri ${ bases.join ` ` }`
   //  `sandbox  ...` is not supported in the <meta> element
   //  or by the Content-Security-policy-Report-Only header field.
   //  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox
-  , `sandbox ${ sandboxes.join ` ` }`
 
 //  Navigation Directives
   , `form-action ${ forms.join ` ` }`
