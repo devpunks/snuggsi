@@ -78,7 +78,9 @@ const
 
   // Other
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests
-  , (SECURE ? `block-all-mixed-content` : `update-insecure-requests`)
+  , SECURE
+      ? `block-all-mixed-content`
+      : `update-insecure-requests`
   // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/require-sri-for
 //, `require-sri-for ${ integrities.join ` ` }`
