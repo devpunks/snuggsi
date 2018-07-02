@@ -1,5 +1,4 @@
-// Can actually charge for this feature
-// https://report-uri.com/#prices
+// Can actually charge for this feature // https://report-uri.com/#prices
 
 const
 //schemes = ['safari-extension://', 'chrome-extension://', 'https://', 'http://']
