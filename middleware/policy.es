@@ -2,8 +2,8 @@
 
 const
 //schemes = ['safari-extension://', 'chrome-extension://', 'https://', 'http://']
-  SECURE = true
-
+  SECURE  = true
+, header  = 'Content-Security-Policy'
 // Depending on analytics framework,
 // may want to listen for securitypolicyviolation events
 // with JavaScript and collect more information about the client before reporting.
@@ -88,9 +88,6 @@ const
 module.exports = options =>
 
   async (context, next, header) => {
-
-    header
-      = 'Content-Security-Policy'
 
       // Is this a security breach?
       // Will someone be able to disable CSP with this?
