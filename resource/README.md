@@ -9,6 +9,7 @@
   3. - `style/*`
   4. - `script/*`
 
+
 ## Request Methods
 
 - Handling A Resource - https://mimesniff.spec.whatwg.org/#handling-a-resource
