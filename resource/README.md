@@ -24,7 +24,7 @@
   - Context-Specific sniffing - https://mimesniff.spec.whatwg.org/#context-specific-sniffing
   
 
-## References
+# References
 
   - Rest Cookbook -  http://restcookbook.com/
   - HTTP Status Codes - https://httpstatuses.com/
