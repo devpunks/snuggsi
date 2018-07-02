@@ -85,14 +85,12 @@ const
   ]
 
 
-module.exports = options =>
+module.exports = async (context, next) => {
 
-  async (context, next) => {
-
-      // Is this a security breach?
-      // Will someone be able to disable CSP with this?
-      // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only
-      + ( 'report' in context.request.query ? '-Report-Only' : '' )
+    // Is this a security breach?
+    // Will someone be able to disable CSP with this?
+    // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only
+    'report' in context.request.query && (header += '-Report-Only')
 
     context.set ( header, directives.filter (Boolean).join `; ` )
 
