@@ -6,6 +6,7 @@ const
   SECURE = true
 
 , defaults
+    // default-src fallback
     = [`'self'`]
 
 // Depending on analytics framework,
@@ -17,31 +18,24 @@ const
 
 , frames // frame-src
     // *DEPRECATED* child-src fallback
-    // default-src fallback
     = defaults
 
 , connects // connect-src
-    // default-src fallback
     = defaults
 
 , images // img-src
-    // default-src fallback
     = defaults
 
 , fonts // font-src
-    // default-src fallback
     = defaults
 
 , objects // object-src
-    // default-src fallback
     = [`'none'`]
 
 , medias // media-src
-    // default-src fallback
     = defaults
 
 , styles // style-src
-    // default-src fallback
     = defaults
 
 , scripts // Script Nonce for inline <script>
