@@ -46,10 +46,10 @@ const
   */]
 
 , directives = [
-  // Reporting directives
+  // Reporting
     `report-to ${ report.join ` ` }`
 
-  // Fetch directives
+  // Fetch
   , `default-src ${ defaults.join ` ` }`
   , `img-src ${ img.join ` ` }`
   , `style-src ${ style.join ` ` }`
@@ -65,18 +65,18 @@ const
       ? `plugin-types ${ plugin.join ` ` }`
       : ''
 
-//  Navigation Directives
+//  Navigation
   , `form-action ${ form.join ` ` }`
   , `frame-ancestors ${ ancestors.join ` ` }`
 
-// Document directives
+// Document
   , `base-uri ${ base.join ` ` }`
   //  `sandbox  ...` is not supported in the <meta> element
   //  or by the Content-Security-policy-Report-Only header field.
   //  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox
   , `sandbox ${ sandbox.join ` ` }`
 
-  // Other directives
+  // Other
   // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests
   , (SECURE ? `block-all-mixed-content` : `update-insecure-requests`)
   // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
