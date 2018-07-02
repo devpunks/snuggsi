@@ -1,5 +1,14 @@
 # `Resource`
 
+## Types
+
+  A `Resource` (and for that matter (sub)`Resource` can be one of 4 media types (There will be more):
+
+  1. - `text/*`
+  2. - `image/*`
+  3. - `script/*`
+  4. - `style/*`
+
 ## Request Methods
 
 - Handling A Resource - https://mimesniff.spec.whatwg.org/#handling-a-resource
