@@ -26,7 +26,7 @@ const
 , frames    = defaults   // frame-src // *DEPRECATED* child-src fallback
 , workers   = scripts    // worker-src // script-src fallback
 , objects   = ["'none'"] // object-src
-, plugins   = ['audio/*', 'video/*'] // plugin-types
+, plugins   = ['audio/*', 'video/*'] // plugin-types when object != 'none'
 
 , sandboxes = defaults ||// sandbox
   [/*
@@ -48,17 +48,17 @@ const
 
   // Fetch directives
   , `default-src ${ defaults.join ` ` }`
+  , `img-src ${ img.join ` ` }`
+  , `style-src ${ style.join ` ` }`
+  , `script-src ${ scripts.join ` ` }`
   , `frame-src ${ frames.join ` ` }`
   , `connect-src ${ connects.join ` ` }`
-  , `img-src ${ img.join ` ` }`
   , `font-src ${ fonts.join ` ` }`
   , `object-src ${ objects.join ` ` }`
   , !!! objects.includes (`'none'`)
       ? `plugin-types ${ plugins.join ` ` }`
       : ''
   , `media-src ${ medias.join ` ` }`
-  , `style-src ${ styles.join ` ` }`
-  , `script-src ${ scripts.join ` ` }`
   , `worker-src ${ workers.join ` ` }`
 
 // Document directives
