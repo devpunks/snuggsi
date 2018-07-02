@@ -1,5 +1,6 @@
 {
-  "report-uri" : "https://snuggsi.report-uri.com/r/d/csp/enforce"
+  "report-uri"
+    : "https://snuggsi.report-uri.com/r/d/csp/enforce"
 
 , "default-src" : [
     "'self'"
