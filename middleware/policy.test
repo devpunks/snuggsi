@@ -11,7 +11,7 @@ const
 test ('calling next middleware')
 
 
-test ('Content-Security-Policy-Report-Only', async t => {
+test.only ('Content-Security-Policy-Report-Only', async t => {
 
   const
     server = (new Server).serve ``
@@ -136,7 +136,7 @@ test ('Content-Security-Policy: font-src', async t => {
 })
 
 
-test.only ("Content-Security-Policy: object-src 'none'", async t => {
+test ("Content-Security-Policy: object-src 'none'", async t => {
 
   const
     server = serve ``

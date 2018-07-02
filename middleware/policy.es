@@ -1,9 +1,11 @@
 // Can actually charge for this feature // https://report-uri.com/#prices
 
+let
+  header    = 'Content-Security-Policy'
+
 const
 //schemes   = ['safari-extension://', 'chrome-extension://', 'https://', 'http://']
   SECURE    = true
-, header    = 'Content-Security-Policy'
 // Depending on analytics framework,
 // may want to listen for securitypolicyviolation events
 // with JavaScript and collect more information about the client before reporting.
