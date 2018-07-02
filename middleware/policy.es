@@ -10,7 +10,7 @@ const
 , report    = ['https://snuggsi.report-uri.com/r/d/csp/enforce'] // report-to // *DEPRECATED* report-uri
 , defaults  = ["'self'"] // default-src
 , img       = defaults   // img-src
-, styles    = defaults   // style-src
+, style     = defaults   // style-src
   // nonce-${nonce} ** MUST BE UNIQUE **
   //   https://w3c.github.io/webappsec-csp/#framework-directive-source-list
   // **NEVER EXPOSE!!! Causes XSS attacks** script-src 'unsafe-inline'
