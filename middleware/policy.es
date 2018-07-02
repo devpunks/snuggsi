@@ -18,7 +18,7 @@ const
   // 'unsafe-inline' // THIS MAY NOT BE TRUE IN 2018
 , script    = defaults   // script-src Script Nonce for inline <script>
 , font      = defaults   // font-src
-, medias    = defaults   // media-src
+, media     = defaults   // media-src
 , connects  = defaults   // connect-src
 , bases     = defaults   // base-uri
 , forms     = defaults   // form-action
@@ -52,6 +52,7 @@ const
   , `style-src ${ style.join ` ` }`
   , `script-src ${ script.join ` ` }`
   , `font-src ${ font.join ` ` }`
+  , `media-src ${ media.join ` ` }`
   , `frame-src ${ frame.join ` ` }`
   , `connect-src ${ connects.join ` ` }`
   , `worker-src ${ worker.join ` ` }`
@@ -59,7 +60,6 @@ const
   , !!! objects.includes (`'none'`)
       ? `plugin-types ${ plugins.join ` ` }`
       : ''
-  , `media-src ${ medias.join ` ` }`
 
 // Document directives
   , `sandbox ${ sandboxes.join ` ` }`
