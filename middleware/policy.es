@@ -23,7 +23,7 @@ const
 , bases     = defaults   // base-uri
 , forms     = defaults   // form-action
 , ancestors = defaults   // frame-ancestors
-, frames    = defaults   // frame-src // *DEPRECATED* child-src fallback
+, frame     = defaults   // frame-src // *DEPRECATED* child-src fallback
 , worker    = script     // worker-src // script-src fallback
 , objects   = ["'none'"] // object-src
 , plugins   = ['audio/*', 'video/*'] // plugin-types when object != 'none'
@@ -51,7 +51,7 @@ const
   , `img-src ${ img.join ` ` }`
   , `style-src ${ style.join ` ` }`
   , `script-src ${ script.join ` ` }`
-  , `frame-src ${ frames.join ` ` }`
+  , `frame-src ${ frame.join ` ` }`
   , `connect-src ${ connects.join ` ` }`
   , `font-src ${ fonts.join ` ` }`
   , `worker-src ${ worker.join ` ` }`
