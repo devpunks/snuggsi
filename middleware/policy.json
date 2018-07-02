@@ -1,5 +1,7 @@
 {
-  "report-uri"
+  "secure" : true
+
+, "report-uri"
     : "https://snuggsi.report-uri.com/r/d/csp/enforce"
 
 , "default-src" : [
