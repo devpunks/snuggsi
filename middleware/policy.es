@@ -24,7 +24,7 @@ const
 , forms     = defaults   // form-action
 , ancestors = defaults   // frame-ancestors
 , frames    = defaults   // frame-src // *DEPRECATED* child-src fallback
-, workers   = scripts    // worker-src // script-src fallback
+, worker    = scripts    // worker-src // script-src fallback
 , objects   = ["'none'"] // object-src
 , plugins   = ['audio/*', 'video/*'] // plugin-types when object != 'none'
 
@@ -54,12 +54,12 @@ const
   , `frame-src ${ frames.join ` ` }`
   , `connect-src ${ connects.join ` ` }`
   , `font-src ${ fonts.join ` ` }`
+  , `worker-src ${ worker.join ` ` }`
   , `object-src ${ objects.join ` ` }`
   , !!! objects.includes (`'none'`)
       ? `plugin-types ${ plugins.join ` ` }`
       : ''
   , `media-src ${ medias.join ` ` }`
-  , `worker-src ${ workers.join ` ` }`
 
 // Document directives
   , `sandbox ${ sandboxes.join ` ` }`
