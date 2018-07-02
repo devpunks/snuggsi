@@ -9,7 +9,7 @@ const
 // with JavaScript and collect more information about the client before reporting.
 , report    = ['https://snuggsi.report-uri.com/r/d/csp/enforce'] // report-to // *DEPRECATED* report-uri
 , defaults  = ["'self'"] // default-src
-, images    = defaults   // img-src
+, img       = defaults   // img-src
 , styles    = defaults   // style-src
   // nonce-${nonce} ** MUST BE UNIQUE **
   //   https://w3c.github.io/webappsec-csp/#framework-directive-source-list
@@ -50,7 +50,7 @@ const
   , `default-src ${ defaults.join ` ` }`
   , `frame-src ${ frames.join ` ` }`
   , `connect-src ${ connects.join ` ` }`
-  , `img-src ${ images.join ` ` }`
+  , `img-src ${ img.join ` ` }`
   , `font-src ${ fonts.join ` ` }`
   , `object-src ${ objects.join ` ` }`
   , !!! objects.includes (`'none'`)
