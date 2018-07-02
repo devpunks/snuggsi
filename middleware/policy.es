@@ -27,11 +27,8 @@ const
     // script-src fallback
     = scripts
 
-, bases = defaults // base-uri
-
-, plugins // plugin-types
-    // default-src fallback
-    = ['audio/*', 'video/*']
+, bases   = defaults // base-uri
+, plugins = ['audio/*', 'video/*'] // plugin-types
 
 , forms // form-action
     // default-src fallback
