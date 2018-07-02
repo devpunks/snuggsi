@@ -2,9 +2,9 @@
 
 ## Request Methods
 
-- HTTP Method Definitions - https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
-- MDN Request Methods - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
 - Handling A Resource - https://mimesniff.spec.whatwg.org/#handling-a-resource
+- MDN Request Methods - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+- HTTP Method Definitions - https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
 
 
 ## Response Streams
