@@ -27,7 +27,7 @@ const
 , form      = defaults   // form-action
 , ancestors = defaults   // frame-ancestors
 , base      = defaults   // base-uri
-, sandboxe  = defaults ||// sandbox
+, sandbox   = defaults ||// sandbox
   [/*
       allow-forms
     , allow-popups
