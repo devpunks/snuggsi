@@ -3,10 +3,10 @@
 
 const
 //schemes = ['safari-extension://', 'chrome-extension://', 'https://', 'http://']
-  defaults
-    = [`'self'`]
+  SECURE = true
 
-, SECURE = true
+, defaults
+    = [`'self'`]
 
 // Depending on analytics framework,
 // may want to listen for securitypolicyviolation events
