@@ -2,4 +2,9 @@
   "default-src": [
     "'self'"
   ]
+
+, "image-src": [
+    "'self'"
+  , /* */
+  ]
 }
