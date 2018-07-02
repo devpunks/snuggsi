@@ -28,11 +28,8 @@ const
     = scripts
 
 , bases   = defaults // base-uri
+, forms   = defaults // form-action
 , plugins = ['audio/*', 'video/*'] // plugin-types
-
-, forms // form-action
-    // default-src fallback
-    = defaults
 
 , ancestors // frame-ancestors
     // default-src fallback
