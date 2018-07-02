@@ -20,7 +20,6 @@ const
 , font      = defaults   // font-src
 , media     = defaults   // media-src
 , connect   = defaults   // connect-src
-, bases     = defaults   // base-uri
 , forms     = defaults   // form-action
 , ancestors = defaults   // frame-ancestors
 , frame     = defaults   // frame-src // *DEPRECATED* child-src fallback
@@ -28,6 +27,7 @@ const
 , objects   = ["'none'"] // object-src
 , plugins   = ['audio/*', 'video/*'] // plugin-types when object != 'none'
 
+, base      = defaults   // base-uri
 , sandboxes = defaults ||// sandbox
   [/*
       allow-forms
@@ -62,8 +62,8 @@ const
       : ''
 
 // Document directives
+  , `base-uri ${ base.join ` ` }`
   , `sandbox ${ sandboxes.join ` ` }`
-  , `base-uri ${ bases.join ` ` }`
   //  `sandbox  ...` is not supported in the <meta> element
   //  or by the Content-Security-policy-Report-Only header field.
   //  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox
