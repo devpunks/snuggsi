@@ -14,18 +14,17 @@ test ('calling next middleware')
 test.only ('Content-Security-Policy-Report-Only', async t => {
 
   const
-    server = (new Server).serve ``
+    server = serve ``
 
-    // notice ?report
-  , response = await
-      fetch ('http://localhost:8181/?report')
+  , { headers }
+      = await fetch ('http://localhost:8181/?report')
 
 
   t.notOk
-    ( response.headers.get ('Content-Security-Policy') )
+    ( headers.get ('Content-Security-Policy') )
 
   t.ok
-    ( response.headers.get ('Content-Security-Policy-Report-Only') )
+    ( headers.get ('Content-Security-Policy-Report-Only') )
 
   server.close ``
   t.end ()
