@@ -24,7 +24,7 @@ const
     // default-src fallback
     = defaults
 
-, images // image-src
+, images // img-src
     // default-src fallback
     = defaults
 
