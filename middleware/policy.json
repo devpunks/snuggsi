@@ -5,16 +5,16 @@
     "'self'"
   ]
 
-, "img-src": [
+, "img-src" : [
     "'self'"
   , "https://www.google-analytics.com"
   ]
 
-, "script-src": [
+, "script-src" : [
     "'self'"
   ]
 
-, "style-src": [
+, "style-src" : [
     "'self'"
   ]
 }
