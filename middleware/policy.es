@@ -7,7 +7,7 @@ const
 // Depending on analytics framework,
 // may want to listen for securitypolicyviolation events
 // with JavaScript and collect more information about the client before reporting.
-, reports   = ['https://snuggsi.report-uri.com/r/d/csp/enforce'] // report-to // *DEPRECATED* report-uri
+, report    = ['https://snuggsi.report-uri.com/r/d/csp/enforce'] // report-to // *DEPRECATED* report-uri
 , defaults  = ["'self'"] // default-src
 , images    = defaults   // img-src
 , styles    = defaults   // style-src
@@ -44,7 +44,7 @@ const
 
 , directives = [
   // Reporting directives
-    `report-to ${ reports.join ` ` }`
+    `report-to ${ report.join ` ` }`
 
   // Fetch directives
   , `default-src ${ defaults.join ` ` }`
