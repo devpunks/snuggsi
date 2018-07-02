@@ -21,13 +21,13 @@ const
 , medias   = defaults   // media-src
 , frames   = defaults   // frame-src // *DEPRECATED* child-src fallback
 , connects = defaults   // connect-src
-, objects  = ["'none'"] // object-src
-
-, workers   = scripts // worker-src // script-src fallback
 , bases     = defaults // base-uri
 , forms     = defaults // form-action
-, plugins   = ['audio/*', 'video/*'] // plugin-types
 , ancestors = defaults // frame-ancestors
+, workers   = scripts // worker-src // script-src fallback
+
+, objects  = ["'none'"] // object-src
+, plugins   = ['audio/*', 'video/*'] // plugin-types
 
 , sandboxes // sandbox
     // default-src fallback
