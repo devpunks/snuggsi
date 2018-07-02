@@ -12,11 +12,11 @@
     "'self'"
   ]
 
-, "script-src" : [
+, "style-src" : [
     "'self'"
   ]
 
-, "style-src" : [
+, "script-src" : [
     "'self'"
   ]
 }
