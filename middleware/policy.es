@@ -16,7 +16,7 @@ const
   // **NEVER EXPOSE!!! Causes XSS attacks** script-src 'unsafe-inline'
   // **THAT BEING SAID...For Safari 😢
   // 'unsafe-inline' // THIS MAY NOT BE TRUE IN 2018
-, scripts   = defaults   // script-src Script Nonce for inline <script>
+, script    = defaults   // script-src Script Nonce for inline <script>
 , fonts     = defaults   // font-src
 , medias    = defaults   // media-src
 , connects  = defaults   // connect-src
@@ -24,7 +24,7 @@ const
 , forms     = defaults   // form-action
 , ancestors = defaults   // frame-ancestors
 , frames    = defaults   // frame-src // *DEPRECATED* child-src fallback
-, worker    = scripts    // worker-src // script-src fallback
+, worker    = script     // worker-src // script-src fallback
 , objects   = ["'none'"] // object-src
 , plugins   = ['audio/*', 'video/*'] // plugin-types when object != 'none'
 
@@ -50,7 +50,7 @@ const
   , `default-src ${ defaults.join ` ` }`
   , `img-src ${ img.join ` ` }`
   , `style-src ${ style.join ` ` }`
-  , `script-src ${ scripts.join ` ` }`
+  , `script-src ${ script.join ` ` }`
   , `frame-src ${ frames.join ` ` }`
   , `connect-src ${ connects.join ` ` }`
   , `font-src ${ fonts.join ` ` }`
