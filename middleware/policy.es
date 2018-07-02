@@ -19,7 +19,7 @@ const
 , script    = defaults   // script-src Script Nonce for inline <script>
 , font      = defaults   // font-src
 , media     = defaults   // media-src
-, connects  = defaults   // connect-src
+, connect   = defaults   // connect-src
 , bases     = defaults   // base-uri
 , forms     = defaults   // form-action
 , ancestors = defaults   // frame-ancestors
@@ -53,8 +53,8 @@ const
   , `script-src ${ script.join ` ` }`
   , `font-src ${ font.join ` ` }`
   , `media-src ${ media.join ` ` }`
+  , `connect-src ${ connect.join ` ` }`
   , `frame-src ${ frame.join ` ` }`
-  , `connect-src ${ connects.join ` ` }`
   , `worker-src ${ worker.join ` ` }`
   , `object-src ${ objects.join ` ` }`
   , !!! objects.includes (`'none'`)
