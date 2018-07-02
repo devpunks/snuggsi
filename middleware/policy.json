@@ -7,7 +7,6 @@
 
 , "img-src" : [
     "'self'"
-  , "https://www.google-analytics.com"
   ]
 
 , "script-src" : [
