@@ -27,9 +27,7 @@ const
     // script-src fallback
     = scripts
 
-, bases // base-uri
-    // default-src fallback
-    = defaults
+, bases = defaults // base-uri
 
 , plugins // plugin-types
     // default-src fallback
