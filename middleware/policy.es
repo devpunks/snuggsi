@@ -29,16 +29,16 @@ const
 , base      = defaults   // base-uri
 , sandbox   = defaults ||// sandbox
   [/*
-      allow-forms
-    , allow-popups
-    , allow-modals
-    , allow-scripts
-    , allow-same-origin
-    , allow-presentation
-    , allow-pointer-lock
-    , allow-top-navigation
-    , allow-orientation-lock
-    , allow-popups-to-escape-sandbox
+    allow-forms
+  , allow-popups
+  , allow-modals
+  , allow-scripts
+  , allow-same-origin
+  , allow-presentation
+  , allow-pointer-lock
+  , allow-top-navigation
+  , allow-orientation-lock
+  , allow-popups-to-escape-sandbox
   */]
 
 , directives = [
