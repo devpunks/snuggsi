@@ -17,7 +17,7 @@ const
   // **THAT BEING SAID...For Safari 😢
   // 'unsafe-inline' // THIS MAY NOT BE TRUE IN 2018
 , script    = defaults   // script-src Script Nonce for inline <script>
-, fonts     = defaults   // font-src
+, font      = defaults   // font-src
 , medias    = defaults   // media-src
 , connects  = defaults   // connect-src
 , bases     = defaults   // base-uri
@@ -51,9 +51,9 @@ const
   , `img-src ${ img.join ` ` }`
   , `style-src ${ style.join ` ` }`
   , `script-src ${ script.join ` ` }`
+  , `font-src ${ font.join ` ` }`
   , `frame-src ${ frame.join ` ` }`
   , `connect-src ${ connects.join ` ` }`
-  , `font-src ${ fonts.join ` ` }`
   , `worker-src ${ worker.join ` ` }`
   , `object-src ${ objects.join ` ` }`
   , !!! objects.includes (`'none'`)
