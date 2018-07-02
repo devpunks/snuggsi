@@ -19,11 +19,11 @@ const
 , scripts   = defaults   // script-src Script Nonce for inline <script>
 , fonts     = defaults   // font-src
 , medias    = defaults   // media-src
-, frames    = defaults   // frame-src // *DEPRECATED* child-src fallback
 , connects  = defaults   // connect-src
 , bases     = defaults   // base-uri
 , forms     = defaults   // form-action
 , ancestors = defaults   // frame-ancestors
+, frames    = defaults   // frame-src // *DEPRECATED* child-src fallback
 , workers   = scripts    // worker-src // script-src fallback
 , objects   = ["'none'"] // object-src
 , plugins   = ['audio/*', 'video/*'] // plugin-types
