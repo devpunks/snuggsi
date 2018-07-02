@@ -7,26 +7,25 @@ const
 // Depending on analytics framework,
 // may want to listen for securitypolicyviolation events
 // with JavaScript and collect more information about the client before reporting.
-, reports  = ['https://snuggsi.report-uri.com/r/d/csp/enforce'] // report-to // *DEPRECATED* report-uri
-, defaults = ["'self'"] // default-src
-, images   = defaults   // img-src
-, styles   = defaults   // style-src
+, reports   = ['https://snuggsi.report-uri.com/r/d/csp/enforce'] // report-to // *DEPRECATED* report-uri
+, defaults  = ["'self'"] // default-src
+, images    = defaults   // img-src
+, styles    = defaults   // style-src
   // nonce-${nonce} ** MUST BE UNIQUE **
   //   https://w3c.github.io/webappsec-csp/#framework-directive-source-list
   // **NEVER EXPOSE!!! Causes XSS attacks** script-src 'unsafe-inline'
   // **THAT BEING SAID...For Safari 😢
   // 'unsafe-inline' // THIS MAY NOT BE TRUE IN 2018
-, scripts  = defaults   // script-src Script Nonce for inline <script>
-, fonts    = defaults   // font-src
-, medias   = defaults   // media-src
-, frames   = defaults   // frame-src // *DEPRECATED* child-src fallback
-, connects = defaults   // connect-src
-, bases     = defaults // base-uri
-, forms     = defaults // form-action
-, ancestors = defaults // frame-ancestors
-, workers   = scripts // worker-src // script-src fallback
-
-, objects  = ["'none'"] // object-src
+, scripts   = defaults   // script-src Script Nonce for inline <script>
+, fonts     = defaults   // font-src
+, medias    = defaults   // media-src
+, frames    = defaults   // frame-src // *DEPRECATED* child-src fallback
+, connects  = defaults   // connect-src
+, bases     = defaults   // base-uri
+, forms     = defaults   // form-action
+, ancestors = defaults   // frame-ancestors
+, workers   = scripts    // worker-src // script-src fallback
+, objects   = ["'none'"] // object-src
 , plugins   = ['audio/*', 'video/*'] // plugin-types
 
 , sandboxes // sandbox
