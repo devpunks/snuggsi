@@ -71,19 +71,19 @@ const
 
 // Document directives
   , `base-uri ${ base.join ` ` }`
-  , `sandbox ${ sandbox.join ` ` }`
   //  `sandbox  ...` is not supported in the <meta> element
   //  or by the Content-Security-policy-Report-Only header field.
   //  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox
+  , `sandbox ${ sandbox.join ` ` }`
 
-//  // Other directives
-//  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests
+  // Other directives
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/upgrade-insecure-requests
   , (SECURE ? `block-all-mixed-content` : `update-insecure-requests`)
-//  // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
-//  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/require-sri-for
-//  , `require-sri-for ${ integrities.join ` ` }`
-//  // DEPRECATED!! See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
-//  , `referrer`
+  // https://developer.mozilla.org/en-US/docs/Web/Security/Subresource_Integrity
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/require-sri-for
+//, `require-sri-for ${ integrities.join ` ` }`
+  // DEPRECATED!! See https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Referrer-Policy
+//, `referrer`
   ]
 
 
