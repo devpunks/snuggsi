@@ -20,13 +20,12 @@ const
 , font      = defaults   // font-src
 , media     = defaults   // media-src
 , connect   = defaults   // connect-src
-, form      = defaults   // form-action
-, ancestors = defaults   // frame-ancestors
 , frame     = defaults   // frame-src // *DEPRECATED* child-src fallback
 , worker    = script     // worker-src // script-src fallback
-, objects   = ["'none'"] // object-src
+, object    = ["'none'"] // object-src
 , plugins   = ['audio/*', 'video/*'] // plugin-types when object != 'none'
-
+, form      = defaults   // form-action
+, ancestors = defaults   // frame-ancestors
 , base      = defaults   // base-uri
 , sandboxes = defaults ||// sandbox
   [/*
@@ -56,7 +55,7 @@ const
   , `connect-src ${ connect.join ` ` }`
   , `frame-src ${ frame.join ` ` }`
   , `worker-src ${ worker.join ` ` }`
-  , `object-src ${ objects.join ` ` }`
+  , `object-src ${ object.join ` ` }`
   , !!! objects.includes (`'none'`)
       ? `plugin-types ${ plugins.join ` ` }`
       : ''
