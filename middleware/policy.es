@@ -27,13 +27,10 @@ const
     // script-src fallback
     = scripts
 
-, bases   = defaults // base-uri
-, forms   = defaults // form-action
-, plugins = ['audio/*', 'video/*'] // plugin-types
-
-, ancestors // frame-ancestors
-    // default-src fallback
-    = defaults
+, bases     = defaults // base-uri
+, forms     = defaults // form-action
+, plugins   = ['audio/*', 'video/*'] // plugin-types
+, ancestors = defaults // frame-ancestors
 
 , sandboxes // sandbox
     // default-src fallback
