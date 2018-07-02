@@ -23,7 +23,7 @@ const
 , frame     = defaults   // frame-src // *DEPRECATED* child-src fallback
 , worker    = script     // worker-src // script-src fallback
 , object    = ["'none'"] // object-src
-, plugins   = ['audio/*', 'video/*'] // plugin-types when object != 'none'
+, plugin    = ['audio/*', 'video/*'] // plugin-types when object != 'none'
 , form      = defaults   // form-action
 , ancestors = defaults   // frame-ancestors
 , base      = defaults   // base-uri
@@ -57,7 +57,7 @@ const
   , `worker-src ${ worker.join ` ` }`
   , `object-src ${ object.join ` ` }`
   , !!! objects.includes (`'none'`)
-      ? `plugin-types ${ plugins.join ` ` }`
+      ? `plugin-types ${ plugin.join ` ` }`
       : ''
 
 //  Navigation Directives
