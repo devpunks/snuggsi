@@ -16,16 +16,24 @@ test.only ('Content-Security-Policy-Report-Only', async t => {
   const
     server = serve ``
 
-  , { headers }
-      = await fetch ('http://localhost:8181/?report')
+  let headers, policy, report
 
-  , policy = headers.get ('Content-Security-Policy')
-  , report = headers.get ('Content-Security-Policy-Report-Only')
+  headers = (await fetch ('http://localhost:8181/?report')).headers
+  report  = headers.get ('Content-Security-Policy-Report-Only')
+  policy  = headers.get ('Content-Security-Policy')
 
-
+  t.equals ( policy, report )
   t.ok ( policy )
   t.ok ( report )
-  t.equals ( policy, report )
+
+
+  headers = (await fetch ('http://localhost:8181/')).headers
+  report  = headers.get ('Content-Security-Policy-Report-Only')
+  policy  = headers.get ('Content-Security-Policy')
+
+  t.ok ( policy )
+  t.notOk ( report )
+  t.notEquals ( policy, report )
 
   server.close ``
   t.end ()
