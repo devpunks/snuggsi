@@ -96,10 +96,8 @@ module.exports = async (context, next, policy) => {
   context.set ( header, policy)
 
   'report'
-    // Is this a security breach? Will someone be able to disable CSP with this?
     in context.request.query
-    && context.set
-     ( `${header}-Report-Only`, policy)
+    && context.set ( `${header}-Report-Only`, policy)
 
   await next (context)
 }
