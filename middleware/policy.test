@@ -19,12 +19,13 @@ test.only ('Content-Security-Policy-Report-Only', async t => {
   , { headers }
       = await fetch ('http://localhost:8181/?report')
 
+  , policy = headers.get ('Content-Security-Policy')
+  , report = headers.get ('Content-Security-Policy-Report-Only')
 
-  t.notOk
-    ( headers.get ('Content-Security-Policy') )
 
-  t.ok
-    ( headers.get ('Content-Security-Policy-Report-Only') )
+  t.ok ( policy )
+  t.ok ( report )
+  t.equals ( policy, report )
 
   server.close ``
   t.end ()

@@ -1,11 +1,9 @@
 // Can actually charge for this feature // https://report-uri.com/#prices
 
-let
-  header    = 'Content-Security-Policy'
-
 const
 //schemes   = ['safari-extension://', 'chrome-extension://', 'https://', 'http://']
-  SECURE    = true
+  header    = 'Content-Security-Policy'
+, SECURE    = true
 // Depending on analytics framework,
 // may want to listen for securitypolicyviolation events
 // with JavaScript and collect more information about the client before reporting.
@@ -91,13 +89,17 @@ const
   ]
 
 
-module.exports = async (context, next) => {
+module.exports = async (context, next, policy) => {
 
-  // Is this a security breach? Will someone be able to disable CSP with this?
-  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy-Report-Only
-  'report' in context.request.query && (header += '-Report-Only')
+  policy = directives.filter (Boolean).join `; `
 
-  context.set ( header, directives.filter (Boolean).join `; ` )
+  context.set ( header, policy)
+
+  'report'
+    // Is this a security breach? Will someone be able to disable CSP with this?
+    in context.request.query
+    && context.set
+     ( `${header}-Report-Only`, policy)
 
   await next (context)
 }
