@@ -6,6 +6,7 @@ const
     = require ('../middleware')
 
 middleware = [
+  route (`/report/`, Resource `/report/`)
   route (`/hello/`, Resource `/resource/fixtures/`)
 , route (`/examples/`, Resource `/examples/`)
 ]
