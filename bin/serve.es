@@ -7,7 +7,7 @@ const
 
 middleware = [
   route (`/report/`, Resource `/report/`)
-  route (`/hello/`, Resource `/resource/fixtures/`)
+, route (`/hello/`, Resource `/resource/fixtures/`)
 , route (`/examples/`, Resource `/examples/`)
 ]
 
