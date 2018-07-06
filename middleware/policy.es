@@ -31,6 +31,7 @@ const
 , form      = defaults   // form-action
 , ancestors = defaults   // frame-ancestors
 
+, manifest  = defaults   // manifest-src
 , base      = defaults   // base-uri
 , sandbox   = defaults ||// sandbox
   [/*
@@ -73,6 +74,7 @@ const
 
 // Document
   , `base-uri ${ base.join ` ` }`
+  , `manifest-src ${ manifest.join ` ` }`
   //  `sandbox  ...` is not supported in the <meta> element
   //  or by the Content-Security-policy-Report-Only header field.
   //  https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/sandbox
