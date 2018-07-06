@@ -11,7 +11,7 @@ const
 test ('calling next middleware')
 
 
-test.only ('Content-Security-Policy-Report-Only', async t => {
+test ('Content-Security-Policy-Report-Only', async t => {
 
   const
     server = serve ``
@@ -71,6 +71,23 @@ test ('Content-Security-Policy: default-src', async t => {
 
 
   t.ok ( policy.includes (`default-src ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test.only ('Content-Security-Policy: child-src', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`child-src ${defaults}`) )
 
   server.close ``
   t.end ()

@@ -22,7 +22,8 @@ const
 , font      = defaults   // font-src
 , media     = defaults   // media-src
 , connect   = defaults   // connect-src
-, frame     = defaults   // frame-src // *DEPRECATED* child-src fallback
+, child     = defaults   // child-src
+, frame     = child      // frame-src
 , worker    = script     // worker-src // script-src fallback
 , object    = ["'none'"] // object-src
 , plugin    = ['audio/*', 'video/*'] // plugin-types when object != 'none'
@@ -58,6 +59,7 @@ const
   , `font-src ${ font.join ` ` }`
   , `media-src ${ media.join ` ` }`
   , `connect-src ${ connect.join ` ` }`
+  , `child-src ${ child.join ` ` }`
   , `frame-src ${ frame.join ` ` }`
   , `worker-src ${ worker.join ` ` }`
   , `object-src ${ object.join ` ` }`
