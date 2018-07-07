@@ -100,6 +100,7 @@ void (_ => {
       let
         // https://chromium.googlesource.com/chromium/src.git/+/0661feafc9a84f03b04dd3719b8aaa255dfaec63/third_party/WebKit/Source/core/loader/LinkLoader.cpp
         // HTML WhatWG scripting
+        // https://html.spec.whatwg.org/multipage/scripting.html
         // https://html.spec.whatwg.org/multipage/scripting.html#prepare-a-script
         as = node.getAttribute ('as')
 
