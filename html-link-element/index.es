@@ -102,6 +102,7 @@ void (_ => {
         // HTML WhatWG scripting
         // https://html.spec.whatwg.org/multipage/scripting.html
         // https://html.spec.whatwg.org/multipage/scripting.html#prepare-a-script
+        // Classic script graph - https://html.spec.whatwg.org/multipage/webappapis.html#fetch-a-classic-script
         as = node.getAttribute ('as')
 
       , clone =
