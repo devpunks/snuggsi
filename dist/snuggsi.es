@@ -235,6 +235,12 @@ void (_ => {
   function process (link, node, anchor) {
       let
         // https://chromium.googlesource.com/chromium/src.git/+/0661feafc9a84f03b04dd3719b8aaa255dfaec63/third_party/WebKit/Source/core/loader/LinkLoader.cpp
+        // HTML WhatWG scripting
+        // https://html.spec.whatwg.org/multipage/scripting.html
+        // https://html.spec.whatwg.org/multipage/scripting.html#prepare-a-script
+        // Classic script graph - https://html.spec.whatwg.org/multipage/webappapis.html#fetch-a-classic-script
+        // Module script tree - https://html.spec.whatwg.org/multipage/webappapis.html#fetch-a-module-script-tree
+        // Concept Script script - https://html.spec.whatwg.org/multipage/scripting.html#concept-script-script
         as = node.getAttribute ('as')
 
       , clone =
@@ -245,7 +251,6 @@ void (_ => {
 
       ['id', 'rel', 'href', 'src', 'textContent', 'as', 'defer', 'crossOrigin'/* , media */]
         // setAttribute won't work for textContent and likewise explicit set for crossorigin
-        // Mutually exclusive!!! ?!??!?!?!?!?
         .map (attr => node [attr] && attr in clone && (clone [attr] = node [attr]))
 
       // use rel = 'preload stylesheet' for async
@@ -294,14 +299,6 @@ void (_ => {
 
 }) ()
 
-// https://people.cs.pitt.edu/~kirk/cs1501/Pruhs/Spring2006/assignments/editdistance/Levenshtein%20Distance.htm
-
-// https://github.com/WebReflection/hyperHTML/pull/100
-
-// https://skillsmatter.com/skillscasts/10805-an-isomorphic-journey-to-a-lighter-and-blazing-fast-virtual-dom-alternative#video
-
-// https://github.com/webcomponents/template
-// https://gist.github.com/WebReflection/267689ec54d7267c853c47480bd35282
 const Template = template => {
 
   template.length
