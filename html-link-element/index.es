@@ -21,7 +21,7 @@ void (_ => {
   //create an observer instance
   // Can always default to DOMContentLoaded
   // https://bugs.webkit.org/show_bug.cgi?id=38995#c26
-  (new MutationObserver ( mutations => {
+  (new MutationObserver ( mutations =>
 
     for (let mutation of mutations)
       for (let node of mutation.addedNodes) {
