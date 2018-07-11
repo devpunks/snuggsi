@@ -170,7 +170,8 @@ void (function (_) {
            && load (node)
 
          !! /\-/.test (node.localName)
-           && 'content' in (link = document.querySelector ('#'+node.localName))
+           && (link = document.querySelector ('#'+node.localName))
+           && link.content
            && stamp.call (node, link.content)
            && customElements.upgrade (node)
       }
