@@ -39,9 +39,7 @@ void (_ => {
 
   .observe (document.documentElement, { childList: true, subtree: true })
 
-
   void
-
 
   [].slice
     .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
