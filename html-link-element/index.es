@@ -30,8 +30,7 @@ void (_ => {
            && load (node)
 
          !! /\-/.test (node.localName)
-           && (link = document.querySelector ('#'+node.localName))
-           && link.content
+           && 'content' in (link = document.querySelector ('#'+node.localName))
            && stamp.call (node, link.content)
            && customElements.upgrade (node)
       }
