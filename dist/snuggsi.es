@@ -160,16 +160,17 @@ void (_ => {
   (new MutationObserver ( mutations => {
 
     for (let mutation of mutations)
-      for (let node of mutation.addedNodes)
+      for (let node of mutation.addedNodes) {
          /^p/.test (node.rel)
            && /\-/.test (node.id)
-           &&  !!! load (node)
+           && load (node)
 
-           && /\-/.test (node.localName)
+         /\-/.test (node.localName)
            && (link = document.querySelector ('#'+node.localName))
            && link.content
            && stamp.call (node, link.content)
            && customElements.upgrade (node)
+      }
   }))
 
   .observe (document.documentElement, { childList: true, subtree: true })
