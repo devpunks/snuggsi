@@ -157,21 +157,20 @@ void (_ => {
   //create an observer instance
   // Can always default to DOMContentLoaded
   // https://bugs.webkit.org/show_bug.cgi?id=38995#c26
-  (new MutationObserver ( mutations => {
+  (new MutationObserver ( mutations =>
 
     for (let mutation of mutations)
-      for (let node of mutation.addedNodes) {
-           /^p/.test (node.rel)
-             && /\-/.test (node.id)
-             && load (node)
+      for (let node of mutation.addedNodes)
+         /^p/.test (node.rel)
+           && /\-/.test (node.id)
+           &&  !!! load (node)
 
-        !! /\-/.test (node.localName)
-            && (link = document.querySelector ('#'+node.localName))
-            && link.content
-            && stamp.call (node, link.content)
-            && customElements.upgrade (node)
-      }
-  }))
+           && /\-/.test (node.localName)
+           && (link = document.querySelector ('#'+node.localName))
+           && link.content
+           && stamp.call (node, link.content)
+           && customElements.upgrade (node)
+  ))
 
   .observe (document.documentElement, { childList: true, subtree: true })
 
