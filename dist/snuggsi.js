@@ -170,8 +170,7 @@ void (function (_) {
            && load (node)
 
          !! /\-/.test (node.localName)
-           && (link = document.querySelector ('#'+node.localName))
-           && link.content
+           && 'content' in (link = document.querySelector ('#'+node.localName))
            && stamp.call (node, link.content)
            && customElements.upgrade (node)
       }
@@ -180,9 +179,7 @@ void (function (_) {
 
   .observe (document.documentElement, { childList: true, subtree: true })
 
-
   void
-
 
   [].slice
     .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
@@ -262,6 +259,8 @@ void (function (_) {
 
       void
 
+      // 'type' is used for data blocks (i.e. `type=text/recipe` or `type=application/x-game-data`
+      // https://html.spec.whatwg.org/multipage/scripting.html#data-block
       ['id', 'rel', 'href', 'src', 'textContent', 'as', 'defer', 'crossOrigin' ]
         // setAttribute won't work for textContent and likewise explicit set for crossorigin
         .map (function (attr) { return node [attr] && attr in clone && (clone [attr] = node [attr]); })
