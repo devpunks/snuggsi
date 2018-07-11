@@ -34,6 +34,7 @@ void (_ => {
            && link.content
            && stamp.call (node, link.content)
            && customElements.upgrade (node)
+      }
   }))
 
   .observe (document.documentElement, { childList: true, subtree: true })
