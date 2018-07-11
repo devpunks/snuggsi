@@ -24,7 +24,7 @@ void (_ => {
   (new MutationObserver ( mutations => {
 
     for (let mutation of mutations)
-      for (let node of mutation.addedNodes)
+      for (let node of mutation.addedNodes) {
          /^p/.test (node.rel)
            && /\-/.test (node.id)
            &&  !!! load (node)
