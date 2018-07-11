@@ -1,0 +1,3 @@
+# `HTMLScriptElement`
+
+  The HTML `<script>` element...
