@@ -29,7 +29,7 @@ void (_ => {
            && /\-/.test (node.id)
            && load (node)
 
-         /\-/.test (node.localName)
+         !! /\-/.test (node.localName)
            && (link = document.querySelector ('#'+node.localName))
            && link.content
            && stamp.call (node, link.content)
