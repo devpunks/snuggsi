@@ -3,10 +3,11 @@
 # Thank TOM for ./crank
 
 bin/compile    && \
-# bin/cover      && \
-# bin/lint       |  \
-#   wc -l        |  \
-#   xargs        && \
+# bin/cover    && \
+# bin/lint     |  \
+#   wc -l      |  \
+#   xargs      && \
+bin/test       && \
 bin/distribute && \
 bin/deploy     && \
 exit 0
