@@ -1,5 +1,6 @@
 # Templates
 
+
 ## `<template>`
 
 The HTML `<template>` element is a mechanism for holding client-side content that is not to be rendered when a page is loaded but may subsequently be instantiated during runtime using JavaScript.
@@ -8,9 +9,11 @@ Think of a template as a content fragment that is being stored for subsequent us
 
 [Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/template)
 
+
 ## `HTMLTemplateElement`
 
   - [Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLTemplateElement)
+
 
 ### `.content`
 
