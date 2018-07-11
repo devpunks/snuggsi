@@ -47,9 +47,11 @@ The HTML `<link>` element specifies relationships between the current document a
 
   https://w3c.github.io/preload/#use-cases
 
+
 #### Bugs
 
   - Firefox - https://bugzilla.mozilla.org/show_bug.cgi?id=1405761
+
 
 ### Prefetch
 
