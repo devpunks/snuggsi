@@ -112,6 +112,7 @@ void (_ => {
       void
 
       // 'type' is used for data blocks (i.e. `type=text/recipe` or `type=application/x-game-data`
+      // https://html.spec.whatwg.org/multipage/scripting.html#data-block
       ['id', 'rel', 'href', 'src', 'textContent', 'as', 'defer', 'crossOrigin'/* , media */]
         // setAttribute won't work for textContent and likewise explicit set for crossorigin
         .map (attr => node [attr] && attr in clone && (clone [attr] = node [attr]))
