@@ -27,7 +27,7 @@ void (_ => {
       for (let node of mutation.addedNodes) {
          /^p/.test (node.rel)
            && /\-/.test (node.id)
-           &&  !!! load (node)
+           && load (node)
 
            && /\-/.test (node.localName)
            && (link = document.querySelector ('#'+node.localName))
