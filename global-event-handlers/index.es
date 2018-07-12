@@ -26,6 +26,9 @@ const GlobalEventHandlers = Element =>
   // Traditional Registration
   // http://www.quirksmode.org/js/events_tradmod.html
 
+
+  // HandleEvent Registration - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
+
 (class extends Element {
 
   onconnect () {
