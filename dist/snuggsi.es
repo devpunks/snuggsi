@@ -559,15 +559,12 @@ const GlobalEventHandlers = Element =>
   // Traditional Registration
   // http://www.quirksmode.org/js/events_tradmod.html
 
+
+  // HandleEvent Registration - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
+
 (class extends Element {
 
   onconnect () {
-
-//  RESERVED FOR IMPORTS WTF IS GOING ON
-//  event
-//    && (target = event.target)
-//    && this.mirror
-//      (target.import.querySelector ('template'))
 
     this.templates =
       this
@@ -592,6 +589,7 @@ const GlobalEventHandlers = Element =>
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
+
   reflect (handler) {
 
     /^on/.test (handler) // is a W3C `on`event
@@ -600,6 +598,7 @@ const GlobalEventHandlers = Element =>
       && // automagically delegate event
         this.on ( handler.substr (2), this [handler] )
   }
+
 
   register (node, handler, event) {
     for (let attribute of
