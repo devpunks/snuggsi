@@ -66,6 +66,7 @@ const GlobalEventHandlers = Element =>
         this.on ( handler.substr (2), this [handler] )
   }
 
+
   register (node, handler, event) {
     for (let attribute of
           [].slice.call (node.attributes))
