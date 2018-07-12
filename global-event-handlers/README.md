@@ -1,21 +1,21 @@
-## `GlobalEventHandlers`
+# `GlobalEventHandlers`
 
 https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
 
 Enhancements to `GlobalEventHandlers` interface
 
 
-### Handle Event
+## Handle Event
 
   https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
 
 
-### Registration
+## Registration
 
   - `on*` events
 
 
-### Lifecycle
+## Lifecycle
 
   - initialize - context, events?
   - render - Event driven reflow / repaint (called every frame)
