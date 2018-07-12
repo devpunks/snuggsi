@@ -33,12 +33,6 @@ const GlobalEventHandlers = Element =>
 
   onconnect () {
 
-//  RESERVED FOR IMPORTS WTF IS GOING ON
-//  event
-//    && (target = event.target)
-//    && this.mirror
-//      (target.import.querySelector ('template'))
-
     this.templates =
       this
         .selectAll ('template[name]')
