@@ -521,12 +521,6 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
     anonymous.prototype.onconnect = function () {
 
-//  RESERVED FOR IMPORTS WTF IS GOING ON
-//  event
-//    && (target = event.target)
-//    && this.mirror
-//      (target.import.querySelector ('template'))
-
     this.templates =
       this
         .selectAll ('template[name]')
@@ -550,6 +544,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
+
   anonymous.prototype.reflect = function (handler) {
 
     /^on/.test (handler) // is a W3C `on`event
@@ -558,6 +553,7 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
       && // automagically delegate event
         this.on ( handler.substr (2), this [handler] )
   };
+
 
   anonymous.prototype.register = function (node, handler, event) {
     var this$1 = this;
