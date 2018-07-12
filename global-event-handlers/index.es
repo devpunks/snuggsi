@@ -56,6 +56,7 @@ const GlobalEventHandlers = Element =>
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
+
   reflect (handler) {
 
     /^on/.test (handler) // is a W3C `on`event
