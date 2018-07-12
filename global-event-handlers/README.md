@@ -5,6 +5,11 @@ https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
 Enhancements to `GlobalEventHandlers` interface
 
 
+### Handle Event
+
+  https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
+
+
 ### Registration
 
   - `on*` events
