@@ -11,21 +11,24 @@ const
 test ('calling next middleware')
 
 
-test ('Content-Security-Policy-Report-Only', async t => {
+test.only ('Content-Security-Policy-Report-Only', async t => {
 
   const
     server = serve ``
 
   let
-    headers, policy, report
+    policy, report
 
-  headers = (await fetch ('http://localhost:8181/?report')).headers
-  report  = headers.get ('Content-Security-Policy-Report-Only')
-  policy  = headers.get ('Content-Security-Policy')
+  , { headers }
+      = (await fetch ('http://localhost:8181/?report'))
+
+  report = headers.get ('Content-Security-Policy-Report-Only')
+  policy = headers.get ('Content-Security-Policy')
 
   t.ok ( policy )
   t.ok ( report )
-  t.equals ( policy, report )
+  t.equals ( report, policy )
+
 
 
   headers = (await fetch ('http://localhost:8181/')).headers
@@ -34,7 +37,6 @@ test ('Content-Security-Policy-Report-Only', async t => {
 
   t.ok ( policy )
   t.notOk ( report )
-  t.notEquals ( policy, report )
 
   server.close ``
   t.end ()
@@ -77,10 +79,10 @@ test ('Content-Security-Policy: default-src', async t => {
 })
 
 
-test.only ('Content-Security-Policy: manifest-src', async t => {
+test ('Content-Security-Policy: manifest-src', async t => {
 
   const
-    server = (new Server).serve ``
+    server = serve ``
 
   , policy
       = (await fetch ('http://localhost:8181/'))
