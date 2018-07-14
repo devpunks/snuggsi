@@ -31,7 +31,7 @@ test ('Content-Security-Policy-Report-Only', async t => {
 })
 
 
-test.only ('Content-Security-Policy', async t => {
+test ('Content-Security-Policy', async t => {
 
   const
     server = serve ``
