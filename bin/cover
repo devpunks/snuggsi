@@ -1,13 +1,14 @@
 #!/bin/bash
 
-export EXTENSION=".es"              # Extension for coverage files
+export COVER="$ROOT/node_modules/.bin/tap-nyc"
 export THRESHOLD=95                 # Represented in Percentage
 export INCLUDE="resource"           # Included coverage files
 export EXCLUDE="**/node_modules/**" # Excluded coverage files
+export EXTENSION=".es"              # Extension for coverage files
 export OUTPUT=".nyc_output/"        # Represented in Percentage
 
 
-./node_modules/.bin/nyc   \
+$COVER                    \
   --include=$INCLUDE      \
   --exclude=$EXCLUDE      \
   --extension=$EXTENSION  \
