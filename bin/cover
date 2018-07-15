@@ -31,5 +31,8 @@ echo
     --statements $THRESHOLD \
   bin/test
 
+export CODE=$?
 
-rm -rf .nyc_output/
+rm -rf .nyc_output/ # Remove output directory
+
+exit $CODE
