@@ -1,12 +1,12 @@
 #!/bin/bash
 
 echo # NYC Test coverage
-echo "snuggsi ツ Coverage: ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ "
+echo "⚠️  snuggsi ツ Coverage:"
 export INCLUDE="resource" # Included coverage files
 export EXCLUDE="**/node_modules/**" # Excluded coverage files
 
-echo "Including 👉  $INCLUDE"
-echo "Excluding 👉  $EXCLUDE"
+echo "➕ Including 👉  $INCLUDE"
+echo "➖ Excluding 👉  $EXCLUDE"
 echo
 
 
