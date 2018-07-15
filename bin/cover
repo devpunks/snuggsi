@@ -11,7 +11,7 @@ export EXTENSION=".es"               # Extension for coverage files
 export REPORTER="text"               # Type of coverage report to generate
 
 
-echo # NYC Test coverage
+echo # Coverage Report
 echo "📊  snuggsi ツ Coverage Repoort"
 echo "  🎯  Threshold 👉  $THRESHOLD %"
 echo "  ➕  Included  👉  $INCLUDE"
