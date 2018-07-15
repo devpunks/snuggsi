@@ -1,8 +1,10 @@
 #!/bin/bash
 
 export EXTENSION=".es"              # Extension for coverage files
+export THRESHOLD=95                 # Represented in Percentage
 export INCLUDE="resource"           # Included coverage files
 export EXCLUDE="**/node_modules/**" # Excluded coverage files
+export OUTPUT=".nyc_output/"        # Represented in Percentage
 
 
 ./node_modules/.bin/nyc   \
@@ -12,8 +14,6 @@ export EXCLUDE="**/node_modules/**" # Excluded coverage files
   --reporter=text         \
   bin/test
 
-
-export THRESHOLD=95 # Represented in Percentage
 
 echo
 echo # NYC Test coverage
@@ -32,7 +32,6 @@ echo
 
 
 export CODE=$?
-export OUTPUT=".nyc_output/" # Represented in Percentage
 
 echo
 echo "🚮  Post Coverage Cleanup of $OUTPUT"
