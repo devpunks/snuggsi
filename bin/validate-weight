@@ -1,5 +1,6 @@
 #!/bin/bash
 
+MAXIMUM=1500
 LIBRARY=./dist/snuggsi.min.es.br
 
 
@@ -16,8 +17,8 @@ OCTETS=$(
   awk '{print $5}'
 ) || exit 1
 
-if [[ "$OCTETS" -gt 1500 ]]; then
-  >&2 echo && echo "⚠️ ⚠️ ⚠️ snuggsiツ is over weight: current size is $OCTETS, maximum allowable is 1500"
+if [[ "$OCTETS" -gt $MAXIMUM ]]; then
+  >&2 echo && echo "⚠️ ⚠️ ⚠️ snuggsiツ is over weight: current size is $OCTETS, maximum allowable is $MAXIMUM OCTETS"
 
   exit 1
 fi
