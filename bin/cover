@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export COVER="node_modules/.bin/nyc" # Coverage runner
+export CHECK="$COVER check-coverage" # Coverage check
 export THRESHOLD=95                  # Represented in Percentage
 export HARNESS="bin/test"            # Test suite harness
 export INCLUDE="resource"            # Included coverage files
@@ -23,15 +24,14 @@ $COVER                    \
   --exclude=$EXCLUDE      \
   --reporter=$REPORTER    \
   --extension=$EXTENSION  \
-  $HARNESS
+$HARNESS
 
 
-$COVER                       \
-  check-coverage             \
-    --lines      $THRESHOLD  \
-    --functions  $THRESHOLD  \
-    --statements $THRESHOLD  \
-  $HARNESS
+$CHECK                     \
+  --lines      $THRESHOLD  \
+  --functions  $THRESHOLD  \
+  --statements $THRESHOLD  \
+$HARNESS
 
 
 export CODE=$?
