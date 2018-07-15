@@ -2,5 +2,6 @@
 
 echo "snuggsi ツ Travis Continuous Integration"
 
+# bin/test | bin/cover
 bin/cover \
 # && bin/test
