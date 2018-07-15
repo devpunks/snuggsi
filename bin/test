@@ -14,7 +14,9 @@ export SPEC="$ROOT/node_modules/.bin/tap-spec"
 export LIBRARIES=".,test,server,resource,middleware"
 export TESTS=$ROOT/${1:-"{$LIBRARIES,$API}/$ENTRY"}
 
-echo "Covering $TESTS"
+echo
+echo "⚠️ Testing $TESTS"
+echo
 
 $TEST          \
   --require ./ \
