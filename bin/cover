@@ -36,9 +36,9 @@ $COVER                       \
 
 export CODE=$?
 
-echo
+echo # Remove output directory
 echo "🚮  Post Coverage Cleanup of $OUTPUT"
-rm -rf .nyc_output/ # Remove output directory
+rm -rf $OUTPUT
 
 
 exit $CODE
