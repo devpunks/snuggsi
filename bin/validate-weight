@@ -17,9 +17,8 @@ OCTETS=$(
   awk '{print $5}'
 ) || exit 1
 
-if [[ "$OCTETS" -gt $MAXIMUM ]]; then
-  >&2 echo && echo "⚠️ ⚠️ ⚠️ snuggsiツ is over weight: current size is $OCTETS, maximum allowable is $MAXIMUM OCTETS"
-
+if [[ $OCTETS -gt $MAXIMUM ]]; then
+  echo "  ⚠️ ⚠️ ⚠️  current weight is $OCTETS, maximum allowable is $MAXIMUM OCTETS"
   exit 1
 fi
 
