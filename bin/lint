@@ -1,11 +1,10 @@
 #!/bin/bash
 
+TRIM="tr -d"
 COUNT="wc -l"
 DIST=./dist/snuggsi.es
-LINT=./node_modules/.bin/standard
-TRIM="tr -d"
-COMMAND="$LINT $DIST"
-NUMBER_OF_WARNINGS=`$COMMAND | $COUNT | $TRIM " "`
+LINT="./node_modules/.bin/standard $DIST"
+NUMBER_OF_WARNINGS=`$LINT | $COUNT | $TRIM " "`
 
 
 echo
