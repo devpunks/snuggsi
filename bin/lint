@@ -1,7 +1,9 @@
 #!/bin/bash
 
-COMMAND="./node_modules/.bin/standard ./dist/snuggsi.es"
 COUNT="wc -l"
+DIST=./dist/snuggsi.es
+LINT=./node_modules/.bin/standard
+COMMAND="$LINT $DIST"
 NUMBER_OF_WARNINGS=`$COMMAND | $COUNT | tr -d " "`
 
 
