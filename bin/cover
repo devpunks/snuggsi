@@ -13,6 +13,7 @@ export EXCLUDE="**/node_modules/**" # Excluded coverage files
 
 
 export THRESHOLD=95       # Represented in Percentage
+
 echo
 echo # NYC Test coverage
 echo "📊  snuggsi ツ Coverage Check"
