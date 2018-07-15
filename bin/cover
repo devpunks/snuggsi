@@ -2,6 +2,7 @@
 
 export THRESHOLD=95       # Represented in Percentage
 export INCLUDE="resource" # Included coverage files
+export EXCLUDE="**/node_modules/**" # Excluded coverage files
 
 echo "Coverage threshold set to 👉  $THRESHOLD"
 echo "Including 👉  $INCLUDE"
@@ -15,9 +16,11 @@ echo
     --reporter=text       \
     bin/test
 
-# ./node_modules/.bin/nyc         \
-#   check-coverage                \
-#     --lines        $THRESHOLD   \
-#     --function     $THRESHOLD   \
-#     --statements   $THRESHOLD   \
-#   bin/test
+./node_modules/.bin/nyc         \
+  check-coverage                \
+    --lines        $THRESHOLD   \
+    --function     $THRESHOLD   \
+    --statements   $THRESHOLD   \
+  bin/test
+
+# echo $?
