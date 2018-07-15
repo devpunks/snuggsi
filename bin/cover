@@ -5,8 +5,8 @@ export THRESHOLD=95                 # Represented in Percentage
 export HARNESS="bin/test"           # Test suite harness
 export INCLUDE="resource"           # Included coverage files
 export EXCLUDE="**/node_modules/**" # Excluded coverage files
-export EXTENSION=".es"              # Extension for coverage files
 export OUTPUT=".nyc_output/"        # Represented in Percentage
+export EXTENSION=".es"              # Extension for coverage files
 
 
 echo
