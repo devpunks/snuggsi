@@ -24,7 +24,7 @@ echo "  ➕  Included  👉  $INCLUDE"
 echo "  ➖  Excluded  👉  $EXCLUDE"
 echo
 
-./node_modules/.bin/nyc      \
+$COVER                       \
   check-coverage             \
     --lines      $THRESHOLD  \
     --functions  $THRESHOLD  \
