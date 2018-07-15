@@ -9,14 +9,6 @@ export EXTENSION=".es"              # Extension for coverage files
 export OUTPUT=".nyc_output/"        # Represented in Percentage
 
 
-$COVER                    \
-  --include=$INCLUDE      \
-  --exclude=$EXCLUDE      \
-  --extension=$EXTENSION  \
-  --reporter=text         \
-  $HARNESS
-
-
 echo
 echo # NYC Test coverage
 echo "📊  snuggsi ツ Coverage Repoort"
@@ -24,6 +16,15 @@ echo "  🎯  Threshold 👉  $THRESHOLD %"
 echo "  ➕  Included  👉  $INCLUDE"
 echo "  ➖  Excluded  👉  $EXCLUDE"
 echo
+
+
+$COVER                    \
+  --include=$INCLUDE      \
+  --exclude=$EXCLUDE      \
+  --extension=$EXTENSION  \
+  --reporter=text         \
+  $HARNESS
+
 
 $COVER                       \
   check-coverage             \
