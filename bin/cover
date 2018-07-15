@@ -21,8 +21,8 @@ echo
 $COVER                    \
   --include=$INCLUDE      \
   --exclude=$EXCLUDE      \
-  --extension=$EXTENSION  \
   --reporter=$REPORTER    \
+  --extension=$EXTENSION  \
   $HARNESS
 
 
