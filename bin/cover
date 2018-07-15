@@ -4,3 +4,10 @@
   --extension=.es       \
   --reporter=text       \
   bin/test
+
+./node_modules/.bin/nyc \
+  check-coverage        \
+    --lines        95   \
+    --function     95   \
+    --statements   95   \
+  npm test              \
