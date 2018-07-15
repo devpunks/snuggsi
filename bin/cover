@@ -2,11 +2,9 @@
 
 echo # NYC Test coverage
 echo "snuggsi ツ Coverage: ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ "
-export THRESHOLD=95       # Represented in Percentage
 export INCLUDE="resource" # Included coverage files
 export EXCLUDE="**/node_modules/**" # Excluded coverage files
 
-echo "Threshold 👉  $THRESHOLD"
 echo "Including 👉  $INCLUDE"
 echo "Excluding 👉  $EXCLUDE"
 echo
@@ -19,6 +17,12 @@ echo
   --reporter=text       \
   bin/test
 
+
+export THRESHOLD=95       # Represented in Percentage
+echo
+echo "snuggsi ツ 📊  Coverage Check"
+echo "  Threshold 👉  $THRESHOLD %"
+echo
 
 ./node_modules/.bin/nyc     \
   check-coverage            \
