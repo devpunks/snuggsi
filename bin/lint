@@ -7,6 +7,10 @@ LINT="./node_modules/.bin/standard $DIST"
 NUMBER_OF_WARNINGS=`$LINT | $COUNT | $TRIM " "`
 
 
+
+echo
+echo "✍ Performing Lint Check on 👉  $DIST"
+
+
 echo
 echo "⚠️  StandardJS Warnings 👉  $NUMBER_OF_WARNINGS"
-echo
