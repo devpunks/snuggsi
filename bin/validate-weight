@@ -25,6 +25,3 @@ fi
 
 echo "  ✅  snuggsiツ weighs $OCTETS OCTETS"
 echo
-
-
-exit 0
