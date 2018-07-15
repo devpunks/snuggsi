@@ -1,13 +1,19 @@
 #!/bin/bash
 
+export THRESHOLD=95
+
+echo
+echo "Coverage threshold set to 👉  $THRESHOLD"
+echo
+
 ./node_modules/.bin/nyc \
   --extension=.es       \
   --reporter=text       \
   bin/test
 
-./node_modules/.bin/nyc \
-  check-coverage        \
-    --lines        95   \
-    --function     95   \
-    --statements   95   \
-  npm test              \
+./node_modules/.bin/nyc         \
+  check-coverage                \
+    --lines        $THRESHOLD   \
+    --function     $THRESHOLD   \
+    --statements   $THRESHOLD   \
+  npm test                      \
