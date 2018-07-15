@@ -1,10 +1,18 @@
 #!/bin/bash
 
+LIBRARY=./dist/snuggsi.min.es.br
+
+
+echo
+echo "⚖ Validating Weight of 👉  $LIBRARY"
+echo
+
+
 # this ensures we aren't using any aliases
 alias ls=ls
 
 OCTETS=$(
-  ls -nl ./dist/snuggsi.min.es.br | \
+  ls -nl $LIBRARY | \
   awk '{print $5}'
 ) || exit 1
 
@@ -13,5 +21,10 @@ if [[ "$OCTETS" -gt 1500 ]]; then
 
   exit 1
 fi
+
+
+echo "  ✅  snuggsiツ weighs $OCTETS OCTETS"
+echo
+
 
 exit 0
