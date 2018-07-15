@@ -29,6 +29,3 @@ echo
 
 
 rm -rf .nyc_output/
-
-
-# echo $?
