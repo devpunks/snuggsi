@@ -1,13 +1,7 @@
 #!/bin/bash
 
-echo # NYC Test coverage
-echo "⚠️  snuggsi ツ Coverage:"
 export INCLUDE="resource" # Included coverage files
 export EXCLUDE="**/node_modules/**" # Excluded coverage files
-
-echo "➕ Including 👉  $INCLUDE"
-echo "➖ Excluding 👉  $EXCLUDE"
-echo
 
 
 ./node_modules/.bin/nyc \
@@ -20,8 +14,11 @@ echo
 
 export THRESHOLD=95       # Represented in Percentage
 echo
-echo "snuggsi ツ 📊  Coverage Check"
-echo "  Threshold 👉  $THRESHOLD %"
+echo # NYC Test coverage
+echo "📊  snuggsi ツ Coverage Check"
+echo "  ➕  Including 👉  $INCLUDE"
+echo "  ➖  Excluding 👉  $EXCLUDE"
+echo "  🎯  Threshold 👉  $THRESHOLD %"
 echo
 
 ./node_modules/.bin/nyc     \
