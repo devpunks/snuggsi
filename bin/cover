@@ -5,10 +5,12 @@ export INCLUDE="resource" # Included coverage files
 
 echo "Coverage threshold set to 👉  $THRESHOLD"
 echo "Including 👉  $INCLUDE"
+echo "Excluding 👉  $EXCLUDE"
 echo
 
   ./node_modules/.bin/nyc \
     --include=$INCLUDE    \
+    --exclude=$EXCLUDE    \
     --extension=.es       \
     --reporter=text       \
     bin/test
