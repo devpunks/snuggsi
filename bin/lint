@@ -2,7 +2,9 @@
 
 COMMAND="./node_modules/.bin/standard ./dist/snuggsi.es"
 
-NUMBER_OF_JS_WARNINGS=`${COMMAND}`
+NUMBER_OF_WARNINGS=`$COMMAND | wc -l | tr -d " "`
 
-echo && echo "⚠️ ⚠️ ⚠️ ${NUMBER_OF_JS_WARNINGS}⚠️ ⚠️ ⚠️  StandardJS Warnings"
+
+echo
+echo "⚠️  StandardJS Warnings 👉  $NUMBER_OF_WARNINGS"
 echo
