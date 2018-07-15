@@ -6,6 +6,7 @@ LIBRARY=./dist/snuggsi.min.es.br
 
 echo
 echo "⚖ Validating Weight of 👉  $LIBRARY"
+echo "  ⚠️  Maximum allowable weight 👉  $MAXIMUM OCTETS"
 echo
 
 
@@ -18,8 +19,8 @@ OCTETS=$(
 ) || exit 1
 
 if [[ $OCTETS -gt $MAXIMUM ]]; then
-  echo "  ⚠️ ⚠️ ⚠️  current weight is $OCTETS, maximum allowable is $MAXIMUM OCTETS"
-  exit 1
+  echo "  ❌  snuggsiツ current weight is $OCTETS OCTETS"
+  echo && exit 1
 fi
 
 
