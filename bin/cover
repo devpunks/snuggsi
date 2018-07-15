@@ -23,11 +23,11 @@ echo "  ➕  Included  👉  $INCLUDE"
 echo "  ➖  Excluded  👉  $EXCLUDE"
 echo
 
-./node_modules/.bin/nyc     \
-  check-coverage            \
-    --lines      $THRESHOLD \
-    --function   $THRESHOLD \
-    --statements $THRESHOLD \
+./node_modules/.bin/nyc      \
+  check-coverage             \
+    --lines      $THRESHOLD  \
+    --functions  $THRESHOLD  \
+    --statements $THRESHOLD  \
   bin/test
 
 
