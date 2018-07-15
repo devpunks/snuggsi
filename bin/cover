@@ -1,7 +1,7 @@
 #!/bin/bash
 
 echo # NYC Test coverage
-echo "Coverage: ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ "
+echo "snuggsi ツ Coverage: ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ "
 export THRESHOLD=95       # Represented in Percentage
 export INCLUDE="resource" # Included coverage files
 export EXCLUDE="**/node_modules/**" # Excluded coverage files
@@ -18,7 +18,6 @@ echo
     --extension=.es       \
     --reporter=text       \
     bin/test
-echo "⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ ⚠️ "
 
 ./node_modules/.bin/nyc         \
   check-coverage                \
