@@ -17,7 +17,7 @@ sudo: false
 # install
 # before_script
 script:
-  - bin/test && bin/cover
+  - bin/integrate
 # before_cache
 # after_success
 # after_failure
