@@ -28,9 +28,10 @@ echo
     --statements $THRESHOLD \
   bin/test
 
-export CODE=$?
 
+export CODE=$?
 export OUTPUT=".nyc_output/" # Represented in Percentage
+
 echo
 echo "🚮  Post Coverage Cleanup of $OUTPUT"
 rm -rf .nyc_output/ # Remove output directory
