@@ -1,4 +1,6 @@
 #!/bin/bash
 
 ./node_modules/.bin/nyc \
+  --extension=.es       \
+  --reporter=text       \
   bin/test
