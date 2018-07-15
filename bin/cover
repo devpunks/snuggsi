@@ -2,6 +2,7 @@
 
 export COVER="node_modules/.bin/nyc" # Coverage runner
 export THRESHOLD=95                 # Represented in Percentage
+export HARNESS="bin/test"           # Test suite harness
 export INCLUDE="resource"           # Included coverage files
 export EXCLUDE="**/node_modules/**" # Excluded coverage files
 export EXTENSION=".es"              # Extension for coverage files
@@ -13,7 +14,7 @@ $COVER                    \
   --exclude=$EXCLUDE      \
   --extension=$EXTENSION  \
   --reporter=text         \
-  bin/test
+  $HARNESS
 
 
 echo
