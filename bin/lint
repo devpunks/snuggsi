@@ -1,7 +1,8 @@
 #!/bin/bash
 
 COMMAND="./node_modules/.bin/standard ./dist/snuggsi.es"
-NUMBER_OF_WARNINGS=`$COMMAND | wc -l | tr -d " "`
+COUNT="wc -l"
+NUMBER_OF_WARNINGS=`$COMMAND | $COUNT | tr -d " "`
 
 
 echo
