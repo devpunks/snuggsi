@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export COVER="$ROOT/node_modules/.bin/tap-nyc"
+export COVER="node_modules/.bin/nyc" # Coverage runner
 export THRESHOLD=95                 # Represented in Percentage
 export INCLUDE="resource"           # Included coverage files
 export EXCLUDE="**/node_modules/**" # Excluded coverage files
