@@ -15,7 +15,7 @@ export LIBRARIES=".,test,server,resource,middleware"
 export TESTS=$ROOT/${1:-"{$LIBRARIES,$API}/$ENTRY"}
 
 echo
-echo "🔴 Testing $TESTS"
+echo "🔴 Running Test Suite on 👉  $TESTS"
 echo
 
 $TEST          \
