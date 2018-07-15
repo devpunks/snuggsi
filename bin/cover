@@ -1,25 +1,26 @@
 #!/bin/bash
 
-export INCLUDE="resource" # Included coverage files
+export EXTENSION=".es"              # Extension for coverage files
+export INCLUDE="resource"           # Included coverage files
 export EXCLUDE="**/node_modules/**" # Excluded coverage files
 
 
-./node_modules/.bin/nyc \
-  --include=$INCLUDE    \
-  --exclude=$EXCLUDE    \
-  --extension=.es       \
-  --reporter=text       \
+./node_modules/.bin/nyc   \
+  --include=$INCLUDE      \
+  --exclude=$EXCLUDE      \
+  --extension=$EXTENSION  \
+  --reporter=text         \
   bin/test
 
 
-export THRESHOLD=95       # Represented in Percentage
+export THRESHOLD=95 # Represented in Percentage
 
 echo
 echo # NYC Test coverage
-echo "📊  snuggsi ツ Coverage Check"
-echo "  ➕  Including 👉  $INCLUDE"
-echo "  ➖  Excluding 👉  $EXCLUDE"
+echo "📊  snuggsi ツ Coverage Repoort"
 echo "  🎯  Threshold 👉  $THRESHOLD %"
+echo "  ➕  Included  👉  $INCLUDE"
+echo "  ➖  Excluded  👉  $EXCLUDE"
 echo
 
 ./node_modules/.bin/nyc     \
@@ -36,5 +37,6 @@ export OUTPUT=".nyc_output/" # Represented in Percentage
 echo
 echo "🚮  Post Coverage Cleanup of $OUTPUT"
 rm -rf .nyc_output/ # Remove output directory
+
 
 exit $CODE
