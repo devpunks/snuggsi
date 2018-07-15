@@ -24,5 +24,5 @@ if [[ "$OCTETS" -gt $MAXIMUM ]]; then
 fi
 
 
-echo "  ✅  snuggsiツ weighs $OCTETS OCTETS"
+echo "  ✅  snuggsiツ weighs 👉  $OCTETS OCTETS"
 echo
