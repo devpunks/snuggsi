@@ -7,7 +7,6 @@ BIN="$NODE_PATH/node_modules/.bin"
 SPECS="$BIN/tap-spec"
 TEST="$BIN/tape"
 
-
 API="element"
 ENTRY="index.test"
 LIBRARIES=".,test,server,resource,middleware"
