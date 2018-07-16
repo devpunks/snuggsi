@@ -21,3 +21,4 @@ echo "  👇"
 echo "  ⏰  Started  👉  $DATE"
 echo "  🏁  Finished 👉  $(date -r $FINISH)"
 echo "    🕓  Total compilation duration 👉  $DURATION secs."
+echo
