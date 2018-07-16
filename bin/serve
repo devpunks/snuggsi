@@ -4,6 +4,8 @@ export NODE_PATH=`pwd`
 export ROOT=${1:-public}
 export PORT=${PORT:-80}
 
+SERVE=bin/serve.es
+
 
 echo
 echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
@@ -18,4 +20,4 @@ echo
 
 node           \
   --require ./ \
--- bin/serve.es
+$SERVE
