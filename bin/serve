@@ -2,6 +2,7 @@
 
 export NODE_PATH=`pwd`
 export ROOT=${1:-public}
+export PORT=${PORT:-80}
 
 
 echo
