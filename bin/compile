@@ -1,10 +1,23 @@
 #!/bin/bash
 
+START=`date +%s`
+DATE=`date -r $START`
+
 echo
-echo "🏭  Compilation Process"
+echo "🏭  Compilation Process Started 👉  $DATE"
 echo
 
-bin/bundle
-bin/transpile
-bin/shrink
+bin/bundle && \
+bin/transpile && \
+bin/shrink && \
 bin/compress
+
+FINISH=`date +%s`
+DURATION=$((FINISH-START))
+
+echo
+echo "🏭  Compilation Process Finished"
+echo
+echo "  ⏰  Started  👉  $DATE"
+echo "  🏁  Finished 👉  $(date -r $FINISH)"
+echo "    🕓  Total compilation duration 👉  $DURATION secs."
