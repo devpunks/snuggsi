@@ -1,11 +1,11 @@
 #!/bin/bash
 
-ls -al ./dist
-
-bin/validate-weight
-
 MAXIMUM=1500
-LIBRARY=./dist/snuggsi.min.es.br
+DIRECTORY=./dist
+LIBRARY=$DIRECTORY/snuggsi.min.es.br
+
+
+ls -al $DIRECTORY
 
 
 echo
@@ -20,12 +20,12 @@ OCTETS=$(
 
 
 echo "  👇"
-echo "  📁  $LIBRARY"
+echo "  📃  $LIBRARY"
 
 if [[ $OCTETS -gt $MAXIMUM ]]; then
   echo "    🔴  Weight 👉  $OCTETS OCTETS"
   echo "      ❌  Overweight by $((OCTETS - MAXIMUM)) OCTETS"
-  echo && exit 1 # ⭕ 🚫 ❌ 🔴 
+  echo && exit 1 # ⭕ 🚫 ❌ 🔴 📁
 fi
 
 
