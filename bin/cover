@@ -37,7 +37,10 @@ $HARNESS
 export CODE=$?
 
 echo
-echo "🚮  Post Coverage Cleanup of 👉  $OUTPUT"
+echo "📁  Post Coverage Cleanup"
+echo " ⚠️  Removes paths left as artifacts from coverage report"
+echo "  👇"
+echo "  🚮  Removing 👉  $OUTPUT"
 echo # Remove output directory
 rm -rf $OUTPUT
 
