@@ -83,6 +83,10 @@ and [`tap-nyc`](https://github.com/MegaArman/tap-nyc)
 $ bin/test [path]
 ```
 
+### Environment Arguments
+
+  - `path` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
+
 
 ## Coverage
 
