@@ -15,10 +15,13 @@ export LIBRARIES=".,test,server,resource,middleware"
 export TESTS=$ROOT/${1:-"{$LIBRARIES,$API}/$ENTRY"}
 
 echo
-echo "🔴 Running Test Suite on 👉  $TESTS"
+echo "🚨  Testing, Testing, 1,2,3, ..."
+echo
+echo "  Entry 👉  $ENTRY"
+echo "  Suite 👉  $TESTS"
 echo
 
 $TEST          \
-  --require ./ \
+  --require .  \
   -- $TESTS    \
   |  $SPEC
