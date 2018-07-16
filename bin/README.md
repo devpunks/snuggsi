@@ -116,6 +116,11 @@ $ bin/lint
 $ bin/serve
 ```
 
+### Environment Options
+
+  - `PORT` - Server port _(Defaults to **80**)_
+  - `ROOT` - path to serve from `/` _(Defaults to **public**)_
+
 
 ## Distribute
 
