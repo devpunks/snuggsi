@@ -5,14 +5,12 @@
 # https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
 
 export PORT=8181
-export ROOT=$(pwd)
 export API="element"
-export NODE_PATH=$ROOT
 export ENTRY="index.test"
-export TEST="$ROOT/node_modules/.bin/tape"
-export SPEC="$ROOT/node_modules/.bin/tap-spec"
+export TEST="node_modules/.bin/tape"
+export SPEC="node_modules/.bin/tap-spec"
 export LIBRARIES=".,test,server,resource,middleware"
-export TESTS=$ROOT/${1:-"{$LIBRARIES,$API}/$ENTRY"}
+export TESTS=${1:-"{$LIBRARIES,$API}/$ENTRY"}
 
 echo
 echo "🚨  Testing, Testing, 1,2,3, ..."
