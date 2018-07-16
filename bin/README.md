@@ -39,7 +39,7 @@ $ bin/browse
   ⚠️  _See [BrowserSync command line options](https://browsersync.io/docs/options) for configuration documentation._
 
 
-## [bin/bundle](bundle)
+## [bundle](bundle)
 
 ```bash
 $ bin/bundle
