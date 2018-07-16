@@ -1,13 +1,21 @@
-# `bin` Scripts
+# `bin`stubs
 
-_The following script will clone repository and install developer dependencies_
+  > _[Binstubs are just scripts that can be executed directly: `bin/test` as opposed to `sh bin/test`](https://github.com/devpunks/snuggsi/pull/175#issuecomment-405039811)_ - [@brandondees](https://github.com/brandondees)
 
-If you need support for windows file a ticket with [this link appended to description](http://tldp.org/LDP/abs/html/dosbatch.html).
+  Imperative convenience scripts Used primarily to automate declarative actions.
+  Could potentially be used on "User Land" applications.
+
+  ⚠️ For internal use only _(for the time being)_
+  
+  _The following script will clone repository and install developer dependencies_
 
 ```bash
 $ git clone https://github.com/devpunks/snuggsi.git
 $ cd snuggsi && npm i
 ```
+
+
+If you need support for windows file a ticket with [this link appended to description](http://tldp.org/LDP/abs/html/dosbatch.html).
 
 
 ## Crank
