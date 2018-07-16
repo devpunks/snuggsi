@@ -24,9 +24,14 @@ If you need support for windows file a ticket with [this link appended to descri
 $ bin/browse
 ```
 
-  Executes the following step process _(in order of appearance)_:
 
-  Launch browser, Watch files and hot inject browser assets on file change.
+### Environment Options
+
+  - `PORT` - Server port _(Defaults to **3000**)_
+  - `BROWSER_PORT` - Server port _(Defaults to **port above server port i.e. 3001**)_
+
+  Executes the following step process _(in parallel)_:
+
   0. [`bin/serve`](#serve)
   1. Launch [BrowserSync](https:/browsersync.io)
   2. [`bin/watch`](#watch)
