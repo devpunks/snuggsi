@@ -18,34 +18,38 @@ $ cd snuggsi && npm i
 If you need support for windows file a ticket with [this link appended to description](http://tldp.org/LDP/abs/html/dosbatch.html).
 
 
+## [bin/browse](browse)
+
+```bash
+$ bin/browse
+```
+
+  Executes the following step process _(in order of appearance)_:
+
+  Launch browser, Watch files and hot inject browser assets on file change.
+  0. [`bin/serve`](#serve)
+  1. Launch [BrowserSync](https:/browsersync.io)
+  2. [`bin/watch`](#watch)
+
+  ⚠️  _See [BrowserSync command line options](https://browsersync.io/docs/options) for configuration documentation._
+
+
 ## [bin/crank](crank)
 
 ```bash
 $ bin/crank
 ```
 
-  Executes the following build step process _(in order of appearance)_:
+  Executes the following step process _(in order of appearance)_:
 
   ⚠️  _Build process will halt & prevent further execution upon failures._
 
   0. [`bin/compile`](#compile)
   1. [`bin/lint`](#lint)
-  1. [`bin/cover`](#coverage)
-  1. [`bin/weigh`](#weigh)
-  2. [`bin/distribute`](#distribute)
-  3. [`bin/deploy`](#deploy)
-
-
-
-## Browse
-Watch files and hot inject browser assets on file change.
-
-_See [bin/browse](browse)
-&amp; [Browser Sync command line options](https://www.browsersync.io/docs/options) for configuration documentation._
-
-```bash
-$ bin/browse
-```
+  2. [`bin/cover`](#coverage)
+  3. [`bin/weigh`](#weigh)
+  4. [`bin/distribute`](#distribute)
+  5. [`bin/deploy`](#deploy)
 
 
 ## Style
