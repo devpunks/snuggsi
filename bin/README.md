@@ -18,19 +18,21 @@ $ cd snuggsi && npm i
 If you need support for windows file a ticket with [this link appended to description](http://tldp.org/LDP/abs/html/dosbatch.html).
 
 
-## Crank
-Runs the following build process
+## [bin/crank](crank)
 
-  0. [`compile`](#compile)
-  1. [`cover`](#coverage)
-  1. [`lint`](#lint)
-  2. [`distribute`](#distribute)
-  3. [`deploy`](#deploy)
-
-_See [bin/crank](crank)_
 ```bash
 $ bin/crank
 ```
+
+  Executes the following build step process _(in order of appearance)_
+
+  0. [`bin/compile`](#compile)
+  1. [`bin/lint`](#lint)
+  1. [`bin/cover`](#coverage)
+  1. [`bin/weigh`](#weigh)
+  2. [`bin/distribute`](#distribute)
+  3. [`bin/deploy`](#deploy)
+
 
 
 ## Browse
