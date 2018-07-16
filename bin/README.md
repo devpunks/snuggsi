@@ -76,13 +76,8 @@ $ bin/style [component-directory | style-file.{sss,css}]
 
 ## [test](test)
 
-Uses
-[`tape`](https://github.com/substack/tape)
-and
-[`tap-nyc`](https://github.com/MegaArman/tap-nyc)
-and
-
-_See [bin/test](test)_
+Uses [`tape`](https://github.com/substack/tape)
+and [`tap-nyc`](https://github.com/MegaArman/tap-nyc)
 
 ```bash
 $ bin/test
