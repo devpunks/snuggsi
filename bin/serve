@@ -7,7 +7,7 @@ ROOT=$(pwd)
 
 # NODE_PATH on Heroku
 # https://lostechies.com/derickbailey/2014/02/20/how-i-work-around-the-require-problem-in-nodejs/
-export NODE_PATH=$ROOT:$NODE_PATH
+NODE_PATH=$ROOT:$NODE_PATH
 
 echo "Booting snuggsi server on Port $PORT"
 
