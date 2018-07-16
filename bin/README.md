@@ -34,7 +34,7 @@ $ bin/browse
 
   0. [`serve`](#serve)
   1. Launch [BrowserSync](https:/browsersync.io)
-  2. [`bin/watch`](#watch)
+  2. [`watch`](#watch)
 
   ⚠️  _See [BrowserSync command line options](https://browsersync.io/docs/options) for configuration documentation._
 
