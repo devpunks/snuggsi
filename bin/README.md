@@ -206,3 +206,12 @@ Validate that `snuggsi.min.es.br` is within one Ethernet Frame.
 ```bash
 $ bin/validate-weight
 ```
+
+
+# References
+
+  - https://gist.github.com/branneman/8775568
+  - https://gist.github.com/branneman/8048520
+  - https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
+  - https://gist.github.com/branneman/8775568 https://gist.github.com/branneman/8048520 https://stackoverflow.com/questions/10265798/determine-projec
+  - NODE_PATH on Heroku https://lostechies.com/derickbailey/2014/02/20/how-i-work-around-the-require-problem-in-nodejs
