@@ -26,7 +26,7 @@ $ bin/crank
 
   Executes the following build step process _(in order of appearance)_
 
-  ⚠️  Build process will halt & prevent further execution upon failures
+  ⚠️  _Build process will halt & prevent further execution upon failures_
 
   0. [`bin/compile`](#compile)
   1. [`bin/lint`](#lint)
