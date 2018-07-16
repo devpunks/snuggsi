@@ -7,13 +7,16 @@ echo
 echo "🏭  Compilation Process Started 👉  $DATE"
 echo "  👇"
 
-bin/bundle && \
+
+bin/bundle    && \
 bin/transpile && \
-bin/shrink && \
+bin/shrink    && \
 bin/compress
+
 
 FINISH=`date +%s`
 DURATION=$((FINISH-START))
+
 
 echo
 echo "🏭  Compilation Process Finished"
