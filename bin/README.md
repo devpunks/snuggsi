@@ -74,7 +74,7 @@ $ bin/style [component-directory | style-file.{sss,css}]
 ```
 
 
-## Test Runner
+## [test](test)
 
 Uses
 [`tape`](https://github.com/substack/tape)
