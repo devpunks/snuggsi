@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
-ROOT=$(pwd)
-NODE_PATH=$ROOT:$NODE_PATH
+export NODE_PATH=`pwd`
 export PORT=${PORT:-3000}
 
 echo "Booting snuggsi server on Port $PORT"
