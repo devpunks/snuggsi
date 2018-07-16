@@ -5,7 +5,7 @@ DATE=`date -r $START`
 
 echo
 echo "🏭  Compilation Process Started 👉  $DATE"
-echo
+echo "  👇"
 
 bin/bundle && \
 bin/transpile && \
@@ -17,7 +17,7 @@ DURATION=$((FINISH-START))
 
 echo
 echo "🏭  Compilation Process Finished"
-echo
+echo "  👇"
 echo "  ⏰  Started  👉  $DATE"
 echo "  🏁  Finished 👉  $(date -r $FINISH)"
 echo "    🕓  Total compilation duration 👉  $DURATION secs."
