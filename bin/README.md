@@ -24,9 +24,9 @@ If you need support for windows file a ticket with [this link appended to descri
 $ bin/crank
 ```
 
-  Executes the following build step process _(in order of appearance)_
+  Executes the following build step process _(in order of appearance)_:
 
-  ⚠️  _Build process will halt & prevent further execution upon failures_
+  ⚠️  _Build process will halt & prevent further execution upon failures._
 
   0. [`bin/compile`](#compile)
   1. [`bin/lint`](#lint)
