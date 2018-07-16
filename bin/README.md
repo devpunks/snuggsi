@@ -145,10 +145,10 @@ $ bin/deploy
 ```
 
 
-## Watch Changes
-Watch ecmascripts routine.
+## [watch](watch)
 
-_See [bin/watch](watch)_
+  Watch base directory for changes to markup, styles, and scripts
+
 
 ```bash
 $ bin/watch
