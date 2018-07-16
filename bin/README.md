@@ -28,12 +28,12 @@ $ bin/crank
 
   ⚠️  _Build process will halt & prevent further execution upon failures_
 
-  0. [`bin/compile`](#compile)
-  1. [`bin/lint`](#lint)
-  1. [`bin/cover`](#coverage)
-  1. [`bin/weigh`](#weigh)
-  2. [`bin/distribute`](#distribute)
-  3. [`bin/deploy`](#deploy)
+0. [`bin/compile`](#compile)
+1. [`bin/lint`](#lint)
+1. [`bin/cover`](#coverage)
+1. [`bin/weigh`](#weigh)
+2. [`bin/distribute`](#distribute)
+3. [`bin/deploy`](#deploy)
 
 
 
