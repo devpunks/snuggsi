@@ -147,7 +147,7 @@ $ bin/deploy
 
 ## [watch](watch)
 
-  Watch base directory for changes to markup, styles, and scripts
+  Watch base directory for changes to markup, styles, and scripts.
 
 
 ```bash
