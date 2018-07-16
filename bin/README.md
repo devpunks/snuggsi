@@ -18,7 +18,7 @@ $ cd snuggsi && npm i
 If you need support for windows file a ticket with [this link appended to description](http://tldp.org/LDP/abs/html/dosbatch.html).
 
 
-## [bin/browse](browse)
+## [browse](browse)
 
 ```bash
 $ bin/browse
@@ -32,7 +32,7 @@ $ bin/browse
 
   Executes the following step process _(in parallel)_:
 
-  0. [`bin/serve`](#serve)
+  0. [`serve`](#serve)
   1. Launch [BrowserSync](https:/browsersync.io)
   2. [`bin/watch`](#watch)
 
@@ -110,7 +110,7 @@ $ bin/lint
 ```
 
 
-## [bin/serve](serve)
+## [serve](serve)
 
 ```bash
 $ bin/serve [path]
