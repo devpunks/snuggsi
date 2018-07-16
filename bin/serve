@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export ROOT=$(pwd)
+ROOT=$(pwd)
 
 # https://gist.github.com/branneman/8775568
 # https://gist.github.com/branneman/8048520
