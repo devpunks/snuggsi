@@ -1,13 +1,8 @@
 #!/bin/bash
 
 echo
-echo "🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 "
+echo "🏭  Compilation Process"
 echo
-echo "                    👷s snuggsiツ Compile"
-echo
-echo "🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 🚧 "
-echo
-
 
 bin/bundle
 bin/transpile
