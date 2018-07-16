@@ -66,7 +66,8 @@ $ bin/crank
   5. [`deploy`](#deploy)
 
 
-## Style
+## [style](style)
+
 Please see [style#readme](/style#readme) for details.
 ```bash
 $ bin/style [component-directory | style-file.{sss,css}]
