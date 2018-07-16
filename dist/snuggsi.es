@@ -672,7 +672,7 @@ const Element = tag => (
 
       Element => // https://en.wikipedia.org/wiki/Higher-order_function
         customElements.define
-          ( tag + '', Custom (Element) )
+          ( String (tag + ''), Custom (Element) )
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 //  E.prototype = Element.prototype
