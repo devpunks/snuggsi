@@ -14,7 +14,7 @@ const Element = tag => (
 
       Element => // https://en.wikipedia.org/wiki/Higher-order_function
         customElements.define
-          ( String (tag + ''), Custom (Element) )
+          ( tag + '', Custom (Element) )
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 //  E.prototype = Element.prototype
