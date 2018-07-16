@@ -60,4 +60,3 @@ require ('fs').watch (path, { recursive: true },
 
 console.log (command)
 console.log (message)
-
