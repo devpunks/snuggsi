@@ -48,7 +48,7 @@ $ bin/bundle
   Simple [`cat`](https://en.wikipedia.org/wiki/Cat_(Unix)) script for appending standalone ECMASCript modules into a single file.
 
 
-## [bin/crank](crank)
+## [crank](crank)
 
 ```bash
 $ bin/crank
