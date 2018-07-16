@@ -22,6 +22,6 @@ echo
 echo "🏭  Compilation Process Finished"
 echo "  👇"
 echo "  ⏰  Started  👉  $DATE"
-echo "  🏁  Finished 👉  $(date -r $FINISH)"
+echo "  🏁  Finished 👉  `date -r $FINISH`"
 echo "    🕓  Total compilation duration 👉  $DURATION secs."
 echo
