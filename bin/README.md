@@ -34,6 +34,15 @@ $ bin/browse
   ⚠️  _See [BrowserSync command line options](https://browsersync.io/docs/options) for configuration documentation._
 
 
+## [bin/bundle](bundle)
+
+```bash
+$ bin/bundle
+```
+
+  Simple [`cat`](https://en.wikipedia.org/wiki/Cat_(Unix)) script for appending standalone ECMASCript modules into a single file.
+
+
 ## [bin/crank](crank)
 
 ```bash
@@ -137,19 +146,9 @@ $ bin/compile
 
 _See [bin/transpile](transpile)_
 
-Run bundle, and Buble for transpilation from ECMAScript to Javascript
+Run Buble for transpilation from ECMAScript to Javascript
 ```bash
 $ bin/transpile
-```
-
-
-## Bundle
-
-_See [bin/bundle](bundle)_
-
-Simple `cat` script for standalone ECMASCript modules
-```bash
-$ bin/bundle
 ```
 
 
