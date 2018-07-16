@@ -1,7 +1,9 @@
 #!/usr/bin/env bash
 
-# https://gist.github.com/branneman/8775568
+ROOT=$(pwd)
+
 # https://gist.github.com/branneman/8048520
+# https://gist.github.com/branneman/8775568
 # https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
 
 export PORT=8181
