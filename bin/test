@@ -8,8 +8,8 @@ export PORT=8181
 export NODE_PATH=`pwd`
 
 BIN="$NODE_PATH/node_modules/.bin"
-SPEC="$BIN/tap-spec"
 TEST="$BIN/tape"
+SPECS="$BIN/tap-spec"
 
 API="element"
 ENTRY="index.test"
@@ -24,7 +24,7 @@ echo "  Entry 👉  $ENTRY"
 echo "  Suite 👉  $TESTS"
 echo
 
-$TEST          \
-  --require .  \
-  -- $TESTS    \
-  |  $SPEC
+
+$TEST         \
+  --require . \
+$TESTS | $SPECS
