@@ -8,8 +8,8 @@ export PORT=8181
 export NODE_PATH=`pwd`
 export ROOT=$NODE_PATH
 export BIN="$NODE_PATH/node_modules/.bin"
-export TEST="$ROOT/node_modules/.bin/tape"
-export SPEC="$ROOT/node_modules/.bin/tap-spec"
+export TEST="$BIN/tape"
+export SPEC="$BIN/tap-spec"
 
 export API="element"
 export ENTRY="index.test"
