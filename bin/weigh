@@ -10,8 +10,6 @@ LIBRARY=./dist/snuggsi.min.es.br
 
 echo
 echo "⚖ snuggsiツ Weight Check"
-echo "  ⚖ Validating Weight of 👉  $LIBRARY"
-echo
 echo "  ⚠️  Maximum allowable weight 👉  $MAXIMUM OCTETS"
 
 
@@ -20,12 +18,16 @@ OCTETS=$(
   awk '{print $5}'
 ) || exit 1
 
+
+echo "  👇"
+echo "  📁  $LIBRARY"
+
 if [[ $OCTETS -gt $MAXIMUM ]]; then
-  echo "  🔴  snuggsiツ current weight 👉  $OCTETS OCTETS"
-  echo "    ❌  Overweight by $((OCTETS - MAXIMUM)) OCTETS"
+  echo "    🔴  Weight 👉  $OCTETS OCTETS"
+  echo "      ❌  Overweight by $((OCTETS - MAXIMUM)) OCTETS"
   echo && exit 1 # ⭕ 🚫 ❌ 🔴 
 fi
 
 
-echo "  ✅  snuggsiツ weighs 👉  $OCTETS OCTETS"
+echo "    ✅  Weight 👉  $OCTETS OCTETS"
 echo
