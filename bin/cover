@@ -36,8 +36,9 @@ $HARNESS
 
 export CODE=$?
 
-echo # Remove output directory
+echo
 echo "🚮  Post Coverage Cleanup of 👉  $OUTPUT"
+echo # Remove output directory
 rm -rf $OUTPUT
 
 
