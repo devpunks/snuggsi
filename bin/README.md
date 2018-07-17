@@ -58,6 +58,8 @@ $ bin/compile
 
   ⚠️  _Process will halt & prevent further execution upon failures._
 
+  0. [`bundle`](#bundle)
+
 
 ## [compress](compress)
 
