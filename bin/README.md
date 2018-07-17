@@ -159,8 +159,7 @@ $ bin/watch [directory]
   - `directory` - _(optional)_ path to watch for changes _(Defaults to **current directory `.`**)_
 
 
-
-## Compile
+## [compile](compile)
 Run transpile, uglify, gzip, and weigh
 
 _See [bin/compile](compile)_
