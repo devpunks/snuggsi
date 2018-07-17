@@ -153,9 +153,10 @@ $ bin/deploy
 $ bin/watch
 ```
 
-### Environment Options
 
-  - `PORT` - Server port _(Defaults to **80**)_
+### Environment Arguments
+
+  - `directory` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
 
 
 
