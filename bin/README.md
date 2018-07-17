@@ -150,7 +150,7 @@ $ bin/deploy
 
 
 ```bash
-$ bin/watch
+$ bin/watch [directory]
 ```
 
 
