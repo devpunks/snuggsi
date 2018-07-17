@@ -1,7 +1,7 @@
 #!/bin/bash
 
 MAXIMUM=1500
-DIRECTORY=./dist
+DIRECTORY=dist
 LIBRARY=${1:-$DIRECTORY/snuggsi.min.es.br}
 
 
