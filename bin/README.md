@@ -156,7 +156,7 @@ $ bin/watch
 
 ### Environment Arguments
 
-  - `directory` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
+  - `directory` - _(optional)_ path to watch for changes _(Defaults to **current directory `.`**)_
 
 
 
