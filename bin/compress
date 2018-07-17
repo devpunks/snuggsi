@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 # bro is installed locally and manually. No npm cli. HELP!
 bro \
   --repeat 1 \
