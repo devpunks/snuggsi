@@ -490,7 +490,7 @@ const EventTarget = HTMLElement => // why buble
       (event, this.renderable (handler))
   }
 
-  renderable ( handler = function () {} ) {
+  renderable ( handler ) {
 
     // BIG BUG IN IE!!!
     //
