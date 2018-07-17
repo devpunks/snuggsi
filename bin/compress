@@ -54,7 +54,7 @@ bro \
 > "$FILE.br"
 
 
-# deflate (zlib)
+echo "    📃  GZIP   👉  $FILE.gz"
 
 ./node_modules/.bin/zopfli \
   -i 50 \
