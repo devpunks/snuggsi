@@ -2,7 +2,7 @@
 
 MAXIMUM=1500
 DIRECTORY=./dist
-LIBRARY=$DIRECTORY/snuggsi.min.es.br
+LIBRARY=${1:-$DIRECTORY/snuggsi.min.es.br}
 
 
 ls -al $DIRECTORY

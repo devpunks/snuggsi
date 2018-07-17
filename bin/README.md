@@ -212,8 +212,10 @@ $ bin/watch [directory]
 Routine to overall weight of distribution.
 
 ```bash
-$ bin/weigh
+$ bin/weigh [library]
 ```
+
+  - `library` - _(optional)_ path to watch for changes _(Defaults to **`dist/snuggsi.min.es.br`**)_
 
 
 ## Validate Weight
