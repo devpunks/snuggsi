@@ -1,5 +1,4 @@
 #!/usr/bin/env bash
 
-export NODE_PATH=${1:-./}
-
 WATCH=watch/index.es
+export DIRECTORY=${1:-./}
