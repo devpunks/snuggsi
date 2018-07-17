@@ -17,8 +17,8 @@ echo "    💾  $FILE 👉  $FILE.br"
 bro \
   --repeat 1 \
   --quality 11 \
-  --input ./dist/*.min.es \
-> ./dist/snuggsi.min.es.br
+  --input $FILE \
+> "$FILE.br"
 
 
 bro \
