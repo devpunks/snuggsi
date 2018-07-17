@@ -61,7 +61,10 @@ echo "    📃  GZIP   👉  $FILE.gz"
   --gzip \
   --ext gz \
   --verbose \
-  dist/snuggsi.min.es
+$FILE
+
+
+echo "    📃  ZOPFLI   👉  $FILE.zo"
 
 ./node_modules/.bin/zopfli \
   -i 50 \
