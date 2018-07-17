@@ -5,7 +5,7 @@ export DIRECTORY=${1:-`pwd`}
 
 
 echo
-echo "👀  Watching for changes..."
+echo "💪  Watching for changes..."
 echo "  👇"
 echo "  📁  $DIRECTORY"
 
