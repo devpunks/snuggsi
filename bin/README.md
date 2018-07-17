@@ -49,12 +49,14 @@ $ bin/bundle
 
 
 ## [compile](compile)
-Run transpile, uglify, gzip, and weigh
-
 
 ```bash
 $ bin/compile
 ```
+
+  Executes the following step process _(in order of appearance)_:
+
+  ⚠️  _Process will halt & prevent further execution upon failures._
 
 
 ## [compress](compress)
