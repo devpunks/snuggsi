@@ -61,7 +61,7 @@ $ bin/compile
   0. [`bundle`](#bundle)
   1. [`transpile`](#transpile)
   2. [`shrink`](#shrink)
-  2. [`compress`](#compress)
+  3. [`compress`](#compress)
 
 
 ## [compress](compress)
