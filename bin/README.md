@@ -192,8 +192,6 @@ $ bin/shrink
 
 ## Compress
 
-_See [bin/compress](compress)_
-
 Compression routine used for `Content-Encoding`
 negotiation.
 
