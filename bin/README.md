@@ -192,6 +192,20 @@ $ bin/shrink
 ```
 
 
+## [watch](watch)
+
+  Watch base directory for changes to markup, styles, and scripts.
+
+
+```bash
+$ bin/watch [directory]
+```
+
+
+### Environment Arguments
+
+  - `directory` - _(optional)_ path to watch for changes _(Defaults to **current directory `.`**)_
+
 ## Weigh
 
 _See [bin/weigh](weigh)_
