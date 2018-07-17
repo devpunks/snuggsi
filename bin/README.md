@@ -54,6 +54,7 @@ $ bin/bundle
 $ bin/compile
 ```
 
+  Compiles distribution into a tiny little file.
   Executes the following step process _(in order of appearance)_:
 
   ⚠️  _Process will halt & prevent further execution upon failures._
