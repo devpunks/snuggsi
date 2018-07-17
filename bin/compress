@@ -1,5 +1,18 @@
 #!/usr/bin/env bash
 
+
+DIST=./dist
+
+echo
+echo "💪  Compressing Libraries"
+echo "  👇"
+
+
+echo "  💾  Brotli compress"
+
+FILE="$DIST/snuggsi.min.es"
+echo "    💾  $FILE 👉  $FILE.br"
+
 # bro is installed locally and manually. No npm cli. HELP!
 bro \
   --repeat 1 \
