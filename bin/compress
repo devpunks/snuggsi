@@ -71,4 +71,4 @@ echo "    📃  ZOPFLI   👉  $FILE.zo"
   --zlib \
   --ext zo \
   --verbose \
-  dist/snuggsi.min.js
+$FILE
