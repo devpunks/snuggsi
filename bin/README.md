@@ -199,17 +199,6 @@ $ bin/shrink
 ```
 
 
-## Compress
-
-Compression routine used for `Content-Encoding`
-negotiation.
-
-_(Supports `gzip` & `zlib` Content Encoding tokens)_
-```bash
-$ bin/compress
-```
-
-
 ## Weigh
 
 _See [bin/weigh](weigh)_
