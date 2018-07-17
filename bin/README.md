@@ -153,6 +153,11 @@ $ bin/deploy
 $ bin/watch
 ```
 
+### Environment Options
+
+  - `PORT` - Server port _(Defaults to **80**)_
+
+
 
 ## Compile
 Run transpile, uglify, gzip, and weigh
