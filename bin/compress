@@ -58,8 +58,8 @@ echo "    📃  GZIP   👉  $FILE.gz"
 
 ./node_modules/.bin/zopfli \
   -i 50 \
-  --zlib \
-  --ext zo \
+  --gzip \
+  --ext gz \
   --verbose \
   dist/snuggsi.min.es
 
