@@ -187,7 +187,7 @@ $ bin/watch [directory]
   - `directory` - _(optional)_ path to watch for changes _(Defaults to **current directory `.`**)_
 
 
-## [transpile](watch)
+## [transpile](transpile)
 
 _See [bin/transpile](transpile)_
 
