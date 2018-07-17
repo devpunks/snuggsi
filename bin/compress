@@ -47,6 +47,12 @@ echo "  👇"
 echo "  💾  $FILE"
 echo "    📃  Brotli 👉  $FILE.br"
 
+bro \
+  --repeat 1 \
+  --quality 11 \
+  --input $FILE \
+> "$FILE.br"
+
 
 # deflate (zlib)
 
