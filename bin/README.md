@@ -206,6 +206,7 @@ $ bin/watch [directory]
 
   - `directory` - _(optional)_ path to watch for changes _(Defaults to **current directory `.`**)_
 
+
 ## Weigh
 
 _See [bin/weigh](weigh)_
