@@ -207,7 +207,7 @@ $ bin/watch [directory]
   - `directory` - _(optional)_ path to watch for changes _(Defaults to **current directory `.`**)_
 
 
-## Weigh
+## [`weigh`](weigh)
 
 Routine to overall weight of distribution.
 
