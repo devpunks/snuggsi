@@ -209,7 +209,8 @@ $ bin/watch [directory]
 
 ## Weigh
 
-Weigh ecmascripts routine.
+Routine to overall weight of distribution.
+
 ```bash
 $ bin/weigh
 ```
