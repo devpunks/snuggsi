@@ -38,7 +38,14 @@ echo "    📃  ZOPFLI   👉  $FILE.zo"
   --zlib \
   --ext zo \
   --verbose \
-  dist/snuggsi.min.js
+$FILE
+
+
+FILE="$DIST/snuggsi.min.js"
+
+echo "  👇"
+echo "  💾  $FILE"
+echo "    📃  Brotli 👉  $FILE.br"
 
 
 # deflate (zlib)
