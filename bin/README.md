@@ -172,21 +172,6 @@ $ bin/deploy
 ```
 
 
-## [watch](watch)
-
-  Watch base directory for changes to markup, styles, and scripts.
-
-
-```bash
-$ bin/watch [directory]
-```
-
-
-### Environment Arguments
-
-  - `directory` - _(optional)_ path to watch for changes _(Defaults to **current directory `.`**)_
-
-
 ## [transpile](transpile)
 
 _See [bin/transpile](transpile)_
