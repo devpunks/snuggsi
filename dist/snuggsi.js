@@ -493,7 +493,6 @@ var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
 
   anonymous.prototype.renderable = function ( handler ) {
     var this$1 = this;
-    if ( handler === void 0 ) handler = function () {};
 
 
     // BIG BUG IN IE!!!
