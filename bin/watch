@@ -1,4 +1,13 @@
 #!/usr/bin/env bash
 
 WATCH=watch/index.es
-export DIRECTORY=${1:-./}
+export DIRECTORY=${1:-`pwd`}
+
+
+echo
+echo "👀  Watching for changes..."
+echo "  👇"
+echo "  📁  $DIRECTORY"
+
+node \
+$WATCH
