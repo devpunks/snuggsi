@@ -35,8 +35,8 @@ echo "    📃  ZOPFLI   👉  $FILE.zo"
 
 ./node_modules/.bin/zopfli \
   -i 50 \
-  --gzip \
-  --ext gz \
+  --zlib \
+  --ext zo \
   --verbose \
   dist/snuggsi.min.js
 
