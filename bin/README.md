@@ -179,26 +179,6 @@ $ bin/watch [directory]
   - `directory` - _(optional)_ path to watch for changes _(Defaults to **current directory `.`**)_
 
 
-## [compile](compile)
-Run transpile, uglify, gzip, and weigh
-
-
-```bash
-$ bin/compile
-```
-
-
-## [compress](compress)
-
-Compression routine used for `Content-Encoding`
-negotiation.
-
-_(Supports `gzip` & `zlib` Content Encoding tokens)_
-```bash
-$ bin/compress
-```
-
-
 ## Transpile
 
 _See [bin/transpile](transpile)_
