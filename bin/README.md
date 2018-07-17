@@ -48,6 +48,26 @@ $ bin/bundle
   Simple [`cat`](https://en.wikipedia.org/wiki/Cat_(Unix)) script for appending standalone ECMASCript modules into a single file.
 
 
+## [compile](compile)
+Run transpile, uglify, gzip, and weigh
+
+
+```bash
+$ bin/compile
+```
+
+
+## [compress](compress)
+
+Compression routine used for `Content-Encoding`
+negotiation.
+
+_(Supports `gzip` & `zlib` Content Encoding tokens)_
+```bash
+$ bin/compress
+```
+
+
 ## [crank](crank)
 
 ```bash
