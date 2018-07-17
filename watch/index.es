@@ -4,9 +4,6 @@ const
   { DIRECTORY: path, BROWSER_PORT }
     = process.env
 
-, BROWSER_PORT =
-    process.env.BROWSER_PORT
-
 , test     = 'bin/test'
 , bundle   = 'bin/bundle'
 , shrink   = 'bin/shrink'
