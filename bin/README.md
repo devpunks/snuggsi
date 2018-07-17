@@ -209,8 +209,6 @@ $ bin/watch [directory]
 
 ## Weigh
 
-_See [bin/weigh](weigh)_
-
 Weigh ecmascripts routine.
 ```bash
 $ bin/weigh
