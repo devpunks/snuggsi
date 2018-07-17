@@ -9,5 +9,6 @@ echo "👀  Watching for changes..."
 echo "  👇"
 echo "  📁  $DIRECTORY"
 
+
 node \
 $WATCH
