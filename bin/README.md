@@ -209,7 +209,7 @@ $ bin/watch [directory]
 
 ## [`weigh`](weigh)
 
-Routine to overall weight of distribution.
+Routine to validate overall weight of library.
 
 ```bash
 $ bin/weigh [library]
