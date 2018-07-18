@@ -2,7 +2,7 @@ const
   proxy =
     `http://localhost:${process.env.PORT}`
 
-, { port: BROWSER_PORT }
+, { BROWSER_PORT: port }
     = process.env
 
 module.exports = {
