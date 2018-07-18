@@ -159,7 +159,7 @@ $ bin/serve [root]
 
 ### Environment Arguments
 
-  - `path` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
+  - `root` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
 
 
 ## Shrink
