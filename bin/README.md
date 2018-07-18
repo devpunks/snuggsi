@@ -153,6 +153,7 @@ $ bin/lint
 $ bin/serve [root]
 ```
 
+
 ### Environment Options
 
   - `PORT` - Server port _(Defaults to **80**)_
