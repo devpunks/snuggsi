@@ -7,11 +7,8 @@ BROWSER=./node_modules/.bin/browser-sync start
 CONFIGURATION="--config watch/index.es"
 BROWSE="$BROWSER start $CONFIGURATION"
 
-PORT=$PORT                               \
-  bin/serve                              \
-&                                        \
-BROWSER_PORT=$BROWSER_PORT               \
-  ./node_modules/.bin/browser-sync start \
-  --config=./watch/index.es              \
-&                                        \
-bin/watch
+bin/serve                                \
+#   \
+#   --config=./watch/index.es              \
+# &                                        \
+# bin/watch
