@@ -76,6 +76,17 @@ $ bin/compress
 ```
 
 
+## Coverage
+
+Uses
+[`nyc`](https://github.com/istanbuljs/nyc)
+_See [bin/cover](cover)_
+
+```bash
+$ bin/cover
+```
+
+
 ## [crank](crank)
 
 ```bash
@@ -184,17 +195,6 @@ $ bin/transpile [input] [output]
 
   - `input`  - _(optional)_ path _(Defaults to **dist/snuggsi.es**)_
   - `output` - _(optional)_ path _(Defaults to **dist/snuggsi.js**)_
-
-
-## Coverage
-
-Uses
-[`nyc`](https://github.com/istanbuljs/nyc)
-_See [bin/cover](cover)_
-
-```bash
-$ bin/cover
-```
 
 
 ## [watch](watch)
