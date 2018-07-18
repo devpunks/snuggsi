@@ -29,7 +29,7 @@ If you need support for windows file a ticket with [this link appended to descri
   - [`deploy`](#deploy)
   - [`distribute`](#distribute)
   - [`lint`](#lint)
-  - [`serve`](#lint)
+  - [`serve`](#serve)
 
 
 ## [`browse`](browse)
