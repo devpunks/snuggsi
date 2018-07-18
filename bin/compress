@@ -35,7 +35,7 @@ $ZOPFLI     \
 $FILE
 
 
-echo "    📃  ZOPFLI   👉  $FILE.zo"
+echo "    📃  DEFLATE   👉  $FILE.zo"
 
 $ZOPFLI     \
   -i 50     \
@@ -69,7 +69,7 @@ $ZOPFLI     \
 $FILE
 
 
-echo "    📃  ZOPFLI   👉  $FILE.zo"
+echo "    📃  DEFLATE   👉  $FILE.zo"
 
 $ZOPFLI     \
   -i 50     \
