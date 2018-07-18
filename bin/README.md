@@ -219,21 +219,6 @@ $ bin/transpile
 ```
 
 
-## Validate Weight
-
-## [weigh](weigh)
-
-  Watch base directory for changes to markup, styles, and scripts.
-
-
-_See [bin/validate-weight](validate-weight)_
-
-
-```bash
-$ bin/validate-weight
-```
-
-
 # References
 
   - https://gist.github.com/branneman/8775568
