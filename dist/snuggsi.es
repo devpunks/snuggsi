@@ -364,6 +364,10 @@ const Template = template => {
   }
 }
 
+window.customElements =
+  window.customElements
+  || {/* microfill */}
+
 new class /* CustomElementRegistry */ {
 
   constructor () {
