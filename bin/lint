@@ -10,7 +10,7 @@ NUMBER_OF_WARNINGS=`$LINT | $COUNT | $TRIM " "`
 
 
 echo
-echo "✍ Performing Lint Check on 👉  $DIST"
+echo "✍ Performing Lint Check on 👉  $CODE"
 
 
 echo
