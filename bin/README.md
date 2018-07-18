@@ -145,7 +145,7 @@ $ bin/distribute
   Used to mark revisions of library upstream
 
 
-## Lint
+## [`lint`](lint)
 
 ```bash
 $ bin/lint
