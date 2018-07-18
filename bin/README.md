@@ -144,9 +144,8 @@ $ bin/test [path]
 
 ## [`transpile`](transpile)
 
-_See [bin/transpile](transpile)_
+  Run Buble for transpilation from ECMAScript to Javascript
 
-Run Buble for transpilation from ECMAScript to Javascript
 ```bash
 $ bin/transpile
 ```
