@@ -4,5 +4,6 @@
 echo
 echo "☯ Transpilation Process Started..."
 echo "  👇"
+echo "  📃  Started  👉  $DATE"
 
 node bin/transpile.es > ./dist/snuggsi.js
