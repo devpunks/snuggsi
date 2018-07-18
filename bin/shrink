@@ -10,8 +10,8 @@ echo "  👇"
 echo
 
 
-INPUT=./dist/snuggsi.es
-OUTPUT=./dist/snuggsi.min.es
+INPUT=dist/snuggsi.es
+OUTPUT=dist/snuggsi.min.es
 
 echo "    📃  $INPUT 👉  $OUTPUT"
 
