@@ -11,7 +11,7 @@ echo "  👇"
 echo
 
 
-for extension in "${EXTENSIONS[@]}"
+for extension in "${extensions[@]}"
 do
   echo $extension
 done
