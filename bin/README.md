@@ -264,10 +264,6 @@ Validate `snuggsi.min.es.br` is within
 [one Ethernet frame](https://en.wikipedia.org/wiki/Ethernet_frame)
 _(1500 [OCTETS](https://en.wikipedia.org/wiki/Octet_(computing)))_.
 
-```bash
-$ bin/weigh [library]
-```
-
 
 ### Environment Arguments
 
