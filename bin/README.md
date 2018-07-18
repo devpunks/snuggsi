@@ -51,7 +51,7 @@ $ bin/browse [root]
 
 
 
-## [bundle](bundle)
+## [`bundle`](bundle)
 
 ```bash
 $ bin/bundle
