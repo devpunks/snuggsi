@@ -3,7 +3,6 @@
 echo
 echo "🍤  Shrinking..."
 echo "  👇"
-echo
 
 
 SHRINK=node_modules/.bin/uglifyjs
