@@ -1,5 +1,8 @@
 var
-  encoding = 'UTF-8'
+  { INPUT }
+    = process.env
+
+, encoding = 'UTF-8'
   buble    = require ('buble')
 , contents = require('fs').readFileSync
     ('./dist/snuggsi.es', encoding)
