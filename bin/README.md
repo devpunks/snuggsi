@@ -133,7 +133,7 @@ $ bin/crank
 $ bin/deploy
 ```
 
-  Pushes repository to heroku host then launches application server
+  Pushes repository to heroku host then launches application server.
 
 
 ## Distribute
