@@ -169,6 +169,8 @@ $ bin/lint [file]
 $ bin/serve [root]
 ```
 
+  Launches web server with `root` as main entry point.
+
 
 ### Environment Options
 
