@@ -1,7 +1,8 @@
 var
+  encoding = 'UTF-8'
   buble    = require ('buble')
 , contents = require('fs').readFileSync
-    ('./dist/snuggsi.es', {encoding: 'UTF-8'})
+    ('./dist/snuggsi.es', encoding)
 
 , options = {
     transforms: {
