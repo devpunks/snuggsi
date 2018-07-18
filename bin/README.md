@@ -163,7 +163,7 @@ $ bin/lint [file]
   - `path` - _(optional)_ Specific  file to run lint check. _(Defaults to **`dist/snuggsi.es`**)_
 
 
-## [serve](serve)
+## [`serve`](serve)
 
 ```bash
 $ bin/serve [root]
