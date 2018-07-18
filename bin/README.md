@@ -221,16 +221,6 @@ $ bin/weigh [library]
   - `library` - _(optional)_ path to watch for changes _(Defaults to **`dist/snuggsi.min.es.br`**)_
 
 
-## [transpile](transpile)
-
-_See [bin/transpile](transpile)_
-
-Run Buble for transpilation from ECMAScript to Javascript
-```bash
-$ bin/transpile
-```
-
-
 # References
 
   - https://gist.github.com/branneman/8775568
