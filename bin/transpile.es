@@ -18,7 +18,7 @@ var
     namedFunctionExpressions: false
   }
 
-, result = buble.transform
-    (contents, options)
+, result = buble
+    .transform (contents, options)
 
 console.log (result.code)
