@@ -153,7 +153,6 @@ $ bin/lint
 
 Uses
 [`JSStandard`](https://github.com/feross/standard)
-_See [bin/lint](lint)_
 
 
 ## [serve](serve)
