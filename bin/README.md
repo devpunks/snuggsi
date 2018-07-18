@@ -26,7 +26,7 @@ If you need support for windows file a ticket with [this link appended to descri
 ## [`browse`](browse)
 
 ```bash
-$ bin/browse
+$ bin/browse [path]
 ```
 
 
