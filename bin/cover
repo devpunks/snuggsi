@@ -41,7 +41,7 @@ export CODE=$?
 
 echo
 echo "📁  Coverage Cleanup"
-echo " ⚠️ Removing coverage report side effects left as artifacts."
+echo " ⚠️  Removing coverage report side effects left as artifacts."
 echo " 👇"
 echo "  🚮  Removing 👉  $OUTPUT"
 echo # Remove output directory
