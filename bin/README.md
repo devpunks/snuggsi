@@ -129,11 +129,11 @@ $ bin/crank
 
 ## [`deploy`](deploy)
 
-Launches web server and library dependency host
-
 ```bash
 $ bin/deploy
 ```
+
+Launches web server and library dependency host
 
 
 ## Distribute
