@@ -54,14 +54,6 @@ $ bin/browse [root]
   - `PORT` - Server port _(Defaults to **3000**)_
   - `BROWSER_PORT` - Browser port _(Defaults to next available port after server `PORT` i.e. **3001** when `PORT=3000`)_
 
-  Executes the following step process _(in parallel)_:
-
-  0. [`serve`](#serve)
-  1. Launch [BrowserSync](https:/browsersync.io)
-  2. [`watch`](#watch)
-
-  ⚠️  _See [BrowserSync command line options](https://browsersync.io/docs/options) for configuration documentation._
-
 
 
 ## [`bundle`](bundle)
