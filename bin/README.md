@@ -27,7 +27,7 @@ If you need support for windows file a ticket with [this link appended to descri
   - [`cover`](#cover)
   - [`crank`](#crank)
   - [`deploy`](#deploy)
-  - [`distribute`](#deploy)
+  - [`distribute`](#distribute)
 
 
 ## [`browse`](browse)
