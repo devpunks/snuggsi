@@ -1,1 +1,4 @@
+#!/usr/bin/env bash
+
+
 node bin/transpile.es > ./dist/snuggsi.js
