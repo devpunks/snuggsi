@@ -3,6 +3,9 @@
 export PORT=${PORT:-3000}
 export BROWSER_PORT=$((PORT+1))
 
+BROWSER=./node_modules/.bin/browser-sync start
+CONFIGURATION="--config watch/index.es"
+BROWSE="$BROWSER start $CONFIGURATION"
 
 PORT=$PORT                               \
   bin/serve                              \
