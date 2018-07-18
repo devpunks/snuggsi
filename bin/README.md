@@ -36,6 +36,7 @@ If you need support for windows file a ticket with [this link appended to descri
   - [`style`](#style)
   - [`test`](#test)
   - [`transpile`](#transpile)
+  - [`watch`](#watch)
 
 
 ## [`browse`](browse)
