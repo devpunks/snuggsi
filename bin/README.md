@@ -218,9 +218,6 @@ $ bin/test [path]
   Uses [`tape`](https://github.com/substack/tape)
   and [`tap-nyc`](https://github.com/MegaArman/tap-nyc)
 
-```bash
-$ bin/test [path]
-```
 
 
 ### Environment Arguments
