@@ -18,9 +18,9 @@ FILE="$DIST/snuggsi.min.es"
 echo "  💾  $FILE"
 echo "    📃  Brotli 👉  $FILE.br"
 
-$BROTLI \
-  --repeat 1 \
-  --quality 11 \
+$BROTLI         \
+  --repeat 1    \
+  --quality 11  \
   --input $FILE \
 > "$FILE.br"
 
@@ -51,9 +51,9 @@ echo "  👇"
 echo "  💾  $FILE"
 echo "    📃  Brotli 👉  $FILE.br"
 
-$BROTLI \
-  --repeat 1 \
-  --quality 11 \
+$BROTLI         \
+  --repeat 1    \
+  --quality 11  \
   --input $FILE \
 > "$FILE.br"
 
