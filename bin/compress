@@ -27,20 +27,20 @@ $BROTLI         \
 
 echo "    📃  GZIP   👉  $FILE.gz"
 
-$ZOPFLI \
-  -i 50 \
-  --gzip \
-  --ext gz \
+$ZOPFLI     \
+  -i 50     \
+  --gzip    \
+  --ext gz  \
   --verbose \
 $FILE
 
 
 echo "    📃  ZOPFLI   👉  $FILE.zo"
 
-$ZOPFLI \
-  -i 50 \
-  --zlib \
-  --ext zo \
+$ZOPFLI     \
+  -i 50     \
+  --gzip    \
+  --ext zo  \
   --verbose \
 $FILE
 
@@ -60,19 +60,19 @@ $BROTLI         \
 
 echo "    📃  GZIP   👉  $FILE.gz"
 
-$ZOPFLI \
-  -i 50 \
-  --gzip \
-  --ext gz \
+$ZOPFLI     \
+  -i 50     \
+  --gzip    \
+  --ext gz  \
   --verbose \
 $FILE
 
 
 echo "    📃  ZOPFLI   👉  $FILE.zo"
 
-$ZOPFLI \
-  -i 50 \
-  --zlib \
-  --ext zo \
+$ZOPFLI     \
+  -i 50     \
+  --gzip    \
+  --ext zo  \
   --verbose \
 $FILE
