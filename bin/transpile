@@ -11,5 +11,6 @@ echo "☯ Transpilation Process Started..."
 echo "  👇"
 echo "  📃  $INPUT  👉  $OUTPUT"
 
+
 node $TRANSPILER \
   > $OUTPUT
