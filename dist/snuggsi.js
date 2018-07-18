@@ -391,6 +391,10 @@ var Template = function (template) {
   }
 }
 
+window.customElements =
+  window.customElements
+  || {/* microfill */}
+
 new (function () {
   function anonymous () {
 
