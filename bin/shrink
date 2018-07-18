@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-SHRINK= ./node_modules/.bin/uglifyjs
+SHRINK=node_modules/.bin/uglifyjs
 
 
 echo
