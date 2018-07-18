@@ -99,14 +99,13 @@ $ bin/compress
 
 ## [`cover`](cover)
 
-Uses
-[`nyc`](https://github.com/istanbuljs/nyc)
-_See [bin/cover](cover)_
-
 ```bash
 $ bin/cover
 ```
 
+Uses
+[`nyc`](https://github.com/istanbuljs/nyc)
+_See [bin/cover](cover)_
 
 ## [crank](crank)
 
