@@ -13,14 +13,3 @@ module.exports = {
 , 'startPath': '/'
 , 'logPrefix': 'snuggsiツ'
 }
-
-/*
-  "server": {
-    baseDir: './',
-    directory: true,
-    index: 'examples/index.html',
-    routes: {
-      'browser-sync-client.js': 'node_modules/browser-sync-client/dist/index.min.js'
-    }
-  },
-*/
