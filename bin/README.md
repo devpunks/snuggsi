@@ -79,7 +79,7 @@ $ bin/compile
   3. [`compress`](#compress)
 
 
-## [compress](compress)
+## [`compress`](compress)
 
 Compression routine used for `Content-Encoding`
 negotiation.
