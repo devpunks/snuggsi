@@ -29,12 +29,6 @@ If you need support for windows file a ticket with [this link appended to descri
 $ bin/browse
 ```
 
-### Environment Arguments
-
-  - `path` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
-
-
-
 
 ### Environment Options
 
