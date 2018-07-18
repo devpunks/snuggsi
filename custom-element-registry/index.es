@@ -1,3 +1,7 @@
+window.customElements =
+  window.customElements
+  || {/* microfill */}
+
 new class /* CustomElementRegistry */ {
 
   constructor () {
