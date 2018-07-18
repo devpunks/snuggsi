@@ -1,5 +1,6 @@
 const
-  proxy =
+  files = []
+, proxy =
     `http://localhost:${process.env.PORT}`
 
 , { BROWSER_PORT: port }
@@ -7,7 +8,7 @@ const
 
 module.exports = {
 
-  proxy, port
+  proxy, port , files
 
 , 'files': []
 , 'startPath': '/'
