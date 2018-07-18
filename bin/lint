@@ -3,7 +3,7 @@
 
 COUNT="wc -l" # Output lines
 TRIM=" tr -d" #Translate deletion
-DIST=./dist/snuggsi.es # Distribution
+CODE=${1:-./dist/snuggsi.es} # Distribution
 LINT="./node_modules/.bin/standard $DIST"
 NUMBER_OF_WARNINGS=`$LINT | $COUNT | $TRIM " "`
 
