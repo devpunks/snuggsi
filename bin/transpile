@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
 
-export FILE=./dist/snuggsi.es
+export INPUT=./dist/snuggsi.es
+export OUTPUT=./dist/snuggsi.js
 
 
 echo
