@@ -13,8 +13,8 @@ echo
 
 for extension in "${extensions[@]}"
 do
-  echo $extension
-done
+  INPUT=dist/snuggsi.es
+  OUTPUT=dist/snuggsi.min.es
 
 
 INPUT=dist/snuggsi.es
