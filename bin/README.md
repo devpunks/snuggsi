@@ -136,7 +136,7 @@ $ bin/deploy
   Pushes repository to heroku host then launches application server.
 
 
-## Distribute
+## [`distribute`](distribute)
 
 ```bash
 $ bin/distribute
