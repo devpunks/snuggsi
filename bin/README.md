@@ -44,6 +44,13 @@ $ bin/browse
   ⚠️  _See [BrowserSync command line options](https://browsersync.io/docs/options) for configuration documentation._
 
 
+### Environment Arguments
+
+  - `path` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
+
+
+
+
 ## [bundle](bundle)
 
 ```bash
