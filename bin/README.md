@@ -94,6 +94,32 @@ $ bin/crank
   5. [`deploy`](#deploy)
 
 
+## [serve](serve)
+
+```bash
+$ bin/serve [path]
+```
+
+### Environment Options
+
+  - `PORT` - Server port _(Defaults to **80**)_
+
+
+### Environment Arguments
+
+  - `path` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
+
+
+## Shrink
+
+_See [bin/shrink](shrink)_
+
+Run `uglify-js` and `uglify-es` along with minification
+```bash
+$ bin/shrink
+```
+
+
 ## [style](style)
 
 Please see [style#readme](/style#readme) for details.
