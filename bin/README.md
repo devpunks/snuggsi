@@ -105,6 +105,7 @@ $ bin/cover
 $ bin/crank
 ```
 
+
   Executes the following step process _(in order of appearance)_:
 
   ⚠️  _Build process will halt & prevent further execution upon failures._
