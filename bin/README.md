@@ -158,6 +158,10 @@ $ bin/lint
   Uses [`JSStandard`](https://github.com/feross/standard)
 
 
+### Environment Arguments
+
+  - `path` - _(optional)_ Specific  file to run lint check. _(Defaults to **`dist/snuggsi.es`**)_
+
 
 ## [serve](serve)
 
