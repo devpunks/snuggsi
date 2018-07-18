@@ -23,13 +23,8 @@ do
     --mangle safari10=true \
     --output $OUTPUT       \
   $INPUT
+done
 
-
-$SHRINK                  \
-  --compress             \
-  --mangle safari10=true \
-  --output $OUTPUT       \
-$INPUT
 
 
 INPUT=dist/snuggsi.js
