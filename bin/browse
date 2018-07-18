@@ -4,8 +4,8 @@ export ROOT=${1:-.}
 export PORT=${PORT:-3000}
 export BROWSER_PORT=$((PORT+1))
 
-BROWSER="./node_modules/.bin/browser-sync start"
-CONFIGURATION="--config watch/index.es"
+BROWSER=./node_modules/.bin/browser-sync
+CONFIGURATION="--config watch/browser.es"
 BROWSE="$BROWSER start $CONFIGURATION"
 WATCH="bin/watch"
 
