@@ -244,6 +244,8 @@ $ bin/transpile [input] [output]
 ```bash
 $ bin/watch [directory]
 ```
+  Watch base directory for changes to markup, styles, and scripts.
+
 
 
 ### Environment Arguments
