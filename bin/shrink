@@ -1,6 +1,11 @@
 #!/usr/bin/env bash
 
 
+echo
+echo "🍤  Shrinking..."
+echo "  👇"
+echo
+
 ./node_modules/.bin/uglifyjs     \
   --compress                     \
   --mangle safari10=true         \
