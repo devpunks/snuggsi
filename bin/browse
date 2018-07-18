@@ -9,6 +9,8 @@ CONFIGURATION="--config watch/browser.es"
 BROWSE="$BROWSER start $CONFIGURATION"
 WATCH="bin/watch"
 
+echo $BROWSE
+
 bin/serve $ROOT \
   & $BROWSE     \
   & $WATCH      \
