@@ -149,7 +149,7 @@ $ bin/lint
 ## [serve](serve)
 
 ```bash
-$ bin/serve [path]
+$ bin/serve [root]
 ```
 
 ### Environment Options
