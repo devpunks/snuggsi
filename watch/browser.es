@@ -1,5 +1,6 @@
 const
   files = []
+, startPath = '/'
 , proxy =
     `http://localhost:${process.env.PORT}`
 
@@ -8,8 +9,7 @@ const
 
 module.exports = {
 
-  proxy, port , files
+  proxy, port , files , startPath
 
-, startPath: '/'
 , logPrefix: 'snuggsiツ'
 }
