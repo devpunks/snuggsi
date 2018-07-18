@@ -8,7 +8,7 @@ export TRANSPILER=bin/transpile.es
 
 
 echo
-echo "☯ Transpilation Process Started..."
+echo "🏭 Transpilation Process Started..."
 echo "  👇"
 echo "  📃  $INPUT  👉  $OUTPUT"
 echo
