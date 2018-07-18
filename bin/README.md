@@ -21,6 +21,7 @@ If you need support for windows file a ticket with [this link appended to descri
 ## Table of Contents
 
   - [`browse`](#browse)
+  - [`bundle`](#bundle)
 
 
 ## [`browse`](browse)
