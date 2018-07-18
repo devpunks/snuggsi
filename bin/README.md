@@ -30,6 +30,11 @@ $ bin/browse
 ```
 
 
+### Environment Arguments
+
+  - `path` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
+
+
 ### Environment Options
 
   - `PORT` - Server port _(Defaults to **3000**)_
@@ -42,11 +47,6 @@ $ bin/browse
   2. [`watch`](#watch)
 
   ⚠️  _See [BrowserSync command line options](https://browsersync.io/docs/options) for configuration documentation._
-
-
-### Environment Arguments
-
-  - `path` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
 
 
 
