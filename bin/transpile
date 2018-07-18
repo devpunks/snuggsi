@@ -1,6 +1,9 @@
 #!/usr/bin/env bash
 
 
+export FILE=./dist/snuggsi.es
+
+
 echo
 echo "☯ Transpilation Process Started..."
 echo "  👇"
