@@ -85,6 +85,10 @@ $ bin/compile
 $ bin/compress
 ```
 
+  Compression routine used for `Content-Encoding` negotiation.
+
+  _(Supports `brotli`, `gzip`, & `zlib` Content Encoding tokens)_
+
 
 ## Coverage
 
