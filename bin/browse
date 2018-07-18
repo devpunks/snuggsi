@@ -1,10 +1,10 @@
 # https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts
 
-export ROOT=${1:-public}
+export ROOT=${1:-.}
 export PORT=${PORT:-3000}
 export BROWSER_PORT=$((PORT+1))
 
-BROWSER=./node_modules/.bin/browser-sync start
+BROWSER="./node_modules/.bin/browser-sync start"
 CONFIGURATION="--config watch/index.es"
 BROWSE="$BROWSER start $CONFIGURATION"
 WATCH="bin/watch"
