@@ -5,6 +5,7 @@
 
 DIST=./dist
 BROTLI="bro"
+ZOPFLI="./node_modules/.bin/zopfli"
 
 echo
 echo "💪  Compressing Libraries"
@@ -25,7 +26,7 @@ $BROTLI \
 
 echo "    📃  GZIP   👉  $FILE.gz"
 
-./node_modules/.bin/zopfli \
+$ZOPFLI \
   -i 50 \
   --gzip \
   --ext gz \
@@ -35,7 +36,7 @@ $FILE
 
 echo "    📃  ZOPFLI   👉  $FILE.zo"
 
-./node_modules/.bin/zopfli \
+$ZOPFLI \
   -i 50 \
   --zlib \
   --ext zo \
@@ -58,7 +59,7 @@ $BROTLI \
 
 echo "    📃  GZIP   👉  $FILE.gz"
 
-./node_modules/.bin/zopfli \
+$ZOPFLI \
   -i 50 \
   --gzip \
   --ext gz \
@@ -68,7 +69,7 @@ $FILE
 
 echo "    📃  ZOPFLI   👉  $FILE.zo"
 
-./node_modules/.bin/zopfli \
+$ZOPFLI \
   -i 50 \
   --zlib \
   --ext zo \
