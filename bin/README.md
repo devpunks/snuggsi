@@ -34,6 +34,7 @@ If you need support for windows file a ticket with [this link appended to descri
   - [`serve`](#serve)
   - [`shrink`](#shrink)
   - [`style`](#style)
+  - [`test`](#test)
 
 
 ## [`browse`](browse)
