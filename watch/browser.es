@@ -1,5 +1,5 @@
-module.exports = {
-
+module.exports =
+{
   files     : []
 , startPath : '/'
 , logPrefix : 'snuggsiツ'
