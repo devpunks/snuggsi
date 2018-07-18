@@ -125,7 +125,7 @@ $ bin/crank
   5. [`deploy`](#deploy)
 
 
-## Deploy
+## [`deploy`](deploy)
 
 Launches web server and library dependency host
 
