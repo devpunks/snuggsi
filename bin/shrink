@@ -16,6 +16,8 @@ do
   INPUT=dist/snuggsi.es
   OUTPUT=dist/snuggsi.min.es
 
+  echo "    📃  $INPUT 👉  $OUTPUT"
+done
 
 INPUT=dist/snuggsi.es
 OUTPUT=dist/snuggsi.min.es
