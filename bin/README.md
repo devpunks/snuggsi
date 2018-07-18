@@ -33,6 +33,7 @@ If you need support for windows file a ticket with [this link appended to descri
   - [`lint`](#lint)
   - [`serve`](#serve)
   - [`shrink`](#shrink)
+  - [`style`](#style)
 
 
 ## [`browse`](browse)
