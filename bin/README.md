@@ -152,8 +152,11 @@ $ bin/distribute
 $ bin/lint
 ```
 
-Uses
-[`JSStandard`](https://github.com/feross/standard)
+  Performs [lint check](https://en.wikipedia.org/wiki/Lint_(software))
+  on code in specified file.
+
+  Uses [`JSStandard`](https://github.com/feross/standard)
+
 
 
 ## [serve](serve)
