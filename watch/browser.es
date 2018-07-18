@@ -10,9 +10,9 @@ module.exports = {
   proxy, port
 
 ,
-, "files": [] // ['public'] since we explicitly fire reload from watch
-, "startPath": "/"
-, "logPrefix": "snuggsiツ"
+, 'files': [] // ['public'] since we explicitly fire reload from watch
+, 'startPath': '/'
+, 'logPrefix': 'snuggsiツ'
 }
 
 /*
