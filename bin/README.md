@@ -22,6 +22,7 @@ If you need support for windows file a ticket with [this link appended to descri
 
   - [`browse`](#browse)
   - [`bundle`](#bundle)
+  - [`compile`](#bundle)
 
 
 ## [`browse`](browse)
