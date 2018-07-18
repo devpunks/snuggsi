@@ -2,7 +2,6 @@
 
 
 SHRINK=node_modules/.bin/uglifyjs
-declare extensions=("es" "js")
 
 
 echo
@@ -10,6 +9,8 @@ echo "🍤  Shrinking..."
 echo "  👇"
 echo
 
+
+declare extensions=("es" "js")
 
 for extension in ${extensions[@]}
 do
