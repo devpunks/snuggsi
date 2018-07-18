@@ -168,17 +168,6 @@ $ bin/cover
 ```
 
 
-## Lint
-
-Uses
-[`JSStandard`](https://github.com/feross/standard)
-_See [bin/lint](lint)_
-
-```bash
-$ bin/lint
-```
-
-
 ## Distribute
 
 Used to mark revisions of library upstream
@@ -194,6 +183,17 @@ Launches web server and library dependency host
 
 ```bash
 $ bin/deploy
+```
+
+
+## Lint
+
+Uses
+[`JSStandard`](https://github.com/feross/standard)
+_See [bin/lint](lint)_
+
+```bash
+$ bin/lint
 ```
 
 
