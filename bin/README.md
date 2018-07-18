@@ -240,7 +240,7 @@ $ bin/transpile [input] [output]
   - `output` - _(optional)_ path _(Defaults to **dist/snuggsi.js**)_
 
 
-## [watch](watch)
+## [`watch`](watch)
 
   Watch base directory for changes to markup, styles, and scripts.
 
