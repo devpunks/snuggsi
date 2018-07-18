@@ -105,21 +105,21 @@ $ bin/crank
   5. [`deploy`](#deploy)
 
 
-## Distribute
-
-Used to mark revisions of library upstream
-
-```bash
-$ bin/distribute
-```
-
-
 ## Deploy
 
 Launches web server and library dependency host
 
 ```bash
 $ bin/deploy
+```
+
+
+## Distribute
+
+Used to mark revisions of library upstream
+
+```bash
+$ bin/distribute
 ```
 
 
