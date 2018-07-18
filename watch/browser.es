@@ -2,9 +2,8 @@ const
   proxy =
     `http://localhost:${process.env.PORT}`
 
-, port = // for browsersync
-    Number.parseInt // (8000 - 9000)
-      (8000 + (Math.random () * 1000))
+, { port: BROWSER_PORT }
+    = process.env
 
 module.exports = {
 
