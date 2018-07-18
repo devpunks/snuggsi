@@ -1,3 +1,8 @@
 #!/usr/bin/env bash
 
+echo
+echo "🚢  Deploying to Heroku"
+echo "  👇"
+
+
 git push heroku master
