@@ -194,7 +194,7 @@ $ bin/shrink
 Run `uglify-js` and `uglify-es` along with minification
 
 
-## [style](style)
+## [`style`](style)
 
 Please see [style#readme](/style#readme) for details.
 ```bash
