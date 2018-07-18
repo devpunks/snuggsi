@@ -24,7 +24,7 @@ If you need support for windows file a ticket with [this link appended to descri
   - [`bundle`](#bundle)
   - [`compile`](#compile)
   - [`compress`](#compress)
-  - [`coverage`](#coverage)
+  - [`cover`](#coverage)
   - [`deploy`](#deploy)
 
 
