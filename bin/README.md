@@ -142,7 +142,7 @@ $ bin/test [path]
   - `path` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
 
 
-## [transpile](transpile)
+## [`transpile`](transpile)
 
 _See [bin/transpile](transpile)_
 
