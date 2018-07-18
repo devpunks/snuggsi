@@ -2,7 +2,7 @@
 
 
 SHRINK=node_modules/.bin/uglifyjs
-EXTENSIONS=("es" "JS")
+EXTENSIONS=("es" "js")
 
 
 echo
