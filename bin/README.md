@@ -200,6 +200,7 @@ $ bin/watch [directory]
 ## [`weigh`](weigh)
 
 Routine to validate overall weight of library.
+Validate that `snuggsi.min.es.br` is within one Ethernet Frame.
 
 ```bash
 $ bin/weigh [library]
@@ -220,9 +221,13 @@ $ bin/transpile
 
 ## Validate Weight
 
+## [weigh](weigh)
+
+  Watch base directory for changes to markup, styles, and scripts.
+
+
 _See [bin/validate-weight](validate-weight)_
 
-Validate that `snuggsi.min.es.br` is within one Ethernet Frame.
 
 ```bash
 $ bin/validate-weight
