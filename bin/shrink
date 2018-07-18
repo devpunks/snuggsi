@@ -1,18 +1,23 @@
 #!/usr/bin/env bash
 
 
+SHRINK= ./node_modules/.bin/uglifyjs
+
+
 echo
 echo "🍤  Shrinking..."
 echo "  👇"
 echo
 
 
-./node_modules/.bin/uglifyjs     \
+$SHRINK                          \
   --compress                     \
   --mangle safari10=true         \
   --output ./dist/snuggsi.min.es \
   -- ./dist/snuggsi.es
 
+
+$SHRINK                          \
 ./node_modules/.bin/uglifyjs     \
   --compress                     \
   --mangle safari10=true         \
