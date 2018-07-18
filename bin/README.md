@@ -146,13 +146,13 @@ $ bin/distribute
 
 ## Lint
 
-Uses
-[`JSStandard`](https://github.com/feross/standard)
-_See [bin/lint](lint)_
-
 ```bash
 $ bin/lint
 ```
+
+Uses
+[`JSStandard`](https://github.com/feross/standard)
+_See [bin/lint](lint)_
 
 
 ## [serve](serve)
