@@ -29,9 +29,11 @@ If you need support for windows file a ticket with [this link appended to descri
 $ bin/browse
 ```
 
-### Environment Options
+### Environment Arguments
 
-  - `PORT` - Server port _(Defaults to **80**)_
+  - `path` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
+
+
 
 
 ### Environment Options
