@@ -8,6 +8,6 @@ export OUTPUT=./dist/snuggsi.js
 echo
 echo "☯ Transpilation Process Started..."
 echo "  👇"
-echo "  📃  Started  👉  $DATE"
+echo "  📃  $INPUT  👉  $OUTPUT"
 
 node bin/transpile.es > ./dist/snuggsi.js
