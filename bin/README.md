@@ -97,7 +97,7 @@ $ bin/compress
     Content Encoding tokens
 
 
-## Coverage
+## [`cover`](cover)
 
 Uses
 [`nyc`](https://github.com/istanbuljs/nyc)
