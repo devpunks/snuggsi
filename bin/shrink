@@ -10,15 +10,21 @@ echo "  👇"
 echo
 
 
-$SHRINK                          \
-  --compress                     \
-  --mangle safari10=true         \
-  --output ./dist/snuggsi.min.es \
-  -- ./dist/snuggsi.es
+INPUT=./dist/snuggsi.es
+OUTPUT=./dist/snuggsi.min.es
+
+$SHRINK                  \
+  --compress             \
+  --mangle safari10=true \
+  --output $OUTPUT       \
+$INPUT
 
 
-$SHRINK                          \
-  --compress                     \
-  --mangle safari10=true         \
-  --output ./dist/snuggsi.min.js \
-  -- ./dist/snuggsi.js
+INPUT=./dist/snuggsi.js
+OUTPUT=./dist/snuggsi.min.js
+
+$SHRINK                  \
+  --compress             \
+  --mangle safari10=true \
+  --output $OUTPUT       \
+$INPUT
