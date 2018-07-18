@@ -35,6 +35,14 @@ If you need support for windows file a ticket with [this link appended to descri
 $ bin/browse [root]
 ```
 
+  Executes the following step process _(in parallel)_:
+
+  0. [`serve`](#serve)
+  1. Launch [BrowserSync](https:/browsersync.io)
+  2. [`watch`](#watch)
+
+  ⚠️  _See [BrowserSync command line options](https://browsersync.io/docs/options) for configuration documentation._
+
 
 ### Environment Arguments
 
