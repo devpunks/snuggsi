@@ -10,7 +10,6 @@ module.exports = {
 
   proxy, port , files
 
-, 'files': []
-, 'startPath': '/'
-, 'logPrefix': 'snuggsiツ'
+, startPath: '/'
+, logPrefix: 'snuggsiツ'
 }
