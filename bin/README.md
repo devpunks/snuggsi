@@ -26,13 +26,13 @@ If you need support for windows file a ticket with [this link appended to descri
 ## [`browse`](browse)
 
 ```bash
-$ bin/browse [path]
+$ bin/browse [root]
 ```
 
 
 ### Environment Arguments
 
-  - `path` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
+  - `root` - _(optional)_ path to serve from `/` _(Defaults to **public**)_
 
 
 ### Environment Options
