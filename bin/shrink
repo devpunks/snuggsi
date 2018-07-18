@@ -11,6 +11,12 @@ echo "  👇"
 echo
 
 
+for extension in "${EXTENSIONS[@]}"
+do
+  echo $extension
+done
+
+
 INPUT=dist/snuggsi.es
 OUTPUT=dist/snuggsi.min.es
 
