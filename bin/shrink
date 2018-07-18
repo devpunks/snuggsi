@@ -17,8 +17,12 @@ do
   OUTPUT=dist/snuggsi.min.es
 
   echo "    📃  $INPUT 👉  $OUTPUT"
-done
 
+  $SHRINK                  \
+    --compress             \
+    --mangle safari10=true \
+    --output $OUTPUT       \
+  $INPUT
 
 
 $SHRINK                  \
