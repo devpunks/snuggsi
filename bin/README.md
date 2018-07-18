@@ -94,6 +94,35 @@ $ bin/crank
   5. [`deploy`](#deploy)
 
 
+## Distribute
+
+Used to mark revisions of library upstream
+
+```bash
+$ bin/distribute
+```
+
+
+## Deploy
+
+Launches web server and library dependency host
+
+```bash
+$ bin/deploy
+```
+
+
+## Lint
+
+Uses
+[`JSStandard`](https://github.com/feross/standard)
+_See [bin/lint](lint)_
+
+```bash
+$ bin/lint
+```
+
+
 ## [serve](serve)
 
 ```bash
