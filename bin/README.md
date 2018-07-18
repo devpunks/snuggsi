@@ -149,7 +149,7 @@ $ bin/distribute
 ## [`lint`](lint)
 
 ```bash
-$ bin/lint
+$ bin/lint [file]
 ```
 
   Performs [lint check](https://en.wikipedia.org/wiki/Lint_(software))
