@@ -2,7 +2,7 @@
 
 export NODE_PATH=`pwd`
 export PORT=${PORT:-80}
-export ROOT=${1:-.}
+export ROOT=${1:-`pwd`}
 
 SERVE=bin/serve.es
 
