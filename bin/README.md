@@ -180,7 +180,7 @@ $ bin/style [component-directory | style-file.{sss,css}]
 ```
 
 
-## [test](test)
+## [`test`](test)
 
 Uses [`tape`](https://github.com/substack/tape)
 and [`tap-nyc`](https://github.com/MegaArman/tap-nyc)
