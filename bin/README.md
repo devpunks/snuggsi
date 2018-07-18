@@ -85,7 +85,9 @@ $ bin/compile
 $ bin/compress
 ```
 
-  Compression routine used for `Content-Encoding` negotiation.
+  Compression routine used for
+  [`Content-Encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding)
+  negotiation.
 
   _(Supports
     [`brotli`](https://en.wikipedia.org/wiki/Brotli),
