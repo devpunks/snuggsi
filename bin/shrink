@@ -11,7 +11,7 @@ echo "  👇"
 echo
 
 
-for extension in "${extensions[@]}"
+for extension in ${extensions[@]}
 do
   INPUT=dist/snuggsi.es
   OUTPUT=dist/snuggsi.min.es
