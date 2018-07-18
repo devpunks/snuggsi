@@ -25,11 +25,6 @@ do
   $INPUT
 done
 
-
-
-INPUT=dist/snuggsi.js
-OUTPUT=dist/snuggsi.min.js
-
 echo "    📃  $INPUT 👉  $OUTPUT"
 
 $SHRINK                  \
