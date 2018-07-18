@@ -185,7 +185,7 @@ $ bin/serve [root]
   - `root` - _(optional)_ path to serve from `/` _(Defaults to **`.` current directory**)_
 
 
-## Shrink
+## [`shrink`](shrink)
 
 _See [bin/shrink](shrink)_
 
