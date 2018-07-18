@@ -89,7 +89,7 @@ $ bin/compress
 
   _(Supports
     [`brotli`](https://en.wikipedia.org/wiki/Brotli),
-    [`gzip`](https://en.wikipedia.org/wiki/Brotli),
+    [`gzip`](https://en.wikipedia.org/wiki/Gzip),
     `gzip`, & `zlib` Content Encoding tokens
   )_
 
