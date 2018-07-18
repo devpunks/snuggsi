@@ -147,8 +147,12 @@ $ bin/test [path]
   Run Buble for transpilation from ECMAScript to Javascript
 
 ```bash
-$ bin/transpile
+$ bin/transpile [input]
 ```
+
+### Environment Arguments
+
+  - `input` - _(optional)_ path _(Defaults to **dist/snuggsi.es**)_
 
 
 ## Coverage
