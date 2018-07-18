@@ -51,6 +51,7 @@ echo "  👇"
 echo "  💾  $FILE"
 echo "    📃  Brotli 👉  $FILE.br"
 
+
 $BROTLI         \
   --repeat 1    \
   --quality 11  \
