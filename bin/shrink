@@ -25,6 +25,8 @@ $INPUT
 INPUT=./dist/snuggsi.js
 OUTPUT=./dist/snuggsi.min.js
 
+echo "    📃  $INPUT 👉  $OUTPUT"
+
 $SHRINK                  \
   --compress             \
   --mangle safari10=true \
