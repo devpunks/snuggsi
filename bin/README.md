@@ -187,12 +187,10 @@ $ bin/serve [root]
 
 ## [`shrink`](shrink)
 
-_See [bin/shrink](shrink)_
-
-Run `uglify-js` and `uglify-es` along with minification
 ```bash
 $ bin/shrink
 ```
+Run `uglify-js` and `uglify-es` along with minification
 
 
 ## [style](style)
