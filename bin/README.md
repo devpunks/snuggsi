@@ -89,12 +89,11 @@ $ bin/compress
   [`Content-Encoding`](https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Encoding)
   negotiation.
 
-  _(Supports
-    [`brotli`](https://en.wikipedia.org/wiki/Brotli),
+  Supports
+    [`brotli`](https://en.wikipedia.org/wiki/Brotli) _(.br)_,
     [`gzip`](https://en.wikipedia.org/wiki/Gzip),
   & [`zlib`](https://en.wikipedia.org/wiki/Zlib)
     Content Encoding tokens
-  )_
 
 
 ## Coverage
