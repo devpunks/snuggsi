@@ -1,7 +1,7 @@
 # https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts
 
-export PORT="${PORT=3009}"
-export BROWSER_PORT="${BROWSER_PORT=8989}"
+export PORT=${PORT:-80}
+export BROWSER_PORT=$((PORT+1))
 
 
 PORT=$PORT                               \
