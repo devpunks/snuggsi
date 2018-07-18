@@ -6,7 +6,7 @@ EXTENSIONS=("es" "js")
 
 
 echo
-echo "🍤  Shrinking...$extension"
+echo "🍤  Shrinking..."
 echo "  👇"
 echo
 
