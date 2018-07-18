@@ -27,8 +27,8 @@ new class /* CustomElementRegistry */ {
   }
 
 
-  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
+  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   upgrade (node) {
 
     // Here's where we can swizzle
