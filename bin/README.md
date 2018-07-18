@@ -92,7 +92,7 @@ $ bin/compress
   Supports
     [`brotli`](https://en.wikipedia.org/wiki/Brotli) _(.br)_,
     [`gzip`](https://en.wikipedia.org/wiki/Gzip) _(.gz)_,
-  & [`zlib`](https://en.wikipedia.org/wiki/Zlib) _(.zo)_
+  & [`deflate`](https://en.wikipedia.org/wiki/Zlib) _(.zo)_
     Content Encoding tokens
 
 
