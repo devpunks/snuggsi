@@ -1,15 +1,13 @@
 const
   files = []
 , startPath = '/'
+, logPrefix = 'snuggsiツ'
 , proxy =
     `http://localhost:${process.env.PORT}`
 
 , { BROWSER_PORT: port }
     = process.env
 
-module.exports = {
 
-  proxy, port , files , startPath
-
-, logPrefix: 'snuggsiツ'
-}
+module.exports
+  = { proxy, port , files , startPath , logPrefix }
