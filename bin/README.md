@@ -239,6 +239,8 @@ $ bin/weigh [library]
 ```
 
 
+### Environment Arguments
+
   - `library` - _(optional)_ path to watch for changes _(Defaults to **`dist/snuggsi.min.es.br`**)_
 
 
