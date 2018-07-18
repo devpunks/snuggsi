@@ -1,4 +1,8 @@
 #!/usr/bin/env bash
 
 
+echo
+echo "☯ Transpilation Process Started..."
+echo "  👇"
+
 node bin/transpile.es > ./dist/snuggsi.js
