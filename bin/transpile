@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
 
-export INPUT=dist/snuggsi.es
-export OUTPUT=dist/snuggsi.js
+ROOT=dist
+export INPUT=$ROOT/snuggsi.es
+export OUTPUT=$ROOT/snuggsi.js
 export TRANSPILER=bin/transpile.es
 
 
