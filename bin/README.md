@@ -185,6 +185,8 @@ $ bin/style [component-directory | style-file.{sss,css}]
 ## [`test`](test)
 
 
+  Run entire test suite or specify an optional file or directory to test.
+
   Uses [`tape`](https://github.com/substack/tape)
   and [`tap-nyc`](https://github.com/MegaArman/tap-nyc)
 
