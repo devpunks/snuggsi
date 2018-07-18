@@ -107,7 +107,7 @@ Uses
 [`nyc`](https://github.com/istanbuljs/nyc)
 _See [bin/cover](cover)_
 
-## [crank](crank)
+## [`crank`](crank)
 
 ```bash
 $ bin/crank
