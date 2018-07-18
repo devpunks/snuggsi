@@ -11,8 +11,8 @@ extensions=("es" "js")
 
 for extension in ${extensions[@]}
 do
-  INPUT=dist/snuggsi.$extension
-  OUTPUT=dist/snuggsi.min.$extension
+  declare INPUT=dist/snuggsi.$extension
+  declare OUTPUT=dist/snuggsi.min.$extension
 
   echo "    📃  $INPUT 👉  $OUTPUT"
 
