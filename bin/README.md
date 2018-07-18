@@ -196,10 +196,11 @@ Run `uglify-js` and `uglify-es` along with minification
 
 ## [`style`](style)
 
-Please see [style#readme](/style#readme) for details.
 ```bash
 $ bin/style [component-directory | style-file.{sss,css}]
 ```
+
+Please see [style#readme](/style#readme) for details.
 
 
 ## [`test`](test)
