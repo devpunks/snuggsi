@@ -138,11 +138,11 @@ $ bin/deploy
 
 ## Distribute
 
-Used to mark revisions of library upstream
-
 ```bash
 $ bin/distribute
 ```
+
+  Used to mark revisions of library upstream
 
 
 ## Lint
