@@ -14,7 +14,6 @@ echo "  📁  examples/ 👉  public/examples/"
 
 cp -fr ./examples     ./public
 
-
 echo "  📃 sandbox.html 👉  public/sandbox.html"
 cp -f  ./sandbox.html ./public
 
