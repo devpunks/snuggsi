@@ -1,5 +1,5 @@
 #!/bin/bash
 
-echo "snuggsi ツ Travis Continuous Integration"
+echo "🚔 snuggsi ツ Travis Continuous Integration"
 
 bin/cover
