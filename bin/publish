@@ -15,7 +15,7 @@ echo "📤  Publishing static assets..."
 echo "  👇"
 
 
-echo "  📁  examples/ 👉  $DESTINATION/examples/"
+echo "  📁  $EXAMPLES 👉  $DESTINATION/$EXAMPLES"
 
 cp -fr ./examples     $DESTINATION
 
