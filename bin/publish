@@ -6,7 +6,7 @@ EXAMPLES=./public/examples
 echo
 echo "🚮  Removing 👉  public/examples/"
 
-rm -rf ./public/examples
+rm -rf $EXAMPLES
 
 echo
 echo "📤  Publishing static assets..."
