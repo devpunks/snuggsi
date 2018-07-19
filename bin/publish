@@ -11,7 +11,8 @@ echo "🚮  Removing 👉  $DESTINATION/$EXAMPLES"
 rm -rf $DESTINATION/$EXAMPLES
 
 echo
-echo "📤  Publishing static assets..."
+echo "📤  Publishing static assets ..."
+echo "  To 👉  $DESTINATION"
 echo "  👇"
 
 
