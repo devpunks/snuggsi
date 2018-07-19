@@ -30,6 +30,7 @@ If you need support for windows file a ticket with [this link appended to descri
   - [`crank`](#crank)
   - [`deploy`](#deploy)
   - [`distribute`](#distribute)
+  - [`integrate`](#integrate)
   - [`lint`](#lint)
   - [`serve`](#serve)
   - [`shrink`](#shrink)
