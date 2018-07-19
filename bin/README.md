@@ -213,6 +213,7 @@ $ bin/package
 ```bash
 $ bin/publish
 ```
+  Clones examples to static assets.
 
 
 ## [`serve`](serve)
