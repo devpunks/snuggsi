@@ -168,6 +168,8 @@ $ bin/integrate
   Hook used for [Travis CI](https://travis-ci.org) continuous integration.
   This is typically ran after pushes to Github branches.
 
+  _See [.travis.yml](/.travis.yml#L20) for more details._
+
 
 ## [`lint`](lint)
 
