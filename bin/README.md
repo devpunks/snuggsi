@@ -191,6 +191,7 @@ $ bin/lint [file]
 $ bin/package
 ```
 
+🚧 This algorithm will be implemented to minify distribution. (i.e. Tree Shaking)
 
 
 ## [`serve`](serve)
