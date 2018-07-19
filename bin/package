@@ -5,6 +5,7 @@ echo "📦 Packaging components ..."
 echo "  👇"
 echo "  🚧 This algorithm will be implemented to minify distribution. (i.e. Tree Shaking)"
 
+
 echo
 echo "📦 Containerizing components ..."
 echo "  👇"
