@@ -213,7 +213,7 @@ $ bin/package
 ```bash
 $ bin/publish
 ```
-  Clones examples to static assets.
+  Publishes static assets (i.e. examples)
 
 
 ## [`serve`](serve)
