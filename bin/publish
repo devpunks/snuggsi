@@ -21,6 +21,12 @@ cp -fr ./examples     ./public
 files=("./sandbox.html", "./index.html", "./index.css", "./browser-sync.es" )
 
 
+for file in ${files[@]}
+do
+  echo $file
+done
+
+
 echo "  📃 sandbox.html 👉  public/sandbox.html"
 cp -f  ./sandbox.html ./public
 
