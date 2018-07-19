@@ -26,16 +26,3 @@ do
   echo "  📃 $file 👉  public/$file"
   cp -f  $file ./public
 done
-
-
-echo "  📃 sandbox.html 👉  public/sandbox.html"
-cp -f  ./sandbox.html ./public
-
-echo "  📃 index.html 👉  public/index.html"
-cp -f  ./index.html   ./public
-
-echo "  📃 index.css 👉  public/index.css"
-cp -f  ./index.css    ./public
-
-echo "  📃 snippets/browser-sync.es 👉  public/browser-sync.es"
-cp -f  ./snippets/browser-sync.es ./public
