@@ -20,7 +20,7 @@ If you need support for windows file a ticket with [this link appended to descri
 
 ## Table of Contents
 
-  `bin`
+  `bin/`
 
   - [`browse`](#browse)
   - [`bundle`](#bundle)
