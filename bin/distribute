@@ -1,5 +1,11 @@
 #!/usr/bin/env bash
 
+echo
+echo "🐙 Distributing"
+echo "  👇"
+echo "  👊 Committing changes to library..."
+
+
 git add dist/snuggsi.es
 git commit -m":muscle: bump BUNDLED distribution dist/snuggsi.es"
 
