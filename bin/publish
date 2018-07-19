@@ -2,7 +2,7 @@
 
 EXAMPLES=examples
 DESTINATION=public
-FILES=files=(sandbox.html index.html index.css)
+ASSETS=(sandbox.html index.html index.css)
 
 
 echo
