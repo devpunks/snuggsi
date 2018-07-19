@@ -2,9 +2,7 @@
 
 EXAMPLES=examples
 DESTINATION=public
-EXAMPLES=./public/examples
-
-declare files=(sandbox.html index.html index.css)
+FILES=files=(sandbox.html index.html index.css)
 
 
 echo
