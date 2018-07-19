@@ -21,7 +21,7 @@ echo "  📁  $EXAMPLES 👉  $DESTINATION/$EXAMPLES"
 cp -fr $EXAMPLES $DESTINATION
 
 
-for file in ${files[@]}
+for asset in ${ASSETS[@]}
 do
   echo "  📃 $file 👉  $DESTINATION/$file"
   cp -f  $file $DESTINATION
