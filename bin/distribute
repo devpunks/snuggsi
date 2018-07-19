@@ -12,7 +12,10 @@ git commit -m":muscle: bump BUNDLED distribution dist/snuggsi.es"
 git add dist/snuggsi.min.es
 git commit -m":muscle: bump MINIFIED distribution dist/snuggsi.min.es"
 
+# THIS IS A HACK due to unpkg.com not supporting application/ecmascript
+# See https://github.com/devpunks/snuggsi/issues/174
 cp dist/snuggsi.min.es dist/snuggsi.min.es.js
+
 git add dist/snuggsi.min.es.js
 git commit -m":muscle: bump ??? distribution dist/snuggsi.min.es.js"
 
