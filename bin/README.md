@@ -207,6 +207,13 @@ $ bin/package
   - [Dockerizing a Node.js Web App](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
 
 
+## [`publish`](shrink)
+
+```bash
+$ bin/publish
+```
+
+
 ## [`serve`](serve)
 
 ```bash
