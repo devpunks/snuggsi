@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 rm -rf ./public/examples/*
 cp -fr ./examples     ./public
