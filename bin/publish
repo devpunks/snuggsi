@@ -2,7 +2,7 @@
 
 
 echo
-echo "🚮 Removing 👉  public/examples/"
+echo "🚮  Removing 👉  public/examples/"
 
 rm -rf ./public/examples
 
