@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 
 
+echo
+echo "🚮 Removing 👉  public/examples/"
 
 echo "  🚮  Removing 👉  public/examples/"
 
