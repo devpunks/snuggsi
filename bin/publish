@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+EXAMPLES=./public/examples
+
+
 echo
 echo "🚮  Removing 👉  public/examples/"
 
