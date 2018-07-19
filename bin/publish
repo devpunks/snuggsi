@@ -23,7 +23,7 @@ files=(sandbox.html index.html index.css browser-sync.es)
 
 for file in ${files[@]}
 do
-  echo $file
+  echo "  📃 $file 👉  public/$file"
 done
 
 
