@@ -191,7 +191,7 @@ $ bin/lint [file]
 $ bin/package
 ```
 
-🚧 This algorithm will be implemented to minify distribution. (i.e. Tree Shaking)
+  🚧 This algorithm will be implemented to minify distribution. (i.e. Tree Shaking)
 
   0. Packaging components
   1. Containerizing components
