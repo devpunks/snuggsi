@@ -23,4 +23,6 @@ cp -f  ./index.html   ./public
 
 echo "  📃 index.css 👉  public/index.css"
 cp -f  ./index.css    ./public
+
+echo "  📃 snippets/browser-sync.es 👉  public/browser-sync.es"
 cp -f  ./snippets/browser-sync.es ./public
