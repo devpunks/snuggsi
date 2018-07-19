@@ -7,6 +7,6 @@ echo "  🚧 This algorithm will be implemented to minify distribution. (i.e. Tr
 
 
 echo
-echo "📦 Containerizing components ..."
+echo "🚚 Containerizing components ..."
 echo "  👇"
 echo "  🚧 This algorithm will be implemented to minify distribution. (i.e. Tree Shaking)"
