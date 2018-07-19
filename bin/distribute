@@ -51,5 +51,6 @@ echo "  🍻 Publishing library to npm directory."
 npm publish
 
 
+echo "  🐙 Updating master branch on Github."
 git push origin master
 git push origin --tags
