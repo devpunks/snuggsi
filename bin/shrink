@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
+SHRINK=node_modules/.bin/uglifyjs
+
+
 echo
 echo "🍤  Shrinking..."
 echo "  👇"
 
 
-SHRINK=node_modules/.bin/uglifyjs
 declare extensions=(es js)
 
 for extension in ${extensions[@]}
