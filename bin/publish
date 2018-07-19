@@ -17,6 +17,10 @@ echo "  📁  examples/ 👉  public/examples/"
 
 cp -fr ./examples     ./public
 
+
+files=("./sandbox.html", "./index.html", "./index.css", "./browser-sync.es" )
+
+
 echo "  📃 sandbox.html 👉  public/sandbox.html"
 cp -f  ./sandbox.html ./public
 
