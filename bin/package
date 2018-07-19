@@ -1,9 +1,2 @@
 #!/usr/bin/env bash
 
-cp /dev/null snuggsi.es
-
-ls elements/*.es | \
-grep -v test.es  | \
-while read FILE; do
-  cat "$FILE" >> snuggsi.es
-done
