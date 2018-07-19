@@ -152,7 +152,9 @@ $ bin/deploy
 $ bin/distribute
 ```
 
-  Used to mark revisions of library upstream on [Github](https://github.com/devpunks/snuggsi).
+
+  Used to mark revisions of library upstream on [Github](https://github.com/devpunks/snuggsi)
+  and [npm](https://npmjs.com/package/snuggsi).
 
 
 ## [`integrate`](integrate)
