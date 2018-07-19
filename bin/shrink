@@ -6,7 +6,7 @@ echo "  👇"
 
 
 SHRINK=node_modules/.bin/uglifyjs
-extensions=(es js)
+declare extensions=(es js)
 
 for extension in ${extensions[@]}
 do
