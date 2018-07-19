@@ -6,7 +6,7 @@ FILES=files=(sandbox.html index.html index.css)
 
 
 echo
-echo "🚮  Removing 👉  public/examples/"
+echo "🚮  Removing 👉  $DESTINATION/$EXAMPLES"
 
 rm -rf $EXAMPLES
 
