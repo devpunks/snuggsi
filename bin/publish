@@ -8,7 +8,7 @@ FILES=files=(sandbox.html index.html index.css)
 echo
 echo "🚮  Removing 👉  $DESTINATION/$EXAMPLES"
 
-rm -rf $EXAMPLES
+rm -rf $DESTINATION/$EXAMPLES
 
 echo
 echo "📤  Publishing static assets..."
