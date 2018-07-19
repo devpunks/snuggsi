@@ -7,7 +7,10 @@ echo "  👇"
 
 echo "  🚮  Removing 👉  public/examples/"
 rm -rf ./public/examples/*
+
+echo "  📁  examples/ 👉  public/examples/"
 cp -fr ./examples     ./public
+
 
 cp -f  ./sandbox.html ./public
 cp -f  ./index.html   ./public
