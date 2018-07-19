@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 git add dist/snuggsi.es
 git commit -m":muscle: bump BUNDLED distribution dist/snuggsi.es"
