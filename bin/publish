@@ -7,7 +7,7 @@ echo "🚮  Removing 👉  public/examples/"
 rm -rf ./public/examples
 
 echo
-echo "📤 Publishing static assets..."
+echo "📤  Publishing static assets..."
 echo "  👇"
 
 
