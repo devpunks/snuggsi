@@ -24,6 +24,7 @@ files=(sandbox.html index.html index.css browser-sync.es)
 for file in ${files[@]}
 do
   echo "  📃 $file 👉  public/$file"
+  cp -f  $file ./public
 done
 
 
