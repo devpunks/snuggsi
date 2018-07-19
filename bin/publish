@@ -3,6 +3,8 @@
 DESTINATION=public
 EXAMPLES=./public/examples
 
+declare files=(sandbox.html index.html index.css)
+
 
 echo
 echo "🚮  Removing 👉  public/examples/"
