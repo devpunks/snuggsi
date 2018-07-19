@@ -32,6 +32,7 @@ If you need support for windows file a ticket with [this link appended to descri
   - [`distribute`](#distribute)
   - [`integrate`](#integrate)
   - [`lint`](#lint)
+  - [`package`](#package)
   - [`serve`](#serve)
   - [`shrink`](#shrink)
   - [`style`](#style)
