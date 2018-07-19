@@ -17,8 +17,7 @@ echo "  👇"
 
 echo "  📁  $EXAMPLES 👉  $DESTINATION/$EXAMPLES"
 
-cp -fr ./examples     $DESTINATION
-
+cp -fr $EXAMPLES $DESTINATION
 
 
 for file in ${files[@]}
