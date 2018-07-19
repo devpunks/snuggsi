@@ -5,7 +5,7 @@ echo "📂 Publishing static assets..."
 echo "  👇"
 
 
-echo "  📁 examples/ 👉 public/examples/"
+echo "  🚮  Removing 👉  public/examples/"
 rm -rf ./public/examples/*
 cp -fr ./examples     ./public
 
