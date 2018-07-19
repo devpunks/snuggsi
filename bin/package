@@ -3,5 +3,4 @@
 echo
 echo "📦 Packaging components ..."
 echo "  👇"
-echo "  ⚠️  $CODE 👉  $NUMBER_OF_WARNINGS warnings"
-echo
+echo "  This algorithm will be implemented to minify distribution. (i.e. Tree Shaking)"
