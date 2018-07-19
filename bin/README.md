@@ -204,6 +204,7 @@ $ bin/package
   - [MDN Tree Shaking](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking)
   - [Dead Code Elemination During Bundling](http://exploringjs.com/es6/ch_modules.html#_benefit-dead-code-elimination-during-bundling)
   - [Docker Containerization](https://docs.docker.com/engine/examples/)
+  - [Dockerizing a Node.js Web App](https://nodejs.org/en/docs/guides/nodejs-docker-webapp/)
 
 
 ## [`serve`](serve)
