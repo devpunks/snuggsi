@@ -20,5 +20,7 @@ cp -f  ./sandbox.html ./public
 
 echo "  📃 index.html 👉  public/index.html"
 cp -f  ./index.html   ./public
+
+echo "  📃 index.css 👉  public/index.css"
 cp -f  ./index.css    ./public
 cp -f  ./snippets/browser-sync.es ./public
