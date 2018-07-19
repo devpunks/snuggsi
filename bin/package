@@ -1,2 +1,7 @@
 #!/usr/bin/env bash
 
+echo
+echo "👓  Performing Lint Check Started..."
+echo "  👇"
+echo "  ⚠️  $CODE 👉  $NUMBER_OF_WARNINGS warnings"
+echo
