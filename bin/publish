@@ -17,6 +17,8 @@ cp -fr ./examples     ./public
 
 echo "  📃 sandbox.html 👉  public/sandbox.html"
 cp -f  ./sandbox.html ./public
+
+echo "  📃 index.html 👉  public/index.html"
 cp -f  ./index.html   ./public
 cp -f  ./index.css    ./public
 cp -f  ./snippets/browser-sync.es ./public
