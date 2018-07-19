@@ -185,7 +185,7 @@ $ bin/lint [file]
   - `path` - _(optional)_ Specific  file to run lint check. _(Defaults to **`dist/snuggsi.es`**)_
 
 
-## [`package`](lint)
+## [`package`](package)
 
 ```bash
 $ bin/package
