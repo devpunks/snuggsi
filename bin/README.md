@@ -197,6 +197,7 @@ $ bin/package
 ### References
 
   - [Tree Shaking](https://en.wikipedia.org/wiki/Tree_shaking)
+  - [MDN Tree Shaking](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking)
 
 
 ## [`serve`](serve)
