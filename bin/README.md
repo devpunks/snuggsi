@@ -154,6 +154,16 @@ $ bin/distribute
   Used to mark revisions of library upstream
 
 
+## [`integrate`](integrate)
+
+```bash
+$ bin/integrate
+```
+
+  Hook used for [Travis CI](https://travis-ci.org) continuous integration.
+  This is typically ran after pushes to Github branches.
+
+
 ## [`lint`](lint)
 
 ```bash
