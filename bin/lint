@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 COUNT="wc -l" # Output lines
 TRIM=" tr -d" #Translate deletion
 CODE=${1:-./dist/snuggsi.es} # Distribution
