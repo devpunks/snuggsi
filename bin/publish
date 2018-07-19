@@ -18,7 +18,7 @@ echo "  📁  examples/ 👉  public/examples/"
 cp -fr ./examples     ./public
 
 
-files=("./sandbox.html" "./index.html" "./index.css" "./browser-sync.es" )
+files=(./sandbox.html "./index.html" "./index.css" "./browser-sync.es" )
 
 
 for file in ${files[@]}
