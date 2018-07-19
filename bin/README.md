@@ -213,7 +213,7 @@ $ bin/package
 ```bash
 $ bin/publish
 ```
-  Publishes static assets (i.e. examples)
+  Publishes static assets (i.e. examples, markup)
 
 
 ## [`serve`](serve)
