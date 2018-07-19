@@ -3,7 +3,7 @@
 echo
 echo "🐙 Distributing"
 echo "  👇"
-echo "  👊 Committing changes to library..."
+echo "  📝 Committing changes to library..."
 
 
 git add dist/snuggsi.es
