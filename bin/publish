@@ -6,6 +6,7 @@ echo "  👇"
 
 
 echo "  🚮  Removing 👉  public/examples/"
+
 rm -rf ./public/examples/*
 
 echo "  📁  examples/ 👉  public/examples/"
