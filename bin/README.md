@@ -203,6 +203,7 @@ $ bin/package
   - [Dead Code Elemination](https://en.wikipedia.org/wiki/Dead_code_elimination)
   - [MDN Tree Shaking](https://developer.mozilla.org/en-US/docs/Glossary/Tree_shaking)
   - [Dead Code Elemination During Bundling](http://exploringjs.com/es6/ch_modules.html#_benefit-dead-code-elimination-during-bundling)
+  - [Docker Containerization](https://docs.docker.com/engine/examples/)
 
 
 ## [`serve`](serve)
