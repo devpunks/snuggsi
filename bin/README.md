@@ -194,6 +194,11 @@ $ bin/package
 🚧 This algorithm will be implemented to minify distribution. (i.e. Tree Shaking)
 
 
+### References
+
+  - [Tree Shaking](https://en.wikipedia.org/wiki/Tree_shaking)
+
+
 ## [`serve`](serve)
 
 ```bash
