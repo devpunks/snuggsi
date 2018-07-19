@@ -1,5 +1,10 @@
 #!/usr/bin/env bash
 
+echo
+echo "📂 Publishing static assets..."
+echo "  👇"
+
+
 rm -rf ./public/examples/*
 cp -fr ./examples     ./public
 
