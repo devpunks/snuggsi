@@ -24,6 +24,6 @@ files=(sandbox.html index.html index.css)
 
 for file in ${files[@]}
 do
-  echo "  📃 $file 👉  public/$file"
-  cp -f  $file ./public
+  echo "  📃 $file 👉  $DESTINATION/$file"
+  cp -f  $file $DESTINATION
 done
