@@ -16,7 +16,7 @@ echo "  👇"
 
 echo "  📁  examples/ 👉  $DESTINATION/examples/"
 
-cp -fr ./examples     ./public
+cp -fr ./examples     $DESTINATION
 
 
 files=(sandbox.html index.html index.css)
