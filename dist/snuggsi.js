@@ -47,6 +47,8 @@ for slightly better semantics, including class-side inheritance and not clobberi
   // E.prototype.__proto__ = ???
   // https://github.com/visionmedia/supertest/blob/master/lib/agent.js
 
+  console.log (window.HTMLElement)
+
     window.HTMLElement.prototype
 
   // Prevent `.constructor` clobbering
@@ -419,8 +421,8 @@ new (function () {
   };
 
 
-  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   // "Dmitry's Brain Transplant"
+  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
   anonymous.prototype.upgrade = function (node) {
 
     // Here's where we can swizzle
