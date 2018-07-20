@@ -6,9 +6,8 @@
 
 
 # References scalar BASH_SOURCE returns index @ 0
-DIR="$( cd "$( dirname "${BASH_SOURCE}" )" && pwd )"
-
-echo "DIRRRRR ${DIR}"
+DIR=`pwd`
+echo "DIRRRRR `pwd`"
 
 PARAMS=$@
 
