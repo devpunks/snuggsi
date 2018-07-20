@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
+
 # http://www.tldp.org/LDP/abs/html/parameter-substitution.html
+# https://unix.stackexchange.com/questions/41571/what-is-the-difference-between-and
+
 
 DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -19,7 +22,7 @@ echo "All $PARAMS"
 
 echo "Component name $NAME"
 
-for PARAM in $PARAMS
+for PARAM in $@
 do
 # if [[ $PARAM == -* ]
   if [[ -d $PARAM ]]; then
