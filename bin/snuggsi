@@ -22,7 +22,7 @@ echo "All $PARAMS"
 
 echo "Component name $NAME"
 
-for PARAM in $@
+for PARAM in "$@"
 do
 # if [[ $PARAM == -* ]
   if [[ -d $PARAM ]]; then
