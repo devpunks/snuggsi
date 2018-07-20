@@ -34,13 +34,3 @@ done
 
 
 echo "Snuggsi cli"
-
-# Commands
-# init
-# component :name
-# style :name
-# browse :name
-# lint :name
-# test :name
-# compress :name
-# serve [:name]
