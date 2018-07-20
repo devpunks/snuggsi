@@ -4,7 +4,8 @@
 # https://unix.stackexchange.com/questions/41571/what-is-the-difference-between-and
 
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
+# References scalar BASH_SOURCE returns index @ 0
+DIR="$( cd "$( dirname "${BASH_SOURCE}" )" && pwd )"
 
 echo "DIRRRRR ${DIR}"
 
