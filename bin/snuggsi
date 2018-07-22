@@ -6,8 +6,19 @@
 # https://serverfault.com/questions/52034/what-is-the-difference-between-double-and-single-square-brackets-in-bash
 
 
+echo $PWD/${1#./}
+
+realpath() {
+  [[ $1 = /* ]] && echo "$1" || echo "$PWD/${1#./}"
+}
+
+realpath "$0"
+
 # References scalar BASH_SOURCE returns index @ 0
-DIR=`pwd`
+DIR=`dirname $BASH_SOURCE`
+
+echo "BASH_SOURCE: `dirname ${BASH_SOURCE}`"
+echo "DIRRRRR ${DIR}"
 echo "DIRRRRR `pwd`"
 
 PARAMS=$@
