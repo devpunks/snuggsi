@@ -431,8 +431,6 @@ const ParentNode = Element =>
   selectAll ( strings, ... tokens ) {
     strings = [ ].concat ( strings )
 
-    strings.join `,`
-
     return [].slice.call
       (this.querySelectorAll
         (tokens.reduce // denormalize selector
