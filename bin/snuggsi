@@ -3,6 +3,7 @@
 # http://www.tldp.org/LDP/abs/html/parameter-substitution.html
 # https://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source
 # https://unix.stackexchange.com/questions/41571/what-is-the-difference-between-and
+# https://serverfault.com/questions/52034/what-is-the-difference-between-double-and-single-square-brackets-in-bash
 
 
 # References scalar BASH_SOURCE returns index @ 0
