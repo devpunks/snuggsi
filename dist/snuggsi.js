@@ -456,8 +456,6 @@ var ParentNode = function (Element) { return ((function (Element) {
 
     strings = [ ].concat ( strings )
 
-    strings.join `,`
-
     return [].slice.call
       (this.querySelectorAll
         (tokens.reduce // denormalize selector
