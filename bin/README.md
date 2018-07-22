@@ -247,6 +247,13 @@ $ bin/shrink
   Run `uglify-js` and `uglify-es` along with minification
 
 
+## [`snuggsi`](snuggsi)
+
+```bash
+$ bin/snuggsi
+```
+
+
 ## [`style`](style)
 
 ```bash
