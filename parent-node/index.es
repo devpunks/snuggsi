@@ -18,8 +18,9 @@ const ParentNode = Element =>
     { return this.selectAll ( ... arguments ) [0] }
 
   selectAll ( strings, ... tokens ) {
-    strings =
-      [].concat ( strings )
+    strings = [ ].concat ( strings )
+
+    strings.join `,`
 
     return [].slice.call
       (this.querySelectorAll
