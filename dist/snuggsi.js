@@ -454,8 +454,9 @@ var ParentNode = function (Element) { return ((function (Element) {
     var tokens = [], len = arguments.length - 1;
     while ( len-- > 0 ) tokens[ len ] = arguments[ len + 1 ];
 
-    strings =
-      [].concat ( strings )
+    strings = [ ].concat ( strings )
+
+    strings.join `,`
 
     return [].slice.call
       (this.querySelectorAll
