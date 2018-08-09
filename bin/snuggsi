@@ -6,17 +6,15 @@
 # https://serverfault.com/questions/52034/what-is-the-difference-between-double-and-single-square-brackets-in-bash
 # https://unix.stackexchange.com/questions/17499/get-path-of-current-script-when-executed-through-a-symlink
 
+PARAMS=$@
+DIR=`dirname $BASH_SOURCE` # References scalar BASH_SOURCE returns index @ 0
 ROOT=`dirname $(readlink $0)`
 
-# References scalar BASH_SOURCE returns index @ 0
-DIR=`dirname $BASH_SOURCE`
-
-echo "PARAMS Lenth: ${#@}"
+echo "PWD: `pwd`"
+echo "DIR: $DIR"
 echo "ROOT: $ROOT"
-echo "DIRRRRR $DIR"
-echo "DIRRRRR `pwd`"
-
-PARAMS=$@
+echo "PARAMS: $PARAMS"
+echo "PARAMS Lenth: ${#@}"
 
 export POSTCSS="$DIR/postcss"
 export PATH=$1
