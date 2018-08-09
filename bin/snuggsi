@@ -18,7 +18,9 @@ echo
 # https://serverfault.com/questions/52034/what-is-the-difference-between-double-and-single-square-brackets-in-bash
 # https://unix.stackexchange.com/questions/17499/get-path-of-current-script-when-executed-through-a-symlink
 
-PATH=$1
+#PATH=$1
+echo "one and two $0 $1 $2"
+
 PARAMS=$@
 DIR=`dirname $BASH_SOURCE` # References scalar BASH_SOURCE returns index @ 0
 ROOT=`dirname $(readlink $0)`
