@@ -11,8 +11,7 @@ ROOT=`dirname $(readlink $0)`
 # References scalar BASH_SOURCE returns index @ 0
 DIR=`dirname $BASH_SOURCE`
 
-echo "PARAMS Lenth:: ${#@}"
-
+echo "PARAMS Lenth: ${#@}"
 echo "ROOT: $ROOT"
 echo "DIRRRRR $DIR"
 echo "DIRRRRR `pwd`"
