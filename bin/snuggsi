@@ -6,6 +6,7 @@
 # https://serverfault.com/questions/52034/what-is-the-difference-between-double-and-single-square-brackets-in-bash
 # https://unix.stackexchange.com/questions/17499/get-path-of-current-script-when-executed-through-a-symlink
 
+PATH=$1
 PARAMS=$@
 DIR=`dirname $BASH_SOURCE` # References scalar BASH_SOURCE returns index @ 0
 ROOT=`dirname $(readlink $0)`
@@ -16,19 +17,7 @@ echo "ROOT: $ROOT"
 echo "PARAMS: $PARAMS"
 echo "PARAMS Lenth: ${#@}"
 
-export POSTCSS="$DIR/postcss"
-export PATH=$1
-export ENTRY="$POSTCSS" #$(pwd)/${PATH:-foo-bar}/index.css"
-
-echo $ENTRY
-
-$( $ENTRY )
-
-echo "All $PARAMS"
-
-echo "Component name $NAME"
-
-for PARAM in "$@"
+for PARAM in PARAMS
 do
 # if [[ $PARAM == -* ]
   if [[ -d $PARAM ]]; then
