@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-
 echo
 echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
 echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
@@ -10,7 +9,6 @@ echo "  ツツツツツツツツツツツツツツツツ                  ツツ
 echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
 echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
 echo
-
 
 # http://www.tldp.org/LDP/abs/html/parameter-substitution.html
 # https://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source
