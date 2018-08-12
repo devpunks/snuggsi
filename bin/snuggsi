@@ -10,6 +10,11 @@ echo "  ツツツツツツツツツツツツツツツツツツツツツツツツ
 echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
 echo
 
+function canonical {
+  echo Canonical location for:
+}
+
+
 # http://www.tldp.org/LDP/abs/html/parameter-substitution.html
 # https://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source
 # https://unix.stackexchange.com/questions/41571/what-is-the-difference-between-and
@@ -17,6 +22,9 @@ echo
 # https://unix.stackexchange.com/questions/17499/get-path-of-current-script-when-executed-through-a-symlink
 
 #PATH=$1
+
+canonical
+
 echo "one and two $0 $1 $2"
 
 PARAMS=$@
@@ -28,6 +36,9 @@ echo "DIR: $DIR"
 echo "ROOT: $ROOT"
 echo "PARAMS: $PARAMS"
 echo "PARAMS Lenth: ${#@}"
+
+ls $DIR
+readlink $0
 
 for PARAM in PARAMS
 do
