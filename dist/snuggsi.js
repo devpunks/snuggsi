@@ -319,6 +319,8 @@ void (function (_) {
 
 var Template = function (template) {
 
+  console.log (template.length)
+
   template.length
     && ( template = document.querySelector
        ( 'template[name=' + template + '' + ']' ) )
