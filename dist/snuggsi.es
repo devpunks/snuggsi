@@ -301,6 +301,8 @@ void (_ => {
 
 const Template = template => {
 
+  console.log (template.length)
+
   template.length
     && ( template = document.querySelector
        ( 'template[name=' + template + '' + ']' ) )
