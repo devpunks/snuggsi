@@ -21,6 +21,7 @@ function canonical {
 # https://serverfault.com/questions/52034/what-is-the-difference-between-double-and-single-square-brackets-in-bash
 # https://unix.stackexchange.com/questions/17499/get-path-of-current-script-when-executed-through-a-symlink
 
+
 #PATH=$1
 
 canonical
