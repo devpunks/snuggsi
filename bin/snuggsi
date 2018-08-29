@@ -11,7 +11,6 @@ echo "  ツツツツツツツツツツツツツツツツツツツツツツツツ
 echo
 
 function canonical {
-  declare
   local what='foo'
    nice='shazam'
 
