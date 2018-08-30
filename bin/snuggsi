@@ -11,10 +11,7 @@ echo "  ツツツツツツツツツツツツツツツツツツツツツツツツ
 echo
 
 function canonical {
-  local what='foo'
-   nice='shazam'
-
-  echo Canonical location for: $what $nice
+  echo Canonical location for:
 }
 
 
