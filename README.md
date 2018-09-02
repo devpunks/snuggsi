@@ -422,6 +422,7 @@ Element `foo-bar`
 ### Further Learning
 
   - ["Web `<link>`ing" - M. Nottingham (_rfc5988_)](https://tools.ietf.org/html/rfc5988)
+  - ["The Static Web Returns"](https://medium.com/@robmuh/the-static-web-returns-e240dd100d65)
 
 
 ## Build Process
