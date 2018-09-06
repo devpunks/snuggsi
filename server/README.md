@@ -45,5 +45,6 @@ const
 
 ### References
 
+  - Next - https://github.com/zeit/next.js
   - Nuxt - https://github.com/nuxt/nuxt.js
 
