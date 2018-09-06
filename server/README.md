@@ -32,3 +32,8 @@ const
 
 (new Server).serve  `path/to/static/assets`
 ```
+
+### References
+
+  - Nuxt - https://github.com/nuxt/nuxt.js
+
