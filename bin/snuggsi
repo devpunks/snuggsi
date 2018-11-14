@@ -11,7 +11,11 @@ echo "  ツツツツツツツツツツツツツツツツツツツツツツツツ
 echo
 
 function canonical {
-  echo Canonical location for:
+  local location=$1
+  echo Canonical location for: $0
+  echo Canonical location for: $1
+  echo Canonical location for: $2
+  echo Canonical location for: $location
 }
 
 
