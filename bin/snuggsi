@@ -28,9 +28,11 @@ function canonical {
 
 #PATH=$1
 
-canonical
+export SNUGGSI=${0}
 
-echo "one and two $0 $1 $2"
+echo SNUGGSI $SNUGGSI
+
+canonical "PARAM 0: [$0] - PARAM 1: [$1] - PARAM 2: [$2]"
 
 PARAMS=$@
 DIR=`dirname $BASH_SOURCE` # References scalar BASH_SOURCE returns index @ 0
