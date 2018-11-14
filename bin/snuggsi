@@ -45,14 +45,14 @@ echo "PARAMS: $PARAMS"
 echo "PARAMS Lenth: ${#@}"
 
 ls $DIR
-readlink $0
+#readlink $0
 
 for PARAM in PARAMS
-do
-# if [[ $PARAM == -* ]
-  if [[ -d $PARAM ]]; then
-    echo $PARAM
-  else
-    echo "NO DIRECTORY $PARAM"
-  fi
-done
+  do
+  # if [[ $PARAM == -* ]
+    if [[ -d $PARAM ]]; then
+      echo $PARAM
+    else
+      echo "NO DIRECTORY $PARAM"
+    fi
+  done
