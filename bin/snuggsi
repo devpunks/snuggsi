@@ -12,6 +12,7 @@ echo
 
 function canonical {
   local location=$1
+
   echo Canonical location for: $0
   echo Canonical location for: $1
   echo Canonical location for: $2
