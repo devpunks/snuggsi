@@ -1,0 +1,22 @@
+{
+  "secure" : true
+
+, "report-uri"
+    : "https://snuggsi.report-uri.com/r/d/csp/enforce"
+
+, "default-src" : [
+    "'self'"
+  ]
+
+, "img-src" : [
+    "'self'"
+  ]
+
+, "style-src" : [
+    "'self'"
+  ]
+
+, "script-src" : [
+    "'self'"
+  ]
+}

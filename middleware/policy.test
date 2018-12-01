@@ -1,0 +1,399 @@
+const
+  { test, serve, fetch }
+    = require ('test')
+
+, { Server }
+    = require ('..')
+
+, defaults = [`'self'`].join `; `
+
+
+test ('calling next middleware')
+
+
+test ('Content-Security-Policy-Report-Only', async t => {
+
+  const
+    server = serve ``
+
+  , { headers }
+      = (await fetch ('http://localhost:8181/?report'))
+
+  , report = headers.get ('Content-Security-Policy-Report-Only')
+  , policy = headers.get ('Content-Security-Policy')
+
+  t.ok ( policy )
+  t.ok ( report )
+  t.equals ( report, policy )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy', async t => {
+
+  const
+    server = serve ``
+
+  , { headers }
+      = (await fetch ('http://localhost:8181/'))
+
+  , report = headers.get ('Content-Security-Policy-Report-Only')
+  , policy = headers.get ('Content-Security-Policy')
+
+  t.ok ( policy )
+  t.notOk ( report )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: report-to' , async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+  , url = 'https://snuggsi.report-uri.com/r/d/csp/enforce'
+
+
+  t.ok ( policy.includes (`report-to ${url}`))
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: default-src', async t => {
+
+  const
+    server = serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`default-src ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: manifest-src', async t => {
+
+  const
+    server = serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`manifest-src ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: child-src', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`child-src ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: frame-src', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`frame-src ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: connect-src', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`connect-src ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('content-security-policy: img-src', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`img-src ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: font-src', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`font-src ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ("Content-Security-Policy: object-src 'none'", async t => {
+
+  const
+    server = serve ``
+
+  , { headers }
+      = (await fetch ('http://localhost:8181/'))
+
+  , policy = headers.get ('content-security-policy')
+
+
+  console.warn (policy)
+
+  t.ok ( policy.includes (`object-src 'none'`) )
+  t.notOk ( policy.includes (`plugin-types`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ("Content-Security-Policy: object-src 'self'; plugin-types", async t => {
+  // only available when object-src is NOT 'none'
+  // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy/plugin-types#Examples
+
+  const
+    server  = serve ``
+  , plugins = ['audio/*', 'video/*'].join ` `
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`plugin-types ${plugins}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: media-src', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`media-src ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: style-src', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`style-src ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: script-src', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`script-src ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: worker-src', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`worker-src ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: base-uri', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`base-uri ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: sandbox', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`sandbox`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: form-action', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`form-action ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: frame-ancestors', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`frame-ancestors ${defaults}`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: block-all-mixed-content', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.ok ( policy.includes (`block-all-mixed-content`) )
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Content-Security-Policy: update-insecure-requests', async t => {
+
+  const
+    server = (new Server).serve ``
+
+  , policy
+      = (await fetch ('http://localhost:8181/'))
+        .headers.get ('content-security-policy')
+
+
+  t.notOk ( policy.includes (`update-insecure-requests`) )
+
+  server.close ``
+  t.end ()
+})

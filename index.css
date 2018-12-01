@@ -1,3 +1,8 @@
+/*
+  // enough inline styles to paint to fold
+  // Japanese colors - https://en.wikipedia.org/wiki/Traditional_colors_of_Japan#Red.2FViolet_series
+*/
+
 :root {
   --margin: 0 0;
 }
@@ -271,4 +276,3 @@ body > main, body > aside { flex: 1 }
 }
 
 @media (min-width:1300px) { }
-

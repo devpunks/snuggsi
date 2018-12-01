@@ -6,6 +6,7 @@ module.exports = {
   auth       : require ('./auth')
 , cors       : require ('./cors')
 , security   : require ('./security')
+, policy     : require ('./policy.es') // because .json ❓❓❓
 , browse     : require ('./browse')
 , snuggsi    : require ('./snuggsi')
 , route      : require ('./route')

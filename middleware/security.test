@@ -8,19 +8,17 @@
 
 
 const
-  { test, fetch }
+  { test, fetch, serve }
     = require ('test')
 
-, Server = require ('server')
 
-
-test ('calling next middlewaree')
+test ('calling next middleware')
 
 
 test ('X-XSS-Protection: 1; mode=block', async t => {
 
   const
-    server   = (new Server).serve ``
+    server   = serve ``
   , response = await fetch ('http://localhost:8181/')
 
 
@@ -33,7 +31,7 @@ test ('X-XSS-Protection: 1; mode=block', async t => {
   t.ok
     (expected.test (response.headers.get ('x-xss-protection')))
 
-  server.close ()
+  server.close ``
   t.end ()
 
 })
@@ -42,14 +40,14 @@ test ('X-XSS-Protection: 1; mode=block', async t => {
 test ('X-Frame-Options: deny', async t => {
 
   const
-    server   = (new Server).serve ``
+    server   = serve ``
   , response = await fetch ('http://localhost:8181/')
 
 
   t.equal
     ('deny', response.headers.get ('x-frame-options'))
 
-  server.close ()
+  server.close ``
   t.end ()
 })
 
@@ -57,14 +55,14 @@ test ('X-Frame-Options: deny', async t => {
 test ('X-Content-Type-Options: nosniff', async t => {
 
   const
-    server   = (new Server).serve ``
+    server   = serve ``
   , response = await fetch ('http://localhost:8181/')
 
 
   t.equal
     ('nosniff', response.headers.get ('x-content-type-options'))
 
-  server.close ()
+  server.close ``
   t.end ()
 })
 
@@ -72,7 +70,7 @@ test ('X-Content-Type-Options: nosniff', async t => {
 test ('Strict-Transport-Security', async t => {
 
   const
-    server   = (new Server).serve ``
+    server   = serve ``
   , response = await fetch ('http://localhost:8181/')
 
   , age      = 60 * 60 * 24 * 365
@@ -83,6 +81,6 @@ test ('Strict-Transport-Security', async t => {
   t.ok
     (expected.test (response.headers.get ('strict-transport-security')))
 
-  server.close ()
+  server.close ``
   t.end ()
 })

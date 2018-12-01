@@ -1,10 +1,20 @@
 # `Resource`
 
+## Types
+
+  A `Resource` (and for that matter (sub)`Resource` can be one of 4 media types (There will be more):
+
+  1. - `text/*`
+  2. - `image/*`
+  3. - `style/*`
+  4. - `script/*`
+
+
 ## Request Methods
 
-- HTTP Method Definitions - https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
-- MDN Request Methods - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
 - Handling A Resource - https://mimesniff.spec.whatwg.org/#handling-a-resource
+- MDN Request Methods - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
+- HTTP Method Definitions - https://www.w3.org/Protocols/rfc2616/rfc2616-sec9.html
 
 
 ## Response Streams
@@ -19,12 +29,12 @@
 ## MIME Sniffing
 
   - https://mimesniff.spec.whatwg.org/#javascript-mime-type
+  - Context-Specific sniffing - https://mimesniff.spec.whatwg.org/#context-specific-sniffing
   - Matching a MIME type pattern - https://mimesniff.spec.whatwg.org/#matching-a-mime-type-pattern
   - Determining the computed MIME type of a resource - https://mimesniff.spec.whatwg.org/#matching-an-image-type-pattern
-  - Context-Specific sniffing - https://mimesniff.spec.whatwg.org/#context-specific-sniffing
   
 
-## References
+# References
 
   - Rest Cookbook -  http://restcookbook.com/
   - HTTP Status Codes - https://httpstatuses.com/

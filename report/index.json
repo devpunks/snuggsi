@@ -1,0 +1,9 @@
+{
+  "csp-report": {
+    "document-uri": "http://example.com/",
+    "referrer": "",
+    "blocked-uri": "http://example.com/index.css",
+    "violated-directive": "style-src foo.com",
+    "original-policy": "default-src 'none'; style-src foo.com; report-uri /reports/"
+  }
+}
