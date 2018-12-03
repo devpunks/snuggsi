@@ -317,15 +317,14 @@ template.bind (context)
 
 <title>Remote Component Example</title>
 
+<script src=//unpkg.com/snuggsi></script>
+
 <link
   as=fetch
   id=foo-bar
   rel=preload
   href=foo-bar.html
 >
-
-<script src=//unpkg.com/snuggsi></script>
-
 
 <foo-bar>
   <p slot=content>The quick brown fox jumped over the lazy dog
