@@ -51,16 +51,6 @@ if [ -e $SCRIPT ]
 
 canonical "PARAM 0: [$0] - PARAM 1: [$1] - PARAM 2: [$2]"
 
-PARAMS=$@
-DIR=`dirname $BASH_SOURCE` # References scalar BASH_SOURCE returns index @ 0
-ROOT=`dirname $(readlink $0)`
-
-echo "PWD: `pwd`"
-echo "DIR: $DIR"
-echo "ROOT: $ROOT"
-echo "PARAMS: $PARAMS"
-echo "PARAMS Lenth: ${#@}"
-
 ls $DIR
 #readlink $0
 
