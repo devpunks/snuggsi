@@ -44,7 +44,10 @@ echo PARAMS Lenth: ${#@}
 echo BIN: $BIN
 echo SCRIPT: $SCRIPT
 
-echo SNUGGSI $SNUGGSI
+if [ -e $SCRIPT ]
+  then
+    execute $SCRIPT
+  fi
 
 canonical "PARAM 0: [$0] - PARAM 1: [$1] - PARAM 2: [$2]"
 
