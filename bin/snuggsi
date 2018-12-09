@@ -41,7 +41,8 @@ echo ROOT: $ROOT
 echo PARAMS: $PARAMS
 echo PARAMS Lenth: ${#@}
 
-export SNUGGSI=${0}
+echo BIN: $BIN
+echo SCRIPT: $SCRIPT
 
 echo SNUGGSI $SNUGGSI
 
