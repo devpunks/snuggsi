@@ -32,6 +32,10 @@ function execute {
 # https://serverfault.com/questions/52034/what-is-the-difference-between-double-and-single-square-brackets-in-bash
 # https://unix.stackexchange.com/questions/17499/get-path-of-current-script-when-executed-through-a-symlink
 
+PARAMS=$@
+export ROOT=`dirname $(readlink $BASH_SOURCE)`
+export BIN=$(cd `dirname $BASH_SOURCE`/$ROOT; pwd)
+export SCRIPT="$BIN/$1"
 
 #PATH=$1
 
