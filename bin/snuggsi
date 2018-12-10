@@ -40,11 +40,6 @@ if [ -e $SCRIPT ]
     execute $SCRIPT
   fi
 
-canonical "PARAM 0: [$0] - PARAM 1: [$1] - PARAM 2: [$2]"
-
-ls $DIR
-#readlink $0
-
 for PARAM in PARAMS
   do
   # if [[ $PARAM == -* ]
