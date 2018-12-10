@@ -1,6 +1,6 @@
 const
   { cors, security, snuggsi, negotiator, assets }
-    = require ('middleware')
+    = require ('../middleware')
 
 
 module.exports = class extends require ('koa') {
