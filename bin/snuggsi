@@ -23,9 +23,10 @@ export SCRIPT="$BIN/$1"
 
 function execute {
   local script=$1
+  local directory=$2
 
-  echo Executing Script: $script
-  $script
+  echo Executing Script: $script $directory
+  `$script $directory`
 }
 
 echo ROOT: $ROOT
@@ -36,7 +37,7 @@ echo PARAMS Lenth: ${#@}
 
 if [ $1 != snuggsi ] && [ -e $SCRIPT ]
   then
-    execute $SCRIPT
+    execute $SCRIPT $2
   else
     echo 🔴 Invalid command
   fi
