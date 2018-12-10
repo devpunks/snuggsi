@@ -2,14 +2,7 @@
 
 export NODE_PATH=`pwd`
 export PORT=${PORT:-3000}
-export ROOT=${1:-`pwd`}
-
-echo NODE PATH $NODE_PATH
-echo PORT $PORT
-echo ROOT $ROOT
-
-SERVE=bin/serve.es
-
+export DIRECTORY=${1:-`pwd`} # default working directory to current location
 
 node           \
   --require ./ \
