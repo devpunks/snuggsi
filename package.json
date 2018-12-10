@@ -43,7 +43,6 @@
     "autoprefixer": "^9.4.2",
     "browser-sync": "^2.26.3",
     "buble": "^0.19.6",
-    "devtools-terminal": "*",
     "jsdom": "^13.0.0",
     "node-fetch": "^2.3.0",
     "nyc": "^13.1.0",
