@@ -24,11 +24,7 @@ export SCRIPT="$BIN/$1"
 export DIRECTORY="$2"
 
 function execute {
-  local script=$1
-  local directory=$2
-
-  echo Executing Script: $script $directory
-  `$script $directory`
+  $SCRIPT $DIRECTORY
 }
 
 echo ROOT: $ROOT
