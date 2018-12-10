@@ -2,36 +2,43 @@ const
   { test }
     = require ('test')
 
-  , Fixture
-    = require ('./index.es')
+  , fixture
+    = new (require ('./index.es'))
+
+  , context = {}
 
 
 test ('.get', t => {
-    t.ok ( (new Fixture).get )
+  t.doesNotThrow
+    ( _ => fixture.get (context) )
 
   t.end ()
 })
 
 test ('.put', t => {
-    t.ok ( (new Fixture).put )
+  fixture.put (context)
 
+  t.equal (200, context.status )
   t.end ()
 })
 
 test ('.post', t => {
-    t.ok ( (new Fixture).post )
+  fixture.post (context)
 
+  t.equal (200, context.status )
   t.end ()
 })
 
 test ('.patch', t => {
-    t.ok ( (new Fixture).patch )
+  fixture.patch (context)
 
+  t.equal (200, context.status )
   t.end ()
 })
 
 test ('.delete', t => {
-    t.ok ( (new Fixture).delete )
+  fixture.delete (context)
 
+  t.equal (200, context.status )
   t.end ()
 })
