@@ -1,4 +1,5 @@
 require ('./negotiate.test')
+require ('./fixtures/index.test')
 
 const
  { test, read, fetch }
