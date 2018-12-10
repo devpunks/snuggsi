@@ -25,6 +25,7 @@ function execute {
   local script=$1
 
   echo Executing Script: $script
+  $script
 }
 
 echo ROOT: $ROOT
