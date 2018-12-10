@@ -10,15 +10,6 @@ echo "  ツツツツツツツツツツツツツツツツツツツツツツツツ
 echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
 echo
 
-function canonical {
-  local location=$1
-
-  echo Canonical location for: $0
-  echo Canonical location for: $1
-  echo Canonical location for: $2
-  echo Canonical location for: $location
-}
-
 function execute {
   local script=$1
 
