@@ -21,6 +21,7 @@ export ENTRY=`dirname $(readlink $BASH_SOURCE)`
 export BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
 export SNUGGSI=$(dirname $BIN)
 export SCRIPT="$BIN/$1"
+export DIRECTORY="$2"
 
 function execute {
   local script=$1
