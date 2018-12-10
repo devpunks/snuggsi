@@ -16,7 +16,7 @@ echo
 bin/compile    && \
 bin/lint       && \
 bin/cover      && \
-bin/weigh
+bin/weigh      && \
 bin/distribute && \
 bin/deploy     && \
 exit 0
