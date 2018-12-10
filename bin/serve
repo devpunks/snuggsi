@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 export NODE_PATH=`pwd`
-export PORT=${PORT:-80}
+export PORT=${PORT:-3000}
 export ROOT=${1:-`pwd`}
 
 SERVE=bin/serve.es
