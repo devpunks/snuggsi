@@ -1,0 +1,37 @@
+const
+  { test }
+    = require ('test')
+
+  , Fixture
+    = require ('./index.es')
+
+
+test ('.get', t => {
+    t.ok ( (new Fixture).get )
+
+  t.end ()
+})
+
+test ('.put', t => {
+    t.ok ( (new Fixture).put )
+
+  t.end ()
+})
+
+test ('.post', t => {
+    t.ok ( (new Fixture).post )
+
+  t.end ()
+})
+
+test ('.patch', t => {
+    t.ok ( (new Fixture).patch )
+
+  t.end ()
+})
+
+test ('.delete', t => {
+    t.ok ( (new Fixture).delete )
+
+  t.end ()
+})
