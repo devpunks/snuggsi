@@ -27,24 +27,11 @@ function execute {
   echo Executing Script: $script
 }
 
-
-# http://www.tldp.org/LDP/abs/html/parameter-substitution.html
-# https://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source
-# https://unix.stackexchange.com/questions/41571/what-is-the-difference-between-and
-# https://serverfault.com/questions/52034/what-is-the-difference-between-double-and-single-square-brackets-in-bash
-# https://unix.stackexchange.com/questions/17499/get-path-of-current-script-when-executed-through-a-symlink
-
-PARAMS=$@
-export ROOT=`dirname $(readlink $BASH_SOURCE)`
-export BIN=$(cd `dirname $BASH_SOURCE`/$ROOT; pwd)
-export SCRIPT="$BIN/$1"
-
 echo ROOT: $ROOT
-echo PARAMS: $PARAMS
-echo PARAMS Lenth: ${#@}
-
 echo BIN: $BIN
 echo SCRIPT: $SCRIPT
+echo PARAMS: $PARAMS
+echo PARAMS Lenth: ${#@}
 
 if [ -e $SCRIPT ]
   then
