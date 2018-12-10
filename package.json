@@ -36,7 +36,7 @@
   },
   "scripts": {
     "test": "bin/test",
-    "start": "bin/serve",
+    "start": "bin/browse",
     "package": "bin/package",
     "postinstall": "bin/publish"
   },
@@ -57,7 +57,6 @@
     "postcss-cli": "*",
     "autoprefixer": "*",
     "browser-sync": "*",
-    "devtools-terminal": "*",
     "postcss-custom-properties": "*"
   },
   "dependencies": {
