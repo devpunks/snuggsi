@@ -37,7 +37,7 @@
     "test": "bin/snuggsi test",
     "start": "bin/snuggsi serve",
     "package": "bin/snuggsi package",
-    "postinstall": "bin/publish"
+    "postinstall": "bin/snuggsi publish"
   },
   "devDependencies": {
     "tape": "*",
