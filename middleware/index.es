@@ -10,5 +10,5 @@ module.exports = {
 , snuggsi    : require ('./snuggsi')
 , route      : require ('./route')
 , assets     : require ('./assets')
-, mixins     : require ('mixins/middleware')
+, mixins     : require ('../mixins/middleware')
 }

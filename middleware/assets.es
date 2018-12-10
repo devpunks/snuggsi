@@ -3,7 +3,7 @@ const
     = require ('./route')
 
 , Resource
-    = require ('resource')
+    = require ('../resource')
 
 
 module.exports =
