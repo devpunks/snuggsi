@@ -5,5 +5,5 @@ export PORT=${PORT:-3000}
 export DIRECTORY=${1:-`pwd`} # default working directory to current location
 
 node           \
-  --require ./ \
-$SERVE
+  --require $SNUGGSI \
+$SNUGGSI/bin/serve.es
