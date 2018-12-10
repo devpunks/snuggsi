@@ -16,6 +16,11 @@ echo "  ツツツツツツツツツツツツツツツツツツツツツツツツ
 echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
 echo
 
+PARAMS=$@
+export ROOT=`dirname $(readlink $BASH_SOURCE)`
+export BIN=$(cd `dirname $BASH_SOURCE`/$ROOT; pwd)
+export SCRIPT="$BIN/$1"
+
 function execute {
   local script=$1
 
