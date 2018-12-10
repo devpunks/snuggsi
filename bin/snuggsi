@@ -35,9 +35,9 @@ echo SCRIPT: $SCRIPT
 echo PARAMS: $PARAMS
 echo PARAMS Lenth: ${#@}
 
-if [ $1 != snuggsi ] && [ -e $SCRIPT ]
+if [ snuggsi != "$1" ] && [ -e $SCRIPT ]
   then
-    execute $SCRIPT $2
+    execute
   else
     echo 🔴 Invalid command
   fi
