@@ -27,8 +27,10 @@ function execute {
   $SCRIPT $DIRECTORY
 }
 
-echo ROOT: $ROOT
+echo BASH SOURCE: $BASH_SOURCE
+echo ENTRY: $ENTRY
 echo BIN: $BIN
+echo SNUGGSI: $SNUGGSI
 echo SCRIPT: $SCRIPT
 echo PARAMS: $PARAMS
 echo PARAMS Lenth: ${#@}
