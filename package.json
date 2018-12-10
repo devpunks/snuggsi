@@ -34,7 +34,7 @@
     "example": "examples"
   },
   "scripts": {
-    "test": "bin/test",
+    "test": "bin/snuggsi test",
     "start": "bin/serve",
     "package": "bin/package",
     "postinstall": "bin/publish"
