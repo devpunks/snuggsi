@@ -4,6 +4,9 @@ export NODE_PATH=`pwd`
 export PORT=${PORT:-3000}
 export ROOT=${1:-`pwd`}
 
+echo NODE PATH $NODE_PATH
+echo PORT $PORT
+
 SERVE=bin/serve.es
 
 
