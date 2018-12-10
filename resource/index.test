@@ -45,14 +45,33 @@ const
 test ('Distribute media to CDN')
 
 
-test ('HEAD Resource response')
-
-
 test ('OPTIONS Resource response')
 
 
 test ('Caching HTML, JSON, Javascript, and CSS')
 
+
+test ('HEAD Resource response', async t => {
+
+  const
+    resource = Resource ``
+
+  , server =
+      (new Server ( [ route (resource) ] ))
+      .serve ``
+
+  , ALLOWED_METHODS = DEFAULT_METHODS
+
+
+  let { status, headers }
+    = await fetch ( URL + 'index.html', { method: 'HEAD' } )
+
+  t.equal ( 200, status )
+  t.notOk ( headers.get ('allow') )
+
+  server.close ``
+  t.end ()
+})
 
 test ('Default Resource allowed methods', async t => {
   const
