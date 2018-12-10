@@ -2,7 +2,7 @@ require ('./negotiate.test')
 require ('./fixtures/index.test')
 
 const
- { test, read, fetch }
+  { test, read, fetch }
     = require ('test')
 
 , path = '/foo/'
