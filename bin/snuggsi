@@ -17,8 +17,9 @@ echo "  ツツツツツツツツツツツツツツツツツツツツツツツツ
 echo
 
 PARAMS=$@
-export ROOT=`dirname $(readlink $BASH_SOURCE)`
-export BIN=$(cd `dirname $BASH_SOURCE`/$ROOT; pwd)
+export ENTRY=`dirname $(readlink $BASH_SOURCE)`
+export BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
+export SNUGGSI=$(dirname $BIN)
 export SCRIPT="$BIN/$1"
 
 function execute {
