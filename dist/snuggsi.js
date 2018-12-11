@@ -106,8 +106,6 @@ var TokenList = function (node) {
 
 
 TokenList.prototype.bind = function (context) {
-    var this$1 = this;
-
 
   var
   // FOR GOD'S SAKE PLEASE TEST THIS!!!
@@ -119,16 +117,16 @@ TokenList.prototype.bind = function (context) {
         .join(context [symbol])); }; }
 
 
-  for (var symbol in this$1) {
+  for (var symbol in this) {
     console.log ('symbol', symbol)
 
-    this$1 [symbol]
+    this [symbol]
       .map (function (node) { return (node.textContent = node.text) && node; })
   }
 
 
-  for (var symbol$1 in this$1)
-    { this$1 [symbol$1]
+  for (var symbol$1 in this)
+    { this [symbol$1]
       // more than one occurrence
       .map (tokenize (symbol$1)) }
 };
@@ -301,7 +299,7 @@ void (function (_) {
         &&  this$1.setAttribute (attr.name, attr.value); })
 
 
-    for (var i = 0, list = this$1.querySelectorAll ('[slot]'); i < list.length; i += 1)
+    for (var i = 0, list = this.querySelectorAll ('[slot]'); i < list.length; i += 1)
       {
       var replacement = list[i];
 
@@ -335,8 +333,6 @@ var Template = function (template) {
   return template
 
   function bind (context) {
-    var this$1 = this;
-
 
     var
       fragment =
@@ -360,7 +356,7 @@ var Template = function (template) {
         return html + clone
       }
 
-    for (var i = 0, list = (this$1.dependents || [] ); i < list.length; i += 1)
+    for (var i = 0, list = (this.dependents || [] ); i < list.length; i += 1)
             // removeChild FAR faster
             // https://jsperf.com/innerhtml-vs-removechild/15
             {
@@ -376,7 +372,7 @@ var Template = function (template) {
         .reduce (deposit, '')
 
 
-    for (var i$1 = 0, list$1 = this$1.dependents
+    for (var i$1 = 0, list$1 = this.dependents
           =[]
             .slice // non-live nodelist
             .call (fragment.childNodes); i$1 < list$1.length; i$1 += 1)
@@ -384,7 +380,7 @@ var Template = function (template) {
         {
       var dependent = list$1[i$1];
 
-      this$1
+      this
           .parentNode
           .insertBefore (dependent, anchor)
     }
@@ -395,7 +391,7 @@ window.customElements =
   window.customElements
   || {/* microfill */}
 
-new (function () {
+new /*@__PURE__*/(function () {
   function anonymous () {
 
     customElements.define
@@ -437,7 +433,7 @@ new (function () {
   return anonymous;
 }())
 
-var ParentNode = function (Element) { return ((function (Element) {
+var ParentNode = function (Element) { return (/*@__PURE__*/(function (Element) {
     function anonymous () {
       Element.apply(this, arguments);
     }
@@ -447,8 +443,9 @@ var ParentNode = function (Element) { return ((function (Element) {
     anonymous.prototype.constructor = anonymous;
 
     anonymous.prototype.select = function ( )
-    { return (ref = this).selectAll.apply ( ref, arguments ) [0]
-    var ref; };
+    {
+    var ref;
+ return (ref = this).selectAll.apply ( ref, arguments ) [0] };
 
   anonymous.prototype.selectAll = function ( strings ) {
     var tokens = [], len = arguments.length - 1;
@@ -475,7 +472,7 @@ var ParentNode = function (Element) { return ((function (Element) {
 //        comb (node)
 //  }
 
-var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
+var EventTarget = function (HTMLElement) { return (/*@__PURE__*/(function (HTMLElement) {
     function anonymous () {
       HTMLElement.apply(this, arguments);
     }
@@ -509,7 +506,7 @@ var EventTarget = function (HTMLElement) { return ((function (HTMLElement) {
     return anonymous;
   }(HTMLElement))); }
 
-var GlobalEventHandlers = function (Element) { return ((function (Element) {
+var GlobalEventHandlers = function (Element) { return (/*@__PURE__*/(function (Element) {
     function anonymous () {
       Element.apply(this, arguments);
     }
@@ -555,8 +552,6 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
 
 
   anonymous.prototype.register = function (node, handler, event) {
-    var this$1 = this;
-
     for (var i = 0, list = [].slice.call (node.attributes); i < list.length; i += 1)
             {
       var attribute = list[i];
@@ -565,14 +560,14 @@ var GlobalEventHandlers = function (Element) { return ((function (Element) {
             // https://www.quirksmode.org/js/events_tradmod.html
             // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
             && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
-            && ( node [event] = this$1.renderable (this$1 [handler]) )
+            && ( node [event] = this.renderable (this [handler]) )
     }
   };
 
     return anonymous;
   }(Element))); }
 
-var Custom = function (Element) { return ( (function (superclass) {
+var Custom = function (Element) { return ( /*@__PURE__*/(function (superclass) {
     function anonymous () {
       superclass.apply(this, arguments);
     }
@@ -597,15 +592,13 @@ var Custom = function (Element) { return ( (function (superclass) {
 
 
   anonymous.prototype.render = function () {
-    var this$1 = this;
 
-
-    for (var i = 0, list = this$1.templates; i < list.length; i += 1)
+    for (var i = 0, list = this.templates; i < list.length; i += 1)
       {
       var template = list[i];
 
       template.bind
-        (this$1 [template.getAttribute ('name')])
+        (this [template.getAttribute ('name')])
     }
 
     this
