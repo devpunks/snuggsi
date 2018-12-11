@@ -40,29 +40,29 @@
     "postinstall": "bin/snuggsi publish"
   },
   "devDependencies": {
-    "tape": "*",
-    "buble": "*",
-    "jsdom": "*",
-    "nyc": "*",
-    "tap-nyc": "*",
-    "sugarss": "*",
-    "request": "*",
-    "standard": "*",
-    "tap-spec": "*",
-    "uglify-es": "*",
-    "webidl2js": "*",
-    "node-fetch": "*",
-    "node-zopfli": "*",
-    "postcss-cli": "*",
-    "autoprefixer": "*",
-    "browser-sync": "*",
+    "autoprefixer": "^9.4.2",
+    "browser-sync": "^2.26.3",
+    "buble": "^0.19.6",
     "devtools-terminal": "*",
-    "postcss-custom-properties": "*"
+    "jsdom": "^13.0.0",
+    "node-fetch": "^2.3.0",
+    "node-zopfli": "*",
+    "nyc": "^13.1.0",
+    "postcss-cli": "^6.0.1",
+    "postcss-custom-properties": "^8.0.9",
+    "request": "^2.88.0",
+    "standard": "^12.0.1",
+    "sugarss": "^2.0.0",
+    "tap-nyc": "*",
+    "tap-spec": "^5.0.0",
+    "tape": "^4.9.1",
+    "uglify-es": "^3.3.10",
+    "webidl2js": "^9.1.2"
   },
   "dependencies": {
-    "koa": "*",
+    "basic-auth": "^2.0.1",
+    "koa": "^2.6.2",
     "koa-cors": "*",
-    "koa-static": "*",
-    "basic-auth": "*"
+    "koa-static": "^5.0.0"
   }
 }
