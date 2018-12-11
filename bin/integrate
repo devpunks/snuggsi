@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+echo
+echo "🚔 Continuously integrating..."
+echo "  👇"
+
+bin/cover

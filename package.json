@@ -1,6 +1,6 @@
 {
   "name": "snuggsi",
-  "version": "0.12.317",
+  "version": "0.12.320",
   "license": "MIT",
   "author": [
     "Snuggs",
@@ -8,8 +8,7 @@
   ],
   "description": "Easy Web Components in 1kB",
   "bin": {
-    "snuggsi": "bin/snuggsi",
-    "postcss": "./node_modules/.bin/postcss"
+    "snuggsi": "bin/snuggsi"
   },
   "bugs": {
     "url": "https://github.com/devpunks/snuggsi/issues"
@@ -35,10 +34,10 @@
     "example": "examples"
   },
   "scripts": {
-    "test": "bin/test",
-    "start": "bin/browse",
-    "package": "bin/package",
-    "postinstall": "bin/publish"
+    "test": "bin/snuggsi test",
+    "start": "bin/snuggsi serve ./public",
+    "package": "bin/snuggsi package",
+    "postinstall": "bin/snuggsi publish"
   },
   "devDependencies": {
     "tape": "*",

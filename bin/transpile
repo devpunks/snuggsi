@@ -1,1 +1,18 @@
-node bin/transpile.es > ./dist/snuggsi.js
+#!/usr/bin/env bash
+
+
+ROOT=dist
+export INPUT=${1:-$ROOT/snuggsi.es}
+export OUTPUT=${2:-$ROOT/snuggsi.js}
+export TRANSPILER=bin/transpile.es
+
+
+echo
+echo "🏭  Transpilation Process Started..."
+echo "  👇"
+echo "  📃  $INPUT  👉  $OUTPUT"
+echo
+
+
+node $TRANSPILER \
+  > $OUTPUT

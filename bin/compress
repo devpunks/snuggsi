@@ -1,47 +1,79 @@
+#!/usr/bin/env bash
+
 # bro is installed locally and manually. No npm cli. HELP!
-bro \
-  --repeat 1 \
-  --quality 11 \
-  --input ./dist/*.min.es \
-> ./dist/snuggsi.min.es.br
 
 
-bro \
-  --repeat 1 \
-  --quality 11 \
-  --input ./dist/*.min.js \
-> ./dist/snuggsi.min.js.br
+DIST=./dist
+BROTLI="bro"
+ZOPFLI="./node_modules/.bin/zopfli"
 
-# gzip
 
-./node_modules/.bin/zopfli \
-  -i 50 \
-  --gzip \
-  --ext gz \
+echo
+echo "💪  Compressing Libraries"
+echo "  👇"
+
+
+FILE="$DIST/snuggsi.min.es"
+
+echo "  💾  $FILE"
+echo "    📃  Brotli 👉  $FILE.br"
+
+$BROTLI         \
+  --repeat 1    \
+  --quality 11  \
+  --input $FILE \
+> "$FILE.br"
+
+
+echo "    📃  GZIP   👉  $FILE.gz"
+
+$ZOPFLI     \
+  -i 50     \
+  --gzip    \
+  --ext gz  \
   --verbose \
-  dist/snuggsi.min.es
+$FILE
 
-./node_modules/.bin/zopfli \
-  -i 50 \
-  --gzip \
-  --ext gz \
+
+echo "    📃  DEFLATE   👉  $FILE.zo"
+
+$ZOPFLI     \
+  -i 50     \
+  --gzip    \
+  --ext zo  \
   --verbose \
-  dist/snuggsi.min.js
+$FILE
 
 
+FILE="$DIST/snuggsi.min.js"
 
-# deflate (zlib)
+echo "  👇"
+echo "  💾  $FILE"
+echo "    📃  Brotli 👉  $FILE.br"
 
-./node_modules/.bin/zopfli \
-  -i 50 \
-  --zlib \
-  --ext zo \
+
+$BROTLI         \
+  --repeat 1    \
+  --quality 11  \
+  --input $FILE \
+> "$FILE.br"
+
+
+echo "    📃  GZIP   👉  $FILE.gz"
+
+$ZOPFLI     \
+  -i 50     \
+  --gzip    \
+  --ext gz  \
   --verbose \
-  dist/snuggsi.min.es
+$FILE
 
-./node_modules/.bin/zopfli \
-  -i 50 \
-  --zlib \
-  --ext zo \
+
+echo "    📃  DEFLATE   👉  $FILE.zo"
+
+$ZOPFLI     \
+  -i 50     \
+  --gzip    \
+  --ext zo  \
   --verbose \
-  dist/snuggsi.min.js
+$FILE

@@ -1,23 +1,26 @@
 #!/usr/bin/env bash
 
-# https://gist.github.com/branneman/8775568
-# https://gist.github.com/branneman/8048520
-# https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
-
+export NODE_PATH=`pwd`
 export PORT=8181
-export ROOT=$(pwd)
-export API="element"
-export NODE_PATH=$ROOT
-export ENTRY="index.test"
-export TEST="$ROOT/node_modules/.bin/tape"
-export SPEC="$ROOT/node_modules/.bin/tap-spec"
-export COVER="$ROOT/node_modules/.bin/tap-nyc"
-export LIBRARIES=".,test,server,resource,middleware"
-export TESTS=$ROOT/${1:-"{$LIBRARIES,$API}/$ENTRY"}
 
-echo "Covering $TESTS"
+BIN="$NODE_PATH/node_modules/.bin"
+SPECS="$BIN/tap-spec"
+TEST="$BIN/tape"
 
-$TEST          \
-  --require ./ \
-  -- $TESTS    \
-  |  $SPEC
+API="element"
+ENTRY="index.test"
+LIBRARIES=".,test,server,resource,middleware"
+TESTS=$NODE_PATH/${1:-"{$LIBRARIES,$API}/$ENTRY"}
+
+
+echo
+echo "🚨  Testing, Testing, 1,2,3, ..."
+echo
+echo "  Entry 👉  $ENTRY"
+echo "  Suite 👉  $TESTS"
+echo
+
+
+$TEST         \
+  --require . \
+$TESTS | $SPECS

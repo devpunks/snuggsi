@@ -1,3 +1,51 @@
 #!/bin/bash
 
-./node_modules/.bin/nyc bin/test
+export THRESHOLD=95                  # Percentage
+export HARNESS="bin/test"            # Test harness
+export COVER="node_modules/.bin/nyc" # Coverage runner
+export CHECK="$COVER check-coverage" # Coverage checker
+export INCLUDE="resource"            # Included coverage files
+export EXCLUDE="**/node_modules"     # Excluded coverage files
+export OUTPUT=".nyc_output/"         # Represented in Percentage
+export EXTENSION=".es"               # Extension for coverage files
+export REPORTER="text"               # Type of coverage report to generate
+
+export LIBRARIES=".,test,server,resource,middleware"
+export PATHS=$ROOT/${1:-"{$LIBRARIES,$API}/$ENTRY"}
+
+
+echo # Beginning of Coverage Report
+echo "📊  snuggsi ツ Coverage Report"
+echo "  🎯  Threshold 👉  $THRESHOLD %"
+echo "  ➕  Included  👉  $INCLUDE"
+echo "  ➖  Excluded  👉  $EXCLUDE"
+echo
+
+
+$COVER                    \
+  --include=$INCLUDE      \
+  --exclude=$EXCLUDE      \
+  --reporter=$REPORTER    \
+  --extension=$EXTENSION  \
+$HARNESS
+
+
+$CHECK                     \
+  --lines      $THRESHOLD  \
+  --functions  $THRESHOLD  \
+  --statements $THRESHOLD  \
+$HARNESS
+
+
+export CODE=$?
+
+echo
+echo "📁  Coverage Cleanup"
+echo " ⚠️  Removing coverage report side effects left as artifacts."
+echo " 👇"
+echo "  🚮  Removing 👉  $OUTPUT"
+echo # Remove output directory
+rm -rf $OUTPUT
+
+
+exit $CODE

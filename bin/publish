@@ -1,9 +1,28 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-rm -rf ./public/examples/*
-cp -fr ./examples     ./public
+EXAMPLES=examples
+DESTINATION=public
+ASSETS=(sandbox.html index.html index.css)
 
-cp -f  ./sandbox.html ./public
-cp -f  ./index.html   ./public
-cp -f  ./index.css    ./public
-cp -f  ./snippets/browser-sync.es ./public
+
+echo
+echo "🚮  Removing 👉  $DESTINATION/$EXAMPLES"
+
+rm -rf $DESTINATION/$EXAMPLES
+
+echo
+echo "📤  Publishing static assets ..."
+echo "  To 👉  $DESTINATION"
+echo "  👇"
+
+
+echo "  📁  $EXAMPLES 👉  $DESTINATION/$EXAMPLES"
+
+cp -fr $EXAMPLES $DESTINATION
+
+
+for asset in ${ASSETS[@]}
+do
+  echo "  📃 $asset 👉  $DESTINATION/$asset"
+  cp -f  $asset $DESTINATION
+done

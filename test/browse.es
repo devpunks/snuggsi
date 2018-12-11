@@ -2,7 +2,7 @@ module.exports = browse
 
 const
   encoding = 'utf8'
-, root = `${process.env.ROOT}/`
+, root = `${process.env.NODE_PATH}/`
 
 , { JSDOM, VirtualConsole }
     = require ('jsdom')

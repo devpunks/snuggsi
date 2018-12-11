@@ -1,4 +1,10 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
+echo
+echo "📰 Distributing"
+echo "  👇"
+echo "  📝 Committing changes to library..."
+
 
 git add dist/snuggsi.es
 git commit -m":muscle: bump BUNDLED distribution dist/snuggsi.es"
@@ -6,7 +12,10 @@ git commit -m":muscle: bump BUNDLED distribution dist/snuggsi.es"
 git add dist/snuggsi.min.es
 git commit -m":muscle: bump MINIFIED distribution dist/snuggsi.min.es"
 
+# THIS IS A HACK due to unpkg.com not supporting application/ecmascript
+# See https://github.com/devpunks/snuggsi/issues/174
 cp dist/snuggsi.min.es dist/snuggsi.min.es.js
+
 git add dist/snuggsi.min.es.js
 git commit -m":muscle: bump ??? distribution dist/snuggsi.min.es.js"
 
@@ -37,10 +46,14 @@ git add dist/snuggsi.min.js.zo
 git commit -m":muscle: bump ZLIB distribution dist/snuggsi.min.js.zo"
 
 
+echo "  👊 Bumping package.json version"
 npm version patch
 
+
+echo "  🆕 Publishing library to npm directory."
 npm publish
 
 
+echo "  🐙 Updating master branch on Github."
 git push origin master
 git push origin --tags

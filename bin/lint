@@ -1,8 +1,14 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-COMMAND="./node_modules/.bin/standard ./dist/snuggsi.es"
+COUNT="wc -l" # Output lines
+TRIM=" tr -d" #Translate deletion
+CODE=${1:-./dist/snuggsi.es} # Distribution
+LINT="./node_modules/.bin/standard $CODE"
+NUMBER_OF_WARNINGS=`$LINT | $COUNT | $TRIM " "`
 
-NUMBER_OF_JS_WARNINGS=`${COMMAND}`
 
-echo && echo "⚠️ ⚠️ ⚠️ ${NUMBER_OF_JS_WARNINGS}⚠️ ⚠️ ⚠️  StandardJS Warnings"
+echo
+echo "👓  Performing Lint Check Started..."
+echo "  👇"
+echo "  ⚠️  $CODE 👉  $NUMBER_OF_WARNINGS warnings"
 echo

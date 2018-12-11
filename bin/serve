@@ -1,16 +1,9 @@
 #!/usr/bin/env bash
 
-export ROOT=$(pwd)
-
-# https://gist.github.com/branneman/8775568
-# https://gist.github.com/branneman/8048520
-
-# NODE_PATH on Heroku
-# https://lostechies.com/derickbailey/2014/02/20/how-i-work-around-the-require-problem-in-nodejs/
-export NODE_PATH=$ROOT:$NODE_PATH
-
-echo "Booting snuggsi server on Port $PORT"
+export NODE_PATH=`pwd`
+export PORT=${PORT:-3000}
+export DIRECTORY=${1:-`pwd`} # default working directory to current location
 
 node           \
-  --require ./ \
--- bin/serve.es
+  --require $SNUGGSI \
+$SNUGGSI/bin/serve.es

@@ -1,43 +1,53 @@
 #!/usr/bin/env bash
+
 # http://www.tldp.org/LDP/abs/html/parameter-substitution.html
+# https://stackoverflow.com/questions/35006457/choosing-between-0-and-bash-source
+# https://unix.stackexchange.com/questions/41571/what-is-the-difference-between-and
+# https://serverfault.com/questions/52034/what-is-the-difference-between-double-and-single-square-brackets-in-bash
+# https://unix.stackexchange.com/questions/17499/get-path-of-current-script-when-executed-through-a-symlink
 
-DIR="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
-
-echo "DIRRRRR ${DIR}"
+echo
+echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
+echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
+echo "  ツツツツツツツツツツツツツツツツ                  ツツツツツツツツツツツツツツツ"
+echo "  ツツツツツツツツツツツツツツツツ     snuggsi ツ   ツツツツツツツツツツツツツツツ"
+echo "  ツツツツツツツツツツツツツツツツ                  ツツツツツツツツツツツツツツツ"
+echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
+echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
+echo
 
 PARAMS=$@
+export ENTRY=`dirname $(readlink $BASH_SOURCE)`
+export BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
+export SNUGGSI=$(dirname $BIN)
+export SCRIPT="$BIN/$1"
+export DIRECTORY="$2"
 
-export POSTCSS="$DIR/postcss"
-export PATH=$1
-export ENTRY="$POSTCSS" #$(pwd)/${PATH:-foo-bar}/index.css"
+function execute {
+  $SCRIPT $DIRECTORY
+}
 
-echo $ENTRY
+echo BASH SOURCE: $BASH_SOURCE
+echo ENTRY: $ENTRY
+echo BIN: $BIN
+echo SNUGGSI: $SNUGGSI
+echo SCRIPT: $SCRIPT
+echo PARAMS: $PARAMS
+echo PARAMS Lenth: ${#@}
 
-$( $ENTRY )
-
-echo "All $PARAMS"
-
-echo "Component name $NAME"
-
-for PARAM in $PARAMS
-do
-# if [[ $PARAM == -* ]
-  if [[ -d $PARAM ]]; then
-    echo $PARAM
+if [ snuggsi != "$1" ] && [ -e $SCRIPT ]
+  then
+    execute
   else
-    echo "NO DIRECTORY $PARAM"
+    echo 🔴 Invalid command
   fi
-done
 
-
-echo "Snuggsi cli"
-
-# Commands
-# init
-# component :name
-# style :name
-# browse :name
-# lint :name
-# test :name
-# compress :name
-# serve [:name]
+for PARAM in PARAMS
+  do
+  # if [[ $PARAM == -* ]
+    if [[ -d $PARAM ]]; then
+      echo $PARAM
+    else
+      echo "NO DIRECTORY $PARAM"
+    fi
+  done

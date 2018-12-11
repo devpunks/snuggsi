@@ -1,5 +1,28 @@
-bin/bundle
-bin/transpile
-bin/shrink
+#!/usr/bin/env bash
+
+
+START=`date +%s`
+DATE=`date -r $START`
+
+echo
+echo "📦  Compilation Process Started..."
+echo "  👇"
+
+
+bin/bundle    && \
+bin/transpile && \
+bin/shrink    && \
 bin/compress
-bin/weigh
+
+
+FINISH=`date +%s`
+DURATION=$((FINISH-START))
+
+
+echo
+echo "🏭  Compilation Process Finished"
+echo "  👇"
+echo "  ⏰  Started  👉  $DATE"
+echo "  🏁  Finished 👉  `date -r $FINISH`"
+echo "    🕓  Total compilation duration 👉  $DURATION secs."
+echo

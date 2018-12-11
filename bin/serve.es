@@ -2,15 +2,8 @@ const
   { Server, Resource }
     = require ('..')
 
-, { route }
-    = require ('../middleware')
+, { DIRECTORY: directory }
+    = process.env
 
-middleware = [
-  route (`/hello/`, Resource `/resource/fixtures/`)
-, route (`/examples/`, Resource `/examples/`)
-]
-
-void
-  
-(new Server (middleware))
-  .serve `public`
+void (new Server)
+  .serve (directory)

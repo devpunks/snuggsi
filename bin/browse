@@ -1,14 +1,18 @@
+#!/usr/bin/env bash
+
 # https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts
 
-export PORT="${PORT=3009}"
-export BROWSER_PORT="${BROWSER_PORT=8989}"
+export ROOT=${1:-`pwd`}
+export PORT=${PORT:-3000}
+export BROWSER_PORT=$((PORT+1))
 
+BROWSER=./node_modules/.bin/browser-sync
+CONFIGURATION="--config watch/browser.es"
+BROWSE="$BROWSER start $CONFIGURATION"
+WATCH="bin/watch"
 
-PORT=$PORT                               \
-  bin/serve                              \
-&                                        \
-BROWSER_PORT=$BROWSER_PORT               \
-  ./node_modules/.bin/browser-sync start \
-  --config=./watch/index.es              \
-&                                        \
-bin/watch
+echo $BROWSE
+
+bin/serve $ROOT \
+  & $BROWSE     \
+  & $WATCH      \

@@ -1,9 +1,12 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
-cp /dev/null snuggsi.es
+echo
+echo "📦 Packaging components ..."
+echo "  👇"
+echo "  🚧 This algorithm will be implemented to minify distribution. (i.e. Tree Shaking)"
 
-ls elements/*.es | \
-grep -v test.es  | \
-while read FILE; do
-  cat "$FILE" >> snuggsi.es
-done
+
+echo
+echo "🚚 Containerizing components ..."
+echo "  👇"
+echo "  🚧 This algorithm will be implemented to minify distribution. (i.e. Docker Containers)"

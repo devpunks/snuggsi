@@ -1,11 +1,25 @@
-./node_modules/.bin/uglifyjs     \
-  --compress                     \
-  --mangle safari10=true         \
-  --output ./dist/snuggsi.min.es \
-  -- ./dist/snuggsi.es
+#!/usr/bin/env bash
 
-./node_modules/.bin/uglifyjs     \
-  --compress                     \
-  --mangle safari10=true         \
-  --output ./dist/snuggsi.min.js \
-  -- ./dist/snuggsi.js
+SHRINK=node_modules/.bin/uglifyjs
+
+
+echo
+echo "🍤  Shrinking..."
+echo "  👇"
+
+
+declare extensions=(es js)
+
+for extension in ${extensions[@]}
+do
+  declare INPUT=dist/snuggsi.$extension
+  declare OUTPUT=dist/snuggsi.min.$extension
+
+  echo "    📃  $INPUT 👉  $OUTPUT"
+
+  $SHRINK                  \
+    --compress             \
+    --mangle safari10=true \
+    --output $OUTPUT       \
+  $INPUT
+done

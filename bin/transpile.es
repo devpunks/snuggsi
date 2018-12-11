@@ -1,7 +1,11 @@
 var
+  { INPUT }
+    = process.env
+
+, encoding = 'UTF-8'
   buble    = require ('buble')
-, contents = require('fs').readFileSync
-    ('./dist/snuggsi.es', {encoding: 'UTF-8'})
+, contents = require('fs')
+    .readFileSync (INPUT, encoding)
 
 , options = {
     transforms: {
@@ -17,7 +21,7 @@ var
     namedFunctionExpressions: false
   }
 
-, result = buble.transform
-    (contents, options)
+, result = buble
+    .transform (contents, options)
 
 console.log (result.code)

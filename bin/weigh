@@ -1,5 +1,33 @@
-# Perhaps weight limit script here
+#!/bin/bash
 
-ls -al ./dist
+MAXIMUM=1500
+DIRECTORY=dist
+LIBRARY=${1:-$DIRECTORY/snuggsi.min.es.br}
 
-bin/validate-weight
+
+ls -al $DIRECTORY
+
+
+echo
+echo "🚏 snuggsiツ Weight Check"
+echo "  ⚠️  Maximum allowable weight 👉  $MAXIMUM OCTETS"
+
+
+OCTETS=$(
+  ls -nl $LIBRARY | \
+  awk '{print $5}'
+) || exit 1
+
+
+echo "  👇"
+echo "  📃  $LIBRARY"
+
+if [[ $OCTETS -gt $MAXIMUM ]]; then
+  echo "    🔴  Weight 👉  $OCTETS OCTETS"
+  echo "      ❌  Overweight by $((OCTETS - MAXIMUM)) OCTETS"
+  echo && exit 1 # ⭕ 🚫 ❌ 🔴 📁
+fi
+
+
+echo "    ✅  Weight 👉  $OCTETS OCTETS"
+echo

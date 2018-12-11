@@ -1,0 +1,44 @@
+const
+  { test }
+    = require ('test')
+
+  , fixture
+    = new (require ('./index.es'))
+
+  , context = {}
+
+
+test ('.get', t => {
+  t.doesNotThrow
+    ( _ => fixture.get (context) )
+
+  t.end ()
+})
+
+test ('.put', t => {
+  fixture.put (context)
+
+  t.equal (200, context.status )
+  t.end ()
+})
+
+test ('.post', t => {
+  fixture.post (context)
+
+  t.equal (200, context.status )
+  t.end ()
+})
+
+test ('.patch', t => {
+  fixture.patch (context)
+
+  t.equal (200, context.status )
+  t.end ()
+})
+
+test ('.delete', t => {
+  fixture.delete (context)
+
+  t.equal (200, context.status )
+  t.end ()
+})

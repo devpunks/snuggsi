@@ -1,10 +1,8 @@
 module.exports = require ('./browser.es')
 
 const
-  path = './'
-
-, BROWSER_PORT =
-    process.env.BROWSER_PORT
+  { DIRECTORY: path, BROWSER_PORT }
+    = process.env
 
 , test     = 'bin/test'
 , bundle   = 'bin/bundle'
@@ -12,7 +10,7 @@ const
 , publish  = 'bin/publish'
 , transpile= 'bin/transpile'
 , clear    = 'tput reset' // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
-, message  = `\n Watching => ${path}🔎 👀 \n`
+, message  = `\n Watching 👉  ${path}🔎 👀 \n`
 , echo     = `printf "${message}" && echo "Last Update $(date)"`
 , validate = 'bin/validate-weight || true'
 
@@ -60,4 +58,3 @@ require ('fs').watch (path, { recursive: true },
 
 console.log (command)
 console.log (message)
-
