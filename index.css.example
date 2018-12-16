@@ -2,5 +2,5 @@
   Using HTML5 Elements in non-HTML5 browsers
     - https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines#Using_HTML5_elements_in_non-HTML5_browsers
 */
-article, aside, footer, header, hgroup, nav, section
+article, aside, footer, header, nav, section
   { display:block }
