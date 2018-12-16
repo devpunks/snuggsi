@@ -19,7 +19,9 @@
 
 <aside></aside>
 
-<footer></footer>
+<footer>
+  <a role=top title='Top of page' href=#>Top</a>
+</footer>
 
 -->
 
