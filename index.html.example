@@ -2,38 +2,8 @@
 
 <meta charset=utf-8>
 
-<title>Category: Describe interface</title>
+<title>Hello World!</title>
 
-<link rel=match href="${2:URL of match}">
-<link rel=help  href=//path/to/specification>
-
-<script src=./resources/testharness.js></script>
-<script src=./resources/testharnessreport.js></script>
-
-<!-- Testing Format http://web-platform-tests.org/appendix/test-templates.html -->
-
-<script>
-/*
-  setup ( {} )
-
-  // Example Group
-
-  test (test => {
-    // Test case
-
-    assert_true (true, 'Test stub works!')
-  }, 'Descriptive test name')
-
-*/
-</script>
-
-
-<style>
-    ${3:Test CSS}
-</style>
-
-
-${4:Test content}
-
-
-<output id=log></output>
+<!--
+  Document and Website Structure - https://developer.mozilla.org/en-US/docs/Learn/HTML/Introduction_to_HTML/Document_and_website_structure
+-->
