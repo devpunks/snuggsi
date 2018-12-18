@@ -279,8 +279,6 @@ void ( _ => {
 
     let slot
 
-    void
-
     [] // distribute attributes
       .slice
       .call (template.attributes)
