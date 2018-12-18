@@ -149,7 +149,7 @@ TokenList.prototype.bind = function (context) {
 //
 // w3c preload Tighter definition of "load was successful"
 // https://github.com/w3c/preload/issues/83
-void (function (_) {
+void ( function (_) {
 
   //create an observer instance
   // Can always default to DOMContentLoaded
@@ -291,6 +291,8 @@ void (function (_) {
       document.importNode (template, true)
 
     var slot
+
+    void
 
     [] // distribute attributes
       .slice
