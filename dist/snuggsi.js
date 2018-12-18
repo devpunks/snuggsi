@@ -292,8 +292,6 @@ void ( function (_) {
 
     var slot
 
-    void
-
     [] // distribute attributes
       .slice
       .call (template.attributes)
