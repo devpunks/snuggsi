@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-declare -r  SNUGGSI=${SNUGGSI:-3000}
 declare -rx DIRECTORY=${1:-`pwd`}
+declare -r  SNUGGSI=${SNUGGSI:-3000}
 declare -r  WATCH=$SNUGGSI/watch/index.es
 
 
