@@ -31,7 +31,7 @@ const GlobalEventHandlers = Element =>
 
 (class extends Element {
 
-  onconnect () {
+  onconnect (event) {
 
     this.templates =
       this
@@ -42,7 +42,7 @@ const GlobalEventHandlers = Element =>
       new TokenList (this)
 
     super.onconnect
-      && super.onconnect ()
+      && super.onconnect (event)
   }
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
