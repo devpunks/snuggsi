@@ -7,8 +7,8 @@ WATCH=$SNUGGSI/watch/index.es
 
 echo
 echo "💪  Watching for changes..."
-echo "  👇"
-echo "  📁  $DIRECTORY"
+echo 
+echo " 👉  📗  $DIRECTORY"
 
 
 node \
