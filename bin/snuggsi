@@ -35,6 +35,6 @@ for RESOURCE in $RESOURCES
     if [[ -d $RESOURCE ]]; then
       echo " ➡ 📁  $RESOURCE"
     else
-      echo NO DIRECTORY $RESOURCE
+      echo $RESOURCE NOT A DIRECTORY
     fi
   done
