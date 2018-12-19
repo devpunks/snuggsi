@@ -1,11 +1,11 @@
 #!/usr/bin/env bash
 
 echo
-echo "  ツツツツツツツツツツツツツツツツツツツツ "
-echo "  ツツツツツツ                  ツツツツツ "
-echo "  ツツツツツツ     snuggsi ツ   ツツツツツ "
-echo "  ツツツツツツ                  ツツツツツ "
-echo "  ツツツツツツツツツツツツツツツツツツツツ "
+echo "  ツツツツツツツツツツツツツツツツツツツ "
+echo "  ツツツツツ                  ツツツツツ "
+echo "  ツツツツツ     snuggsi ツ   ツツツツツ "
+echo "  ツツツツツ                  ツツツツツ "
+echo "  ツツツツツツツツツツツツツツツツツツツ "
 echo
 
 export RESOURCES=("${@:2}")
