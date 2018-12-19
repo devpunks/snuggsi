@@ -5,7 +5,7 @@ declare -r  SNUGGSI=${SNUGGSI:-3000}
 declare -r  WATCHER=$SNUGGSI/watch/index.es
 
 echo
-echo "💪  Watching Resources for changes..."
+echo " 👀  Watching Resources for changes..."
 
 
 node $WATCHER
