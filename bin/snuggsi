@@ -10,7 +10,7 @@ echo
 
 
 declare -r  ENTRY=`dirname $(readlink $BASH_SOURCE)`
-declare -rx BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
+declare -r  BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
 declare -rx SNUGGSI=$(dirname $BIN)
 declare -r  COMMAND="$BIN/$1"
 declare -rx RESOURCES=("${@:2}")
