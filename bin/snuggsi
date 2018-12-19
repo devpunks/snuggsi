@@ -21,7 +21,6 @@ export COMMAND="$BIN/$1"
 export DIRECTORY="$2"
 
 echo SNUGGSI: $SNUGGSI
-echo SCRIPT: $SCRIPT
 echo PARAMS: $PARAMS
 echo PARAMS Lenth: ${#@}
 
