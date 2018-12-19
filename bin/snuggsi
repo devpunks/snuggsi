@@ -8,7 +8,7 @@ echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツツツツツツツツツツツツツツツ "
 
 
-declare -r ENTRY=`dirname $(readlink $BASH_SOURCE)`
+declare -r  ENTRY=`dirname $(readlink $BASH_SOURCE)`
 declare -rx BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
 declare -rx SNUGGSI=$(dirname $BIN)
 declare -r COMMAND="$BIN/$1"
