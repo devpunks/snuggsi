@@ -515,7 +515,7 @@ var GlobalEventHandlers = function (Element) { return (/*@__PURE__*/(function (E
     anonymous.prototype = Object.create( Element && Element.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.onconnect = function () {
+    anonymous.prototype.onconnect = function (event) {
 
     this.templates =
       this
@@ -526,7 +526,7 @@ var GlobalEventHandlers = function (Element) { return (/*@__PURE__*/(function (E
       new TokenList (this)
 
     Element.prototype.onconnect
-      && Element.prototype.onconnect.call (this)
+      && Element.prototype.onconnect.call (this, event)
   };
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
@@ -586,8 +586,16 @@ var Custom = function (Element) { return ( /*@__PURE__*/(function (superclass) {
       .getOwnPropertyNames (Element.prototype)
       .map (this.reflect, this)
 
-    this.onconnect ()
-    this.render    ()
+    this.addEventListener
+      ('connect', this.onconnect)
+ 
+    this.addEventListener.call
+      (this, 'idle', superclass.prototype.onidle)
+
+    this.dispatchEvent
+      (new Event ('connect'))
+
+    this.render ()
   };
 
 
@@ -612,7 +620,8 @@ var Custom = function (Element) { return ( /*@__PURE__*/(function (superclass) {
       .selectAll ('*')
       .map (this.register, this)
 
-    superclass.prototype.onidle && superclass.prototype.onidle.call (this)
+    this.dispatchEvent
+      (new Event ('idle'))
   };
 
     return anonymous;
