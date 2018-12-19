@@ -9,12 +9,13 @@ declare -r   SERVE=$SNUGGSI/bin/serve
 declare -r   WATCH=$SNUGGSI/bin/watch
 declare -r   BROWSE="$BROWSER start $CONFIGURATION"
 
-echo PORT $PORT
-echo BROWSER PORT $BROWSER_PORT
-echo SNUGGSI $SNUGGSI
-echo BROWSER $BROWSER
+echo PORT           $PORT
+echo BROWSER PORT   $BROWSER_PORT
+echo SNUGGSI        $SNUGGSI
+echo BROWSER        $BROWSER
 echo CONFIGURATION  $CONFIGURATION
-echo BROWSE  $BROWSE
-echo WATCH   $WATCH
+echo BROWSE         $BROWSE
+echo WATCH          $WATCH
+
 
 $SERVE $DIRECTORY & $WATCH & $BROWSE
