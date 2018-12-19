@@ -7,7 +7,7 @@ echo "  ツツツツツ     snuggsi ツ   ツツツツツ "
 echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツツツツツツツツツツツツツツツ "
 
-export ENTRY=`dirname $(readlink $BASH_SOURCE)`
+declare -r ENTRY=`dirname $(readlink $BASH_SOURCE)`
 export BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
 export SNUGGSI=$(dirname $BIN)
 export COMMAND="$BIN/$1"
