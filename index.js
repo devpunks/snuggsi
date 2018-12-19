@@ -120,13 +120,17 @@ TokenList.prototype.bind = function (context) {
   for (var symbol in this) {
     console.log ('symbol', symbol)
 
-    this [symbol]
+    symbol
+      != 'bind'
+      && this [symbol]
       .map (function (node) { return (node.textContent = node.text) && node; })
   }
 
 
   for (var symbol$1 in this)
-    { this [symbol$1]
+    { symbol$1
+      != 'bind'
+      && this [symbol$1]
       // more than one occurrence
       .map (tokenize (symbol$1)) }
 };
