@@ -22,7 +22,7 @@ if [ -e $SCRIPT ] #if test snuggsi != "$1" && [ -e $SCRIPT ]
 then
   $COMMAND $DIRECTORY
 else
-  echo 🔴 Invalid command
+  echo "🔴  Invalid command"
 fi
 
 for RESOURCE in $RESOURCES
