@@ -15,8 +15,6 @@ git commit -m":muscle: bump MINIFIED distribution dist/snuggsi.min.es"
 # THIS IS A HACK due to unpkg.com not supporting application/ecmascript
 # See https://github.com/devpunks/snuggsi/issues/174
 cp dist/snuggsi.min.es dist/snuggsi.min.es.js
-# Make unpkg.com happy https://unpkg.com
-cp dist/snuggsi.min.es index.js
 
 git add dist/snuggsi.min.es.js
 git commit -m":muscle: bump ??? distribution index.js"
@@ -34,6 +32,9 @@ git add dist/snuggsi.min.es.zo
 git commit -m":muscle: bump ZLIB distribution dist/snuggsi.min.es.zo"
 
 
+
+# Make unpkg.com happy https://unpkg.com
+cp dist/snuggsi.min.js index.js
 
 git add dist/snuggsi.js
 git commit -m":muscle: bump TRANSPILED distribution dist/snuggsi.js"
