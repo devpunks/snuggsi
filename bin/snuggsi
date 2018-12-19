@@ -21,7 +21,7 @@ if test -f $COMMAND #if test snuggsi != "$1" && [ -e $SCRIPT ]
     $COMMAND $DIRECTORY
   else
     echo "🔴  Invalid command"
-  fi
+fi
 
 
 for RESOURCE in ${RESOURCES[@]}
