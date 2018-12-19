@@ -8,7 +8,8 @@ echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツツツツツツツツツツツツツツツ "
 
 declare -r ENTRY=`dirname $(readlink $BASH_SOURCE)`
-export BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
+declare -rx BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
+
 export SNUGGSI=$(dirname $BIN)
 export COMMAND="$BIN/$1"
 export RESOURCES=("${@:2}")
