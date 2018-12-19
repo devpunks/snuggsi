@@ -20,7 +20,6 @@ export SNUGGSI=$(dirname $BIN)
 export COMMAND="$BIN/$1"
 export DIRECTORY="$2"
 
-echo BASH SOURCE: $BASH_SOURCE
 echo ENTRY: $ENTRY
 echo BIN: $BIN
 echo SNUGGSI: $SNUGGSI
