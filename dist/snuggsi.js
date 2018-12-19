@@ -88,8 +88,6 @@ var TokenList = function (node) {
         || collect (node); }
 
   , collect = function (node) {
-      console.log ('text content', node.textContent);
-
       /{(\w+|#)}/.test (node.textContent)
         && (node.text = node.textContent)
             .match (/[^{]+(?=})/g)
