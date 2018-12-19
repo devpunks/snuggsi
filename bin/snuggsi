@@ -36,7 +36,7 @@ for PARAM in $PARAMS
     echo The Param $PARAM
 
     if [[ -d $PARAM ]]; then
-      echo FOUND DIRECTORY $PARAM
+      echo " - 📁  $PARAM"
     else
       echo NO DIRECTORY $PARAM
     fi
