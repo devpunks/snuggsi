@@ -9,8 +9,8 @@ const
 , transpile = `$SNUGGSI/bin/transpile`
 , clear     = `$SNUGGSI/tput reset` // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , message   = `\n Watching 👉  ${path}🔎 👀 \n`
-, echo     = `printf "${message}" && echo "Last Update $(date)"`
-, validate = 'bin/validate-weight || true'
+, echo      = `printf "${message}" && echo "Last Update $(date)"`
+, validate  = 'bin/validate-weight || true'
 
 , exec = require ('child_process').exec
 
