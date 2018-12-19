@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# https://unix.stackexchange.com/questions/17499/get-path-of-current-script-when-executed-through-a-symlink
-
 echo
 echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
 echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
