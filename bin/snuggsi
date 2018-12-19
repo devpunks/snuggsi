@@ -22,14 +22,15 @@ export DIRECTORY="$2"
 
 echo SNUGGSI: $SNUGGSI
 echo RESOURCES ${RESOURCES[@]}
-echo "RESOURCES Length ${#RESOURCES[*]}"
+echo "RESOURCES Length ${#RESOURCES[@]}"
 
-if [ snuggsi != "$1" ] && [ -e $SCRIPT ]
-  then
-    $COMMAND $DIRECTORY
-  else
-    echo 🔴 Invalid command
-  fi
+#if test snuggsi != "$1" && [ -e $SCRIPT ]
+if [ -e $SCRIPT ]
+then
+  $COMMAND $DIRECTORY
+else
+  echo 🔴 Invalid command
+fi
 
 for RESOURCE in $RESOURCES
   do
