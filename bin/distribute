@@ -17,9 +17,6 @@ git commit -m":muscle: bump MINIFIED distribution dist/snuggsi.min.es"
 cp dist/snuggsi.min.es dist/snuggsi.min.es.js
 
 git add dist/snuggsi.min.es.js
-git commit -m":muscle: bump ??? distribution index.js"
-
-git add index.js
 git commit -m":muscle: bump ??? distribution dist/snuggsi.min.es.js"
 
 git add dist/snuggsi.min.es.br
@@ -35,6 +32,8 @@ git commit -m":muscle: bump ZLIB distribution dist/snuggsi.min.es.zo"
 
 # Make unpkg.com happy https://unpkg.com
 cp dist/snuggsi.min.js index.js
+git add index.js
+git commit -m":muscle: bump ??? distribution index.js"
 
 git add dist/snuggsi.js
 git commit -m":muscle: bump TRANSPILED distribution dist/snuggsi.js"
