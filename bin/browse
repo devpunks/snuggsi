@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -rx  ROOT=${1:-`pwd`}
+declare -rx  DIRECTORY=${1:-`pwd`} # default working directory to current location
 declare -irx PORT=${PORT:-3000}
 declare -irx BROWSER_PORT=$PORT+1
 declare -r   BROWSER=$SNUGGSI/node_modules/.bin/browser-sync
@@ -18,4 +18,4 @@ echo CONFIGURATION  $CONFIGURATION
 echo BROWSE  $BROWSE
 echo WATCH   $WATCH
 
-$SERVE $ROOT & $WATCH & $BROWSE
+$SERVE $DIRECTORY & $WATCH & $BROWSE
