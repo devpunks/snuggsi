@@ -47,7 +47,7 @@ git commit -m":muscle: bump ZLIB distribution dist/snuggsi.min.js.zo"
 
 
 echo "  👊 Bumping package.json version"
-$(pwd && echo && npm version patch)
+$(`pwd` && echo && npm version patch)
 
 
 echo "  🆕 Publishing library to npm directory."
