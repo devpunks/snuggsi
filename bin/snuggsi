@@ -19,6 +19,7 @@ function execute {
   local command=$1
 
   echo COMMANDDDD $command
+  echo RESOURCES $resources
 }
 
 
