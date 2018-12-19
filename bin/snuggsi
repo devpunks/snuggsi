@@ -17,11 +17,11 @@ export DIRECTORY="$2"
 
 
 if test -f $COMMAND #if test snuggsi != "$1" && [ -e $SCRIPT ]
-then
-  $COMMAND $DIRECTORY
-else
-  echo "🔴  Invalid command"
-fi
+  then
+    $COMMAND $DIRECTORY
+  else
+    echo "🔴  Invalid command"
+  fi
 
 
 for RESOURCE in ${RESOURCES[@]}
