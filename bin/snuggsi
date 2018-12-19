@@ -22,8 +22,8 @@ export DIRECTORY="$2"
 
 echo SNUGGSI: $SNUGGSI
 echo RESOURCES ${RESOURCES[@]}
-echo RESOURCES Length ${#RESOURCES}
-echo RESOURCE ${RESOURCES[@]}
+echo "RESOURCES Length ${#RESOURCES[*]}"
+echo RESOURCES ${RESOURCES[@]}
 
 if [ snuggsi != "$1" ] && [ -e $SCRIPT ]
   then
