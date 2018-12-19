@@ -563,7 +563,7 @@ const GlobalEventHandlers = Element =>
 
 (class extends Element {
 
-  onconnect () {
+  onconnect (event) {
 
     this.templates =
       this
@@ -574,7 +574,7 @@ const GlobalEventHandlers = Element =>
       new TokenList (this)
 
     super.onconnect
-      && super.onconnect ()
+      && super.onconnect (event)
   }
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
@@ -628,8 +628,16 @@ const Custom = Element => // why buble
       .getOwnPropertyNames (Element.prototype)
       .map (this.reflect, this)
 
-    this.onconnect ()
-    this.render    ()
+    this.addEventListener
+      ('connect', this.onconnect)
+ 
+    this.addEventListener
+      ('idle', super.onidle)
+
+    this.dispatchEvent
+      (new Event ('connect'))
+
+    this.render ()
   }
 
 
@@ -650,7 +658,8 @@ const Custom = Element => // why buble
       .selectAll ('*')
       .map (this.register, this)
 
-    super.onidle && super.onidle ()
+    this.dispatchEvent
+      (new Event ('idle'))
   }
 
 })
