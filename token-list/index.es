@@ -56,13 +56,17 @@ class TokenList {
     for (let symbol in this) {
       console.log ('symbol', symbol)
 
-      this [symbol]
+      symbol
+        != 'bind'
+        && this [symbol]
         .map (node => (node.textContent = node.text) && node)
     }
 
 
     for (let symbol in this)
-      this [symbol]
+      symbol
+        != 'bind'
+        && this [symbol]
         // more than one occurrence
         .map (tokenize (symbol))
   }
