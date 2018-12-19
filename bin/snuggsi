@@ -39,14 +39,4 @@ if test -f $COMMAND && \
     echo "🔴  Invalid command"
 fi
 
-
-for RESOURCE in ${RESOURCES[@]}
-  do
-    if [[ -d $RESOURCE ]]; then
-      echo " ➡ 📁  $RESOURCE"
-    else
-      echo "🔴  $RESOURCE NOT A DIRECTORY"
-    fi
-  done
-
 echo
