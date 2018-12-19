@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-# https://unix.stackexchange.com/questions/122845/using-a-b-for-variable-assignment-in-scripts
-
 export ROOT=${1:-`pwd`}
 export PORT=${PORT:-3000}
 export BROWSER_PORT=$((PORT+1))
