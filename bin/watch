@@ -1,7 +1,8 @@
 #!/usr/bin/env bash
 
-WATCH=watch/index.es
+declare -r SNUGGSI=${SNUGGSI:-3000}
 export DIRECTORY=${1:-`pwd`}
+WATCH=watch/index.es
 
 
 echo
