@@ -15,7 +15,6 @@ export SNUGGSI=$(dirname $BIN)
 export COMMAND="$BIN/$1"
 
 
-#if test -f $COMMAND
 if test -f $COMMAND && \
    test snuggsi != "$1"
   then
