@@ -89,8 +89,6 @@ class TokenList {
           || collect (node)
 
     , collect = node => {
-        console.log ('text content', node.textContent);
-
         /{(\w+|#)}/.test (node.textContent)
           && (node.text = node.textContent)
               .match (/[^{]+(?=})/g)
