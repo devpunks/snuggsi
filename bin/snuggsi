@@ -8,17 +8,23 @@ echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツツツツツツツツツツツツツツツ "
 echo
 
-export RESOURCES=("${@:2}")
 export ENTRY=`dirname $(readlink $BASH_SOURCE)`
 export BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
 export SNUGGSI=$(dirname $BIN)
 export COMMAND="$BIN/$1"
 
 
+function execute {
+  local command=$1
+
+  echo COMMANDDDD $command
+}
+
+
 if test -f $COMMAND && \
    test snuggsi != "$1"
   then
-    echo SUCCESS! #$COMMAND $RESOURCES
+    execute $RESOURCES
   else
     echo "🔴  Invalid command"
 fi
