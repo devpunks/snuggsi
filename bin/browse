@@ -3,7 +3,6 @@
 declare -rx  ROOT=${1:-`pwd`}
 declare -irx PORT=${PORT:-3000}
 declare -irx BROWSER_PORT=$PORT+1
-
 declare -r BROWSER=$SNUGGSI/node_modules/.bin/browser-sync
 declare -r CONFIGURATION="--config $SNUGGSI/watch/browser.es"
 declare -r BROWSE="$BROWSER start $CONFIGURATION"
