@@ -16,9 +16,8 @@ export COMMAND="$BIN/$1"
 
 function execute {
   local resources=("${@:2}")
-  local command=$1
 
-  echo COMMANDDDD $command
+  echo COMMANDDDD $COMMAND
   echo RESOURCES $resources
 }
 
