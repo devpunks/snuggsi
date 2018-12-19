@@ -11,7 +11,7 @@ echo "  ツツツツツツツツツツツツツツツツツツツ "
 declare -r  ENTRY=`dirname $(readlink $BASH_SOURCE)`
 declare -rx BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
 declare -rx SNUGGSI=$(dirname $BIN)
-declare -r COMMAND="$BIN/$1"
+declare -r  COMMAND="$BIN/$1"
 declare -rx RESOURCES=("${@:2}")
 
 
