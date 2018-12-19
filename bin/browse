@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export ROOT=${1:-`pwd`}
+declare -x ROOT=${1:-`pwd`}
 export PORT=${PORT:-3000}
 export BROWSER_PORT=$((PORT+1))
 
