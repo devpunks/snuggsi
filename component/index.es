@@ -16,8 +16,16 @@ const Custom = Element => // why buble
       .getOwnPropertyNames (Element.prototype)
       .map (this.reflect, this)
 
-    this.onconnect ()
-    this.render    ()
+    this.addEventListener
+      ('connect', this.onconnect)
+ 
+    this.addEventListener
+      ('idle', super.onidle)
+
+    this.dispatchEvent
+      (new Event ('connect'))
+
+    this.render ()
   }
 
 
@@ -38,7 +46,8 @@ const Custom = Element => // why buble
       .selectAll ('*')
       .map (this.register, this)
 
-    super.onidle && super.onidle ()
+    this.dispatchEvent
+      (new Event ('idle'))
   }
 
 })
