@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-declare -x ROOT=${1:-`pwd`}
-declare -x PORT=${PORT:-3000}
-declare -x BROWSER_PORT=$((PORT+1))
+declare -rx ROOT=${1:-`pwd`}
+declare -rx PORT=${PORT:-3000}
+declare -rx BROWSER_PORT=$((PORT+1))
 
 declare -r BROWSER=./node_modules/.bin/browser-sync
 declare -r CONFIGURATION="--config watch/browser.es"
