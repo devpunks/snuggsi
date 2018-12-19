@@ -38,6 +38,6 @@ for PARAM in $PARAMS
     if [[ -d $PARAM ]]; then
       echo $PARAM
     else
-      echo "NO DIRECTORY $PARAM"
+      echo NO DIRECTORY $PARAM
     fi
   done
