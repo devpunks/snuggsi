@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-export NODE_PATH=`pwd`
-export PORT=${PORT:-3000}
-export DIRECTORY=${1:-`pwd`} # default working directory to current location
+declare -x NODE_PATH=`pwd`
+declare -x PORT=${PORT:-3000}
+declare -x DIRECTORY=${1:-`pwd`} # default working directory to current location
 
 node           \
   --require $SNUGGSI \
