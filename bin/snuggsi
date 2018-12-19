@@ -18,7 +18,7 @@ export DIRECTORY="$2"
 
 if test -f $COMMAND #if test snuggsi != "$1" && [ -e $SCRIPT ]
   then
-    $COMMAND $DIRECTORY
+    echo SUCCESS! #$COMMAND $DIRECTORY
   else
     echo "🔴  Invalid command"
 fi
