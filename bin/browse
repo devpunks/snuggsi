@@ -11,6 +11,7 @@ declare -r WATCH="bin/watch"
 
 echo SNUGGSI $SNUGGSI
 echo BROWSE $BROWSE
+echo WATCH $WATCH
 
 bin/serve $ROOT \
   & $BROWSE     \
