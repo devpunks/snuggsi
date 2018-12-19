@@ -26,8 +26,6 @@ fi
 
 for RESOURCE in ${RESOURCES[@]}
   do
-    echo The Resource $RESOURCE
-
     if [[ -d $RESOURCE ]]; then
       echo " ➡ 📁  $RESOURCE"
     else
