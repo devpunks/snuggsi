@@ -9,8 +9,7 @@ echo "  ツツツツツツツツツツツツツツツツツツツ "
 
 declare -r ENTRY=`dirname $(readlink $BASH_SOURCE)`
 declare -rx BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
-
-export SNUGGSI=$(dirname $BIN)
+declare -rx SNUGGSI=$(dirname $BIN)
 export COMMAND="$BIN/$1"
 export RESOURCES=("${@:2}")
 
