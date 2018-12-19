@@ -5,4 +5,4 @@ echo "🚢  Deploying to Heroku"
 echo "  👇"
 
 heroku config:set NPM_CONFIG_PRODUCTION=true # https://devcenter.heroku.com/articles/nodejs-support#package-installation
-git push heroku master
+git push -f heroku master
