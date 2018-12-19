@@ -38,7 +38,7 @@ function execute {
 
 
 if test -f $COMMAND && \
-   test snuggsi != "$1"
+   test snuggsi != $1
 
   then
     execute
