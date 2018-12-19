@@ -5,6 +5,7 @@
 export ROOT=${1:-`pwd`}
 export PORT=${PORT:-3000}
 export BROWSER_PORT=$((PORT+1))
+export BROWSER_UI_PORT=$((BROWSER_PORT+1))
 
 BROWSER=./node_modules/.bin/browser-sync
 CONFIGURATION="--config watch/browser.es"
