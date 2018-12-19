@@ -12,6 +12,7 @@ export ENTRY=`dirname $(readlink $BASH_SOURCE)`
 export BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
 export SNUGGSI=$(dirname $BIN)
 export COMMAND="$BIN/$1"
+export RESOURCES=("${@:2}")
 
 
 function execute {
