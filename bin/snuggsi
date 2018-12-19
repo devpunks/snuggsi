@@ -21,8 +21,7 @@ echo SNUGGSI: $SNUGGSI
 echo RESOURCES ${RESOURCES[@]}
 echo "RESOURCES Length ${#RESOURCES[@]}"
 
-#if test snuggsi != "$1" && [ -e $SCRIPT ]
-if [ -e $SCRIPT ]
+if [ -e $SCRIPT ] #if test snuggsi != "$1" && [ -e $SCRIPT ]
 then
   $COMMAND $DIRECTORY
 else
