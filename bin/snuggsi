@@ -33,7 +33,6 @@ if [ snuggsi != "$1" ] && [ -e $SCRIPT ]
 
 for PARAM in PARAMS
   do
-  # if [[ $PARAM == -* ]
     if [[ -d $PARAM ]]; then
       echo $PARAM
     else
