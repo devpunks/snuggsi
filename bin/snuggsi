@@ -20,7 +20,7 @@ export DIRECTORY="$2"
 if test -f $COMMAND && \
    test snuggsi != "$1"
   then
-    echo SUCCESS! #$COMMAND $DIRECTORY
+    echo SUCCESS! #$COMMAND $RESOURCES
   else
     echo "🔴  Invalid command"
 fi
