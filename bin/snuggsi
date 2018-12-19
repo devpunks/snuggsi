@@ -33,3 +33,5 @@ for RESOURCE in ${RESOURCES[@]}
       echo "🔴  $RESOURCE NOT A DIRECTORY"
     fi
   done
+
+echo
