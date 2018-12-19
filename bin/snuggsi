@@ -17,12 +17,8 @@ PARAMS=$@
 export ENTRY=`dirname $(readlink $BASH_SOURCE)`
 export BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
 export SNUGGSI=$(dirname $BIN)
-export SCRIPT="$BIN/$1"
+export COMMAND="$BIN/$1"
 export DIRECTORY="$2"
-
-function execute {
-  $SCRIPT $DIRECTORY
-}
 
 echo BASH SOURCE: $BASH_SOURCE
 echo ENTRY: $ENTRY
