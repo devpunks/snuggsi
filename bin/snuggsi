@@ -17,7 +17,7 @@ export RESOURCES=("${@:2}")
 
 function execute {
   echo COMMAND $COMMAND
-  echo RESOURCES $RESOURCES
+  echo RESOURCES ${RESOURCES[@]}
 }
 
 
