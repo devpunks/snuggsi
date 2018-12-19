@@ -30,7 +30,7 @@ echo PARAMS Lenth: ${#@}
 
 if [ snuggsi != "$1" ] && [ -e $SCRIPT ]
   then
-    execute
+    $COMMAND $DIRECTORY
   else
     echo 🔴 Invalid command
   fi
