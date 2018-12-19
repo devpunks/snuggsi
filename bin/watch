@@ -10,4 +10,4 @@ echo
 echo " 👉  📗  $DIRECTORY"
 
 
-node $WATCH
+node $WATCHER
