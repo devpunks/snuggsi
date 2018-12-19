@@ -18,7 +18,7 @@ function execute {
   echo
   echo "📚  RESOURCES"
   echo
-  printf ' 👉  📁  %s\n' "${RESOURCES[@]}"
+  printf ' 👉  📗  %s\n' "${RESOURCES[@]}"
   echo
 
 
