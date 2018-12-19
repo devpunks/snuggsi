@@ -2,7 +2,7 @@
 
 declare -x ROOT=${1:-`pwd`}
 declare -x PORT=${PORT:-3000}
-export BROWSER_PORT=$((PORT+1))
+declare -x BROWSER_PORT=$((PORT+1))
 
 BROWSER=./node_modules/.bin/browser-sync
 CONFIGURATION="--config watch/browser.es"
