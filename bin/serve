@@ -4,6 +4,6 @@ declare -rx NODE_PATH=`pwd`
 declare -rx PORT=${PORT:-3000}
 declare -rx DIRECTORY=${1:-`pwd`} # default working directory to current location
 
-node           \
-  --require $SNUGGSI \
+node                  \
+  --require $SNUGGSI  \
 $SNUGGSI/bin/serve.es
