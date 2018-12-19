@@ -15,7 +15,6 @@ export SNUGGSI=$(dirname $BIN)
 export COMMAND="$BIN/$1"
 export DIRECTORY="$2"
 
-echo SNUGGSI: $SNUGGSI
 echo RESOURCES ${RESOURCES[@]}
 echo "RESOURCES Length ${#RESOURCES[@]}"
 
