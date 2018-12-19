@@ -2,7 +2,7 @@
 
 declare -r  SNUGGSI=${SNUGGSI:-3000}
 declare -rx DIRECTORY=${1:-`pwd`}
-WATCH=$SNUGGSI/watch/index.es
+declare -r  WATCH=$SNUGGSI/watch/index.es
 
 
 echo
