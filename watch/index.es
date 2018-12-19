@@ -16,8 +16,7 @@ const
 
 , reload =
     BROWSER_PORT
-      && './node_modules/.bin/browser-sync reload --port='
-        + BROWSER_PORT
+      && `$SNUGGSI/node_modules/.bin/browser-sync reload --port=$BROWSER_PORT`
 
 , command =
     [ bundle, transpile, shrink, publish, reload, clear, echo, test, validate ]
