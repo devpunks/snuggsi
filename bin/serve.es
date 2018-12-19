@@ -5,13 +5,15 @@ const
 , { route }
     = require ('../middleware')
 
-, { DIRECTORY: directory }
+, { DIRECTORY: directory, EXAMPLES: examples }
     = process.env
 
 , middleware = [
-    route (`/examples/`, Resource `/examples/`)
-  , route (`/hello/`, Resource `/resource/fixtures/`)
+//, route (`/hello/`, Resource `/resource/fixtures/`)
   ]
+
+  examples && middkeware.push
+    ( route (`/examples/`, Resource (examples)) )
 
 
 void (new Server (middleware))
