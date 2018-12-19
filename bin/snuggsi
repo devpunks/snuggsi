@@ -16,7 +16,8 @@ export COMMAND="$BIN/$1"
 export DIRECTORY="$2"
 
 
-if test -f $COMMAND #if test snuggsi != "$1" && [ -e $SCRIPT ]
+#if test -f $COMMAND
+if test snuggsi != "$1"
   then
     echo SUCCESS! #$COMMAND $DIRECTORY
   else
