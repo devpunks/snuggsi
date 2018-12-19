@@ -4,10 +4,10 @@ declare -x ROOT=${1:-`pwd`}
 declare -x PORT=${PORT:-3000}
 declare -x BROWSER_PORT=$((PORT+1))
 
-declare BROWSER=./node_modules/.bin/browser-sync
-declare CONFIGURATION="--config watch/browser.es"
-declare BROWSE="$BROWSER start $CONFIGURATION"
-declare WATCH="bin/watch"
+declare -r BROWSER=./node_modules/.bin/browser-sync
+declare -r CONFIGURATION="--config watch/browser.es"
+declare -r BROWSE="$BROWSER start $CONFIGURATION"
+declare -r WATCH="bin/watch"
 
 echo $BROWSE
 
