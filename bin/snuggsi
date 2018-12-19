@@ -23,6 +23,7 @@ else
   echo "🔴  Invalid command"
 fi
 
+
 for RESOURCE in ${RESOURCES[@]}
   do
     echo The Resource $RESOURCE
