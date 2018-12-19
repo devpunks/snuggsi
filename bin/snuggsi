@@ -31,7 +31,7 @@ if [ snuggsi != "$1" ] && [ -e $SCRIPT ]
     echo 🔴 Invalid command
   fi
 
-for PARAM in PARAMS
+for PARAM in $PARAMS
   do
     echo The Param $PARAM
 
