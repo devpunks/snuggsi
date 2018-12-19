@@ -1,0 +1,81 @@
+:root {
+  --rem: 3.8vw;
+  --margin: 0 2vw;
+  --text-align: center;
+  --paragraph-margin: 0 1.4em 1.612em
+}
+
+@media screen and (min-width: 786px) {
+  :root {
+    --rem:    2.0vw;
+    --margin: 0 15vw;
+    --text-align: left
+  }
+}
+
+:root {
+  --background:     rgba(10,10,10, 0.8);
+
+  --color:          rgba(240,240,240, 0.8);
+  --lightest-color: rgba(255,255,255,0.9);
+  --lighter-color:  rgba(245,245,245,0.8);
+  --darker-color:   rgba(200,200,200, 0.8);
+  --darkest-color:  rgba(180,180,180, 0.7);
+
+  --link:           rgba(100,100,240,0.8);
+  --hover-link:     rgba(150,150,240,1.0)
+}
+
+html {
+  color: var(--color);
+  background: var(--background);
+
+  letter-spacing: -0.02em;
+  unicode-range: U+0-10FFFF;
+  text-align: var(--text-align);
+
+  line-height: 1.612em;
+  font-stretch: normal;
+  font-variant: normal;
+  font-size: var(--rem);
+  font-size-adjust: 0.5;
+  font-feature-settings: normal;
+  font-family: 'Ubuntu', sans-serif
+}
+
+html * {
+  margin:0;
+  padding: 0.02px 0
+}
+
+body { padding: 1.612em 0 }
+
+body > *, body > header > p {
+  margin: var(--margin);
+  margin-bottom: 1.612em
+}
+
+body > header {
+  text-align: center;
+  margin: 0 0 1.612em
+}
+
+a:link,
+a:active,
+a:visited {
+  color: var(--link);
+  text-decoration: none;
+  border-bottom: .1em solid var(--link)
+}
+
+a:hover {
+  color: var(--hover-link);
+  border-color: .1em solid var(--hover-link)
+}
+
+p { margin: var(--paragraph-margin) }
+img { width: 100%; height: auto }
+
+// https://zellwk.com/blog/why-vertical-rhythms
+// http://mikeyanderson.com/optimal_characters_per_line
+// https://pearsonified.com/2011/12/golden-ratio-typography.php
