@@ -25,7 +25,7 @@ else
   echo "🔴  Invalid command"
 fi
 
-for RESOURCE in $RESOURCES
+for RESOURCE in ${RESOURCES[@]}
   do
     echo The Resource $RESOURCE
 
