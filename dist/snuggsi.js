@@ -117,14 +117,11 @@ TokenList.prototype.bind = function (context) {
         .join(context [symbol])); }; }
 
 
-  for (var symbol in this) {
-    console.log ('symbol', symbol)
-
-    symbol
+  for (var symbol in this)
+    { symbol
       != 'bind'
       && this [symbol]
-      .map (function (node) { return (node.textContent = node.text) && node; })
-  }
+      .map (function (node) { return (node.textContent = node.text) && node; }) }
 
 
   for (var symbol$1 in this)
