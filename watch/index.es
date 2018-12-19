@@ -1,5 +1,3 @@
-module.exports = require ('./browser.es')
-
 const
   { DIRECTORY: path, BROWSER_PORT }
     = process.env
