@@ -25,6 +25,7 @@ echo SNUGGSI: $SNUGGSI
 echo PARAMS: $PARAMS
 echo PARAMS Lenth: ${#@}
 echo RESOURCES ${RESOURCES[*]}
+echo RESOURCES Length ${#RESOURCES}
 
 if [ snuggsi != "$1" ] && [ -e $SCRIPT ]
   then
