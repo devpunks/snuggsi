@@ -13,7 +13,6 @@ echo "  ツツツツツツツツツツツツツツツツツツツツツツツツ
 echo "  ツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツツ"
 echo
 
-PARAMS=$@
 RESOURCES=("${@:2}")
 export ENTRY=`dirname $(readlink $BASH_SOURCE)`
 export BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
