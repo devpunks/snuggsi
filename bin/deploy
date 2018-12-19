@@ -4,5 +4,5 @@ echo
 echo "🚢  Deploying to Heroku"
 echo "  👇"
 
-
+heroku config:set NPM_CONFIG_PRODUCTION=true
 git push heroku master
