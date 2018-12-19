@@ -16,10 +16,9 @@ export RESOURCES=("${@:2}")
 
 
 function execute {
-  local resources=("${@:2}")
 
   echo COMMANDDDD $COMMAND
-  echo RESOURCES $resources
+  echo RESOURCES $@
 }
 
 
