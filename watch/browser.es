@@ -1,4 +1,3 @@
-console.warn (process.env)
 module.exports =
 {
   files     : []
