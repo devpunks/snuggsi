@@ -17,7 +17,8 @@ export DIRECTORY="$2"
 
 
 #if test -f $COMMAND
-if test snuggsi != "$1"
+if test -f $COMMAND && \
+   test snuggsi != "$1"
   then
     echo SUCCESS! #$COMMAND $DIRECTORY
   else
