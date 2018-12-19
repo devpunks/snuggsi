@@ -25,7 +25,6 @@ function execute {
   for RESOURCE in ${RESOURCES[@]}
     do
       if [[ -d $RESOURCE ]]; then
-        echo " ➡ 📁  $RESOURCE"
         $COMMAND $RESOURCE
       else
         echo "🔴  $RESOURCE NOT A DIRECTORY"
