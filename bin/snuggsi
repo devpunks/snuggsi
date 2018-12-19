@@ -16,7 +16,7 @@ export RESOURCES=("${@:2}")
 
 function execute {
   echo
-  echo "📚  RESOURCES"
+  echo "📚  EXECUTING RESOURCES ..."
   echo
   printf ' 👉  📗  %s\n' "${RESOURCES[@]}"
   echo
