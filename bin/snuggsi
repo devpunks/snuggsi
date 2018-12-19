@@ -25,7 +25,7 @@ function execute {
 if test -f $COMMAND && \
    test snuggsi != "$1"
   then
-    execute $RESOURCES
+    execute
   else
     echo "🔴  Invalid command"
 fi
