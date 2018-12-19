@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 declare -x ROOT=${1:-`pwd`}
-export PORT=${PORT:-3000}
+declare -x PORT=${PORT:-3000}
 export BROWSER_PORT=$((PORT+1))
 
 BROWSER=./node_modules/.bin/browser-sync
