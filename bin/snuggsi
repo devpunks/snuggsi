@@ -33,13 +33,13 @@ if [ snuggsi != "$1" ] && [ -e $SCRIPT ]
     echo 🔴 Invalid command
   fi
 
-for PARAM in $PARAMS
+for RESOURCE in $RESOURCES
   do
-    echo The Param $PARAM
+    echo The Resource $RESOURCE
 
-    if [[ -d $PARAM ]]; then
-      echo " ➡ 📁  $PARAM"
+    if [[ -d $RESOURCE ]]; then
+      echo " ➡ 📁  $RESOURCE"
     else
-      echo NO DIRECTORY $PARAM
+      echo NO DIRECTORY $RESOURCE
     fi
   done
