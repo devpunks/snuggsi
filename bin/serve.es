@@ -9,8 +9,8 @@ const
     = process.env
 
 , middleware = [
-  , Resource `/examples/`
-    route (`/hello/`, Resource `/resource/fixtures/`)
+    route (`/examples/`, Resource `/examples/`)
+  , route (`/hello/`, Resource `/resource/fixtures/`)
   ]
 
 
