@@ -21,8 +21,6 @@ export COMMAND="$BIN/$1"
 export DIRECTORY="$2"
 
 echo SNUGGSI: $SNUGGSI
-echo PARAMS: $PARAMS
-echo PARAMS Lenth: ${#@}
 echo RESOURCES ${RESOURCES[@]}
 echo RESOURCES Length ${#RESOURCES}
 echo RESOURCE ${RESOURCES[@]}
