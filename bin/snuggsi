@@ -6,7 +6,6 @@ echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツ     snuggsi ツ   ツツツツツ "
 echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツツツツツツツツツツツツツツツ "
-echo
 
 export ENTRY=`dirname $(readlink $BASH_SOURCE)`
 export BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
