@@ -18,6 +18,16 @@ export RESOURCES=("${@:2}")
 function execute {
   echo COMMAND $COMMAND
   echo RESOURCES ${RESOURCES[@]}
+
+
+  for RESOURCE in ${RESOURCES[@]}
+    do
+      if [[ -d $RESOURCE ]]; then
+        echo " ➡ 📁  $RESOURCE"
+      else
+        echo "🔴  $RESOURCE NOT A DIRECTORY"
+      fi
+    done
 }
 
 
