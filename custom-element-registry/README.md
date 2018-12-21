@@ -44,6 +44,6 @@ Upgrade Steps
 
 
 ## CEReactions
-     - https://html.spec.whatwg.org/#cereactions
-     - https://github.com/webcomponents/custom-elements/pull/62
-     - https://html.spec.whatwg.org/multipage/custom-elements.html#cereactions
+   - https://html.spec.whatwg.org/#cereactions
+   - https://github.com/webcomponents/custom-elements/pull/62
+   - https://html.spec.whatwg.org/multipage/custom-elements.html#cereactions
