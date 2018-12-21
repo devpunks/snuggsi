@@ -64,41 +64,26 @@ for slightly better semantics, including class-side inheritance and not clobberi
     return E
 })()
 
-// http://jsfiddle.net/zaqtg/10
-// https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
-//
-// TreeWalker
-//   - https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
-//   - https://github.com/tmpvar/jsdom/pull/1447
-//
-// NodeIterator -
-//   - https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-//   - https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
-//   - https://github.com/tmpvar/jsdom/blob/master/lib/jsdom/living/traversal/NodeIterator-impl.js
-
 class TokenList {
 
   constructor (node) {
 
     const
       visit = node =>
-        node.attributes
-          && [].slice
-               .call (node.attributes)
-               .map  (collect)
-          || collect (node)
+        node.attributes && [].slice
+           .call (node.attributes)
+           .map  (collect)
+        || collect (node)
 
-    , collect = node => {
+    , collect = node =>
         /{(\w+|#)}/.test (node.textContent)
           && (node.text = node.textContent)
               .match (/[^{]+(?=})/g)
               .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
-    }
 
     , walker =
         document.createNodeIterator
           (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
-
 
     while (walker.nextNode ()) null // Walk all nodes and do nothing.
   }
@@ -107,29 +92,21 @@ class TokenList {
   bind (context) {
 
     const
-    // FOR GOD'S SAKE PLEASE TEST THIS!!!
-   // must both run independently not in tandem
-
       tokenize = symbol => node =>
         (node.textContent
           = node.textContent
           .split ('{'+symbol+'}')
           .join  (context [symbol]))
 
+    for (let symbol in this)
+      symbol != 'bind'
+        && this [symbol].map
+          (node => (node.textContent = node.text) && node)
 
     for (let symbol in this)
-      symbol
-        != 'bind'
-        && this [symbol]
-        .map (node => (node.textContent = node.text) && node)
-
-
-    for (let symbol in this)
-      symbol
-        != 'bind'
-        && this [symbol]
-        // more than one occurrence
-        .map (tokenize (symbol))
+      symbol != 'bind'
+        && this [symbol].map
+          (tokenize (symbol)) // more than one occurrence
   }
 }
 
@@ -300,113 +277,97 @@ void ( _ => {
 
 const Template = template => {
 
-  template.length
-    && ( template = document.querySelector
-       ( 'template[name=' + template + '' + ']' ) )
+  const
+    range = document.createRange ()
+
+  template
+    = typeof template == 'string'
+    ? document.querySelector ( 'template[name=' + template + ']' )
+    : template
+
+  range.selectNodeContents ( template.content )
 
   let
-    HTML   = template.innerHTML
-  , anchor = template.nextSibling
+    fragment = range.cloneContents ()
 
-  template.innerHTML = ''
 
-  template.bind =
-    bind.bind (template)
+  template.bind = function (context) {
+
+    range.setStartAfter  (template)
+    range.deleteContents ()
+
+    context && void []
+      .concat (context)
+      .map (tokenize)
+      .reverse () // Range.insertNode does prepend
+      .map (fragment => range.insertNode (fragment))
+  }
+
+
+  function tokenize (context, index) {
+
+    let
+      clone = fragment.cloneNode (true)
+
+    typeof context != 'object'
+      && ( context  = { self: context })
+
+    context ['#'] = index
+
+
+    void (new TokenList (clone))
+      .bind (context)
+
+    return clone
+  }
 
   return template
-
-  function bind (context) {
-
-    const
-      fragment =
-        document.createElement ('section')
-
-    , deposit = (html, context, index) => {
-        let clone = HTML
-
-        typeof context != 'object'
-          && ( context  = { self: context })
-
-        context ['#'] = index
-
-        for (let i in context)
-          clone = clone
-            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Using_special_characters
-            // https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript#answer-17606289
-            .split ('{'+i+'}')
-            .join  (context [i])
-
-        return html + clone
-      }
-
-    for (let node of // removes IE childNodes
-          (this.dependents || [] ))
-            // removeChild FAR faster
-            // https://jsperf.com/innerhtml-vs-removechild/15
-            node.parentNode.removeChild (node)
-
-
-    fragment.innerHTML
-      =[]
-        .concat (context)
-        .reduce (deposit, '')
-
-
-    for (let dependent of this.dependents
-          =[]
-            .slice // non-live nodelist
-            .call (fragment.childNodes))
-
-        this
-          .parentNode
-          .insertBefore (dependent, anchor)
-  }
 }
 
 window.customElements =
   window.customElements
   || {/* microfill */}
 
-new class /* CustomElementRegistry */ {
+void ( _ => { /* CustomElementRegistry */
 
-  constructor () {
+  customElements.define = ( name, constructor ) => {
 
-    customElements.define
-      = this.define.bind (this)
-
-    customElements.upgrade
-      = this.upgrade.bind (this)
-  }
-
-
-  define ( name, constructor ) {
-
-    this [name] = constructor
-
-    void
-
-    [].slice
+    !! /\-/.test (name)
+    && (customElements [name] = constructor)
+    && [].slice
       // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       .call ( document.querySelectorAll (name) )
-      .map  ( this.upgrade, this )
+      .map  ( customElements.upgrade )
   }
 
 
   // "Dmitry's Brain Transplant"
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
-  upgrade (node) {
+  customElements.upgrade = function (node) {
 
     // Here's where we can swizzle
     // https://github.com/whatwg/html/issues/1704#issuecomment-241881091
-    this [node.localName]
 
-    &&
+    Object.setPrototypeOf
+      (node, customElements [node.localName].prototype)
 
-    Object
-      .setPrototypeOf (node, this [node.localName].prototype)
-      .connectedCallback ()
+    node.connectedCallback ()
   }
-}
+
+
+  void (new MutationObserver ( mutations => {
+
+    for (let mutation of mutations)
+      for (let node of mutation.addedNodes)
+
+         !! /\-/.test (node.localName)
+         && customElements [node.localName]
+         && customElements.upgrade (node)
+  }))
+
+  .observe (document.documentElement, { childList: true, subtree: true })
+
+})() /* CustomElementRegistry */
 
 const ParentNode = Element =>
 
@@ -527,6 +488,40 @@ const EventTarget = HTMLElement => // why buble
 //  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
 
 //  { }
+
+
+  // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
+  // Type Introspection - https://en.wikipedia.org/wiki/Type_introspection
+  //
+  // In computing, type introspection is the ability of a program
+  // to examine the type or properties of an object at runtime.
+  // Some programming languages possess this capability.
+  //
+  // Introspection should not be confused with reflection,
+  // which goes a step further and is the ability for a program to manipulate the values,
+  // meta-data, properties and/or functions of an object at runtime.
+
+
+  reflect (handler) {
+
+    /^on/.test (handler) // is a W3C `on`event
+      && handler in HTMLElement.prototype // `on*`
+
+      && // automagically delegate event
+        this.on ( handler.substr (2), this [handler] )
+  }
+
+
+  register (node, handler, event) {
+    for (let attribute of
+          [].slice.call (node.attributes))
+            /^on/.test (event = attribute.name)
+            // https://www.quirksmode.org/js/events_tradmod.html
+            // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
+            && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
+            && ( node [event] = this.renderable (this [handler]) )
+  }
+
 })
 
 const GlobalEventHandlers = Element =>
@@ -576,39 +571,7 @@ const GlobalEventHandlers = Element =>
       && super.onconnect (event)
   }
 
-  // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
-  // Type Introspection - https://en.wikipedia.org/wiki/Type_introspection
-  //
-  // In computing, type introspection is the ability of a program
-  // to examine the type or properties of an object at runtime.
-  // Some programming languages possess this capability.
-  //
-  // Introspection should not be confused with reflection,
-  // which goes a step further and is the ability for a program to manipulate the values,
-  // meta-data, properties and/or functions of an object at runtime.
-
-
-  reflect (handler) {
-
-    /^on/.test (handler) // is a W3C `on`event
-      && handler in HTMLElement.prototype // `on*`
-
-      && // automagically delegate event
-        this.on ( handler.substr (2), this [handler] )
-  }
-
-
-  register (node, handler, event) {
-    for (let attribute of
-          [].slice.call (node.attributes))
-            /^on/.test (event = attribute.name)
-            // https://www.quirksmode.org/js/events_tradmod.html
-            // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-            && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
-            && ( node [event] = this.renderable (this [handler]) )
-  }
 })
-
 const Custom = Element => // why buble
 
 ( class extends // interfaces
@@ -637,6 +600,11 @@ const Custom = Element => // why buble
       (new Event ('connect'))
 
     this.render ()
+  }
+
+
+  upgrade () {
+
   }
 
 
