@@ -4,7 +4,7 @@ window.customElements =
 
 void ( _ => { /* CustomElementRegistry */
 
-  constructor () {
+  customElements.define = ( name, constructor ) => {
 
     customElements.define
       = this.define.bind (this)
