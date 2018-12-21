@@ -55,5 +55,7 @@ const Template = template => {
 
     return html + innerHTML
   }
+
+  return template
 }
 
