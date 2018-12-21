@@ -9,8 +9,9 @@ const Template = template => {
         || template.parentNode.lastChild
 
 
-  template.bind =
-    bind.bind (template)
+  console.warn (range.setStartAfter (template))
+  console.warn (range)
+  window.range = range
 
   return template
 
