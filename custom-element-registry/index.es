@@ -27,5 +27,19 @@ void ( _ => { /* CustomElementRegistry */
 
     node.connectedCallback ()
   }
-}
+
+
+  void (new MutationObserver ( mutations => {
+
+    for (let mutation of mutations)
+      for (let node of mutation.addedNodes)
+
+         !! /\-/.test (node.localName)
+         && customElements [node.localName]
+         && customElements.upgrade (node)
+  }))
+
+  .observe (document.documentElement, { childList: true, subtree: true })
+
+})() /* CustomElementRegistry */
 
