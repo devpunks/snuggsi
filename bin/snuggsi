@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+# Bash string manipulations - http://www.tldp.org/LDP/LG/issue18/bash.html
+
 echo
 echo "  ツツツツツツツツツツツツツツツツツツツ "
 echo "  ツツツツツ                  ツツツツツ "
