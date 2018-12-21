@@ -45,11 +45,7 @@ const Template = template => {
     typeof context != 'object'
       && ( context  = { self: context })
 
-    fragment.innerHTML
-      =[]
-        .concat (context)
-        .reduce (deposit, '')
-
+    context ['#'] = index
 
     for (let dependent of this.dependents
           =[]
