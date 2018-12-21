@@ -18,8 +18,7 @@ const Template = template => {
        ( 'template[name=' + template + '' + ']' ) )
 
 
-    , deposit = (html, context, index) => {
-        let clone = HTML
+  template.bind = function (context) {
 
         typeof context != 'object'
           && ( context  = { self: context })
