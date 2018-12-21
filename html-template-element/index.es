@@ -1,8 +1,8 @@
 const Template = template => {
 
-  template.length
-    && ( template = document.querySelector
-       ( 'template[name=' + template + '' + ']' ) )
+  const
+    range
+      = document.createRange ()
 
   let
     HTML   = template.innerHTML
