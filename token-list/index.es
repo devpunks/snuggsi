@@ -4,11 +4,10 @@ class TokenList {
 
     const
       visit = node =>
-        node.attributes
-          && [].slice
-               .call (node.attributes)
-               .map  (collect)
-          || collect (node)
+        node.attributes && [].slice
+           .call (node.attributes)
+           .map  (collect)
+        || collect (node)
 
     , collect = node =>
         /{(\w+|#)}/.test (node.textContent)
