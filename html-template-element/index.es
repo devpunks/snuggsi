@@ -42,6 +42,8 @@ const Template = template => {
 
     let innerHTML = template.innerHTML
 
+    typeof context != 'object'
+      && ( context  = { self: context })
 
     fragment.innerHTML
       =[]
