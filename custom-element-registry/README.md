@@ -39,9 +39,12 @@ Upgrade Steps
   - w3c/webcomponents: - https://github.com/w3c/webcomponents/issues/710
   - WHATWG HTML SPEC - https://html.spec.whatwg.org/multipage/custom-elements.html#dom-customelementregistry-upgrade
   - WHATWG - https://github.com/whatwg/html/pull/3535
-  - Webkit bug - https://bugs.webkit.org/show_bug.cgi?id=183397
-  - Webkit Implementation - https://github.com/WebKit/webkit/commit/2ee15a43f1073459c449aac652530a6814587685
-  - web-platform-test - https://github.com/web-platform-tests/wpt/blob/master/custom-elements/custom-element-registry/upgrade.html
+  - Webkit
+    - bug - https://bugs.webkit.org/show_bug.cgi?id=183397
+    - Implementation - https://github.com/WebKit/webkit/commit/2ee15a43f1073459c449aac652530a6814587685
+  - web-platform-test
+    - https://github.com/web-platform-tests/wpt/pull/9869
+    - https://github.com/web-platform-tests/wpt/blob/master/custom-elements/custom-element-registry/upgrade.html
 
 
 ## Legacy webcomponentsjs
