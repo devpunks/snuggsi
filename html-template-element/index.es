@@ -17,9 +17,6 @@ const Template = template => {
     && ( template = document.querySelector
        ( 'template[name=' + template + '' + ']' ) )
 
-    const
-      fragment =
-        document.createElement ('section')
 
     , deposit = (html, context, index) => {
         let clone = HTML
