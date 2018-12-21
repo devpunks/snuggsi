@@ -47,14 +47,13 @@ const Template = template => {
 
     context ['#'] = index
 
-    for (let dependent of this.dependents
-          =[]
-            .slice // non-live nodelist
-            .call (fragment.childNodes))
+    for (let token in context)
+      innerHTML = innerHTML
+        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Using_special_characters
+        .split ('{'+token+'}')
+        .join  (context [token])
 
-        this
-          .parentNode
-          .insertBefore (dependent, anchor)
+    return html + innerHTML
   }
 }
 
