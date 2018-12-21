@@ -2,7 +2,7 @@ window.customElements =
   window.customElements
   || {/* microfill */}
 
-new class /* CustomElementRegistry */ {
+void ( _ => { /* CustomElementRegistry */
 
   constructor () {
 
