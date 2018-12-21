@@ -6,21 +6,9 @@ void ( _ => { /* CustomElementRegistry */
 
   customElements.define = ( name, constructor ) => {
 
-    customElements.define
-      = this.define.bind (this)
-
-    customElements.upgrade
-      = this.upgrade.bind (this)
-  }
-
-
-  define ( name, constructor ) {
-
-    this [name] = constructor
-
-    void
-
-    [].slice
+    !! /\-/.test (name)
+    && (customElements [name] = constructor)
+    && [].slice
       // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       .call ( document.querySelectorAll (name) )
       .map  ( this.upgrade, this )
