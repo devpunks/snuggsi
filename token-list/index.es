@@ -10,12 +10,11 @@ class TokenList {
                .map  (collect)
           || collect (node)
 
-    , collect = node => {
+    , collect = node =>
         /{(\w+|#)}/.test (node.textContent)
           && (node.text = node.textContent)
               .match (/[^{]+(?=})/g)
               .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
-    }
 
     , walker =
         document.createNodeIterator
@@ -40,18 +39,14 @@ class TokenList {
 
 
     for (let symbol in this)
-      symbol
-        != 'bind'
-        && this [symbol]
-        .map (node => (node.textContent = node.text) && node)
-
+      symbol != 'bind'
+        && this [symbol].map
+          (node => (node.textContent = node.text) && node)
 
     for (let symbol in this)
-      symbol
-        != 'bind'
-        && this [symbol]
-        // more than one occurrence
-        .map (tokenize (symbol))
+      symbol != 'bind'
+        && this [symbol].map
+          (tokenize (symbol)) // more than one occurrence
   }
 }
 
