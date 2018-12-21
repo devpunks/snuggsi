@@ -28,6 +28,7 @@ WHATWG
     - https://html.spec.whatwg.org/multipage/custom-elements.html#concept-custom-element-definition-name#element-definition
     - Classless definition - https://github.com/w3c/webcomponents/issues/587
 
+
 ## Legacy webcomponentsjs
 
    - https://github.com/webcomponents/custom-elements/blob/master/src/CustomElementRegistry.js
