@@ -29,6 +29,11 @@ const Custom = Element => // why buble
   }
 
 
+  upgrade () {
+
+  }
+
+
   render () {
 
     for (let template of this.templates)
