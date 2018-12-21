@@ -34,6 +34,8 @@ Definition Steps
 
 Upgrade Steps
   - 
+  - w3c/webcomponents: - https://github.com/w3c/webcomponents/issues/710
+  - Webkit bug - https://bugs.webkit.org/show_bug.cgi?id=183397
   - Webkit Implementation - https://github.com/WebKit/webkit/commit/2ee15a43f1073459c449aac652530a6814587685
 
 
