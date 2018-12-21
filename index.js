@@ -64,40 +64,24 @@ for slightly better semantics, including class-side inheritance and not clobberi
     return E
 })()
 
-// http://jsfiddle.net/zaqtg/10
-// https://www.w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
-//
-// TreeWalker
-//   - https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
-//   - https://github.com/tmpvar/jsdom/pull/1447
-//
-// NodeIterator -
-//   - https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-//   - https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
-//   - https://github.com/tmpvar/jsdom/blob/master/lib/jsdom/living/traversal/NodeIterator-impl.js
-
 var TokenList = function (node) {
   var this$1 = this;
 
 
   var
-    visit = function (node) { return node.attributes
-        && [].slice
-             .call (node.attributes)
-             .map(collect)
-        || collect (node); }
+    visit = function (node) { return node.attributes && [].slice
+         .call (node.attributes)
+         .map(collect)
+      || collect (node); }
 
-  , collect = function (node) {
-      /{(\w+|#)}/.test (node.textContent)
+  , collect = function (node) { return /{(\w+|#)}/.test (node.textContent)
         && (node.text = node.textContent)
             .match (/[^{]+(?=})/g)
-            .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); })
-  }
+            .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); }); }
 
   , walker =
       document.createNodeIterator
         (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
-
 
   while (walker.nextNode ()) { null } // Walk all nodes and do nothing.
 };
@@ -106,28 +90,20 @@ var TokenList = function (node) {
 TokenList.prototype.bind = function (context) {
 
   var
-  // FOR GOD'S SAKE PLEASE TEST THIS!!!
- // must both run independently not in tandem
-
     tokenize = function (symbol) { return function (node) { return (node.textContent
         = node.textContent
         .split ('{'+symbol+'}')
         .join(context [symbol])); }; }
 
-
   for (var symbol in this)
-    { symbol
-      != 'bind'
-      && this [symbol]
-      .map (function (node) { return (node.textContent = node.text) && node; }) }
-
+    { symbol != 'bind'
+      && this [symbol].map
+        (function (node) { return (node.textContent = node.text) && node; }) }
 
   for (var symbol$1 in this)
-    { symbol$1
-      != 'bind'
-      && this [symbol$1]
-      // more than one occurrence
-      .map (tokenize (symbol$1)) }
+    { symbol$1 != 'bind'
+      && this [symbol$1].map
+        (tokenize (symbol$1)) } // more than one occurrence
 };
 
 // https://codereview.chromium.org/1987413002
@@ -316,121 +292,105 @@ void ( function (_) {
 
 var Template = function (template) {
 
-  template.length
-    && ( template = document.querySelector
-       ( 'template[name=' + template + '' + ']' ) )
+  var
+    range = document.createRange ()
+
+  template
+    = typeof template == 'string'
+    ? document.querySelector ( 'template[name=' + template + ']' )
+    : template
+
+  range.selectNodeContents ( template.content )
 
   var
-    HTML   = template.innerHTML
-  , anchor = template.nextSibling
+    fragment = range.cloneContents ()
 
-  template.innerHTML = ''
 
-  template.bind =
-    bind.bind (template)
+  template.bind = function (context) {
 
-  return template
+    range.setStartAfter  (template)
+    range.deleteContents ()
 
-  function bind (context) {
+    context && void []
+      .concat (context)
+      .map (tokenize)
+      .reverse () // Range.insertNode does prepend
+      .map (function (fragment) { return range.insertNode (fragment); })
+  }
+
+
+  function tokenize (context, index) {
 
     var
-      fragment =
-        document.createElement ('section')
+      clone = fragment.cloneNode (true)
 
-    , deposit = function (html, context, index) {
-        var clone = HTML
+    typeof context != 'object'
+      && ( context  = { self: context })
 
-        typeof context != 'object'
-          && ( context  = { self: context })
-
-        context ['#'] = index
-
-        for (var i in context)
-          { clone = clone
-            // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Using_special_characters
-            // https://stackoverflow.com/questions/1144783/how-to-replace-all-occurrences-of-a-string-in-javascript#answer-17606289
-            .split ('{'+i+'}')
-            .join  (context [i]) }
-
-        return html + clone
-      }
-
-    for (var i = 0, list = (this.dependents || [] ); i < list.length; i += 1)
-            // removeChild FAR faster
-            // https://jsperf.com/innerhtml-vs-removechild/15
-            {
-      var node = list[i];
-
-      node.parentNode.removeChild (node)
-    }
+    context ['#'] = index
 
 
-    fragment.innerHTML
-      =[]
-        .concat (context)
-        .reduce (deposit, '')
+    void (new TokenList (clone))
+      .bind (context)
 
-
-    for (var i$1 = 0, list$1 = this.dependents
-          =[]
-            .slice // non-live nodelist
-            .call (fragment.childNodes); i$1 < list$1.length; i$1 += 1)
-
-        {
-      var dependent = list$1[i$1];
-
-      this
-          .parentNode
-          .insertBefore (dependent, anchor)
-    }
+    return clone
   }
+
+  return template
 }
 
 window.customElements =
   window.customElements
   || {/* microfill */}
 
-new /*@__PURE__*/(function () {
-  function anonymous () {
+void ( function (_) { /* CustomElementRegistry */
 
-    customElements.define
-      = this.define.bind (this)
+  customElements.define = function ( name, constructor ) {
 
-    customElements.upgrade
-      = this.upgrade.bind (this)
-  }
-
-
-  anonymous.prototype.define = function ( name, constructor ) {
-
-    this [name] = constructor
-
-    void
-
-    [].slice
+    !! /\-/.test (name)
+    && (customElements [name] = constructor)
+    && [].slice
       // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       .call ( document.querySelectorAll (name) )
-      .map  ( this.upgrade, this )
-  };
+      .map  ( customElements.upgrade )
+  }
 
 
   // "Dmitry's Brain Transplant"
   // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
-  anonymous.prototype.upgrade = function (node) {
+  customElements.upgrade = function (node) {
 
     // Here's where we can swizzle
     // https://github.com/whatwg/html/issues/1704#issuecomment-241881091
-    this [node.localName]
 
-    &&
+    Object.setPrototypeOf
+      (node, customElements [node.localName].prototype)
 
-    Object
-      .setPrototypeOf (node, this [node.localName].prototype)
-      .connectedCallback ()
-  };
+    node.connectedCallback ()
+  }
 
-  return anonymous;
-}())
+
+  void (new MutationObserver ( function (mutations) {
+
+    for (var i$1 = 0, list$1 = mutations; i$1 < list$1.length; i$1 += 1)
+      {
+      var mutation = list$1[i$1];
+
+      for (var i = 0, list = mutation.addedNodes; i < list.length; i += 1)
+
+         {
+          var node = list[i];
+
+          !! /\-/.test (node.localName)
+         && customElements [node.localName]
+         && customElements.upgrade (node)
+        }
+    }
+  }))
+
+  .observe (document.documentElement, { childList: true, subtree: true })
+
+})() /* CustomElementRegistry */
 
 var ParentNode = function (Element) { return (/*@__PURE__*/(function (Element) {
     function anonymous () {
@@ -502,31 +462,30 @@ var EventTarget = function (HTMLElement) { return (/*@__PURE__*/(function (HTMLE
         || this$1.render (); }
   };
 
-    return anonymous;
-  }(HTMLElement))); }
+//off (event, listener = 'on' + this [event])
+//  // MDN EventTarget.removeEventListener
+//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+//  //
+//  // WHATWG Living Standard EventTarget.removeEventListener
+//  // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+//  //
+//  // DOM Level 2 EventTarget.removeEventListener
+//  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
 
-var GlobalEventHandlers = function (Element) { return (/*@__PURE__*/(function (Element) {
-    function anonymous () {
-      Element.apply(this, arguments);
-    }
+//  { this.removeEventListener (event, listener) }
 
-    if ( Element ) anonymous.__proto__ = Element;
-    anonymous.prototype = Object.create( Element && Element.prototype );
-    anonymous.prototype.constructor = anonymous;
+//dispatch (event)
+//  // MDN EventTarget.dispatchEvent
+//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
+//  //
+//  // WHATWG Living Standard EventTarget.dispatchEvent
+//  // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
+//  //
+//  // DOM Level 2 EventTarget.dispatchEvent
+//  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
 
-    anonymous.prototype.onconnect = function (event) {
+//  { }
 
-    this.templates =
-      this
-        .selectAll ('template[name]')
-        .map (Template)
-
-    this.tokens =
-      new TokenList (this)
-
-    Element.prototype.onconnect
-      && Element.prototype.onconnect.call (this, event)
-  };
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
   // Type Introspection - https://en.wikipedia.org/wiki/Type_introspection
@@ -564,8 +523,33 @@ var GlobalEventHandlers = function (Element) { return (/*@__PURE__*/(function (E
   };
 
     return anonymous;
-  }(Element))); }
+  }(HTMLElement))); }
 
+var GlobalEventHandlers = function (Element) { return (/*@__PURE__*/(function (Element) {
+    function anonymous () {
+      Element.apply(this, arguments);
+    }
+
+    if ( Element ) anonymous.__proto__ = Element;
+    anonymous.prototype = Object.create( Element && Element.prototype );
+    anonymous.prototype.constructor = anonymous;
+
+    anonymous.prototype.onconnect = function (event) {
+
+    this.templates =
+      this
+        .selectAll ('template[name]')
+        .map (Template)
+
+    this.tokens =
+      new TokenList (this)
+
+    Element.prototype.onconnect
+      && Element.prototype.onconnect.call (this, event)
+  };
+
+    return anonymous;
+  }(Element))); }
 var Custom = function (Element) { return ( /*@__PURE__*/(function (superclass) {
     function anonymous () {
       superclass.apply(this, arguments);
@@ -595,6 +579,11 @@ var Custom = function (Element) { return ( /*@__PURE__*/(function (superclass) {
       (new Event ('connect'))
 
     this.render ()
+  };
+
+
+  anonymous.prototype.upgrade = function () {
+
   };
 
 
