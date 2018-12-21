@@ -38,8 +38,7 @@ const Template = template => {
   }
 
 
-        return html + clone
-      }
+  function tokenize (html, context, index) {
 
     for (let node of // removes IE childNodes
           (this.dependents || [] ))
