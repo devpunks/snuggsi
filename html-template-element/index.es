@@ -1,59 +1,47 @@
 const Template = template => {
 
   const
-    range
-      = document.createRange ()
+    range = document.createRange ()
 
-  , end
-      = template.nextSibling
-        || template.parentNode.lastChild
+  template
+    = typeof template == 'string'
+    ? document.querySelector ( 'template[name=' + template + ']' )
+    : template
 
+  range.selectNodeContents ( template.content )
 
-  console.warn (range.setStartAfter (template))
-  console.warn (range)
-  window.range = range
-
-  template.length
-    && ( template = document.querySelector
-       ( 'template[name=' + template + '' + ']' ) )
+  let
+    fragment = range.cloneContents ()
 
 
   template.bind = function (context) {
 
-//  range.setEndBefore  (end)
+    range.setStartAfter  (template)
+    range.deleteContents ()
 
-    let
-      html = []
-        .concat (context)
-        .reduce (tokenize, '')
-
-//  range.deleteContents ()
-//  console.warn ('last', template.parentNode.lastChild)
-//  console.warn ('ranger delete', range)
-//  template.insertAdjacentHTML ('afterend', html)
-//  console.warn ('last', template.parentNode.lastChild)
-//  range.setEndBefore  (template.parentNode.lastChild)
-//  console.warn ('ranger insert', range)
-//  range.setStartAfter (template)
+    context && void []
+      .concat (context)
+      .map (tokenize)
+      .reverse () // Range.insertNode does prepend
+      .map (fragment => range.insertNode (fragment))
   }
 
 
-  function tokenize (html, context, index) {
+  function tokenize (context, index) {
 
-    let innerHTML = template.innerHTML
+    let
+      clone = fragment.cloneNode (true)
 
     typeof context != 'object'
       && ( context  = { self: context })
 
     context ['#'] = index
 
-    for (let token in context)
-      innerHTML = innerHTML
-        // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Regular_Expressions#Using_special_characters
-        .split ('{'+token+'}')
-        .join  (context [token])
 
-    return html + innerHTML
+    void (new TokenList (clone))
+      .bind (context)
+
+    return clone
   }
 
   return template
