@@ -4,9 +4,9 @@ const Template = template => {
     range
       = document.createRange ()
 
-  let
-    HTML   = template.innerHTML
-  , anchor = template.nextSibling
+  , end
+      = template.nextSibling
+        || template.parentNode.lastChild
 
   template.innerHTML = ''
 
