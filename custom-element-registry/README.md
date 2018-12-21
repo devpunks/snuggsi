@@ -13,6 +13,9 @@ WHATWG
 HTML Element Constructors
   - https://html.spec.whatwg.org/multipage/dom.html#html-element-constructors
 
+WPT
+  - https://github.com/web-platform-tests/wpt/tree/master/custom-elements/custom-element-registry
+
 
 ## The Custom Elements Spec
 
