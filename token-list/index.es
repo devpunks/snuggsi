@@ -19,7 +19,6 @@ class TokenList {
         document.createNodeIterator
           (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
 
-
     while (walker.nextNode ()) null // Walk all nodes and do nothing.
   }
 
@@ -27,15 +26,11 @@ class TokenList {
   bind (context) {
 
     const
-    // FOR GOD'S SAKE PLEASE TEST THIS!!!
-   // must both run independently not in tandem
-
       tokenize = symbol => node =>
         (node.textContent
           = node.textContent
           .split ('{'+symbol+'}')
           .join  (context [symbol]))
-
 
     for (let symbol in this)
       symbol != 'bind'
