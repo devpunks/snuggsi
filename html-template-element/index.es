@@ -40,11 +40,7 @@ const Template = template => {
 
   function tokenize (html, context, index) {
 
-    for (let node of // removes IE childNodes
-          (this.dependents || [] ))
-            // removeChild FAR faster
-            // https://jsperf.com/innerhtml-vs-removechild/15
-            node.parentNode.removeChild (node)
+    let innerHTML = template.innerHTML
 
 
     fragment.innerHTML
