@@ -24,9 +24,17 @@ WHATWG
 
 
 ## `CustomElementRegistry.define`
-  Definition Steps
-    - https://html.spec.whatwg.org/multipage/custom-elements.html#concept-custom-element-definition-name#element-definition
-    - Classless definition - https://github.com/w3c/webcomponents/issues/587
+
+Definition Steps
+  - https://html.spec.whatwg.org/multipage/custom-elements.html#concept-custom-element-definition-name#element-definition
+  - Classless definition - https://github.com/w3c/webcomponents/issues/587
+
+
+## `CustomElementRegistry.upgrade`
+
+Upgrade Steps
+  - 
+  - Webkit Implementation - https://github.com/WebKit/webkit/commit/2ee15a43f1073459c449aac652530a6814587685
 
 
 ## Legacy webcomponentsjs
