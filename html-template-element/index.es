@@ -20,10 +20,22 @@ const Template = template => {
 
   template.bind = function (context) {
 
-        typeof context != 'object'
-          && ( context  = { self: context })
+//  range.setEndBefore  (end)
 
-        context ['#'] = index
+    let
+      html = []
+        .concat (context)
+        .reduce (tokenize, '')
+
+//  range.deleteContents ()
+//  console.warn ('last', template.parentNode.lastChild)
+//  console.warn ('ranger delete', range)
+//  template.insertAdjacentHTML ('afterend', html)
+//  console.warn ('last', template.parentNode.lastChild)
+//  range.setEndBefore  (template.parentNode.lastChild)
+//  console.warn ('ranger insert', range)
+//  range.setStartAfter (template)
+  }
 
         for (let i in context)
           clone = clone
