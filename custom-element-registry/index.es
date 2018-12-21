@@ -21,13 +21,11 @@ void ( _ => { /* CustomElementRegistry */
 
     // Here's where we can swizzle
     // https://github.com/whatwg/html/issues/1704#issuecomment-241881091
-    this [node.localName]
 
-    &&
+    Object.setPrototypeOf
+      (node, customElements [node.localName].prototype)
 
-    Object
-      .setPrototypeOf (node, this [node.localName].prototype)
-      .connectedCallback ()
+    node.connectedCallback ()
   }
 }
 
