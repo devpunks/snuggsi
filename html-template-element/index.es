@@ -13,9 +13,9 @@ const Template = template => {
   console.warn (range)
   window.range = range
 
-  return template
-
-  function bind (context) {
+  template.length
+    && ( template = document.querySelector
+       ( 'template[name=' + template + '' + ']' ) )
 
     const
       fragment =
