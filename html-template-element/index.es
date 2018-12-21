@@ -8,7 +8,6 @@ const Template = template => {
       = template.nextSibling
         || template.parentNode.lastChild
 
-  template.innerHTML = ''
 
   template.bind =
     bind.bind (template)
