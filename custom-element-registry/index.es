@@ -15,8 +15,7 @@ void ( _ => { /* CustomElementRegistry */
   }
 
 
-  // "Dmitry's Brain Transplant"
-  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
+  // https://html.spec.whatwg.org/multipage/custom-elements.html#upgrades
   customElements.upgrade = function (node) {
 
     // Here's where we can swizzle
