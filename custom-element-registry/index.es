@@ -16,7 +16,7 @@ void ( _ => { /* CustomElementRegistry */
 
 
   // https://html.spec.whatwg.org/multipage/custom-elements.html#upgrades
-  customElements.upgrade = function (node) {
+  customElements.upgrade = function (root) {
 
     const candidates = []
 
@@ -24,20 +24,20 @@ void ( _ => { /* CustomElementRegistry */
     // https://github.com/whatwg/html/issues/1704#issuecomment-241881091
 
     Object.setPrototypeOf
-      (node, customElements [node.localName].prototype)
+      (root, customElements [root.localName].prototype)
 
-    node.connectedCallback ()
+    root.connectedCallback ()
   }
 
 
   void (new MutationObserver ( mutations => {
 
     for (let mutation of mutations)
-      for (let node of mutation.addedNodes)
+      for (let root of mutation.addedNodes)
 
-         !! /\-/.test (node.localName)
-         && customElements [node.localName]
-         && customElements.upgrade (node)
+         !! /\-/.test (root.localName)
+         && customElements [root.localName]
+         && customElements.upgrade (root)
   }))
 
   .observe (document.documentElement, { childList: true, subtree: true })
