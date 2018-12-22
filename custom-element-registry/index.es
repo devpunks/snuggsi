@@ -18,6 +18,8 @@ void ( _ => { /* CustomElementRegistry */
   // https://html.spec.whatwg.org/multipage/custom-elements.html#upgrades
   customElements.upgrade = function (node) {
 
+    const candidates = []
+
     // Here's where we can swizzle
     // https://github.com/whatwg/html/issues/1704#issuecomment-241881091
 
