@@ -46,6 +46,8 @@ Upgrade Steps
     - https://github.com/web-platform-tests/wpt/pull/9869
     - https://github.com/web-platform-tests/wpt/blob/master/custom-elements/custom-element-registry/upgrade.html
 
+  - References
+    - "Dmitry's Brain Transplant" - https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
 
 ## Legacy webcomponentsjs
 
