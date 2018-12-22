@@ -38,8 +38,8 @@ Definition Steps
 Upgrade Steps
   - w3c/webcomponents: - https://github.com/w3c/webcomponents/issues/710
   - WHATWG
-    - HTML SPEC - https://html.spec.whatwg.org/multipage/custom-elements.html#upgrades
-    - HTML SPEC - https://html.spec.whatwg.org/multipage/custom-elements.html#dom-customelementregistry-upgrade
+    - Element Upgrades Spec - https://html.spec.whatwg.org/multipage/custom-elements.html#upgrades
+    - Custom Element Registry Upgrade Spec - https://html.spec.whatwg.org/multipage/custom-elements.html#dom-customelementregistry-upgrade
     - https://github.com/whatwg/html/pull/3535
   - Webkit
     - bug - https://bugs.webkit.org/show_bug.cgi?id=183397
