@@ -6,8 +6,11 @@ const
     = require ('test')
 
 , PORT = 8181
+, SCHEME = 'http'
+, DOMAIN = 'localhost'
 , PATH = '/foo/'
-, URL  = `http://localhost:8181${PATH}`
+, ROOT = `${SCHEME}://${DOMAIN}:${PORT}`
+, URL  = `${ROOT}${PATH}`
 
 
 , { Server, Resource }
