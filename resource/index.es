@@ -70,7 +70,6 @@ new class extends Base (path = path + '') {
   // https://stackoverflow.com/questions/4589732/what-are-the-pros-and-cons-of-fs-createreadstream-vs-fs-readfile-in-node-js#answer-4591335
 
   async get (context, identity = negotiate (context)) {
-
     ( super.get || ( _ => _ ) )
       ( context, identity )
 
@@ -116,6 +115,4 @@ async function send (context, file) {
   context.set  ( headers )
   context.type = file.split `.`.pop ``
   context.body = await promisify (read) (file)
-
-  // Requests using streams - https://docs.aws.amazon.com/sdk-for-javascript/v2/developer-guide/requests-using-stream-objects.html
 }
