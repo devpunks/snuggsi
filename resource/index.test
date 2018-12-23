@@ -113,10 +113,9 @@ test ('Default Resource allowed methods', async t => {
 
   for (method of ALLOWED_METHODS) {
     let { status, headers }
-      = await fetch ( URL + 'index.html', { method } )
+      = await fetch ( ROOT + 'index.html', { method } )
 
-
-    t.ok ( [200, 404 /* for GET SMH */].includes (status) )
+    t.equal ( 200, status )
     t.notOk ( headers.get ('allow') )
   }
 
