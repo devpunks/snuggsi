@@ -60,8 +60,8 @@ new class extends Base (path = path + '') {
         || disable (this, method, endpoint)
   }
 
-  head (context)
-    { context.status = 200 }
+//head (context)
+//  { context.status = 200 }
 
 
   // What about HEAD? Shouldn't they be coupled?
