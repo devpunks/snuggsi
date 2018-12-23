@@ -31,7 +31,7 @@
   - Web Resource - https://en.wikipedia.org/wiki/Web_resource
   - Pagination - http://restcookbook.com/Resources/pagination/
   - Web Linking - https://tools.ietf.org/html/rfc8288
-  - HTTP Specification - https://tools.ietf.org/html/rfc7231#section-6.6.2
+  - HTTP Specification - https://tools.ietf.org/html/rfc7231
   - HTTP Request Methods - https://developer.mozilla.org/en-US/docs/Web/HTTP/Methods
   - https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/405
   - Trailing Slashes - https://github.com/laravel/lumen-framework/issues/654
