@@ -101,7 +101,7 @@ class TokenList {
     for (let symbol in this)
       symbol != 'bind'
         && this [symbol].map
-          (node => (node.textContent = node.text) && node)
+          (node => (node.textContent = node.text))
 
     for (let symbol in this)
       symbol != 'bind'

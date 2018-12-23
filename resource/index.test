@@ -83,7 +83,7 @@ test ('HEAD Resource response', async t => {
   t.end ()
 })
 
-test.only ('Named Resource (without class) allowed methods', async t => {
+test ('Named Resource (without class) allowed methods', async t => {
   const
     resource = Resource `/public/`
 
