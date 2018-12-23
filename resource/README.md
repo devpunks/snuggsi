@@ -26,6 +26,8 @@
 
 ## References
 
+  - Check file existence - https://stackoverflow.com/questions/4482686/check-synchronously-if-file-directory-exists-in-node-js
+
   - Rest Cookbook -  http://restcookbook.com/
   - HTTP Status Codes - https://httpstatuses.com/
   - Web Resource - https://en.wikipedia.org/wiki/Web_resource
