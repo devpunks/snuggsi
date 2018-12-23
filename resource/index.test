@@ -1,12 +1,13 @@
-require ('./negotiate.test')
+
 require ('./fixtures/index.test')
 
 const
   { test, read, fetch }
     = require ('test')
 
-, path = '/foo/'
-, URL  = `http://localhost:8181${path}`
+, PORT = 8181
+, PATH = '/foo/'
+, URL  = `http://localhost:8181${PATH}`
 
 
 , { Server, Resource }
@@ -14,7 +15,7 @@ const
 
 , route = resource =>
     require ('../middleware')
-    .route  ( `${path}`, resource )
+    .route  ( `${PATH}`, resource )
 
 , DEFAULT_METHODS = ['GET', 'HEAD']
 
