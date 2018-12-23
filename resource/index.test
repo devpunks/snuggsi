@@ -74,6 +74,55 @@ test ('HEAD Resource response', async t => {
   t.end ()
 })
 
+test.only ('Default Resource (without class) allowed methods', async t => {
+  const
+    resource = Resource ``
+
+  , server =
+      (new Server ( [ route (resource) ] ))
+      .serve ``
+
+  , ALLOWED_METHODS = DEFAULT_METHODS
+
+  for (method of ALLOWED_METHODS) {
+    let { status, headers }
+      = await fetch ( URL + 'index.html', { method } )
+
+
+    console.warn ('Status', status)
+    t.ok ( [200, 404 /* for GET SMH */].includes (status) )
+    t.notOk ( headers.get ('allow') )
+  }
+
+  server.close ``
+  t.end ()
+})
+
+
+test ('Default Resource allowed methods', async t => {
+  const
+    resource = Resource ``
+
+  , server =
+      (new Server ( [ route (resource) ] ))
+      .serve ``
+
+  , ALLOWED_METHODS = DEFAULT_METHODS
+
+  for (method of ALLOWED_METHODS) {
+    let { status, headers }
+      = await fetch ( URL + 'index.html', { method } )
+
+
+    t.ok ( [200, 404 /* for GET SMH */].includes (status) )
+    t.notOk ( headers.get ('allow') )
+  }
+
+  server.close ``
+  t.end ()
+})
+
+
 test ('Default Resource allowed methods', async t => {
   const
     resource = Resource ``
