@@ -8,8 +8,8 @@ const
 , PORT = 8181
 , SCHEME = 'http'
 , DOMAIN = 'localhost'
-, PATH = '/foo/'
-, ROOT = `${SCHEME}://${DOMAIN}:${PORT}`
+, PATH = 'foo/'
+, ROOT = `${SCHEME}://${DOMAIN}:${PORT}/`
 , URL  = `${ROOT}${PATH}`
 
 
