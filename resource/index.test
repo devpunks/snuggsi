@@ -54,11 +54,8 @@ test ('OPTIONS Resource response')
 
 test ('Caching HTML, JSON, Javascript, and CSS')
 
-test ('501 Not implemented', async t => {
-  t.skip ('please read https://stackoverflow.com/questions/4482686/check-synchronously-if-file-directory-exists-in-node-js')
-
-  t.end ()
-})
+//please read https://stackoverflow.com/questions/4482686/check-synchronously-if-file-directory-exists-in-node-js
+test ('501 Not implemented')
 
 
 test ('HEAD Resource response', async t => {
