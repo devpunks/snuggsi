@@ -7,9 +7,10 @@ const
     = require ('fs')
 
 , Base = ( path, canonical = `${root}${path}${entry}` )  =>
-    !! path && exists (canonical)
+    !!  path
+    &&  exists  (canonical)
       ? require (canonical)
-      : class {}
+      : class   {}
 
 , DEFAULT_METHODS = [ 'GET', 'HEAD' ]
 
