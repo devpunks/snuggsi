@@ -50,14 +50,14 @@ new class extends Base (path = path + '') {
 
   constructor (allow = scan (super ()), headers = { allow }) {
 
-    const
-      endpoint = context =>
-        context.throw (405, { headers })
+//  const
+//    endpoint = context =>
+//      context.throw (405, { headers })
 
 
     for (let method of UNSAFE_METHODS)
       allow.includes (method)
-        || disable (this, method, endpoint)
+        || disable (this, method, _ => {})
   }
 
 //head (context)
