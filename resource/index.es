@@ -7,7 +7,7 @@ const
     = require ('fs')
 
 , Base = ( path, canonical = `${root}${path}${entry}` )  =>
-    !!  path
+    !!  path    // not empty
     &&  exists  (canonical)
       ? require (canonical)
       : class   {}
