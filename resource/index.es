@@ -3,10 +3,13 @@ const
 , root  = process.cwd ``
 , negotiate = require ('./negotiate')
 
-, Base = path =>
-    !!! path
-      ? class { }
-      : require (`${root}${path}${entry}`)
+, { exists, existsSync }
+    = require ('fs')
+
+, Base = ( path, canonical = `${root}${path}${entry}` )  =>
+    !! path && exists (canonical)
+      ? require (canonical)
+      : class {}
 
 , DEFAULT_METHODS = [ 'GET', 'HEAD' ]
 
