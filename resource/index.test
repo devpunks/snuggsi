@@ -77,9 +77,9 @@ test ('HEAD Resource response', async t => {
   t.end ()
 })
 
-test.only ('Default Resource (without class) allowed methods', async t => {
+test.only ('Named Resource (without class) allowed methods', async t => {
   const
-    resource = Resource ``
+    resource = Resource `/public/`
 
   , server =
       (new Server ( [ route (resource) ] ))
