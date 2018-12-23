@@ -3,7 +3,7 @@ const
 , root  = process.cwd ``
 , negotiate = require ('./negotiate')
 
-, { exists, existsSync }
+, { existsSync: exists }
     = require ('fs')
 
 , Base = ( path, canonical = `${root}${path}${entry}` )  =>
