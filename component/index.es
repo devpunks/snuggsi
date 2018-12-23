@@ -49,6 +49,5 @@ const Custom = Element => // why buble
     this.dispatchEvent
       (new Event ('idle'))
   }
-
 })
 
