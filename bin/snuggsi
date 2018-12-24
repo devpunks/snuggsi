@@ -19,7 +19,7 @@ declare -rx RESOURCES=("${@:2}")
 
 
 function execute {
-  echo "📚  EXECUTING RESOURCES …"
+  echo "📚  MOUNTING RESOURCES …"
   echo
   printf ' 👉  📗  %s\n' "${RESOURCES[@]}"
   echo
