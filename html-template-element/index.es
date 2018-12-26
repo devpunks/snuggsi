@@ -1,6 +1,6 @@
 const Template = template => {
 
-  const
+  let
     range = document.createRange ()
 
   template
