@@ -4,7 +4,7 @@ const Template = template => {
     range = document.createRange ()
 
   template
-    = typeof template == 'string'
+    = typeof template === 'string'
     ? document.querySelector ( 'template[name=' + template + ']' )
     : template
 
