@@ -28,22 +28,15 @@ const Template = template => {
       return clone
     }
 
-  function tokenize (context, index) {
+  , bind = context => {
+      range.deleteContents ()
 
-    let
-      clone = fragment.cloneNode (true)
-
-    typeof context != 'object'
-      && ( context  = { self: context })
-
-    context ['#'] = index
-
-
-    void (new TokenList (clone))
-      .bind (context)
-
-    return clone
-  }
+      context && []
+        .concat (context)
+        .map (tokenize)
+        .reverse () // Range.insertNode does prepend
+        .map (fragment => range.insertNode (fragment))
+    }
 
   return template
 }
