@@ -57,7 +57,7 @@ new class extends Base (path = path + '') {
 
     for (let method of UNSAFE_METHODS)
       allow.includes (method)
-        || disable (this, method, _ => {})
+        || disable (this, method, endpoint)
   }
 
 //head (context)
