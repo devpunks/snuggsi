@@ -13,6 +13,9 @@ const Template = template => {
   let
     fragment = range.cloneContents ()
 
+  , tokenize = (context, index) => {
+      let
+        clone = fragment.cloneNode (true)
 
   template.bind = function (context) {
 
