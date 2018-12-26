@@ -243,11 +243,10 @@ test ('Defined Resource disallowed methods', async t => {
       { status, headers }
         = await fetch ( URL, { method } )
 
-//  , allowed
-//      = headers.get ('allow').split `, `
+    let allowed =DEFAULT_METHODS// headers.get ('allow').split `, `
 
     t.equal ( 405, status )
-//  t.ok ( compare (allowed, ALLOWED_METHODS) )
+    t.ok ( compare (allowed, ALLOWED_METHODS) )
   }
 
   server.close ``
