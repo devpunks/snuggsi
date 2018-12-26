@@ -17,7 +17,8 @@ const Template = template => {
       let
         clone = fragment.cloneNode (true)
 
-  template.bind = function (context) {
+      typeof context != 'object'
+        && ( context  = { self: context })
 
     range.setStartAfter  (template)
     range.deleteContents ()
