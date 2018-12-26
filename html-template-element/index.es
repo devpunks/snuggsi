@@ -25,6 +25,8 @@ const Template = template => {
       void (new TokenList (clone))
         .bind (context)
 
+      return clone
+    }
 
   function tokenize (context, index) {
 
