@@ -20,8 +20,7 @@ const Template = template => {
       typeof context != 'object'
         && ( context  = { self: context })
 
-    range.setStartAfter  (template)
-    range.deleteContents ()
+      context ['#'] = index
 
     context && void []
       .concat (context)
