@@ -22,12 +22,8 @@ const Template = template => {
 
       context ['#'] = index
 
-    context && void []
-      .concat (context)
-      .map (tokenize)
-      .reverse () // Range.insertNode does prepend
-      .map (fragment => range.insertNode (fragment))
-  }
+      void (new TokenList (clone))
+        .bind (context)
 
 
   function tokenize (context, index) {
