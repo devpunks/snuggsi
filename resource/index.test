@@ -173,7 +173,7 @@ test ('Default Resource disallowed methods', async t => {
     let allowed =DEFAULT_METHODS// headers.get ('allow').split `, `
 
     t.equals ( 405, status )
-//  t.ok ( compare (allowed, DEFAULT_METHODS) )
+    t.ok ( compare (allowed, DEFAULT_METHODS) )
   }
 
   server.close ``
