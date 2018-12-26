@@ -38,6 +38,8 @@ const Template = template => {
         .map (fragment => range.insertNode (fragment))
     }
 
+  range.setStartAfter (template)
+  template.bind = bind
   return template
 }
 
