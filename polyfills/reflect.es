@@ -5,7 +5,7 @@ window.Reflect
 Reflect.construct = (parent, args, child) => {
   const
     prototype
-      = descendant.prototype
+      = child.prototype
 
   , instance
       = ( Object (prototype) === prototype )
