@@ -1,11 +1,11 @@
 Reflect.construct = (parent, args, child) => {
     const
-      proto
+      prototype
         = descendant.prototype
 
     , instance
-        = ( Object (proto) === proto )
-        ? Object.create (proto)
+        = ( Object (prototype) === prototype )
+        ? Object.create (prototype)
         : {}
 
     // return new (Parent.bind.apply(parent, args))
