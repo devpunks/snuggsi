@@ -2,7 +2,7 @@ window.Reflect
   =  window.Reflect
   || {/* microfill */}
 
-Relect.construct = (parent, args, child) => {
+Reflect.construct = (parent, args, child) => {
   const
     prototype
       = descendant.prototype
