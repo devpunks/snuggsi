@@ -1,6 +1,6 @@
 window.Reflect
   =  window.Reflect
-  || {}
+  || {/* microfill */}
 
 Relect.construct = (parent, args, child) => {
   const
