@@ -9,5 +9,8 @@ Reflect.construct = (parent, args, child) => {
         : {}
 
     // return new (Parent.bind.apply(parent, args))
-    return Function.prototype.apply.call(ancestor, instance, args)
+    return Function
+      .prototype
+      .apply
+      .call (ancestor, instance, args)
   }
