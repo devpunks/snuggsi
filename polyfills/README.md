@@ -7,3 +7,7 @@
 ## Mutation Obserser
 
   - https://dom.spec.whatwg.org/#mutation-observers
+
+## Reflect.construct
+
+  - https://github.com/babel/babel/issues/4480
