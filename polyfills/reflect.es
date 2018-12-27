@@ -1,4 +1,4 @@
-Reflect.construct = function (parent, args, child) {
+Reflect.construct = (parent, args, child) => {
     const
       proto    = descendant.prototype
     , instance = (Object(proto) === proto) ? Object.create(proto) : {}
