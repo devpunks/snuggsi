@@ -1,16 +1,20 @@
-Reflect.construct = (parent, args, child) => {
-    const
-      prototype
-        = descendant.prototype
+window.Reflect
+  = window.Reflect
+  || {}
 
-    , instance
-        = ( Object (prototype) === prototype )
-        ? Object.create (prototype)
-        : {}
+Relect.construct = (parent, args, child) => {
+  const
+    prototype
+      = descendant.prototype
 
-    // return new (Parent.bind.apply(parent, args))
-    return Function
-      .prototype
-      .apply
-      .call (parent, instance, args)
-  }
+  , instance
+      = ( Object (prototype) === prototype )
+      ? Object.create (prototype)
+      : {}
+
+  // return new (Parent.bind.apply(parent, args))
+  return Function
+    .prototype
+    .apply
+    .call (parent, instance, args)
+}
