@@ -1,5 +1,5 @@
 window.Reflect
-  = window.Reflect
+  =  window.Reflect
   || {}
 
 Relect.construct = (parent, args, child) => {
