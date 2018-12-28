@@ -16,5 +16,5 @@ Reflect.construct = (parent, _, child) => {
   return Function
     .prototype
     .apply
-    .call (parent, instance, args)
+    .call (parent, instance, _)
 }
