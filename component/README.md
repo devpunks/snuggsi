@@ -1,2 +1,4 @@
 # `Custom (element)`
 
+## `connectedCallback`
+
