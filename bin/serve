@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 declare -rx NODE_PATH=`pwd`
-declare -rx PORT=${PORT:-3000}
+declare -rx PORT=${PORT:-1234}
 declare -rx DIRECTORY=${1:-`pwd`} # default working directory to current location
 
 node                  \
