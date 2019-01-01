@@ -28,6 +28,8 @@ test ('new HTMLElement', async t => {
   await page
     .screenshot ({ path: 'screenshot.png' })
 
+  await browser.close ()
+
   server.close ``
   t.end ()
 })
