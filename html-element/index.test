@@ -24,6 +24,13 @@ test ('new HTMLElement', async t => {
 //await page.content ()
 
 //console.warn (page)
+  page.on ('console', msg => {
+    for (let i = 0; i < msg.args().length; ++i)
+      console.log(`${i}: ${msg.args()[i]}`)
+  })
+
+  page.evaluate(() => console.log('hello', 5, {foo: 'bar'}))
+
 
   await page
     .screenshot ({ path: 'screenshot.png' })
