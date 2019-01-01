@@ -2,6 +2,10 @@ const
   { test, serve }
     = require ('test')
 
+const
+  puppeteer
+    = require ('puppeteer')
+
 
 test ('new HTMLElement', t => {
 
