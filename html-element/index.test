@@ -10,13 +10,15 @@ const
 test ('new HTMLElement', async t => {
 
   const
-    server = serve ``
-
+    server
+      = serve ``
   , browser
       = await puppeteer.launch ()
+  , page
+      = await browser.newPage ()
 
 
-  console.warn (browser)
+  console.warn (page)
 
   server.close ``
   t.end ()
