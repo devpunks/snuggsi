@@ -25,6 +25,9 @@ test ('new HTMLElement', async t => {
 
   console.warn (page)
 
+  await page
+    .screenshot ({ path: 'screenshot.png' })
+
   server.close ``
   t.end ()
 })
