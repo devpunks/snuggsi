@@ -18,6 +18,11 @@ test ('new HTMLElement', async t => {
       = await browser.newPage ()
 
 
+  await page
+    .goto ('https://example.com')
+
+//await page.content ()
+
   console.warn (page)
 
   server.close ``
