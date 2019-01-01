@@ -17,19 +17,21 @@ test ('new HTMLElement', async t => {
   , page
       = await browser.newPage ()
 
+  , console = message =>
+      for (let i = 0; i < message.args ().length; ++i)
+        console.log (`${i}: ${message.args ()[i]}`)
+
 
   await page
     .goto ('https://example.com')
 
 //await page.content ()
 
-//console.warn (page)
-  page.on ('console', msg => {
-    for (let i = 0; i < msg.args().length; ++i)
-      console.log(`${i}: ${msg.args()[i]}`)
-  })
+  page.on ('console', console)
 
-  page.evaluate(() => console.log('hello', 5, {foo: 'bar'}))
+
+  page.evaluate
+    (() => console.log('hello', 5, {foo: 'bar'}))
 
 
   await page
