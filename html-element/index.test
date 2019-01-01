@@ -6,12 +6,17 @@ const
   puppeteer
     = require ('puppeteer')
 
+, browser
+    = await puppeteer.launch ()
+
 
 test ('new HTMLElement', t => {
 
   const
     server = serve ``
 
+
+  console.warn (browser)
 
   server.close ``
   t.end ()
