@@ -1,0 +1,15 @@
+const
+  { test, serve }
+    = require ('test')
+
+
+test ('new HTMLElement', t => {
+
+  const
+    server = serve ``
+
+
+  server.close ``
+  t.end ()
+})
+
