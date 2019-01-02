@@ -24,12 +24,7 @@ test ('new HTMLElement', async t => {
   await page.goto
     (`http://localhost:${process.env.PORT}`)
 
-  await page
-    .goto ('https://example.com')
-
-//await page.content ()
-
-  page.on ('console', console)
+console.warn (await page.content ())
 
 
   page.evaluate
