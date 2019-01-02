@@ -26,6 +26,7 @@ test ('new HTMLElement', async t => {
 
 console.warn (await page.content ())
 
+//page.on ('console', log)
 
   page.evaluate
     (() => console.log('hello', 5, {foo: 'bar'}))
