@@ -21,6 +21,8 @@ test ('new HTMLElement', async t => {
         console.log ( 'WHAAAT', message.args ()[1] )
 
 
+  await page.goto
+    (`http://localhost:${process.env.PORT}`)
 
   await page
     .goto ('https://example.com')
