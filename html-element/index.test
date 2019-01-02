@@ -20,9 +20,6 @@ test ('new HTMLElement', async t => {
       = message =>
         console.log ( 'WHAAAT', message.args ()[1] )
 
-  , console = message =>
-      for (let i = 0; i < message.args ().length; ++i)
-        console.log (`${i}: ${message.args ()[i]}`)
 
 
   await page
