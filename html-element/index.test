@@ -16,6 +16,9 @@ test ('new HTMLElement', async t => {
       = await puppeteer.launch ()
   , page
       = await browser.newPage ()
+  , log
+      = message =>
+        console.log ( 'WHAAAT', message.args ()[1] )
 
   , console = message =>
       for (let i = 0; i < message.args ().length; ++i)
