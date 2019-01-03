@@ -24,7 +24,7 @@ test ('new HTMLElement', async t => {
   await page.goto
     (`http://localhost:${process.env.PORT}`)
 
-console.warn (await page.content ())
+console.warn (await page.content ``)
 
 //page.on ('console', log)
 
