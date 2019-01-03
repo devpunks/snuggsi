@@ -13,7 +13,7 @@ test ('new HTMLElement', async t => {
     server
       = serve ``
   , browser
-      = await puppeteer.launch ()
+      = await puppeteer.launch ``
   , page
       = await browser.newPage ``
   , log
