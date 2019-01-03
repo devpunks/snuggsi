@@ -35,9 +35,9 @@ console.warn (await page.content ``)
   await page
     .screenshot ({ path: 'screenshot.png' })
 
-  await browser.close ``
+  server.close
+    (await browser.close ``)
 
-  server.close ``
   t.end ()
 })
 
