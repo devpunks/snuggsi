@@ -18,7 +18,7 @@ test ('new HTMLElement', async t => {
       = await browser.newPage ()
   , log
       = message =>
-        console.log ( 'WHAAAT', message.args ()[1] )
+        console.log ( 'Console Log', message.args ()[1] )
 
 
   await page.goto
