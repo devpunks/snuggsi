@@ -28,12 +28,12 @@ console.warn (await page.content ``)
 
 //page.on ('console', log)
 
-//page.evaluate
-//  (() => console.log('hello', 5, {foo: 'bar'}))
+  page.evaluate
+    (() => console.log('hello', 5, {foo: 'bar'}))
 
 
   await page
-    .screenshot ({ path: 'screenshot.png' })
+    .screenshot ({ path: 'screenshot.png', fullPage: true })
 
   server.close
     (await browser.close ``)
