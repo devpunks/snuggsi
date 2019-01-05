@@ -12,14 +12,18 @@ test ('new HTMLElement', async t => {
   const
     server
       = serve ``
+
   , browser
       = await puppeteer.launch ``
+
   , page
       = await browser.newPage ``
-  , log = messages =>
-      messages
-        .args ()
-        .map  (message => console.warn (`${message}`))
+
+  , log
+      = messages =>
+        messages
+          .args ()
+          .map  (message => console.warn (`${message}`))
 
 
   await page.goto
