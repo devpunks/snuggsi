@@ -16,9 +16,10 @@ test ('new HTMLElement', async t => {
       = await puppeteer.launch ``
   , page
       = await browser.newPage ``
-  , log
-      = message =>
-        console.log ( 'Console Log', message.args ()[1] )
+  , log = messages =>
+      messages
+        .args ()
+        .map  (message => console.warn (`${message}`))
 
 
   await page.goto
