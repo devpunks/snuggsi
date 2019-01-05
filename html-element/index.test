@@ -45,4 +45,3 @@ test ('new HTMLElement', async t => {
 
   t.end ()
 })
-
