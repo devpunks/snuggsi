@@ -2,11 +2,9 @@ const
   {test}
     = require ('test')
 
-, document = browse `index`
-
 
 test ('new Element', t => {
-  t.ok (document.querySelector `foo-bar`)
+  t.ok (true)
 
   t.end ()
 })
