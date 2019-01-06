@@ -13,6 +13,9 @@ test ('new HTMLElement', async t => {
     server
       = serve ``
 
+  , URL
+      = `http://localhost:${process.env.PORT}`
+
   , browser
       = await puppeteer.launch ``
 
@@ -27,7 +30,7 @@ test ('new HTMLElement', async t => {
 
 
   await page.goto
-    (`http://localhost:${process.env.PORT}`)
+    (URL)
 
 //for (let i of await page.$$('main'))
 //  console.warn ('EYE', i)
