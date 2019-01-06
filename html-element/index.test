@@ -29,8 +29,8 @@ test ('new HTMLElement', async t => {
   await page.goto
     (`http://localhost:${process.env.PORT}`)
 
-  for (let i of await page.$$('main'))
-    console.warn ('EYE', i)
+//for (let i of await page.$$('main'))
+//  console.warn ('EYE', i)
 
   page.on ('console', log)
 
