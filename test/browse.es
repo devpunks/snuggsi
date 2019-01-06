@@ -1,4 +1,5 @@
-//module.exports = browse
+module.exports
+  = require ('puppeteer').launch ``
 
 const
   encoding = 'utf8'
