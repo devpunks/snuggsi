@@ -35,7 +35,7 @@ test ('new HTMLElement', async t => {
 //  console.warn ('EYE', i)
 
 
-  console.warn ('browser', (await browse))
+  console.warn ('browser', await browse)
 
   page.on ('console', log)
 
