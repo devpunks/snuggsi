@@ -41,8 +41,8 @@ test ('new HTMLElement', async t => {
   await page
     .screenshot ({ path: 'screenshot.png', fullPage: true })
 
-  server.close
-    (await browser.close ``)
+  server.close ``
+//    (await browser.close ``)
 
   t.end ()
 })
