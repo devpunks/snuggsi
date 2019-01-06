@@ -32,6 +32,9 @@ test ('new HTMLElement', async t => {
 //for (let i of await page.$$('main'))
 //  console.warn ('EYE', i)
 
+
+  console.warn ('browser', (await browse))
+
   page.on ('console', log)
 
   page.evaluate
