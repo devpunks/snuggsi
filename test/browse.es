@@ -1,4 +1,4 @@
-module.exports = browse
+//module.exports = browse
 
 const
   encoding = 'utf8'
