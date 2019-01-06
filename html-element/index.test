@@ -29,8 +29,7 @@ test ('new HTMLElement', async t => {
           .map  (message => console.warn (`${message}`))
 
 
-  await page.goto
-    (URL)
+  await page.goto (URL)
 
 //for (let i of await page.$$('main'))
 //  console.warn ('EYE', i)
