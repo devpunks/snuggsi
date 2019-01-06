@@ -1,5 +1,5 @@
 const
-  {test, browse}
+  {test}
     = require ('test')
 
 , document = browse `index`
