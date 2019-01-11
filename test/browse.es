@@ -1,5 +1,18 @@
-module.exports
-  = require ('puppeteer').launch ``
+const
+  puppeteer
+    = require ('puppeteer')
+
+module.exports = (function () {
+  const browser
+    = puppeteer.launch ``
+
+  return async function (url) {
+    console.warn ('Browsing to', url, await browser)
+
+//  return (await browser.newPage ``).goto `url`
+  }
+})()
+
 
 const
   encoding = 'utf8'
