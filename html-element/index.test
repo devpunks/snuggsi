@@ -24,9 +24,7 @@ test ('new HTMLElement', async t => {
 
   , log
       = messages =>
-        messages
-          .args ()
-          .map  (message => console.warn (`${message}`))
+        console.log ( ... messages.args `` )
 
 
   await page.goto (url)
