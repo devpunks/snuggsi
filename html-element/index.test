@@ -39,9 +39,6 @@ test ('new HTMLElement', async t => {
   page.evaluate
     (() => console.log('hello', 5, {foo: 'bar'}))
 
-  await page
-    .screenshot ({ path: 'screenshot.png', fullPage: true })
-
   server.close
     (await browser.close ``)
 
