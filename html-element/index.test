@@ -37,7 +37,7 @@ test ('new HTMLElement', async t => {
   page.on ('console', log)
 
   page.evaluate
-    (() => console.log('hello', 5, {foo: 'bar'}))
+    ( _ => console.log('hello', 5, {foo: 'bar'}))
 
   server.close
     (await browser.close ``)
