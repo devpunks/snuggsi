@@ -32,7 +32,6 @@ test ('new HTMLElement', async t => {
 //for (let i of await page.$$('main'))
 //  console.warn ('EYE', i)
 
-
 //console.warn ('browser', typeof await browse (url))
 
   page.on ('console', log)
