@@ -33,7 +33,6 @@ function execute {
           $COMMAND $RESOURCE
         else
           echo "🔴  $RESOURCE NOT A DIRECTORY"
-
       fi
     done
 }
