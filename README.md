@@ -195,7 +195,7 @@ template.bind (context)
 ```html
 <ul>
   <template name=item>
-    <li>Hello {name}! Your index # is {#}
+    <li>Hello {name}! Your index # is {#}</li>
   </template>
 </ul>
 
