@@ -2,7 +2,7 @@
 
 declare -r THRESHOLD=95                  # Percentage
 declare -r HARNESS="bin/test"            # Test harness
-export COVER="node_modules/.bin/nyc" # Coverage runner
+declare -r COVER="node_modules/.bin/nyc" # Coverage runner
 export CHECK="$COVER check-coverage" # Coverage checker
 export INCLUDE="resource"            # Included coverage files
 export EXCLUDE="**/node_modules"     # Excluded coverage files
