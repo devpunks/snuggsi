@@ -6,17 +6,6 @@
 // Satisfy Element interface document.createElement
 //   - https://dom.spec.whatwg.org/#concept-element-interface
 
-
-//// base class to extend, same trick as before
-//class HTMLCustomElement extends HTMLElement {
-
-//  constructor(_)
-//    { return (_ = super(_)).init(), _; }
-
-//  init()
-//    { /* override as you like */ }
-//}
-
 var HTMLElement =
 
 /*
@@ -44,8 +33,6 @@ for slightly better semantics, including class-side inheritance and not clobberi
   function E () {}
 
   E.prototype =
-  // E.prototype.__proto__ = ???
-  // https://github.com/visionmedia/supertest/blob/master/lib/agent.js
 
     window.HTMLElement.prototype
 
@@ -98,7 +85,7 @@ TokenList.prototype.bind = function (context) {
   for (var symbol in this)
     { symbol != 'bind'
       && this [symbol].map
-        (function (node) { return (node.textContent = node.text) && node; }) }
+        (function (node) { return (node.textContent = node.text); }) }
 
   for (var symbol$1 in this)
     { symbol$1 != 'bind'
@@ -296,7 +283,7 @@ var Template = function (template) {
     range = document.createRange ()
 
   template
-    = typeof template == 'string'
+    = typeof template === 'string'
     ? document.querySelector ( 'template[name=' + template + ']' )
     : template
 
@@ -305,37 +292,33 @@ var Template = function (template) {
   var
     fragment = range.cloneContents ()
 
+  , tokenize = function (context, index) {
+      var
+        clone = fragment.cloneNode (true)
 
-  template.bind = function (context) {
+      typeof context != 'object'
+        && ( context  = { self: context })
 
-    range.setStartAfter  (template)
-    range.deleteContents ()
+      context ['#'] = index
 
-    context && void []
-      .concat (context)
-      .map (tokenize)
-      .reverse () // Range.insertNode does prepend
-      .map (function (fragment) { return range.insertNode (fragment); })
-  }
+      void (new TokenList (clone))
+        .bind (context)
 
+      return clone
+    }
 
-  function tokenize (context, index) {
+  , bind = function (context) {
+      range.deleteContents ()
 
-    var
-      clone = fragment.cloneNode (true)
+      context && []
+        .concat (context)
+        .map (tokenize)
+        .reverse () // Range.insertNode does prepend
+        .map (function (fragment) { return range.insertNode (fragment); })
+    }
 
-    typeof context != 'object'
-      && ( context  = { self: context })
-
-    context ['#'] = index
-
-
-    void (new TokenList (clone))
-      .bind (context)
-
-    return clone
-  }
-
+  range.setStartAfter (template)
+  template.bind = bind
   return template
 }
 
@@ -356,17 +339,17 @@ void ( function (_) { /* CustomElementRegistry */
   }
 
 
-  // "Dmitry's Brain Transplant"
-  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
-  customElements.upgrade = function (node) {
+  customElements.upgrade = function (root) {
+
+    var candidates = []
 
     // Here's where we can swizzle
     // https://github.com/whatwg/html/issues/1704#issuecomment-241881091
 
     Object.setPrototypeOf
-      (node, customElements [node.localName].prototype)
+      (root, customElements [root.localName].prototype)
 
-    node.connectedCallback ()
+    root.connectedCallback ()
   }
 
 
@@ -379,11 +362,11 @@ void ( function (_) { /* CustomElementRegistry */
       for (var i = 0, list = mutation.addedNodes; i < list.length; i += 1)
 
          {
-          var node = list[i];
+          var root = list[i];
 
-          !! /\-/.test (node.localName)
-         && customElements [node.localName]
-         && customElements.upgrade (node)
+          !! /\-/.test (root.localName)
+         && customElements [root.localName]
+         && customElements.upgrade (root)
         }
     }
   }))
@@ -579,11 +562,6 @@ var Custom = function (Element) { return ( /*@__PURE__*/(function (superclass) {
       (new Event ('connect'))
 
     this.render ()
-  };
-
-
-  anonymous.prototype.upgrade = function () {
-
   };
 
 
