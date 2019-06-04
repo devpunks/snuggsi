@@ -6,17 +6,6 @@
 // Satisfy Element interface document.createElement
 //   - https://dom.spec.whatwg.org/#concept-element-interface
 
-
-//// base class to extend, same trick as before
-//class HTMLCustomElement extends HTMLElement {
-
-//  constructor(_)
-//    { return (_ = super(_)).init(), _; }
-
-//  init()
-//    { /* override as you like */ }
-//}
-
 const HTMLElement =
 
 /*
@@ -44,8 +33,6 @@ for slightly better semantics, including class-side inheritance and not clobberi
   function E () {}
 
   E.prototype =
-  // E.prototype.__proto__ = ???
-  // https://github.com/visionmedia/supertest/blob/master/lib/agent.js
 
     window.HTMLElement.prototype
 
@@ -277,11 +264,11 @@ void ( _ => {
 
 const Template = template => {
 
-  const
+  let
     range = document.createRange ()
 
   template
-    = typeof template == 'string'
+    = typeof template === 'string'
     ? document.querySelector ( 'template[name=' + template + ']' )
     : template
 
@@ -290,37 +277,33 @@ const Template = template => {
   let
     fragment = range.cloneContents ()
 
+  , tokenize = (context, index) => {
+      let
+        clone = fragment.cloneNode (true)
 
-  template.bind = function (context) {
+      typeof context != 'object'
+        && ( context  = { self: context })
 
-    range.setStartAfter  (template)
-    range.deleteContents ()
+      context ['#'] = index
 
-    context && void []
-      .concat (context)
-      .map (tokenize)
-      .reverse () // Range.insertNode does prepend
-      .map (fragment => range.insertNode (fragment))
-  }
+      void (new TokenList (clone))
+        .bind (context)
 
+      return clone
+    }
 
-  function tokenize (context, index) {
+  , bind = context => {
+      range.deleteContents ()
 
-    let
-      clone = fragment.cloneNode (true)
+      context && []
+        .concat (context)
+        .map (tokenize)
+        .reverse () // Range.insertNode does prepend
+        .map (fragment => range.insertNode (fragment))
+    }
 
-    typeof context != 'object'
-      && ( context  = { self: context })
-
-    context ['#'] = index
-
-
-    void (new TokenList (clone))
-      .bind (context)
-
-    return clone
-  }
-
+  range.setStartAfter (template)
+  template.bind = bind
   return template
 }
 
@@ -341,28 +324,28 @@ void ( _ => { /* CustomElementRegistry */
   }
 
 
-  // "Dmitry's Brain Transplant"
-  // https://wiki.whatwg.org/wiki/Custom_Elements#Upgrading
-  customElements.upgrade = function (node) {
+  customElements.upgrade = function (root) {
+
+    const candidates = []
 
     // Here's where we can swizzle
     // https://github.com/whatwg/html/issues/1704#issuecomment-241881091
 
     Object.setPrototypeOf
-      (node, customElements [node.localName].prototype)
+      (root, customElements [root.localName].prototype)
 
-    node.connectedCallback ()
+    root.connectedCallback ()
   }
 
 
   void (new MutationObserver ( mutations => {
 
     for (let mutation of mutations)
-      for (let node of mutation.addedNodes)
+      for (let root of mutation.addedNodes)
 
-         !! /\-/.test (node.localName)
-         && customElements [node.localName]
-         && customElements.upgrade (node)
+         !! /\-/.test (root.localName)
+         && customElements [root.localName]
+         && customElements.upgrade (root)
   }))
 
   .observe (document.documentElement, { childList: true, subtree: true })
@@ -603,11 +586,6 @@ const Custom = Element => // why buble
   }
 
 
-  upgrade () {
-
-  }
-
-
   render () {
 
     for (let template of this.templates)
@@ -628,7 +606,6 @@ const Custom = Element => // why buble
     this.dispatchEvent
       (new Event ('idle'))
   }
-
 })
 
 // http://2ality.com/2013/09/window.html
