@@ -9,7 +9,7 @@ TEST="$BIN/tape"
 
 API="element"
 ENTRY="index.test"
-LIBRARIES=".,test,html-element,resource,server,middleware"
+LIBRARIES=".,test,html-element,resource"
 TESTS=$NODE_PATH/${1:-"{$LIBRARIES,$API}/$ENTRY"}
 
 
