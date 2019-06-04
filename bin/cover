@@ -23,7 +23,6 @@ echo
 
 
 $COVER                    \
-  --include=$INCLUDE      \
   --exclude=$EXCLUDE      \
   --reporter=$REPORTER    \
   --extension=$EXTENSION  \
