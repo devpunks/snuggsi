@@ -1,6 +1,8 @@
 #!/bin/bash
 
-declare -r THRESHOLD=95                  # Percentage
+declare -x LIBRARIES=.,test,html-element # resource,middleware,server
+
+declare -r THRESHOLD=70                  # Percentage
 declare -r HARNESS="bin/test"            # Test harness
 declare -r COVER="node_modules/.bin/nyc" # Coverage runner
 declare -r CHECK="$COVER check-coverage" # Coverage checker
