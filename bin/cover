@@ -17,7 +17,7 @@ export REPORTER="text"               # Type of coverage report to generate
 echo # Beginning of Coverage Report
 echo "📊  snuggsi ツ Coverage Report"
 echo "  🎯  Threshold 👉  $THRESHOLD %"
-echo "  ➕  Included  👉  $INCLUDE"
+echo "  ➕  Included  👉  $LIBRARIES"
 echo "  ➖  Excluded  👉  $EXCLUDE"
 echo
 
