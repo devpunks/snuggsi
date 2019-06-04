@@ -1,6 +1,6 @@
 #!/bin/bash
 
-export THRESHOLD=95                  # Percentage
+declare -r THRESHOLD=95              # Percentage
 export HARNESS="bin/test"            # Test harness
 export COVER="node_modules/.bin/nyc" # Coverage runner
 export CHECK="$COVER check-coverage" # Coverage checker
