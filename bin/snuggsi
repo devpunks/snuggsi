@@ -8,7 +8,6 @@ echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツ     snuggsi ツ   ツツツツツ "
 echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツツツツツツツツツツツツツツツ "
-echo
 
 
 declare -r  ENTRY=`dirname $(readlink $BASH_SOURCE)`
