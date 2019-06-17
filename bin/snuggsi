@@ -16,6 +16,10 @@ declare -rx SNUGGSI=$(dirname $BIN)
 declare -r  COMMAND="$SNUGGSI/bin/$1"
 declare -rx RESOURCES=("${@:2}")
 
+env
+echo
+declare
+echo $RESOURCES $ENTRY $BIN $COMMAND
 
 function execute {
   echo "📚  MOUNTING RESOURCES …"
