@@ -36,7 +36,7 @@ $CHECK                     \
 $HARNESS
 
 
-export CODE=$?
+declare -r  CODE=$?
 
 echo
 echo "📁  Coverage Cleanup"
