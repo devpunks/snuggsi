@@ -21,6 +21,14 @@ function execute {
   local executable=$(basename $COMMAND)
 
   echo
+
+  if test ! -f $COMMAND || test $executable == snuggsi
+    then
+      echo "🔴  Invalid command"
+      echo
+      exit 1
+    fi
+
   echo "📚  MOUNTING RESOURCES …"
   echo
   printf ' 👉  📗  %s\n' "${RESOURCES[@]}"
