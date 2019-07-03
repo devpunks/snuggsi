@@ -16,6 +16,7 @@ declare -r REPORTER="text"               # Type of coverage report to generate
 
 echo # Beginning of Coverage Report
 echo "📊  snuggsi ツ Coverage Report"
+echo
 echo "  🎯  Threshold 👉  $THRESHOLD %"
 echo "  ➕  Included  👉  $LIBRARIES"
 echo "  ➖  Excluded  👉  $EXCLUDE"
