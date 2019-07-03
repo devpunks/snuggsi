@@ -18,12 +18,7 @@ declare -rx RESOURCES=("${@:2}")
 
 
 function execute {
-  if test ! -f $COMMAND || \
-     test snuggsi == $1
-  then
-    echo "🔴  Invalid command"
-    exitt 1
-  fi
+  local executable=$(basename $COMMAND)
 
   echo
   echo "📚  MOUNTING RESOURCES …"
