@@ -18,7 +18,7 @@ declare -r  ENTRY=`dirname $(readlink $BASH_SOURCE)`
 declare -r  BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
 declare -rx SNUGGSI=$(dirname $BIN)
 declare -r  COMMAND="$SNUGGSI/bin/$1"
-declare -rx RESOURCES=("${@:2}")
+declare -r  RESOURCES=("${@:2}")
 
 
 function execute {
