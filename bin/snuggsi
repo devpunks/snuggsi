@@ -30,6 +30,7 @@ function execute {
     fi
 
   echo "📚  MOUNTING RESOURCES …"
+  printf ' 👉  📁  %s\n' "${RESOURCES[@]}"
   echo
 
 
