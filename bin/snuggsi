@@ -44,14 +44,6 @@ function execute {
 }
 
 
-if test -f $COMMAND && \
-   test snuggsi != $1
-
-  then
-    execute
-  else
-    echo "🔴  Invalid command"
-
-fi
+execute $COMMAND
 
 echo
