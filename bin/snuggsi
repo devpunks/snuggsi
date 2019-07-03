@@ -33,12 +33,11 @@ function execute {
   printf ' 👉  📁  %s\n' "${RESOURCES[@]}"
   echo
 
-
   for RESOURCE in ${RESOURCES[@]}
     do
       if test -d $RESOURCE
         then
-          printf ' 👉  📗  %s\n' "${RESOURCES[@]}"
+          echo " 👉  📂  $RESOURCE ══════════════════════════════════════"
           $COMMAND $RESOURCE
         else
           echo "🔴  $RESOURCE NOT A DIRECTORY"
