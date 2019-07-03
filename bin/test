@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-export NODE_PATH=`pwd`
+declare -rx NODE_PATH=`pwd`
 declare -rx PORT=${PORT:-1234}
 
 BIN="$NODE_PATH/node_modules/.bin"
