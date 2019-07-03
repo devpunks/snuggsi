@@ -22,6 +22,4 @@ echo "  Suite 👉  $TESTS"
 echo
 
 
-$TEST         \
-  --require . \
-$TESTS | $SPECS
+$TEST $TESTS | $SPECS
