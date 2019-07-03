@@ -37,7 +37,7 @@ function execute {
     do
       if test -d $RESOURCE
         then
-          echo " 👉  📂  $RESOURCE ══════════════════════════════════════"
+          echo " 👉  📂  $RESOURCE ══════════════════════════════════════════"
           $COMMAND $RESOURCE
         else
           echo "🔴  $RESOURCE NOT A DIRECTORY"
