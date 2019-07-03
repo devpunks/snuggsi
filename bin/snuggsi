@@ -28,7 +28,6 @@ function execute {
   for RESOURCE in ${RESOURCES[@]}
     do
       if test -d $RESOURCE
-
         then
           $COMMAND $RESOURCE
         else
