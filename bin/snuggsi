@@ -1,6 +1,10 @@
 #!/usr/bin/env bash
 
-# Bash string manipulations - http://www.tldp.org/LDP/LG/issue18/bash.html
+# Shell Parameter Expansion
+#  - https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
+
+# Bash string manipulations
+#  - http://www.tldp.org/LDP/LG/issue18/bash.html
 
 echo
 echo "  ツツツツツツツツツツツツツツツツツツツ "
