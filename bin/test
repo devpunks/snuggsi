@@ -6,7 +6,6 @@ declare -rx PORT=${PORT:-1234}
 declare -r  BIN="$NODE_PATH/node_modules/.bin"
 declare -r  SPECS="$BIN/tap-spec"
 declare -r  TEST="$BIN/tape --require $NODE_PATH"
-
 declare -r  API="element"
 ENTRY="index.test"
 declare LIBRARIES=${LIBRARIES:-.,test,html-element} # resource,middleware,server
