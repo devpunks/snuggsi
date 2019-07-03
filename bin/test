@@ -3,7 +3,7 @@
 declare -rx NODE_PATH=`pwd`
 declare -rx PORT=${PORT:-1234}
 
-BIN="$NODE_PATH/node_modules/.bin"
+declare -r  BIN="$NODE_PATH/node_modules/.bin"
 SPECS="$BIN/tap-spec"
 TEST="$BIN/tape --require $NODE_PATH"
 
