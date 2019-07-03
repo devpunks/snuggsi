@@ -8,7 +8,7 @@ declare -r  SPECS="$BIN/tap-spec"
 declare -r  TEST="$BIN/tape --require $NODE_PATH"
 declare -r  API="element"
 declare -r  ENTRY="index.test"
-declare LIBRARIES=${LIBRARIES:-.,test,html-element} # resource,middleware,server
+declare -r  LIBRARIES=${LIBRARIES:-.,test,html-element} # resource,middleware,server
 
 TESTS=$NODE_PATH/${1:-"{$LIBRARIES,$API}"}/$ENTRY
 
