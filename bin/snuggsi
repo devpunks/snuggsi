@@ -37,6 +37,7 @@ function execute {
     do
       if test -d $RESOURCE
         then
+          printf ' 👉  📗  %s\n' "${RESOURCES[@]}"
           $COMMAND $RESOURCE
         else
           echo "🔴  $RESOURCE NOT A DIRECTORY"
