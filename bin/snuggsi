@@ -14,9 +14,10 @@ echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツツツツツツツツツツツツツツツ "
 
 
-declare -r  ENTRY=`dirname $(readlink $BASH_SOURCE)`
-declare -r  BIN=$(cd `dirname $BASH_SOURCE`/$ENTRY; pwd)
-declare -rx SNUGGSI=$(dirname $BIN)
+declare -r  ENTRY=`readlink $BASH_SOURCE`
+declare -r  BIN=`dirname $BASH_SOURCE`
+# https://stackoverflow.com/questions/6393551/what-is-the-meaning-of-0-in-a-bash-script
+declare -rx SNUGGSI=$(cd $BIN/`dirname ${ENTRY%/*}`; pwd)
 declare -r  COMMAND="$SNUGGSI/bin/$1"
 declare -r  RESOURCES=("${@:2}")
 
