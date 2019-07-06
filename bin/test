@@ -17,6 +17,7 @@ echo
 echo "  Entry 👉  $ENTRY"
 echo "  Suite 👉  $TESTS"
 echo "  Snuggsi ツ $SNUGGSI"
+echo "  Bin ツ $BIN"
 echo
 
 
