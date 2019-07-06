@@ -11,10 +11,7 @@ declare -r  SUITE="index.test"
 echo
 echo "🚨  Testing, Testing, 1,2,3, ..."
 echo
-echo "  Entry 👉  $ENTRY"
-echo "  Suite 👉  $TESTS"
-echo "  Snuggsi ツ $SNUGGSI"
-echo "  Bin ツ $BIN"
+echo "  Suite 👉  $SUITE"
 echo
 
 
