@@ -3,7 +3,7 @@
 declare -rx PORT=${PORT:-1234}
 declare -r  BIN="$SNUGGSI/node_modules/.bin"
 declare -r  SPECS="$BIN/tap-spec"
-declare -r  TEST="$BIN/tape --require $NODE_PATH"
+declare -r  TEST="$BIN/tape --require $SNUGGSI"
 declare -r  API="element"
 declare -r  ENTRY="index.test"
 declare -r  LIBRARIES=.,test,html-element # resource,middleware,server
