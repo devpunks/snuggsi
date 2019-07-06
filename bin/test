@@ -1,6 +1,5 @@
 #!/usr/bin/env bash
 
-declare -rx NODE_PATH=$SNUGGSI
 declare -rx PORT=${PORT:-1234}
 declare -r  BIN="$SNUGGSI/node_modules/.bin"
 declare -r  SPEC="$BIN/tap-spec"
