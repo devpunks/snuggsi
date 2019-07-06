@@ -8,7 +8,7 @@ declare -r  API="element"
 declare -r  ENTRY="index.test"
 declare -r  LIBRARIES=.,test,html-element # resource,middleware,server
 
-TESTS=$NODE_PATH/${1:-"{$LIBRARIES,$API}"}/$ENTRY
+TESTS=`pwd`/${1:-"{$LIBRARIES,$API}"}/$ENTRY
 
 
 echo
