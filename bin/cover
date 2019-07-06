@@ -1,18 +1,14 @@
 #!/bin/bash
 
-declare -r LIBRARIES=.,test,html-element # resource,middleware,server
-
-declare -r THRESHOLD=70                  # Percentage
-declare -r HARNESS="bin/test"            # Test harness
-declare -r COVER="node_modules/.bin/nyc" # Coverage runner
-declare -r CHECK="$COVER check-coverage" # Coverage checker
-declare -r EXCLUDE="**/node_modules,middleware,resource,server,test"     # Excluded coverage files
-declare -r OUTPUT=".nyc_output/"         # Represented in Percentage
-declare -r EXTENSION=".es"               # Extension for coverage files
-declare -r REPORTER="text"               # Type of coverage report to generate
-
-#export PATHS=$ROOT/${1:-"{$LIBRARIES,$API}/$ENTRY"}
-
+declare -r  THRESHOLD=70                  # Percentage
+declare -r  LIBRARIES=.,test,html-element # resource,middleware,server
+declare -r  HARNESS=$SNUGGSI/bin/test     # Test harness
+declare -r  COVER=$SNUGGSI/node_modules/.bin/nyc # Coverage runner
+declare -r  CHECK=$COVER check-coverage   # Coverage checker
+declare -r  EXCLUDE="**/node_modules,middleware,resource,server,test"     # Excluded coverage files
+declare -r  OUTPUT=.nyc_output/           # Represented in Percentage
+declare -r  EXTENSION=.es                # Extension for coverage files
+declare -r  REPORTER=text                # Type of coverage report to generate
 
 echo # Beginning of Coverage Report
 echo "📊  snuggsi ツ Coverage Report"
