@@ -41,7 +41,7 @@
   },
   "devDependencies": {
     "autoprefixer": "^9.4.2",
-    "browser-sync": "^2.26.5",
+    "browser-sync": "^2.26.7",
     "buble": "^0.19.6",
     "jsdom": "^13.0.0",
     "node-fetch": "^2.3.0",
