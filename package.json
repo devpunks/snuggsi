@@ -35,8 +35,8 @@
   },
   "scripts": {
     "test": "bin/snuggsi test",
-    "start": "bin/snuggsi serve ./public",
-    "package": "bin/snuggsi package",
+    "start": "bin/snuggsi serve .",
+    "package": "bin/snuggsi package .",
     "postinstall": "bin/snuggsi publish ."
   },
   "devDependencies": {
