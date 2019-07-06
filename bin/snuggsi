@@ -19,7 +19,7 @@ declare -r  BIN=`dirname $BASH_SOURCE`
 # https://stackoverflow.com/questions/6393551/what-is-the-meaning-of-0-in-a-bash-script
 declare -rx SNUGGSI=$(cd $BIN/`dirname ${ENTRY%/*}`; pwd)
 declare -r  COMMAND="$SNUGGSI/bin/$1"
-declare -r  RESOURCES=("${@:2}")
+declare -rx RESOURCES=("${@:2}")
 
 echo ENTRY $ENTRY
 echo BIN $BIN
