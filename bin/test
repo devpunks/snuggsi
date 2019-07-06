@@ -15,4 +15,4 @@ echo "  Suite 👉  $SUITE"
 echo
 
 
-$TEST $TESTS | $SPECS
+$TEST $SUITE | $SPEC
