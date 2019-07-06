@@ -21,6 +21,11 @@ declare -rx SNUGGSI=$(cd $BIN/`dirname ${ENTRY%/*}`; pwd)
 declare -r  COMMAND="$SNUGGSI/bin/$1"
 declare -r  RESOURCES=("${@:2}")
 
+echo ENTRY $ENTRY
+echo BIN $BIN
+echo SNUGGSI $SNUGGSI
+echo COMMAND $COMMAND
+
 
 function execute {
   local executable=$(basename $COMMAND)
