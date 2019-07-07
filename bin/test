@@ -1,7 +1,6 @@
 #!/usr/bin/env bash
 
 declare -r  BIN=${SNUGGSI:-.}/node_modules/.bin
-declare -r  TEST=$BIN/tape
 declare -r  SUITE=`pwd`/index.test
 declare -r  SPEC=$BIN/tap-spec
 
