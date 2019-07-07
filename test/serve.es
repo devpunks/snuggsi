@@ -1,5 +1,11 @@
 const
-  server = new (require ('server'))
+  { Server }
+    = require ('snuggsi')
+
+console.log ('Server', require('snuggsi'), Server)
+
+//const server
+//    = new Server
 
 
 require ('tape')
