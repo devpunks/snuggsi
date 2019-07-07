@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 declare -rx PORT=${PORT:-1234}
-declare -r  BIN="$SNUGGSI/node_modules/.bin"
+declare -r  BIN=$SNUGGSI/node_modules/.bin
 declare -r  SPEC="$BIN/tap-spec"
 declare -r  TEST="$BIN/tape --require $SNUGGSI"
 declare -r  SUITE="index.test"
