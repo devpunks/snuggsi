@@ -4,8 +4,8 @@ const
 
 console.log ('Server', require('snuggsi'), Server)
 
-//const server
-//    = new Server
+const server
+    = new Server
 
 
 require ('tape')
