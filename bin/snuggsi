@@ -43,7 +43,7 @@ function execute {
     fi
 
   echo "📚  MOUNTING RESOURCES …"
-  printf ' 👉  📁  %s\n' "${RESOURCES[@]}"
+  printf '    📁  %s\n' "${RESOURCES[@]}"
   echo
 
   for RESOURCE in ${RESOURCES[@]}
