@@ -6,7 +6,6 @@ declare -r  TEST=$BIN/tape
 declare -r  SUITE=index.test
 declare -r  SPEC=$BIN/tap-spec
 
-
 echo
 echo "🚨  Testing, Testing, 1,2,3, ..."
 echo
