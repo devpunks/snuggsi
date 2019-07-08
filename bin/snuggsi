@@ -24,7 +24,6 @@ declare -r  BIN=`dirname $BASH_SOURCE`
 declare -rx SNUGGSI=$(cd $BIN/`dirname ${ENTRY%/*}`; pwd)
 declare -r  COMMAND="$SNUGGSI/bin/$1"
 declare -rx RESOURCES=("${@:2}")
-declare -rx NODE_PATH=`dirname $SNUGGSI`
 
 echo BASH SOURCE $BASH_SOURCE
 echo readlink BASH SOURCE `readlink $BASH_SOURCE`
