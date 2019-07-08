@@ -10,12 +10,12 @@ const
 
 
 module.exports = {
-  test
-, fetch
+//  test
+//, fetch
 
 // See chunked responses
 // http://taylor.fausak.me/2013/02/17/testing-a-node-js-http-server-with-mocha/
-, get    : require ('http')
+  get    : require ('http')
 , read   : require ('./read')
 , serve  : require ('./serve')
 , browse : require ('./browse')
