@@ -1,7 +1,13 @@
 require ('./polyfills')
 
+const
+  { SNUGGSI = '.' } = process.env
+
+
+console.log (process.env)
+
 module.exports = {
-  Resource : require ('./resource')
-, Server   : require ('./server')
-, Test     : require ('./test')
+  Resource : require (`${SNUGGSI}/resource`)
+, Server   : require (`${SNUGGSI}/server`)
+, Test     : require (`${SNUGGSI}/test`)
 }
