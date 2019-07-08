@@ -14,6 +14,10 @@ echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツツツツツツツツツツツツツツツ "
 
 
+# TODO: Remove global installation assumption.
+# This poses problems when installed locally.
+declare -rx NODE_PATH=`npm config get prefix | awk NR==1`
+
 declare -r  ENTRY=`readlink $BASH_SOURCE`
 declare -r  BIN=`dirname $BASH_SOURCE`
 # https://stackoverflow.com/questions/6393551/what-is-the-meaning-of-0-in-a-bash-script
