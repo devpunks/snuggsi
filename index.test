@@ -1,8 +1,5 @@
 const
-  { test }
-    = require ('test')
-
-, { Test, Server, Resource }
+  { test:Test, Server, Resource }
     = require ('.')
 
 
