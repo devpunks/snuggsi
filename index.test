@@ -10,7 +10,7 @@ test `legacy test`
 test `snuggsi.test HOT DAMN!`
   ( 'foo' === 'foo' )
 
-test2 `.Server`
+test `.Server`
   ( 'Server' in require ('.') )
 
 test2 `.Resource`
