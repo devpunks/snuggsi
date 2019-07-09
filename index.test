@@ -49,8 +49,8 @@ function Case (definition) {
   return funk // definition
 }
 
-test2 `legacy test`
-  ( true === true )
+  test2 `legacy test`
+    ( true === true )
 
 //test2 `.test`
 //  (t => { t.skip `when loading tape causes tests to run`, t.end () })
