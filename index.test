@@ -3,6 +3,29 @@ const
     = require ('.')
 
 
+function zip (tokens) {
+
+  let func = (result, fragment) =>
+    result
+      += `${ fragment }${ tokens.shift () || '' }`
+
+
+  return [func, '']
+}
+
+function test2 (fragments, ...tokens) {
+  let
+    title =
+      fragments.reduce
+        ( ... zip (tokens) )
+
+  console.warn ('Title', title)
+}
+
+
+test2 `snuggsi ${new Date} date`
+
+
 test ('snuggsi.test',
   t => { t.skip `when loading tape causes tests to run`, t.end () })
 
