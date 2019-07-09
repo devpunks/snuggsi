@@ -17,9 +17,9 @@ function Case (definition) {
   return definition
 }
 
-function sleep(ms) {
-  return new Promise(resolve => setTimeout(resolve, ms));
-}
+const sleep = ms =>
+  new Promise(resolve => setTimeout(resolve, ms))
+
 
 function test2 (fragments, ...tokens) {
   let
