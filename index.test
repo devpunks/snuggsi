@@ -11,6 +11,11 @@ const
     ]
 
 
+function Case (definition) {
+  console.warn ('Case definition', definition)
+
+}
+
 function test2 (fragments, ...tokens) {
   let
     title =
