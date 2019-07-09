@@ -13,7 +13,7 @@ console.warn ('fetch', fetch)
 
 
 module.exports = {
-//  test
+    test
 //, fetch
 
 // See chunked responses
