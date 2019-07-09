@@ -2,8 +2,8 @@ const
   { test, Server, Resource }
     = require ('.')
 
-, sleep = ms =>
-    new Promise(resolve => setTimeout(resolve, ms))
+, sleep = ms => new Promise
+    (resolve => setTimeout (resolve, ms))
 
 
 , zip = tokens =>
