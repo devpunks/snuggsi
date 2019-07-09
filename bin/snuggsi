@@ -24,7 +24,7 @@ declare -r  BIN=`dirname $BASH_SOURCE`
 # https://stackoverflow.com/questions/6393551/what-is-the-meaning-of-0-in-a-bash-script
 declare -rx SNUGGSI=$(cd $BIN/`dirname ${ENTRY%/*}`; pwd)
 declare -r  COMMAND="$SNUGGSI/bin/$1"
-declare -rx RESOURCES=("${@:2}")
+declare -a  RESOURCES=( "${ARGS[@]:-.}" ) # Default o curren directory
 
 echo NODE_PATH $NODE_PATH
 echo BASH SOURCE $BASH_SOURCE
