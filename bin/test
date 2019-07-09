@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -rx NODE_PATH=`npm config get prefix | awk NR==1`
+declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib} # {print;exit}`
 declare -x  SNUGGSI=${SNUGGSI:-"$NODE_PATH/lib"/node_modules/snuggsi}
 declare -r  BIN=$SNUGGSI/node_modules/.bin
 declare -r  SUITE=`pwd`/index.test
