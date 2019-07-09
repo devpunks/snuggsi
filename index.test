@@ -39,7 +39,7 @@ test2 ('snuggsi.test HOT DAMN!')
 (async t => {
   t.skip `skipping for now`
 
-  test2 ('snuggsi.test HOT DAMN!')
+  await sleep (5000)
 
   (async t => {
     t.skip `skipping for now`
