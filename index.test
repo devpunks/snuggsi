@@ -28,7 +28,8 @@ function test2 (fragments, ...tokens) {
 }
 
 
-test2 `snuggsi ${new Date} date`
+test2 `snuggsi.test`
+test2 `snuggsi.test ${ 'with' } yeahhhhh ${ 'string' } interpolation`
 
 
 test ('snuggsi.test',
