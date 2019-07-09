@@ -77,4 +77,4 @@ test2 `.Server`
   ( 'Server' in require ('.') )
 
 test2 `.Resource`
-  ( assert => assert ('Resource' in require ('.')) )
+  ( 'Resource' in require ('.') )
