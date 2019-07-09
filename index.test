@@ -29,10 +29,12 @@ function Case (definition) {
 
 
     console.warn ('Case definition', definition)
-    console.warn ('t', t)
+    console.warn ('t', t.assert)
     console.warn ('test', test)
 
-    await definition (t)
+    await definition (t.assert)
+
+    t.end ()
   }
 
 
