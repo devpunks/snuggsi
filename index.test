@@ -31,7 +31,6 @@ function Case (definition) {
   return definition
 }
 
-
 //test2 ('legacy test')
 //( true === true )
 
