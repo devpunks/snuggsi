@@ -39,7 +39,12 @@ function test2 (fragments, ...tokens) {
 
   test2 ('snuggsi.test HOT DAMN!')
 
-test2 `snuggsi.test ${ 'with' } yeahhhhh ${ 'string' } interpolation`
+  (function shazam (t) {
+    t.assert (true)
+    t.end ()
+  })
+
+//test2 `snuggsi.test ${ 'with' } yeahhhhh ${ 'string' } interpolation`
 
 
 test (`snuggsi.test ${ new Date } date`,
