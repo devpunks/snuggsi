@@ -45,3 +45,16 @@ test2 `snuggsi.Server`
 
 test2 `snuggsi.Resource`
   (t => { t.assert (Resource), t.end () })
+
+
+test2 `snuggsi.test HOT DAMN!`
+
+(async t => {
+  t.skip `skipping for now`
+
+  await sleep (5000)
+
+  t.assert (true)
+  t.end ()
+})
+
