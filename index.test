@@ -32,7 +32,10 @@ function Case (definition) {
     console.warn ('t', t.assert)
     console.warn ('test', test)
 
-    await definition (t.assert)
+    typeof definition
+      === 'function'
+        ? await definition (t.assert)
+        : t.assert (definition)
 
     t.end ()
   }
