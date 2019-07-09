@@ -56,4 +56,4 @@ function Case (definition) {
 
 
 test2 `snuggsi.test HOT DAMN!`
-  ( assert => assert (true) )
+  ( assert => assert ('foo' === 'foo') )
