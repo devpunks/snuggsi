@@ -19,8 +19,9 @@ function Case (definition) {
 function test2 (fragments, ...tokens) {
   let
     title =
-      fragments.reduce
-        ( ... zip (tokens) )
+      [ ]
+        .concat ( fragments )
+        .reduce ( ... zip (tokens) )
 
   console.warn ('Title', title)
 
