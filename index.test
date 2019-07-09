@@ -26,7 +26,9 @@ function test2 (fragments, ...tokens) {
 
   console.warn ('Name', name)
 
-  return Case
+  return function (callback) {
+    test (name, Case (callback))
+  }
 }
 
 
