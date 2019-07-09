@@ -42,7 +42,7 @@ test2 `.test ${ new Date } date`
 test2 `.Server`
   (t => { t.assert ('Server' in require ('.')), t.end () })
 
-test2 `snuggsi.Resource`
+test2 `.Resource`
   (t => { t.assert ('Resource' in require ('.')), t.end () })
 
 
