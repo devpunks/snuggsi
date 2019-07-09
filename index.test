@@ -65,9 +65,10 @@ test2 `.Resource`
   ( 'Resource' in require ('.') )
 
 test2 `Multiple Assertions`
-  ( assert =>
-      assert
-        ('foo' === 'foo')
-        ('bar' === 'bar')
-        ('baz' === 'baz')
-  )
+( assert => assert
+    ('foo' === 'foo')
+    ('bar' === 'bar')
+
+  && assert
+    ('baz' === 'baz')
+)
