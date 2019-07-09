@@ -1,5 +1,5 @@
 const
-  { test:Test, Server, Resource }
+  { test, Server, Resource }
     = require ('.')
 
 
