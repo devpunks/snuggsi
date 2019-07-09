@@ -33,9 +33,6 @@ function Case (definition) {
 //test2 ('legacy test')
 //( true === true )
 
-
-//test2 `snuggsi.test ${ 'with' } yeahhhhh ${ 'string' } interpolation`
-
 test2 `.test`
   (t => { t.skip `when loading tape causes tests to run`, t.end () })
 
