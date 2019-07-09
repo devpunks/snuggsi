@@ -51,8 +51,9 @@ function Case (definition) {
 //test2 `snuggsi.test ${ 'with' } yeahhhhh ${ 'string' } interpolation`
 
 
-test (`snuggsi.test ${ new Date } date`,
-  t => { t.skip `when loading tape causes tests to run`, t.end () })
+test2 `snuggsi.test ${ new Date } date`
+
+(t => { t.skip `when loading tape causes tests to run`, t.end () })
 
 
 test ('snuggsi.Server',
