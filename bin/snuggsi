@@ -25,6 +25,7 @@ declare -rx SNUGGSI=$(cd $BIN/`dirname ${ENTRY%/*}`; pwd)
 declare -r  COMMAND="$SNUGGSI/bin/$1"
 declare -rx RESOURCES=("${@:2}")
 
+echo NODE_PATH $NODE_PATH
 echo BASH SOURCE $BASH_SOURCE
 echo readlink BASH SOURCE `readlink $BASH_SOURCE`
 echo ENTRY $ENTRY
