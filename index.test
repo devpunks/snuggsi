@@ -57,6 +57,5 @@ test2 `snuggsi.test ${ new Date } date`
 test2 `snuggsi.Server`
   (t => { t.assert (Server), t.end () })
 
-
-test ('snuggsi.Resource',
-  t => { t.assert (Resource), t.end () })
+test2 `snuggsi.Resource`
+  (t => { t.assert (Resource), t.end () })
