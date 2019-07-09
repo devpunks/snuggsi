@@ -16,6 +16,9 @@ test `.Server`
 test `.Resource`
   ( 'Resource' in require ('.') )
 
+test `Single Assertions`
+  ( assert => assert ('foo' === 'foo'))
+
 test `Multiple Assertions`
 ( assert => assert
     ('foo' === 'foo')
