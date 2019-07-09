@@ -39,8 +39,8 @@ function Case (definition) {
 
     typeof definition
       === 'function'
-        ? await definition (assert)
-        : await assert (definition)
+        ? await definition (ass)
+        : ass (definition)
 
     t.end ()
   }
