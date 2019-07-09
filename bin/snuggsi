@@ -16,8 +16,7 @@ echo "  ツツツツツツツツツツツツツツツツツツツ "
 
 # TODO: Remove global installation assumption.
 # This poses problems when installed locally.
-# https://stackoverflow.com/questions/1429556/command-to-get-nth-line-of-stdout
-declare -rx NODE_PATH=`npm config get prefix | awk NR==1`
+declare -rx NODE_PATH=`npm config get prefix | awk NR==1 {print;exit}`
 
 declare -r  ENTRY=`readlink $BASH_SOURCE`
 declare -r  BIN=`dirname $BASH_SOURCE`
