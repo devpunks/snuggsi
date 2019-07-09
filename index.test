@@ -48,7 +48,6 @@ function Case (definition) {
 test2 `.Server`
   ( assert => assert ('Server' in require ('.')) )
 
-
 test2 `.Resource`
 
   ( assert => assert ('Resource' in require ('.')) )
