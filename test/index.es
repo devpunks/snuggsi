@@ -5,6 +5,54 @@ const
     = ( resource, ... options ) =>
       require ('node-fetch') (resource, ... options)
 
+, sleep = time => new Promise
+    (alarm => setTimeout (alarm, time))
+
+, zip = ( tokens, result = '' ) =>
+    [
+      (result, fragment) =>
+        result += `${ fragment }${ tokens.shift `` || `` }`
+    , result
+    ]
+
+
+function test (fragments, ...tokens) {
+  let
+    name =
+      [ ]
+      //.flat   ( ) // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
+        .concat ( fragments )
+        .reduce ( ... zip (tokens) )
+
+  return callback =>
+    require ('tape') (name, Case (callback))
+}
+
+function Case (definition) {
+  let result, funk = async function (t) {
+    let { assert } = t
+    let assertions = []
+
+    let ass = function (predicate) {
+      assertions.push ( _ => assert (predicate))
+
+      return ass
+    }
+
+    typeof definition
+      === 'function'
+        ? await definition (ass)
+        : ass (definition)
+
+    t.plan (assertions.length) // prevents t.end calls
+
+    for (let operation of [ ... assertions ])
+      operation ``
+  }
+
+  return funk // definition
+}
+
 
 module.exports = {
     test
