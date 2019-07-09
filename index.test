@@ -10,12 +10,6 @@ const
     , ''
     ]
 
-  let func = (result, fragment) =>
-    result
-      += `${ fragment }${ tokens.shift () || '' }`
-
-  return [func, '']
-}
 
 function test2 (fragments, ...tokens) {
   let
