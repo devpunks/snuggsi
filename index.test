@@ -29,8 +29,6 @@ function test2 (fragments, ...tokens) {
         .concat ( fragments )
         .reduce ( ... zip (tokens) )
 
-  console.warn ('Name', name)
-
   return function (callback) {
     test (name, Case (callback))
   }
