@@ -26,7 +26,6 @@ function test2 (fragments, ...tokens) {
 }
 
 function Case (definition) {
-
   let result, funk = async function (t) {
     let { assert } = t
     let assertions = []
