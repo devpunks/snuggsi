@@ -19,7 +19,7 @@ function Case (definition) {
 
 function test2 (fragments, ...tokens) {
   let
-    title =
+    name =
       [ ]
         .concat ( fragments )
         .reduce ( ... zip (tokens) )
