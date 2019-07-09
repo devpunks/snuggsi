@@ -32,7 +32,7 @@ test2 `snuggsi.test`
 test2 `snuggsi.test ${ 'with' } yeahhhhh ${ 'string' } interpolation`
 
 
-test ('snuggsi.test',
+test (`snuggsi.test ${ new Date } date`,
   t => { t.skip `when loading tape causes tests to run`, t.end () })
 
 
