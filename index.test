@@ -44,7 +44,7 @@ test2 `snuggsi.Server`
   (t => { t.assert (Server), t.end () })
 
 test2 `snuggsi.Resource`
-  (t => { t.assert (Resource), t.end () })
+  (t => { t.assert ('Resource' in require ('.')), t.end () })
 
 
 test2 `snuggsi.test HOT DAMN!`
