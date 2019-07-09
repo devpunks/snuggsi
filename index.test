@@ -1,6 +1,5 @@
 const
-  { test, Server, Resource }
-    = require ('.')
+  { test } = require ('.')
 
 , sleep = time => new Promise
     (alarm => setTimeout (alarm, time))
