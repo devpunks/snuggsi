@@ -49,8 +49,14 @@ function Case (definition) {
 //  (t => { t.skip `when loading tape causes tests to run`, t.end () })
 
 
-//test2 `.Resource`
-//  (t => { t.assert ('Resource' in require ('.')), t.end () })
+test2 `.Server`
+
+  ( assert => assert ('Server' in require ('.')) )
+
+
+test2 `.Resource`
+
+  ( assert => assert ('Resource' in require ('.')) )
 
 
 test2 `snuggsi.test HOT DAMN!`
