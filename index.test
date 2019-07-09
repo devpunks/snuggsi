@@ -31,9 +31,11 @@ function Case (definition) {
     let { assert } = t
     let assertions = []
 
-    console.warn ('Case definition', definition)
-    console.warn ('t', assert)
-    console.warn ('test', test)
+    let ass = function (predicate) {
+      assertions.push ( _ => assert (predicate))
+
+      return ass
+    }
 
     typeof definition
       === 'function'
