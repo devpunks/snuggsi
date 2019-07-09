@@ -8,6 +8,9 @@ const
     = ( resource, ... options ) =>
       require ('node-fetch') (resource, ... options)
 
+console.warn ('TEST', test)
+console.warn ('fetch', fetch)
+
 
 module.exports = {
 //  test
