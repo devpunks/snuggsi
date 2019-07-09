@@ -9,5 +9,5 @@ console.log (process.env)
 module.exports = {
   Resource : require (`${SNUGGSI}/resource`)
 , Server   : require (`${SNUGGSI}/server`)
-, Test     : require (`${SNUGGSI}/test`)
+, test     : require (`${SNUGGSI}/test`).test
 }
