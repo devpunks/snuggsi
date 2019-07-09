@@ -39,7 +39,7 @@ function test2 (fragments, ...tokens) {
 
   test2 ('snuggsi.test HOT DAMN!')
 
-  (function shazam (t) {
+  (async function shazam (t) {
     t.skip `skipping for now`
 
     t.assert (true)
