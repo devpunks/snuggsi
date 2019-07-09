@@ -7,7 +7,7 @@ const
 test `legacy test`
   ( true === true )
 
-test2 `snuggsi.test HOT DAMN!`
+test `snuggsi.test HOT DAMN!`
   ( 'foo' === 'foo' )
 
 test2 `.Server`
