@@ -56,4 +56,3 @@ test2 `snuggsi.test HOT DAMN!`
   t.assert (true)
   t.end ()
 })
-
