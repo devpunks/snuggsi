@@ -55,6 +55,21 @@ function Case (definition) {
 //test2 `.test`
 //  (t => { t.skip `when loading tape causes tests to run`, t.end () })
 
+test2 `Multiple Assertions`
+
+( async assert => {
+
+    assert
+      ('foo' === 'foo')
+      ('bar' === 'bar')
+
+    await sleep (5000)
+
+    assert
+      ('baz' === 'baz')
+
+})
+
 test2 `snuggsi.test HOT DAMN!`
   ( assert => assert ('foo' === 'foo') )
 
