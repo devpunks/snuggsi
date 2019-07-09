@@ -20,10 +20,6 @@ function Case (definition) {
   return definition
 }
 
-const sleep = ms =>
-  new Promise(resolve => setTimeout(resolve, ms))
-
-
 function test2 (fragments, ...tokens) {
   let
     name =
