@@ -33,6 +33,7 @@ echo ENTRY $ENTRY
 echo BIN $BIN
 echo SNUGGSI $SNUGGSI
 echo COMMAND $COMMAND
+echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
 
 
 function execute {
