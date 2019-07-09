@@ -9,7 +9,7 @@ const
     [
       (result, fragment) =>
         result += `${ fragment }${ tokens.shift () || '' }`
-    , ''
+    , result
     ]
 
 
