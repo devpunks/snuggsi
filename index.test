@@ -47,7 +47,7 @@ function test2 (fragments, ...tokens) {
   (async t => {
     t.skip `skipping for now`
 
-    await sleep (15 * 60 * 1000)
+    await sleep (5000)
 
     t.assert (true)
     t.end ()
