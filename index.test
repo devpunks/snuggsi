@@ -53,6 +53,3 @@ test2 `.Server`
 
 test2 `.Resource`
   ( assert => assert ('Resource' in require ('.')) )
-
-test2 `snuggsi.test HOT DAMN!`
-  ( assert => assert ('foo' === 'foo') )
