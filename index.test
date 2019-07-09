@@ -45,7 +45,6 @@ function Case (definition) {
 //test2 `.test`
 //  (t => { t.skip `when loading tape causes tests to run`, t.end () })
 
-
 test2 `.Server`
 
   ( assert => assert ('Server' in require ('.')) )
