@@ -31,7 +31,7 @@ function Case (definition) {
     let { assert } = t
 
     console.warn ('Case definition', definition)
-    console.warn ('t', t.assert)
+    console.warn ('t', assert)
     console.warn ('test', test)
 
     typeof definition
