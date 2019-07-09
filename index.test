@@ -3,7 +3,12 @@ const
     = require ('.')
 
 
-function zip (tokens) {
+, zip = tokens =>
+    [
+      (result, fragment) =>
+        result += `${ fragment }${ tokens.shift () || '' }`
+    , ''
+    ]
 
   let func = (result, fragment) =>
     result
