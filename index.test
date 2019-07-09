@@ -48,7 +48,7 @@ test2 `snuggsi.test HOT DAMN!`
 (async t => {
   t.skip `skipping for now`
 
-  await sleep (5000)
+  await sleep (2000)
 
   t.assert (true)
   t.end ()
