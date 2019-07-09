@@ -4,7 +4,7 @@ const
 //test2 `.test`
 //  (t => { t.skip `when loading tape causes tests to run`, t.end () })
 
-test2 `legacy test`
+test `legacy test`
   ( true === true )
 
 test2 `snuggsi.test HOT DAMN!`
