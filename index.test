@@ -60,4 +60,5 @@ test2 `.Resource`
 
 
 test2 `snuggsi.test HOT DAMN!`
+
   ( assert => assert ('foo' === 'foo') )
