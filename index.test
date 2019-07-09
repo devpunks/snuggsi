@@ -13,7 +13,7 @@ test `snuggsi.test HOT DAMN!`
 test `.Server`
   ( 'Server' in require ('.') )
 
-test2 `.Resource`
+test `.Resource`
   ( 'Resource' in require ('.') )
 
 test2 `Multiple Assertions`
