@@ -13,12 +13,6 @@ const
     ]
 
 
-function Case (definition) {
-  console.warn ('Case definition', definition)
-
-  return definition
-}
-
 function test2 (fragments, ...tokens) {
   let
     name =
