@@ -45,11 +45,11 @@ test2 `.Resource`
 
 test2 `snuggsi.test HOT DAMN!`
 
-(async t => {
-  t.skip `skipping for now`
+(async assert => {
+  assert.skip `skipping for now`
 
   await sleep (2000)
 
-  t.assert (true)
-  t.end ()
+  assert.assert (true)
+  assert.end ()
 })
