@@ -25,9 +25,8 @@ function test2 (fragments, ...tokens) {
 }
 
 function Case (definition) {
+
   let funk = async function (t) {
-
-
     console.warn ('Case definition', definition)
     console.warn ('t', t.assert)
     console.warn ('test', test)
