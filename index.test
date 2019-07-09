@@ -20,8 +20,9 @@ function test2 (fragments, ...tokens) {
         .concat ( fragments )
         .reduce ( ... zip (tokens) )
 
-  return callback =>
+  return callback => {
     test (name, Case (callback))
+  }
 }
 
 function Case (definition) {
