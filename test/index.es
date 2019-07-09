@@ -1,10 +1,7 @@
 console.warn ('loading test helper')
 
 const
-  { test }
-    = require ('tape')
-
-, fetch
+  fetch
     = ( resource, ... options ) =>
       require ('node-fetch') (resource, ... options)
 
