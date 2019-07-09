@@ -23,6 +23,8 @@ function test2 (fragments, ...tokens) {
         ( ... zip (tokens) )
 
   console.warn ('Title', title)
+
+  return Case
 }
 
 
