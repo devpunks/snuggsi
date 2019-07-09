@@ -41,7 +41,7 @@ test2 `snuggsi.test ${ new Date } date`
   (t => { t.skip `when loading tape causes tests to run`, t.end () })
 
 test2 `snuggsi.Server`
-  (t => { t.assert (Server), t.end () })
+  (t => { t.assert ('Server' in require ('.')), t.end () })
 
 test2 `snuggsi.Resource`
   (t => { t.assert ('Resource' in require ('.')), t.end () })
