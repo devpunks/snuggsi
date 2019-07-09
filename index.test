@@ -37,10 +37,7 @@ function test2 (fragments, ...tokens) {
 
 
 
-test2 ('snuggsi.test')
-(function shazam () {
-  console.warn ('Inside shazam', arguments)
-})
+  test2 ('snuggsi.test HOT DAMN!')
 
 test2 `snuggsi.test ${ 'with' } yeahhhhh ${ 'string' } interpolation`
 
