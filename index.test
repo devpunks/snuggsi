@@ -27,8 +27,9 @@ function test2 (fragments, ...tokens) {
 
 function Case (definition) {
 
-  let funk = async function (t) {
+  let result, funk = async function (t) {
     let { assert } = t
+    let assertions = []
 
     console.warn ('Case definition', definition)
     console.warn ('t', assert)
