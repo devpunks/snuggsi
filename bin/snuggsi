@@ -16,7 +16,7 @@ echo "  ツツツツツツツツツツツツツツツツツツツ "
 
 # TODO: Remove global installation assumption.
 # This poses problems when installed locally.
-declare -rx NODE_PATH=`npm config get prefix | awk NR==1` # {print;exit}`
+declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules} # {print;exit}`
 
 declare -r  ENTRY=`readlink $BASH_SOURCE`
 declare -r  BIN=`dirname $BASH_SOURCE`
