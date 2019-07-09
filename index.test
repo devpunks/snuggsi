@@ -25,6 +25,12 @@ function test2 (fragments, ...tokens) {
     test (name, Case (callback))
 }
 
+function Case (definition) {
+  console.warn ('Case definition', definition)
+
+  return definition
+}
+
 
 //test2 ('legacy test')
 //( true === true )
