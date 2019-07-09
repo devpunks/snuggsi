@@ -47,7 +47,6 @@ test2 ('snuggsi.test HOT DAMN!')
 
 //test2 `snuggsi.test ${ 'with' } yeahhhhh ${ 'string' } interpolation`
 
-
 test2 `snuggsi.test ${ new Date } date`
   (t => { t.skip `when loading tape causes tests to run`, t.end () })
 
