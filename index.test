@@ -36,6 +36,8 @@ function Case (definition) {
 
 test2 ('snuggsi.test HOT DAMN!')
 
+(async t => {
+  t.skip `skipping for now`
 
   test2 ('snuggsi.test HOT DAMN!')
 
