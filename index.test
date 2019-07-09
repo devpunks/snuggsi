@@ -46,6 +46,8 @@ function test2 (fragments, ...tokens) {
   (async function shazam (t) {
     t.skip `skipping for now`
 
+    await sleep (5000)
+
     t.assert (true)
     t.end ()
   })
