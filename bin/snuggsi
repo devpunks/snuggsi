@@ -17,7 +17,7 @@ echo "  ツツツツツツツツツツツツツツツツツツツ "
 # TODO: Remove global installation assumption.
 # This poses problems when installed locally.
 declare -a  ARGS=( "${@:2}" ) # sanatize arguments
-declare -ar RESOURCES=( "${ARGS[@]:- .}" ) # Default o curren directory
+declare -ar RESOURCES=( "${ARGS[@]:- . }" ) # Default o curren directory
 declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules} # {print;exit}`
 
 declare -r  BIN=`dirname $BASH_SOURCE`
