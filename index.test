@@ -71,7 +71,7 @@ test2 `Multiple Assertions`
 })
 
 test2 `snuggsi.test HOT DAMN!`
-  ( assert => assert ('foo' === 'foo') )
+  ( 'foo' === 'foo' )
 
 test2 `.Server`
   ( assert => assert ('Server' in require ('.')) )
