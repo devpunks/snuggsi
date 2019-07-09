@@ -34,16 +34,6 @@ function Case (definition) {
 //test2 ('legacy test')
 //( true === true )
 
-test2 ('snuggsi.test HOT DAMN!')
-
-(async t => {
-  t.skip `skipping for now`
-
-  await sleep (5000)
-
-  t.assert (true)
-  t.end ()
-})
 
 //test2 `snuggsi.test ${ 'with' } yeahhhhh ${ 'string' } interpolation`
 
