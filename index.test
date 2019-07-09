@@ -24,7 +24,7 @@ function sleep(ms) {
 function test2 (fragments, ...tokens) {
   let
     name =
-      fragments
+      [ ]
       //.flat ( ) // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
         .concat ( fragments )
         .reduce ( ... zip (tokens) )
