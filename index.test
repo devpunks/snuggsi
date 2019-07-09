@@ -32,6 +32,11 @@ function test2 (fragments, ...tokens) {
 }
 
 
+test2 ('legacy test')
+( true === true )
+
+
+
 test2 ('snuggsi.test')
 (function shazam () {
   console.warn ('Inside shazam', arguments)
