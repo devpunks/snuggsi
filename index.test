@@ -42,7 +42,8 @@ function Case (definition) {
         ? await definition (ass)
         : ass (definition)
 
-    t.end ()
+    for (let operation of [ ... assertions, t.end ])
+      operation ()
   }
 
   return funk // definition
