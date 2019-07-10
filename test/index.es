@@ -17,7 +17,7 @@ const
 
 
 class Test {
-  constructor (name) {
+  constructor (fragments, ...tokens) {
     let
       name =
         [ ]
