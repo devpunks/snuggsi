@@ -57,9 +57,7 @@ function Case (definition) {
 }
 
 
-module.exports = {
-
-  test :
+module.exports =
     ( ... params ) => callback =>
       new Test ( ... params ) (callback)
 
