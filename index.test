@@ -2,8 +2,7 @@ const
   { test } = require ('.')
 
 
-test `legacy test`
-  ( true === true )
+test ('legacy test') ( true )
 
 test `snuggsi.test HOT DAMN!`
   ( 'foo' === 'foo' )
