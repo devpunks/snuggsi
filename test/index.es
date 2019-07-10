@@ -33,7 +33,7 @@ class Test {
 }
 
 
-function test (fragments, ...tokens) {
+function test () {
   return callback =>
     new Test (name) (callback)
 }
