@@ -13,6 +13,9 @@ test `snuggsi.test HOT DAMN!`
 test `.fetch`
   ( 'fetch' in require ('.') )
 
+test `.read`
+  ( 'read' in require ('.') )
+
 test `.Server`
   ( 'Server' in require ('.') )
 
