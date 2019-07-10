@@ -3,7 +3,7 @@ console.warn ('loading test helper')
 const
   test = require ('tape')
 
-test.onFinish (process.exit)
+// test.onFinish (process.exit)
 
 const
   sleep = time =>
