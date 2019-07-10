@@ -34,13 +34,6 @@ class Test {
 
 
 function test (fragments, ...tokens) {
-  let
-    name =
-      [ ]
-      //.flat   ( ) // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
-        .concat ( fragments )
-        .reduce ( ... zip (tokens) )
-
   return callback =>
     new Test (name) (callback)
 }
