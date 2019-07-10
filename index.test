@@ -22,6 +22,9 @@ test
   ( true )
 
 
+test `Single Assertions`
+  ( assert => assert ('foo' == 'foo'))
+
 test `Currying Assertions`
 
 (
