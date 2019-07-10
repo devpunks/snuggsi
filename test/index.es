@@ -1,6 +1,11 @@
 console.warn ('loading test helper')
 
 const
+  test = require ('tape')
+
+test.onFinish (process.exit)
+
+const
   sleep = time =>
     new Promise (alarm => setTimeout (alarm, time))
 
