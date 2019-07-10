@@ -24,8 +24,8 @@ test `Single Assertions`
 
 test `Multiple Assertions`
 ( assert => assert
-    ('foo' === 'foo')
-    ('bar' === 'bar')
+  ('foo' == 'foo')
+  ('bar' == 'bar')
 
   && assert
     ('baz' === 'baz')
