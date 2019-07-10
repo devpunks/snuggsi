@@ -27,7 +27,7 @@ class Test {
         .reduce ( ... zip (tokens) )
 
     return group =>
-      require ('tape') (name, Case (group))
+      test (name, Case (group))
   }
 }
 
