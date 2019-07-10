@@ -35,8 +35,9 @@ test `Currying Assertions`
 
 test `Multiple Assertions`
 
-(
-  assert => assert
+( assert =>
+  
+    assert (true)
 
   ('foo' == 'foo')
 
