@@ -1,12 +1,8 @@
 console.warn ('loading test helper')
 
 const
-  fetch
-    = ( resource, ... options ) =>
-      require ('node-fetch') (resource, ... options)
-
-, sleep = time => new Promise
-    (alarm => setTimeout (alarm, time))
+  sleep = time =>
+    new Promise (alarm => setTimeout (alarm, time))
 
 , zip = ( tokens, result = '' ) =>
     [
