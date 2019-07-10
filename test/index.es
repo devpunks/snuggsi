@@ -16,6 +16,16 @@ const
     ]
 
 
+class Test {
+  constructor (name) {
+    console.warn ('Test Name', name)
+
+    return group =>
+      require ('tape') (name, Case (group))
+  }
+}
+
+
 function test (fragments, ...tokens) {
   let
     name =
