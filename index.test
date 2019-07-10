@@ -2,11 +2,6 @@ const
   { test } = require ('.')
 
 
-test ('legacy test') ( true )
-
-test `snuggsi.test HOT DAMN!`
-  ( 'foo' === 'foo' )
-
 test `.fetch`
   ( 'fetch' in require ('.') )
 
