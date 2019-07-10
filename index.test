@@ -41,6 +41,13 @@ test `Multiple Assertions`
 
     assert (true)
 
+    && // curry
+
+    assert
+      (true)
+      ('foo')
+      ( !!! false )
+
     && // predicate
 
     assert ('bar' == 'bar')
