@@ -35,7 +35,7 @@ class Test {
 
 function test () {
   return callback =>
-    new Test (name) (callback)
+    new Test ( ... arguments ) (callback)
 }
 
 function Case (definition) {
