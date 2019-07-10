@@ -29,6 +29,6 @@ test `Multiple Assertions`
     ('foo' == 'foo')
     ('bar' == 'bar')
 
-    && assert
+    && assert // strict
       ('baz' === 'baz')
   )
