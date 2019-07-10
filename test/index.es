@@ -32,12 +32,6 @@ class Test {
   }
 }
 
-
-function test () {
-  return callback =>
-    new Test ( ... arguments ) (callback)
-}
-
 function Case (definition) {
   let result, funk = async function (t) {
     let { assert } = t
