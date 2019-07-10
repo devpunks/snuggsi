@@ -11,7 +11,7 @@ module.exports = {
 , read  :
     require (`${SNUGGSI}/read.es`)
 
-, fetch    :
+, fetch :
     ( resource, ... options ) =>
       require ('node-fetch') (resource, ... options)
 
