@@ -2,9 +2,7 @@ const
   { Server }
     = require ('snuggsi')
 
-console.log ('Server', require('snuggsi'), Server)
-
-const server
+, server
     = new Server
 
 
