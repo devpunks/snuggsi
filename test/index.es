@@ -59,7 +59,10 @@ function Case (definition) {
 
 
 module.exports = {
-    test
+    test :
+      ( ... params ) => callback =>
+        new Test ( ... params ) (callback)
+
 //, fetch
 
 // See chunked responses
