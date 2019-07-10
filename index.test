@@ -1,5 +1,5 @@
 const
-  { test } = require ('.')
+  test = require ('./test/index.es')
 
 
 test `.fetch`
