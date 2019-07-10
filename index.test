@@ -2,6 +2,9 @@ const
   test = require ('./test/index.es')
 
 
+test `.test`
+  ( 'test' in require ('.') )
+
 test `.fetch`
   ( 'fetch' in require ('.') )
 
