@@ -39,7 +39,15 @@ test `Multiple Assertions`
   
     assert (true)
 
-  ('foo' == 'foo')
+    && // predicate
+
+    assert ('bar' == 'bar')
+
+    && // strict
+
+    assert ('baz' === 'baz')
+
+    && // compound
 
   && assert // strict
     ('baz' === 'baz')
