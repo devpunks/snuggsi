@@ -37,6 +37,8 @@ test `Multiple Assertions`
 (
   assert => assert
 
-    && assert // strict
-      ('baz' === 'baz')
-  )
+  ('foo' == 'foo')
+
+  && assert // strict
+    ('baz' === 'baz')
+)
