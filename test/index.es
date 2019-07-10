@@ -35,7 +35,7 @@ function test (fragments, ...tokens) {
         .reduce ( ... zip (tokens) )
 
   return callback =>
-    require ('tape') (name, Case (callback))
+    new Test (name) (callback)
 }
 
 function Case (definition) {
