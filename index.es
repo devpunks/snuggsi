@@ -5,9 +5,11 @@ const
 
 
 module.exports = {
-  Resource : require (`${SNUGGSI}/resource`)
-, Server   : require (`${SNUGGSI}/server`)
-, test     : require (`${SNUGGSI}/test`).test
+  test  :
+    require (`${SNUGGSI}/test`)
+
+, read  :
+    require (`${SNUGGSI}/read.es`)
 
 , fetch    :
     ( resource, ... options ) =>
