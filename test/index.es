@@ -18,6 +18,13 @@ const
 
 class Test {
   constructor (name) {
+    let
+      name =
+        [ ]
+        //.flat   ( ) // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
+          .concat ( fragments )
+          .reduce ( ... zip (tokens) )
+
     console.warn ('Test Name', name)
 
     return group =>
