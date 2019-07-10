@@ -18,6 +18,11 @@ test `Single Assertions`
   ( assert => assert ('foo' == 'foo'))
 
 
+test
+  ('legacy test')
+  ( true )
+
+
 test `Currying Assertions`
 
 (
