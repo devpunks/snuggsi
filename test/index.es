@@ -64,7 +64,6 @@ module.exports =
 void {
 // See chunked responses
 // http://taylor.fausak.me/2013/02/17/testing-a-node-js-http-server-with-mocha/
-, get    : require ('http')
-//, serve  : require ('./serve')
+//, get    : require ('http')
 //, browse : require ('./browse')
 }
