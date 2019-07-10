@@ -10,6 +10,9 @@ test `legacy test`
 test `snuggsi.test HOT DAMN!`
   ( 'foo' === 'foo' )
 
+test `.fetch`
+  ( 'fetch' in require ('.') )
+
 test `.Server`
   ( 'Server' in require ('.') )
 
