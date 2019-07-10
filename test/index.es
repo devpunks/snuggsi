@@ -53,11 +53,14 @@ function Case (definition) {
 
 
 module.exports = {
-    test :
-      ( ... params ) => callback =>
-        new Test ( ... params ) (callback)
 
-//, fetch
+  test :
+    ( ... params ) => callback =>
+      new Test ( ... params ) (callback)
+
+, fetch :
+    ( resource, ... options ) =>
+      require ('node-fetch') (resource, ... options)
 
 // See chunked responses
 // http://taylor.fausak.me/2013/02/17/testing-a-node-js-http-server-with-mocha/
