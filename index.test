@@ -36,7 +36,7 @@ test `Currying Assertions`
 test `Multiple Assertions`
 
 ( assert =>
-  
+
     assert (true)
 
     && // predicate
