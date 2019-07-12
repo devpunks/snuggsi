@@ -44,8 +44,8 @@ test `Multiple Assertions`
     && // curry
 
     assert
-      (true)
-      ('foo')
+      ( true  )
+      ( 'foo' )
       ( !!! false )
 
     && // predicate
