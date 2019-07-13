@@ -32,7 +32,10 @@ class Test {
 }
 
 function Case (definition) {
-  let result, funk = async function (t) {
+  let
+    result
+
+  return async function (t) {
     let { assert } = t
     let assertions = []
 
