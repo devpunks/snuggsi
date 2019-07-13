@@ -21,12 +21,7 @@ const
 
 class Test {
 
-  constructor (fragments, ...tokens) {
-    let name = [ ]
-    //.flat   ( ) // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
-      .concat ( fragments )
-      .reduce ( ... zip (tokens) )
-
+  constructor ( ... name ) {
     return group => test (name, this.case)
   }
 
