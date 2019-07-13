@@ -37,7 +37,7 @@ class Test {
   define (definition) {
     this.definition = definition
 
-    new test ( // new not needed
+    new test (
       this.name
     , this.case.bind (this))
 
