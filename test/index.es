@@ -60,7 +60,6 @@ class Case {
 //    for ( let operation of assertions )
 //      operation ``
 //  }
-  }
 }
 
 
