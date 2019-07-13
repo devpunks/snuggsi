@@ -29,6 +29,7 @@ class Test {
     let { assert } = t
     let assertions = []
 
+    t.assert (true)
     t.end ()
   }
 }
