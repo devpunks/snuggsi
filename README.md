@@ -171,7 +171,7 @@ template.bind (context)
 </script>
 ```
 
-### Render Result
+### Rendered Result
 ```html
 <template name="developer">
 <!-- invisible
