@@ -36,7 +36,8 @@ class Test {
   }
 
   async 'case' (definition) {
-    let { test: { assert, end }} = this
+    let
+      { test: { assert, end }} = this
 
     let assertions = []
     let assertion = ( ... parameters ) =>
