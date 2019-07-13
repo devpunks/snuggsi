@@ -40,6 +40,11 @@ class Test {
 
   define (definition) {
     this.definition = definition
+
+    new test (
+      this.name
+    , this.case.bind (this))
+
     console.warn ('The test!', test )
   }
 
