@@ -60,8 +60,9 @@ function Case (definition) {
 
 
 module.exports =
-    ( ... params ) => callback =>
-      new Test ( ... params ) (callback)
+    ... params =>
+      callback =>
+        new Test ( ... params ) ( callback )
 
 void {
 // See chunked responses
