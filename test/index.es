@@ -52,11 +52,8 @@ class Test {
 
     typeof definition
       === 'function'
-        ? await definition (assertion)
-        : await assertion  (definition, ... options)
-
-    console.warn ('definition type', typeof definition)
-    console.warn ('assertions length', assertions.length)
+        ? await definition (assert)
+        : await assert  (definition, ... options)
 
     end ()
   }
