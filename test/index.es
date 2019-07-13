@@ -60,8 +60,11 @@ class Case {
   //  t.plan ( assertions.length ) // prevents t.end calls
   //    : queue (definition)
 
-    for ( let operation of assertions )
-      operation ``
+      assertions.push (t.end)
+
+      for ( let operation of assertions )
+        operation ``
+    }
   }
 }
 
