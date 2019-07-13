@@ -30,30 +30,30 @@ test `.read`
 //test `.Server`
 //  ( 'Server' in require ('.') )
 
-test `.Resource`
-  ( 'Resource' in require ('.') )
+//test `.Resource`
+//  ( 'Resource' in require ('.') )
 
-test
-  ('legacy test')
-  ( true )
+//test
+//  ('legacy test')
+//  ( true )
 
-test `Predicate Return Assertions`
-  ( () => 'this test evaluates returned predicate'
-       == 'this test evaluates returned predicate' )
-
-
-test `Single Assertions`
-  ( assert => assert ( 'foo' === 'foo' ) )
+//test `Predicate Return Assertions`
+//  ( () => 'this test evaluates returned predicate'
+//       == 'this test evaluates returned predicate' )
 
 
-test `Currying Assertions`
+//test `Single Assertions`
+//  ( assert => assert ( 'foo' === 'foo' ) )
 
-(
-  assert => assert
 
-  ( 1 == '1' )
-  ( 1 === 1  )
-)
+//test `Currying Assertions`
+
+//(
+//  assert => assert
+
+//  ( 1 == '1' )
+//  ( 1 === 1  )
+//)
 
 
 test `Multiple Assertions`
