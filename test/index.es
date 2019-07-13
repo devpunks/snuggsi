@@ -28,6 +28,11 @@ const
 class Test {
 
   constructor ( name ) {
+
+    new test (
+      this.name
+    , this.case.bind (this))
+
     this.name = name
 
     return this
