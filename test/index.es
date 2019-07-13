@@ -34,8 +34,6 @@ class Test {
       this.name
     , this.case.bind (this))
 
-    this.name = name
-
     return this
       .define.bind (this)
   }
