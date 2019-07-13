@@ -38,8 +38,11 @@ class Test {
   async 'case' (definition) {
     let { test: { assert, end }} = this
 
-      return assertion
-    }
+    let assertions = []
+    let assertion = ( ... parameters ) =>
+      assertions
+        .push ( _ => assert ( ... parameters ) )
+      && assertion
 
 //  ONLY USE TERNARIES WHEN RETURN VALUE IS OF IMPORTANCE
 //  typeof definition === 'function'
