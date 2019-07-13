@@ -45,10 +45,9 @@ function Case (definition) {
       return assertion
     }
 
-    typeof definition
-      === 'function'
-        ? await definition (ass)
-        : ass (definition)
+    typeof definition === 'function'
+      ? await definition ( assertion )
+      : assertion ( definition )
 
     t.plan (assertions.length) // prevents t.end calls
 
