@@ -16,7 +16,7 @@ echo
 
 
 # TODO: Remove global installation assumption.
-# This poses problems when installed locally.
+#   This poses problems when installed locally.
 declare -a  ARGS=( "${@:2}" ) # sanatize arguments
 declare -r  BIN=`dirname $0` # local bin of current script
 declare -ar RESOURCES=( "${ARGS[@]:- . }" ) # Default o curren directory
