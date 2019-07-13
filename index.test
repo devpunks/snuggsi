@@ -45,9 +45,9 @@ test `Currying Assertions`
 (
   assert => assert
 
-//  ( 1 == '1' )
-//  ( 1 === 1  )
-//)
+  ( 1 == '1' )
+  ( 1 === 1  )
+)
 
 
 test `Multiple Assertions`
