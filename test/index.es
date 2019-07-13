@@ -48,8 +48,7 @@ class Case {
       let { assert } = t
       let assertions = []
 
-      let assertion = function (predicate) {
-        assertions.push ( _ => assert ( predicate ) )
+      t.end ``
 
         return assertion
       }
