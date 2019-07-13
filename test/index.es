@@ -50,11 +50,6 @@ class Case {
 
 
   async 'case' (t) {
-      let { assert } = t
-      let assertions = []
-
-      t.end ``
-
 //    let assertion = function (predicate) {
 //      assertions.push ( _ => assert ( predicate ) )
 
