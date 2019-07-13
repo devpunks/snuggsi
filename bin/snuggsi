@@ -33,8 +33,6 @@ echo NODE_PATH $NODE_PATH
 ls $NODE_PATH
 exit
 
-# https://stackoverflow.com/questions/6393551/what-is-the-meaning-of-0-in-a-bash-script
-declare -rx SNUGGSI=$(cd $BIN/`dirname ${ENTRY%/*}`; pwd)
 declare -r  COMMAND="$SNUGGSI/bin/$1"
 
 echo ARGS $ARGS
