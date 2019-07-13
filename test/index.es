@@ -59,9 +59,6 @@ class Test {
     console.warn ('definition type', typeof definition)
     console.warn ('assertions length', assertions.length)
 
-    for ( let operation of assertions )
-      operation ``
-
     end ()
   }
 }
