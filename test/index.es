@@ -6,6 +6,7 @@ const
 // test.onFinish (process.exit)
 
 const
+  // TODO: migrate to ./index
   sleep = time =>
     new Promise (alarm => setTimeout (alarm, time))
 
