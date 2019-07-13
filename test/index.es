@@ -1,5 +1,3 @@
-console.warn ('loading test helper')
-
 const
   test = require ('tape')
 
