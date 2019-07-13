@@ -114,7 +114,7 @@ Play [Hello World Demo](https://jsfiddle.net/snuggs/w02kL17n)
 <script src=https://unpkg.com/snuggsi></script>
 <script>
 
-// Definition -----------------------------
+// 👇 Definition -----------------------------
 
 Element `hello-world`
 
