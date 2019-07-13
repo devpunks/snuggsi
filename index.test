@@ -4,20 +4,9 @@ const
 
 void `YOU GOTSTA BE KIDDING ME`
 
+test `Pending test`
 
-test `HOLY FUCK I HAVE BEEN WAITING FOR THIS FOR SO LONG!`
-
-
-test
-  `SHAZAAAMMMM!!!`
-
-
-test `I can't believe it's not butter
-
-  on ${new Date}
-  this is amazing!
-`
-
+test `I can't believe it's not butter on ${new Date} this is amazing!`
 void (true) // this is a bug in tape
 
 
