@@ -213,7 +213,7 @@ template.bind (context)
 </script>
 ```
 
-### Render Result
+### Rendered Result
 ```html
 <ul>
   <template name="item">
