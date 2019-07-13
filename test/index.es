@@ -41,15 +41,6 @@ class Test {
 
 class Case {
 
-  constructor (definition) {
-    let
-      result
-
-    return (this.case)
-  }
-
-
-  async 'case' (t) {
 //    let assertion = function (predicate) {
 //      assertions.push ( _ => assert ( predicate ) )
 
