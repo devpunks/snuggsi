@@ -49,7 +49,6 @@ function Case (definition) {
       ? await definition ( assertion )
       : assertion ( definition )
 
-    t.plan (assertions.length) // prevents t.end calls
 
     for (let operation of [ ... assertions ])
       operation ``
