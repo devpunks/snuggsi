@@ -54,6 +54,10 @@ test `Multiple Assertions`
 
     assert ( true )
 
+    && // with message
+
+    assert ( true, 'with message' )
+
     && // curry
 
     assert
