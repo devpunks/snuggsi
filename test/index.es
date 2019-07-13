@@ -42,7 +42,7 @@ function Case (definition) {
     let assertion = function (predicate) {
       assertions.push ( _ => assert ( predicate ) )
 
-      return ass
+      return assertion
     }
 
     typeof definition
