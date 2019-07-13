@@ -55,7 +55,6 @@ class Case {
         : assertion ( definition )
 
       console.warn ('Plan', t.plan)
-
   //  t.plan ( assertions.length ) // prevents t.end calls
   //    : queue (definition)
 
