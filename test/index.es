@@ -50,22 +50,25 @@ class Case {
 
       t.end ``
 
-        return assertion
-      }
+//    let assertion = function (predicate) {
+//      assertions.push ( _ => assert ( predicate ) )
 
-      typeof definition === 'function'
-        ? await definition ( assertion )
-        : assertion ( definition )
+//      return assertion
+//    }
 
-      console.warn ('Plan', t.plan)
-  //  t.plan ( assertions.length ) // prevents t.end calls
-  //    : queue (definition)
+//    typeof definition === 'function'
+//      ? await definition ( assertion )
+//      : assertion ( definition )
 
-      assertions.push (t.end)
+//    console.warn ('Plan', t.plan)
+////  t.plan ( assertions.length ) // prevents t.end calls
+////    : queue (definition)
 
-      for ( let operation of assertions )
-        operation ``
-    }
+//    assertions.push (t.end)
+
+//    for ( let operation of assertions )
+//      operation ``
+//  }
   }
 }
 
