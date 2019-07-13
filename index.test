@@ -50,7 +50,7 @@ test `Multiple Assertions`
 
     && // predicate
 
-    assert ('bar' == 'bar')
+    assert ( 'bar' == 'bar' )
 
     && // strict
 
