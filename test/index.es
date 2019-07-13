@@ -49,6 +49,9 @@ class Test {
 //    ? await definition ( assertion )
 //    : assertion ( definition )
 
+    typeof definition
+      == 'function'
+      && await definition (assert)
 
     console.log ('The Definition', typeof definition, definition)
 
