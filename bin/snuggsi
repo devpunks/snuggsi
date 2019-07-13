@@ -37,13 +37,6 @@ echo dirname ENTRY `dirname $ENTRY`
 echo NODE_PATH $NODE_PATH
 echo SNUGGSI $SNUGGSI
 echo COMMAND $COMMAND
-exit
-
-
-echo ARGS $ARGS
-echo BASH SOURCE $BASH_SOURCE
-echo readlink BASH SOURCE `readlink $BASH_SOURCE`
-
 
 function execute {
   local executable=$(basename $COMMAND)
