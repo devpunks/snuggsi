@@ -42,7 +42,6 @@ class Test {
     , assertions = []
     , assertion  = ( ... parameters ) => {
       assert ( ... parameters )
-
       return assertion
     }
 
