@@ -39,7 +39,7 @@ class Test {
   define (definition) {
     this.definition = definition
 
-    new test (
+    this.test.test (
       this.name
     , this.case.bind (this))
 
