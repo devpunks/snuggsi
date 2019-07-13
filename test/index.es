@@ -57,12 +57,8 @@ class Test {
   }
 }
 
-//      return assertion
-//    }
 
-//    typeof definition === 'function'
-//      ? await definition ( assertion )
-//      : assertion ( definition )
+class Case {
 
 //    console.warn ('Plan', t.plan)
 ////  t.plan ( assertions.length ) // prevents t.end calls
