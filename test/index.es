@@ -53,7 +53,7 @@ class Test {
       == 'function'
       && await definition (assert)
 
-    console.log ('The Definition', typeof definition, definition)
+//  console.log ('The Definition', typeof definition, definition)
 
     assert (true, 'Muthafucka you finally working')
     end ()
