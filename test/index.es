@@ -38,11 +38,11 @@ class Test {
     return this.define.bind (this)
   }
 
-    return definition => {
-      let test =
-        require ('tape') (
-          this.christen (name)
-        , normalize (definition) )
+  define (definition) {
+    let test =
+    require ('tape') (
+      this.name
+    , this.definition = definition )
 
       console.warn ('Test After', test)
     }
