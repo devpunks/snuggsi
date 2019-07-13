@@ -1,5 +1,8 @@
 #!/usr/bin/env bash
 
+# Environment variable vs. Shell Variable
+#   - https://askubuntu.com/questions/26318/environment-variable-vs-shell-variable-whats-the-difference
+
 # Shell Parameter Expansion
 #  - https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
 
@@ -22,7 +25,6 @@ declare -a  ARGS=( "${@:2}" ) # sanatize arguments
 declare -r  BIN=`dirname $0` # local bin of current script
 declare -ar RESOURCES=( "${ARGS[@]:- . }" ) # Default o curren directory
 declare -r  ENTRY=${BIN}/${BASH_SOURCE##*/} # Current execution file name
-declare -rx SNUGGSI=$(cd $BIN/`dirname ${ENTRY%/*}`; pwd)
 declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules} # npm bin -g
 
 echo BIN $BIN
