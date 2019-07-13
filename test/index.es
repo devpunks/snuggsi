@@ -39,11 +39,11 @@ class Test {
     let
       { test: { assert, end }} = this
 
-    let assertions = []
-    let assertion = ( ... parameters ) =>
-      assertions
-        .push ( _ => assert ( ... parameters ) )
-      && assertion
+    , assertions = []
+    , assertion  = ( ... parameters ) =>
+        assertions.push
+          ( () => assert ( ... parameters ) )
+        && assertion
 
 //  ONLY USE TERNARIES WHEN RETURN VALUE IS OF IMPORTANCE
 //  typeof definition === 'function'
