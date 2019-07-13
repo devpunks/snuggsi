@@ -54,7 +54,7 @@ test `Multiple Assertions`
 
     && // strict
 
-    assert ( 'baz' ==== 'baz' )
+    assert ( 'baz' === 'baz' )
 
     && // compound
 
