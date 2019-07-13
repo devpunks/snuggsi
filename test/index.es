@@ -34,7 +34,9 @@ class Test {
     let { assert } = t
     let assertions = []
 
-    t.end ``
+    console.log (t)
+    t.assert (true)
+    t.end ()
   }
 }
 
