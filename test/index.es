@@ -53,6 +53,9 @@ class Test {
     typeof definition == 'function'
       && await definition (assertion)
 
+    typeof definition == 'boolean'
+      && assertion (definition)
+
 
     for ( let operation of assertions )
       operation ``
