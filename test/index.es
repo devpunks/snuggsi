@@ -55,7 +55,7 @@ class Test {
 
 //  console.log ('The Definition', typeof definition, definition)
 
-    assert (true, 'Muthafucka you finally working')
+//  assert (true, 'Muthafucka you finally working')
     end ()
   }
 }
