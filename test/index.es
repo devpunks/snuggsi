@@ -28,6 +28,7 @@ const
 class Test {
 
   constructor ( name ) {
+    this.name = name
 
     new test (
       this.name
