@@ -42,7 +42,6 @@ exit
 echo ARGS $ARGS
 echo BASH SOURCE $BASH_SOURCE
 echo readlink BASH SOURCE `readlink $BASH_SOURCE`
-echo COMMAND $COMMAND
 
 
 function execute {
