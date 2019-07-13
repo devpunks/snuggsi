@@ -36,10 +36,7 @@ class Test {
   }
 
   async 'case' (definition) {
-    let { assert, end } = this.test
-    let assertions = []
-    let assertion = function (predicate) {
-      assertions.push ( _ => assert ( predicate ) )
+    let { test: { assert, end }} = this
 
       return assertion
     }
