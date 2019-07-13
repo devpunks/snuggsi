@@ -270,7 +270,7 @@ template.bind (context)
 ```html
 <dl>
   <template name="recipe">
-    ...
+    …
   </template>
 
   <dt> Step 1.</dt>
