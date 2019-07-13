@@ -20,14 +20,14 @@ const
 class Test {
 
   constructor (fragments, ...tokens) {
-    let name =
-      [ ]
-      //.flat   ( ) // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
-        .concat ( fragments )
-        .reduce ( ... zip (tokens) )
+    let name = [ ]
+    //.flat   ( ) // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
+      .concat ( fragments )
+      .reduce ( ... zip (tokens) )
 
-    return group =>
-      test (name, Case (group))
+    return group => {
+      return test (name, Case (group))
+    }
   }
 }
 
