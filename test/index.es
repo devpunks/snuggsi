@@ -44,8 +44,11 @@ class Case {
       let { assert } = t
       let assertions = []
 
-      return assertion
-    }
+      let assertion = function (predicate) {
+        assertions.push ( _ => assert ( predicate ) )
+
+        return assertion
+      }
 
     typeof definition === 'function'
       ? await definition ( assertion )
