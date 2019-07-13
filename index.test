@@ -58,5 +58,5 @@ test `Multiple Assertions`
 
     && // compound
 
-    assert ('truthy' && true)
+    assert ( 'truthy' && true )
 )
