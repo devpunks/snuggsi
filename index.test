@@ -42,8 +42,8 @@ test `Single Assertions`
 
 test `Currying Assertions`
 
-//(
-//  assert => assert
+(
+  assert => assert
 
 //  ( 1 == '1' )
 //  ( 1 === 1  )
