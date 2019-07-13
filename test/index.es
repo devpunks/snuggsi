@@ -43,15 +43,14 @@ class Test {
     , assertion  = ( ... parameters ) =>
         assertions.push
           ( () => assert ( ... parameters ) )
-        && assertion
+      && assertion
 
 //  ONLY USE TERNARIES WHEN RETURN VALUE IS OF IMPORTANCE
 //  typeof definition === 'function'
 //    ? await definition ( assertion )
 //    : assertion ( definition )
 
-    typeof definition
-      == 'function'
+    typeof definition == 'function'
       && await definition (assertion)
 
 
