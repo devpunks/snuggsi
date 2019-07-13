@@ -31,6 +31,7 @@ class Test {
   }
 }
 
+
 function Case (definition) {
   let
     result
