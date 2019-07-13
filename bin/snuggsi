@@ -38,7 +38,6 @@ echo readlink BASH SOURCE `readlink $BASH_SOURCE`
 echo ENTRY $ENTRY
 echo SNUGGSI $SNUGGSI
 echo COMMAND $COMMAND
-echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
 
 
 function execute {
