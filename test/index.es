@@ -56,7 +56,6 @@ class Test {
     typeof definition == 'boolean'
       && assertion (definition)
 
-
     for ( let operation of assertions )
       operation ``
 
