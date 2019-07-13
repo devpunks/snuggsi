@@ -27,15 +27,11 @@ const
 
 class Test {
 
-  constructor ( ... name ) {
-    function normalize (definition) {
-      console.warn (typeof definition)
-      console.warn ('Normie', definition)
+  constructor ( name ) {
+    this.name = name
 
-      return definition
-    }
-
-    return this.define.bind (this)
+    return this
+      .define.bind (this)
   }
 
   define (definition) {
