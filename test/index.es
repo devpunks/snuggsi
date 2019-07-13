@@ -50,8 +50,12 @@ class Test {
 //    : assertion ( definition )
 
 
-//    let assertion = function (predicate) {
-//      assertions.push ( _ => assert ( predicate ) )
+    console.log ('The Definition', typeof definition, definition)
+
+    assert (true, 'Muthafucka you finally working')
+    end ()
+  }
+}
 
 //      return assertion
 //    }
