@@ -52,8 +52,10 @@ class Test {
 
     console.warn ('definition type', typeof definition)
 
-    typeof definition == 'boolean'
-      && assertion (definition)
+    typeof definition
+      === 'function'
+        ? await definition (assertion)
+        : await assertion  (definition)
 
     for ( let operation of assertions )
       operation ``
