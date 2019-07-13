@@ -50,9 +50,9 @@ class Case {
         return assertion
       }
 
-    typeof definition === 'function'
-      ? await definition ( assertion )
-      : assertion ( definition )
+      typeof definition === 'function'
+        ? await definition ( assertion )
+        : assertion ( definition )
 
 
     console.warn ('Plan', t.plan)
