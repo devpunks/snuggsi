@@ -37,7 +37,7 @@ declare -r  CODE=$?
 
 echo
 echo 📁  Coverage Cleanup
-echo  ⚠️  Removing coverage report side effects left as artifacts.
+echo  ⚠️  Removing coverage report artifacts.
 echo  👇
 echo   🚮  Removing 👉  $OUTPUT
 
