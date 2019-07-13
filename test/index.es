@@ -56,8 +56,6 @@ function Case (definition) {
     for ( let operation of [ ... assertions ] )
       operation ``
   }
-
-  return funk // definition
 }
 
 
