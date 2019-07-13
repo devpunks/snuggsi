@@ -31,17 +31,8 @@ class Test {
     (this.test = test ())
       .comment (this.name = name)
 
-
-    return this
-      .define.bind (this)
-  }
-
-  define (definition) {
-    this.definition = definition
-
-    this.test.test (
-      this.name
-    , this.case.bind (this))
+    return  (this).case
+     .bind (this)
   }
 
   async 'case' (t) {
