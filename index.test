@@ -30,9 +30,10 @@ test
   ('legacy test')
   ( true )
 
-//test `Predicate Return Assertions`
-//  ( () => 'this test evaluates returned predicate'
-//       == 'this test evaluates returned predicate' )
+test `Predicate Return Assertions`
+  // BE SURE TO CHECK THIS TEST!
+  ( () => 'this test evaluates returned predicate'
+       == 'this test evaluates returned predicate' )
 
 
 //test `Single Assertions`
