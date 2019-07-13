@@ -39,6 +39,8 @@ class Test {
   }
 
   define (definition) {
+    this.definition = definition
+
     let test =
     require ('tape') (
       this.name
