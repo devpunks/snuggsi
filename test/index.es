@@ -41,10 +41,8 @@ class Test {
     let assertion = function (predicate) {
       assertions.push ( _ => assert ( predicate ) )
 
-    t.assert (true)
-    t.end ()
-  }
-}
+      return assertion
+    }
 
 
 class Case {
