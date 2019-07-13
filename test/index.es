@@ -44,7 +44,7 @@ class Test {
     let test =
     require ('tape') (
       this.name
-    , this.definition = definition )
+    , this.case.bind (this))
 
     console.warn ('The test!', test)
   }
