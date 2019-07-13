@@ -266,7 +266,7 @@ template.bind (context)
 ```
 
 
-### Render Result
+### Rendered Result
 ```html
 <dl>
   <template name="recipe"> … </template>
