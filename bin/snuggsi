@@ -23,6 +23,7 @@ declare -ar RESOURCES=( "${ARGS[@]:- . }" ) # Default o curren directory
 declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules} # npm bin -g
 declare -r  ENTRY=`readlink $BASH_SOURCE`
 
+echo BIN $BIN
 echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
 echo NODE_PATH $NODE_PATH
 echo BIN $BIN
