@@ -52,8 +52,8 @@ class Test {
 
     typeof definition
       === 'function'
-        ? await definition (assert)
-        : await assert  (definition, ... options)
+        ? await definition (assertion)
+        : assert (definition, ... options)
 
     end ()
   }
