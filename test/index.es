@@ -65,8 +65,8 @@ function Case (definition) {
 
 
 module.exports =
-    ... params =>
-      callback =>
+    ( ... params ) =>
+      ( callback ) =>
         new Test ( ... params ) ( callback )
 
 void {
