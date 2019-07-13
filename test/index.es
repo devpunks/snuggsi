@@ -81,10 +81,8 @@ class Case {
 }
 
 
-module.exports =
-  ( ... name ) =>
-    definition => new Test
-      ( name, definition )
+module.exports = ( ... name ) =>
+  new Test ( christen (name) )
 
 void {
 // See chunked responses
