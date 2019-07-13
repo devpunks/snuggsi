@@ -19,11 +19,26 @@ const
     ]
 
 
-class Test extends require ('tape') {
+class Test {
 
   constructor ( ... name ) {
-    return group =>
-      test ( this.christen (name), this.case )
+    function normalize (definition) {
+      console.warn (typeof definition)
+      console.warn ('Normie', definition)
+
+      return definition
+    }
+
+
+    return definition => {
+      let test =
+        require ('tape') (
+          this.christen (name)
+        , normalize (definition) )
+
+      console.warn ('Test After', test)
+    }
+//    super ( this.christen (name), this.case )
   }
 
   async 'case' (t) {
