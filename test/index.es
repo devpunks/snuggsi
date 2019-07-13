@@ -33,7 +33,7 @@ class Test {
     t.end ()
   }
 
-  christen ( fragment, ... tokens ) {
+  christen ( fragments, ... tokens ) {
     return [ ]
     //.flat   ( ) // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
       .concat ( fragments ) // Satisfy atomic string and tag templating
