@@ -40,7 +40,11 @@ class Case {
     let
       result
 
-    return async function 'case' (t) {
+    return (this.case)
+  }
+
+
+  async 'case' (t) {
       let { assert } = t
       let assertions = []
 
