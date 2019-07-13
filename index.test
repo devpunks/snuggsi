@@ -39,7 +39,7 @@ test `Multiple Assertions`
 
 ( assert =>
 
-    assert (true)
+    assert ( true )
 
     && // curry
 
