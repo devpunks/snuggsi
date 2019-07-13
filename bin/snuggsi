@@ -46,7 +46,7 @@ function execute {
   if test ${executable##*/} == snuggsi \
     || test ! -f $executable
       then
-        echo "🔴  Invalid command"
+        echo "🔴  Invalid command \`${executable##*/}\`"
         ${executable%\/*}/help
         exit 1
     fi
