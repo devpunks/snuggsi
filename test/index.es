@@ -34,9 +34,7 @@ class Test {
 }
 
 
-function Case (definition) {
-  let
-    result
+class Case {
 
   return async function (t) {
     let { assert } = t
