@@ -43,11 +43,14 @@ function execute {
 
   echo
 
-  if test ! -f $COMMAND || test $executable == snuggsi
-    then
-      echo "🔴  Invalid command"
-      echo
-      exit 1
+  if test ${executable##*/} == snuggsi \
+    || test ! -f $executable
+      then
+        echo "🔴  Invalid command"
+        echo ${executable%\/*}/help
+        echo ${executable##*/}
+        echo
+        exit 1
     fi
 
   echo "📚  MOUNTING RESOURCES …"
