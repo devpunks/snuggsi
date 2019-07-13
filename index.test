@@ -17,7 +17,8 @@ test `.fetch`
   void ( 'fetch' in require ('.') )
 
 test `.read`
-  ( 'read' in require ('.') )
+  ( 'read' in require ('.')
+  , 'some special message' )
 
 //test `.Server`
 //  ( 'Server' in require ('.') )
