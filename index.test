@@ -18,7 +18,7 @@ test `I can't believe it's not butter
   this is amazing!
 `
 
-void (true)
+void (true) // this is a bug in tape
 
 
 test `.test`
