@@ -26,6 +26,7 @@ declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_
 echo BIN $BIN
 echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
 echo ENTRY $ENTRY
+echo NODE_PATH $NODE_PATH
 exit
 
 # https://stackoverflow.com/questions/6393551/what-is-the-meaning-of-0-in-a-bash-script
