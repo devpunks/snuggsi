@@ -35,6 +35,8 @@ class Test {
       return definition
     }
 
+    return this.define.bind (this)
+  }
 
     return definition => {
       let test =
