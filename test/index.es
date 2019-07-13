@@ -9,7 +9,8 @@ const
   sleep = time =>
     new Promise (alarm => setTimeout (alarm, time))
 
-, zip = ( tokens, result = '' ) =>
+const
+  zip = ( tokens, result = '' ) =>
     [
       (result, fragment) => result
         += `${ fragment }${ tokens.shift `` || `` }`
