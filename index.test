@@ -30,8 +30,8 @@ test `Currying Assertions`
 (
   assert => assert
 
-  ('foo' == 'foo')
-  ('bar' == 'bar')
+  ( 'foo' == 'foo' )
+  ( 'bar' == 'bar' )
 )
 
 
