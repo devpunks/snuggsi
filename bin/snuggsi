@@ -22,7 +22,11 @@ declare -r  BIN=`dirname $0` # local bin of current script
 declare -ar RESOURCES=( "${ARGS[@]:- . }" ) # Default o curren directory
 declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules} # npm bin -g
 
-declare -r  BIN=`dirname $BASH_SOURCE`
+echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
+echo NODE_PATH $NODE_PATH
+echo BIN $BIN
+exit
+
 declare -r  ENTRY=`readlink $BASH_SOURCE`
 # https://stackoverflow.com/questions/6393551/what-is-the-meaning-of-0-in-a-bash-script
 declare -rx SNUGGSI=$(cd $BIN/`dirname ${ENTRY%/*}`; pwd)
