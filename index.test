@@ -36,8 +36,8 @@ test `Predicate Return Assertions`
        == 'this test evaluates returned predicate' )
 
 
-//test `Single Assertions`
-//  ( assert => assert ( 'foo' === 'foo' ) )
+test `Single Assertions`
+  ( assert => assert ( 'foo' === 'foo' ) )
 
 
 //test `Currying Assertions`
