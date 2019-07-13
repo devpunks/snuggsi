@@ -35,7 +35,7 @@ class Test {
      .bind (this)
   }
 
-  async 'case' (definition) {
+  async 'case' (definition, ... options) {
     let
       { test: { assert, end }} = this
 
