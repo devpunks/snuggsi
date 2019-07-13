@@ -29,10 +29,8 @@ class Test {
 
   constructor ( name ) {
     this.name = name
+    this.test = new test ( this.name)
 
-    new test (
-      this.name
-    , t => { t.skip () ; t.end () } )
 
     return this
       .define.bind (this)
