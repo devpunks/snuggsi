@@ -28,8 +28,8 @@ const
 class Test {
 
   constructor ( name ) {
-    this.name = name
-    this.test = new test ( this.name)
+    (this.test = test ())
+      .comment (this.name = name)
 
 
     return this
