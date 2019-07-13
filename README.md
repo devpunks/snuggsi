@@ -269,9 +269,7 @@ template.bind (context)
 ### Render Result
 ```html
 <dl>
-  <template name="recipe">
-    …
-  </template>
+  <template name="recipe"> … </template>
 
   <dt> Step 1.</dt>
   <dd> Preheat oven.</dd>
