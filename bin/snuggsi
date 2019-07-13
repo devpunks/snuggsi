@@ -30,6 +30,7 @@ echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
 echo ENTRY $ENTRY
 echo dirname ENTRY `dirname $ENTRY`
 echo NODE_PATH $NODE_PATH
+ls $NODE_PATH
 exit
 
 # https://stackoverflow.com/questions/6393551/what-is-the-meaning-of-0-in-a-bash-script
