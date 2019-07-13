@@ -19,7 +19,7 @@ const
     ]
 
 
-class Test {
+class Test extends require ('tape') {
 
   constructor ( ... name ) {
     return group =>
