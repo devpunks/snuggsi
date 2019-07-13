@@ -32,7 +32,7 @@ declare -r  ENTRY=`readlink $BASH_SOURCE`
 declare -rx SNUGGSI=$(cd $BIN/`dirname ${ENTRY%/*}`; pwd)
 declare -r  COMMAND="$SNUGGSI/bin/$1"
 
-echo NODE_PATH $NODE_PATH
+echo ARGS $ARGS
 echo BASH SOURCE $BASH_SOURCE
 echo readlink BASH SOURCE `readlink $BASH_SOURCE`
 echo ENTRY $ENTRY
