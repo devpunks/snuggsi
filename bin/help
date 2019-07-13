@@ -1,0 +1,14 @@
+#!/usr/bin/env bash
+
+menu () {
+  echo
+  echo "Usage: snuggsi <command>"
+  echo
+  echo "where <command> is one of the following:"
+  echo
+  echo "  crank                  Crank it up baby!"
+  echo "  test                   Test suite runner"
+  echo
+}
+
+menu
