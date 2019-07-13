@@ -39,7 +39,7 @@ declare -r  COMMAND="$SNUGGSI/bin/${1:-help}" # CLI snuggsi commandto run from $
 # echo COMMAND $COMMAND
 
 function execute {
-  local executable=$(basename $COMMAND)
+  local executable=$1
 
   echo
 
