@@ -51,7 +51,13 @@ class Test {
 
     typeof definition
       == 'function'
-      && await definition (assert)
+      && await definition (assertion)
+
+
+    console.warn ('ASSERTIONS!!!', assertions)
+
+    for ( let operation of assertions )
+      operation ``
 
     end ()
   }
