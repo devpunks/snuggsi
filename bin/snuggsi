@@ -47,9 +47,7 @@ function execute {
     || test ! -f $executable
       then
         echo "🔴  Invalid command"
-        echo ${executable%\/*}/help
-        echo ${executable##*/}
-        echo
+        ${executable%\/*}/help
         exit 1
     fi
 
