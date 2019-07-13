@@ -12,6 +12,7 @@ echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツ    snuggsi ツ    ツツツツツ "
 echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツツツツツツツツツツツツツツツ "
+echo
 
 
 # TODO: Remove global installation assumption.
