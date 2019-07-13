@@ -20,8 +20,8 @@ test `.read`
   ( 'read' in require ('.')
   , 'some special message' )
 
-//test `.Server`
-//  ( 'Server' in require ('.') )
+test `.Server`
+  ( 'Server' in require ('.') )
 
 //test `.Resource`
 //  ( 'Resource' in require ('.') )
