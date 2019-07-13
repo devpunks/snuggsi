@@ -33,7 +33,8 @@ echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
 echo ENTRY $ENTRY
 echo dirname ENTRY `dirname $ENTRY`
 echo NODE_PATH $NODE_PATH
-ls $NODE_PATH
+echo SNUGGSI $SNUGGSI
+ls $SNUGGSI
 exit
 
 declare -r  COMMAND="$SNUGGSI/bin/$1"
