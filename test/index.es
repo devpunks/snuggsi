@@ -32,6 +32,13 @@ class Test {
     t.assert (true)
     t.end ()
   }
+
+  christen ( fragment, ... tokens ) {
+    return [ ]
+    //.flat   ( ) // https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Array/flat
+      .concat ( fragments ) // Satisfy atomic string and tag templating
+      .reduce ( ... zip (tokens) )
+  }
 }
 
 
