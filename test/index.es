@@ -44,9 +44,7 @@ class Test {
       this.name
     , this.definition = definition )
 
-      console.warn ('Test After', test)
-    }
-//    super ( this.christen (name), this.case )
+    console.warn ('The test!', test)
   }
 
   async 'case' (t) {
