@@ -39,8 +39,8 @@ function Case (definition) {
     let { assert } = t
     let assertions = []
 
-    let ass = function (predicate) {
-      assertions.push ( _ => assert (predicate))
+    let assertion = function (predicate) {
+      assertions.push ( _ => assert ( predicate ) )
 
       return ass
     }
