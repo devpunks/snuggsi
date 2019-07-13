@@ -42,8 +42,6 @@ class Test {
     this.test.test (
       this.name
     , this.case.bind (this))
-
-    console.warn ('The test!', test )
   }
 
   async 'case' (t) {
