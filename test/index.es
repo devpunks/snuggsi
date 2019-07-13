@@ -37,9 +37,9 @@ class Test {
     let
       { test: { assert, end }} = this
 
-    , assertion  = ( ... parameters ) =>
-        !!! assert ( ... parameters )
-         && assertion
+    , assertion = ( ... parameters ) =>
+       !!! assert ( ... parameters )
+        && assertion
 
 //  ONLY USE TERNARIES WHEN RETURN VALUE IS OF IMPORTANCE
 //  typeof definition === 'function'
