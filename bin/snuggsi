@@ -26,7 +26,6 @@ declare -r  ENTRY=`readlink $BASH_SOURCE`
 echo BIN $BIN
 echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
 echo NODE_PATH $NODE_PATH
-echo BIN $BIN
 echo ENTRY $ENTRY
 exit
 
