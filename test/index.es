@@ -44,6 +44,10 @@ class Test {
       return assertion
     }
 
+//  ONLY USE TERNARIES WHEN RETURN VALUE IS OF IMPORTANCE
+//  typeof definition === 'function'
+//    ? await definition ( assertion )
+//    : assertion ( definition )
 
 class Case {
 
