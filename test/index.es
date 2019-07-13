@@ -37,8 +37,7 @@ class Test {
   define (definition) {
     this.definition = definition
 
-    let test =
-    require ('tape') (
+    new test ( // new not needed
       this.name
     , this.case.bind (this))
 
