@@ -22,7 +22,7 @@ const
 class Test {
 
   constructor ( ... name ) {
-    return group => test (name, this.case)
+    return group => test (this.christen (name), this.case)
   }
 
   async 'case' (t) {
