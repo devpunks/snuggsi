@@ -55,8 +55,6 @@ class Test {
       && await definition (assertion)
 
 
-    console.warn ('ASSERTIONS!!!', assertions)
-
     for ( let operation of assertions )
       operation ``
 
