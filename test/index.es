@@ -28,7 +28,7 @@ class Test {
       .reduce ( ... zip (tokens) )
 
     return group => {
-      return test (name, Case (group))
+      return test (name, new Case (group))
     }
   }
 }
