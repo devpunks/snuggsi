@@ -36,7 +36,6 @@ declare -r  COMMAND="$SNUGGSI/bin/$1"
 echo ARGS $ARGS
 echo BASH SOURCE $BASH_SOURCE
 echo readlink BASH SOURCE `readlink $BASH_SOURCE`
-echo ENTRY $ENTRY
 echo SNUGGSI $SNUGGSI
 echo COMMAND $COMMAND
 
