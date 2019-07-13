@@ -83,9 +83,9 @@ class Case {
 
 
 module.exports =
-    ( ... params ) =>
-      ( callback ) =>
-        new Test ( ... params ) ( callback )
+  ( ... name ) =>
+    definition => new Test
+      ( name, definition )
 
 void {
 // See chunked responses
