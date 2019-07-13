@@ -50,12 +50,13 @@ class Test {
 //    ? await definition ( assertion )
 //    : assertion ( definition )
 
-    console.warn ('definition type', typeof definition)
-
     typeof definition
       === 'function'
         ? await definition (assertion)
-        : await assertion  (definition)
+        : await assertion  (definition, ... options)
+
+    console.warn ('definition type', typeof definition)
+    console.warn ('assertions length', assertions.length)
 
     for ( let operation of assertions )
       operation ``
