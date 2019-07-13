@@ -26,9 +26,9 @@ test `.Server`
 test `.Resource`
   ( 'Resource' in require ('.') )
 
-//test
-//  ('legacy test')
-//  ( true )
+test
+  ('legacy test')
+  ( true )
 
 //test `Predicate Return Assertions`
 //  ( () => 'this test evaluates returned predicate'
