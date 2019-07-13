@@ -27,7 +27,6 @@ echo BIN $BIN
 echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
 echo NODE_PATH $NODE_PATH
 echo ENTRY $ENTRY
-echo BASE ${BASH_SOURCE##*/} # Current execution file name
 exit
 
 # https://stackoverflow.com/questions/6393551/what-is-the-meaning-of-0-in-a-bash-script
