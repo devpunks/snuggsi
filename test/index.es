@@ -50,8 +50,7 @@ class Test {
 //    ? await definition ( assertion )
 //    : assertion ( definition )
 
-    typeof definition == 'function'
-      && await definition (assertion)
+    console.warn ('definition type', typeof definition)
 
     typeof definition == 'boolean'
       && assertion (definition)
