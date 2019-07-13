@@ -49,7 +49,6 @@ class Test {
 //    ? await definition ( assertion )
 //    : assertion ( definition )
 
-class Case {
 
 //    let assertion = function (predicate) {
 //      assertions.push ( _ => assert ( predicate ) )
