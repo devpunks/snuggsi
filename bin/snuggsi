@@ -60,7 +60,7 @@ function execute {
       if test -d $RESOURCE
         then
           echo " 👉  📂  $RESOURCE ══════════════════════════════════════════"
-          $COMMAND $RESOURCE
+          $executable $RESOURCE
         else
           echo "🔴  $RESOURCE NOT A DIRECTORY"
       fi
