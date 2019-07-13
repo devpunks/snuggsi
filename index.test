@@ -1,5 +1,5 @@
 const
-  test = require ('./test/index.es')
+  { test } = require ('snuggsi')
 
 
 test `HOLY FUCK I HAVE BEEN WAITING FOR THIS FOR SO LONG!`
