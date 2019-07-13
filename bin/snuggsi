@@ -35,7 +35,7 @@ echo ENTRY $ENTRY
 echo dirname ENTRY `dirname $ENTRY`
 echo NODE_PATH $NODE_PATH
 echo SNUGGSI $SNUGGSI
-ls $SNUGGSI
+echo COMMAND $COMMAND
 exit
 
 declare -r  COMMAND="$SNUGGSI/bin/$1"
