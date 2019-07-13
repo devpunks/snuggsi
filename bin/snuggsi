@@ -25,7 +25,6 @@ declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_
 
 echo BIN $BIN
 echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
-echo NODE_PATH $NODE_PATH
 echo ENTRY $ENTRY
 exit
 
