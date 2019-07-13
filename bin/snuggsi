@@ -38,7 +38,6 @@ echo SNUGGSI $SNUGGSI
 echo COMMAND $COMMAND
 exit
 
-declare -r  COMMAND="$SNUGGSI/bin/$1"
 
 echo ARGS $ARGS
 echo BASH SOURCE $BASH_SOURCE
