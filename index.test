@@ -23,8 +23,8 @@ test `.read`
 test `.Server`
   ( 'Server' in require ('.') )
 
-//test `.Resource`
-//  ( 'Resource' in require ('.') )
+test `.Resource`
+  ( 'Resource' in require ('.') )
 
 //test
 //  ('legacy test')
