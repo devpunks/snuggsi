@@ -21,7 +21,7 @@ declare -a  ARGS=( "${@:2}" ) # sanatize arguments
 declare -r  BIN=`dirname $0` # local bin of current script
 declare -ar RESOURCES=( "${ARGS[@]:- . }" ) # Default o curren directory
 declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules} # npm bin -g
-declare -r  ENTRY=`readlink $BASH_SOURCE`
+declare -r  ENTRY=`readlink $0`
 
 echo BIN $BIN
 echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
