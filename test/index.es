@@ -27,9 +27,14 @@ class Test {
       .concat ( fragments )
       .reduce ( ... zip (tokens) )
 
-    return group => {
-      return test (name, new Case (group))
-    }
+    return group => test (name, this.case)
+  }
+
+  async 'case' (t) {
+    let { assert } = t
+    let assertions = []
+
+    t.end ``
   }
 }
 
