@@ -54,7 +54,6 @@ class Case {
         ? await definition ( assertion )
         : assertion ( definition )
 
-
       console.warn ('Plan', t.plan)
 
   //  t.plan ( assertions.length ) // prevents t.end calls
