@@ -4,4 +4,4 @@ echo
 echo "🚔 Continuously integrating..."
 echo "  👇"
 
-bin/publish && bin/cover
+bin/snuggsi publish && bin/snuggsi cover
