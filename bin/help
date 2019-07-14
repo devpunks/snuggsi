@@ -6,7 +6,6 @@ menu () {
   echo
   echo "where <command> is one of the following:"
   echo
-  echo "  crank                  Crank it up baby!"
   echo "  test                   Test suite runner"
   echo
 }
