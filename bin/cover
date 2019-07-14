@@ -1,5 +1,7 @@
 #!/bin/bash
 
+${SNUGGSI?🔴 Set shell variable to installation location}
+
 declare -r  THRESHOLD=70                  # Percentage
 declare -r  LIBRARIES=.,test,html-element # resource,middleware,server
 declare -r  HARNESS=$SNUGGSI/bin/test     # Test harness
