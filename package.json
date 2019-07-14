@@ -51,7 +51,6 @@
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1",
     "uglify-es": "^3.3.10",
-    "webidl2js": "^9.1.2",
     "zopfli-node": "^2.0.3"
   },
   "dependencies": {
