@@ -271,7 +271,7 @@ Please see [style#readme](/style#readme) for details.
 $ test [path]
 ```
 
-  Run entire test suite or specify an optional file or directory to test.
+  Run test suite or specify an optional entry point to test.
 
   Uses [`tape`](https://github.com/substack/tape)
   and [`tap-nyc`](https://github.com/MegaArman/tap-nyc)
