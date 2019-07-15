@@ -268,7 +268,7 @@ Please see [style#readme](/style#readme) for details.
 
 
 ```bash
-$ bin/test [path]
+$ test [path]
 ```
 
   Run entire test suite or specify an optional file or directory to test.
