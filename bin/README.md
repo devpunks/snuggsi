@@ -255,6 +255,7 @@ $ snuggsi
 ```
 
   Main entry point for `snuggsi` CLI (Command Line Interface.
+  _[See list of commands above](#table_of_contents)_
 
 
 ## [`style`](style)
