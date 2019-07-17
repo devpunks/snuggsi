@@ -1,15 +1,3 @@
-#!/usr/bin/env bash
+echo Help menu
 
-menu () {
-  echo
-  echo "Usage: snuggsi <command>"
-  echo
-  echo "where <command> is one of the following:"
-  echo
-  echo "  test                   Test suite runner"
-  echo "  crank                  Crank it up baby!"
-  echo "  integrate              Used during Continuous Integration"
-  echo
-}
-
-menu
+echo `pwd`
