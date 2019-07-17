@@ -9,4 +9,5 @@ cat                                \
   global-event-handlers/index.es   \
   component/index.es               \
   element/index.es                 \
+\
 > dist/snuggsi.es
