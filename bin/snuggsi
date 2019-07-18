@@ -34,7 +34,6 @@ declare -a  ARGS=( "${@:2}" ) # sanatize arguments
 declare -ar RESOURCES=( "${ARGS[@]:-. }" ) # Default o curren directory
 
 # echo ARGS $ARGS
-  echo BIN $BIN
 # echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
 # echo dirname ENTRY `dirname $ENTRY`
 # echo NODE_PATH $NODE_PATH
