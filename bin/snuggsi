@@ -19,6 +19,10 @@ echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツツツツツツツツツツツツツツツ "
 echo
 
+echo `dirname $BASH_SOURCE`
+
+source .arguments
+
 # TODO: Remove global installation assumption.
 #   This poses problems when installed locally.
 declare -a  ARGS=( "${@:2}" ) # sanatize arguments
