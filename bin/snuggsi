@@ -30,7 +30,6 @@ declare -ar RESOURCES=( "${ARGS[@]:-. }" ) # Default o curren directory
 
 # echo ARGS $ARGS
 # echo RESOURCES ${#RESOURCES[@]} ${RESOURCES[@]}
-# echo dirname ENTRY `dirname $ENTRY`
 # echo NODE_PATH $NODE_PATH
 # echo SNUGGSI $SNUGGSI
 # echo COMMAND $COMMAND
