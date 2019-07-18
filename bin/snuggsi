@@ -31,6 +31,7 @@ declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_
 declare -rx SNUGGSI=${NODE_PATH}/${BASH_SOURCE##*/} # Absolute path to snuggsi installation
 declare -r  COMMAND="$SNUGGSI/bin/${1:-help}" # CLI snuggsi commandto run from $BIN
 
+declare -a  ARGS=( "${@:2}" ) # sanatize arguments
 declare -ar RESOURCES=( "${ARGS[@]:-. }" ) # Default o curren directory
 
 # echo ARGS $ARGS
