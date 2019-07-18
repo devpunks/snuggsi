@@ -23,8 +23,6 @@ echo `dirname $BASH_SOURCE`
 
 source .arguments
 
-# TODO: Remove global installation assumption.
-#   This poses problems when installed locally.
 declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules} # npm bin -g
 declare -rx SNUGGSI=${NODE_PATH}/${BASH_SOURCE##*/} # Absolute path to snuggsi installation
 declare -r  COMMAND="$SNUGGSI/bin/${1:-help}" # CLI snuggsi commandto run from $SNUGGSI
