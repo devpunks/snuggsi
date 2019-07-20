@@ -10,31 +10,17 @@
 echo Sourcing Arguments
 
 menu () {
-    echo; echo "Options:"; echo
-
-    echo "  -help                   Show brief help"
-    echo "  -4k                     Force 3840 x 2160p resolution"
-    echo "  -hd                     Force 1920 x 1080p resolution"
-    echo "  -input=[file|color]     Input file or color"
-    echo "  -letterbox=[blur|color] Blurred video matte or color value (default black)"
-    echo "    -letterbox=blur       Blurred video matte"
-    echo "    -letterbox=color"
-    echo "      random              Random color value"
-    echo "      [0x|#]RRGGBB[AA]    Hexidecimal RGB format value (with optional 0.0 - 1.0 [AA]lpha)"
-    echo "      color by name       Full color list -> https://ffmpeg.org/ffmpeg-utils.html#toc-Color"
-
-    # Multipass Encoding
-    #   https://en.wikipedia.org/wiki/Variable_bitrate#Multi-pass_encoding_and_single-pass_encoding
-    #   https://superuser.com/questions/1362800/ffmpeg-2-pass-encoding
-    echo "  -passes=[number]        Number of passes for encoding"
-    echo "  -start=[HH:]MM:SS[.mm]  Start at timestamp"
-    echo "  -stop=[HH:]MM:SS[.mm]   Stop at timestamp"
-    echo "  -stats                  Log statistics (and time)"
-    echo "  -watermark=[file]       Watermark image file"
-    echo
-
-    exit 0
+  echo
+  echo "Usage: snuggsi <command>"
+  echo
+  echo "where <command> is one of the following:"
+  echo
+  echo "  test                   Test suite runner"
+  echo "  crank                  Crank it up baby!"
+  echo "  integrate              Used during Continuous Integration"
+  echo
 }
+
 
 test $# -eq 0 && menu
 
