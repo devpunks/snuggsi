@@ -35,38 +35,6 @@ for argument in "$@"
         # shift # past value
         ;;
 
-      -4k)
-        declare -ir WIDTH=3840
-        declare -ir HEIGHT=2160
-        shift # past argument AND value
-        ;;
-
-      -hd)
-        declare -ir WIDTH=1920
-        declare -ir HEIGHT=1080
-        shift # past argument AND value
-        ;;
-
-      -input=*)
-        declare -r INPUT="${argument#*=}"
-        shift # past argument AND value
-        ;;
-
-      -letterbox*)
-        declare -r MATTE=$( [[ $argument =~ ^-letterbox$ ]] && echo "black" || echo ${argument#*=})
-        shift # past argument AND value
-        ;;
-
-      -passes=*)
-        declare -ir PASSES=${argument#*=}
-        shift # past argument AND value
-        ;;
-
-      -start=*)
-        declare -r START=${argument#*=}
-        shift # past argument AND value
-        ;;
-
       -stop=*)
         declare -r STOP=${argument#*=}
         shift # past argument AND value
