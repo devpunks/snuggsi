@@ -11,7 +11,9 @@ echo Sourcing Arguments
 
 menu () {
   echo
-  echo "Usage: snuggsi <command>"
+  echo "CLI (Command Line Interface) Usage:"
+  echo
+  echo " $ snuggsi <command>"
   echo
   echo "where <command> is one of the following:"
   echo
