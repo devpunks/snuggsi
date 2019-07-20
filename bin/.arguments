@@ -1,0 +1,112 @@
+#!/usr/bin/env bash
+
+# https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+
+# for i in `seq 1 10`
+#   do
+#     echo $i
+#   done
+
+echo Sourcing Arguments
+
+menu () {
+    echo; echo "Options:"; echo
+
+    echo "  -help                   Show brief help"
+    echo "  -4k                     Force 3840 x 2160p resolution"
+    echo "  -hd                     Force 1920 x 1080p resolution"
+    echo "  -input=[file|color]     Input file or color"
+    echo "  -letterbox=[blur|color] Blurred video matte or color value (default black)"
+    echo "    -letterbox=blur       Blurred video matte"
+    echo "    -letterbox=color"
+    echo "      random              Random color value"
+    echo "      [0x|#]RRGGBB[AA]    Hexidecimal RGB format value (with optional 0.0 - 1.0 [AA]lpha)"
+    echo "      color by name       Full color list -> https://ffmpeg.org/ffmpeg-utils.html#toc-Color"
+
+    # Multipass Encoding
+    #   https://en.wikipedia.org/wiki/Variable_bitrate#Multi-pass_encoding_and_single-pass_encoding
+    #   https://superuser.com/questions/1362800/ffmpeg-2-pass-encoding
+    echo "  -passes=[number]        Number of passes for encoding"
+    echo "  -start=[HH:]MM:SS[.mm]  Start at timestamp"
+    echo "  -stop=[HH:]MM:SS[.mm]   Stop at timestamp"
+    echo "  -stats                  Log statistics (and time)"
+    echo "  -watermark=[file]       Watermark image file"
+    echo
+
+    exit 0
+}
+
+test $# -eq 0 && menu
+
+for argument in "$@"
+  do
+    case $argument in
+
+      -help)
+        menu
+        # shift # past key
+        # shift # past value
+        ;;
+
+      -4k)
+        declare -ir WIDTH=3840
+        declare -ir HEIGHT=2160
+        shift # past argument AND value
+        ;;
+
+      -hd)
+        declare -ir WIDTH=1920
+        declare -ir HEIGHT=1080
+        shift # past argument AND value
+        ;;
+
+      -input=*)
+        declare -r INPUT="${argument#*=}"
+        shift # past argument AND value
+        ;;
+
+      -letterbox*)
+        declare -r MATTE=$( [[ $argument =~ ^-letterbox$ ]] && echo "black" || echo ${argument#*=})
+        shift # past argument AND value
+        ;;
+
+      -passes=*)
+        declare -ir PASSES=${argument#*=}
+        shift # past argument AND value
+        ;;
+
+      -start=*)
+        declare -r START=${argument#*=}
+        shift # past argument AND value
+        ;;
+
+      -stop=*)
+        declare -r STOP=${argument#*=}
+        shift # past argument AND value
+        ;;
+
+      -stats)
+        source $BIN/.stats
+        shift # past argument AND value
+        ;;
+
+      -watermark=*)
+        declare -r WATERMARK="${argument#*=}"
+        shift # past argument AND value
+        ;;
+
+      -input|-letterbox|-passes|-start|-stop|-watermark)
+        echo "$1 requires a value to be set (i.e. $1=value)" >&2
+        exit 1
+        ;;
+
+      -*)
+        echo "unknown option: $1" >&2
+        exit 1
+        ;;
+
+      *)
+        declare -r OUTPUT="$1"
+        ;;
+    esac
+  done
