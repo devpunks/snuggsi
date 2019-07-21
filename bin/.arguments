@@ -35,16 +35,6 @@ for argument in "$@"
         # shift # past value
         ;;
 
-      -stop=*)
-        declare -r STOP=${argument#*=}
-        shift # past argument AND value
-        ;;
-
-      -stats)
-        source $BIN/.stats
-        shift # past argument AND value
-        ;;
-
       -watermark=*)
         declare -r WATERMARK="${argument#*=}"
         shift # past argument AND value
