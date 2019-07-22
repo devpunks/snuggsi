@@ -24,6 +24,10 @@ menu () {
 }
 
 
+
+echo ARGUMENTS ${#ARGUMENTS} ${ARGUMENTS}
+
+
 test $# -eq 0 && menu
 
 for argument in "$@"
