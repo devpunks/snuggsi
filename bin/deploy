@@ -4,7 +4,5 @@ echo "🚢  Deploying to Now"
 echo "  👇"
 echo
 
-# UPDATE TO USE NOW! (https://zeit.co/now)
-
 now --target production
 now domains inspect snuggsi.com
