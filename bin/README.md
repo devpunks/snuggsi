@@ -280,7 +280,7 @@ $ test [path]
   and [`tap-nyc`](https://github.com/MegaArman/tap-nyc)
 
 
-### Environment Arguments
+### Arguments
 
   - `path` - _(optional)_ Specific test directory or file. _(Defaults to run entire test suite)_
 
