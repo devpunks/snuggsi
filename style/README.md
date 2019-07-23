@@ -20,6 +20,7 @@ $ bin/style ./foo-bar
 
 
 ### Cascading Style Sheets
+
 ```bash
 $ bin/style index.css
 ```
