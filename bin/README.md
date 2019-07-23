@@ -234,7 +234,7 @@ $ bin/serve [root]
   - `PORT` - Server port _(Defaults to **80**)_
 
 
-### Environment Arguments
+### Arguments
 
   - `root` - _(optional)_ path to serve from `/` _(Defaults to **`.` current directory**)_
 
