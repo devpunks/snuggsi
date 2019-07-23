@@ -1,6 +1,7 @@
 # SNUGGSI.STYLE
 
 ## Style
+
 ```bash
 $ bin/style [component-directory | style-file.{sss,css}]
 ```
