@@ -1,8 +1,8 @@
 #!/usr/bin/env bash
 
-echo
 echo "🚢  Deploying to Heroku"
 echo "  👇"
+echo
 
 heroku config:set NPM_CONFIG_PRODUCTION=true # https://devcenter.heroku.com/articles/nodejs-support#package-installation
 git push -f heroku master
