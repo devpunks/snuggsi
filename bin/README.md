@@ -325,7 +325,7 @@ $ bin/weigh [library]
   _(1500 [OCTETS](https://en.wikipedia.org/wiki/Octet_(computing)))_.
 
 
-### Environment Arguments
+### Arguments
 
   - `library` - _(optional)_ path to watch for changes _(Defaults to **`dist/snuggsi.min.es.br`**)_
 
