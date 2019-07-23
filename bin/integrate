@@ -5,3 +5,5 @@ echo "🚔 Continuously integrating..."
 echo "  👇"
 
 bin/snuggsi publish && bin/snuggsi cover
+
+echo
