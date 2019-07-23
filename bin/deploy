@@ -6,3 +6,5 @@ echo
 
 now --target production
 now domains inspect snuggsi.com
+
+echo
