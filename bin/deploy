@@ -1,10 +1,10 @@
 #!/usr/bin/env bash
 
-echo "🚢  Deploying to Heroku"
+echo "🚢  Deploying to Now"
 echo "  👇"
 echo
 
-heroku config:set NPM_CONFIG_PRODUCTION=true # https://devcenter.heroku.com/articles/nodejs-support#package-installation
-git push -f heroku master
-
 # UPDATE TO USE NOW! (https://zeit.co/now)
+
+now --target production
+now domains inspect snuggsi.com
