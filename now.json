@@ -4,7 +4,7 @@
   "alias": ["snuggsi.com", "snuggsi"],
 
     "builds": [
-      { "src": "index.html", "use": "@now/static" }
+      { "src": "*", "use": "@now/static" }
     ],
 
     "files": ["index.html", "*.css"]
