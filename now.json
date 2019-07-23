@@ -7,5 +7,5 @@
       { "src": "index.html", "use": "@now/static" }
     ],
 
-    "files": ["index.html"]
+    "files": ["index.html", "*.css"]
 }
