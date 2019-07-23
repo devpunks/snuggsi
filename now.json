@@ -1,7 +1,7 @@
 {
   "version": 2,
   "name": "snuggsi",
-  "alias": ["snuggsi.com", "snuggsi"]
+  "alias": ["snuggsi.com", "snuggsi"],
 
     "builds": [
       { "src": "index.html", "use": "@now/static" }
