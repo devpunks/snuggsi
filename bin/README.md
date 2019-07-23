@@ -308,7 +308,7 @@ $ bin/watch [directory]
 
 
 
-### Environment Arguments
+### Arguments
 
   - `directory` - _(optional)_ path to watch for changes _(Defaults to **current directory `.`**)_
 
