@@ -59,7 +59,7 @@ $ bin/browse [root]
   ⚠️  _See [BrowserSync command line options](https://browsersync.io/docs/options) for configuration documentation._
 
 
-### Environment Arguments
+### Arguments
 
   - `root` - _(optional)_ path to serve from `/` _(Defaults to **`.` current directory**)_
 
