@@ -7,4 +7,4 @@ echo
 heroku config:set NPM_CONFIG_PRODUCTION=true # https://devcenter.heroku.com/articles/nodejs-support#package-installation
 git push -f heroku master
 
-# UPDATE TO USE NOW!
+# UPDATE TO USE NOW! (https://zeit.co/now)
