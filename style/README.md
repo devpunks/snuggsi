@@ -9,6 +9,7 @@ $ bin/style [component-directory | style-file.{sss,css}]
 This routine will take **component-directory** as a parameter
 
 ### Styling a Component
+
 ```bash
 $ bin/style ./foo-bar
 ```
