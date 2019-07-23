@@ -293,7 +293,7 @@ $ bin/transpile [input] [output]
   Run [Buble](https://buble.surge.sh) for transpilation from [ECMAScript to Javascript](https://stackoverflow.com/questions/912479/what-is-the-difference-between-javascript-and-ecmascript)
 
 
-### Environment Arguments
+### Arguments
 
   - `input`  - _(optional)_ path _(Defaults to **dist/snuggsi.es**)_
   - `output` - _(optional)_ path _(Defaults to **dist/snuggsi.js**)_
