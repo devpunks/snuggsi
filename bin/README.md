@@ -147,7 +147,7 @@ $ bin/crank
 $ bin/deploy
 ```
 
-  Pushes repository to heroku host then launches application server.
+  Pushes repository to [Now](https://zeit.co/now) hosting service.
 
 
 ## [`distribute`](distribute)
