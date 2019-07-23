@@ -5,5 +5,7 @@
 
     "builds": [
       { "src": "index.html", "use": "@now/static" }
-    ]
+    ],
+
+    "files": ["index.html"]
 }
