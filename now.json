@@ -2,6 +2,7 @@
   "version": 2,
   "name": "snuggsi",
   "alias": ["snuggsi.com", "snuggsi"],
+  "scope": "devpunks",
 
     "builds": [
       { "src": "index.html", "use": "@now/static" }
