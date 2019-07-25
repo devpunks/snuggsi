@@ -4,7 +4,6 @@ npm-debug.log
 
 .bundle
 Gemfile*
-Rakefile
 snuggsi-*.gem
 NOTES
 .DS_Store
