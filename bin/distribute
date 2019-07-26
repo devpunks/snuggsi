@@ -60,6 +60,7 @@ echo
 echo "  🆕 Publishing library to npm directory."
 echo
 npm publish
+echo
 
 
 echo "  🐙 Updating master branch on Github."
