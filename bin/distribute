@@ -58,6 +58,7 @@ echo
 
 
 echo "  🆕 Publishing library to npm directory."
+echo
 npm publish
 
 
