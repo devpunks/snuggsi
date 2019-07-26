@@ -19,3 +19,5 @@ echo WATCH          $WATCH
 
 
 $SERVE $DIRECTORY & $WATCH & $BROWSE
+
+echo
