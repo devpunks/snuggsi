@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-DESTINATION=public
+declare -r DESTINATION=public
 ASSETS=(sandbox.html index.html index.css)
 
 echo
