@@ -62,6 +62,7 @@ echo
 
 echo "  🐙 Updating master branch on Github."
 git push origin master
+echo
 
 echo "  🔖 Updating tags on Github."
 git push origin --tags
