@@ -55,7 +55,7 @@ echo "  👊 Bumping package.json version to … `npm version patch`"
 echo
 
 
-echo "  🆕 Publishing library to npm directory."
+echo "  🆕 Publishing library to htps://npmjs.org"
 echo
 npm publish
 echo
