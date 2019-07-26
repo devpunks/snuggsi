@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-declare -r DESTINATION=public
-ASSETS=(sandbox.html index.html index.css)
+declare -r  DESTINATION=public
+declare -ar ASSETS=(sandbox.html index.html index.css)
 
 echo
 echo "📤  Publishing static assets ..."
