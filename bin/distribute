@@ -4,6 +4,7 @@ echo
 echo "📰 Distributing"
 echo "  👇"
 echo "  📝 Committing changes to library..."
+echo
 
 
 git add dist/snuggsi.es
