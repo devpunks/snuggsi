@@ -13,3 +13,5 @@ do
   echo "  📃  $asset 👉  $DESTINATION/$asset"
   cp -f  $asset $DESTINATION
 done
+
+echo
