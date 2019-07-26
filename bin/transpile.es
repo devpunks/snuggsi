@@ -24,4 +24,4 @@ var
 , { code } =
     buble.transform (contents, options)
 
-console.log (result.code)
+console.log (code)
