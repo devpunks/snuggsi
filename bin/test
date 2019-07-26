@@ -14,3 +14,5 @@ echo "  Suite 👉  $SUITE"
 echo
 
 $TEST $SUITE | $SPEC
+
+echo
