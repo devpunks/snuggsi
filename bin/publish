@@ -5,7 +5,7 @@ declare -ar ASSETS=(sandbox.html index.html index.css)
 
 echo
 echo "📤  Publishing static assets ..."
-echo "  To 👉  $DESTINATION"
+echo "  To 👉  $DESTINATION/"
 echo "  👇"
 
 for asset in ${ASSETS[@]}
