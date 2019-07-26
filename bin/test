@@ -8,7 +8,6 @@ declare -rx PORT=${PORT:-1234}
 declare -r  SPEC=$BIN/tap-spec
 declare -r  TEST="$BIN/tape"
 
-echo
 echo "🚨  Testing, Testing, 1,2,3, ..."
 echo
 echo "  Suite 👉  $SUITE"
