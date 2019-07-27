@@ -9,9 +9,6 @@ test ('test',
 test ('fetch',
   t => { t.assert (fetch), t.end () } )
 
-test ('read',
-  t => { t.assert (read), t.end () } )
-
 test ('serve',
   t => { t.assert (serve), t.end () } )
 
