@@ -37,8 +37,6 @@ declare -ar RESOURCES=( "${ARGS[@]:-. }" ) # Default o curren directory
 function run {
   local executable=$1
 
-  echo
-
   if test ${executable##*/} == snuggsi \
     || test ! -f $executable
       then
