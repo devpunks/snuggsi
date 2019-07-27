@@ -71,7 +71,7 @@ test `Multiple Assertions`
 
     assert ( 'bar' == 'bar' )
 
-    && // strict
+    && // strict predicate
 
     assert ( 'baz' === 'baz' )
 
