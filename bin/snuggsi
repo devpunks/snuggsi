@@ -34,7 +34,7 @@ declare -ar RESOURCES=( "${ARGS[@]:-. }" ) # Default o curren directory
 # echo SNUGGSI $SNUGGSI
 # echo COMMAND $COMMAND
 
-function execute {
+function run {
   local executable=$1
 
   echo
