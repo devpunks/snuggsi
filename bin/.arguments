@@ -19,7 +19,7 @@ menu () {
   echo
   echo "  crank                  Crank it up baby!"
   echo "  test                   Test suite runner."
-  echo "  integrate              Used during Continuous Integration."
+  echo "  integrate              Continuous Integration."
   echo
 }
 
