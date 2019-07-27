@@ -62,4 +62,3 @@ function run {
 }
 
 run $COMMAND
-echo
