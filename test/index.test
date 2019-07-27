@@ -3,6 +3,9 @@ const
     = require ('.')
 
 
+test ('test',
+  t => { t.assert (test), t.end () } )
+
 test ('fetch',
   t => { t.assert (fetch), t.end () } )
 
