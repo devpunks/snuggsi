@@ -17,6 +17,3 @@ test ('browse',
 
 test ('get',
   t => { t.assert (get), t.end () } )
-
-test ('test',
-  t => { t.assert (test), t.end () } )
