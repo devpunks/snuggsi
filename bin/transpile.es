@@ -1,4 +1,4 @@
-var
+let
   { INPUT }
     = process.env
 
