@@ -1,8 +1,11 @@
 let
   encoding  = 'UTF-8'
-, { INPUT } = process.env
-, contents  = require ('fs')
-    .readFileSync (INPUT, encoding)
+
+, { INPUT }
+    = process.env
+
+, { readFileSync: read }
+,   = require ('fs')
 
 , options = {
     transforms: {
