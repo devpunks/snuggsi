@@ -1,10 +1,7 @@
 let
-  { INPUT }
-    = process.env
-
-, encoding = 'UTF-8'
-, buble    = require ('buble')
-, contents = require ('fs')
+  encoding  = 'UTF-8'
+, { INPUT } = process.env
+, contents  = require ('fs')
     .readFileSync (INPUT, encoding)
 
 , options = {
