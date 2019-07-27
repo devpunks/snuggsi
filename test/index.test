@@ -6,9 +6,6 @@ const
 test ('test',
   t => { t.assert (test), t.end () } )
 
-test ('fetch',
-  t => { t.assert (fetch), t.end () } )
-
 test ('serve',
   t => { t.assert (serve), t.end () } )
 
