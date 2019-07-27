@@ -65,3 +65,4 @@ function run {
 
 echo
 run $COMMAND
+echo
