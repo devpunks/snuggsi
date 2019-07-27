@@ -59,8 +59,6 @@ function run {
           echo "🔴  $RESOURCE NOT A DIRECTORY"
       fi
     done
-
-  echo
 }
 
 echo
