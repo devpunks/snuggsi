@@ -22,6 +22,7 @@ let
   }
 
 , { code } =
-    buble.transform (contents, options)
+    require ('buble')
+      .transform (contents, options)
 
 console.log (code)
