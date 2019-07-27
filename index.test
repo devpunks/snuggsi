@@ -60,7 +60,7 @@ test `Multiple Assertions`
 
     assert ( true, 'with message' )
 
-    && // curry
+    && // currying
 
     assert
       ( true )
