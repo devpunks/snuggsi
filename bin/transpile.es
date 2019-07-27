@@ -3,8 +3,8 @@ var
     = process.env
 
 , encoding = 'UTF-8'
-  buble    = require ('buble')
-, contents = require('fs')
+, buble    = require ('buble')
+, contents = require ('fs')
     .readFileSync (INPUT, encoding)
 
 , options = {
