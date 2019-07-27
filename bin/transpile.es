@@ -15,7 +15,7 @@ let
 
     // prevent function expressions generated from class methods
     // from being given names – needed to prevent scope leak in IE8
-    namedFunctionExpressions: false
+  , namedFunctionExpressions: false
   }
 
 , { code } =
