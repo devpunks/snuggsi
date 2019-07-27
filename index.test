@@ -75,7 +75,7 @@ test `Multiple Assertions`
 
     assert ( 'baz' === 'baz' )
 
-    && // compound
+    && // compound predicate
 
     assert ( 'truthy' && true )
 )
