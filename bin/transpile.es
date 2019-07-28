@@ -5,7 +5,7 @@ let
     = process.env
 
 , { readFileSync: read }
-,   = require ('fs')
+    = require ('fs')
 
 , options = {
     transforms: {
