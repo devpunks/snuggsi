@@ -1,6 +1,6 @@
 void function () {
 
-  var script = '<script src=\/browser-sync\/browser-sync-client.js><\/script>';
+  var script ='browser-sync-client.js';
 
   (
     (location.hostname.indexOf ('localhost')    >= 0)
