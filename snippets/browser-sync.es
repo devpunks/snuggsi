@@ -8,6 +8,7 @@ void function () {
       || (location.hostname.indexOf ('127.0')   >= 0)
   )
 
-  && document.write (script)
+  && document.write
+    ('<script src=\/browser-sync\/' + script + '><\/script>')
 
 } ()
