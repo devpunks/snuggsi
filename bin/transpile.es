@@ -18,9 +18,6 @@ let
     , templateString: false
     , reservedProperties: true
     }
-    // prevent function expressions generated from class methods
-    // from being given names – needed to prevent scope leak in IE8
-  , namedFunctionExpressions: false
   }
 
 , { code } =
