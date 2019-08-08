@@ -30,12 +30,12 @@ function run {
   local resources=( "${ARGS[@]:-. }" ) # Default o curren directory
 
   if test ${executable##*/} == snuggsi \
-    || test ! -f $executable
-      then
-        echo "🔴  Invalid command \`${executable##*/}\`"
-        ${executable%\/*}/help
-        exit 1
-    fi
+  || test ! -f $executable
+    then
+      echo "🔴  Invalid command \`${executable##*/}\`"
+      ${executable%\/*}/help
+      exit 1
+  fi
 
   echo "📚  MOUNTING RESOURCES …"
   printf '    📁  %s\n' "${resources[@]}"
