@@ -23,8 +23,6 @@ menu () {
   echo
 }
 
-
-
 echo ARGUMENTS ${#ARGUMENTS} ${ARGUMENTS}
 
 
