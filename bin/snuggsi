@@ -45,7 +45,7 @@ function run {
   printf '    📁  %s\n' "${resources[@]}"
   echo
 
-  for RESOURCE in ${RESOURCES[@]}
+  for RESOURCE in ${resources[@]}
     do
       if test -d $RESOURCE
         then
