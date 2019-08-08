@@ -55,6 +55,8 @@ function run {
     done
 }
 
+run $COMMAND
+
 echo ARGUMENTS: ${ARGUMENTS[@]}
 
 run $COMMAND
