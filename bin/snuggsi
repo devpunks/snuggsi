@@ -58,5 +58,6 @@ function run {
 run $COMMAND
 
 echo ARGUMENTS: ${ARGUMENTS[@]}
+echo WOW ARGS: "${ARGUMENTS:2}"
 
 run $COMMAND
