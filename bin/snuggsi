@@ -28,7 +28,6 @@ echo ARGS: ${ARGS[@]}
 echo ARGUMENTS: ${ARGUMENTS[@]}
 
 declare -r  COMMAND="$SNUGGSI/bin/${1:-help}" # CLI snuggsi commandto run from $SNUGGSI
-declare -ar RESOURCES=( "${ARGS[@]:-. }" ) # Default o curren directory
 
 function run {
   local executable=$1
