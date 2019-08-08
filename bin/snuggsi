@@ -43,7 +43,7 @@ function run {
 
   for resource in ${resources[@]}
     do
-      if test -d $RESOURCE
+      if test -d $resource
         then
           echo " 👉  📂  $RESOURCE ══════════════════════════════════════════"
           $executable $RESOURCE
