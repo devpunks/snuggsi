@@ -3,7 +3,7 @@
 # https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 
 declare -ra \
-  ARGUMENTS=( "${@}" ) \
+  ARGUMENTS=( "${@:2}" ) \
   FOO=( bar baz )
  
 echo ARGUMENTS $ARGUMENTS
