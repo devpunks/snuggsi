@@ -23,7 +23,7 @@ menu () {
   echo
 }
 
-echo ARGUMENTS ${#ARGUMENTS} ${ARGUMENTS}
+echo ARGUMENTS ${#ARGUMENTS[@]} ${ARGUMENTS}
 
 
 test $# -eq 0 \
