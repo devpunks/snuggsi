@@ -2,7 +2,7 @@
 
 declare -r MAXIMUM=1500 # OCTETS
 declare -r DIRECTORY=dist
-LIBRARY=${1:-$DIRECTORY/snuggsi.min.es.br}
+declare -r LIBRARY=${1:-$DIRECTORY/snuggsi.min.es.br}
 
 
 ls -al $DIRECTORY
