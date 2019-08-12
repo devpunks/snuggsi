@@ -55,9 +55,4 @@ function run {
     done
 }
 
-for argument in ${ARGUMENTS[@]}
-  do
-    echo ARGUMENTS: $argument
-  done
-
 run $COMMAND
