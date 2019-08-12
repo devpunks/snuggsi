@@ -58,4 +58,4 @@ test $# -eq 0 \
 #         declare -r OUTPUT="$1"
 #         ;;
 #     esac
-#   done
+    done
