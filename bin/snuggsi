@@ -36,7 +36,7 @@ function run {
     then
       echo "🔴  Invalid command \`${executable##*/}\`"
       ${executable%\/*}/help
-      exit 1
+#     exit 1
   fi
 
   echo "📚  MOUNTING RESOURCES …"
