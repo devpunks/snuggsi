@@ -29,7 +29,6 @@ declare -r  COMMAND="$SNUGGSI/bin/${ARGUMENTS:-help}" # CLI snuggsi commandto ru
 function run {
   local \
     executable=$1 \
-    resources=
 
   if test ${executable##*/} == snuggsi \
   || test ! -f $executable
