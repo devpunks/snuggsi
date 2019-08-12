@@ -48,7 +48,7 @@ function run {
           echo " 👉  📂  $resource ══════════════════════════════════════════"
           $executable $resource
         else
-          echo "🔴  $resource NOT A DIRECTORY"
+          echo "🔴  $resource RESOURCE DIRECTORY"
       fi
     done
 }
