@@ -13,7 +13,7 @@ menu () {
   echo
   echo "CLI (Command Line Interface) Usage:"
   echo
-  echo " $ snuggsi <command>"
+  echo " $ snuggsi <command> resource1"
   echo
   echo "where <command> is one of the following:"
   echo
