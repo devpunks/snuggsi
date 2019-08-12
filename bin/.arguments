@@ -6,8 +6,6 @@
 declare -rax \
   ARGUMENTS=( ${@:2} )
  
-echo ARGUMENTS ARRAY ${ARGUMENTS[@]}
-
 menu () {
   echo
   echo "CLI (Command Line Interface) Usage:"
