@@ -45,7 +45,7 @@ function run {
     do
       if test -d $resource
         then
-          echo " 👉  📂  $resource ══════════════════════════════════════════"
+          echo " 👉  📂  $resource ════════════════════════════════════════════"
           $executable $resource
         else
           echo "🔴  $resource RESOURCE DIRECTORY NOT FOUND !"
