@@ -26,8 +26,11 @@ menu () {
 test $# -eq 0 \
   && menu
 
-# for argument in "$@"
-#   do
+  for argument in ${ARGUMENTS[@]}
+    do
+
+      echo ARGUMENT: $argument
+
 #     case $argument in
 
 #       -help)
