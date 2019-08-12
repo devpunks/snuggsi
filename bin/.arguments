@@ -23,10 +23,6 @@ menu () {
   echo
 }
 
-echo PARAMS ${#ARGUMENTS[@]} ${ARGUMENTS[@]}
-echo ARGUMENTS ${ARGUMENTS[@]:1}
-
-
 test $# -eq 0 \
   && menu
 
