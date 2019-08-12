@@ -43,7 +43,7 @@ function run {
   printf '    📁  %s\n' "${resources[@]}"
   echo
 
-  for resource in ${resources[@]}
+  for resource in "${ARGUMENTS[@]:-. }" # Default o curren directory
     do
       if test -d $resource
         then
