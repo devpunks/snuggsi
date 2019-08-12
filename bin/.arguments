@@ -4,7 +4,7 @@
 # Arrays - https://linuxconfig.org/how-to-use-arrays-in-bash-script
 
 declare -ra \
-  ARGUMENTS=( "${@:2}" ) \
+  ARGUMENTS=( ${@:2} ) \
   FOO=( bar baz )
  
 echo ARGUMENTS $ARGUMENTS
