@@ -3,7 +3,7 @@
 # Arrays - https://linuxconfig.org/how-to-use-arrays-in-bash-script
 # ARGUMENT PARSING - https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 
-declare -ra \
+declare -rax \
   ARGUMENTS=( ${@:2} ) \
   FOO=( bar baz )
  
