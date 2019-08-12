@@ -27,8 +27,9 @@ source $SNUGGSI/bin/.arguments
 declare -r  COMMAND="$SNUGGSI/bin/${ARGUMENTS:-help}" # CLI snuggsi commandto run from $SNUGGSI
 
 function run {
-  local executable=$1
-  local resources=( "${ARGUMENTS[@]:-. }" ) # Default o curren directory
+  local \
+    executable=$1 \
+    resources=( "${ARGUMENTS[@]:-. }" ) # Default o curren directory
 
   if test ${executable##*/} == snuggsi \
   || test ! -f $executable
