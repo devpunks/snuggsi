@@ -7,7 +7,6 @@ declare -r \
 
 ls -al $DIRECTORY
 
-
 echo
 echo "🚏 snuggsiツ Weight Check"
 echo "  ⚠️  Maximum allowable weight 👉  $MAXIMUM OCTETS"
