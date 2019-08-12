@@ -5,7 +5,6 @@ declare -r \
   DIRECTORY=dist \
   LIBRARY=${1:-$DIRECTORY/snuggsi.min.es.br}
 
-
 ls -al $DIRECTORY
 
 
