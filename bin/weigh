@@ -1,6 +1,6 @@
 #!/bin/bash
 
-declare -r MAXIMUM=1500
+declare -r MAXIMUM=1500 # OCTETS
 DIRECTORY=dist
 LIBRARY=${1:-$DIRECTORY/snuggsi.min.es.br}
 
