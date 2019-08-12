@@ -1,9 +1,8 @@
 #!/bin/bash
 
-declare -r \
-  MAXIMUM=1500 \
-  DIRECTORY=dist \
-  LIBRARY=${1:-$DIRECTORY/snuggsi.min.es.br}
+declare  MAXIMUM=1500
+declare  DIRECTORY=dist
+declare  LIBRARY=${1:-$DIRECTORY/snuggsi.min.es.br}
 
 ls -al $DIRECTORY
 
