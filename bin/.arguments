@@ -23,33 +23,33 @@ echo ARGUMENTS ${#ARGUMENTS} ${ARGUMENTS}
 
 test $# -eq 0 && menu
 
-for argument in "$@"
-  do
-    case $argument in
+# for argument in "$@"
+#   do
+#     case $argument in
 
-      -help)
-        menu
-        # shift # past key
-        # shift # past value
-        ;;
+#       -help)
+#         menu
+#         # shift # past key
+#         # shift # past value
+#         ;;
 
-      -watermark=*)
-        declare -r WATERMARK="${argument#*=}"
-        shift # past argument AND value
-        ;;
+#       -watermark=*)
+#         declare -r WATERMARK="${argument#*=}"
+#         shift # past argument AND value
+#         ;;
 
-      -input|-letterbox)
-        echo "$1 requires a value to be set (i.e. $1=value)" >&2
-        exit 1
-        ;;
+#       -input|-letterbox)
+#         echo "$1 requires a value to be set (i.e. $1=value)" >&2
+#         exit 1
+#         ;;
 
-      -*)
-        echo "unknown option: $1" >&2
-        exit 1
-        ;;
+#       -*)
+#         echo "unknown option: $1" >&2
+#         exit 1
+#         ;;
 
-      *) # final case
-        declare -r OUTPUT="$1"
-        ;;
-    esac
-  done
+#       *) # final case
+#         declare -r OUTPUT="$1"
+#         ;;
+#     esac
+#   done
