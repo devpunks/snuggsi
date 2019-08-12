@@ -55,7 +55,5 @@ function run {
     done
 }
 
-run $COMMAND
-
 echo ARGUMENTS: ${ARGUMENTS[@]}
 echo WOW ARGS: "${ARGUMENTS[@]:2}"
