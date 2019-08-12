@@ -2,7 +2,12 @@
 
 # https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 
-declare -rx ARGUMENTS="$@"
+declare -ra \
+  ARGUMENTS=( "${@}" ) \
+  FOO=( bar baz )
+ 
+echo ARGUMENTS $ARGUMENTS
+echo ARGUMENTS ARRAY ${ARGUMENTS[@]}
 
 menu () {
   echo
