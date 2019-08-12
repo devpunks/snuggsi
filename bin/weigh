@@ -12,7 +12,7 @@ echo "🚏 snuggsiツ Weight Check"
 echo "  ⚠️  Maximum allowable weight 👉  $MAXIMUM OCTETS"
 
 
-OCTETS=$(
+declare -r OCTETS=$(
   ls -nl $LIBRARY | \
   awk '{print $5}'
 ) || exit 1
