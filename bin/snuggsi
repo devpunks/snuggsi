@@ -53,4 +53,15 @@ function run {
     done
 }
 
+declare -x  \
+  NODE_PATH=`node_path`
+declare -rx \
+  SNUGGSI=${NODE_PATH}/${BASH_SOURCE##*/} # Absolute path to snuggsi installation
+
+source $SNUGGSI/bin/.arguments
+
+declare -r \
+  COMMAND="$SNUGGSI/bin/${@:-help}" # CLI snuggsi command to run from $SNUGGSI
+
+
 run $COMMAND
