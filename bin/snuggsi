@@ -25,19 +25,6 @@ function node_path { # npm bin -g
   echo $path
 }
 
-echo NODE PATH: `node_path`
-
-exit 0
-
-declare -x  \
-  NODE_PATH=`node_path`
-declare -rx \
-  SNUGGSI=${NODE_PATH}/${BASH_SOURCE##*/} # Absolute path to snuggsi installation
-
-source $SNUGGSI/bin/.arguments
-
-declare -r  COMMAND="$SNUGGSI/bin/${@:-help}" # CLI snuggsi command to run from $SNUGGSI
-
 function run {
   local \
     executable=$1
