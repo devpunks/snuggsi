@@ -18,6 +18,17 @@ echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツツツツツツツツツツツツツツツ "
 echo
 
+function node_path { # npm bin -g
+  local \
+    path=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules}
+
+  echo $path
+}
+
+echo NODE PATH: `node_path`
+
+exit 0
+
 declare -x  \
   NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules} # npm bin -g
 declare -rx \
