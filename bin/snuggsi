@@ -18,8 +18,10 @@ echo "  ツツツツツ                  ツツツツツ "
 echo "  ツツツツツツツツツツツツツツツツツツツ "
 echo
 
-declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules} # npm bin -g
-declare -rx SNUGGSI=${NODE_PATH}/${BASH_SOURCE##*/} # Absolute path to snuggsi installation
+declare -x  \
+  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules} # npm bin -g
+declare -rx \
+  SNUGGSI=${NODE_PATH}/${BASH_SOURCE##*/} # Absolute path to snuggsi installation
 
 source $SNUGGSI/bin/.arguments
 
