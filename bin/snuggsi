@@ -53,7 +53,7 @@ function run {
     done
 }
 
-declare -rx  \
+declare -rx \
   NODE_PATH=`node_path`
 declare -rx \
   SNUGGSI=${NODE_PATH}/${BASH_SOURCE##*/} # Absolute path to snuggsi installation
