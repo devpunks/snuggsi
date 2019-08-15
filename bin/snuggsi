@@ -60,7 +60,7 @@ declare -rx \
 
 source $SNUGGSI/bin/.arguments
 
-declare -r \
+declare -rx \
   COMMAND="$SNUGGSI/bin/${@:-help}" # CLI snuggsi command to run from $SNUGGSI
 
 
