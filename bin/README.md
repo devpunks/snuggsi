@@ -70,7 +70,6 @@ $ bin/browse [root]
   - `BROWSER_PORT` - Browser port _(Defaults to next available port after server `PORT` i.e. **3001** when `PORT=3000`)_
 
 
-
 ## [`bundle`](bundle)
 
 ```bash
