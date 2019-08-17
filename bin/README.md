@@ -14,7 +14,6 @@ $ git clone https://github.com/devpunks/snuggsi.git
 $ cd snuggsi && npm i
 ```
 
-
   If you need support for windows [file an issue](https://github.com/devpunks/snuggsi/issues)
   with [this link appended to description](http://tldp.org/LDP/abs/html/dosbatch.html).
 
