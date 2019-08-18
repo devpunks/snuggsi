@@ -254,7 +254,9 @@ $ snuggsi [command]
 ```
 
   Main entry point for `snuggsi` CLI (Command Line Interface).
-  _[See list of commands above](#table_of_contents)_
+  The help menu will display if no command is provided.
+
+  _[See list of optional commands above](#table_of_contents)_
 
 
 ## [`style`](style)
