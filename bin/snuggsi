@@ -10,13 +10,14 @@
 #  - http://www.tldp.org/LDP/LG/issue18/bash.html
 #  - https://stackoverflow.com/questions/6393551/what-is-the-meaning-of-0-in-a-bash-script
 
-echo
-echo "  ツツツツツツツツツツツツツツツツツツツ "
-echo "  ツツツツツ                  ツツツツツ "
-echo "  ツツツツツ    snuggsi ツ    ツツツツツ "
-echo "  ツツツツツ                  ツツツツツ "
-echo "  ツツツツツツツツツツツツツツツツツツツ "
-echo
+echo \
+  "
+   ツツツツツツツツツツツツツツツツツツツ
+   ツツツツツ                  ツツツツツ
+   ツツツツツ    snuggsi ツ    ツツツツツ
+   ツツツツツ                  ツツツツツ
+   ツツツツツツツツツツツツツツツツツツツ
+  "
 
 function node_path { # npm bin -g
   local \
