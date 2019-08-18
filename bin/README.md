@@ -250,7 +250,7 @@ $ bin/shrink
 ## [`snuggsi`](snuggsi)
 
 ```bash
-$ snuggsi
+$ snuggsi [command]
 ```
 
   Main entry point for `snuggsi` CLI (Command Line Interface).
