@@ -253,7 +253,7 @@ $ bin/shrink
 $ snuggsi
 ```
 
-  Main entry point for `snuggsi` CLI (Command Line Interface.
+  Main entry point for `snuggsi` CLI (Command Line Interface).
   _[See list of commands above](#table_of_contents)_
 
 
