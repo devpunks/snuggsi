@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Environment variable vs. Shell Variable
-#   - https://askubuntu.com/questions/26318/environment-variable-vs-shell-variable-whats-the-difference
+#  - https://askubuntu.com/questions/26318/environment-variable-vs-shell-variable-whats-the-difference
 
 # Shell Parameter Expansion
 #  - https://www.gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
