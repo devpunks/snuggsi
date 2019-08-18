@@ -60,11 +60,8 @@ declare -rx \
   NODE_PATH=`node_path` \
   SNUGGSI=`node_path`/${BASH_SOURCE##*/}
 
-declare -rx \
-  SNUGGSI=${NODE_PATH}/${BASH_SOURCE##*/} # Absolute path to snuggsi installation
-
-declare -rx \
-  COMMAND="$SNUGGSI/bin/${@:-help}" # CLI snuggsi command to run from $SNUGGSI
+declare -r \
+  COMMAND=$SNUGGSI/bin/${@:-help}
 
 
 run $COMMAND
