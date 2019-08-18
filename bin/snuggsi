@@ -23,7 +23,7 @@ function node_path { # npm bin -g
     node=`npm config get prefix | awk NR==1` \
     modules=lib/node_modules
 
-  echo $path
+  echo ${NODE_PATH:-$node/$modules}
 }
 
 function run {
