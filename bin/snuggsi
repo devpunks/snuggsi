@@ -27,6 +27,8 @@ function node_path { # npm bin -g
 }
 
 function run {
+  source $SNUGGSI/bin/.arguments
+
   local \
     executable=$1
 
