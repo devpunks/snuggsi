@@ -58,7 +58,7 @@ function run {
 
 declare -rx \
   NODE_PATH=`node_path` \
-  SNUGGSI=`node_path`/${BASH_SOURCE##*/}
+  SNUGGSI=`node_path`/${BASH_SOURCE##*/} # benchmark as node_path is rather slow due to npm
 
 declare -r \
   COMMAND=$SNUGGSI/bin/${@:-help}
