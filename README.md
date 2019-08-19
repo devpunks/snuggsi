@@ -160,7 +160,7 @@ Useful when we need to:
 
 const
   template = Template `developer`
-, context  = { name: 'That Beast' }
+, context  = { nickname: 'That Beast' }
 
 template.bind (context)
 
