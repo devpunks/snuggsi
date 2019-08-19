@@ -144,7 +144,7 @@ Useful when we need to:
 2. Bind a context to the template using An `Array` or POJO _(Plain Ol' Javascript `Object`)_
 3. Append rendered template to the document.
     - If `context` is an object `bind` a single `<template>`
-    - If `context` is a collection _(i.e. an `Array`)_ `bind` a sequential  `<template>` fragment per item
+    - If `context` is a collection _(i.e. an `Array`)_ `bind` a sequential  `<template>` [`DocumentFragment`](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) per item
 
 
 ### `<template>` With `Object` Context
