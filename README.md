@@ -245,7 +245,7 @@ template.bind (context)
 <script src=//unpkg.com/snuggsi></script>
 <script>
 
-// when context is a collection of scalars
+// when context is a collection of scalar variables (i.e. Strings)
 const
   template = Template `recipe`
 , context  = [
