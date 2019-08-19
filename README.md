@@ -179,7 +179,7 @@ template.bind (context)
 ```
 
 
-### `<template>` With Object `Array` Context
+### `<template>` With `Array` of `Object`s Context
 
   Each `<template name>` will be mapped over each
   context item within the array. When the array items
