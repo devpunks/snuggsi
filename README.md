@@ -111,7 +111,8 @@ Play [Hello World Demo](https://jsfiddle.net/snuggs/w02kL17n)
  Hello {planet}
 </hello-world>
 
-<script src=//unpkg.com/snuggsi></script> <script>
+<script src=//unpkg.com/snuggsi></script>
+<script>
 
 // 👇 Definition -----------------------------
 
