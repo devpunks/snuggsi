@@ -151,8 +151,8 @@ Useful when we need to:
 
 ```html
 <template name=developer>
-  <!-- `{name}` will bind to `context` property `name` -->
-  <h1>{name}</h1>
+  <!-- `{nickname}` will bind to `context` property `nickname` -->
+  <h1>{nickname}</h1>
 </template>
 
 <script src=//unpkg.com/snuggsi></script>
