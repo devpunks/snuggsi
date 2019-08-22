@@ -32,13 +32,12 @@ function run {
   local \
     executable=$1
 
-  if test ${executable##*/} == snuggsi \
-  || test ! -f $executable
-    then
-      echo "🔴  Invalid command \`${executable##*/}\`"
-      ${executable%\/*}/help
-      exit 1
-  fi
+  test ! -f $executable \
+    || test ${executable##*/} == snuggsi \
+    && echo "🔴  Invalid command \`${executable##*/}\`" \
+    && ${executable%\/*}/help \
+    && exit 1
+
 
   echo "📚  MOUNTING RESOURCES …"
   printf '    📁  %s\n' "${resources[@]}"
