@@ -30,7 +30,8 @@ function run {
   source $SNUGGSI/bin/.arguments
 
   local \
-    executable=$1
+    executable=$1 \
+    resources=${ARGUMENTS[@]}
 
   test ! -f $executable \
     || test ${executable##*/} == snuggsi \
@@ -43,15 +44,14 @@ function run {
   printf '    📁  %s\n' "${resources[@]}"
   echo
 
-  for resource in "${ARGUMENTS[@]:-. }" # Default o curren directory
+  for resource in "${resources[@]:-. }" # Default o curren directory
     do
-      if test -d $resource
-        then
-          echo " 👉  📂  $resource ════════════════════════════════════════════"
-          $executable $resource
-        else
-          echo "🔴  $resource RESOURCE DIRECTORY NOT FOUND !"
-      fi
+      test ! -d $resource \
+        && echo "🔴  $resource RESOURCE DIRECTORY NOT FOUND !" \
+        && continue
+
+        echo " 👉  📂  $resource ════════════════════════════════════════════"
+        $executable $resource
     done
 }
 
