@@ -259,6 +259,11 @@ $ snuggsi [command]
   _[See list of optional commands above](#table_of_contents)_
 
 
+### Environment Options
+
+  - `NODE_PATH` - Override `NODE_PATH` global location _(See to **3000**)_
+
+
 ## [`style`](style)
 
 ```bash
