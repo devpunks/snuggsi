@@ -261,7 +261,7 @@ $ snuggsi [command]
 
 ### Environment Options
 
-  - `NODE_PATH` - Override `NODE_PATH` global location _(See to **3000**)_
+  - `NODE_PATH` - Override `NODE_PATH` global location _(See [Loading from the global folders](https://nodejs.org/api/modules.html#modules_loading_from_the_global_folders) Node documentation)_
 
 
 ## [`style`](style)
