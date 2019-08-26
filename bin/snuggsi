@@ -58,12 +58,8 @@ function run {
 
   for resource in "${ARGUMENTS[@]:-. }" # Default o curren directory
     do
-      test ! -d $resource \
-        && echo "🔴  $resource RESOURCE DIRECTORY NOT FOUND !" \
-        && continue
-
-        echo " 👉  📂  $resource ════════════════════════════════════════════"
-        $execute $resource
+      check $resource
+#     $execute $resource
     done
 }
 
