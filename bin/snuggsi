@@ -55,14 +55,7 @@ function run {
   source $SNUGGSI/bin/.arguments
 
   local \
-    execute=$1
-
-  test ! -f $execute \
-    || test ${execute##*/} == snuggsi \
-    && echo "🔴  Invalid command \`${execute##*/}\`" \
-    && ${execute%\/*}/help \
-    && exit 1
-
+    execute=`executable $1`
 
   echo "📚  MOUNTING RESOURCES …"
   printf '    📁  %s\n' "${resources[@]}"
