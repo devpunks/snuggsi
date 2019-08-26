@@ -58,8 +58,8 @@ function run {
 
   for resource in "${ARGUMENTS[@]:-. }" # Default o curren directory
     do
-      check $resource
-#     $execute $resource
+      check $resource \
+        && $execute $resource
     done
 }
 
