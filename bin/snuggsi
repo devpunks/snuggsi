@@ -31,6 +31,11 @@ function check {
   local \
     resource=$1
 
+    test ! -d $resource \
+      && echo "🔴  $resource RESOURCE DIRECTORY NOT FOUND !" \
+      && return 1
+
+      echo " 👉  📂  $resource ════════════════════════════════════════════"
 }
 
 
