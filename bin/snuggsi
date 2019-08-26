@@ -57,9 +57,6 @@ function run {
   local \
     command=`executable $1`
 
-  test  `executable $1` && echo EXECUTE $execute
-  exit 0
-
   for resource in "${ARGUMENTS[@]:-. }" # Default o curren directory
     do
       check $resource \
