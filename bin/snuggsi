@@ -45,9 +45,9 @@ function executable {
 
   test ! -f $execute \
     || test ${execute##*/} == snuggsi \
-    && echo "🔴  Invalid command \`${execute##*/}\`" \
-    && ${execute%\/*}/help \
     && exit 1
+
+  echo $execute
 }
 
 
