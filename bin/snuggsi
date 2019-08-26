@@ -28,6 +28,8 @@ function node_path { # npm bin -g
 
 
 function check {
+  local \
+    resource=$1
 
 }
 
