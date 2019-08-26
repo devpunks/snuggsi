@@ -26,6 +26,10 @@ function node_path { # npm bin -g
   echo ${NODE_PATH:-$node/$modules}
 }
 
+function check {
+
+}
+
 function run {
   source $SNUGGSI/bin/.arguments
 
