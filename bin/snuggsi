@@ -32,10 +32,10 @@ function run {
   local \
     execute=$1
 
-  test ! -f $executable \
-    || test ${executable##*/} == snuggsi \
-    && echo "🔴  Invalid command \`${executable##*/}\`" \
-    && ${executable%\/*}/help \
+  test ! -f $execute \
+    || test ${execute##*/} == snuggsi \
+    && echo "🔴  Invalid command \`${execute##*/}\`" \
+    && ${execute%\/*}/help \
     && exit 1
 
 
