@@ -54,8 +54,7 @@ function executable {
 function run {
   source $SNUGGSI/bin/.arguments
 
-  local \
-    command=`executable $1`
+  local command=`executable $1`
 
   for resource in "${ARGUMENTS[@]:-. }" # Default o curren directory
     do
