@@ -39,6 +39,16 @@ function check {
 }
 
 
+function executable {
+
+  test ! -f $execute \
+    || test ${execute##*/} == snuggsi \
+    && echo "🔴  Invalid command \`${execute##*/}\`" \
+    && ${execute%\/*}/help \
+    && exit 1
+}
+
+
 function run {
   source $SNUGGSI/bin/.arguments
 
