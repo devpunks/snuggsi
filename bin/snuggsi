@@ -56,7 +56,8 @@ function run {
 
   local command=`executable $1`
 
-  for resource in "${ARGUMENTS[@]:-. }" # Default o curren directory
+
+  for resource in "${ARGUMENTS[@]:-`pwd` }" # Default o curren directory
     do
       echo COMMAND $command
       echo RESOURCE $resource
