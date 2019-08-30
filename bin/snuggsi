@@ -62,8 +62,9 @@ function run {
       echo COMMAND $command
       echo RESOURCE $resource
 
-      check $resource \
-        && $command $resource
+
+      (check $resource) && echo TESTING PREDICATE
+#        && $command $resource
     done
 }
 
