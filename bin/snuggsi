@@ -47,7 +47,7 @@ function executable {
     || test ${execute##*/} == snuggsi \
     && return 1
 
-  echo FOO $1
+  echo $1
 }
 
 
