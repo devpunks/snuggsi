@@ -32,7 +32,7 @@ function check {
     resource=$1
 
     test ! -d $resource \
-      && printf "  🔴  $resource RESOURCE NOT FOUND !\n\n" \
+      && echo -e "  🔴  $resource RESOURCE NOT FOUND !\n\n" \
       && return 1
 }
 
@@ -43,7 +43,7 @@ function executable {
 
   test ! -f $execute \
     || test ${execute##*/} == snuggsi \
-    && printf "\n  🚫  NON EXECUTABLE COMMAND !\n\n" \
+    && echo -e "\n  🚫  NON EXECUTABLE COMMAND !\n\n" \
     && return 1
 }
 
@@ -58,7 +58,7 @@ function run {
     do
       (executable $command)  \
         && (check $resource) \
-        && printf " 👉  📂  $resource ════════════════════════════════════════════\n\n" \
+        && echo -e " 👉  📂  $resource ════════════════════════════════════════════\n\n" \
         && $command $resource
     done
 }
