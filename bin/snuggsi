@@ -54,7 +54,7 @@ function run {
   local \
     command=$1
 
-  for resource in "${ARGUMENTS[@]:-`pwd` }" # Default o curren directory
+  for resource in "${ARGUMENTS[@]:-`pwd` }" # Default o current directory
     do
       (executable $command)  \
         && (check $resource) \
