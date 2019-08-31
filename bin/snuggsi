@@ -56,8 +56,9 @@ function run {
 
   for resource in "${ARGUMENTS[@]:-`pwd` }" # Default o curren directory
     do
-      (check $resource)          \
-        && (executable $command) \
+      (executable $command)  \
+        && (check $resource) \
+        && printf " 👉  📂  $resource ════════════════════════════════════════════\n\n" \
         && $command $resource
     done
 }
