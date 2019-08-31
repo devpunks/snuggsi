@@ -59,12 +59,9 @@ function run {
 
   for resource in "${ARGUMENTS[@]:-`pwd` }" # Default o curren directory
     do
-      echo COMMAND $command
-      echo RESOURCE $resource
-
-
-      (check $resource) && echo TESTING PREDICATE
-#        && $command $resource
+      (check $resource)        \
+        && (executable $1)     \
+        && $command $resource
     done
 }
 
