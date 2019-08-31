@@ -58,8 +58,8 @@ function run {
 
   for resource in "${ARGUMENTS[@]:-`pwd` }" # Default o curren directory
     do
-      (check $resource)        \
-        && (executable $1)     \
+      (check $resource)          \
+        && (executable $command) \
         && $command $resource
     done
 }
