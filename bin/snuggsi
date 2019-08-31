@@ -46,8 +46,6 @@ function executable {
   test ! -f $execute \
     || test ${execute##*/} == snuggsi \
     && return 1
-
-  echo $1
 }
 
 
