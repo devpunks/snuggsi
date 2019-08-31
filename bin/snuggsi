@@ -45,6 +45,7 @@ function executable {
 
   test ! -f $execute \
     || test ${execute##*/} == snuggsi \
+    && printf "\n  🚫  NON EXECUTABLE COMMAND !\n\n" \
     && return 1
 }
 
