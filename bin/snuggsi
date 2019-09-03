@@ -48,7 +48,7 @@ function executable {
     && echo -e "\n  🚫  NON EXECUTABLE COMMAND !\n\n" \
     && exit 1 # Short circuit execution
 
-  return 0
+  echo $execute
 }
 
 
