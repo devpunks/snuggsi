@@ -43,6 +43,8 @@ function executable {
   local \
     execute=${1:-help}
 
+  echo $execute
+
   test ! -f $execute \
     || test ${execute##*/} == snuggsi \
     && echo -e "\n  🚫  NON EXECUTABLE COMMAND !\n\n" \
