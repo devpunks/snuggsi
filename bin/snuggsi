@@ -72,4 +72,4 @@ declare -rx \
   SNUGGSI=`node_path`/${BASH_SOURCE##*/} # TODO: benchmark as node_path is rather slow due to npm
 
 
-run $SNUGGSI/bin/${@:-help}
+run $SNUGGSI/bin/${@}
