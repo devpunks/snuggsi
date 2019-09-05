@@ -56,7 +56,7 @@ function run {
   source $SNUGGSI/bin/.arguments
 
   local \
-    command=(executable $1)
+    command=$(executable $1)
 
   for resource in "${ARGUMENTS[@]:-`pwd` }" # Default to current directory
     do
