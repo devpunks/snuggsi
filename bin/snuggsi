@@ -58,6 +58,8 @@ function executable {
 function run {
   source $SNUGGSI/bin/.arguments
 
+  echo RUN 1 $1
+
   local \
     command=$(executable $1)
 
