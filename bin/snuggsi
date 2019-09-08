@@ -61,7 +61,7 @@ function run {
   echo RUN 1 $1
 
   local \
-    command=$(executable $1)
+    command=$1
 
   for resource in "${ARGUMENTS[@]:-`pwd` }" # Default to current directory
     do
