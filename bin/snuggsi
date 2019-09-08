@@ -40,6 +40,8 @@ function check {
 
 
 function executable {
+  echo SNUGGSI $SNUGGSI
+
   local \
     execute=$1
     $SNUGGSI/bin/${@:-help}
