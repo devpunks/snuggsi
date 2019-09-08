@@ -42,6 +42,7 @@ function check {
 function executable {
   local \
     execute=$1
+    $SNUGGSI/bin/${@:-help}
 
   test ! -f $execute \
     || test ${execute##*/} == snuggsi \
