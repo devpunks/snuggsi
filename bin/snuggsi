@@ -18,6 +18,7 @@ echo "
   ツツツツツツツツツツツツツツツツツツツ
 "
 
+ # TODO: benchmark as node_path is rather slow due to npm
 function node_path { # npm bin -g
   local \
     node=`npm config get prefix | awk NR==1` \
