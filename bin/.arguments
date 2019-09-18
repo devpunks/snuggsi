@@ -26,7 +26,6 @@ test $# -eq 0 \
 
 # for argument in ${ARGUMENTS[@]}
 #   do
-
 #     case $argument in
 
 #       -help)
