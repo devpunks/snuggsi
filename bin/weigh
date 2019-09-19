@@ -27,7 +27,7 @@ echo "  📃  $LIBRARY"
 if [[ $OCTETS -gt $MAXIMUM ]]; then
   echo "    🔴  Weight 👉  $OCTETS OCTETS"
   echo "      ❌  Overweight by $((OCTETS - MAXIMUM)) OCTETS"
-  echo && exit 1 # ⭕ 🚫 ❌ 🔴 📁
+  echo && exit 1
 fi
 
 
