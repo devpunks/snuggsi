@@ -4,6 +4,12 @@ declare  MAXIMUM=1500
 declare  DIRECTORY=dist
 declare  LIBRARY=${1:-$DIRECTORY/snuggsi.min.es.br}
 
+declare
+
+echo ARGUMENTS: $ARGUMENTS
+
+exit
+
 ls -al $DIRECTORY
 
 echo
