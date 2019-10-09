@@ -57,7 +57,7 @@ function executable {
 
 
 function run {
-  source $SNUGGSI/bin/.arguments
+  source $1/bin/.arguments
 
   echo RUN 1 $1
 
