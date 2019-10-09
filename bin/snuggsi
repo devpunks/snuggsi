@@ -67,7 +67,7 @@ function run {
   for resource in "${ARGUMENTS[@]:-`pwd` }" # Default to current directory
     do
       (check $resource) \
-        && echo -e " 👉  📂  $resource ════════════════════════════════════════════\n\n" \
+        && echo -e " 👉  📂  $resource ════════════════════\n\n" \
         && $command $resource
     done
 }
