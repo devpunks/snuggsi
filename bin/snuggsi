@@ -57,6 +57,9 @@ function executable {
 
 
 function run {
+  local \
+    command=$1
+
   source $1/bin/.arguments
 
   echo RUN 1 $1
