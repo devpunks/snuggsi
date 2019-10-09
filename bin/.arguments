@@ -6,6 +6,9 @@
 declare -rax \
   ARGUMENTS=( ${@:2} )
  
+echo Loading arguments: $ARGUMENTS
+
+
 menu () {
   echo
   echo "CLI (Command Line Interface) Usage:"
