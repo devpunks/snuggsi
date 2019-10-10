@@ -3,8 +3,8 @@
 # Arrays - https://linuxconfig.org/how-to-use-arrays-in-bash-script
 # ARGUMENT PARSING - https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 
-declare -rax \
-  ARGUMENTS=( ${@:1} )
+declare -ax \
+  ARGUMENTS=${@:2}
  
 echo Loading arguments: $ARGUMENTS
 
