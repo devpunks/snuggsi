@@ -81,7 +81,7 @@ function snuggsi {
 
 
 declare -rx \
-  NODE_PATH=`node_path`
+  NODE_PATH=${NODE_PATH:-`node_path`}
 
 
 run `snuggsi`
