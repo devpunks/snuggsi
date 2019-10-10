@@ -4,7 +4,7 @@
 # ARGUMENT PARSING - https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 
 declare -rax \
-  ARGUMENTS=( ${@:2} )
+  ARGUMENTS=( ${@:1} )
  
 echo Loading arguments: $ARGUMENTS
 
