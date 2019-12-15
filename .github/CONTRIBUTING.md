@@ -20,7 +20,7 @@ When you are creating a bug report, please [include as many details as possible]
 
 #### Before Submitting A Bug Report
 
-* **Perform a [cursory search](https://github.com/issues?q=+is%3Aissue+user%3Aportfoliome)** to see if the problem has already been reported. If it has, add a comment to the existing issue instead of opening a new one.
+* **Perform a [cursory search](https://github.com/snuggsi/issues)** to see if the problem has already been reported. If it has, add a comment to the existing issue instead of opening a new one.
 
 #### How Do I Submit A (Good) Bug Report?
 
