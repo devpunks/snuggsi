@@ -56,7 +56,7 @@ function snuggsi () {
 
 
 function command () {
-  echo 
+  echo
 
 # test ! -f $execute \
 #   || test ${execute##*/} == snuggsi \
