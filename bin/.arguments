@@ -13,6 +13,7 @@ declare -ax \
 # echo Command: $COMMAND
 # echo "Resources (${#RESOURCES[@]}): ${RESOURCES[@]}"
 
+echo "${RESOURCES[@]}"
 
 menu () {
   echo
