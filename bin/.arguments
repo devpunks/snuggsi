@@ -30,7 +30,6 @@ menu () {
   echo
 }
 
-echo Command length ${#ARGUMENTS[@]}
 test $# -eq 0 \
   && menu
 
