@@ -28,7 +28,7 @@ echo Command length ${#ARGUMENTS[@]}
 test $# -eq 0 \
   && menu
 
-# for argument in ${ARGUMENTS[@]}
+# for argument in "${ARGUMENTS[@]}"
 #   do
 #     case $argument in
 
