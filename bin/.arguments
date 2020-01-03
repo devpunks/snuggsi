@@ -10,7 +10,8 @@ declare -ax \
   ARGUMENTS=( "$@" ) \
   RESOURCES=( "${ARGUMENTS[@]:1}" )
 
-echo Loading arguments: "${ARGUMENTS[@]}"
+# echo Command: $COMMAND
+# echo "Resources (${#RESOURCES[@]}): ${RESOURCES[@]}"
 
 
 menu () {
