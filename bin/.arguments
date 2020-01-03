@@ -24,7 +24,7 @@ menu () {
   echo
 }
 
-echo COmmand length ${#ARGUMENTS[@]}
+echo Command length ${#ARGUMENTS[@]}
 test $# -eq 0 \
   && menu
 
