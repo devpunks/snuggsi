@@ -6,7 +6,7 @@
 declare -ax \
   ARGUMENTS=( "$@" )
 
-echo Loading arguments: $ARGUMENTS
+echo Loading arguments: "${ARGUMENTS[@]}"
 
 
 menu () {
