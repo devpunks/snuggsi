@@ -10,10 +10,7 @@ declare -ax \
   ARGUMENTS=( "$@" ) \
   RESOURCES=( "${ARGUMENTS[@]:1}" )
 
-# echo Command: $COMMAND
-# echo "Resources (${#RESOURCES[@]}): ${RESOURCES[@]}"
-
-echo "${RESOURCES[@]}"
+echo Command: $COMMAND
 
 menu () {
   echo
