@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-source bin/.arguments
-
 # Identifying Resources - https://developer.mozilla.org/en-US/docs/Web/HTTP/Basics_of_HTTP/Identifying_resources_on_the_Web
 
 echo "Resources (${#RESOURCES[@]}): ${RESOURCES[@]}"
