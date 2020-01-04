@@ -80,7 +80,9 @@ function snuggsi {
 }
 
 
-declare -rx \
+declare -rx  \
+  COMMAND=$1 \
   NODE_PATH=${NODE_PATH:-`node_path`}
+
 
 run `snuggsi`
