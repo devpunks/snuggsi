@@ -84,5 +84,8 @@ declare -rx  \
   COMMAND=$1 \
   NODE_PATH=${NODE_PATH:-`node_path`}
 
+declare
 
-run `snuggsi`
+echo SNUGGSI: `snuggsi`
+
+# run `snuggsi`
