@@ -1,8 +1,7 @@
 
-  <h1 align=center>snuggsi ツ - Easy Web Components in
-    <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>~1kiloByte</a>
-  </h1>
-</p>
+<h1 align=center>snuggsi ツ - Easy Web Components in
+  <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>~1kiloByte</a>
+</h1>
 
 <p align=center>
   <a href=https://npmjs.org/package/snuggsi target=external>
