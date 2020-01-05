@@ -58,6 +58,9 @@ https://jakearchibald.github.io/isserviceworkerready
 
 SNUGGSI
 
+focus-within:
+  - https://css-tricks.com/almanac/selectors/f/focus-within/
+
 Javascript optimizations (Developer Ergonomics)
 https://leftshift.io/4-javascript-optimisations-you-should-know
 
