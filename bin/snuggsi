@@ -63,6 +63,22 @@ function snuggsi {
 }
 
 
+function command {
+  echo SNUGGSI $SNUGGSI
+
+  local \
+    execute=$1
+    $SNUGGSI/bin/${@:-help}
+
+  test ! -f $execute \
+    || test ${execute##*/} == snuggsi \
+    && echo -e "\n  🚫  NON EXECUTABLE COMMAND !\n\n" \
+    && exit 1 # Short circuit execution
+
+  echo $execute
+}
+
+
 declare -rx  \
   COMMAND=$1 \
   NODE_PATH=${NODE_PATH:-`node_path`}
