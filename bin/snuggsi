@@ -39,23 +39,6 @@ function check {
     return 0
 }
 
-
-function executable {
-  echo SNUGGSI $SNUGGSI
-
-  local \
-    execute=$1
-    $SNUGGSI/bin/${@:-help}
-
-  test ! -f $execute \
-    || test ${execute##*/} == snuggsi \
-    && echo -e "\n  🚫  NON EXECUTABLE COMMAND !\n\n" \
-    && exit 1 # Short circuit execution
-
-  echo $execute
-}
-
-
 function run {
   local \
     command=$1
