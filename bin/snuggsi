@@ -64,7 +64,7 @@ function snuggsi {
 
 
 function command {
-  echo SNUGGSI $SNUGGSI
+  echo SNUGGSI COMMAND $SNUGGSI
 
   local \
     execute=$1
