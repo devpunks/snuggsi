@@ -85,7 +85,6 @@ _**snuggsiツ** provides a [prolyfill](https://github.com/devpunks/snuggsi/wiki/
   | ---------- |:-----:|:-----:|:-------:|:--------:|:---------:|:--------:|:--------------:|
   | [Templates](#templates) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | [Custom Elements](#custom-elements) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | [Web Components](#web-components) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
   | Slot Replacement |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
