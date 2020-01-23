@@ -66,6 +66,8 @@ function snuggsi {
 function command {
   echo SNUGGSI COMMAND $SNUGGSI
 
+  return
+
   local \
     execute=$1
     $SNUGGSI/bin/${@:-help}
