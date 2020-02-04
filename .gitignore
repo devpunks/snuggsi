@@ -6,3 +6,5 @@ XO/
 public/*.css
 public/*.mp3
 public/*.mp4
+public/*.html
+public/examples
