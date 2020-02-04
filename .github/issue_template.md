@@ -25,7 +25,6 @@
 
 ## Context
 <!--- How has this issue affected you? What are you trying to accomplish? -->
-<!--- Providing context helps us come up with a solution that is most useful in the real world -->
 
 ## Your Environment
 <!--- Include as many relevant details about the environment you experienced the bug in -->
