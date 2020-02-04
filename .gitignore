@@ -2,7 +2,6 @@ node_modules
 npm-debug.log
 
 .bundle
-Gemfile*
 snuggsi-*.gem
 NOTES
 .DS_Store
