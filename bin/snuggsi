@@ -60,7 +60,7 @@ function snuggsi {
 
 
 function command {
-  echo SNUGGSI COMMAND $SNUGGSI
+  echo SNUGGSI COMMAND $1
 
   return
 
