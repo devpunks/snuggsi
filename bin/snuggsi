@@ -82,11 +82,8 @@ declare -rx  \
   SNUGGSI=`snuggsi`
 
 
-snuggsi
-echo $SNUGGSI
-
-echo NODE_PATH: $NODE_PATH
 echo SNUGGSI: $SNUGGSI
 echo COMMAND: `command`
+
 
 # run `snuggsi`
