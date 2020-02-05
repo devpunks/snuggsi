@@ -56,10 +56,7 @@ function run {
 }
 
 function snuggsi {
-  local \
-    snuggsi=${NODE_PATH}/${BASH_SOURCE##*/}
-
-  echo $SNUGGSI
+  echo ${NODE_PATH}/${BASH_SOURCE##*/}
 }
 
 
