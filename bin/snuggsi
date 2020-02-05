@@ -80,7 +80,8 @@ function command {
 
 declare -rx  \
   COMMAND=$1 \
-  NODE_PATH=${NODE_PATH:-`node_path`}
+  NODE_PATH=${NODE_PATH:-`node_path`} \
+  SNUGGSI=${SNUGGSI:-`snuggsi`}
 
 declare
 
