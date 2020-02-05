@@ -83,7 +83,7 @@ declare -rx         \
 
 
 echo SNUGGSI: $SNUGGSI
-echo COMMAND: `command`
+echo COMMAND: $COMMAND
 
 
 # run `snuggsi`
