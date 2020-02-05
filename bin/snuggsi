@@ -76,7 +76,6 @@ function command {
 # echo $execute
 }
 
-echo NODE PATH $NODE_PATH
 
 declare -rx  \
   COMMAND=$1 \
