@@ -53,7 +53,9 @@ function run {
 }
 
 function snuggsi {
-  echo ${NODE_PATH}/${BASH_SOURCE##*/}
+  s=`node_path`/${BASH_SOURCE##*/}
+
+  echo $s
 }
 
 
