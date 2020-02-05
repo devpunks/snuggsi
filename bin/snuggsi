@@ -81,7 +81,6 @@ declare -rx  \
   COMMAND=$1 \
   SNUGGSI=`snuggsi`
 
-#declare
 
 snuggsi
 echo $SNUGGSI
