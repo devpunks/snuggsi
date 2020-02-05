@@ -20,11 +20,8 @@ echo "
 
  # TODO: benchmark as node_path is rather slow due to npm
 function node_path { # npm bin -g
-  local \
-    node=`npm config get prefix | awk NR==1` \
-    modules=lib/node_modules
-
-  echo $node/$modules
+  path="${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules}"
+  echo $path
 }
 
 
