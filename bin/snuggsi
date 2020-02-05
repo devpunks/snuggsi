@@ -85,7 +85,8 @@ declare -rx  \
 
 declare
 
-echo SNUGGSI: `snuggsi`
+echo NODE_PATH: $NODE_PATH
+echo SNUGGSI: $SNUGGSI
 echo COMMAND: `command`
 
 # run `snuggsi`
