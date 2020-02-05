@@ -84,7 +84,10 @@ declare -rx  \
   NODE_PATH=${NODE_PATH:-`node_path`} \
   SNUGGSI=`snuggsi`
 
-declare
+#declare
+
+snuggsi
+echo $SNUGGSI
 
 echo NODE_PATH: $NODE_PATH
 echo SNUGGSI: $SNUGGSI
