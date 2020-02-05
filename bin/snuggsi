@@ -77,8 +77,8 @@ function command {
 }
 
 
-declare -rx  \
-  COMMAND=$1 \
+declare -rx         \
+  COMMAND=`command` \
   SNUGGSI=`snuggsi`
 
 
