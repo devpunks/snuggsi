@@ -19,7 +19,7 @@ DURATION=
 echo
 echo "📦  Compilation Process Finished"
 echo "  👇"
-echo "  ⏰  Started  👉  $DATE"
+echo "  ⏰  Started  👉  `date -r $START`"
 echo "  🏁  Finished 👉  `date -r $FINISH`"
 echo "    🕓  Total compilation duration 👉  $DURATION secs."
 echo
