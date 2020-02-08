@@ -8,7 +8,6 @@ BROTLI=bro
 ZOPFLI=./node_modules/.bin/zopfli
 
 
-echo
 echo "💪  Compressing Libraries"
 echo "  👇"
 
