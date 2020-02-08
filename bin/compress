@@ -45,7 +45,7 @@ $ZOPFLI     \
 $FILE
 
 
-FILE="$DIST/snuggsi.min.js"
+FILE=$DIST/snuggsi.min.js
 
 echo "  👇"
 echo "  💾  $FILE"
