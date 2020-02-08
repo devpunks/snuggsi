@@ -13,7 +13,7 @@ echo "💪  Compressing Libraries"
 echo "  👇"
 
 
-FILE="$DIST/snuggsi.min.es"
+FILE=$DIST/snuggsi.min.es
 
 echo "  💾  $FILE"
 echo "    📦  Brotli 👉  $FILE.br"
