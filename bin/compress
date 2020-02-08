@@ -22,7 +22,7 @@ $BROTLI         \
   --repeat 1    \
   --quality 11  \
   --input $FILE \
-> "$FILE.br"
+> $FILE.br
 
 
 echo "    📦  GZIP   👉  $FILE.gz"
