@@ -6,6 +6,7 @@ START=`date +%s`
 echo
 echo "📦  Compilation Process Started..."
 echo "  👇"
+echo
 
 bin/bundle    && \
 bin/transpile && \
