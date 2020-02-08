@@ -13,7 +13,6 @@ bin/transpile && \
 bin/shrink    && \
 bin/compress
 
-
 FINISH=`date +%s`
 DURATION=$((FINISH-START))
 
