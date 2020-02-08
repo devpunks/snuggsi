@@ -34,10 +34,10 @@ $CHECK                     \
 declare -r  CODE=$?
 
 echo
-echo 📁  Coverage Cleanup
-echo  ⚠️  Removing coverage report artifacts.
-echo  👇
-echo   🚮  Removing 👉  $OUTPUT
+echo "📁  Coverage Cleanup"
+echo " ⚠️  Removing coverage report artifacts."
+echo " 👇 "
+echo "  🚮  Removing 👉  $OUTPUT"
 
 echo # Remove output directory
 rm -rf $OUTPUT
