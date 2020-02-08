@@ -42,5 +42,4 @@ echo "  🚮  Removing 👉  $OUTPUT"
 echo # Remove output directory
 rm -rf $OUTPUT
 
-
 exit $CODE
