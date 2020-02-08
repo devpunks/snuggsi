@@ -49,7 +49,7 @@ _📖  [Please see `/bin/README.md`](../bin/README.md) For a list of `bin` scrip
 
 *Mime Type* : `application/ecmascript` _([Specification](https://tools.ietf.org/html/rfc4329#section-8.2))_
 
-*Weight* : ~ 1,300 OCTETS _(1.3kiloBytes)_
+*Weight* : ~ 1,469 OCTETS _(1.3kiloBytes)_
 
 
 ## `snuggsi.min.js.br`
