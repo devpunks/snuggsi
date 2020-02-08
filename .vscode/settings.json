@@ -1,5 +1,6 @@
 {
     "files.associations": {
-        "*.es": "javascript"
+        "*.es": "javascript",
+        "*.test": "javascript"
     }
 }
