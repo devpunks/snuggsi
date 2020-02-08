@@ -5,7 +5,7 @@
 
 DIST=./dist
 BROTLI=bro
-ZOPFLI="./node_modules/.bin/zopfli"
+ZOPFLI=./node_modules/.bin/zopfli
 
 
 echo
