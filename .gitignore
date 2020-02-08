@@ -1,7 +1,7 @@
 XO/
 NOTES
 .DS_Store
-XO/
+node_modules
 public/*.css
 public/*.mp3
 public/*.mp4
