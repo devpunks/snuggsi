@@ -13,7 +13,6 @@ bin/shrink    && \
 bin/compress
 
 FINISH=`date +%s`
-DURATION=
 
 echo
 echo "📦  Compilation Process Finished"
