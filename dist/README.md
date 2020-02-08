@@ -1,6 +1,6 @@
 # Build Process
 
-Dist _(ribution)_ location of compiled, concatenated, transpiled, and compressed files.
+Distribution location of compiled, concatenated, transpiled, and compressed files.
 
 _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` scripts used within the build pipeline._
 
