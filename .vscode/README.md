@@ -1,6 +1,6 @@
 # `VSCode` Settings
 
-The **Language Identifiers** `*.es`, & `*.test` should be added to contributor's VSCode `file.associations` settings for syntax highlighting.
+The **Language Identifiers** `*.es`, & `*.test` should be added to contributor's VSCode `file.associations` settings for syntax highlighting. (_See [settings.json](./settings.json)_)
 
 _⚠️  This is not needed for normal usage._
 
