@@ -12,7 +12,6 @@ declare -r  CHECK=$COVER check-coverage          # Coverage checker
 declare -r  COVER=$SNUGGSI/node_modules/.bin/nyc # Coverage runner
 declare -r  EXCLUDE="**/node_modules,middleware,resource,server,test"
 
-echo # Beginning of Coverage Report
 echo "📊  snuggsi ツ Coverage Report"
 echo
 echo "  🎯  Threshold 👉  $THRESHOLD %"
