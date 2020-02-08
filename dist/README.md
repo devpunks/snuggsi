@@ -1,6 +1,6 @@
 # Build Process
 
-Distribution location of [compiled](../bin/README.md#compile), [concatenated](../bin/README.md#concat), [transpiled](../bin/README.md#transpile), and [compressed](../bin/README.md#compress) files.
+Distribution location of [compiled](../bin/README.md#compile), [bundled](../bin/README.md#bundle), [transpiled](../bin/README.md#transpile), and [compressed](../bin/README.md#compress) files.
 
 _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` scripts used within the build pipeline._
 
