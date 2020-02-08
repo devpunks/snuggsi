@@ -76,3 +76,5 @@ $ZOPFLI     \
   --ext zo  \
   --verbose \
 $FILE
+
+echo
