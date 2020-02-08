@@ -22,3 +22,5 @@ do
     --output $OUTPUT       \
   $INPUT
 done
+
+echo
