@@ -17,7 +17,7 @@ FINISH=`date +%s`
 DURATION=
 
 echo
-echo "🏭  Compilation Process Finished"
+echo "📦  Compilation Process Finished"
 echo "  👇"
 echo "  ⏰  Started  👉  $DATE"
 echo "  🏁  Finished 👉  `date -r $FINISH`"
