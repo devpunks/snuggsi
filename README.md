@@ -286,6 +286,6 @@ bundles as small as *~1500 OCTETS* _(or one 1500byte Ethernet packet frame)_
 [Read More](https://github.com/devpunks/snuggsi/tree/master/dist#readme)
 
 
-## VSCode Support
+## Contributors
 
 Contributing while using [Visual Studio Code](https://code.visualstudio.com/) is simple!  [Read More](./.vscode#readme)
