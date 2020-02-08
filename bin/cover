@@ -23,8 +23,7 @@ $COVER                    \
   --exclude=$EXCLUDE      \
   --reporter=$REPORTER    \
   --extension=$EXTENSION  \
-$HARNESS
-
+  $HARNESS
 
 $CHECK                     \
   --lines      $THRESHOLD  \
