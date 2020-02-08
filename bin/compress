@@ -49,7 +49,7 @@ FILE="$DIST/snuggsi.min.js"
 
 echo "  👇"
 echo "  💾  $FILE"
-echo "    📃  Brotli 👉  $FILE.br"
+echo "    📦  Brotli 👉  $FILE.br"
 
 
 $BROTLI         \
