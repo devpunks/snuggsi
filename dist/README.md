@@ -1,5 +1,7 @@
 # Build Process
 
+Dist_(ribution)_ location of compiled, concatenated, transpiled, and compressed files.
+
 _📖  [Please see `bin/README.md`](../bin/README.md) For a list of `bin` scripts used within the build pipeline._
 
 
