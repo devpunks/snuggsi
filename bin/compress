@@ -69,7 +69,7 @@ $ZOPFLI     \
 $FILE
 
 
-echo "    📃  DEFLATE   👉  $FILE.zo"
+echo "    📦  DEFLATE   👉  $FILE.zo"
 
 $ZOPFLI     \
   -i 50     \
