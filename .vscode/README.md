@@ -1,4 +1,4 @@
-# `Visual Studio Code` Settings
+# [`Visual Studio Code`](https://code.visualstudio.com/) Settings
 
 The **Language Identifiers** `*.es`, & `*.test` should be added to contributor's VSCode `file.associations` settings for syntax highlighting. (_See [settings.json](./settings.json)_)
 
