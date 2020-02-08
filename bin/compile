@@ -14,8 +14,7 @@ bin/shrink    && \
 bin/compress
 
 FINISH=`date +%s`
-DURATION=$((FINISH-START))
-
+DURATION=
 
 echo
 echo "🏭  Compilation Process Finished"
