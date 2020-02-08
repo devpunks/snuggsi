@@ -29,8 +29,7 @@ $CHECK                     \
   --lines      $THRESHOLD  \
   --functions  $THRESHOLD  \
   --statements $THRESHOLD  \
-$HARNESS
-
+  $HARNESS
 
 declare -r  CODE=$?
 
