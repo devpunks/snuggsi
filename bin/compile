@@ -2,7 +2,6 @@
 
 
 START=`date +%s`
-DATE=`date -r $START`
 
 echo
 echo "📦  Compilation Process Started..."
