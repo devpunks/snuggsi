@@ -4,7 +4,7 @@
 
 
 DIST=./dist
-BROTLI="bro"
+BROTLI=bro
 ZOPFLI="./node_modules/.bin/zopfli"
 
 
