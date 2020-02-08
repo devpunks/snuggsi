@@ -15,7 +15,7 @@ bin/compress
 
 FINISH=`date +%s`
 
-echo "📦  Compilation Process Finished"
+echo "🎉  Compilation Process Finished"
 echo "  👇"
 echo "  ⏰  Started  👉  `date -r $START`"
 echo "  🏁  Finished 👉  `date -r $FINISH`"
