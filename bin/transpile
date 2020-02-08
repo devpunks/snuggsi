@@ -7,7 +7,6 @@ export OUTPUT=${2:-$ROOT/snuggsi.js}
 export TRANSPILER=bin/transpile.es
 
 
-echo
 echo "🏭  Transpilation Process Started..."
 echo "  👇"
 echo "  💾  $INPUT  👉  $OUTPUT"
