@@ -383,15 +383,6 @@ const ParentNode = Element =>
 
 })
 
-//  comb (parent) {
-//    // ElementTraversal interface
-//    // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
-//
-//    if (parent.hasChildNodes())
-//      for (let node = parent.firstChild; node; node = node.nextSibling)
-//        comb (node)
-//  }
-
 const EventTarget = HTMLElement => // why buble
 
   // DOM Levels
