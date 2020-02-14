@@ -414,7 +414,7 @@ var EventTarget = function (HTMLElement) { return (/*@__PURE__*/(function (HTMLE
     anonymous.prototype = Object.create( HTMLElement && HTMLElement.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.on = function ( event, handler ) {
+    anonymous.prototype.on = function ( event handler ) {
 
     this.addEventListener
       (event, this.renderable (handler))
