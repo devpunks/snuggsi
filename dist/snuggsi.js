@@ -375,7 +375,7 @@ void ( function (_) { /* CustomElementRegistry */
 
 })() /* CustomElementRegistry */
 
-var ParentNode = function (Element) { return (/*@__PURE__*/(function (Element) {
+var ParentNode = function { return (/*@__PURE__*/(function (Element) {
     function anonymous () {
       Element.apply(this, arguments);
     }
@@ -405,7 +405,7 @@ var ParentNode = function (Element) { return (/*@__PURE__*/(function (Element) {
     return anonymous;
   }(Element))); }
 
-var EventTarget = function (HTMLElement) { return (/*@__PURE__*/(function (HTMLElement) {
+var EventTarget = function { return /*@__PURE__*/(function (HTMLElement) {
     function anonymous () {
       HTMLElement.apply(this, arguments);
     }
@@ -414,7 +414,7 @@ var EventTarget = function (HTMLElement) { return (/*@__PURE__*/(function (HTMLE
     anonymous.prototype = Object.create( HTMLElement && HTMLElement.prototype );
     anonymous.prototype.constructor = anonymous;
 
-    anonymous.prototype.on = function ( event, handler ) {
+    anonymous.prototype.on = function ( event handler ) {
 
     this.addEventListener
       (event, this.renderable (handler))
@@ -497,7 +497,7 @@ var EventTarget = function (HTMLElement) { return (/*@__PURE__*/(function (HTMLE
   };
 
     return anonymous;
-  }(HTMLElement))); }
+  }(HTMLElement)); }
 
 var GlobalEventHandlers = function (Element) { return (/*@__PURE__*/(function (Element) {
     function anonymous () {
