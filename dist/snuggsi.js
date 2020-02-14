@@ -405,15 +405,6 @@ var ParentNode = function (Element) { return (/*@__PURE__*/(function (Element) {
     return anonymous;
   }(Element))); }
 
-//  comb (parent) {
-//    // ElementTraversal interface
-//    // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
-//
-//    if (parent.hasChildNodes())
-//      for (let node = parent.firstChild; node; node = node.nextSibling)
-//        comb (node)
-//  }
-
 var EventTarget = function (HTMLElement) { return (/*@__PURE__*/(function (HTMLElement) {
     function anonymous () {
       HTMLElement.apply(this, arguments);
