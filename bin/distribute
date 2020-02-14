@@ -61,6 +61,10 @@ npm publish
 echo
 
 
+echo "  🐙 Fetching master branch on Github."
+git pull -r origin master
+echo
+
 echo "  🐙 Updating master branch on Github."
 git push origin master
 echo
