@@ -368,6 +368,8 @@ const ParentNode = Element =>
 
 (class extends Element {
 
+  // id / identify ? // Method used to find descendants by ID
+
   select ( )
     { return this.selectAll ( ... arguments ) [0] }
 
