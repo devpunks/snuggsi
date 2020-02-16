@@ -13,6 +13,7 @@ interface ParentNode {
   [NewObject] NodeList querySelectorAll(DOMString selectors);
 
   // snuggsi ツ
+  Element? id(DOMString identifier);
   Element? select(DOMString selectors);
   [NewObject] Array selectAll(DOMString selectors);
 };
