@@ -37,6 +37,8 @@ function check {
 }
 
 function run {
+  source $1/bin/.arguments
+
   local \
     snuggsi=$1
     command=${snuggsi}/bin/${2:-help}
