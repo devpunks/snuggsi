@@ -44,7 +44,7 @@ function run {
 
   echo Local command ${command}
 
-  $command
+  ${command}
 
   return
 
