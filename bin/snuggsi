@@ -49,8 +49,6 @@ function run {
 
   return
 
-  source $1/bin/.arguments
-
   for resource in "${ARGUMENTS[@]:-`pwd` }" # Default to current directory
     do
       (check $resource) \
