@@ -43,7 +43,6 @@ function run {
     snuggsi=$1
     command=${snuggsi}/bin/${2:-help}
 
-
   echo Local command ${command}
 
   ${command}
