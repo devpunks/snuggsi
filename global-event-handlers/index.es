@@ -29,7 +29,7 @@ function GlobalEventHandlers (Element) {
 
   // HandleEvent Registration - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
 
-(class extends Element {
+return class extends Element {
 
   onconnect (event) {
 
