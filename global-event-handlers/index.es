@@ -45,4 +45,5 @@ return class extends Element {
       && super.onconnect (event)
   }
 
-})
+}
+}
