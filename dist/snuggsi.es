@@ -352,7 +352,7 @@ void ( _ => { /* CustomElementRegistry */
 
 })() /* CustomElementRegistry */
 
-const ParentNode = Element =>
+function ParentNode (Element) {
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -366,7 +366,7 @@ const ParentNode = Element =>
   // ElementTraversal interface
   // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
 
-(class extends Element {
+return class extends Element {
 
   // id / identify ? // Method used to find descendants by ID
 
@@ -383,9 +383,9 @@ const ParentNode = Element =>
           , strings.shift ())))
   }
 
-})
-
-const EventTarget = HTMLElement => // why buble
+}
+}
+function EventTarget (HTMLElement) { // why buble
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -407,7 +407,7 @@ const EventTarget = HTMLElement => // why buble
   // Within https://w3c.github.io/uievents/#conf-interactive-ua
   // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
 
-(class extends HTMLElement {
+return class extends HTMLElement {
 
   // MDN EventTarget.addEventListener
   // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
@@ -498,9 +498,9 @@ const EventTarget = HTMLElement => // why buble
             && ( node [event] = this.renderable (this [handler]) )
   }
 
-})
-
-const GlobalEventHandlers = Element =>
+}
+}
+function GlobalEventHandlers (Element) {
 
   // Living Standard HTML5 GlobalEventHandlers
   // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
@@ -531,7 +531,7 @@ const GlobalEventHandlers = Element =>
 
   // HandleEvent Registration - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
 
-(class extends Element {
+return class extends Element {
 
   onconnect (event) {
 
@@ -547,7 +547,8 @@ const GlobalEventHandlers = Element =>
       && super.onconnect (event)
   }
 
-})
+}
+}
 const Custom = Element => // why buble
 
 ( class extends // interfaces
