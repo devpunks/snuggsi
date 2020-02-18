@@ -111,5 +111,5 @@ return class extends HTMLElement {
             && ( node [event] = this.renderable (this [handler]) )
   }
 
-})
-
+}
+}
