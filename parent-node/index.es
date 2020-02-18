@@ -29,5 +29,5 @@ return class extends Element {
           , strings.shift ())))
   }
 
-})
-
+}
+}
