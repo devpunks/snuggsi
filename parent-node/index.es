@@ -12,7 +12,7 @@ function ParentNode (Element) {
   // ElementTraversal interface
   // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
 
-(class extends Element {
+return class extends Element {
 
   // id / identify ? // Method used to find descendants by ID
 
