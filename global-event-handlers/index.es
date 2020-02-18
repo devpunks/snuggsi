@@ -1,4 +1,4 @@
-const GlobalEventHandlers = Element =>
+function GlobalEventHandlers (Element) {
 
   // Living Standard HTML5 GlobalEventHandlers
   // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
