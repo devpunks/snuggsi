@@ -7,8 +7,6 @@ declare -ax \
   ARGUMENTS=( "$@" ) \
   RESOURCES=( "${ARGUMENTS[@]:1}" )
 
-echo Command: $COMMAND
-
 menu () {
   echo
   echo "CLI (Command Line Interface) Usage:"
