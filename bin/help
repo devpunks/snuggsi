@@ -1,3 +1,16 @@
-echo Help menu
+menu () {
+  echo
+  echo "CLI (Command Line Interface) Usage:"
+  echo
+  echo " $ snuggsi <command> resource1 resource2 …"
+  echo
+  echo "where <command> is one of the following:"
+  echo
+  echo "  crank                  Crank it up baby!"
+  echo "  help                   Help documentation"
+  echo "  integrate              Continuous Integration."
+  echo "  test                   Test suite runner."
+  echo
+}
 
-echo `pwd`
+menu

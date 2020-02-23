@@ -37,13 +37,14 @@ function check {
 }
 
 function run {
-  source $1/bin/.arguments
+  source $1/bin/.resources
 
   local \
     snuggsi=$1
     command=${snuggsi}/bin/${2:-help}
 
   echo Local command ${command}
+  echo Resources ${RESOURCES[@]}
 
   ${command}
 
