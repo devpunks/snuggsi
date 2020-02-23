@@ -74,7 +74,6 @@ function command {
 # echo $execute
 }
 
-
 declare -rx         \
   COMMAND=`command $1` \
   SNUGGSI=`snuggsi`
