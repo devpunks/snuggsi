@@ -39,7 +39,7 @@ function check {
 function run {
   local \
     snuggsi=$1
-    command=/bin/${2:-help}
+    command=${snuggsi}/bin/${2:-help}
 
 
   echo Local Snuggsi ${snuggsi}/${command}
