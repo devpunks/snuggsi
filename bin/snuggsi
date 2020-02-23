@@ -75,8 +75,8 @@ function command {
 }
 
 declare -rx         \
-  COMMAND=`command $1` \
-  SNUGGSI=`snuggsi`
+  SNUGGSI=`snuggsi` \
+  COMMAND=$1
 
 
 echo SNUGGSI: $SNUGGSI
