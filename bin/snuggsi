@@ -78,9 +78,4 @@ declare -rx         \
   SNUGGSI=`snuggsi` \
   COMMAND=$1
 
-
-echo SNUGGSI: $SNUGGSI
-echo COMMAND: $COMMAND
-
-
-# run `snuggsi`
+run $SNUGGSI $COMMAND
