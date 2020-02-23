@@ -64,13 +64,7 @@ function snuggsi {
 
 
 function command {
-  echo SNUGGSI COMMAND $1
-
-  return
-
-  local \
-    execute=$1
-    $SNUGGSI/bin/${@:-help}
+  echo 
 
 # test ! -f $execute \
 #   || test ${execute##*/} == snuggsi \
