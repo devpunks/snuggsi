@@ -42,7 +42,9 @@ function run {
     command=${snuggsi}/bin/${2:-help}
 
 
-  echo Local Snuggsi ${snuggsi}/${command}
+  echo Local command ${command}
+
+  $command
 
   return
 
