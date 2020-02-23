@@ -38,7 +38,13 @@ function check {
 
 function run {
   local \
-    command=$1
+    snuggsi=$1
+    command=/bin/${2:-help}
+
+
+  echo Local Snuggsi ${snuggsi}/${command}
+
+  return
 
   source $1/bin/.arguments
 
