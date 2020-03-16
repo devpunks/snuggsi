@@ -58,6 +58,9 @@ https://jakearchibald.github.io/isserviceworkerready
 
 SNUGGSI
 
+is:
+  - https://developer.mozilla.org/en-US/docs/Web/CSS/:is
+
 focus-within:
   - https://css-tricks.com/almanac/selectors/f/focus-within/
 
