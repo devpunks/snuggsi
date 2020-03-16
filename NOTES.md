@@ -58,6 +58,9 @@ https://jakearchibald.github.io/isserviceworkerready
 
 SNUGGSI
 
+backdrop-filter
+  - https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter
+
 is:
   - https://developer.mozilla.org/en-US/docs/Web/CSS/:is
 
