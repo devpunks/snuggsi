@@ -61,10 +61,10 @@ SNUGGSI
 backdrop-filter
   - https://developer.mozilla.org/en-US/docs/Web/CSS/backdrop-filter
 
-is:
+is
   - https://developer.mozilla.org/en-US/docs/Web/CSS/:is
 
-focus-within:
+focus-within
   - https://css-tricks.com/almanac/selectors/f/focus-within/
 
 prefers-color-scheme
