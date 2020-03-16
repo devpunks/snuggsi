@@ -189,13 +189,15 @@ https://drafts.csswg.org/css-font-loading/
   https://github.com/whatwg/html/commit/179983e9eb99efe417349a40ebb664bd11668ddd
   Intersection Observer
   https://platform-status.mozilla.org/#intersection-observer
+
   CSS Snappoints (OH SNAP!)
-  https://blog.hospodarets.com/css-scroll-snap
-  https://www.w3.org/TR/css-scroll-snap-1/
-  https://drafts.csswg.org/css-scroll-snap/
-  http://caniuse.com/#feat=css-snappoints
-  https://css-tricks.com/introducing-css-scroll-snap-points/
+    https://blog.hospodarets.com/css-scroll-snap
+    https://www.w3.org/TR/css-scroll-snap-1/
+    https://drafts.csswg.org/css-scroll-snap/
+    http://caniuse.com/#feat=css-snappoints
+    https://css-tricks.com/introducing-css-scroll-snap-points/
   https://github.com/ckrack/scrollsnap-polyfill
+
   The Template - Reach out to TJ https://twitter.com/Rich_Harris/status/849746116514115584
   Hanami - http://hanamirb.org/blog/2017/04/06/announcing-hanami-100.html
   CSS Grids
