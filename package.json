@@ -34,10 +34,10 @@
     "example": "examples"
   },
   "scripts": {
-    "test": "bin/snuggsi test",
-    "start": "bin/snuggsi serve",
-    "package": "bin/snuggsi package",
-    "postinstall": "bin/snuggsi publish"
+    "test": "snuggsi test",
+    "start": "snuggsi serve",
+    "package": "snuggsi package",
+    "postinstall": "snuggsi publish"
   },
   "devDependencies": {
     "autoprefixer": "^9.4.2",
