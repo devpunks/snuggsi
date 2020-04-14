@@ -4,7 +4,6 @@ set -u
 
 declare -r  BIN=$SNUGGSI/node_modules/.bin
 declare -r  SUITE=`pwd`/index.test
-declare -rx PORT=${PORT:-1234}
 declare -r  SPEC=$BIN/tap-spec
 declare -r  TEST="$BIN/tape"
 
