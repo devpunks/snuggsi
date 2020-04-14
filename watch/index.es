@@ -1,5 +1,5 @@
 const
-  { DIRECTORY: path, BROWSER_PORT }
+  { SNUGGSI, DIRECTORY: path, BROWSER_PORT }
     = process.env
 
 , test      = `$SNUGGSI/bin/test`
