@@ -1,6 +1,6 @@
 const
-  route
-    = require ('./route')
+  { route }
+    = require ('.')
 
 , Resource
     = require ('../resource')
