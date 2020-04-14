@@ -12,7 +12,8 @@ console.log (process.env)
 , clear     = `tput reset` // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
 , message   = ` 👉  ${path}🔎 👀 \n`
 , echo      = `printf "${message}" && echo "Last Update $(date)"`
-, validate  = 'bin/validate-weight || true'
+, validate  = '$SNUGGSI/bin/validate'
+//, validate  = 'bin/validate-weight || true'
 
 , exec = require ('child_process').exec
 
