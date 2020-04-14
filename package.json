@@ -51,7 +51,8 @@
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1",
     "uglify-es": "^3.3.10",
-    "zopfli-node": "^2.0.3"
+    "zopfli-node": "^2.0.3",
+    "snuggsi": "."
   },
   "dependencies": {
     "basic-auth": "^2.0.1",
