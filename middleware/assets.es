@@ -2,8 +2,8 @@ const
   { route }
     = require ('.')
 
-, Resource
-    = require ('../resource')
+, { Resource }
+    = require ('..')
 
 
 module.exports =
