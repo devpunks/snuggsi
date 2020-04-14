@@ -69,7 +69,7 @@ test `Multiple Assertions`
 
     && // loose predicate
 
-    assert ( 'bar' == 'bar' )
+    assert ( '2' == 2 )
 
     && // strict predicate
 
