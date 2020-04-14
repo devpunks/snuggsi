@@ -77,5 +77,5 @@ test `Multiple Assertions`
 
     && // compound predicate
 
-    assert ( 'truthy' && true )
+    assert ( 'true' && true && '1' && 1 )
 )
