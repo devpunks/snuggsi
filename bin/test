@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
-declare -x  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib} # {print;exit}`
-declare -x  SNUGGSI=${SNUGGSI:-"$NODE_PATH/lib"/node_modules/snuggsi}
+set -u
+
 declare -r  BIN=$SNUGGSI/node_modules/.bin
 declare -r  SUITE=`pwd`/index.test
 declare -rx PORT=${PORT:-1234}
