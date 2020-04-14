@@ -2,6 +2,12 @@
 
 set -u
 
-node                  \
-  --require $SNUGGSI  \
-$SNUGGSI/bin/serve.es
+declare -rx             \
+  PORT=${PORT:-1234}    \
+  DIRECTORY=${1:-`pwd`} # default working directory to current location
+
+readlink ${DIRECTORY}
+
+declare
+
+node $SNUGGSI/bin/serve.es
