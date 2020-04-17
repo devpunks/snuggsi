@@ -2,15 +2,14 @@
 
 set -u
 
-declare -r  BIN=$SNUGGSI/node_modules/.bin
-declare -r  SUITE=`pwd`/index.test
-declare -r  SPEC=$BIN/tap-spec
-declare -r  TEST="$BIN/tape"
+function bin () {
+  echo ${SNUGGSI}/node_modules/.bin
+}
 
-
-declare
-
-declare BIN='' SUITE='' SPEC='' TEST=''
+declare -r               \
+  SUITE=`pwd`/index.test \
+  SPEC=`bin`/tap-spec    \
+  TEST=`bin`/tape
 
 
 echo "🚨  Testing, Testing, 1,2,3, ..."
