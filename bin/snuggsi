@@ -34,7 +34,6 @@ function check {
 }
 
 function run {
-  source $1/bin/.resources
 
   local \
     snuggsi=$1
