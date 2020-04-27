@@ -25,6 +25,7 @@ function check {
   local \
     resource=$1
 
+  # Use -f to check file
     test ! -d $resource \
       && echo -e "  🔴  $resource RESOURCE NOT FOUND !\n\n" \
       && return 1
