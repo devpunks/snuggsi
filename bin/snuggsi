@@ -42,11 +42,7 @@ function run {
   echo Local command ${command}
   echo Resources ${RESOURCES[@]}
 
-  ${command}
-
-  return
-
-  for resource in "${ARGUMENTS[@]:-`pwd` }" # Default to current directory
+  for resource in "${RESOURCES[@]}"
     do
       (check $resource) \
         && echo -e " 👉  📂  $resource ════════════════════\n\n" \
