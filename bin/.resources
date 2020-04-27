@@ -3,5 +3,18 @@
 # Arrays - https://linuxconfig.org/how-to-use-arrays-in-bash-script
 # ARGUMENT PARSING - https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
 
+function normalize {
+  local -a \
+    resources=()
+
+  for argument in $@
+    do
+      echo "`pwd`/${argument}"
+    done
+}
+
+declare -a  \
+  ARGUMENTS=( "`normalize ${@:2}`" )
+
 declare -ax \
   RESOURCES=( "${@:2}" )
