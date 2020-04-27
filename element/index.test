@@ -3,8 +3,7 @@ const
     = require ('snuggsi')
 
 
-test ('new Element', t => {
-  t.ok (true)
+test `new Element`
 
   t.end ()
 })
