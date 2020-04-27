@@ -17,4 +17,4 @@ declare -a  \
   ARGUMENTS=( "`normalize ${@:2}`" )
 
 declare -ax \
-  RESOURCES=( "${@:2}" )
+  RESOURCES=( ${ARGUMENTS[@]:-`pwd`} ) # Default to current directory
