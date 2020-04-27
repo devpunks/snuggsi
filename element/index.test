@@ -1,6 +1,6 @@
 const
   {test}
-    = require ('test')
+    = require ('snuggsi')
 
 
 test ('new Element', t => {
