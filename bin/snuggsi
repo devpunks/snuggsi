@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -u
+
 # Environment variable vs. Shell Variable
 #  - https://askubuntu.com/questions/26318/environment-variable-vs-shell-variable-whats-the-difference
 
