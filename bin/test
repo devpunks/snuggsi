@@ -7,7 +7,7 @@ function bin () {
 }
 
 declare -r               \
-  SUITE="${1}/index.test" \
+  SUITE="${1:`pwd`}/index.test" \
   SPEC=`bin`/tap-spec    \
   TEST=`bin`/tape
 
