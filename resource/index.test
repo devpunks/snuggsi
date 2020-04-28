@@ -149,8 +149,8 @@ void (async assert => {
       = await fetch ( URL + 'index.html', { method } )
 
 
-    t.ok ( [200, 404 /* for GET SMH */].includes (status) )
-    t.notOk ( headers.get ('allow') )
+    assert ( [200, 404 /* for GET SMH */].includes (status) )
+    assert.notOk ( headers.get ('allow') )
   }
 
   server.close ``
