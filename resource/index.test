@@ -188,7 +188,9 @@ void (async assert => {
 })
 
 
-test ('Defined Resource allowed methods', async t => {
+test `Defined Resource allowed methods`
+
+void (async assert => {
   const
     { __proto__: proto } = resource
       = Resource `/resource/fixtures/`
