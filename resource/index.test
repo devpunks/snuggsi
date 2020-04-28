@@ -294,11 +294,11 @@ void (async assert => {
     , modified = headers.get ('Last-Modified')
 
 
-    t.equal ( expected, await response.text `` )
-    t.equal (type, 'text/html; charset=utf-8')
-    t.ok (length == expected.length)
-    t.equal ( 200, status )
-    t.ok (modified)
+    assert ( expected == await response.text `` )
+    assert ( type == 'text/html; charset=utf-8' )
+    assert ( length == expected.length )
+    assert ( status == 200 )
+    assert ( modified )
   }
 
   server.close ``
