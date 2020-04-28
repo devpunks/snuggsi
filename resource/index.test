@@ -323,7 +323,7 @@ void (async assert => {
   , { status } = response
 
 
-  t.equal ( 404, status )
+  assert ( status == 404 )
 
 
   server.close ``
