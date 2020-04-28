@@ -305,7 +305,9 @@ void (async assert => {
 })
 
 
-test ('Deny GET */index.es subresource', async t => {
+test `Deny GET */index.es subresource`
+
+void (async assert => {
 
   const
     point = `/resource/fixtures/`
