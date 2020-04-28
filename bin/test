@@ -6,8 +6,8 @@ function bin () {
   echo ${SNUGGSI}/node_modules/.bin
 }
 
-declare -r               \
-  SUITE="${1:`pwd`}/index.test" \
+declare -r \
+  SUITE="${1:-`pwd`}/index.test" \
   SPEC=`bin`/tap-spec    \
   TEST=`bin`/tape
 
