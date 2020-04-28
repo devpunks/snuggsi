@@ -3,7 +3,7 @@ require ('./fixtures/index.test')
 
 const
   { test, read, fetch }
-    = require ('test')
+    = require ('snuggsi')
 
 , PORT = 8181
 , SCHEME = 'http'
