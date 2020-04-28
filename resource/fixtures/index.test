@@ -1,7 +1,6 @@
 const
   { test }
-    = require ('test')
-
+      = require ('snuggsi')
   , fixture
     = new (require ('./index.es'))
 
