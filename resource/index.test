@@ -260,7 +260,6 @@ void (async assert => {
   }
 
   server.close ``
-  t.end ()
 })
 
 test ('GET subresource assets', async t => {
