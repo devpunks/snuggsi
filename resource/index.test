@@ -347,8 +347,8 @@ void (async assert => {
   , { status, headers } = response
 
 
-  t.equal ( 200, status )
-  t.equal ( 'pong', await response.text `` )
+  assert ( status == 200 )
+  assert ( 'pong' == await response.text `` )
 
   server.close ``
   t.end ()
