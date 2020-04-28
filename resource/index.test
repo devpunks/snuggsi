@@ -46,7 +46,7 @@ const
       == right.slice ().sort ().join `,`
 
 
-test ('Distribute media to CDN')
+test `Distribute media to CDN`
 
 
 test ('OPTIONS Resource response')
