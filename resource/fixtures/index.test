@@ -38,13 +38,14 @@ test `.patch`
 (t => {
   fixture.patch (context)
 
-  t.equal (200, context.status )
-  t.end ()
+  assert ( context.status == 200 )
 })
 
-test ('.delete', t => {
+
+test `.delete`
+
+(t => {
   fixture.delete (context)
 
-  t.equal (200, context.status )
-  t.end ()
+  assert ( context.status == 200 )
 })
