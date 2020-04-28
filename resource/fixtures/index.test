@@ -6,9 +6,7 @@ const
   , context = {}
 
 
-test ('.get', t => {
-  t.doesNotThrow
-    ( _ => fixture.get (context) )
+test `.get`
 
   t.end ()
 })
