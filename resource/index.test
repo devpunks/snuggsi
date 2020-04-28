@@ -105,7 +105,6 @@ void (async assert => {
   }
 
   server.close ``
-  t.end ()
 })
 
 
