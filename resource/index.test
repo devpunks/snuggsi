@@ -220,11 +220,12 @@ void (async assert => {
   }
 
   server.close ``
-  t.end ()
 })
 
 
-test ('Defined Resource disallowed methods', async t => {
+test `Defined Resource disallowed methods`
+
+void (async assert => {
   const
     { __proto__: proto } = resource
       = Resource `/resource/fixtures/`
