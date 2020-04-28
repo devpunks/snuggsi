@@ -32,7 +32,10 @@ test `.post`
   assert ( context.status == 200 )
 })
 
-test ('.patch', t => {
+
+test `.patch`
+
+(t => {
   fixture.patch (context)
 
   t.equal (200, context.status )
