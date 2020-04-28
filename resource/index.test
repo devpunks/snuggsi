@@ -80,10 +80,12 @@ test `HEAD Resource response`
   assert.notOk ( headers.get ('allow') )
 
   server.close ``
-  t.end ()
 })
 
-test ('Named Resource (without class) allowed methods', async t => {
+
+test `Named Resource (without class) allowed methods`
+
+void (async assert => {
   const
     resource = Resource `/public/`
 
