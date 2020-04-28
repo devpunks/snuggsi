@@ -154,11 +154,12 @@ void (async assert => {
   }
 
   server.close ``
-  t.end ()
 })
 
 
-test ('Default Resource disallowed methods', async t => {
+test `Default Resource disallowed methods`
+
+void (async assert => {
   const
     resource = Resource ``
 
