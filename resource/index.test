@@ -215,8 +215,8 @@ void (async assert => {
       { status, headers }
         = await fetch ( URL, { method } )
 
-    t.notEqual ( 405, status )
-    t.notOk ( headers.get ('allow') )
+    assert ( status != 405 )
+    assert.notOk ( headers.get ('allow') )
   }
 
   server.close ``
