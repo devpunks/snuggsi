@@ -2,8 +2,7 @@ const
   { test }
       = require ('snuggsi')
   , fixture
-    = new (require ('./index.es'))
-
+      = new (require ('./index.es'))
   , context = {}
 
 
