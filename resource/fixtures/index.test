@@ -29,8 +29,7 @@ test `.post`
 (assert => {
   fixture.post (context)
 
-  t.equal (200, context.status )
-  t.end ()
+  assert ( context.status == 200 )
 })
 
 test ('.patch', t => {
