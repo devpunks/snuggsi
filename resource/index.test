@@ -52,13 +52,16 @@ test `Distribute media to CDN`
 test `OPTIONS Resource response`
 
 
-test ('Caching HTML, JSON, Javascript, and CSS')
+test `Caching HTML, JSON, Javascript, and CSS`
+
 
 //please read https://stackoverflow.com/questions/4482686/check-synchronously-if-file-directory-exists-in-node-js
-test ('501 Not implemented')
+test `501 Not implemented`
 
 
-test ('HEAD Resource response', async t => {
+test `HEAD Resource response`
+
+(async assert => {
 
   const
     resource = Resource ``
