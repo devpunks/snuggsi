@@ -351,5 +351,4 @@ void (async assert => {
   assert ( 'pong' == await response.text `` )
 
   server.close ``
-  t.end ()
 })
