@@ -100,8 +100,8 @@ void (async assert => {
       = await fetch ( ROOT + 'index.html', { method } )
 
 
-    t.equal ( 200, status )
-    t.notOk ( headers.get ('allow') )
+    assert ( status == 200 )
+    assert.notOk ( headers.get ('allow') )
   }
 
   server.close ``
