@@ -255,8 +255,8 @@ void (async assert => {
 
     let allowed =DEFAULT_METHODS// headers.get ('allow').split `, `
 
-    t.equal ( 405, status )
-    t.ok ( compare (allowed, ALLOWED_METHODS) )
+    assert ( status == 405 )
+    assert ( compare (allowed, ALLOWED_METHODS) )
   }
 
   server.close ``
