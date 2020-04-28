@@ -1,5 +1,5 @@
 
-require ('./fixtures/index.test')
+// require ('./fixtures/index.test')
 
 const
   { test, read, fetch }
