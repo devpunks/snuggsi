@@ -3,7 +3,7 @@
 
 const
   age     = 60 * 60 * 24 * 365
-, frame   = 'deny'
+, frame   = 'deny' // SAMEORIGIN
 , content = 'nosniff'
 
 , xss =
