@@ -53,7 +53,7 @@ test `X-Frame-Options: deny`
 
 test `X-Content-Type-Options: nosniff`
 
-(async t => {
+(async assert => {
 
   const
     server   = serve ``
