@@ -67,10 +67,12 @@ test `X-Content-Type-Options: nosniff`
 })
 
 
-test ('Strict-Transport-Security', async t => {
+test `Strict-Transport-Security`
+
+(async assert => {
 
   const
-    server   = (new Server).serve ``
+    server   = serve ``
   , response = await fetch ('http://localhost:8181/')
 
   , age      = 60 * 60 * 24 * 365
@@ -78,9 +80,8 @@ test ('Strict-Transport-Security', async t => {
   , expected = new RegExp ( test.join `; ` , 'g')
 
 
-  t.ok
+  assert
     (expected.test (response.headers.get ('strict-transport-security')))
 
   server.close ()
-  t.end ()
 })
