@@ -16,7 +16,7 @@ test `calling next middlewaree`
 
 test `X-XSS-Protection: 1; mode=block`
 
-test ('X-XSS-Protection: 1; mode=block', async t => {
+(async assert => {
 
   const
     server   = (new Server).serve ``
