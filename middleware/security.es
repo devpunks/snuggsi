@@ -1,4 +1,5 @@
 // Security headers https://hackernoon.com/nodejs-security-headers-101-mf9k24zn
+// Helmet - helmet
 
 const
   age     = 60 * 60 * 24 * 365
@@ -16,6 +17,18 @@ module.exports = options =>
   // https://hackernoon.com/nodejs-security-headers-101-mf9k24zn
   async (context, next) => {
     await next ()
+
+    'x-dns-prefetch-control', 'off'
+    '', ''
+    '', ''
+    '', ''
+    '', ''
+    '', ''
+    '', ''
+    '', ''
+    '', ''
+    '', ''
+    '', ''
 
     context.set
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
