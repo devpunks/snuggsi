@@ -19,8 +19,7 @@ module.exports = options =>
     await next ()
 
     'x-dns-prefetch-control', 'off'
-    '', ''
-    '', ''
+    'x-download-options', 'noopen'
     '', ''
     '', ''
     '', ''
