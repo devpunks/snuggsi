@@ -28,18 +28,19 @@ test `X-XSS-Protection: 1; mode=block`
       = await fetch ('http://localhost:8181/').headers.get
 
 
-  assert (expected.test (response.headers.get ('x-xss-protection')))
+  assert
+    (expect.test (headers ('x-xss-protection')))
 
-  server.close ()
-  t.end ()
-
+  server.close ``
 })
 
 
-test ('X-Frame-Options: deny', async t => {
+test `X-Frame-Options: deny`
+
+(async assert => {
 
   const
-    server   = (new Server).serve ``
+    server   = serve ``
   , response = await fetch ('http://localhost:8181/')
 
 
