@@ -19,8 +19,9 @@ test `X-XSS-Protection: 1; mode=block`
 (async assert => {
 
   const
-    server   = (new Server).serve ``
-  , response = await fetch ('http://localhost:8181/')
+    server   = serve ``
+  , headers
+      = await fetch ('http://localhost:8181/').headers.get
 
 
   , flag = 1
