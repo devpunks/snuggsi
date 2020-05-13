@@ -22,7 +22,10 @@ test `X-XSS-Protection: 1; mode=block`
     flag = 1
   , mode = 'block'
   , test = [flag, `mode=${mode}`]
-  , expected = new RegExp ( test.join `; ` , 'g' )
+  , expect = new RegExp ( test.join `; ` , 'g' )
+  , server   = serve ``
+  , headers
+      = await fetch ('http://localhost:8181/').headers.get
 
 
   assert (expected.test (response.headers.get ('x-xss-protection')))
