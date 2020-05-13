@@ -7,8 +7,8 @@
 // https://hstspreload.org
 
 const
-  { test, fetch }
-    = require ('test')
+  { test, serve, fetch }
+    = require ('snuggsi')
 
 , Server = require ('server')
 
