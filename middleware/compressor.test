@@ -1,1 +1,2 @@
 // Data Compression - https://en.wikipedia.org/wiki/Data_compression
+//   compress during response BEFORE CACHE (invalidation)
