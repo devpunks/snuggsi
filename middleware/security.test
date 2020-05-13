@@ -19,12 +19,7 @@ test `X-XSS-Protection: 1; mode=block`
 (async assert => {
 
   const
-    server   = serve ``
-  , headers
-      = await fetch ('http://localhost:8181/').headers.get
-
-
-  , flag = 1
+    flag = 1
   , mode = 'block'
   , test = [flag, `mode=${mode}`]
   , expected = new RegExp ( test.join `; ` , 'g' )
