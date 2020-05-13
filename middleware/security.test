@@ -51,18 +51,19 @@ test `X-Frame-Options: deny`
 })
 
 
-test ('X-Content-Type-Options: nosniff', async t => {
+test `X-Content-Type-Options: nosniff`
+
+(async t => {
 
   const
-    server   = (new Server).serve ``
+    server   = serve ``
   , response = await fetch ('http://localhost:8181/')
 
 
-  t.equal
-    ('nosniff', response.headers.get ('x-content-type-options'))
+  assert
+    ('nosniff' == response.headers.get ('x-content-type-options'))
 
   server.close ()
-  t.end ()
 })
 
 
