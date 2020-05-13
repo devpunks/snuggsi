@@ -12,6 +12,7 @@ module.exports = {
     require (`${SNUGGSI}/read.es`)
 
 , fetch :
+  // supertest - https://github.com/visionmedia/supertest
     ( ... dependencies ) =>
       require ('node-fetch') ( ... dependencies )
 
