@@ -22,8 +22,6 @@ module.exports = options =>
     'x-download-options', 'noopen'
     '', ''
     '', ''
-    '', ''
-    '', ''
 
     context.set
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
