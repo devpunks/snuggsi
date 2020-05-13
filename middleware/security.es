@@ -20,8 +20,6 @@ module.exports = options =>
 
     'x-dns-prefetch-control', 'off'
     'x-download-options', 'noopen'
-    '', ''
-    '', ''
 
     context.set
       // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/X-XSS-Protection
