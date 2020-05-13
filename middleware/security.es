@@ -1,3 +1,5 @@
+// Security headers https://hackernoon.com/nodejs-security-headers-101-mf9k24zn
+
 const
   age     = 60 * 60 * 24 * 365
 , frame   = 'deny'
