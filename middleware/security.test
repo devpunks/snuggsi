@@ -7,9 +7,13 @@
 // https://hstspreload.org
 
 const
-  { test, serve, fetch }
+  { test, Server, fetch }
     = require ('snuggsi')
+, { serve }
+    = (new Server)
 
+
+console.log ('SNUGGSI', require ('..'))
 
 test `calling next middlewaree`
 
