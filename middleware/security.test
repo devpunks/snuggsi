@@ -48,7 +48,6 @@ test `X-Frame-Options: deny`
     ('deny', response.headers.get ('x-frame-options'))
 
   server.close ()
-  t.end ()
 })
 
 
