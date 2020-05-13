@@ -6,7 +6,6 @@
 // https://www.chromium.org/hsts
 // https://hstspreload.org
 
-
 const
   { test, fetch }
     = require ('test')
