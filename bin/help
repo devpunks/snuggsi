@@ -4,7 +4,9 @@ menu () {
   echo
   echo " $ snuggsi <command> <path>"
   echo
-  echo "Where <command> is one of the following:"
+  echo "Where <path> is the relative location of a resource directory."
+  echo
+  echo "And <command> is one of the following:"
   echo
   echo "  crank                  Crank it up baby!"
   echo "  help                   Help documentation"
