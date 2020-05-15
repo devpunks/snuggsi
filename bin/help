@@ -22,6 +22,8 @@ menu () {
   echo " $ snuggsi test"
   echo
   echo " Enjoy! 🎉"
+  echo
+  echo
 }
 
 menu
