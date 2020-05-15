@@ -7,9 +7,9 @@ menu () {
   echo "where <command> is one of the following:"
   echo
   echo "  crank                  Crank it up baby!"
-  echo "  help                   Help documentation."
-  echo "  integrate              Continuous Integration."
-  echo "  test                   Test suite runner."
+  echo "  help                   Help documentation"
+  echo "  integrate              Continuous Integration"
+  echo "  test                   Test suite runner"
   echo
 }
 
