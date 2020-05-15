@@ -13,7 +13,7 @@ menu () {
   echo "  integrate              Continuous Integration"
   echo "  test                   Test suite runner"
   echo
-  echo "Example usage on ./products directory :"
+  echo "Example usage on ./products directory:"
   echo
   echo " $ snuggsi test products"
   echo
