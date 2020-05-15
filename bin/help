@@ -13,8 +13,6 @@ menu () {
   echo "  integrate              Continuous Integration"
   echo "  test                   Test suite runner"
   echo
-  echo "And <path> is the relative location of a resource directory."
-  echo
 }
 
 menu
