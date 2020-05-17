@@ -12,8 +12,8 @@ const
 //, route (`/hello/`, Resource `/resource/fixtures/`)
   ]
 
-  examples && middkeware.push
-    ( route (`/examples/`, Resource (examples)) )
+//examples && middkeware.push
+//  ( route (`/examples/`, Resource (examples)) )
 
 
 void (new Server (middleware))
