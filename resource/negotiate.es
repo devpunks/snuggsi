@@ -4,6 +4,8 @@ module.exports = context => {
 
   // TODO:
   //   Character encoder `UTF-8` - https://html.spec.whatwg.org/multipage/semantics.html#charset
+  //     - Perehaps better served in `middleware/encoder.es`
+  //       to suffix `Content-Type: ...; charset=utf-8` ?
   //   MANIFESTS!!! - https://developer.mozilla.org/en-US/docs/Web/Manifest#Deploying_a_manifest_with_the_link_tag
 
   return 'index.' + context.accepts
