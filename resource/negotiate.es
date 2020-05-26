@@ -2,7 +2,9 @@ module.exports = context => {
 
   console.warn ('accepts', context.accepts `txt`, context.headers)
 
-  // MANIFESTS!!! - https://developer.mozilla.org/en-US/docs/Web/Manifest#Deploying_a_manifest_with_the_link_tag
+  // TODO:
+  //   Character encoder `UTF-8` - https://html.spec.whatwg.org/multipage/semantics.html#charset
+  //   MANIFESTS!!! - https://developer.mozilla.org/en-US/docs/Web/Manifest#Deploying_a_manifest_with_the_link_tag
 
   return 'index.' + context.accepts
     // HTTP 1.1 `Accept` Header
