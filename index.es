@@ -4,6 +4,8 @@ const
   { SNUGGSI = '.' } = process.env
 
 
+  console.log ('index SNUGGSI', SNUGGSI)
+
 module.exports = {
   test  :
     require (`${SNUGGSI}/test`)
