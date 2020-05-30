@@ -3,6 +3,10 @@ const
     = require ('../middleware')
 
 
+console.log ('server SNUGGSI', Object.keys(require ('../index.es')))
+console.log ('SNUGGSI', process.env.SNUGGSI)
+
+
 module.exports = class extends require ('koa') {
 
   constructor ( middleware = [] ) { super () 
