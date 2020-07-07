@@ -123,7 +123,7 @@ Element `hello-kitty`
 
 (class extends HTMLElement {
 
-// 👇 Description ------------------------------
+// CONSTRUCTOR
 
 (class extends HTMLElement {
 
