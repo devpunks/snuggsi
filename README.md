@@ -151,7 +151,7 @@ Element `hello-world`
     { return 'world 🌎' }
 
   onclick (e) { // event handler
-    // "automagic" event registration
+    // "✨ automagic" event registration
     alert(`You clicked on ${e.target.tagName}`)
   }
 })
