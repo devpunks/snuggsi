@@ -118,7 +118,7 @@ When picking a name for your custom element [there are a few naming conventions]
 
 `event` handlers can be any function and can be placed on any child elements and also the custom element itself _(i.e.`onclick=eatBacon`)_. However, You will not have to explicitly set the handler in HTML when you follow native naming conventions.  This is the magic behind Global `event` Listeners. They register themselves onto the custom element for you! As a convenience the global even captures all children events of the same name.
 
-P.S.__**YES** the event will _autobind_ `this` to the current custom element instance. :tada:
+P.S. __**YES** the event will _autobind_ `this` to the current custom element instance. :tada:
 
 _ See list of [Global Event Handlers](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) on MDN_
 
