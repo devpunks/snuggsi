@@ -100,7 +100,47 @@ _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.
 ## [Custom Elements](/element#readme)
 
 
-``` html
+### Hello World! _(simple)_
+
+Play [`<hello-world>` Demo](http://jsfiddle.net/vw4u6ycx)
+
+```html
+
+<hello-world>
+ Hello {planet}
+</hello-world>
+
+<script src=//unpkg.com/snuggsi></script>
+<script>
+
+// 👇 Definition -----------------------------
+
+Element `hello-world`
+
+// 👇 Description ------------------------------
+
+(class extends HTMLElement {
+
+  get planet () // property token
+    // "automagic" token binding
+    { return 'world 🌎' }
+
+  onclick () { // event handler
+    // "automagic" event registration
+    alert(`You clicked on ${e.target.tagName}`)
+  }
+})
+
+</script>
+
+```
+
+### Hello Kitty! _(advanced)_
+
+Play [`<hello-kitty>` Demo](https://jsfiddle.net/sfd1p2m5)
+
+```html
+
 <hello-kitty icon=😻 >
 
   <header>{greeting}</header>
