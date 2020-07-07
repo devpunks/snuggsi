@@ -102,8 +102,8 @@ _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.
 Play [Hello World Demo](https://jsfiddle.net/snuggs/w02kL17n)
 
 ``` html
-<hello-world>
- Hello {planet}
+<hello-world icon=🌎 >
+  Hello {planet}
 </hello-world>
 
 <script src=//unpkg.com/snuggsi></script>
