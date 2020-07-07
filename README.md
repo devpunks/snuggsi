@@ -225,7 +225,7 @@ Element `hello-kitty`
 // EVENT HANDLERS ------------------------------------
 
   onclick (e) {
-    // "automagic" global event handler registration
+    // "✨ automagic" global event handler registration
     alert (`You clicked on ${e.target.tagName} ${ this.icon }`)
   }
 
