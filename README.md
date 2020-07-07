@@ -109,6 +109,38 @@ When picking a name for your custom element [there are a few naming conventions]
 `<hello-world>` has one **live `{token}`** named `{planet}` and a global event handler named `onclick`.
 
 
+### `Element` definition
+
+```javascript
+Element `hello-world`
+```
+
+This syntax is not JSX. It's actually called [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) and is native to the platform.
+Custom elements use the native `Element` interface definition strategy for two reasons:
+
+1. To prevent you from worrying about browser inconsistencies as the technology matures.
+2. Prevent global namespace polution. _(`Element` has been native for decades!)_
+
+Next we need to pass a `class` definition to the function returned by your `Element` definition:
+
+```javascript
+
+Element `hello-world`
+
+(class MyWorld extends HTMLElement {
+
+  /* your definition here */
+
+})
+```
+
+_⚠️ Although you **MUST** define a class which inherits from `HTMLElement`, You do not have to explicitly name your `class` descendant:
+
+```javascript
+(class extends HTMLElement { })
+```
+
+
 ### Live `{token}`s
 
 `{planet}` is a _"live token"_ which watches your custom element's class property of the same name. Live `{token}`s are also _"✨ automagically"_ updated each time the element re-renders.
