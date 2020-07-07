@@ -212,7 +212,7 @@ Element `hello-kitty`
     e.preventDefault ``
 
     this.querySelector `img`
-      .setAttribute (`src`, this.url + this.random )
+      .setAttribute (`src`, this.url + this.random () )
 
     // element will "automagically" re-render !!!
   }
