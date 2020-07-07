@@ -147,7 +147,7 @@ Element `hello-world`
 (class extends HTMLElement {
 
   get planet () // property token
-    // "automagic" token binding
+    // "✨ automagic" token binding
     { return 'world 🌎' }
 
   onclick (e) { // event handler
