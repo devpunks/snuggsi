@@ -147,7 +147,7 @@ Play [`<hello-kitty>` Demo](https://jsfiddle.net/sfd1p2m5)
 
   <figure>
     <figcaption>
-      <button onclick=meow>Hello Kitty!</button>
+      <button onclick=meow>Hello new kitty!</button>
     </figcaption>
 
     <img alt='Random kitty cat' src={kitty} onclick=pet >
