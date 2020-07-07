@@ -130,7 +130,7 @@ Element `hello-world`
 
   onclick () { // event handler
     // "automagic" event registration
-    alert(`You clicked on ${e.target.tagName}`)
+    alert (`You clicked on ${e.target.tagName} ${ this.icon }`)
   }
 })
 
