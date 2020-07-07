@@ -120,7 +120,7 @@ When picking a name for your custom element [there are a few naming conventions]
 
 Lastly, all `event` handlers _(and global `event` listeners)_ are passed a native `event` object.
 
-P.S. **YES** the event will _autobind_ `this` to the **current** custom element instance! :tada:
+_P.S._ **YES** the event will _autobind_ `this` to the **current** custom element instance! :tada:
 
 _See full list of [Global Event Handlers](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) on MDN_
 
