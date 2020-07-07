@@ -121,7 +121,12 @@ Custom elements use the native `Element` interface definition strategy for two r
 1. To prevent you from worrying about browser inconsistencies as the technology matures.
 2. Prevent global namespace polution. _(`Element` has been native for decades!)_
 
-Next we need to pass a `class` definition to the function returned by your `Element` definition:
+
+### `class` Description
+
+Next we need to pass a `class` description to the function returned by your `Element` definition:
+
+_⚠️ Notice the enclosing parenthesis._
 
 ```javascript
 
