@@ -172,7 +172,8 @@ Element `hello-kitty`
     // see `meow` event handler
     { this.url = 'https://placekitten.com/400/400?image=' }
 
-// PROPERTIES
+
+// PROPERTIES ----------------------------------------
 
   set icon // on element
     // default to html attribute
