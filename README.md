@@ -134,6 +134,7 @@ Element `hello-kitty`
   set icon // on element
     // default to html attribute
     ( value = this.getAttribute `icon` )
+      // set html attribute to new value
       { this.setAttribute (`icon`, value) }
 
   get icon () // from element
