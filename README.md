@@ -134,7 +134,7 @@ Element `hello-world`
 })
 ```
 
-_⚠️ Although you **MUST** define a class which inherits from `HTMLElement`, You do not have to explicitly name your `class` descendant:
+_⚠️ Although you **MUST** define a class which inherits from `HTMLElement`, You do not have to explicitly name your `class` descendant:_
 
 ```javascript
 (class extends HTMLElement { })
