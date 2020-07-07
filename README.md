@@ -143,7 +143,10 @@ Element `hello-kitty`
   get greeting () // "automagic" token binding
     { return `Kitty Carousel ${ this.icon }` }
 
-  onclick () { // event handler
+
+// EVENT HANDLERS
+
+  onclick (e) { // event handler
     // "automagic" event registration
     alert (`You clicked on ${e.target.tagName} ${ this.icon }`)
   }
