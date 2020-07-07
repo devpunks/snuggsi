@@ -69,7 +69,7 @@ _(You can if ya **want** to use **snuggsiツ**  with those tools. But you don't 
 
 __*#UseThePlatform*__
 
-Simply place the following **&lt;script&gt;** within your webpage:
+**snuggsiツ** works in a plain 'ol HTML file! Simply place the following **&lt;script&gt;** within your webpage:
 
 ```html
 <!-- http(s): protocol required to run locally -->
