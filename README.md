@@ -117,6 +117,9 @@ Element `hello-world`
 
 (class extends HTMLElement {
 
+  get icon ()
+    { return this.getAttribute `icon` }
+
   get planet () // property token
     // "automagic" token binding
     { return 'world 🌎' }
