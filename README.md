@@ -150,6 +150,14 @@ Element `hello-kitty`
     // "automagic" event registration
     alert (`You clicked on ${e.target.tagName} ${ this.icon }`)
   }
+
+  pet (e)
+    { alert `Puuuuuurrrrrrrrrrrr!!!` }
+
+  meow (e) { // custom handler
+    this.querySelector `img`
+      .src = this.kitty
+  }
 })
 
 </script>
