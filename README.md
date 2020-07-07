@@ -129,7 +129,7 @@ _See list of [Global Event Handlers](https://developer.mozilla.org/en-US/docs/We
 
 [Play `<hello-world>` Demo](http://jsfiddle.net/vw4u6ycx)
 
-_…or just copy & pasta🍝a into a new HTML file and have at it!_
+_…or just copy & pasta🍝 into a new HTML file and have at it!_
 
 ```html
 
