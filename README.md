@@ -152,7 +152,7 @@ _⚠️ Although you **MUST** define a class which inherits from `HTMLElement`, 
 
 Lastly, all `event` handlers _(and global `event` listeners)_ are passed a native `event` object.
 
-_P.S._ **YES** the event will _autobind_ `this` to the **current** custom element instance! :tada:
+_P.S._ **YES** the event handler will _auto`bind`_ `this` to the **current** custom element instance! :tada:
 
 _See full list of [Global Event Handlers](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) on MDN_
 
