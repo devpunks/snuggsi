@@ -185,7 +185,12 @@ Element `hello-kitty`
     { return this.getAttribute `icon` }
 
   get greeting () // "automagic" token binding
-    { return `Kitty Carousel ${ this.icon }` }
+    { return `<hello-kitty> Carousel ${ this.icon }` }
+    
+  get random () {
+    return Math.round
+      ( Math.random `` * 16 )
+  }
 
 
 // EVENT HANDLERS
