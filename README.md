@@ -137,7 +137,7 @@ Element `hello-world`
 
 ### Hello Kitty! _(advanced)_
 
-Play [`<hello-kitty>` Demo](https://jsfiddle.net/sfd1p2m5)
+[Play `<hello-kitty>` Demo](https://jsfiddle.net/sfd1p2m5)
 
 ```html
 
