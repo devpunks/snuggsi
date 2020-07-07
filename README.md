@@ -99,7 +99,6 @@ _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.
 
 ## [Custom Elements](/element#readme)
 
-Play [Hello World Demo](https://jsfiddle.net/snuggs/w02kL17n)
 
 ``` html
 <hello-kitty icon=😻 >
