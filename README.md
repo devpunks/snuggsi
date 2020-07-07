@@ -102,8 +102,18 @@ _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.
 Play [Hello World Demo](https://jsfiddle.net/snuggs/w02kL17n)
 
 ``` html
-<hello-world icon=🌎 >
-  Hello {planet}
+<hello-kitty icon=😻 >
+
+  <header>{greeting}</header>
+
+  <figure>
+    <figcaption>
+      <button onclick=meow>Hello Kitty!</button>
+    </figcaption>
+
+    <img alt='Random kitty cat' src={kitty} onclick=pet >
+  </figure>
+
 </hello-world>
 
 <script src=//unpkg.com/snuggsi></script>
