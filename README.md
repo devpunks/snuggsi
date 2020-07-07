@@ -214,6 +214,7 @@ Element `hello-kitty`
 })
 
 </script>
+
 ```
 
 ## [Templates](/html-template-element#readme)
