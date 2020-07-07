@@ -200,7 +200,7 @@ Element `hello-kitty`
     alert (`You clicked on ${e.target.tagName} ${ this.icon }`)
   }
 
-  pet (e)
+  pet ()
     { alert `Puuuuuurrrrrrrrrrrr!!!` }
 
   meow (e) { // custom handler
