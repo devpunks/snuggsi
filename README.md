@@ -117,7 +117,12 @@ Element `hello-world`
 
 (class extends HTMLElement {
 
-  get icon ()
+  set icon // on element
+    // method signature
+    ( value = this.getAttribute `icon` )
+      { this.setAttribute (`icon`, value) }
+
+  get icon () // from element
     { return this.getAttribute `icon` }
 
   get planet () // property token
