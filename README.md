@@ -59,7 +59,8 @@
      are [ready](https://twitter.com/domenic/status/904114041752358913)
      for [production](https://twitter.com/WebReflection/status/761316429559922688)
      &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has
-     [full support for every modern browser including Internet Explorer 11+ / Edge](#browser-support)
+     [support for every modern browser including Internet Explorer 11+ / Edge](#browser-support)
+     when you use **snuggsiツ**.
 
 
 ## Easy Installation
