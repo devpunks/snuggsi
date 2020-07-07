@@ -111,7 +111,7 @@ When picking a name for your custom element [there are a few naming conventions]
 
 ### Live `{token}`s
 
-`{planet}` is a _"live token"_ which watches your custom element's class property of the same name. Live `{token}`s are also updated each time the element re-renders.
+`{planet}` is a _"live token"_ which watches your custom element's class property of the same name. Live `{token}`s are also _"✨ automagically"_ updated each time the element re-renders.
 
 
 ### Global `event` Listeners
