@@ -154,7 +154,7 @@ Element `hello-world`
 
     <img alt='Random kitty cat' src={url} onclick=pet >
   </figure>
-  
+
   <style>
     hello-kitty * { margin: 1em; text-align: center }
   </style>
