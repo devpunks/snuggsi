@@ -152,6 +152,10 @@ Play [`<hello-kitty>` Demo](https://jsfiddle.net/sfd1p2m5)
 
     <img alt='Random kitty cat' src={url} onclick=pet >
   </figure>
+  
+  <style>
+    hello-kitty * { margin: 1em; text-align: center }
+  </style>
 
 </hello-world>
 
