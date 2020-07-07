@@ -157,7 +157,7 @@ Play [`<hello-kitty>` Demo](https://jsfiddle.net/sfd1p2m5)
     hello-kitty * { margin: 1em; text-align: center }
   </style>
 
-</hello-world>
+</hello-kitty>
 
 <script src=//unpkg.com/snuggsi></script>
 <script>
