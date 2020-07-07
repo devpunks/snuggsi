@@ -122,7 +122,7 @@ Lastly, all `event` handlers _(and global `event` listeners)_ are passed a nativ
 
 P.S. **YES** the event will _autobind_ `this` to the **current** custom element instance! :tada:
 
-_See list of [Global Event Handlers](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) on MDN_
+_See full list of [Global Event Handlers](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) on MDN_
 
 
 ### Hello World! _(simple)_
