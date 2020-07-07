@@ -101,6 +101,27 @@ _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.
 
 ## [Custom Elements](/element#readme)
 
+**snuggsiツ** encourages [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration) using techniques that have been around since browsers.
+
+Let's start with a simple custom element.
+When picking a name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you need to be aware of. We can use `<hello-world>` for now.
+
+`<hello-world>` has one **live `{token}`** named `{planet}` and a global event handler named `onclick`.
+
+
+### Live `{token}`s
+
+`{planet}` is a _"live token"_ which watches your custom element's class property of the same name. Live `{token}`s are also updated each time the element re-renders.
+
+
+### Global `event` Listeners
+
+`event` handlers can be any function _(i.e.`onclick=eatBacon`)_. However, You will not have to explicitly set the handler in HTML when you follow native naming conventions.  This is the magic behind Global `event` Listeners. They register themselves for you! As a convenience the global even captures all children events of the same name. 
+
+P.S.__**YES** the event will _autobind_ `this` to the current custom element instance. :tada:
+
+_ See list of [Global Event Handlers](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) on MDN_
+
 
 ### Hello World! _(simple)_
 
