@@ -210,7 +210,7 @@ Element `hello-kitty`
   get icon () // from element
     { return this.getAttribute `icon` }
 
-  get greeting () // "automagic" token binding
+  get greeting () // "✨ automagic" token binding
     { return `<hello-kitty> Carousel ${ this.icon }` }
 
 
