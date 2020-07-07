@@ -164,6 +164,7 @@ Element `hello-world`
 ### Hello Kitty! _(advanced)_
 
 [Play `<hello-kitty>` Demo](https://jsfiddle.net/yLdatmvz)
+_…or just copy & pasta🍝a into a new HTML file and have at it!_
 
 ```html
 
