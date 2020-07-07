@@ -204,6 +204,8 @@ Element `hello-kitty`
     { alert `Puuuuuurrrrrrrrrrrr!!!` }
 
   meow (e) { // custom handler
+    e.preventDefault ``
+
     this.querySelector `img`
       .src = this.kitty
   }
