@@ -120,7 +120,7 @@ When picking a name for your custom element [there are a few naming conventions]
 
 P.S. __**YES** the event will _autobind_ `this` to the current custom element instance. :tada:
 
-_ See list of [Global Event Handlers](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) on MDN_
+_See list of [Global Event Handlers](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers) on MDN_
 
 
 ### Hello World! _(simple)_
