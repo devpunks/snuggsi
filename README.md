@@ -170,7 +170,7 @@ Element `hello-kitty`
 
   initialize ()
     // see `meow` event handler
-    { this.kitty = 'https://placekitten.com/400/400' }
+    { this.url = 'https://placekitten.com/400/400?image=' }
 
 // PROPERTIES
 
