@@ -102,7 +102,7 @@ _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.
 
 ### Hello World! _(simple)_
 
-Play [`<hello-world>` Demo](http://jsfiddle.net/vw4u6ycx)
+[Play `<hello-world>` Demo](http://jsfiddle.net/vw4u6ycx)
 
 ```html
 
