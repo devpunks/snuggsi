@@ -67,7 +67,7 @@ Made with [💖 Vanilla JS™](http://vanilla-js.com) No need to learn Node.js, 
 
 **snuggsiツ** works in a plain 'ol HTML file!
 
-Simply place the following script within your webpage:
+Simply place the following **&lt;script&gt;** within your webpage:
 
 ```html
 <!-- http(s): protocol required to run locally -->
