@@ -150,7 +150,7 @@ Element `hello-world`
     // "automagic" token binding
     { return 'world 🌎' }
 
-  onclick () { // event handler
+  onclick (e) { // event handler
     // "automagic" event registration
     alert(`You clicked on ${e.target.tagName}`)
   }
