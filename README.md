@@ -210,7 +210,7 @@ Element `hello-kitty`
 
     this.querySelector `img`
       .setAttribute (`src`, this.url + this.random )
-      
+
     // element will "automagically" re-render !!!
   }
 })
