@@ -132,7 +132,7 @@ Element `hello-kitty`
 // PROPERTIES
 
   set icon // on element
-    // method signature
+    // default to html attribute
     ( value = this.getAttribute `icon` )
       { this.setAttribute (`icon`, value) }
 
