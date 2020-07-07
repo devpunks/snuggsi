@@ -128,6 +128,7 @@ _See list of [Global Event Handlers](https://developer.mozilla.org/en-US/docs/We
 ### Hello World! _(simple)_
 
 [Play `<hello-world>` Demo](http://jsfiddle.net/vw4u6ycx)
+
 _…or just copy & pasta🍝a into a new HTML file and have at it!_
 
 ```html
@@ -164,6 +165,7 @@ Element `hello-world`
 ### Hello Kitty! _(advanced)_
 
 [Play `<hello-kitty>` Demo](https://jsfiddle.net/yLdatmvz)
+
 _…or just copy & pasta🍝a into a new HTML file and have at it!_
 
 ```html
