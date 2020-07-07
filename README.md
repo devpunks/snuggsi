@@ -120,6 +120,11 @@ Element `hello-world`
   get planet () // property token
     // "automagic" token binding
     { return 'world 🌎' }
+
+  onclick () { // event handler
+    // "automagic" event registration
+    alert(`You clicked on ${e.target.tagName}`)
+  }
 })
 
 </script>
