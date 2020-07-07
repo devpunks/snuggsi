@@ -166,7 +166,7 @@ Element `hello-kitty`
 
 (class extends HTMLElement {
 
-// CONSTRUCTOR
+// CONSTRUCTOR ---------------------------------------
 
   initialize ()
     // see `meow` event handler
