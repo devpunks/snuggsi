@@ -140,8 +140,8 @@ Element `hello-kitty`
   get icon () // from element
     { return this.getAttribute `icon` }
 
-  get planet () // "automagic" token binding
-    { return `world ${ this.icon }` }
+  get greeting () // "automagic" token binding
+    { return `Kitty Carousel ${ this.icon }` }
 
   onclick () { // event handler
     // "automagic" event registration
