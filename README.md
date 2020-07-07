@@ -125,9 +125,8 @@ Element `hello-world`
   get icon () // from element
     { return this.getAttribute `icon` }
 
-  get planet () // property token
-    // "automagic" token binding
-    { return 'world 🌎' }
+  get planet () // "automagic" token binding
+    { return `world ${ this.icon }` }
 
   onclick () { // event handler
     // "automagic" event registration
