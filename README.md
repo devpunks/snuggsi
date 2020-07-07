@@ -109,7 +109,7 @@ When picking a name for your custom element [there are a few naming conventions]
 `<hello-world>` has one **live `{token}`** named `{planet}` and a global event handler named `onclick`.
 
 
-### `Element` definition
+### `Element` Definition
 
 ```javascript
 Element `hello-world`
