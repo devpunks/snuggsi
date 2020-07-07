@@ -189,7 +189,10 @@ Element `hello-kitty`
   get greeting () // "automagic" token binding
     { return `<hello-kitty> Carousel ${ this.icon }` }
 
-  get random () {
+
+// METHODS -------------------------------------------
+
+  random () {
     return Math.round
       ( Math.random `` * 16 )
   }
