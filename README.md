@@ -121,7 +121,7 @@ Play [Hello World Demo](https://jsfiddle.net/snuggs/w02kL17n)
 
 Element `hello-kitty`
 
-Element `hello-world`
+(class extends HTMLElement {
 
 // 👇 Description ------------------------------
 
