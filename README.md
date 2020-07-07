@@ -125,7 +125,11 @@ Element `hello-kitty`
 
 // CONSTRUCTOR
 
-(class extends HTMLElement {
+  initialize ()
+    // see `meow` event handler
+    { this.kitty = 'https://placekitten.com/400/400' }
+
+// PROPERTIES
 
   set icon // on element
     // method signature
