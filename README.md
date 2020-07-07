@@ -156,7 +156,8 @@ Element `hello-world`
   </figure>
 
   <style>
-    hello-kitty * { margin: 1em; text-align: center }
+    hello-kitty *
+      { margin: 1em; text-align: center }
   </style>
 
 </hello-kitty>
