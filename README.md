@@ -193,7 +193,7 @@ Element `hello-kitty`
   }
 
 
-// EVENT HANDLERS
+// EVENT HANDLERS ------------------------------------
 
   onclick (e) { // event handler
     // "automagic" event registration
