@@ -67,7 +67,7 @@
 Made with [💖 Vanilla JS™](http://vanilla-js.com) No need to learn Node.js, React, Webpack, Babel, or Gulp.
 _(You can if ya **want** to use **snuggsiツ**  with those tools. But you don't **need** to tho!)_
 
-**snuggsiツ** works in a plain 'ol HTML file!
+__*#UseThePlatform*__
 
 Simply place the following **&lt;script&gt;** within your webpage:
 
