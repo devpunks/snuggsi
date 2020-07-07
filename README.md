@@ -104,7 +104,7 @@ _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.
 **snuggsiツ** encourages [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration) using familiar techniques that are native to all browsers.
 
 Let's start with a simple custom element.
-When picking a name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you need to be aware of. We can use `<hello-world>` for now.
+When picking a name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you need to be aware of. We can simply use `<hello-world>` for now.
 
 `<hello-world>` has one **live `{token}`** named `{planet}` and a global event handler named `onclick`.
 
