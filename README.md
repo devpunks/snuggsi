@@ -195,7 +195,7 @@ Live `{token}`s are also _"✨ automagically"_ updated each time the element re-
 
 <hr>
 
-Lastly, We can visually enhance our `<hello-world>` Custom Element by making it [_"block level"_](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) with CSS `display: block`. This way our element plays nicely in our layout:
+Lastly, We can visually enhance our `<hello-world>` Custom Element by making it [_"block level"_](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) with CSS `display: block`. This way our element plays nicely in our layout :
 
 ```html
 <hello-world>
