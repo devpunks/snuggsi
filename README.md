@@ -230,6 +230,9 @@ Custom elements use the native `Element` interface definition strategy for two r
   2. Prevent global namespace polution. _(`Element` has been native to the web platform for decades!)_
 
 
+<hr>
+
+
 ### `class` Description
 
 Next we need to pass a `class` description to the function returned by your `Element` definition:
