@@ -256,6 +256,7 @@ You can also use an [anonymous class expression](https://developer.mozilla.org/e
 ```javascript
 ( class extends HTMLElement { … } )
 ```
+👍 Rule of thumb: _**MUST** define [a class which inherits from `HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)_
 
 <hr>
 
