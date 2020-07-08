@@ -224,7 +224,7 @@ Element `hello-world`
 ```
 
 This syntax is not JSX. It's actually called [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) and is native to the platform.
-Custom elements use the native `Element` interface definition strategy for two reasons:
+Custom elements use the native `Element` interface definition strategy for two reasons :
 
   1. To prevent you from worrying about browser inconsistencies as the technology matures.
   2. Prevent global namespace polution. _(`Element` has been native to the web platform for decades!)_
