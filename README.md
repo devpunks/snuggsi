@@ -233,7 +233,7 @@ Custom elements use the native `Element` interface definition strategy for two r
 
 ### `class` Description
 
-Next we need to pass a `class` description to the function returned by your `Element` definition:
+Next we need to pass a `class` description to the function returned by your `Element` definition :
 
 ```javascript
 
