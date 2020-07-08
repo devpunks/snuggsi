@@ -311,6 +311,9 @@ Element `hello-world`
 
 ```
 
+<hr>
+
+
 ### Hello Kitty! _(advanced)_
 
 [Play `<hello-kitty>` Demo](https://jsfiddle.net/yLdatmvz)
