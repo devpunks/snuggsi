@@ -196,7 +196,7 @@ Let's add a `{token}` to `<hello-world>` :
 
 </hello-world>
 ```
-👍 Rule of thumb: _A `{token}` is not _"live"_ until there is a `class` description for its functionality.
+👍 Rule of thumb: _A `{token}` is not _"live"_ until there is a `class` description for its functionality._
 
 <hr>
 
