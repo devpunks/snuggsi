@@ -139,6 +139,9 @@ _Not all HTML tags are created equal!_
 A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names _(as long as you remember to provide a closing tag)_. In the bad old days of the web, [`HTML5` elements were once _"non-standard"_ to `HTML 4.0`](https://johnresig.com/blog/html5-shiv) :
 
 ```html
+<p>     <!--  valid (even with no closing tag)  -->
+<hr>    <!--  valid  -->
+<img>   <!--  valid  -->
 <a></a> <!--  valid  -->
 <b></b> <!--  valid  -->
 <c>     <!-- invalid -->
