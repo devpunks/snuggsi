@@ -56,7 +56,7 @@
  - [Easy Installation](#easy-installation)
  - [Browser Support](#browser-support)
  - [Quick Tour](#quick-tour)
-   - [<custom-elements>](#custom-elemens)
+   - [&lt;custom-elements&gt;](#custom-elemens)
      - [`HTML` Declaration](#html-declaration)
      - [`Element` Definition](#element-definition)
      - [`class` Description](#class-description)
@@ -121,7 +121,7 @@ Gone are the sleepless nights where your code [suffers from `<div>`itus](https:/
  **snuggsiツ** believes in using [Progressive Enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). Not just with your code, but also with your Developer eXperience _(DX)_. We will start from the beginning with a simple Custom Element and gradually enhance functionality tep-by-step.
 
 
-## [<custom-elements>](/element#readme)
+## [&lt;custom-elements&gt;](/element#readme)
 
 When picking a name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you must be aware of. We can simply use `hello-world` for now.
 
