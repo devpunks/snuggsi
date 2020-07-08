@@ -146,7 +146,7 @@ A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names. In the b
 ```
 👍 Rule of thumb: _Close all **Custom** `HTML` Element tags!_
 
-As you learned previously, to be considered a _"valid **Custom** Element"_ we will need an alpha-numeric character followed by a hyphen in the tag name :
+As you learned earlier, to be considered a _"valid **Custom** Element"_ we will need an alpha-numeric character followed by a hyphen in the tag name :
 
 ```html
 <foo></foo> <!-- invalid -->
