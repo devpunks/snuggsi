@@ -119,20 +119,79 @@ Gone are the sleepless nights where your code [suffers from `<div>`itus](https:/
 
 Let's start with a simple custom element.
 
+When picking a name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you must be aware of. We can simply use `hello-world` for now.
+
 
 ### `HTML` Declaration
 
-If you know [how to write `HTML`](https://developer.mozilla.org/en-US/docs/Web/HTML) you can start using **snuggsiツ**. Sometimes you need to sandbox a section of your page for styling. Other times you need a custom container of complex functionality. Either way you usually start with an `HTML` element Declaration.
-
-When picking a name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you must be aware of. We can simply use `hello-world` for now.
-
-Your 
-
-Let's get back go our declaration.
+If you know [how to write `HTML`](https://developer.mozilla.org/en-US/docs/Web/HTML) you can start using **snuggsiツ**. Sometimes you need to sandbox a section of your page for styling. Other times you need a custom container of complex functionality. Either way you usually start with a plain ole' `HTML` element Declaration :
 
 ```html
 <hello-world></hello-world>
 ```
+
+Et Voila ツ _(No really … That's it!)_
+
+A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names. In the bad old days of the web, [`HTML5` elements were once _"non-standard"_ to `HTML 4.0`](https://johnresig.com/blog/html5-shiv) :
+
+```html
+<a></a> <!--  valid  -->
+<b></b> <!--  valid  -->
+<c>     <!-- invalid -->
+<c></c> <!--  valid  -->
+```
+👍 Rule of thumb: _Close all `HTML` Custom Element tags!_
+
+As you learned previously, to be considered a _"valid **Custom** Element"_ we will need an alpha-numeric character followed by a hyphen in the tag name :
+
+```html
+<foo></foo> <!-- invalid -->
+<foo-bar>   <!-- invalid -->
+<foo-bar></foo-bar> <!-- valid -->
+<hello-world></hello-world> <!-- valid -->
+```
+
+👍 Rule of thumb: _Use [kebab case (with hyphens)](https://en.wiktionary.org/wiki/kebab_case) for tag names._
+👍 Rule of thumb: _A closing tag **MUST** be declared (for now)!_
+
+
+#### Live `{token}`s
+
+The `{token}` is simply a [well named dynamic variable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Variables) you will **Describe** later. `{token}`s are placeholders which watch for changes to your custom element's `class` property of the same name. Since they are _"placeholders"_ and not live code, Front-end designers are no longer blocked by needing to install a Javascript framework just to write `CSS`!
+
+```html
+<foo-bar>This is a token 👉  {baz}</foo-bar>
+```
+ 👍 Rule of thumb: _If the `{token}` name is not in a thesaurus I probably can't use it._
+
+
+A _"live token"_ is a declarative way to bind data values to your Custom Element. A nice convention to a real P.I.T.A. of keeping values updated. Let's add a `{token}` to `<hello-world>` :
+
+```html
+<hello-world>
+
+  Hello {planet}
+
+</hello-world>
+```
+
+Live `{token}`s are also _"✨ automagically"_ updated each time the element re-renders.
+
+Lastly, We can visually enhance our `<hello-world>` Custom Element by making it [_"block level"_](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) with CSS `display: block`. This way our element plays nicely in our layout:
+
+```html
+<hello-world>
+
+  Hello {planet}
+
+  <style>
+    hello-world { display: block }
+  </style>
+
+</hello-world>
+```
+
+We have finished our Custom Element **Declaration** using `HTML`, & `CSS`!🌟  Now on to our **Definition**.
 
 
 ### `Element` Definition
