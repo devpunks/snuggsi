@@ -52,7 +52,7 @@
 
 # Navigation
 
- - [Custom Element`](#custom-element)
+ - [Custom `Element`](#custom-element)
    - [`HTML` Declaration](#html-declaration)
    - [`Element` Definition](#element-definition)
    - [`class` Description](#class-description)
