@@ -256,7 +256,7 @@ Element `hello-world`
 })
 ```
 
-👍 Rule of thumb: _Use backticks around tag names (``), & enclosing parenthesis around `(class …)` definitions._
+👍 Rule of thumb: _Use enclosing parenthesis around `(class …)` definitions._
 
 ⚠️ The Live `{token}` value is updated after each re-render but it beyond the scope of this simple example.
 
