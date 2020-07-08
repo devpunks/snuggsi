@@ -133,11 +133,8 @@ When picking a name for your custom element [there are a few naming conventions]
 `HTML` has always been a declarative language. Why not just use it to declare Custom Elements?
 If you know [how to write `HTML`](https://developer.mozilla.org/en-US/docs/Web/HTML) you can start using **snuggsiツ**. Sometimes you need to sandbox a section of your page for styling. Other times you need a custom container of complex functionality. Either way you usually start with a plain ole' `HTML` element Declaration :
 
-```html
-<hello-world></hello-world>
-```
 
-Et Voila ツ _(No really … That's it!)_
+#### A Brief History Lesson
 
 A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names. In the bad old days of the web, [`HTML5` elements were once _"non-standard"_ to `HTML 4.0`](https://johnresig.com/blog/html5-shiv) :
 
