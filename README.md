@@ -123,8 +123,6 @@ Gone are the sleepless nights where your code [suffers from `<div>`itus](https:/
 
 ## [Custom `Element`](/element#readme)
 
-Let's start with a simple custom element.
-
 When picking a name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you must be aware of. We can simply use `hello-world` for now.
 
 
