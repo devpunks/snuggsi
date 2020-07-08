@@ -241,6 +241,24 @@ Custom elements use the native `Element` interface definition strategy for two r
 Great so far!🎉  Although our Element behaves like any other `HTMLElement`, we should add some functionality custom to our needs. #SeeWhatWeDidThere?
 
 Next we need to pass a `class` description to the function returned by your `Element` definition.
+
+```javascript
+Element `hello-world`
+
+( class HelloWorld extends HTMLElement { … } )
+```
+👍 Rule of thumb: _**MUST** define [a `class` which `extends HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)_
+
+You can also use an [anonymous class expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/class) to describe the `class`. This convention is preferred as using an [explicit `class` declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) name would potentially polute the global namespace:
+
+```javascript
+Element `hello-world`
+
+( class extends HTMLElement { … } )
+```
+
+<hr>
+
 Since we [previously declared a `{planet}` token](#live-tokens) within our `<hello-world>` element we need to also define a `class property` **of the same name** to replace the `{planet}` token with a value.
 
 Let's add a property to our `class` definition and give `{planet}` some life :
