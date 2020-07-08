@@ -247,7 +247,7 @@ Element `hello-world`
 })
 ```
 
-👍 Rule of thumb: _Use backticks (` `…` `)  & enclosing parenthesis `()`._
+👍 Rule of thumb: _Use backticks (` `…` `)  & enclosing parenthesis around `(class …)` definition._
 
 <hr>
 
