@@ -251,7 +251,7 @@ _…or just copy & 🍝pasta  into a new HTML file and have at it!_
 ```html
 
 <hello-world>
- Hello {planet}
+  Hello {planet}
 </hello-world>
 
 <script src=//unpkg.com/snuggsi></script>
