@@ -368,7 +368,7 @@ Element `hello-kitty`
 
 ```
 
-## [Templates](/html-template-element#readme)
+## [`Template`](/html-template-element#readme)
 
 The `<template>` is used to define custom element content for use within multiple elements.
 
