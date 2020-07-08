@@ -161,8 +161,6 @@ As you learned earlier, to be considered a _"valid **Custom** Element"_ we will 
 
 👍 Rule of thumb: _Use [kebab case (with hyphens)](https://en.wiktionary.org/wiki/kebab_case) for tag names._
 
-👍 Rule of thumb: _A closing tag **MUST** be declared (for now)!_
-
 <hr>
 
 We now know enough to be dangerous and make our own Custom Element tag :
