@@ -256,7 +256,7 @@ Element `hello-world`
 <hr>
 
 
-You can also use an [anonymous class expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/class). This convention is preferred as using an [explicit `class` declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) name would potentially polute the global namespace:
+You can also use an [anonymous class expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/class) to describe the `class`. This convention is preferred as using an [explicit `class` declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) name would potentially polute the global namespace:
 
 ```javascript
 ( class extends HTMLElement { … } )
