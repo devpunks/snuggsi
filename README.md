@@ -249,6 +249,9 @@ Element `hello-world`
 })
 ```
 
+<hr>
+
+
 _⚠️ Although you **MUST** define a class which inherits from `HTMLElement`, You do not have to explicitly name your `class` descendant:_
 
 ```javascript
