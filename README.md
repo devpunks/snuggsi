@@ -263,7 +263,7 @@ You can also use an [anonymous class expression](https://developer.mozilla.org/e
 
 #### Global `event` Listeners
 
-`event` handlers can be any function which can be placed on any child elements and also onto the custom element itself _(i.e.`onclick=eatBacon`)_. However, You will not have to explicitly set the handler in HTML when you follow native naming conventions.  This is the magic behind **snuggsiツ** Global `event` Listeners. They register themselves onto the custom element and _"listen"_ for you! As a convenience, your new custom element uses [Event Delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_delegation) to capture all it's children's [event bubbles of the same name](https://javascript.info/bubbling-and-capturing).
+`event` handlers can be any method function which can be placed on any child elements and also onto the custom element itself _(i.e.`onclick=eatBacon`)_. However, You will not have to explicitly set the handler in HTML when you follow native naming conventions.  This is the magic behind **snuggsiツ** Global `event` Listeners. They register themselves onto the custom element and _"listen"_ for you! As a convenience, your new custom element uses [Event Delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_delegation) to capture all it's children's [event bubbles of the same name](https://javascript.info/bubbling-and-capturing).
 
 Lastly, all `event` handlers _(and global `event` listeners)_ are passed a native [`event` object](https://developer.mozilla.org/en-US/docs/Web/API/Event).
 
