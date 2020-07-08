@@ -118,9 +118,21 @@ Gone are the sleepless nights where your code [suffers from `<div>`itus](https:/
 **snuggsiツ** encourages [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration) using familiar techniques that are native to all browsers.
 
 Let's start with a simple custom element.
-When picking a name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you need to be aware of. We can simply use `<hello-world>` for now.
 
-`<hello-world>` has one **live `{token}`** named `{planet}` and a global event handler named `onclick`.
+
+### `HTML` Declaration
+
+If you know [how to write `HTML`](https://developer.mozilla.org/en-US/docs/Web/HTML) you can start using **snuggsiツ**. Sometimes you need to sandbox a section of your page for styling. Other times you need a custom container of complex functionality. Either way you usually start with an `HTML` element Declaration.
+
+When picking a name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you must be aware of. We can simply use `hello-world` for now.
+
+Your 
+
+Let's get back go our declaration.
+
+```html
+<hello-world></hello-world>
+```
 
 
 ### `Element` Definition
