@@ -154,8 +154,9 @@ A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names _(as long
 As you learned earlier, to be considered a _"valid **Custom** Element"_ we will need an alpha-numeric character followed by a hyphen in the tag name :
 
 ```html
-<foo></foo> <!-- invalid -->
-<foo-bar>   <!-- invalid -->
+<foo></foo> <!-- invalid (CUSTOM element but valid HTML element) -->
+<foo-bar>   <!-- invalid (no closing tag) -->
+<a-></a->   <!-- valid (we only need a character and a hyphen) -->
 <foo-bar></foo-bar> <!-- valid -->
 ```
 
