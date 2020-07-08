@@ -91,7 +91,7 @@ __*#UseThePlatform*__
 
 Et Voila _(that's it!)_ ツ
 
-## Browser Support
+# Browser Support
 
 _**snuggsiツ** provides a [prolyfill](https://github.com/devpunks/snuggsi/wiki/What-is-a-ProlyFill) for the following native web platform features:_
 
