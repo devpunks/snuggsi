@@ -160,6 +160,8 @@ As you learned earlier, to be considered a _"valid **Custom** Element"_ we will 
 
 👍 Rule of thumb: _A closing tag **MUST** be declared (for now)!_
 
+<hr>
+
 Now we know enough to be dangerous and make our own Custom Element tag :
 
 ```html
