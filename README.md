@@ -238,6 +238,8 @@ Custom elements use the native `Element` interface definition strategy for two r
 
 ### `class` Description
 
+Great so far!🎉  Although our Element behaves like any other `HTMLElement`, we should add some functionality custom to our needs. #SeeWhatWeDidThere?
+
 Next we need to pass a `class` description to the function returned by your `Element` definition.
 Since we [previously declared a `{planet}` token](#live-tokens) within our `<hello-world>` element we need to also define a `class property` **of the same name** to replace the `{planet}` token with a value.
 
