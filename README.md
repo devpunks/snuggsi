@@ -234,7 +234,9 @@ Custom elements use the native `Element` interface definition strategy for two r
 ### `class` Description
 
 Next we need to pass a `class` description to the function returned by your `Element` definition.
-Since we declared a `{token}` within our `<hello-world>` element we need to also define a `class property` **of the same name** to replace the `{planet}` token with a value :
+Since we [previously declared a `{planet}` token](#live-tokens) within our `<hello-world>` element we need to also define a `class property` **of the same name** to replace the `{planet}` token with a value.
+
+Let's add a property to our `class` definition and give `{planet}` some life :
 
 ```javascript
 
@@ -248,6 +250,8 @@ Element `hello-world`
 ```
 
 👍 Rule of thumb: _Use backticks around tag names (``), & enclosing parenthesis around `(class …)` definitions._
+
+⚠️ The Live `{token}` value is updated after each re-render but it beyond the scope of this simple example.
 
 <hr>
 
