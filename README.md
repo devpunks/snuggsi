@@ -219,9 +219,14 @@ We have finished our Custom Element **Declaration** using `HTML`, & `CSS`!🌟  
 
 ### `Element` Definition
 
+Every Custom `Element` **MUST** be defined within the [`CustomElementsRegistry`]. This is simple with **snuggsiツ**
+
+Let's `define` our element using the `Element` interface :
+
 ```javascript
 Element `hello-world`
 ```
+👍 Rule of thumb: _Use backticks around tag names (``).
 
 This syntax is not JSX. It's actually called [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) and is native to the platform.
 Custom elements use the native `Element` interface definition strategy for two reasons :
