@@ -50,6 +50,15 @@
 </p>
 
 
+# Navigation
+
+ - [Custom Element`](#custom-element)
+   - [`HTML` Declaration](#html-declaration)
+   - [`Element` Definition](#element-definition)
+   - [`class` Description](#class-description)
+ - [`Template`](#template)
+
+
 ## Why ?
   1. You prefer to be [D.R.Y.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and build reusable web components on a gradual learning curve.
   2. Because [You _(probably)_ don't need a Javascript Framework](https://slack-files.com/T03JT4FC2-F151AAF7A-13fe6f98da).
