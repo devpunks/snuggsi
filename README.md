@@ -271,6 +271,8 @@ _P.S._ **YES** the event handler will _auto`bind`_ `this` to the **current** cus
 
 _See full list of [Global Event Handlers on MDN](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers)_
 
+<hr>
+
 
 ### Hello World! _(simple)_
 
