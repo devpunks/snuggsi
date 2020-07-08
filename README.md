@@ -168,6 +168,8 @@ We now know enough to be dangerous and make our own Custom Element tag :
 
 Et Voila ツ _(No really … That's it!)_
 
+<hr>
+
 #### Live `{token}`s
 
 The `{token}` is simply a [well named dynamic variable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Variables) you will **Describe** later. `{token}`s are placeholders which watch for changes to your custom element's `class` property of the same name. Since they are _"placeholders"_ and not live code, Front-end designers are no longer blocked by needing to install a Javascript framework just to write `CSS`!
