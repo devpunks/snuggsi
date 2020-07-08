@@ -117,8 +117,6 @@ Gone are the sleepless nights where your code [suffers from `<div>`itus](https:/
 
 ## [Custom `Element`](/element#readme)
 
-**snuggsiツ** encourages [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration) using familiar techniques that are native to all browsers.
-
 Let's start with a simple custom element.
 
 
