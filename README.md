@@ -267,7 +267,7 @@ Let's add a property to our `class` definition and give `{planet}` some life :
 
 Element `hello-world`
 
-(class HelloWorld extends HTMLElement {
+(class extends HTMLElement {
 
   get planet () // used for {planet} token
     { return 'world 🌎' }
