@@ -175,7 +175,7 @@ The `{token}` is simply a [well named dynamic variable](https://developer.mozill
 ```html
 <foo-bar> This is a token 👉 {baz} and {bat} is another! </foo-bar>
 ```
- 👍 Rule of thumb: _If the `{token}` name is [not in a thesaurus](https://en.wikipedia.org/wiki/Metasyntactic_variable) I probably shouldn't use it. Not for coputers sake but for humans._
+ 👍 Rule of thumb: _If the `{token}` name is [not in a thesaurus](https://en.wikipedia.org/wiki/Metasyntactic_variable) I probably shouldn't use it._
 
 <hr>
 
