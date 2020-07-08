@@ -241,8 +241,8 @@ Element `hello-world`
 
 (class HelloWorld extends HTMLElement {
 
-  /* your definition here */
-
+  get planet ()
+    { return 'world 🌎' }
 })
 ```
 
