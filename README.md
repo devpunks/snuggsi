@@ -233,7 +233,8 @@ Custom elements use the native `Element` interface definition strategy for two r
 
 ### `class` Description
 
-Next we need to pass a `class` description to the function returned by your `Element` definition :
+Next we need to pass a `class` description to the function returned by your `Element` definition.
+Since we declared a `{token}` within our `<hello-world>` element we need to also define a `class property` **of the same name** to replace the `{planet}` token with a value :
 
 ```javascript
 
