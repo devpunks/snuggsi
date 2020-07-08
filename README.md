@@ -239,7 +239,7 @@ Next we need to pass a `class` description to the function returned by your `Ele
 
 Element `hello-world`
 
-(class MyWorld extends HTMLElement {
+(class HelloWorld extends HTMLElement {
 
   /* your definition here */
 
