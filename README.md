@@ -196,8 +196,7 @@ Let's add a `{token}` to `<hello-world>` :
 
 </hello-world>
 ```
-
-Live `{token}`s are also _"✨ automagically"_ updated each time the element re-renders.
+👍 Rule of thumb: _A `{token}` is not _"live"_ until there is a `class` description for its functionality.
 
 <hr>
 
