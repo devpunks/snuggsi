@@ -179,8 +179,6 @@ The `{token}` is simply a [well named dynamic variable](https://developer.mozill
 ```
  👍 Rule of thumb: _If the `{token}` name is [not in a thesaurus](https://en.wikipedia.org/wiki/Metasyntactic_variable) I probably shouldn't use it._
 
-<hr>
-
 A _"live token"_ is a declarative way to bind data values to your Custom Element. A nice convention to a real historical P.I.T.A. of keeping values updated. Let's add a `{token}` to `<hello-world>` :
 
 ```html
