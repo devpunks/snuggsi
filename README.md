@@ -157,6 +157,13 @@ As you learned previously, to be considered a _"valid **Custom** Element"_ we wi
 👍 Rule of thumb: _Use [kebab case (with hyphens)](https://en.wiktionary.org/wiki/kebab_case) for tag names._
 👍 Rule of thumb: _A closing tag **MUST** be declared (for now)!_
 
+Now we know enough to be dangerous and make our own Custom Element tag :
+
+```html
+<hello-world></hello-world>
+```
+
+Et Voila ツ _(No really … That's it!)_
 
 #### Live `{token}`s
 
