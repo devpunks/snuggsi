@@ -229,7 +229,6 @@ Custom elements use the native `Element` interface definition strategy for two r
   1. To prevent you from worrying about browser inconsistencies as the technology matures.
   2. Prevent global namespace polution. _(`Element` has been native to the web platform for decades!)_
 
-
 <hr>
 
 
