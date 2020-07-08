@@ -56,7 +56,7 @@
  - [Easy Installation](#easy-installation)
  - [Browser Support](#browser-support)
  - [Quick Tour](#quick-tour)
-   - [&lt;custom-elements&gt;](#custom-elemens)
+   - [&lt;custom-elements&gt;](#custom-elements)
      - [`HTML` Declaration](#html-declaration)
      - [`Element` Definition](#element-definition)
      - [`class` Description](#class-description)
