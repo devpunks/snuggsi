@@ -246,7 +246,7 @@ Element `hello-world`
 })
 ```
 
-👍 Rule of thumb: _Use backticks around tag name (``), & enclosing parenthesis around `(class …)` definition._
+👍 Rule of thumb: _Use backticks around tag names (``), & enclosing parenthesis around `(class …)` definitions._
 
 <hr>
 
