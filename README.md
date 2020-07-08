@@ -152,7 +152,6 @@ As you learned previously, to be considered a _"valid **Custom** Element"_ we wi
 <foo></foo> <!-- invalid -->
 <foo-bar>   <!-- invalid -->
 <foo-bar></foo-bar> <!-- valid -->
-<hello-world></hello-world> <!-- valid -->
 ```
 
 👍 Rule of thumb: _Use [kebab case (with hyphens)](https://en.wiktionary.org/wiki/kebab_case) for tag names._
