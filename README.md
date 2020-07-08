@@ -160,7 +160,7 @@ As you learned earlier, to be considered a _"valid **Custom** Element"_ we will 
 
 <hr>
 
-Now we know enough to be dangerous and make our own Custom Element tag :
+We now know enough to be dangerous and make our own Custom Element tag :
 
 ```html
 <hello-world></hello-world>
