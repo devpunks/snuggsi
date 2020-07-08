@@ -242,7 +242,7 @@ Element `hello-world`
 
 (class HelloWorld extends HTMLElement {
 
-  get planet ()
+  get planet () // used for {planet} token
     { return 'world 🌎' }
 })
 ```
