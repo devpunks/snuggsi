@@ -258,6 +258,8 @@ _⚠️ Although you **MUST** define a class which inherits from `HTMLElement`, 
 ( class extends HTMLElement { … } )
 ```
 
+<hr>
+
 
 ### Global `event` Listeners
 
