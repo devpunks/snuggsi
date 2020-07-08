@@ -108,6 +108,8 @@ _Please read [Microsoft Internet Explorer end-of-life announcement](https://www.
 
 # Quick Tour
 
+**snuggsiツ** encourages [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration) using familiar techniques that are native to all browsers.
+
 Gone are the sleepless nights where your code [suffers from `<div>`itus](https://css-tricks.com/css-beginner-mistakes-1/), or need to install packages on a terminal just to write `HTML`. People who are more comfortable with `HTML` should be able to start marking up their ideas immediately. You shouldn't have to know CSS or Javascript! _(But it definitely helps if you need styling and functionality)_.
 
  **snuggsiツ** believes in using [Progressive Enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). Not just with your code, but also with your Developer eXperience _(DX)_. We will start off with a simple Custom Element and gradually enhance our functionality step-by-step.
