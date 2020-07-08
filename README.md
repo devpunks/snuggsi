@@ -179,7 +179,7 @@ The `{token}` is simply a [well named dynamic variable](https://developer.mozill
 
 <hr>
 
-A _"live token"_ is a declarative way to bind data values to your Custom Element. A nice convention to a real P.I.T.A. of keeping values updated. Let's add a `{token}` to `<hello-world>` :
+A _"live token"_ is a declarative way to bind data values to your Custom Element. A nice convention to a real historical P.I.T.A. of keeping values updated. Let's add a `{token}` to `<hello-world>` :
 
 ```html
 <hello-world>
