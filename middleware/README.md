@@ -1,5 +1,7 @@
 # middleware
 
+  - [Percent Encoding](https://developer.mozilla.org/en-US/docs/Glossary/percent-encoding)
+
 
 ## snuggsi.auth
 
