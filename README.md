@@ -230,6 +230,8 @@ Every Custom `Element` **MUST** be [_Defined_ within the `CustomElementsRegistry
 Let's `define` our element using the `Element` interface :
 
 ```javascript
+// <hello-world> … </hello-world>
+
 Element `hello-world`
 ```
 👍 Rule of thumb: _Use backticks around tag names (``)._
