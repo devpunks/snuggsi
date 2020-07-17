@@ -308,7 +308,7 @@ Since our `hello-world` Custom Element is an `HTMLElement` at it's core, we can 
 document.querySelector
   ('hello-world').planet // world 🌎
 ```
-
+👍 Rule of thumb: _Do not use parenthesis `()` when calling `get`ters &amp; `set`ters._
 
 <hr>
 
