@@ -346,7 +346,7 @@ Element `hello-world`
     // after event unless prevented
     event.preventDefault ()
 
-    this // is ALWAYS bound to the Custom Element container
+    this // is ALWAYS bound to the Custom Element container 🎉
   }
 
   //  onsneeze (event)
