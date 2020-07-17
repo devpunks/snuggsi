@@ -238,7 +238,7 @@ This syntax is not JSX. It's actually called [tagged template literals](https://
 Custom elements use the native `Element` interface definition strategy for two reasons :
 
   1. To prevent you from worrying about browser inconsistencies as the technology matures.
-  2. Prevent global namespace polution. _(`Element` has been native to the web platform for decades!)_
+  2. Prevent global namespace polution. _([`Element` has been native to the web platform for decades!](https://developer.mozilla.org/en-US/docs/Web/API/Element))_
 
 Classic Javascript syntax may also be used. However [this should be the job of a transpiler not the developer](https://en.wikipedia.org/wiki/Source-to-source_compiler).
 Transpilers take care of [normalizing Modern JavaScript to a specific retrograde](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/JavaScript).
