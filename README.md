@@ -243,6 +243,7 @@ Element ('hello-world') // classic javascript definition
 
 <hr>
 
+
 ### `class` Description
 
 Great so far!🎉  Although our Element behaves like any other `HTMLElement`, we should add some functionality custom to our needs. #SeeWhatWeDidThere?
