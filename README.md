@@ -236,6 +236,7 @@ Custom elements use the native `Element` interface definition strategy for two r
 
 classic Javascript syntax may also be used. However [this should be the job of a transpiler not the developer](https://en.wikipedia.org/wiki/Source-to-source_compiler).
 Transpilers take care of [normalizing Modern JavaScript to a specific retrograde](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/JavaScript).
+
 ```javascript
 Element ('hello-world') // classic javascript definition
 ```
