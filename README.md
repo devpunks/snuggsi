@@ -268,6 +268,9 @@ Element `hello-world`
 
 <hr>
 
+
+#### Live `{token}` Definitions
+
 Since we [previously declared a `{planet}` token](#live-tokens) within our `<hello-world>` element we need to also define a `class property` **of the same name** to replace the `{planet}` token with a value.
 
 Let's add a property to our `class` definition and give `{planet}` some life :
