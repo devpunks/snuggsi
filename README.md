@@ -302,6 +302,14 @@ Element `hello-world`
 
 ⚠️ The Live `{token}` value is updated after each re-render but it beyond the scope of this simple example.
 
+Since our `hello-world` Custom Element is an `HTMLElement` at it's core, we can access our property directly from the DOM!
+
+```javascript
+document.querySelector
+  ('hello-world').planet // world 🌎
+```
+
+
 <hr>
 
 
