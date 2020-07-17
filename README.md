@@ -321,6 +321,9 @@ Element `hello-world`
 })
 ```
 
+👍 Rule of thumb: _Use native `GlobalEventHandlers`_ names if you don't want to explicitly set listeners in HTML.
+
+
 _See full list of [Global Event Handlers on MDN](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers)_
 
 Lastly, all `event` handlers _(and global `event` listeners)_ are passed a native [`event` object](https://developer.mozilla.org/en-US/docs/Web/API/Event).
