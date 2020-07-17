@@ -259,6 +259,8 @@ Great so far!🎉  Although our Element behaves like any other `HTMLElement`, we
 Next we need to pass a `class` description to the function returned by your `Element` definition.
 
 ```javascript
+// <hello-world> … </hello-world>
+
 Element `hello-world`
 
 ( class HelloWorld extends HTMLElement { … } )
