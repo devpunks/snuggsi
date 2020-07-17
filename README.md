@@ -312,6 +312,8 @@ Element `hello-world`
 Since our `hello-world` Custom Element is an `HTMLElement` at it's core, we can access our property directly from the DOM!
 
 ```javascript
+// <hello-world> … </hello-world>
+
 document.querySelector
   ('hello-world').planet // world 🌎
 ```
