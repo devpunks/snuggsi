@@ -219,7 +219,7 @@ We have finished our Custom Element **Declaration** using `HTML`, & `CSS`!🌟  
 
 ### `Element` Definition
 
-Every Custom `Element` **MUST** be defined within the [`CustomElementsRegistry`]. This is simple with **snuggsiツ**
+Every Custom `Element` **MUST** be _Defined_ within the [`CustomElementsRegistry`]. This is simple with **snuggsiツ**
 
 Let's `define` our element using the `Element` interface :
 
