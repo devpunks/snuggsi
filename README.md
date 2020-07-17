@@ -352,11 +352,6 @@ Element `hello-world`
     this // is ALWAYS bound to the Custom Element container 🎉
   }
 
-  onclick (e) { // event handler
-    // "✨ automagic" event registration
-    alert(`You clicked on ${e.target.tagName}`)
-  }
-
   //  onsneeze (event)
   //    { /* must be declared in HTML `onclick=onsneeze` */ }
 })
