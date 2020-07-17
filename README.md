@@ -220,6 +220,9 @@ Lastly, We can visually enhance our `<hello-world>` Custom Element by making it 
 We have finished our Custom Element **Declaration** using `HTML`, & `CSS`!🌟  Now on to our **Definition**.
 
 
+<hr>
+
+
 ### `Element` Definition
 
 Every Custom `Element` **MUST** be _Defined_ within the [`CustomElementsRegistry`]. This is simple with **snuggsiツ**
