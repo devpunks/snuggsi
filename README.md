@@ -308,8 +308,8 @@ Element `hello-world`
 
 (class extends HTMLElement {
 
-  // native event handler naming convention
-  onclick (event) { // for `hello-world` and all children
+  // native event handler names "automagically" bound to `hello-world`
+  onclick (event) {
 
     // prevent event from bubbling
     // Custom Element will re-render
