@@ -318,6 +318,9 @@ Element `hello-world`
 
     this // is ALWAYS bound to the Custom Element container
   }
+
+  onsneeze (event)
+    { /* must be declared in HTML `onclick=onsneeze` */ }
 })
 ```
 
