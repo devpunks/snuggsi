@@ -240,6 +240,7 @@ Transpilers take care of [normalizing Modern JavaScript to a specific retrograde
 ```javascript
 Element ('hello-world') // classic javascript definition
 ```
+
 <hr>
 
 ### `class` Description
