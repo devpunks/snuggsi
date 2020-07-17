@@ -282,7 +282,7 @@ Element `hello-world`
 
 Since we [previously declared a `{planet}` token](#live-tokens) within our `<hello-world>` element we need to also define a `class property` **of the same name** to replace the `{planet}` token with a value.
 
-Class properties may look like typical Javascript Functions. 
+Class properties may look like typical Javascript Functions. However they are treated as properties. _(called without parenthesis)_. `class` properties are described by using the [`get`ter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get) and [`set`ter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) annotations before the name.
 
 Let's add a property to our `class` definition and give `{planet}` some life :
 
