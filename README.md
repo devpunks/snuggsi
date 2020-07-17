@@ -339,7 +339,7 @@ Element `hello-world`
 (class extends HTMLElement {
 
   // native event handler names
-  // "automagically" attached to `hello-world`
+  // are "✨automagically" attached to `hello-world`
   onclick (event) {
 
     // prevent event from bubbling
