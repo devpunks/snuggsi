@@ -320,6 +320,8 @@ document.querySelector
 
 ```javascript
 // <hello-world>
+//   <!-- `onclick` is "automagically" attached -->
+//
 //   <a onclick=onsneeze> ACHOO! </a>
 // </hello-world>
 
