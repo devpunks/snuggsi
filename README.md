@@ -376,6 +376,8 @@ _…or just copy & 🍝pasta  into a new HTML file and have at it!_
 
 ```html
 
+<!-- 👇 Declaration -->
+
 <hello-world>
   Hello {planet}
 </hello-world>
