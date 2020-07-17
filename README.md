@@ -304,7 +304,22 @@ Element `hello-world`
 
 ```javascript
 
-_P.S._ **YES** the event handler will _auto`bind`_ `this` to the **current** custom element instance! :tada:
+Element `hello-world`
+
+(class extends HTMLElement {
+
+  // native event handler naming convention
+  onclick (event) { // for `hello-world` and all children
+
+    // prevent event from bubbling
+    // Custom Element will re-render
+    // after event unless prevented
+    event.preventDefault ()
+
+    this // is ALWAYS bound to the Custom Element container
+  }
+})
+```
 
 _See full list of [Global Event Handlers on MDN](https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers)_
 
