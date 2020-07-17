@@ -346,6 +346,8 @@ Element `hello-world`
     // after event unless prevented
     event.preventDefault ()
 
+    event.target // element which triggered event
+
     this // is ALWAYS bound to the Custom Element container 🎉
   }
 
