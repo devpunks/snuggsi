@@ -329,7 +329,8 @@ Element `hello-world`
 
 (class extends HTMLElement {
 
-  // native event handler names "automagically" bound to `hello-world`
+  // native event handler names
+  // "automagically" bound to `hello-world`
   onclick (event) {
 
     // prevent event from bubbling
