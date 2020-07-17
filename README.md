@@ -287,6 +287,7 @@ Class properties may look like typical Javascript Functions. However they are tr
 Let's add a property to our `class` definition and give `{planet}` some life :
 
 ```javascript
+// <hello-world> … {planet} … </hello-world>
 
 Element `hello-world`
 
