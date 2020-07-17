@@ -392,7 +392,7 @@ _…or just copy & 🍝pasta  into a new HTML file and have at it!_
 <script src=//unpkg.com/snuggsi></script>
 <script>
 
-// 👇 Definition -----------------------------
+// 👇 Definition -------------------------------
 
 Element `hello-world`
 
