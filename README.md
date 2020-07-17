@@ -297,7 +297,8 @@ Element `hello-world`
 })
 ```
 
-👍 Rule of thumb: _Use enclosing parenthesis around `(class …)` definitions._
+👍 Rule of thumb: _`class` properties are functions begining with the keywords `get` &amp; `set`._
+👍 Rule of thumb: _`{tokens}` will use the `class` property value of the same name by default._
 
 ⚠️ The Live `{token}` value is updated after each re-render but it beyond the scope of this simple example.
 
