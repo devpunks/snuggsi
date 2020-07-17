@@ -300,6 +300,7 @@ Element `hello-world`
 (class extends HTMLElement {
 
   get planet () // used for {planet} token
+    // "✨ automagic" token binding
     { return 'world 🌎' }
 })
 ```
