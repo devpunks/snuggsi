@@ -272,6 +272,9 @@ Element `hello-world`
 ( class extends HTMLElement { … } )
 ```
 
+👍 Rule of thumb: _Use enclosing parenthesis around `(class …)` definitions._
+
+
 <hr>
 
 
