@@ -21,11 +21,6 @@ https://webkit.org/blog/4096/introducing-shadow-dom-api/
 Load Time + Runtime of module loading dependencies
 https://nolanlawson.com/2016/08/15/the-cost-of-small-modules/
 
-REDUX Demistified -
-  - https://hackernoon.com/if-not-redux-then-what-fc433234f5b4#.tyisp17cy
-  - https://hackernoon.com/thinking-in-redux-when-all-youve-known-is-mvc-c78a74d35133#.2v46lnu4c
-  - http://stackoverflow.com/questions/39977540/can-redux-be-seen-as-a-pub-sub-or-observer-pattern
-
 Libraries compared by weight
 https://gist.github.com/Restuta/cda69e50a853aa64912d
 
