@@ -5,6 +5,7 @@ declare -rx     \
   DOMAIN=snuggsi.com
 
 echo "🚢  Deploying to Δ Now"
+
 echo "  👇"
 echo
 
