@@ -3,8 +3,7 @@
 SHRINK=node_modules/.bin/uglifyjs
 
 
-echo "🍤  Shrinking..."
-echo "  👇"
+echo "  🌿  Shrinking …"
 
 
 declare extensions=(es js)
