@@ -1,5 +1,8 @@
 const
-  path =
+// Navigate to chrome://version
+//path = '/usr/bin/chromium-browser'
+  headless = true
+, path     = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 , puppeteer
     = require ('puppeteer-core')
 
