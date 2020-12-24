@@ -13,7 +13,7 @@ do
   declare INPUT=dist/snuggsi.$extension
   declare OUTPUT=dist/snuggsi.min.$extension
 
-  echo "   💾  $INPUT 👉  $OUTPUT"
+  echo "   🌿  $INPUT  🍃  $OUTPUT"
 
   $SHRINK                  \
     --compress             \
