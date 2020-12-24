@@ -9,7 +9,8 @@ echo "🚢  Deploying to Δ Now"
 echo "  👇"
 echo
 
-vercel --target production
-vercel domains inspect snuggsi.com
+vercel switch $TEAM
+vercel deploy --prod
+vercel domains inspect $DOMAIN
 
 echo
