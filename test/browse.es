@@ -8,7 +8,7 @@ const
     = require ('puppeteer-core')
 
 
-module.exports = (function () {
+module.exports = async function () {
   const browser
     = puppeteer.launch ({ headless, executablePath: path })
 
