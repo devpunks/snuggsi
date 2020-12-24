@@ -10,7 +10,7 @@ const
 
 module.exports = async function () {
   const browser
-    = puppeteer.launch ({ headless, executablePath: path })
+    = await puppeteer.launch ({ headless, executablePath: path })
 
   return async function (url) {
     console.warn ('Browsing to', url, await browser)
