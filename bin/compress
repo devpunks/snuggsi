@@ -8,8 +8,7 @@ BROTLI=bro
 ZOPFLI=./node_modules/.bin/zopfli
 
 
-echo "💪  Compressing Libraries"
-echo "  👇"
+echo "  🌱  Compressing …"
 
 
 FILE=$DIST/snuggsi.min.es
