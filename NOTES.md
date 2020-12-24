@@ -42,13 +42,6 @@ http://heydonworks.com/practical_aria_examples
 Typography
 https://www.typewolf.com/cheatsheet
 
-Web Workers
-https://testdrive-archive.azurewebsites.net/HTML5/WebWorkerTest262
-
-Service workers
-https://jakearchibald.github.io/isserviceworkerready
-
-
 ==================================================================
 
 SNUGGSI
