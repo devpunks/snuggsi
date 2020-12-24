@@ -2,7 +2,6 @@ const
 // Navigate to chrome://version
 //path = '/usr/bin/chromium-browser'
   headless = true
-, url      = 'https://snuggsi.com'
 , path     = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 , puppeteer
     = require ('puppeteer-core')
