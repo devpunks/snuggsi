@@ -52,8 +52,7 @@
     "standard": "^12.0.1",
     "tap-spec": "^5.0.0",
     "tape": "^4.9.1",
-    "uglify-es": "^3.3.10",
-    "vercel": "^21.0.1"
+    "uglify-es": "^3.3.10"
   },
   "dependencies": {
     "basic-auth": "^2.0.1",
