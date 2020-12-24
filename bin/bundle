@@ -1,3 +1,8 @@
+#!/usr/bin/env bash
+
+
+echo "  🌲  Bundling …"
+
 cat                                \
   html-element/index.es            \
   token-list/index.es              \
