@@ -4,7 +4,7 @@ echo "🚢  Deploying to Δ Now"
 echo "  👇"
 echo
 
-now --target production
-now domains inspect snuggsi.com
+vercel --target production
+vercel domains inspect snuggsi.com
 
 echo
