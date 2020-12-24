@@ -13,8 +13,8 @@ echo "  🌱  Compressing …"
 
 FILE=$DIST/snuggsi.min.es
 
-echo "  💾  $FILE"
-echo "    📦  Brotli 👉  $FILE.br"
+echo "    🍃  $FILE"
+echo "       🌱  Brotli 👉  $FILE.br"
 
 $BROTLI         \
   --repeat 1    \
