@@ -1,6 +1,7 @@
 const
-  puppeteer
-    = require ('puppeteer')
+  path =
+, puppeteer
+    = require ('puppeteer-core')
 
 module.exports = (function () {
   const browser
