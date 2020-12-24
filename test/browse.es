@@ -8,7 +8,8 @@ const
 
 module.exports = (function () {
   const browser
-    = puppeteer.launch ``
+//  = puppeteer.launch ({ executablePath: path })
+    = puppeteer.launch ({ headless, executablePath: path })
 
   return async function (url) {
     console.warn ('Browsing to', url, await browser)
