@@ -14,7 +14,7 @@ module.exports = (function () {
   return async function (url) {
     console.warn ('Browsing to', url, await browser)
 
-//  return (await browser.newPage ``).goto `url`
+    return (await browser.newPage ``).goto `$url`
   }
 })()
 
