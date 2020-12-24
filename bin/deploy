@@ -1,5 +1,9 @@
 #!/usr/bin/env bash
 
+declare -rx     \
+  TEAM=devpunks \
+  DOMAIN=snuggsi.com
+
 echo "🚢  Deploying to Δ Now"
 echo "  👇"
 echo
