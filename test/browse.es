@@ -9,7 +9,6 @@ const
 
 module.exports = (function () {
   const browser
-//  = puppeteer.launch ({ executablePath: path })
     = puppeteer.launch ({ headless, executablePath: path })
 
   return async function (url) {
