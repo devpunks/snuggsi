@@ -56,7 +56,7 @@ $BROTLI         \
 > $FILE.br
 
 
-echo "    📦  GZIP   👉  $FILE.gz"
+echo "       🍀  GZIP 👉  $FILE.gz"
 
 $ZOPFLI     \
   -i 50     \
