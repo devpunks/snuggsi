@@ -4,8 +4,7 @@
 START=`date +%s`
 
 echo
-echo "📦  Compilation Process Started..."
-echo "  👇"
+echo "🎁  Compilation Process Started …"
 echo
 
 bin/bundle    && \
