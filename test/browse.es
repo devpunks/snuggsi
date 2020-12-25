@@ -18,7 +18,18 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
   const
     html = open ('./test/index.html', encoding)
   , browser
-      = await puppeteer.launch ({ headless, executablePath: path })
+      = await puppeteer.launch ({
+          headless, executablePath: path
+        , args: [
+            '--proxy-server=' + proxy,
+            '--no-sandbox',
+            '--disable-setuid-sandbox',
+            '--disable-dev-shm-usage',
+            '--disable-accelerated-2d-canvas',
+            '--disable-gpu',
+            '--window-size=1920x1080',
+          ]
+        })
 
 
   console.warn ('Browsing to', data (html))
