@@ -36,12 +36,10 @@ void (async function () {
 
 
 const
-  encoding = 'utf8'
-, root = `${process.env.NODE_PATH}/`
+  root = `${process.env.NODE_PATH}/`
 
 , { JSDOM, VirtualConsole }
     = require ('jsdom')
-, open   = require ('fs').readFileSync
 , dist   = '' // bundle (`${root}/dist/snuggsi.min`)
 
 , source  = '' // bundle (`${root}/elements/element.html`)
