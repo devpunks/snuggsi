@@ -26,7 +26,7 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
   //.goto ( data (html) )
     .setContent ( html )
 
-  await browser.close ``
+//await browser.close ``
 }
 
 
