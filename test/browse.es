@@ -1,4 +1,5 @@
 // Benchmark - https://dev.to/chuongtrh/improve-performance-generate-pdf-using-puppeteer-4lg7
+// scrapes - https://hackernoon.com/tips-and-tricks-for-web-scraping-with-puppeteer-ed391a63d952
 
 const
 // Navigate to chrome://version
