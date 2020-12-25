@@ -1,3 +1,5 @@
+// Benchmark - https://dev.to/chuongtrh/improve-performance-generate-pdf-using-puppeteer-4lg7
+
 const
 // Navigate to chrome://version
 //path = '/usr/bin/chromium-browser'
