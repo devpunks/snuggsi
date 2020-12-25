@@ -3,7 +3,11 @@
 const
 // Navigate to chrome://version
 //path = '/usr/bin/chromium-browser'
-  headless = true
+  headless = false
+, encoding = 'utf8'
+, data     = html =>
+    `data:text/html,${html}`
+, open     = require ('fs').readFileSync
 , path     = '/Applications/Google Chrome.app/Contents/MacOS/Google Chrome'
 , puppeteer
     = require ('puppeteer-core')
