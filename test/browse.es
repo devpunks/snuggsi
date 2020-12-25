@@ -31,7 +31,7 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
 
 
 void (async function () {
-  await module.exports()
+  await module.exports() //('./test/index.html')
 })()
 
 
