@@ -13,7 +13,7 @@ const
     = require ('puppeteer-core')
 
 
-module.exports = async function ( url='https://snuggsi.com' ) {
+module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
   const
     browser
       = await puppeteer.launch ({ headless, executablePath: path })
