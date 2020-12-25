@@ -15,7 +15,8 @@ const
 
 module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
   const
-    browser
+    html = open ('./test/index.html', encoding)
+  , browser
       = await puppeteer.launch ({ headless, executablePath: path })
 
 
