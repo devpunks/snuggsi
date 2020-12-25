@@ -4,7 +4,7 @@ declare -rx     \
   TEAM=devpunks \
   DOMAIN=snuggsi.com
 
-echo "🚢  Deploying to Δ Now"
+echo "🚢  Deploying to Δ Vercel"
 
 echo "  👇"
 echo
