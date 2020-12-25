@@ -21,7 +21,6 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
       = await puppeteer.launch ({
           headless, executablePath: path
         , args: [
-            '--proxy-server=' + proxy,
             '--no-sandbox',
             '--disable-setuid-sandbox',
             '--disable-dev-shm-usage',
