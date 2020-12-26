@@ -30,7 +30,7 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
   , page = await browser.newPage ``
 
 
-  void await (await browser.newPage ``)
+  void await page
   //.goto ( data (html) )
     .setContent ( html )
 
