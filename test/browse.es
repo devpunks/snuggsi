@@ -22,6 +22,7 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
           headless
         , dumpio: true
         , timeout: 25000
+        , devtools: true
         , executablePath: path
         , waitUntil: 'networkidle2'
 //      , args: [
