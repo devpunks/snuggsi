@@ -98,3 +98,15 @@ function read (path)
 
 function find (path)
   { return `${path}` }
+
+const
+  blockedResourceTypes = [
+    'image'
+  , 'media'
+  , 'font'
+  , 'texttrack'
+  , 'object'
+  , 'beacon'
+  , 'csp_report'
+  , 'imageset'
+  ]
