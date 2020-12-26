@@ -20,6 +20,7 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
   , browser
       = await puppeteer.launch ({
           headless
+        , dumpio: true
         , timeout: 25000
         , executablePath: path
         , waitUntil: 'networkidle2'
