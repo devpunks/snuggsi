@@ -20,11 +20,11 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
   , browser
       = await puppeteer.launch ({
           headless, executablePath: path
-        , args: [
-            '--no-sandbox',
-          , '--disable-gpu',
-          , '--window-size=1920x1080',
-          ]
+//      , args: [
+//          '--no-sandbox',
+//        , '--disable-gpu',
+//        , '--window-size=1920x1080',
+//        ]
         })
 
 
