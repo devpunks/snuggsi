@@ -34,6 +34,7 @@ const
 //        ]
       })
 
+, page = await browser.newPage ``
   void await page
   //.goto ( data (html) )
     .setContent ( html )
