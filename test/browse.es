@@ -17,17 +17,16 @@ const
 
 
 module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
-  const
-    html = open ('./test/index.html', encoding)
-  , browser
-      = await puppeteer.launch ({
-        // flags - https://peter.sh/experiments/chromium-command-line-switches/
-          headless
-        , dumpio: true
-        , timeout: 25000
-        , devtools: true
-        , executablePath: path
-        , waitUntil: 'networkidle2'
+const
+  browser
+    = await puppeteer.launch ({
+      // flags - https://peter.sh/experiments/chromium-command-line-switches/
+        headless
+      , dumpio: true
+      , timeout: 25000
+      , devtools: true
+      , executablePath: path
+      , waitUntil: 'networkidle2'
 //      , args: [
 //          '--no-sandbox',
 //        , '--disable-gpu',
