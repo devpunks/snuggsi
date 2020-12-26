@@ -34,6 +34,9 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
   //.goto ( data (html) )
     .setContent ( html )
 
+
+  console.warn ( await page.content () )
+
 //await browser.close ``
 }
 
