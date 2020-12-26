@@ -19,7 +19,10 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
     html = open ('./test/index.html', encoding)
   , browser
       = await puppeteer.launch ({
-          headless, executablePath: path
+          headless
+        , timeout: 25000
+        , executablePath: path
+        , waitUntil: 'networkidle2'
 //      , args: [
 //          '--no-sandbox',
 //        , '--disable-gpu',
