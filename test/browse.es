@@ -32,10 +32,7 @@ const
 //        , '--disable-gpu',
 //        , '--window-size=1920x1080',
 //        ]
-        })
-
-  , page = await browser.newPage ``
-
+      })
 
   void await page
   //.goto ( data (html) )
