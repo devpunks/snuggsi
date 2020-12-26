@@ -29,7 +29,6 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
 
   , page = await browser.newPage ``
 
-  console.warn ('Browsing to', data (html))
 
   void await (await browser.newPage ``)
   //.goto ( data (html) )
