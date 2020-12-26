@@ -19,6 +19,7 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
     html = open ('./test/index.html', encoding)
   , browser
       = await puppeteer.launch ({
+        // flags - https://peter.sh/experiments/chromium-command-line-switches/
           headless
         , dumpio: true
         , timeout: 25000
