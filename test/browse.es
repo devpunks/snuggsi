@@ -13,6 +13,8 @@ const
 , puppeteer
     = require ('puppeteer-core')
 
+, html = open ('./test/index.html', encoding)
+
 
 module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
   const
