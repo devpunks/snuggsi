@@ -26,7 +26,7 @@
     "web",
     "components"
   ],
-  "main": "./index.es",
+  "main": "./dist/snuggsi.min.es.js",
   "exports": {
     ".": {
       "browser": {
