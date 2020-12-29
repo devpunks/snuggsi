@@ -3,7 +3,7 @@
 declare -r  DESTINATION=public
 declare -ar ASSETS=(favicon.ico sandbox.html index.html index.css)
 
-echo "📤  Publishing static assets ..."
+echo "📤  Publishing static assets …"
 echo "  To 👉  $DESTINATION/"
 echo "  👇"
 
