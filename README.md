@@ -88,7 +88,7 @@ __*#UseThePlatform*__
 
 ```html
 <!-- http(s): protocol required to run locally -->
-<script src=//unpkg.com/snuggsi></script>
+<script nomodule src=//unpkg.com/snuggsi></script>
 ```
 
 Et Voila _(that's it!)_ ツ

@@ -27,6 +27,13 @@
     "components"
   ],
   "main": "./index.es",
+  "exports": {
+    ".": {
+      "browser": {
+        "default": "./dist/snuggsi.min.es.js"
+      }
+    }
+  },
   "unpkg": "./dist/snuggsi.min.es.js",
   "module": "./dist/snuggsi.min.es",
   "directories": {
