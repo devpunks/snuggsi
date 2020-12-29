@@ -1,4 +1,5 @@
 *
 !index.html
+!favicon.ico
 !*.css
 !browser-sync.js
