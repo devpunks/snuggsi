@@ -1,9 +1,6 @@
 **
 
-# .vercel
-# .vscode
-# .github
-# .travis.yml
+!package-lock.json
 
 # lib
 # test
