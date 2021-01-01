@@ -169,7 +169,6 @@ $ bin/distribute
   - https://docs.npmjs.com/cli/v6/using-npm/semver
   - https://sedimental.org/designing_a_version.html
   - https://en.wikipedia.org/wiki/Software_versioning
-  - https://github.com/muratgozel/node-calver
   - https://github.com/mahmoud/zerover
 
   Steps:
