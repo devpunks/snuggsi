@@ -187,7 +187,7 @@ npm bugs # Github issues
 npm doctor
 npm audit  # Cleanup npm packages
 npm ci
-npm version major --m "⏰  %s CalVer Annual Major Release"
+npm version major -m "⏰  %s CalVer Annual Major Release"
 npm cache add <folder>
 npm shrinkwrap # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
 npm deprecate <pkg>[@<previous-year-version>] <message>
