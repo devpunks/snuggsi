@@ -179,7 +179,7 @@ $ bin/distribute
 ``` bash
 npm whoami
 npm owner
-npm org ls
+npm org
 npm token list
 npm config edit
 npm issues # Github issues
