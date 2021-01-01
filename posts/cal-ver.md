@@ -1,4 +1,4 @@
-# SemVer is sooo `20.2.0` 😱
+# `SemVer` is sooo `20.2.0` 😱
 
 ## Oi!
     - From New year resolutions to what smartphone we own _(this year)_. There is only one constant in the global namespace. ⏰ `Time`. that ticks us off like epoch dates.
