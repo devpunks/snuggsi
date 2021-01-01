@@ -227,6 +227,7 @@ npm test
 npm version prerelease
 npm publish --tag=dev
 
+# Automated Midnight
 npm version patch
 npm publish # Automated Midnight
 ```
