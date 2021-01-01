@@ -172,6 +172,45 @@ $ bin/distribute
   - https://github.com/mahmoud/zerover
 
   Steps:
+
+Annual Major Release
+``` bash
+npm whoami
+npm owner
+npm org ls
+npm token list
+npm config edit
+npm issues # Github issues
+npm bugs # Github issues
+npm doctor
+npm audit  # Cleanup npm packages
+npm ci
+npm version major --m "⏰  %s CalVer Annual Major Release"
+npm cache add <folder>
+npm shrinkwrap # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
+npm deprecate <pkg>[@<previous-year-version>] <message>
+npm publish --tag=stable
+```
+
+
+Monthly Minor Release
+``` bash
+# Update node
+npm view
+npm ls
+npm outdated
+npm install -g npm@latest
+npm update --also=dev
+npm prune
+npm dedupe
+npm link # https://docs.npmjs.com/cli/v6/commands/npm-link
+npm rebuild
+npm update
+npm pack
+npm issues # Github issues
+npm bugs # Github issues
+npm version minor --m "⏰  %s CalVer Monthly Minor Release"
+npm publish --tag=stable
 ```
 npm audit
 ```
