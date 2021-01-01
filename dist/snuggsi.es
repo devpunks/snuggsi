@@ -605,7 +605,7 @@ const Custom = Element => // why buble
 // http://2ality.com/2013/09/window.html
 // http://tobyho.com/2013/03/13/window-prop-vs-global-var
 
-const Element = function () {
+const Element = tag => (
 
 //      const constructor =// swizzle
 //        typeof tag === 'string'
@@ -623,4 +623,4 @@ const Element = function () {
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 //  E.prototype = Element.prototype
 //  return E
-}
+)
