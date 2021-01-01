@@ -227,6 +227,8 @@ npm version prepatch -m "⏰  %s Rise & Grind !"
 ```
 
 ``` bash
+# Tools
+
 npm edit <pkg>[/<subpkg>...]
 npm explore some-dependency -- git pull origin master
 npm test
