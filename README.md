@@ -666,7 +666,7 @@ bundles as small as *~1500 OCTETS* _(or one 1500byte Ethernet packet frame)_
 ### CalVer _(Calendar Versioning)_
 
 A chronological [CalVer](https://calver.org) strategy is used instead of [SemVer](https://semver.org).
-[Read More](https://github.com/devpunks/snuggsi/tree/master/bin#distribute)
+[Read More](bin#distribute)
 
 
 
