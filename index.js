@@ -658,7 +658,7 @@ var Custom = function (Element) { return ( /*@__PURE__*/(function (superclass) {
 // http://2ality.com/2013/09/window.html
 // http://tobyho.com/2013/03/13/window-prop-vs-global-var
 
-var Element = function () {
+var Element = function (tag) { return (
 
 //      const constructor =// swizzle
 //        typeof tag === 'string'
@@ -669,11 +669,11 @@ var Element = function () {
         // https://github.com/w3c/webcomponents/issues/587#issuecomment-271031208
         // https://github.com/w3c/webcomponents/issues/587#issuecomment-254017839
 
-      !function(Element) { return customElements.define
+      function (Element) { return customElements.define
           ( tag + '', Custom (Element) ); }
 
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 //  E.prototype = Element.prototype
 //  return E
-}
+); }
 
