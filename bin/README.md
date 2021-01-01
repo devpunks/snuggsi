@@ -220,6 +220,7 @@ npm version prepatch -m "⏰  %s It\'s the first of the month!"
 
 #### Daily Patch Release
 
+``` bash
 # Automated Midnight
 npm version patch
 npm publish
