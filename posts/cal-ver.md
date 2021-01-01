@@ -23,7 +23,8 @@
       - {% youtube HED4h00xPPA %}
       - Here is some logic for you. _"`if` **SemVer** is for better communication, `then` why do we speak to each other like a `SPACE-X™` satellite when we make changes to our code?"_. Honest question...
       - Nothing _wrong_ with **SemVer**. Be more **Sem**antic in our **Ver**sioning.
-      - [Naming things is hard. Versioning even harder](https://kodfabrik.com/journal/i-ve-just-liberated-my-modules)
+      - [Naming things is hard. Versioning even harder.
+      - [Because one person can still take down the whole interwebz.](https://kodfabrik.com/journal/i-ve-just-liberated-my-modules)
     - **DD** Daily Headbang _(No Crystal Balls)_
     - **MM** Monthly Moshpits
     - **WW** Minor Threats _(In My Eyes...THIS IS FINE!)_
