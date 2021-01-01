@@ -210,6 +210,7 @@ npm pack
 npm issues # Github issues
 npm bugs # Github issues
 npm version minor --m "⏰  %s CalVer Monthly Minor Release"
+npm version prepatch --m "⏰  %s CalVer Monthly Minor Release"
 npm publish --tag=stable
 ```
 
