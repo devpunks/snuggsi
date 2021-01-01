@@ -57,7 +57,7 @@ echo
 
 echo "  🆕 Publishing library to https://npmjs.org"
 echo
-npm publish
+#npm publish
 echo
 
 
