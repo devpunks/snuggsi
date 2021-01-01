@@ -183,7 +183,6 @@ npm org
 npm token
 npm config
 npm issues # Github issues
-npm bugs # Github issues
 npm doctor
 npm audit  # Cleanup npm packages
 npm ci
