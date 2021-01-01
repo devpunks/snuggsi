@@ -239,7 +239,7 @@ npm test
 
 npm version prerelease
 npm publish --tag=dev
-
+```
 
 ## [`integrate`](integrate)
 
