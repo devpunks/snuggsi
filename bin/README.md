@@ -196,7 +196,7 @@ npm version prepatch -m "⏰  %s Happy New Year !"
 ```
 
 
-Monthly Minor Release
+#### Monthly Minor Release
 ``` bash
 # Update node
 npm view
