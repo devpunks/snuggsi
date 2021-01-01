@@ -170,6 +170,11 @@ $ bin/distribute
   - https://en.wikipedia.org/wiki/Software_versioning
   - https://github.com/muratgozel/node-calver
 
+  Steps:
+```
+npm audit
+```
+
 
 ## [`integrate`](integrate)
 
