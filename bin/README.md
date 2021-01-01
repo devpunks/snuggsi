@@ -170,6 +170,7 @@ $ bin/distribute
   - https://sedimental.org/designing_a_version.html
   - https://en.wikipedia.org/wiki/Software_versioning
   - https://github.com/mahmoud/zerover
+  - [Tex Versioning](https://en.wikipedia.org/wiki/Software_versioning#TeX)
 
   Steps:
 
