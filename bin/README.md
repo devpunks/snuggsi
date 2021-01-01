@@ -212,13 +212,13 @@ npm update
 npm pack
 npm issues # Github issues
 npm bugs # Github issues
-npm version minor --m "⏰  %s CalVer Monthly Minor Release"
-npm version prepatch --m "⏰  %s CalVer Monthly Minor Release"
+npm version minor -m "⏰  %s CalVer Monthly Minor Release"
 npm publish --tag=stable
+npm version prepatch -m "⏰  %s It\'s the first of the month!"
 ```
 
 
-Daily Patch Release
+#### Daily Patch Release
 ``` bash
 npm edit <pkg>[/<subpkg>...]
 npm explore some-dependency -- git pull origin master
