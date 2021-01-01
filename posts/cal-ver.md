@@ -8,6 +8,7 @@
 ## What is the point?
     - The Love of Zero
       -  `git init`
+      - ![Alt Text](https://dev-to-uploads.s3.amazonaws.com/i/nmj4g0c6bp72hgiv8kbw.png)<br />Hearts break. And so does code.
     - Zero Ver
     - The Death of Tex
     - Many have no point. Apple, HTML, 
