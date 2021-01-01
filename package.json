@@ -47,8 +47,7 @@
     "postinstall": "#snuggsi publish"
   },
   "devDependencies": {
-    "autoprefixer": "^9.4.2",
-    "browser-sync": "^2.26.7",
+    "browser-sync": "*",
     "buble": "^0.20",
     "jsdom": "^13.0.0",
     "node-fetch": "^2.3.0",
