@@ -55,10 +55,10 @@
     "nyc": "*",
     "puppeteer-core": "*",
     "snuggsi": ".",
-    "standard": "^12.0.1",
-    "tap-spec": "^5.0.0",
-    "tape": "^4.9.1",
-    "uglify-es": "^3.3.10"
+    "standard": "*",
+    "tap-spec": "*",
+    "tape": "*",
+    "uglify-es": "*"
   },
   "dependencies": {
     "basic-auth": "^2.0.1",
