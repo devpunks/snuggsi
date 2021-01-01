@@ -159,6 +159,17 @@ $ bin/distribute
   Used to mark revisions of library upstream on [Github](https://github.com/devpunks/snuggsi)
   and [npm](https://npmjs.com/package/snuggsi).
 
+  **NOTE:** A chronological [CalVer](https://calver.org) strategy is used instead of [SemVer](https://semver.org).
+
+
+### References
+
+  - https://sedimental.org/designing_a_version.html
+  - https://en.wikipedia.org/wiki/Software_versioning#TeX
+  - https://calver.org/overview.html
+  - https://github.com/mahmoud/calver
+  - https://github.com/muratgozel/node-calver
+
 
 ## [`integrate`](integrate)
 
