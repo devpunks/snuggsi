@@ -233,14 +233,10 @@ npm edit <pkg>[/<subpkg>...]
 npm explore some-dependency -- git pull origin master
 npm test
 
+# Manual Pre Release
+
 npm version prerelease
 npm publish --tag=dev
-
-# Automated Midnight
-npm version patch
-npm publish
-npm version prepatch -m "⏰  %s Rise & Grind !"
-```
 
 
 ## [`integrate`](integrate)
