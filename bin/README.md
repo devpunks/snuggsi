@@ -175,7 +175,7 @@ $ bin/distribute
 
 ### CalVer
 
-  - [Ubuntu Versioin History](https://en.wikipedia.org/wiki/Ubuntu_version_history)
+  - [Ubuntu Version History](https://en.wikipedia.org/wiki/Ubuntu_version_history)
 
 #### Annual Major Release
 ``` bash
