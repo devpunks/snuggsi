@@ -222,6 +222,7 @@ npm version prepatch -m "⏰  %s It\'s the first of the month!"
 
 ``` bash
 # Automated Midnight
+
 npm version patch
 npm publish
 npm version prepatch -m "⏰  %s Rise & Grind !"
