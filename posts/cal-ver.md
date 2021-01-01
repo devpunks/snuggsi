@@ -28,7 +28,8 @@
       - Nothing _wrong_ with **SemVer**. Be more **Sem**antic in our **Ver**sioning.
       - [Naming things is hard. Versioning even harder.
       - Never Forget [_"I Just Liberated My Modules"](https://kodfabrik.com/journal/i-ve-just-liberated-my-modules) Because one person can still take down the whole interwebz.
-    - **DD** Daily Headbang _(No Crystal Balls)_
+    - **DD** Daily Deadlines _(No Crystal Balls)_
+       - A strict posting schedule is totally rad. It forces us to break out of too many ideas and build **SOMETHING**! What we build may not be perfect. But it will be the best idea we had at that moment`.js` in time.
     - **MM** Monthly Moshpits
     - **WW** Minor Threats _(In My Eyes...THIS IS FINE!)_
       - _(N/A)_ Divisible by 2 AND 4.
