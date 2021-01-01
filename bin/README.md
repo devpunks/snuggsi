@@ -221,7 +221,7 @@ npm edit <pkg>[/<subpkg>...]
 npm explore some-dependency -- git pull origin master
 npm test
 
-npm version patch
+npm version prerelease
 npm publish --tag=dev
 
 npm version patch
