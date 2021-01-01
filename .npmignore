@@ -1,6 +1,24 @@
-test
-public
-examples
-resources
-benchmarks
-resource/fixtures
+# *.es
+# *.css
+# !*.md
+# **/*.md
+# **/*.idl
+# **/*.impl
+# **/*.test
+# **/*.html
+# **/*.webidl
+
+# .vercel
+# .vscode
+# .github
+# .travis.yml
+
+# lib
+# test
+# public
+# examples
+# resources
+# benchmarks
+
+# server/fixtures
+# resource/fixtures
