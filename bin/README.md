@@ -227,7 +227,7 @@ npm version patch
 npm publish
 npm version prepatch -m "⏰  %s Rise & Grind !"
 
-``` bash
+
 # Tools
 
 npm edit <pkg>[/<subpkg>...]
