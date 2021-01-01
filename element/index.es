@@ -1,7 +1,7 @@
 // http://2ality.com/2013/09/window.html
 // http://tobyho.com/2013/03/13/window-prop-vs-global-var
 
-const Element = tag => (
+const Element = (tag) => (
 
 //      const constructor =// swizzle
 //        typeof tag === 'string'
