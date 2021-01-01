@@ -173,7 +173,9 @@ $ bin/distribute
 
   Steps:
 
-Annual Major Release
+### CalVer
+
+#### Annual Major Release
 ``` bash
 npm whoami
 npm owner
