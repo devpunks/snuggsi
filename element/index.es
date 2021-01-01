@@ -19,4 +19,4 @@ const Element = function () {
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 //  E.prototype = Element.prototype
 //  return E
-)
+}
