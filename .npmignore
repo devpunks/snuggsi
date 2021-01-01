@@ -1,12 +1,4 @@
-# *.es
-# *.css
-# !*.md
-# **/*.md
-# **/*.idl
-# **/*.impl
-# **/*.test
-# **/*.html
-# **/*.webidl
+**
 
 # .vercel
 # .vscode
