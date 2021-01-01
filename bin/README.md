@@ -166,6 +166,8 @@ $ bin/distribute
 
   - https://calver.org/overview.html
   - https://github.com/mahmoud/calver
+  - https://sedimental.org/designing_a_version.html
+  - https://en.wikipedia.org/wiki/Software_versioning
   - https://github.com/muratgozel/node-calver
 
 
