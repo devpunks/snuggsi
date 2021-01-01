@@ -229,7 +229,8 @@ npm publish --tag=dev
 
 # Automated Midnight
 npm version patch
-npm publish # Automated Midnight
+npm publish
+npm version prepatch -m "⏰  %s Rise & Grind !"
 ```
 
 
