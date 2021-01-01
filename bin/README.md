@@ -212,7 +212,19 @@ npm bugs # Github issues
 npm version minor --m "⏰  %s CalVer Monthly Minor Release"
 npm publish --tag=stable
 ```
-npm audit
+
+
+Daily Patch Release
+``` bash
+npm edit <pkg>[/<subpkg>...]
+npm explore some-dependency -- git pull origin master
+npm test
+
+npm version patch
+npm publish --tag=dev
+
+npm version patch
+npm publish # Automated Midnight
 ```
 
 
