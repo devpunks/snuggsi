@@ -219,6 +219,13 @@ npm version prepatch -m "⏰  %s It\'s the first of the month!"
 
 
 #### Daily Patch Release
+
+# Automated Midnight
+npm version patch
+npm publish
+npm version prepatch -m "⏰  %s Rise & Grind !"
+```
+
 ``` bash
 npm edit <pkg>[/<subpkg>...]
 npm explore some-dependency -- git pull origin master
