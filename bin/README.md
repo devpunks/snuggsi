@@ -181,7 +181,7 @@ npm whoami
 npm owner
 npm org
 npm token
-npm config edit
+npm config
 npm issues # Github issues
 npm bugs # Github issues
 npm doctor
