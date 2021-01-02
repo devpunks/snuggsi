@@ -15,6 +15,7 @@
 ## _"We'll do it in PHASE 2.0"_ 👀
     - Has become a graveyard for unrequested features
     - What ever happened to Web 3.0?
+    - Did you really see a difference when Apple version bumped OSX from 10.15 to 11.0? Or did you have more important things going on at home than what problems were in Big Sur? (did we get 10x the increase?)
 ## ...But what about SemVer?
      - The Emperor has no clothes
      - **MUST** be auto incrementing
