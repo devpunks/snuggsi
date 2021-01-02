@@ -21,9 +21,6 @@
      - Continuous Integration Steps
      - Facce it. **SemVer**
 ## A brand new **_DD_ ay**...A brand new **_YYYY_ ear**
-    - **Ubuntu**: African Humanity as a System _(AHaaS if you will)_
-      - {% wikipedia https://en.wikipedia.org/wiki/Ubuntu_philosophy %}
-      - {% youtube HED4h00xPPA %}
       - Here is some logic for you. _"`if` **SemVer** is for better communication, `then` why do we speak to each other like a `SPACE-X™` satellite when we make changes to our code?"_. Honest question...
       - Nothing _wrong_ with **SemVer**. Be more **Sem**antic in our **Ver**sioning.
       - [Naming things is hard. Versioning even harder.
