@@ -37,7 +37,7 @@
     - {% wikipedia https://en.wikipedia.org/wiki/Ubuntu_philosophy %}
     - {% youtube HED4h00xPPA %}
   - New Year resolution.
-    - What if we can create software without dragging developers through our release cycles? Whether you live life on the edge of `latest`, or prefer a more `stable` point in history. Maybe they are both correct. 'Could be right...'Could be wrong...but at least we will be [**On Time** ⏰ with the rest of the world](https://www.news.com.au/technology/why-do-americans-put-the-date-the-wrong-way-around/news-story/2623ac4a756a5948df44c0233ea8b4a9).
+    - What if we can create software without dragging developers through our release cycles? Whether you live life on the edge of `latest`, or prefer a more `stable` point in history. Maybe they are both correct. The grocery store has used **CalVer** for centuries. Would this improve **D**eveloper e**X**perience? 'Could be right...'Could be wrong...but at least we will be [**On Time** ⏰ with the rest of the world](https://www.news.com.au/technology/why-do-americans-put-the-date-the-wrong-way-around/news-story/2623ac4a756a5948df44c0233ea8b4a9).
 
 Rock your release today!
 
