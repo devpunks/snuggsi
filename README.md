@@ -63,7 +63,7 @@
    - [`Template`](#template)
 
 
-# Why ?
+# [Why ?](https://github.com/devpunks/snuggsi/wiki/Why%3F)
 
   1. You prefer to be [D.R.Y.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and build reusable web components on a gradual learning curve.
   2. Because [You _(probably)_ don't need a Javascript Framework](https://dev.to/steelvoltage/you-probably-don-t-need-a-front-end-framework-26o6).
