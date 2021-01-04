@@ -184,7 +184,7 @@ $ bin/distribute
 git pull -r origin master
 npm whoami
 npm owner
-npm org
+npm org devpunks ls
 npm token
 npm config
 npm issues # Github issues
