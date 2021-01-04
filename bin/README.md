@@ -241,6 +241,7 @@ npm test
 
 # Manual Pre Release & Bug fixes
 
+git pull -r origin master
 npm version prerelease
 
 ```
