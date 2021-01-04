@@ -181,6 +181,7 @@ $ bin/distribute
 
 #### Annual Major Release
 ``` bash
+git pull -r origin master
 npm whoami
 npm owner
 npm org
