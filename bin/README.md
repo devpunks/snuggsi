@@ -205,6 +205,7 @@ git push origin --tags
 
 ``` bash
 # Update node
+git pull -r origin master
 npm view
 npm ls
 npm outdated
