@@ -239,10 +239,11 @@ npm explore some-dependency -- git pull origin master
 npm test
 
 
-# Manual Pre Release
+# Manual Pre Release & Bug fixes
 
 npm version prerelease
 npm publish --tag=dev
+
 ```
 
 ## [`integrate`](integrate)
