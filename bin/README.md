@@ -234,7 +234,8 @@ git push origin --tags
 git pull -r origin master
 npm version patch
 npm publish
-npm version prepatch -m "⏰  %s Rise & Grind !"
+npm version prepatch -m "😴  %s Night Night !"
+git push origin --tags
 
 
 # Tools
