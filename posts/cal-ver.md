@@ -40,6 +40,10 @@
   - New Year resolution.
     - What if we can create software without dragging developers through our release cycles? Whether you live life on the edge of `latest`, or prefer a more `stable` point in history. Maybe they are both correct. The grocery store has used **CalVer** for centuries. Would this improve **D**eveloper e**X**perience? 'Could be right...'Could be wrong...but at least we will be [**On Time** ⏰ with the rest of the world](https://www.news.com.au/technology/why-do-americans-put-the-date-the-wrong-way-around/news-story/2623ac4a756a5948df44c0233ea8b4a9).
 
+    _"Release early, release often. Don't screw with your production users, though. use npm tags!"_
+    @andywer {% devto https://dev.to/andywer/how-to-use-npm-tags-4lla %}
+
+
 Rock your release today!
 
 ![snuggsiツ CalVer releases](https://dev-to-uploads.s3.amazonaws.com/i/4ll6ojigi5w69fetfanv.png)
