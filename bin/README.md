@@ -197,6 +197,7 @@ npm shrinkwrap # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
 npm deprecate <pkg>[@<previous-year-version>] <message>
 npm publish --tag=stable
 npm version prepatch -m "⏰  %s Happy New Year !"
+git push origin --tags
 ```
 
 
