@@ -242,7 +242,6 @@ npm test
 # Manual Pre Release & Bug fixes
 
 npm version prerelease
-npm publish --tag=dev
 
 ```
 
