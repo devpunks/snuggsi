@@ -231,6 +231,7 @@ git push origin --tags
 ``` bash
 # Automated Midnight
 
+git pull -r origin master
 npm version patch
 npm publish
 npm version prepatch -m "⏰  %s Rise & Grind !"
