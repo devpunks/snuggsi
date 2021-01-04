@@ -243,6 +243,8 @@ npm test
 
 git pull -r origin master
 npm version prerelease
+npm publish
+git push origin --tags
 
 ```
 
