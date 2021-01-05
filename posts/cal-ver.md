@@ -20,7 +20,6 @@
      - The Emperor has no clothes
      - **MUST** be auto incrementing
      - Continuous Integration Steps
-     - Facce it. **SemVer**
 ## A brand new **_DD_ ay**...A brand new **_YYYY_ ear**
       - Here is some logic for you. _"`if` **SemVer** is for better communication, `then` why do we speak to each other like a `SPACE-X™` satellite when we make changes to our code?"_. Honest question...
       - Nothing _wrong_ with **SemVer**. Be more **Sem**antic in our **Ver**sioning.
