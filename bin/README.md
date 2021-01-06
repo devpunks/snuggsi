@@ -172,6 +172,11 @@ $ bin/distribute
   - https://github.com/mahmoud/zerover
   - [Tex Versioning](https://en.wikipedia.org/wiki/Software_versioning#TeX)
 
+#### Github Actions
+  - Building and testing Node.jso
+  - Github Encrypted Secrets - https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets
+  - Publishing packages to npm directory from Github - https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
+
   Steps:
 
 ### CalVer
