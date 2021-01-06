@@ -245,7 +245,8 @@ git pull -r origin master
 npm version patch
 npm publish
 npm version prepatch -m "😴  %s Night Night !"
-git push origin --tags
+git push origin master
+git push origin master --tags
 
 
 # Tools
