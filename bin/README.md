@@ -229,7 +229,8 @@ npm bugs # Github issues
 npm version minor -m "⏰  %s CalVer Monthly Minor Release"
 npm publish --tag=stable
 npm version prepatch -m "⏰  %s It\'s the first of the month!"
-git push origin --tags
+git push origin master
+git push origin master --tags
 
 # Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
 ```
