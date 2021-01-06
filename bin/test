@@ -12,11 +12,10 @@ declare -r \
   TEST=`bin`/tape
 
 
+echo
 echo "🚨  Testing, Testing, 1,2,3, ..."
 echo
 echo "  Suite 👉  $SUITE"
 echo
 
 $TEST $SUITE | $SPEC
-
-echo
