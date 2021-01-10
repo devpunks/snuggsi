@@ -207,6 +207,7 @@ npm deprecate <pkg>[@<previous-year-version>] <message>
 npm publish --tag=stable
 npm version prepatch -m "⏰  %s Happy New Year !"
 git push origin master --follow-tags
+
 # Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
 ```
 
