@@ -176,7 +176,7 @@ $ bin/distribute
 
 #### Github Actions
 
-  - Building and testing Node.jso
+  - Building and testing Node.json
   - Github Encrypted Secrets - https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets
   - Publishing packages to npm directory from Github - https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
 
