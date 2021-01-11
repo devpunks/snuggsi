@@ -261,8 +261,7 @@ npm test
 git pull -r origin master
 npm version prerelease
 npm publish
-git push origin master
-git push origin master --tags
+git push origin master --follow-tags
 # Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
 
 ```
