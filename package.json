@@ -15,8 +15,7 @@
   },
   "homepage": "https://github.com/devpunks/snuggsi#readme",
   "engines": {
-    "npm": ">=5.0.x",
-    "node": ">=9.8.x"
+    "node": ">=16.14.x"
   },
   "repository": {
     "type": "git",
