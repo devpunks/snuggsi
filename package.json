@@ -46,17 +46,12 @@
     "postinstall": "#snuggsi publish"
   },
   "devDependencies": {
-    "browser-sync": "*",
     "buble": "^0.20",
     "jsdom": "*",
-    "node-fetch": "*",
-    "node-zopfli": "*",
     "nyc": "*",
     "puppeteer-core": "*",
     "snuggsi": ".",
     "standard": "*",
-    "tap-spec": "*",
-    "tape": "*",
     "uglify-es": "*"
   },
   "dependencies": {
