@@ -254,7 +254,7 @@ Element ('hello-world') // classic javascript definition
 
 ### `class` Description
 
-Great so far!🎉  Although our Element behaves like any other `HTMLElement`, we should add some functionality custom to our needs. _#SeeWhatWeDidThere_?
+Great so far!🎉  Although our Element behaves like any other `HTMLElement`, we should add some functionality custom to our needs.
 
 Next we need to pass a `class` description to the function returned by your `Element` definition.
 
