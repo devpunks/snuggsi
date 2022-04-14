@@ -1,4 +1,6 @@
 {
+  "license": "MIT",
+  "private": false,
   "name": "snuggsi",
   "version": "2022.1.1",
   "author": [
@@ -6,19 +8,16 @@
     "Brandondees"
   ],
   "description": "Easy Web Components in 1kB",
-  "bin": {
-    "snuggsi": "bin/snuggsi"
+  "homepage": "https://github.com/devpunks/snuggsi#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/devpunks/snuggsi.git"
   },
   "bugs": {
     "url": "https://github.com/devpunks/snuggsi/issues"
   },
-  "homepage": "https://github.com/devpunks/snuggsi#readme",
   "engines": {
     "node": ">=16.14.x"
-  },
-  "repository": {
-    "type": "git",
-    "url": "git+ssh://git@github.com/devpunks/snuggsi.git"
   },
   "keywords": [
     "web",
@@ -37,6 +36,9 @@
   "directories": {
     "bin": "bin",
     "example": "examples"
+  },
+  "bin": {
+    "snuggsi": "bin/snuggsi"
   },
   "scripts": {
     "test": "snuggsi test",
