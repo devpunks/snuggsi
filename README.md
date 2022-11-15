@@ -352,8 +352,11 @@ Element `hello-world`
     this // is ALWAYS bound to the Custom Element container 🎉
   }
 
-  //  onsneeze (event)
-  //    { /* must be declared in HTML `onclick=onsneeze` */ }
+  onsneeze (event) {
+    /* must be declared in HTML
+      <button onclick=onsneeze>
+    */
+  }
 })
 ```
 
@@ -383,10 +386,7 @@ _…or just copy & 🍝pasta  into a new HTML file and have at it!_
 
   Hello {planet}
 
-  <style>
-    hello-world { display: block }
-  </style>
-
+  <button onclick=speak>Greet</button>
 </hello-world>
 
 
@@ -408,6 +408,11 @@ Element `hello-world`
   onclick (e) { // event handler
     // "✨ automagic" event registration
     alert(`You clicked on ${e.target.tagName}`)
+  }
+  
+  speak(e) { // bound event handler
+    e.preventDefault()
+    alert('One small step...')
   }
 })
 
