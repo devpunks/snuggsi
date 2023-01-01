@@ -17,7 +17,8 @@
     "url": "https://github.com/devpunks/snuggsi/issues"
   },
   "engines": {
-    "node": ">=16.14.x"
+    "npm": ">=9.x",
+    "node": ">=16.x"
   },
   "keywords": [
     "web",
@@ -47,18 +48,18 @@
     "postinstall": "#snuggsi publish"
   },
   "devDependencies": {
-    "buble": "^0.20",
-    "jsdom": "*",
     "nyc": "*",
-    "puppeteer-core": "*",
+    "jsdom": "*",
     "snuggsi": ".",
     "standard": "*",
-    "uglify-es": "*"
+    "buble": "^0.20",
+    "uglify-es": "*",
+    "puppeteer-core": "*"
   },
   "dependencies": {
-    "basic-auth": "*",
     "koa": "*",
     "koa-cors": "*",
-    "koa-static": "*"
+    "koa-static": "*",
+    "basic-auth": "*"
   }
 }
