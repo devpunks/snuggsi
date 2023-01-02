@@ -1,4 +1,5 @@
 {
+  "private": false,
   "name": "snuggsi",
   "private": true,
   "type": "module",
