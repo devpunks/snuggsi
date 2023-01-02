@@ -195,7 +195,7 @@ Let's add a `{token}` to `<hello-world>` :
 
 <hr>
 
-Lastly, We can visually enhance our `<hello-world>` Custom Element by making it [_"block level"_](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) with CSS `display: block`. This way our element plays nicely in our layout :
+Lastly, We can visually enhance your `<hello-world>` Custom Element by making it [_"block level"_](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) with CSS `display: block`. This way your element plays nicely in your layout :
 
 ```html
 <hello-world>
