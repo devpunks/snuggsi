@@ -3,10 +3,12 @@
   "type": "module",
   "license": "MIT",
   "version": "2022.1.2-1",
-  "author": [
-    "Snuggs",
-    "Brandondees"
-  ],
+  "contributors":
+    [ ],
+  "author":
+    [ "Snuggs", "Brandondees" ],
+  "keywords":
+    [ "web", "components", "custom", "elements" ],
   "description": "Easy Web Components in 1kB",
   "homepage": "https://github.com/devpunks/snuggsi#readme",
   "repository": {
