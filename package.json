@@ -54,12 +54,6 @@
   "bin": {
     "snuggsi": "bin/snuggsi"
   },
-  "scripts": {
-    "test": "snuggsi test",
-    "start": "snuggsi serve",
-    "package": "snuggsi package",
-    "postinstall": "#snuggsi publish"
-  },
   "devDependencies": {
     "nyc": "*",
     "jsdom": "*",
