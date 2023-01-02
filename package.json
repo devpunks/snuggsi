@@ -69,4 +69,15 @@
     "koa-static": "*",
     "basic-auth": "*",
   }
+  "peerDependencies": { },
+  "bundleDependencies": false,
+
+  "scripts": {
+    "test": "snuggsi test",
+    "start": "snuggsi serve",
+    "package": "snuggsi package",
+    "postinstall": "#snuggsi publish",
+    "install": "echo  Installing snuggsi",
+    "preinstall": "echo  pre-Installing snuggsi"
+  },
 }
