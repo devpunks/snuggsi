@@ -70,7 +70,7 @@
     "basic-auth": "*"
   }
   "peerDependencies": { },
-  "bundleDependencies": false,
+  "bundleDependencies": "false",
 
   "scripts": {
     "test": "snuggsi test",
