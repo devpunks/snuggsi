@@ -156,7 +156,7 @@ As you learned earlier there are a few conventions to adhere to be considered a 
 
 <hr>
 
-We now know enough to be dangerous and make our own Custom Element tag :
+We now know enough to be dangerous and make your own Custom Element tag :
 
 ```html
 <hello-world></hello-world>
