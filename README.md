@@ -209,7 +209,7 @@ Lastly, We can visually enhance your `<hello-world>` Custom Element by making it
 </hello-world>
 ```
 
-We have finished our Custom Element **Declaration** using `HTML`, & `CSS`!🌟  Now on to our **Definition**.
+We have finished your Custom Element **Declaration** using `HTML`, & `CSS`!🌟  Now on to your **Definition**.
 
 
 <hr>
