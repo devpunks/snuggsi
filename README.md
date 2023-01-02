@@ -143,7 +143,7 @@ A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names _(as long
 
 <hr>
 
-As you learned earlier there are a few conventions to adhere to be considered a _"valid **Custom** Element"_ we will need an alpha-numeric character followed by a hyphen in the tag name _(at minimum)_ :
+As you learned earlier there are a few conventions to adhere to be considered a _"valid **Custom** Element"_ you will need an alpha-numeric character followed by a hyphen in the tag name _(at minimum)_ :
 
 ```html
 <foo></foo> <!-- invalid (CUSTOM element but valid HTML element) -->
