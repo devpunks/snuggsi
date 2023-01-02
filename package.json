@@ -18,15 +18,15 @@
   "bugs": {
     "url": "https://github.com/devpunks/snuggsi/issues"
   },
-  "engines": {
-    "npm": ">=9.x",
-    "node": ">=18.x"
-  },
-  "keywords": [
-    "web",
-    "components"
-  ],
+
+  "workspaces": [ ],
+  "browser": "index.js",
   "main": "public/index.js",
+  "module": "./dist/snuggsi.min.es",
+  "unpkg": "./dist/snuggsi.min.es.js",
+  "config": {
+    "PORT": "8080"
+  },
   "exports": {
     ".": {
       "browser": {
