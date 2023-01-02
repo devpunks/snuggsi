@@ -260,7 +260,7 @@ Element `hello-world`
 
 👍 Rule of thumb: _**MUST** define [a `class` which `extends HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)_
 
-Let's shorten our description up a bit by using an [anonymous class expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/class) to describe the `class`. This convention is preferred as using an [explicit `class` declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) name can potentially polute the global namespace:
+Let's shorten your description up a bit by using an [anonymous class expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/class) to describe the `class`. This convention is preferred as using an [explicit `class` declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) name can potentially polute the global namespace:
 
 ```javascript
 // <hello-world> … </hello-world>
