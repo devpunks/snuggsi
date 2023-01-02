@@ -34,8 +34,19 @@
       }
     }
   },
-  "unpkg": "./dist/snuggsi.min.es.js",
-  "module": "./dist/snuggsi.min.es",
+  "cpu": [
+    "x64",
+    "arm64"
+  ],
+  "os": [
+    "linux",
+    "darwin",
+    "win32"
+  ],
+  "engines": {
+    "npm": ">=9.x",
+    "node": ">=18.x"
+  },
   "directories": {
     "bin": "bin",
     "example": "examples"
