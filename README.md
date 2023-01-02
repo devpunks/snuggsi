@@ -148,7 +148,7 @@ As you learned earlier there are a few conventions to adhere to be considered a 
 ```html
 <foo></foo> <!-- invalid (CUSTOM element but valid HTML element) -->
 <foo-bar>   <!-- invalid (no closing tag) -->
-<a-></a->   <!-- valid (we only need a character and a hyphen) -->
+<a-></a->   <!-- valid (you only need a character and a hyphen) -->
 <foo-bar></foo-bar> <!-- valid -->
 ```
 
