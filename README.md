@@ -86,7 +86,6 @@ __*#UseThePlatform*__
 **snuggsiツ** works in a plain 'ol HTML file! Simply place the following **&lt;script&gt;** within your webpage:
 
 ```html
-<!-- http(s): protocol required to run locally -->
 <script nomodule src=//unpkg.com/snuggsi></script>
 ```
 
