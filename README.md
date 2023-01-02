@@ -96,11 +96,11 @@ Et Voila _(that's it!)_ ツ
 _**snuggsiツ** provides a [prolyfill](https://github.com/devpunks/snuggsi/wiki/What-is-a-ProlyFill) for the following native web platform features:_
 
 
-  | Support    | IE11+ | Edge* | Chrome* | Firefox* | Safari 9+ | Android* | iOS Safari* |
-  | ---------- |:-----:|:-----:|:-------:|:--------:|:---------:|:--------:|:--------------:|
-  | [Templates](#templates) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | [Custom Elements](#custom-elements) |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
-  | Slot Replacement |✅ |✅ |✅ |✅ |✅ |✅ |✅ |
+  | Support    | Edge* | Chrome* | Firefox* | Safari 9+ | Android* | iOS Safari* |
+  |:----------:|:-----:|:-------:|:--------:|:---------:|:--------:|:--------------:|
+  | [Templates](#templates) |✅ |✅ |✅ |✅ |✅ |✅ |
+  | [Custom Elements](#custom-elements) |✅ |✅ |✅ |✅ |✅ |✅ |
+  | Slot Replacement |✅ |✅ |✅ |✅ |✅ |✅ |
 
   _\*Indicates the current version of the browser_
 
