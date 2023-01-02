@@ -1,5 +1,5 @@
 { "name": "snuggsi",
-  "private": false,
+  "private": "false",
   "type": "module",
   "license": "MIT",
   "version": "2022.1.2-1",
