@@ -1,6 +1,7 @@
 { "name": "snuggsi",
   "private": false,
-  "name": "snuggsi",
+  "type": "module",
+  "license": "MIT",
   "version": "2022.1.2-1",
   "author": [
     "Snuggs",
