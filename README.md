@@ -131,13 +131,14 @@ _Not all HTML tags are created equal!_
 A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names _(as long as you remember to provide a closing tag)_. In the bad old days of the web, [`HTML5` elements were once _"non-standard"_ to `HTML 4.0`](https://johnresig.com/blog/html5-shiv) :
 
 ```html
-<p>     <!--  valid (with optional closing tag)  -->
-<hr>    <!--  valid (no content tag)  -->
-<img /> <!--  valid (x-HTML self closing tag)  -->
-<a></a> <!--  valid (hyperlink) -->
-<b></b> <!--  valid (HTML4.01)-->
-<c>     <!-- invalid (no closing tag) -->
-<c></c> <!--  valid (HTMLUnknownElement) -->
+<a>…</a> <!-- valid (hyperlink) -->
+<b>…</b> <!-- valid (HTML4.01)-->
+<c>…     <!-- invalid (no closing tag) -->
+<c>…</c> <!-- valid (HTMLUnknownElement) -->
+<p>…</p> <!-- valid (with closing tag)  -->
+<p>…     <!-- valid (with optional closing tag)  -->
+<img />  <!-- valid (x-HTML self closing tag)  -->
+<hr>     <!-- valid (no content tag)  -->
 ```
 👍 Rule of thumb: _Close all **non-standard** `HTML` Element tags!_
 
