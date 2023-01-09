@@ -1,6 +1,7 @@
 # `GlobalEventHandlers`
 
-https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
+  - https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events
+  - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
 
 Enhancements to `GlobalEventHandlers` interface
 
