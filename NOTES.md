@@ -45,16 +45,8 @@ https://platform-status.mozilla.org/#request-idle-callback
 https://webkit.org/status/
 
 HTML
-HTML5 Elements - https://simon.html5.org/html-elements
 Mathematical Programming Contexts.
-<var> - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/var
-<samp> - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/samp
 Removal of <head> <html> <body>
-https://forums.adobe.com/thread/2051531
-http://stackoverflow.com/questions/5641997/is-it-necessary-to-write-head-body-and-html-tags
-HTTP <Link> The One Header Every CSS Author Should Learn
-https://www.w3.org/TR/html4/present/styles.html#h-14.6
-https://www.w3.org/wiki/LinkHeader
 No IE Support
 https://meyerweb.com/eric/thoughts/2009/01/22/using-http-headers-to-serve-styles/
 <meta> tag - https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element
