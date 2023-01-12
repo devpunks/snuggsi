@@ -69,10 +69,10 @@
     "uglify-es": "*"
   },
   "dependencies": {
+    "basic-auth": "*",
     "koa": "*",
     "koa-cors": "*",
-    "koa-static": "*",
-    "basic-auth": "*"
+    "koa-static": "*"
   },
   "peerDependencies": {},
   "bundleDependencies": false,
