@@ -2,9 +2,6 @@
   - https://gitlab.com/sebdeckers/http2server#README
   - https://github.com/GoogleChrome/simplehttp2server
 
-// fast.js
-// git@github.com:codemix/fast.js.git
-
 // $$$$$$$ -
 https://blog.risingstack.com/writing-a-javascript-framework-project-structuring/
 // USE BROWSERSTACK
