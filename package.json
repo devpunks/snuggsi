@@ -60,13 +60,13 @@
     "snuggsi": "bin/snuggsi"
   },
   "devDependencies": {
+    "buble": "^0.20",
+    "jsdom": "^20.0.0",
     "nyc": "*",
-    "jsdom": "*",
+    "puppeteer-core": "*",
     "snuggsi": ".",
     "standard": "*",
-    "buble": "^0.20",
-    "uglify-es": "*",
-    "puppeteer-core": "*"
+    "uglify-es": "*"
   },
   "dependencies": {
     "koa": "*",
