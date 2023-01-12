@@ -134,33 +134,10 @@ Leading Forward Slash
    http://stackoverflow.com/questions/4659345/is-there-any-downside-for-using-a-leading-double-slash-to-inherit-the-protocol-i
    Difference between the W3C and WHATWG
    https://ww      w.reddit.com/r/javascript/comments/5swe9b/what_is_the_difference_between_the_w3c_and_the/
-   https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
-   change / output
-    https://developer.mozilla.org/en-US/docs/Web/Events/change
-    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/output
-    dataset / datalist
-    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/datalist
-    https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement/dataset
-    void operator https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/void
-    Main https://developer.mozilla.org/en-US/docs/Web/HTML/Element/main
-    The global object -
-    http://www.2ality.com/2015/02/es6-scoping.html#the_global_object
-    http://stackoverflow.com/questions/30321636/es6-classes-what-about-instrospection/30322216#30322216
-    Menu - http://stackoverflow.com/questions/4969801/nav-or-menu-html5
-    Headers (Default in Section/Article sized smaller)
-    http://stackoverflow.com/questions/26290849/why-is-size-of-h1-different-inside-a-section-element
-    https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines
-    CSS « Any » https://developer.mozilla.org/en-US/docs/Web/CSS/:any
-    CSS Collapsing header 
-    https://chrisbracco.com/simple-css3-collapsing-header-effect/#comment-3168265901
     Branch Protection
-    - https://github.com/NYCrb/devpunks/settings/branches
-    Why Symbols over WeakMaps (i.e. this [Symbol.species] 
-    http://webreflection.blogspot.com/2013/03/simulating-es6-symbols-in-es5.html
-    Autosquash - https://coderwall.com/p/hh-4ea/git-rebase-autosquash
     Regular Expressions:
     Non Capturing - http://stackoverflow.com/questions/3512471/what-is-a-non-capturing-group-what-does-a-question-mark-followed-by-a-colon
-    Cosole 
+Cosole
     https://developer.mozilla.org/en-US/docs/Web/API/Console/table
     Clone Node https://developer.mozilla.org/en-US/docs/Web/API/Node/cloneNode
     Merging objects Object.assign https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Object/assign#Merging_objects
@@ -170,27 +147,14 @@ Leading Forward Slash
     hidden https://developer.mozilla.org/en-US/docs/Web/HTML/Global_attributes/hidden
     rotating screens
     Default is portrait then media query for landscape
-    Page Visibility API - https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
     @media only screen and (orientation: portrait)
-    <dialog>::backdrop
-    https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dialog
-    Counters 
+Counters
     https://davidwalsh.name/css-counters
     https://www.youtube.com/watch?v=Snj31cMmZ2c
     https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_Lists_and_Counters/Using_CSS_counters
-    will-change -
-     https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
-     http://cssmojo.com/the-dark-side-of-the-will-change-property/
-     https://dev.opera.com/articles/css-will-change-property/
-      https://www.youtube.com/watch?v=GB4p-W8Qsjs
-      https://css-tricks.com/prefetching-preloading-prebrowsing/
-      Link Prefetching - https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
-      preconnect, prefetch, preload, prerender https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
-      Link HTML Imports.
-      Link - preload - https://w3c.github.io/preload/
-      Stop white flicker from stylesheets waiting. (PRELOAD!!!)
-
-      WebRTC
-      Call systems
-      The Call - https://en.wikipedia.org/wiki/Telephone_call
-      « Etiquette protocol"
+will-change -
+    https://developer.mozilla.org/en-US/docs/Web/CSS/will-change
+    http://cssmojo.com/the-dark-side-of-the-will-change-property/
+    https://css-tricks.com/prefetching-preloading-prebrowsing/
+    Link Prefetching - https://developer.mozilla.org/en-US/docs/Web/HTTP/Link_prefetching_FAQ
+    preconnect, prefetch, preload, prerender https://developer.mozilla.org/en-US/docs/Web/HTML/Link_types
