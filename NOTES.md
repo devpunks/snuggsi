@@ -49,13 +49,6 @@ Mathematical Programming Contexts.
 Removal of <head> <html> <body>
 No IE Support
 https://meyerweb.com/eric/thoughts/2009/01/22/using-http-headers-to-serve-styles/
-<meta> tag - https://html.spec.whatwg.org/multipage/semantics.html#the-meta-element
-<slot>
-Transparent content https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Content_categories#Transparent_content_model
-Sections and outlines 
-- https://developer.mozilla.org/en-US/docs/Web/Guide/HTML/Using_HTML_sections_and_outlines
-
-
 
 H/2 (HTTP 2)
 Server strategy https://support.cloudflare.com/hc/en-us/articles/218367338-HTTP-2-Server-Push
@@ -90,8 +83,7 @@ https://drafts.csswg.org/css-font-loading/
 
  application/ecmascript (.es) file extension - https://tools.ietf.org/html/rfc4329#section-8.2
 
- Responsive images https://dev.opera.com/articles/responsive-images/
- Page visibility API 
+ Page visibility API
  https://www.html5rocks.com/en/tutorials/pagevisibility/intro/
   https://www.w3.org/TR/page-visibility/#sec-document-interface
   Responsive typography. https://twitter.com/sarah_edo/status/856543697462325248
@@ -112,8 +104,6 @@ https://drafts.csswg.org/css-font-loading/
     https://css-tricks.com/introducing-css-scroll-snap-points/
   https://github.com/ckrack/scrollsnap-polyfill
 
-  The Template - Reach out to TJ https://twitter.com/Rich_Harris/status/849746116514115584
-  Hanami - http://hanamirb.org/blog/2017/04/06/announcing-hanami-100.html
   CSS Grids
    https://alistapart.com/article/practical-grid
    https://webkit.org/status/#specification-css-grid-layout-level-1
