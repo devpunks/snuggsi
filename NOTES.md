@@ -18,11 +18,6 @@ Hidden Classes & Inline Caching
 http://richardartoul.github.io/jekyll/update/2015/04/26/hidden-classes.html
 https://github.com/sq/JSIL/wiki/Optimizing-dynamic-JavaScript-with-inline-caches
 
-Ruby Memoization
-https://github.com/AlexWayfer/flame/commit/38a929b84fc5c7c9bc78ef8bcff388a00c59e95c
-https://karolgalanciak.com/blog/2017/05/28/ruby-memoization-%7C%7C-equals-vs-defined-syntax/
-http://www.rubyinside.com/what-rubys-double-pipe-or-equals-really-does-5488.html
-
 Type Coercion
 String([‘foo’, ‘bar’])
 [‘foo’] + ‘'
