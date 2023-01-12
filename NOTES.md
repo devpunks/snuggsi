@@ -43,12 +43,6 @@ https://www.chromestatus.com/features
 https://developer.microsoft.com/en-us/microsoft-edge/platform/status/
 https://platform-status.mozilla.org/#request-idle-callback
 https://webkit.org/status/
-The Critical Request - https://css-tricks.com/the-critical-request/#article-header-id-6
-Position Sticky -
-https://developer.mozilla.org/en-US/docs/Web/CSS/position#Sticky_positioning
-https://developer.microsoft.com/en-us/microsoft-edge/platform/status/positionsticky/
-In browser transpilation.
-https://developer.mozilla.org/en-US/docs/Web/API/HTMLScriptElement
 
 HTML
 HTML5 Elements - https://simon.html5.org/html-elements
