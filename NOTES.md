@@ -126,31 +126,7 @@ https://drafts.csswg.org/css-font-loading/
    https://github.com/whatwg/html/pull/2261
    https://html.spec.whatwg.org/multipage/scripting.html#attr-script-nomodule
    https://trac.webkit.org/changeset/211078/webkit
-   https://blog.hospodarets.com/native-ecmascript-modules-the-first-overview
-   https://github.com/w3c/web-platform-tests/pull/4611
    "smoke server" https://zeit.co/docs
-   Understanding Scope curly braces.
-   Multi line edit in console. WOWWWW
-   X-Content-Type-Options: nosniff
-   NoSniff - http://bugs.chromium.org/p/chromium/issues/detail?id=180007
-   Event target comparisons - https://developer.mozilla.org/en-US/docs/Web/API/Event/Comparison_of_Event_Targets
-   Destructuring - http://www.datchley.name/es6-rest-spread-defaults-and-destructuring/
-   Visibility Change.
-   https://developer.mozilla.org/en-US/docs/Web/API/Page_Visibility_API
-   https://developer.mozilla.org/en-US/docs/Web/Events/visibilitychange
-   Thunks - http://stackoverflow.com/questions/18710177/what-is-the-difference-between-thunk-futures-and-promises
-   ES6 Function.name - https://leanpub.com/understandinges6/read#leanpub-auto-ecmascript-6s-name-property
-   Styling form controls
-   https://trac.webkit.org/wiki/Styling%20Form%20Controls#Dateinputtype
-   Understanding code through personal financial budgeting. https://medium.com/p/8c63eac62db5/edit
-   API Versioning
-   https://gist.github.com/vamsipavanmahesh/c8d7d4ed33caf8c19bb4feecbc0908b8
-   CSS @import
-   https://discourse.wicg.io/t/is-css-import-still-considered-as-an-anti-pattern/1967/2
-   https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/import
-   https://github.com/TrySound/postcss-easy-import
-   CSS Variables 
-   https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_variables
    Pure CSS Tabs
    ES File Extension
 
