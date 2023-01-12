@@ -32,21 +32,8 @@ https://groups.google.com/forum/#!topic/api-craft/L2YlSS7FmEk
 CONDITIONAL (IF) vs Expressions. https://fsharpforfunandprofit.com/posts/expressions-vs-statements/
 
 
-WORKERS
-
-
-WHATWG New Features - https://whatwg.org/faq#adding-new-features
-
 DON’T CONCATENATE SCRIPTS! - https://github.com/comfusion/hyperdrive/issues/83
 Lightening Talks
-
-DFN - https://developer.mozilla.org/en-US/docs/Web/HTML/Element/dfn
-
-ACCESSIBILITY OBJECT MODEL (AOM) https://github.com/WICG/aom/blob/gh-pages/explainer.md
-
-
-https://www.youtube.com/watch?v=SMd0gXXxf-c 
-https://www.youtube.com/watch?v=cWxqelw8h1Y
 YOUTUBE COPYRIGHT FAIR USE
 Copyright Disclaimer Under Section 107 of the Copyright Act 1976, allowance is made for "fair use" for purposes such as criticism, comment, news reporting, teaching, scholarship, and research. Fair use is a use permitted by copyright statute that might otherwise be infringing. Non-profit, educational or personal use tips the balance in favor of fair use
 
