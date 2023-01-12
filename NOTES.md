@@ -130,12 +130,7 @@ https://drafts.csswg.org/css-font-loading/
    Pure CSS Tabs
    ES File Extension
 
-   Fetch
-   Headers, Request, Response
-   Form Data -
-   Before - https://gist.github.com/9e8d3017f4f7eb12261a4aa8713cf967
-   After - https://developer.mozilla.org/en-US/docs/Web/API/FormData
-   Leading Forward Slash
+Leading Forward Slash
    http://stackoverflow.com/questions/4659345/is-there-any-downside-for-using-a-leading-double-slash-to-inherit-the-protocol-i
    Difference between the W3C and WHATWG
    https://ww      w.reddit.com/r/javascript/comments/5swe9b/what_is_the_difference_between_the_w3c_and_the/
