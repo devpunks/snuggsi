@@ -9,38 +9,6 @@ https://blog.risingstack.com/writing-a-javascript-framework-project-structuring/
 
 // https://github.com/w3c/webcomponents/issues/509#issuecomment-230700060
 
-Web Workers -
-http://stackoverflow.com/questions/11871452/can-web-workers-utilize-100-of-a-multi-core-cpu#answer-11871543
-
-SLOT Based Shadow Dom
-https://webkit.org/blog/4096/introducing-shadow-dom-api/
-
-Load Time + Runtime of module loading dependencies
-https://nolanlawson.com/2016/08/15/the-cost-of-small-modules/
-
-Libraries compared by weight
-https://gist.github.com/Restuta/cda69e50a853aa64912d
-
-React file size and why larger file size means longer execution time as well.
-https://news.ycombinator.com/item?id=11451283
-
-React TODO App
-  - https://github.com/facebook/flux/tree/master/examples/flux-todomvc
-
-React Demystified
-  - http://blog.reverberate.org/2014/02/react-demystified.html
-
-Method Invocation
-  - http://reactkungfu.com/2015/07/why-and-how-to-bind-methods-in-your-react-component-classes
-
-ARIA
-http://heydonworks.com/practical_aria_examples
-
-Typography
-https://www.typewolf.com/cheatsheet
-
-==================================================================
-
 SNUGGSI
 
 backdrop-filter
