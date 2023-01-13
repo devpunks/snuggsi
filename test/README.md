@@ -7,7 +7,7 @@
   - [JSDOM](https://github.com/tmpvar/jsdom)
     - [Add custom element support](https://github.com/jsdom/jsdom/pull/2548)
     - [JSDOM (context per test)](https://github.com/tmpvar/jsdom/wiki/Don%27t-stuff-jsdom-globals-onto-the-Node-global)
-    - [w3c/web-platform-tests/custom-elements](https://github.com/w3c/web-platform-tests/tree/master/custom-elements)
+  - [w3c/web-platform-tests/custom-elements](https://github.com/w3c/web-platform-tests/tree/master/custom-elements)
 
 ## Tutorials
 
