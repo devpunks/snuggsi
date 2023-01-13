@@ -2,6 +2,7 @@
 
   - Introduction - http://web-platform-tests.org/introduction.html
   - [TAP Testing Protocol](https://testanything.org)
+  - [Node test runner _(>= v18.x)_](https://nodejs.org/api/test.html)
   - Puppeteer - https://github.com/puppeteer/puppeteer
   - [JSDOM](https://github.com/tmpvar/jsdom)
     - [Add custom element support](https://github.com/jsdom/jsdom/pull/2548)
