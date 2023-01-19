@@ -60,19 +60,19 @@
     "snuggsi": "bin/snuggsi"
   },
   "devDependencies": {
-    "buble": "^0.20",
-    "jsdom": "^20.0.0",
     "nyc": "*",
-    "puppeteer-core": "*",
     "snuggsi": ".",
     "standard": "*",
-    "uglify-es": "*"
+    "buble": "^0.20",
+    "uglify-es": "*",
+    "jsdom": "^20.0.0",
+    "puppeteer-core": "*"
   },
   "dependencies": {
-    "basic-auth": "*",
     "koa": "*",
     "koa-cors": "*",
-    "koa-static": "*"
+    "koa-static": "*",
+    "basic-auth": "*"
   },
   "bundleDependencies": [],
   "scripts": {
