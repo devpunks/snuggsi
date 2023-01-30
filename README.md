@@ -165,6 +165,23 @@ We now know enough to be dangerous and make your own Custom Element tag :
 
 Et Voila ツ _(No really … That's it!)_
 
+<hr>
+
+At this point your **custom** element can be styled using CSS just like any other element.
+
+```html
+<style>
+hello-world {
+  background: #bada55
+}
+</style>
+
+<hello-world>
+  Hello
+</hello-world>
+```
+See [A JavaScript-free custom element implementation](https://www.stefanjudis.com/notes/a-javascript-free-custom-element-implementation/)
+And [Building a `<tool-tip>` component](https://web.dev/building-a-tooltip-component/) for more _(sans JavaScript)_ custom elements CSS fun!
 
 <hr>
 
