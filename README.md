@@ -36,7 +36,7 @@
   </a>
 
 <p align=center>
-  <strong align=center>All you need is a browser and basic understanding of <a href=https://developer.mozilla.org/en-US/docs/Web/HTML target=mdn>HTML</a>, <a href=https://developer.mozilla.org/en-US/docs/Web/CSS target=mdn>CSS</a>, &amp; <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes target=mdn>Javascript classes</a> to be productive!</strong>
+  <strong align=center>All you need is a browser and basic understanding of <a href=https://developer.mozilla.org/en-US/docs/Web/HTML target=mdn>HTML</a>, <a href=https://developer.mozilla.org/en-US/docs/Web/CSS target=mdn>CSS</a>, &amp; <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes target=mdn>JavaScript classes</a> to be productive!</strong>
 
 <p align=center>
   <q>
@@ -66,7 +66,7 @@
 # [Why ?](https://github.com/devpunks/snuggsi/wiki/Why%3F)
 
   1. You prefer to be [D.R.Y.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and build reusable web components on a gradual learning curve.
-  2. Because [You _(probably)_ don't need a Javascript Framework](https://dev.to/steelvoltage/you-probably-don-t-need-a-front-end-framework-26o6).
+  2. Because [You _(probably)_ don't need a JavaScript Framework](https://dev.to/steelvoltage/you-probably-don-t-need-a-front-end-framework-26o6).
   3. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration).
 
   4. [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
@@ -108,7 +108,7 @@ _**snuggsiツ** provides a [prolyfill](https://github.com/devpunks/snuggsi/wiki/
 
 **snuggsiツ** encourages [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration) using familiar techniques that are native to all browsers.
 
-Gone are the sleepless nights where your code [suffers from `<div>`itus](https://css-tricks.com/css-beginner-mistakes-1/), or need to install packages on a terminal just to write `HTML`. **People who are more comfortable with `HTML` should be able to start marking up their ideas immediately!** You shouldn't have to know CSS or Javascript! _(But it definitely helps if you need styling and functionality)_.
+Gone are the sleepless nights where your code [suffers from `<div>`itus](https://css-tricks.com/css-beginner-mistakes-1/), or need to install packages on a terminal just to write `HTML`. **People who are more comfortable with `HTML` should be able to start marking up their ideas immediately!** You shouldn't have to know CSS or JavaScript! _(But it definitely helps if you need styling and functionality)_.
 
  **snuggsiツ** believes in using [Progressive Enhancement](https://en.wikipedia.org/wiki/Progressive_enhancement). Not just with your code, but also with your Developer eXperience _(DX)_. We will start from the beginning with a simple Custom Element and gradually enhance functionality step-by-step.
 
@@ -121,14 +121,14 @@ When picking a name for your custom element [there are a few naming conventions]
 ### `HTML` Declaration
 
 `HTML` has always been a declarative language. Why not just use it to declare Custom Elements?
-If you know [how to write `HTML`](https://developer.mozilla.org/en-US/docs/Web/HTML) you can start using **snuggsiツ**. Sometimes you need to sandbox a section of your page for styling. Other times you need a custom container of complex functionality. Either way you usually start with a plain ole' `HTML` element Declaration :
+If you know [how to write `HTML`](https://developer.mozilla.org/en-US/docs/Web/HTML) you can start using **snuggsiツ**. Sometimes you need to sandbox a section of your page for styling. Other times you need a custom container of complex functionality. Either way you usually start with a plain ole' `HTML` element declaration:
 
 
 #### A Brief History Lesson
 
 _Not all HTML tags are created equal!_
 
-A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names _(as long as you remember to provide a closing tag)_. In the bad old days of the web, [`HTML5` elements were once _"non-standard"_ to `HTML 4.0`](https://johnresig.com/blog/html5-shiv) :
+A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names _(as long as you remember to provide a closing tag)_. In the bad old days of the web, [`HTML5` elements were once _"non-standard"_ to `HTML 4.0`](https://johnresig.com/blog/html5-shiv):
 
 ```html
 <a>…</a> <!-- valid (hyperlink) -->
@@ -144,7 +144,7 @@ A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names _(as long
 
 <hr>
 
-As you learned earlier there are a few conventions to adhere to be considered a _"valid **Custom** Element"_ you will need an alpha-numeric character followed by a hyphen in the tag name _(at minimum)_ :
+As you learned earlier there are a few conventions to adhere to be considered a _"valid **Custom** Element"_ you will need an alpha-numeric character followed by a hyphen in the tag name _(at minimum)_:
 
 ```html
 <foo></foo> <!-- invalid (CUSTOM element but valid HTML element) -->
@@ -157,7 +157,7 @@ As you learned earlier there are a few conventions to adhere to be considered a 
 
 <hr>
 
-We now know enough to be dangerous and make your own Custom Element tag :
+We now know enough to be dangerous and make your own Custom Element tag:
 
 ```html
 <hello-world></hello-world>
@@ -189,7 +189,7 @@ And [Building a `<tool-tip>` component](https://web.dev/building-a-tooltip-compo
 #### Live `{token}` Declarations
 
 
-The `{token}` is simply a [well named dynamic variable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Variables) you will **Describe** later. `{token}`s are placeholders which watch for changes to your custom element's `class` property of the same name. Since they are _"placeholders"_ and not live code, Front-end designers are no longer blocked by needing to install a Javascript framework just to write `CSS`!
+The `{token}` is simply a [well named dynamic variable](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Guide/Grammar_and_types#Variables) you will **Describe** later. `{token}`s are placeholders which watch for changes to your custom element's `class` property of the same name. Since they are _"placeholders"_ and not live code, Front-end designers are no longer blocked by needing to install a JavaScript framework just to write `CSS`!
 
 ```html
 <foo-bar> This is a token 👉 {baz} and {bat} is another! </foo-bar>
@@ -200,7 +200,7 @@ The `{token}` is simply a [well named dynamic variable](https://developer.mozill
 
 A _"live token"_ is a declarative way to bind data values to your Custom Element. A nice convention to a real historical P.I.T.A. of keeping values updated. Live `{token}`s are also _"✨ automagically"_ updated each time the element re-renders.
 
-Let's add a `{token}` to `<hello-world>` :
+Let's add a `{token}` to `<hello-world>`:
 
 ```html
 <hello-world>
@@ -213,7 +213,7 @@ Let's add a `{token}` to `<hello-world>` :
 
 <hr>
 
-Lastly, We can visually enhance your `<hello-world>` Custom Element by making it [_"block level"_](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) with CSS `display: block`. This way your element plays nicely in your layout :
+Lastly, we can visually enhance your `<hello-world>` Custom Element by making it [_"block level"_](https://developer.mozilla.org/en-US/docs/Web/HTML/Block-level_elements) with CSS `display: block`. This way your element plays nicely in your layout:
 
 ```html
 <hello-world>
@@ -237,7 +237,7 @@ We have finished your Custom Element **Declaration** using `HTML`, & `CSS`!🌟 
 
 Every Custom `Element` **MUST** be [_Defined_ within the `CustomElementsRegistry`](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry). This is simple with **snuggsiツ**
 
-Let's `define` your element using the `Element` interface :
+Let's `define` your element using the `Element` interface:
 
 ```javascript
 // <hello-world> … </hello-world>
@@ -247,12 +247,12 @@ Element `hello-world`
 👍 Rule of thumb: _Use backticks around tag names (``)._
 
 This syntax is not JSX. It's actually called [tagged template literals](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Template_literals#Tagged_templates) and is native to the platform.
-Custom elements use the native `Element` interface definition strategy for two reasons :
+Custom elements use the native `Element` interface definition strategy for two reasons:
 
   1. To prevent you from worrying about browser inconsistencies as the technology matures.
-  2. Prevent global namespace polution. _([`Element` has been native to the web platform for decades!](https://developer.mozilla.org/en-US/docs/Web/API/Element))_
+  2. Prevent global namespace pollution. _([`Element` has been native to the web platform for decades!](https://developer.mozilla.org/en-US/docs/Web/API/Element))_
 
-Classic Javascript syntax may also be used. However [this should be the job of a transpiler not the developer](https://en.wikipedia.org/wiki/Source-to-source_compiler).
+Classic JavaScript syntax may also be used. However [this should be the job of a transpiler not the developer](https://en.wikipedia.org/wiki/Source-to-source_compiler).
 Transpilers take care of [normalizing Modern JavaScript to a specific retrograde](https://developer.mozilla.org/en-US/docs/Learn/Tools_and_testing/Cross_browser_testing/JavaScript).
 
 ```javascript
@@ -266,7 +266,7 @@ Element ('hello-world') // classic javascript definition
 
 Great so far!🎉  Although your Element behaves like any other `HTMLElement`, we should add some functionality custom to your needs.
 
-Next we need to pass a `class` description to the function returned by your `Element` definition.
+Next, we need to pass a `class` description to the function returned by your `Element` definition.
 
 ```javascript
 // <hello-world> … </hello-world>
@@ -278,7 +278,7 @@ Element `hello-world`
 
 👍 Rule of thumb: _**MUST** define [a `class` which `extends HTMLElement`](https://developer.mozilla.org/en-US/docs/Web/API/HTMLElement)_
 
-Let's shorten your description up a bit by using an [anonymous class expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/class) to describe the `class`. This convention is preferred as using an [explicit `class` declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) name can potentially polute the global namespace:
+Let's shorten your description up a bit by using an [anonymous class expression](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/class) to describe the `class`. This convention is preferred as using an [explicit `class` declaration](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Statements/class) name can potentially pollute the global namespace:
 
 ```javascript
 // <hello-world> … </hello-world>
@@ -298,9 +298,9 @@ Element `hello-world`
 
 Since we [previously declared a `{planet}` token](#live-tokens) within your `<hello-world>` element we need to also define a `class property` **of the same name** to replace the `{planet}` token with a value.
 
-Class properties may look like typical Javascript Functions. However they are treated as properties. _(called without parenthesis)_. `class` properties are described by using the [`get`ter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get) and [`set`ter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) annotations before the name.
+Class properties may look like typical JavaScript Functions. However, they are treated as properties. _(called without parenthesis)_. `class` properties are described by using the [`get`ter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/get) and [`set`ter](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Functions/set) annotations before the name.
 
-Let's add a property to your `class` definition and give `{planet}` some life :
+Let's add a property to your `class` definition and give `{planet}` some life:
 
 ```javascript
 // <hello-world> … {planet} … </hello-world>
@@ -316,11 +316,12 @@ Element `hello-world`
 ```
 
 👍 Rule of thumb: _`class` properties are functions begining with the keywords `get` &amp; `set`._
+
 👍 Rule of thumb: _`{tokens}` will use the `class` property value of the same name by default._
 
 ⚠️ The Live `{token}` value is updated after each re-render but it beyond the scope of this simple example.
 
-Since your `hello-world` Custom Element is an `HTMLElement` at it's core, we can access your property directly from the DOM!
+Since your `hello-world` Custom Element is an `HTMLElement` at its core, we can access your property directly from the DOM!
 
 ```javascript
 // <hello-world> … </hello-world>
@@ -335,7 +336,7 @@ document.querySelector
 
 #### Global `event` Listeners
 
-`event` handlers can be any method function which can be placed on any child elements and also onto the custom element itself _(i.e.`onclick=eatBacon`)_. However, You will not have to explicitly set the handler in HTML when you follow native naming conventions.  This is the magic behind **snuggsiツ** Global `event` Listeners. They register themselves onto the custom element and _"listen"_ for you! As a convenience, your new custom element uses [Event Delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_delegation) to capture all it's children's [event bubbles of the same name](https://javascript.info/bubbling-and-capturing).
+`event` handlers can be any method function which can be placed on any child elements and also onto the custom element itself _(i.e.`onclick=eatBacon`)_. However, you will not have to explicitly set the handler in HTML when you follow native naming conventions.  This is the magic behind **snuggsiツ** Global `event` Listeners. They register themselves onto the custom element and _"listen"_ for you! As a convenience, your new custom element uses [Event Delegation](https://developer.mozilla.org/en-US/docs/Learn/JavaScript/Building_blocks/Events#Event_delegation) to capture all its children's [event bubbles of the same name](https://javascript.info/bubbling-and-capturing).
 
 ```javascript
 // <hello-world>
@@ -528,7 +529,7 @@ The `<template>` is used to define custom element content for use within multipl
 Useful when we need to:
 
 1. Separate a custom element definition into a [Web Component](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
-2. Bind a context to the template using An `Array` or POJO _(Plain Ol' Javascript `Object`)_
+2. Bind a context to the template using An `Array` or POJO _(Plain Ol' JavaScript `Object`)_
 3. Append rendered template to the document:
     - If `context` is an object `bind` a single `<template>`
     - If `context` is a collection _(i.e. an `Array`)_ `bind` a sequential  `<template>` [`DocumentFragment`](https://developer.mozilla.org/en-US/docs/Web/API/DocumentFragment) per item
