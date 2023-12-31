@@ -216,30 +216,6 @@ git push origin master --follow-tags
 # Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
 ```
 
-## [`integrate`](integrate)
-
-```bash
-$ bin/integrate
-```
-
-  Hook used for [Travis CI](https://travis-ci.org) continuous integration.
-  This is typically ran after pushes to Github branches.
-
-  _See [.travis.yml](/.travis.yml#L20) for more details._
-
-
-## [`lint`](lint)
-
-```bash
-$ bin/lint [file]
-```
-
-  Performs [lint check](https://en.wikipedia.org/wiki/Lint_(software))
-  on code in specified file.
-
-  Uses [`JSStandard`](https://github.com/feross/standard)
-
-
 #### Monthly Minor Release
 
 ``` bash
