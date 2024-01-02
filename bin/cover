@@ -16,6 +16,7 @@ declare -r  EXCLUDE="**/node_modules,middleware,resource,server,test"
 
 echo "📊  snuggsi ツ Coverage Report"
 echo
+echo "  🎯  Cover 👉  $COVER"
 echo "  🎯  Threshold 👉  $THRESHOLD %"
 echo "  ➕  Included  👉  $LIBRARIES"
 echo "  ➖  Excluded  👉  $EXCLUDE"
