@@ -64,7 +64,6 @@
     "snuggsi": ".",
     "nyc": "^15.1.0",
     "buble": "^0.20",
-    "uglify-es": "^3.3.9",
     "jsdom": "^20.0.0",
     "puppeteer-core": "^15.4.0"
   },
