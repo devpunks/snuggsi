@@ -10,8 +10,7 @@
   ],
   "keywords": [
     "web", "components",
-    "custom",
-    "elements"
+    "custom", "elements"
   ],
   "description": "Easy Web Components in ~1kB",
   "homepage": "https://github.com/devpunks/snuggsi#readme",
