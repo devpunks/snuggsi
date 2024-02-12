@@ -24,6 +24,7 @@
   "workspaces": [],
   "browser": "index.js",
   "main": "public/index.js",
+  "packageManager": "npm@9.5.1",
   "module": "./dist/snuggsi.min.es",
   "unpkg": "./dist/snuggsi.min.es.js",
   "config": {
