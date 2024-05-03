@@ -44,9 +44,10 @@
     "arm64"
   ],
   "os": [
+    "win32",
     "linux",
     "darwin",
-    "win32"
+    "android"
   ],
   "engines": {
     "npm": ">=9.x",
