@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 
-START=`date +%s`
+#START=`date +%s`
 
 echo
 echo "🎁  Compilation Process Started …"
@@ -12,12 +12,12 @@ bin/transpile && \
 bin/shrink    && \
 bin/compress
 
-FINISH=`date +%s`
+#FINISH=`date +%s`
 
 echo
 echo "🎁  Compilation Process Finished"
 echo
-echo "  ⏰  Started  👉  `date -r $START`"
-echo "  🏁  Finished 👉  `date -r $FINISH`"
-echo "  🕓  Total compilation duration 👉  $((FINISH-START)) secs."
+# echo "  ⏰  Started  👉  `date -r $START`"
+# echo "  🏁  Finished 👉  `date -r $FINISH`"
+# echo "  🕓  Total compilation duration 👉  $((FINISH-START)) secs."
 echo
