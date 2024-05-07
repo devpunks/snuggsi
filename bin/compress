@@ -17,9 +17,9 @@ echo "    🍃  $FILE"
 echo "       🌱  Brotli 👉  $FILE.br"
 
 $BROTLI         \
-  --repeat 1    \
-  --quality 11  \
-  --input $FILE \
+  --stdout \
+  --quality=11  \
+  $FILE \
 > $FILE.br
 
 
