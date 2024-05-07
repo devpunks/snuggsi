@@ -24,11 +24,9 @@ $BROTLI         \
 
 echo "       🍀  GZIP 👉  $FILE.gz"
 
-$ZOPFLI     \
-  -i 50     \
-  --gzip    \
-  --ext gz  \
-  --verbose \
+$ZOPFLI -v \
+  --gzip \
+  --i50 \
 $FILE
 
 
