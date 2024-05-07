@@ -9,4 +9,8 @@ bin/weigh      &&
 
 exit 0
 
+#bin/cover      && \
+# bin/distribute && \
+# bin/deploy     && \
+
 exit 1
