@@ -32,11 +32,9 @@ $FILE
 
 echo "       🍂  DEFLATE 👉  $FILE.zo"
 
-$ZOPFLI     \
-  -i 50     \
-  --gzip    \
-  --ext zo  \
-  --verbose \
+$ZOPFLI -v \
+  --deflate \
+  --i50 \
 $FILE
 
 
