@@ -60,11 +60,18 @@ $FILE
 
 echo "       🍂  DEFLATE 👉  $FILE.zo"
 
-$ZOPFLI     \
-  -i 50     \
-  --gzip    \
-  --ext zo  \
-  --verbose \
-$FILE
+$ZOPFLI -v \
+  --deflate \
+  --i50 \
+  $FILE
+
+
+echo "       🍂  ZLIB 👉  $FILE"
+
+$ZOPFLI -v \
+  --zlib \
+  --i50 \
+  $FILE
+
 
 echo
