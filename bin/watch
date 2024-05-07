@@ -7,5 +7,4 @@ declare -r  WATCHER=$SNUGGSI/watch/index.es
 echo "$SNUGGSI"
 echo " $DIRECTORY 👀  Watching Resources for changes..."
 
-
-node $WATCHER
+$WATCHER
