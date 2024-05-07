@@ -4,8 +4,7 @@ const
   { SNUGGSI, DIRECTORY: path, BROWSER_PORT=4321 }
     = process.env
 
-console.log (process.env)
-
+, message = ` 👉  ${path}🔎 👀 \n`
 , test      = `${SNUGGSI}/bin/test`
 , bundle    = `${SNUGGSI}/bin/bundle`
 , shrink    = `${SNUGGSI}/bin/shrink`
