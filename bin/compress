@@ -43,7 +43,6 @@ FILE=$DIST/snuggsi.min.js
 echo "    🍃  $FILE"
 echo "       🌱  Brotli 👉  $FILE.br"
 
-
 $BROTLI         \
   --repeat 1    \
   --quality 11  \
