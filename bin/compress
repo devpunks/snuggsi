@@ -22,7 +22,6 @@ $BROTLI         \
   $FILE \
 > $FILE.br
 
-
 echo "       🍀  GZIP 👉  $FILE.gz"
 
 $ZOPFLI     \
