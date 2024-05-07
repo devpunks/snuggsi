@@ -4,8 +4,8 @@
 
 
 DIST=./dist
-BROTLI=bro
-ZOPFLI=./node_modules/.bin/zopfli
+BROTLI=brotli
+ZOPFLI=zopfli
 
 
 echo "  🌱  Compressing …"
