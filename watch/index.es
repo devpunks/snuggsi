@@ -1,3 +1,5 @@
+#!/usr/bin/env node
+
 const
   { SNUGGSI, DIRECTORY: path, BROWSER_PORT }
     = process.env
