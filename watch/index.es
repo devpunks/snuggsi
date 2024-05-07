@@ -1,7 +1,7 @@
 #!/usr/bin/env node
 
 const
-  { SNUGGSI, DIRECTORY: path, BROWSER_PORT }
+  { SNUGGSI, DIRECTORY: path, BROWSER_PORT=4321 }
     = process.env
 
 console.log (process.env)
