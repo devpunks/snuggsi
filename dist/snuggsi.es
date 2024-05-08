@@ -547,8 +547,8 @@ return class extends Element {
       && super.onconnect (event)
   }
 
-}
-}
+} // class
+} // GlobalEventHandlers
 const Custom = Element => // why buble
 
 ( class extends // interfaces
