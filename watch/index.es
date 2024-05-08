@@ -38,7 +38,6 @@ require ('fs').watch (path,
   // Vim causes tmp file update `4913`
   // https://github.com/bevry/watchr/issues/33
   // specific to .es files. Can remove line for all files
-
 (event, file) => {
 
   const predicate =
