@@ -53,7 +53,6 @@ require ('fs').watch (path,
     const
       now = (new Date) - start
     , output = `${stdout} \n\n Feedback (${++times}) Execution time: ${now}ms`
-
     error
       ? console.error (`exec error: ${error}`)
       : console.log (output, stderr)
