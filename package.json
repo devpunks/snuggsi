@@ -72,7 +72,7 @@
     "koa": "*",
     "koa-cors": "^0.10",
     "koa-static": "*",
-    "basic-auth": "*"
+    "basic-auth": "^2.0.0"
   },
   "bundleDependencies": [],
   "scripts": {
