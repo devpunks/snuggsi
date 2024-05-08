@@ -16,3 +16,5 @@
 !dist/snuggsi.min.js.br
 !dist/snuggsi.min.js.gz
 !dist/snuggsi.min.js.zo
+!dist/snuggsi.min.js.zlib
+!dist/snuggsi.min.js.deflate
