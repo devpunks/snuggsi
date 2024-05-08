@@ -1,5 +1,7 @@
 #!/usr/bin/env bash
 
+set -u
+
 declare -rx DIRECTORY=${1:-$(pwd)}
 declare -r  SNUGGSI=${SNUGGSI:-$( realpath '.' )}
 declare -r  WATCHER=$SNUGGSI/watch/index.es
