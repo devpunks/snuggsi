@@ -22,7 +22,8 @@ const
       && `$SNUGGSI/node_modules/.bin/browser-sync reload --port=$BROWSER_PORT`
 
 , command =
-    [ bundle, transpile, shrink, publish, reload, clear, echo, test, validate ]
+//    [ bundle, transpile, shrink, publish, reload, clear, echo, test, validate ]
+    [ bundle, transpile, shrink, publish, echo ]
       .filter (Boolean)
       .join ` && `
 
