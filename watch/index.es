@@ -10,7 +10,7 @@ const
 , shrink    = `${SNUGGSI}/bin/shrink`
 , publish   = `${SNUGGSI}/bin/publish`
 , transpile = `${SNUGGSI}/bin/transpile`
-, clear     = `tput reset` // htps://askubuntu.com/questions/25077/how-to-really-clear-the-terminal
+, clear     = `tput reset` // htps://askubuntu.com/q/25077/how-to-really-clear-the-terminal
 , echo      = `printf "${message}" && echo "Last Update $(date)"`
 , validate  = '$SNUGGSI/bin/validate'
 //, validate  = 'bin/validate-weight || true'
