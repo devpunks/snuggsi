@@ -56,8 +56,10 @@ require ('fs').watch (path,
     error
       ? console.error (`exec error: ${error}`)
       : console.log (output, stderr)
-  })
-})
+  }) // exec
+
+  console.warn( 'Changed 👉 ', file )
+}) // watch
 
 console.log (command)
 console.log (message)
