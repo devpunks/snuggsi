@@ -70,7 +70,7 @@
   },
   "dependencies": {
     "koa": "*",
-    "koa-cors": "*",
+    "koa-cors": "^0.10",
     "koa-static": "*",
     "basic-auth": "*"
   },
