@@ -45,5 +45,5 @@ return class extends Element {
       && super.onconnect (event)
   }
 
-}
-}
+} // class
+} // GlobalEventHandlers
