@@ -16,7 +16,7 @@
   </nav>
 </header>
 
-<h1 id=title>Title Header</h1>
+<h1>Title Header</h1>
 
 <main id=content></main>
 
