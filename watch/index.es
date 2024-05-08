@@ -32,7 +32,7 @@ console.log ( BROWSER_PORT, command )
 
 let times = 0
 
-require ('fs').watch (path, { recursive: true },
+require ('fs').watch (path,
 
   // Vim causes tmp file update `4913`
   // https://github.com/bevry/watchr/issues/33
