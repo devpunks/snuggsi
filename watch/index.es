@@ -34,6 +34,7 @@ let times = 0
 
 require ('fs').watch (path,
 
+//require ('fs').watch (path, { recursive: true },
   // Vim causes tmp file update `4913`
   // https://github.com/bevry/watchr/issues/33
   // specific to .es files. Can remove line for all files
