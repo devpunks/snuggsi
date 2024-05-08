@@ -69,7 +69,7 @@
     "puppeteer-core": "*"
   },
   "dependencies": {
-    "koa": "*",
+    "koa": "2.13.4",
     "koa-cors": "^0.0.16",
     "koa-static": "*",
     "basic-auth": "^2.0.0"
