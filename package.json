@@ -71,7 +71,7 @@
   "dependencies": {
     "koa": "2.13.4",
     "koa-cors": "^0.0.16",
-    "koa-static": "*",
+    "koa-static": "^5.0.0",
     "basic-auth": "^2.0.0"
   },
   "bundleDependencies": [],
