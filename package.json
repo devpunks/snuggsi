@@ -64,7 +64,7 @@
     "snuggsi": ".",
     "standard": "*",
     "buble": "^0.20",
-    "uglify-es": "*",
+    "uglify-es": "^3.3.9",
     "jsdom": "^20.0.0",
     "puppeteer-core": "*"
   },
