@@ -9,6 +9,8 @@
 !dist/snuggsi.min.es.br
 !dist/snuggsi.min.es.gz
 !dist/snuggsi.min.es.zo
+!dist/snuggsi.min.es.zlib
+!dist/snuggsi.min.es.deflate
 
 !dist/snuggsi.min.js
 !dist/snuggsi.min.js.br
