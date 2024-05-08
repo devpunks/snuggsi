@@ -27,9 +27,8 @@ const
       .filter (Boolean)
       .join ` && `
 
-console.log ( process.env, BROWSER_PORT, command )
-
-return
+// console.log ( process.env )
+console.log ( BROWSER_PORT, command )
 
 let times = 0
 
