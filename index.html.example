@@ -12,7 +12,7 @@
 <header>
   <nav>
     <ul>
-      <li><a title=foo>Foo</a>
+      <li><a title=foo href=#>Foo</a>
   </nav>
 </header>
 
