@@ -24,6 +24,7 @@
     "url": "https://github.com/devpunks/snuggsi/issues"
   },
   "workspaces": [],
+  "packageManager": "npm@9.5.1",
   "browser": "index.js",
   "main": "public/index.js",
   "module": "./dist/snuggsi.min.es",
