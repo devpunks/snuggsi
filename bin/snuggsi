@@ -32,7 +32,7 @@ function check () {
     return 0
 }
 
-function run {
+function run () {
 
   local \
     snuggsi=$1
