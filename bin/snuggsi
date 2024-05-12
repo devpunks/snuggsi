@@ -55,7 +55,7 @@ function snuggsi () {
 }
 
 
-function command {
+function command () {
   echo 
 
 # test ! -f $execute \
