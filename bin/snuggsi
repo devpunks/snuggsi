@@ -21,7 +21,7 @@ echo "
 "
 
 
-function check {
+function check () {
   local \
     resource=$1
 
