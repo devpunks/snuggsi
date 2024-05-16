@@ -1,5 +1,4 @@
-module.exports =
-{
+module.exports = {
   files     : []
 , startPath : '/'
 , ui        : false
