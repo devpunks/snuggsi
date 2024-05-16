@@ -9,7 +9,7 @@ const
     = process.env
 
 , middleware = [
-//, route (`/hello/`, Resource `/resource/fixtures/`)
+    //, route (`/hello/`, Resource `/resource/fixtures/`)
   ]
 
 console.log ('bin/serve SNUGGSI', Object.keys(require ('..')))
