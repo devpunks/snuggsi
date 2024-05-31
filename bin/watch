@@ -7,6 +7,6 @@ declare -r  SNUGGSI=${SNUGGSI:-$( realpath '.' )}
 declare -r  WATCHER=$SNUGGSI/watch/index.es
 
 echo "$SNUGGSI"
-echo " $DIRECTORY 👀  Watching Resources for changes..."
+echo " $DIRECTORY 👀  (bash) Watching Resources for changes..."
 
 $WATCHER
