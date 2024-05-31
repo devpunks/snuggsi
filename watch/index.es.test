@@ -1,4 +1,8 @@
 //import { test, expect } from 'node:test';
+
+//const watch = require('./index.es')
+//console.log( watch )
+
 const n = require('node:test')
 , it = n.it // test
 , test = n.test
