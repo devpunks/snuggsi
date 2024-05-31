@@ -17,9 +17,6 @@ const n = require('node:test')
 
 // https://nodejs.org/api/test.html#class-suitecontext
 describe('watch', t => {
-  console.log(t)
-  console.log(it)
-
   test('should add two numbers', _ => {
     const result = 1 + 2
     console.log(_.name)
