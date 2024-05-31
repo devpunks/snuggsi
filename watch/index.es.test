@@ -23,7 +23,7 @@ describe('watch', t => {
     assert.strictEqual(result, 3)
   })
 
-  it.only('it should equal test', _ => {
+  it('it should equal test', _ => {
     console.log(_.name)
     assert.strictEqual(test.it, it)
   })
