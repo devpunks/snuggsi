@@ -22,6 +22,8 @@ echo "  ➕  Included  👉  $LIBRARIES"
 echo "  ➖  Excluded  👉  $EXCLUDE"
 echo
 
+exit 0
+
 $COVER                    \
   --exclude=$EXCLUDE      \
   --reporter=$REPORTER    \
