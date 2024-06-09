@@ -30,8 +30,6 @@ $COVER                    \
   --extension=$EXTENSION  \
   $HARNESS
 
-exit 0
-
 $CHECK                     \
   --lines      $THRESHOLD  \
   --functions  $THRESHOLD  \
