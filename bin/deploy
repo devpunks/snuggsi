@@ -5,9 +5,7 @@ declare -rx     \
   DOMAIN=snuggsi.com
 
 echo "🚢  Deploying to Δ Vercel"
-
-echo "  👇"
-echo
+echo "  👇\n"
 
 vercel switch $TEAM
 vercel deploy --prod
