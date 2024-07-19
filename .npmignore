@@ -5,6 +5,7 @@
 !bin/*
 
 !dist/README.md
+!dist/snuggsi.min.es
 !dist/snuggsi.min.es.js
 !dist/snuggsi.min.es.br
 !dist/snuggsi.min.es.gz
