@@ -9,3 +9,4 @@ public/*.html
 public/examples
 
 .vercel
+.nyc_output
