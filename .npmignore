@@ -3,6 +3,9 @@
 #!bin/*
 
 !dist/README.md
+
+#!package-lock.json
+
 !dist/snuggsi.min.es
 !dist/snuggsi.min.es.js
 !dist/snuggsi.min.es.br
