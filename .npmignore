@@ -1,8 +1,6 @@
 **
 
-!package-lock.json
-
-!bin/*
+#!bin/*
 
 !dist/README.md
 !dist/snuggsi.min.es
