@@ -1,3 +1,6 @@
 .DS_Store
 .vercel
 .nyc_output
+
+public/
+node_modules/
