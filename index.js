@@ -533,8 +533,9 @@ return /*@__PURE__*/(function (HTMLElement) {
   };
 
   return anonymous;
-}(HTMLElement))
-}
+}(HTMLElement)) // class
+} // EventTarget
+
 function GlobalEventHandlers (Element) {
 
   // Living Standard HTML5 GlobalEventHandlers
