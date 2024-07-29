@@ -58,12 +58,6 @@ echo "  👊 Bumping package.json version to … `npm version prerelease`"
 echo
 
 
-echo "  🆕 Publishing library to https://npmjs.org"
-echo
-npm publish
-echo
-
-
 echo "  🐙 Fetching master branch on Github."
 git pull -r origin $BRANCH
 echo
