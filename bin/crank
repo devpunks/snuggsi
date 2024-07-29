@@ -4,7 +4,6 @@
 
 bin/compile         \
   && bin/lint       \
-  && bin/weigh      \
   && bin/cover      \
   && bin/distribute \
   && bin/deploy
