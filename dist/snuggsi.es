@@ -496,10 +496,11 @@ return class extends HTMLElement {
             // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
             && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
             && ( node [event] = this.renderable (this [handler]) )
-  }
+  } // register
 
-}
-}
+} // class
+} // EventTarget
+
 function GlobalEventHandlers (Element) {
 
   // Living Standard HTML5 GlobalEventHandlers
