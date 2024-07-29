@@ -7,4 +7,5 @@ bin/compile         \
   && bin/cover      \
   && bin/weigh      \
   && bin/distribute \
-  && bin/deploy
+  && bin/deploy     \
+  && bin/publish
