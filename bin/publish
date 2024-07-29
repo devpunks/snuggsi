@@ -14,3 +14,8 @@ do
 done
 
 echo
+
+echo "  🆕 Publishing library to https://npmjs.org"
+echo
+npm publish
+echo
