@@ -114,5 +114,3 @@ return class extends HTMLElement {
 } // class
 } // EventTarget
 
-}
-}
