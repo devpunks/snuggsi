@@ -80,7 +80,7 @@
     "test": "snuggsi test",
     "start": "snuggsi serve",
     "package": "snuggsi package",
-    "postinstall": "#snuggsi publish",
+    "postinstall": "echo Post install",
     "install": "echo  Installing snuggsi",
     "preinstall": "echo  pre-Installing snuggsi"
   }
