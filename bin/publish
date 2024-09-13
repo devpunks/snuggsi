@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 declare -r  DESTINATION=public
-declare -ar ASSETS=(favicon.ico sandbox.html index.html index.css)
+declare -ar ASSETS=(favicon.ico sandbox.html index.html index.css typography.css)
 
 echo "📤  Publishing static assets …"
 echo "  To 👉  $DESTINATION/"
