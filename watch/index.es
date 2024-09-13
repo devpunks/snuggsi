@@ -1,7 +1,11 @@
 #!/usr/bin/env node
 
+//
+// https://stackoverflow.com/q/12978924/fs-watch-fired-twice-when-i-change-the-watched-file
+//
+
 const
-  { SNUGGSI, DIRECTORY: path, BROWSER_PORT=4321 }
+  { SNUGGSI, BROWSER_PORT, DIRECTORY: path }
     = process.env
 
 , message = ` 👉  ${path}🔎 👀 \n`
