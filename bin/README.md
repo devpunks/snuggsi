@@ -171,7 +171,7 @@ $ bin/distribute
   - https://en.wikipedia.org/wiki/Software_versioning
   - https://github.com/mahmoud/zerover
   - [Tex Versioning](https://en.wikipedia.org/wiki/Software_versioning#TeX)
-  - [Difference between `LTS` and `stable`](https://stackoverflow.com/questions/33661274/what-are-the-differences-between-long-term-support-lts-and-stable-versions-of)
+  - [Difference between `LTS` and `stable`](https://stackoverflow.com/q/33661274/what-are-the-differences-between-long-term-support-lts-and-stable-versions-of)
 
 
 #### Github Actions
