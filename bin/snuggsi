@@ -9,7 +9,7 @@ set -u
 #  - https://gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
 
 # Bash string manipulations
-#  - http://www.tldp.org/LDP/LG/issue18/bash.html
+#  - http://tldp.org/LDP/LG/issue18/bash.html
 #  - https://stackoverflow.com/questions/6393551/what-is-the-meaning-of-0-in-a-bash-script
 
 echo "
