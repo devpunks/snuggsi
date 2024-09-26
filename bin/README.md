@@ -405,7 +405,7 @@ $ test [path]
 ```bash
 $ bin/transpile [input] [output]
 ```
-  Run [Buble](https://buble.surge.sh) for transpilation from [ECMAScript to Javascript](https://stackoverflow.com/questions/912479/what-is-the-difference-between-javascript-and-ecmascript)
+  Run [Buble](https://buble.surge.sh) for transpilation from [ECMAScript to Javascript](https://stackoverflow.com/q/912479/what-is-the-difference-between-javascript-and-ecmascript)
 
 
 ### Arguments
