@@ -450,5 +450,5 @@ $ bin/weigh [library]
 
   - https://gist.github.com/branneman/8775568
   - https://gist.github.com/branneman/8048520
-  - https://stackoverflow.com/questions/10265798/determine-project-root-from-a-running-node-js-application
+  - https://stackoverflow.com/q/10265798/determine-project-root-from-a-running-node-js-application
   - NODE_PATH on Heroku https://lostechies.com/derickbailey/2014/02/20/how-i-work-around-the-require-problem-in-nodejs
