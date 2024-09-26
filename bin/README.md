@@ -241,6 +241,58 @@ $ bin/lint [file]
   Uses [`JSStandard`](https://github.com/feross/standard)
 
 
+#### Monthly Minor Release
+
+``` bash
+# Update node
+git pull -r origin master
+npm view
+npm ls
+npm outdated
+npm install -g npm@latest
+npm update --also=dev
+npm prune
+npm dedupe
+npm link # https://docs.npmjs.com/cli/v6/commands/npm-link
+npm rebuild
+npm update
+npm pack
+npm issues # Github issues
+npm bugs # Github issues
+npm version minor -m "⏰  %s CalVer Monthly Minor Release"
+npm publish --tag=stable
+npm version prepatch -m "⏰  %s It\'s the first of the month!"
+git push origin master --follow-tags
+
+# Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
+```
+
+
+#### Annual Major Release
+
+``` bash
+git pull -r origin master
+npm whoami
+npm owner
+npm org devpunks ls
+npm token
+npm config
+npm issues # Github issues
+npm doctor
+npm audit  # Cleanup npm packages
+npm ci
+npm version major -m "⏰  %s CalVer Annual Major Release"
+npm cache add <folder>
+npm shrinkwrap # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
+npm deprecate <pkg>[@<previous-year-version>] <message>
+npm publish --tag=stable
+npm version prepatch -m "⏰  %s Happy New Year !"
+git push origin master --follow-tags
+
+# Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
+```
+
+
 ### Arguments
 
   - `path` - _(optional)_ Specific  file to run lint check. _(Defaults to **`dist/snuggsi.es`**)_
