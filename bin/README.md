@@ -146,7 +146,7 @@ $ bin/crank
 $ bin/deploy
 ```
 
-  Pushes repository to [Δ Now](https://zeit.co/now) hosting service.
+  Pushes repository to [Δ Vercel](https://vercel.com) hosting service.
 
 
 ## [`distribute`](distribute)
