@@ -179,7 +179,7 @@ $ bin/distribute
   - Building and testing Node.json
   - Github Encrypted Secrets - https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets
   - Publishing packages to npm directory from Github - https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
-  - Push tags with commits - https://stackoverflow.com/questions/3745135/push-git-commits-tags-simultaneously
+  - Push tags with commits - https://stackoverflow.com/q/3745135/push-git-commits-tags-simultaneously
 
   Steps:
 
