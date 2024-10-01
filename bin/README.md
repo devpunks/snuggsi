@@ -202,7 +202,7 @@ git push origin main --follow-tags
 # Tools
 
 npm edit <pkg>[/<subpkg>...]
-npm explore some-dependency -- git pull origin master
+npm explore some-dependency -- git pull origin main
 npm test
 
 
