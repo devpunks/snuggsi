@@ -83,8 +83,8 @@
     "postinstall": "echo Post install",
     "install": "echo  Installing snuggsi",
     "preinstall": "echo  pre-Installing snuggsi",
-    "version": "echo npm version",
-    "preversion": "echo npm preversion",
-    "postversion": "echo npm postversion"
+    "version": "echo npm version (build) # git add -A dist",
+    "preversion": "echo npm preversion (test)",
+    "postversion": "echo npm postversion # git psh && git push --tags"
   }
 }
