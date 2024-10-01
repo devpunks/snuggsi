@@ -246,7 +246,7 @@ git push origin main --follow-tags
 #### Annual Major Release
 
 ``` bash
-git pull -r origin master
+git pull -r origin main
 npm whoami
 npm owner
 npm org devpunks ls
