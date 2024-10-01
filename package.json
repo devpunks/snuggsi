@@ -85,6 +85,6 @@
     "preinstall": "echo  pre-Installing snuggsi",
     "version": "echo npm version",
     "preversion": "echo npm preversion",
-    "preversion": "echo npm postversion"
+    "postversion": "echo npm postversion"
   }
 }
