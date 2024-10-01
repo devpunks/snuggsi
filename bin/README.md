@@ -262,7 +262,7 @@ npm shrinkwrap # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
 npm deprecate <pkg>[@<previous-year-version>] <message>
 npm publish --tag=stable
 npm version prepatch -m "⏰  %s Happy New Year !"
-git push origin main --follow-tags
+git push origin main --tags
 
 # Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
 ```
