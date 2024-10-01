@@ -192,7 +192,7 @@ $ bin/distribute
 ``` bash
 # Automated Midnight
 
-git pull -r origin master
+git pull -r origin main
 npm version patch
 npm publish
 npm version prepatch -m "😴  %s Night Night !"
