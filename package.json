@@ -82,6 +82,7 @@
     "package": "snuggsi package",
     "postinstall": "echo Post install",
     "install": "echo  Installing snuggsi",
-    "preinstall": "echo  pre-Installing snuggsi"
+    "preinstall": "echo  pre-Installing snuggsi",
+    "preversion": "echo npm preversion"
   }
 }
