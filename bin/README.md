@@ -234,7 +234,7 @@ npm update
 npm pack
 npm issues # Github issues
 npm bugs # Github issues
-npm version minor -m "⏰  %s CalVer Monthly Minor Release"
+npm version preminor -m "⏰  %s CalVer Monthly Minor Release"
 npm publish --tag=stable
 npm version prepatch -m "⏰  %s It\'s the first of the month!"
 git push origin master --follow-tags
