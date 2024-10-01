@@ -208,7 +208,7 @@ npm test
 
 # Manual Pre Release & Bug fixes
 
-git pull -r origin master
+git pull -r origin main
 npm version prerelease
 npm publish
 git push origin master --follow-tags
