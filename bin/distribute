@@ -66,6 +66,7 @@ echo "  🐙 Updating master branch on Github."
 git push origin $BRANCH
 echo
 
+# https://stackoverflow.com/questions/3745135/push-git-commits-tags-simultaneously
 echo "  🔖 Updating tags on Github."
 git push origin --tags
 
