@@ -2,9 +2,6 @@
 
 set -u
 
-# Environment variable vs. Shell Variable
-#  - https://askubuntu.com/q/26318/environment-variable-vs-shell-variable-whats-the-difference
-
 # Shell Parameter Expansion
 #  - https://gnu.org/software/bash/manual/html_node/Shell-Parameter-Expansion.html
 
