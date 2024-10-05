@@ -20,10 +20,6 @@ menu () {
   echo
   echo " $ snuggsi test products"
   echo
-  echo "The current directory (.) is used by default."
-  echo
-  echo " $ snuggsi test"
-  echo
   echo "🎉 Enjoy! 🎉"
   echo
   echo
