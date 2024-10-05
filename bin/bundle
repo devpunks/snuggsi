@@ -2,8 +2,10 @@
 
 # Allow overriding $BUNDLE
 declare -r \
-  DESTINATION=$( realpath dist/snuggsi.es ) \
-  BUNDLE=${BUNDLE:-
+  DESTINATION=${DESTINATION:-
+    $( realpath dist/snuggsi.es ) }
+
+declare -r BUNDLE=${BUNDLE:-
   html-element/index.es
   token-list/index.es
   html-link-element/index.es
