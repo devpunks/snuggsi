@@ -9,11 +9,11 @@ declare -r BUNDLE=${BUNDLE:-
   html-link-element/index.es
   html-template-element/index.es
   custom-element-registry/index.es
-  parent-node/index.es            
-  event-target/index.es           
-  global-event-handlers/index.es  
-  component/index.es              
-  element/index.es                
+  parent-node/index.es
+  event-target/index.es
+  global-event-handlers/index.es
+  component/index.es
+  element/index.es
 }
 
 echo BUNDLE $BUNDLE
