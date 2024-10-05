@@ -29,8 +29,7 @@ function check () {
 
 function run () {
   local \
-    snuggsi=$1
-    command=${snuggsi}/bin/${2}
+    command=${SNUGGSI}/bin/${1}
 
   echo Local command ${command}
   echo Resources ${RESOURCES[@]}
