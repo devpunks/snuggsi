@@ -12,3 +12,8 @@ function locate {
 
 declare -a  \
   RESOURCES=( `locate ${@:2}` )
+
+echo ${#RESOURCES[@]} RESOURCES:
+for resource in ${RESOURCES[@]} ; do
+  echo $resource
+done
