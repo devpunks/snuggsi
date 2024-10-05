@@ -19,7 +19,7 @@ let
     , templateString: false
     , reservedProperties: true
     }
-  }
+  } // options
 
 , { code } =
     require ('buble').transform
