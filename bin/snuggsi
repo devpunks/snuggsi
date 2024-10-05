@@ -24,7 +24,7 @@ function run () {
 
   for resource in "${RESOURCES[@]}"
     do
-      (check $resource) \
+      ( check $resource ) \
         && echo -e " 👉  📂  $resource ════════════════════\n\n" \
         && $command $resource
     done
