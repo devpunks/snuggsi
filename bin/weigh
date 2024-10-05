@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 
 declare  MAXIMUM=1500
 declare  DIRECTORY=dist
