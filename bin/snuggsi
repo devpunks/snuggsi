@@ -16,7 +16,12 @@ echo '
 #   SNUGGSI="${NODE_PATH}/${BASH_SOURCE##*/}"
 declare -x \
   COMMAND=$1 \
-  SNUGGSI="$( npm config get prefix | awk NR==1 )/lib/node_modules"
+  SNUGGSI="$( npm config get prefix )/lib/node_modules/${BASH_SOURCE##*/}"
+
+echo SNUGGSI $SNUGGSI
+echo COMMAND $COMMAND
+
+source $SNUGGSI/bin/.resources
 
 function check () {
   local \
