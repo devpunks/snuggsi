@@ -61,8 +61,4 @@ function command () {
   # echo $execute
 } # command
 
-echo `type run `
-
-source $SNUGGSI/bin/.resources
-
-run $SNUGGSI $COMMAND
+# run $SNUGGSI $COMMAND
