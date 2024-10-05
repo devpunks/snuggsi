@@ -3,10 +3,10 @@
 # Thank TOM for ./crank
 
 
-bin/compile    && \
-bin/lint       && \
-bin/weigh      &&
-
+bin/compile         \
+  && bin/lint       \
+  && bin/weigh      \
+  && bin/cover      \
 exit 0
 
 #bin/cover      && \
