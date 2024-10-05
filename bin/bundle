@@ -12,7 +12,7 @@ declare -r BUNDLE=${BUNDLE:-
   global-event-handlers/index.es
   component/index.es
   element/index.es
-}
+} # BUNDLE
 
 echo BUNDLE $BUNDLE
 
