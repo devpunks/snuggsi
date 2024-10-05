@@ -52,4 +52,4 @@ function command () {
   # echo $execute
 } # command
 
-# run $SNUGGSI $COMMAND
+run $COMMAND
