@@ -2,8 +2,8 @@
 
 
 ROOT=dist
-export INPUT=${1:-$ROOT/snuggsi.es}
-export OUTPUT=${2:-$ROOT/snuggsi.js}
+export INPUT=${INPUT:-$ROOT/snuggsi.es}
+export OUTPUT=${OUTPUT:-$ROOT/snuggsi.js}
 export TRANSPILER=bin/transpile.es
 
 
