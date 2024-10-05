@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+declare -r ROOT=dist
 
 ROOT=dist
 export INPUT=${INPUT:-$ROOT/snuggsi.es}
