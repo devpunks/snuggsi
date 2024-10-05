@@ -3,8 +3,8 @@
 declare -r ROOT=dist
 
 declare -rx \
-  INPUT=${INPUT:-$ROOT/snuggsi.es}
-  OUTPUT=${OUTPUT:-$ROOT/snuggsi.js}
+  INPUT=${INPUT:-$ROOT/snuggsi.es}   \
+  OUTPUT=${OUTPUT:-$ROOT/snuggsi.js} \
   TRANSPILER=bin/transpile.es
 
 echo "  🎄  Transpiling …"
