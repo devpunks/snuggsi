@@ -10,7 +10,7 @@ function normalize {
 } # normalize
 
 declare -a  \
-  ARGUMENTS=( "`normalize ${@:2}`" )
+  RESOURCES=( "`normalize ${@:2}`" )
 
 declare -ax \
   RESOURCES=( ${ARGUMENTS[@]:-`pwd`} ) # Default to current directory
