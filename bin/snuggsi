@@ -10,6 +10,10 @@ echo '
   ツツツツツツツツツツツツツツツツツツツ
 '
 
+declare -rx         \
+  SNUGGSI=`snuggsi` \
+  COMMAND=$1
+
 declare -x \
   NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules}
 
