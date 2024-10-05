@@ -3,7 +3,7 @@
 START=` date +%s `
 
 echo
-echo " ⏰  Compilation Process Started … 👉  `date -r $START`"
+echo " ⏰  Compilation Process Started … 👉  `date -r $START` "
 echo
 
 bin/bundle \
