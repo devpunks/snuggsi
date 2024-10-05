@@ -11,7 +11,7 @@ function normalize {
 
   for argument in $@
     do
-      echo "`pwd`/${argument}"
+      echo "${argument}"
     done
 }
 
