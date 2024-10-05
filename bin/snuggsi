@@ -31,8 +31,9 @@ function run () {
     done
 } # run
 
-function command () {
-  echo
+function te () {
+  local -r \
+    execute="${SNUGGSI}/bin/$1"
 
   # test ! -f $execute \
   #   || test ${execute##*/} == snuggsi \
