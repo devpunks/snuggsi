@@ -58,9 +58,6 @@ function command () {
 
 echo `type run `
 
-declare -x \
-  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules}
-
 declare -rx         \
   SNUGGSI=`snuggsi` \
   COMMAND=$1
