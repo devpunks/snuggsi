@@ -7,6 +7,7 @@ echo "🎁  Compilation Process Started …"
 echo
 
 bin/bundle \
+  && bin/transpile \
 
 FINISH=` date +%s `
 
