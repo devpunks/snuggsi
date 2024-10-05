@@ -12,8 +12,4 @@ function normalize {
 declare -a  \
   RESOURCES=( "`normalize ${@:2}`" )
 
-declare -ax \
-  RESOURCES=( ${ARGUMENTS[@]:-`pwd`} ) # Default to current directory
-
-echo ARGUMENTS $ARGUMENTS
 echo RESOURCES $RESOURCES
