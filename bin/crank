@@ -7,9 +7,5 @@ bin/compile         \
   && bin/lint       \
   && bin/weigh      \
   && bin/cover      \
-exit 0
-
-# && bin/distribute \
-# && bin/deploy     \
-
-exit 1
+  && bin/distribute \
+  && bin/deploy
