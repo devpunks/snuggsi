@@ -8,7 +8,7 @@ echo '
   ツツツツツ    snuggsi ツ    ツツツツツ
   ツツツツツ                  ツツツツツ
   ツツツツツツツツツツツツツツツツツツツ
-"
+'
 
 
 function check () {
@@ -20,10 +20,9 @@ function check () {
       && return 1
 
     return 0
-}
+} # check
 
 function run () {
-
   local \
     snuggsi=$1
     command=${snuggsi}/bin/${2:-help}
