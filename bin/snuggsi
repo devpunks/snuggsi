@@ -16,7 +16,7 @@ echo '
 #   SNUGGSI="${NODE_PATH}/${BASH_SOURCE##*/}"
 declare -x \
   COMMAND=$1 \
-  NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules} \
+  NODE_PATH=${NODE_PATH:-` npm config get prefix | awk NR==1 `/lib/node_modules} \
   SNUGGSI="${NODE_PATH}/${BASH_SOURCE##*/}"
 
 function check () {
