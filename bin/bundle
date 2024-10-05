@@ -19,6 +19,4 @@ declare -r BUNDLE=${BUNDLE:-
 
 echo BUNDLE $BUNDLE
 
-# cat                                \
-# \
-# > dist/snuggsi.es
+cat $BUNDLE > dist/snuggsi.es
