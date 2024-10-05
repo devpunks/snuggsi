@@ -32,7 +32,6 @@ function run () {
     command=${SNUGGSI}/bin/${1}
 
   echo Local command ${command}
-  echo Resources ${RESOURCES[@]}
 
   for resource in "${RESOURCES[@]}"
     do
