@@ -1,6 +1,7 @@
 #!/usr/bin/env bash
 
 echo "  🌲  Bundling …"
+echo SNUGGSI $SNUGGSI
 
 cat                                \
   html-element/index.es            \
