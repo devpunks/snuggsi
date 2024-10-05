@@ -1,4 +1,5 @@
-#!/bin/bash
+#!/usr/bin/env bash
+
 
 ${SNUGGSI?🔴 Set shell variable to installation location}
 
