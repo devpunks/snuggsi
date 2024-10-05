@@ -5,12 +5,9 @@
 function locate {
   local -r arguments=${@:-`pwd`}
 
-  echo ${#RESOURCES[@]} RESOURCES ${RESOURCES[*]}
-
-  for argument in ${arguments[@]}
-    do
-      echo $( realpath "${argument}" )
-    done
+  for argument in ${arguments[@]} ; do
+    echo $( realpath "${argument}" )
+  done
 } # normalize
 
 declare -a  \
