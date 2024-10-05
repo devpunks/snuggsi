@@ -20,3 +20,7 @@ declare -a  \
 
 declare -ax \
   RESOURCES=( ${ARGUMENTS[@]:-`pwd`} ) # Default to current directory
+
+echo ARGUMENTS $ARGUMENTS
+echo RESOURCES $RESOURCES
+
