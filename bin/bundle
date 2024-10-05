@@ -22,3 +22,4 @@ for item in $BUNDLE ; do
 done
 
 cat $BUNDLE > $DESTINATION
+echo "  🎯 $DESTINATION "
