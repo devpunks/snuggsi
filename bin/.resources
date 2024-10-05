@@ -4,9 +4,6 @@
 # ARGUMENT PARSING - https://stackoverflow.com/q/192249/how-do-i-parse-command-line-arguments-in-bash
 
 function normalize {
-  local -a \
-    resources=()
-
   for argument in $@
     do
       echo "${argument}"
