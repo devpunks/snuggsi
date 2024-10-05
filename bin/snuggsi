@@ -63,6 +63,5 @@ declare -rx         \
   COMMAND=$1
 
 source $SNUGGSI/bin/.resources
-#source bin/.resources
 
 run $SNUGGSI $COMMAND
