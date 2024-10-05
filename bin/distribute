@@ -65,7 +65,7 @@ echo
 
 
 echo "  🐙 Fetching master branch on Github."
-git pull -r origin master
+git pull -r origin $BRANCH
 echo
 
 echo "  🐙 Updating master branch on Github."
