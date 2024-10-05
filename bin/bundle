@@ -1,8 +1,5 @@
 #!/usr/bin/env bash
 
-echo "  🌲  Bundling …"
-echo SNUGGSI $SNUGGSI
-
 # Allow overriding $BUNDLE
 declare -r BUNDLE=${BUNDLE:-
   html-element/index.es
