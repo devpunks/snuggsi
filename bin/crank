@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-# Thank TOM for ./crank
+# Thanks Tom M. (@tmornini) for ./crank
 
 bin/compile         \
   && bin/lint       \
