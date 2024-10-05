@@ -14,6 +14,9 @@ declare -r BUNDLE=${BUNDLE:-
   element/index.es
 } # BUNDLE
 
-echo BUNDLE $BUNDLE
+echo "  🌲  Bundling …"
+for item in $BUNDLE ; do
+  echo DA $item
+done
 
 cat $BUNDLE > dist/snuggsi.es
