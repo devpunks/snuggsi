@@ -12,5 +12,4 @@ echo "      🌲  $INPUT  🎄  $OUTPUT"
 echo
 
 
-node $TRANSPILER \
-  > $OUTPUT
+node $TRANSPILER > $OUTPUT
