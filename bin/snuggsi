@@ -19,7 +19,7 @@ source $SNUGGSI/bin/.resources
 
 function run () {
   local \
-    command=${SNUGGSI}/bin/${1}
+    command=$( te ${1} )
 
   echo COMMAND 👉 ${command}
 
