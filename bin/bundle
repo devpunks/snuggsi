@@ -16,7 +16,7 @@ declare -r BUNDLE=${BUNDLE:-
 
 echo "  🌲  Bundling …"
 for item in $BUNDLE ; do
-  echo DA $item
+  echo "    👉 $item"
 done
 
 cat $BUNDLE > dist/snuggsi.es
