@@ -36,7 +36,7 @@ function run () {
         && echo -e " 👉  📂  $resource ════════════════════\n\n" \
         && $command $resource
     done
-}
+} # run
 
 function snuggsi () {
   echo ${NODE_PATH}/${BASH_SOURCE##*/}
