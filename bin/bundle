@@ -3,6 +3,7 @@
 echo "  🌲  Bundling …"
 echo SNUGGSI $SNUGGSI
 
+# Allow overriding $BUNDLE
 declare -r BUNDLE=${BUNDLE:-
   html-element/index.es
   token-list/index.es
