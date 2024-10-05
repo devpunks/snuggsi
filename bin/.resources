@@ -5,7 +5,7 @@
 function normalize {
   for argument in $@
     do
-      echo "${argument}"
+      echo $( realpath "${argument}" )
     done
 } # normalize
 
