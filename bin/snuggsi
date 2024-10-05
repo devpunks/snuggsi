@@ -42,10 +42,6 @@ function run () {
     done
 } # run
 
-function snuggsi () {
-  echo ${NODE_PATH}/${BASH_SOURCE##*/}
-} # snuggsi
-
 function command () {
   echo
 
