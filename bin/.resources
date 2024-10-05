@@ -8,7 +8,7 @@ function locate {
   for argument in ${arguments[@]} ; do
     echo $( realpath "${argument}" )
   done
-} # normalize
+} # locate
 
 declare -a  \
   RESOURCES=( `locate ${@:2}` )
