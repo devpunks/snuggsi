@@ -13,8 +13,6 @@ declare -x \
   COMMAND="${1:-help}" \
   SNUGGSI="$( npm config get prefix )/lib/node_modules/${BASH_SOURCE##*/}"
 
-echo COMMAND $COMMAND
-source $SNUGGSI/bin/.resources
 echo SNUGGSI $SNUGGSI
 
 function check () {
