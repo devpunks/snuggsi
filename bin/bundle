@@ -4,10 +4,10 @@ echo "  🌲  Bundling …"
 echo SNUGGSI $SNUGGSI
 
 declare -r BUNDLE=${BUNDLE:-
-  html-element/index.es           
-  token-list/index.es             
-  html-link-element/index.es      
-  html-template-element/index.es  
+  html-element/index.es
+  token-list/index.es
+  html-link-element/index.es
+  html-template-element/index.es
   custom-element-registry/index.es
   parent-node/index.es            
   event-target/index.es           
