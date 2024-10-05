@@ -50,7 +50,7 @@ function command () {
   #   && echo -e "\n  🚫  NON EXECUTABLE COMMAND !\n\n" \
   #   && exit 1 # Short circuit execution
 
-# echo $execute
+  # echo $execute
 } # command
 
 echo `type run `
