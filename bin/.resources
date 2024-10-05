@@ -18,4 +18,3 @@ declare -ax \
 
 echo ARGUMENTS $ARGUMENTS
 echo RESOURCES $RESOURCES
-
