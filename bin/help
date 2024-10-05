@@ -22,7 +22,6 @@ menu () {
   echo
   echo "🎉 Enjoy! 🎉"
   echo
-  echo
-}
+} # menu
 
 menu
