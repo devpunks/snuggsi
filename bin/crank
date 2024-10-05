@@ -2,7 +2,6 @@
 
 # Thank TOM for ./crank
 
-
 bin/compile         \
   && bin/lint       \
   && bin/weigh      \
