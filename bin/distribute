@@ -32,6 +32,7 @@ git commit -m":muscle: bump ZLIB distribution dist/snuggsi.min.es.zo"
 
 # Make unpkg.com happy https://unpkg.com
 cp dist/snuggsi.js index.js
+
 git add index.js
 git commit -m":muscle: bump ??? distribution index.js"
 
