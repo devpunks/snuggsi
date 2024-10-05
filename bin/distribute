@@ -69,7 +69,7 @@ git pull -r origin $BRANCH
 echo
 
 echo "  🐙 Updating master branch on Github."
-git push origin master
+git push origin $BRANCH
 echo
 
 echo "  🔖 Updating tags on Github."
