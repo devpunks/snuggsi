@@ -25,4 +25,4 @@ let
     require ('buble').transform
       ( read ( INPUT, encoding ) , options )
 
-console.log (code)
+console.log ( code )
