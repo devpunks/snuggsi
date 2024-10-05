@@ -13,6 +13,8 @@ menu () {
   echo
   echo "  help                   Help documentation"
   echo "  test                   Test suite runner"
+  echo "  crank                  Crank it up baby!"
+  echo "  integrate              Continuous Integration"
   echo
   echo "Example usage on ./products directory:"
   echo
