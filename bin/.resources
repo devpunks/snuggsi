@@ -7,7 +7,7 @@ function normalize {
     do
       echo "${argument}"
     done
-}
+} # normalize
 
 declare -a  \
   ARGUMENTS=( "`normalize ${@:2}`" )
