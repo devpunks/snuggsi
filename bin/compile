@@ -8,7 +8,7 @@ echo
 
 bin/bundle \
   && bin/transpile \
-# && bin/shrink    \
+  && bin/shrink    \
 # && bin/compress
 
 FINISH=` date +%s `
