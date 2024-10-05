@@ -13,7 +13,7 @@ FINISH=` date +%s `
 echo
 echo "🎁  Compilation Process Finished"
 echo
-# echo "  ⏰  Started  👉  `date -r $START`"
-# echo "  🏁  Finished 👉  `date -r $FINISH`"
-# echo "  🕓  Total compilation duration 👉  $((FINISH-START)) secs."
+echo "  ⏰  Started  👉  `date -r $START`"
+echo "  🏁  Finished 👉  `date -r $FINISH`"
+echo "  🕓  Total compilation duration 👉  $((FINISH-START)) secs."
 echo
