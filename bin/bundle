@@ -21,4 +21,4 @@ for item in $BUNDLE ; do
   echo "    🌿 $item"
 done
 
-cat $BUNDLE > dist/snuggsi.es
+cat $BUNDLE > $DESTINATION
