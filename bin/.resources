@@ -15,5 +15,5 @@ declare -a  \
 
 echo ; echo ${#RESOURCES[@]} RESOURCES:
 for resource in ${RESOURCES[@]} ; do
-  echo $resource
-done
+  echo 📂  $resource
+done ; echo
