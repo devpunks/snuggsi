@@ -7,7 +7,7 @@ echo " ⏰  Compilation Process Started … 👉  `date -r $START` "
 echo
 
 bin/bundle \
-# && bin/transpile \
+  && bin/transpile \
 # && bin/shrink    \
 # && bin/compress
 
