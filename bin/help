@@ -2,7 +2,7 @@ menu () {
   echo
   echo "CLI (Command Line Interface) Usage:"
   echo
-  echo " $ snuggsi <command> <path>"
+  echo " $ snuggsi <command> [<path> <path> ...]"
   echo
   echo "Where <path> is the location of a resource directory."
   echo
