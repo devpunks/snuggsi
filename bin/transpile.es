@@ -23,6 +23,6 @@ let
 
 , { code } =
     require ('buble').transform
-      ( read (INPUT, encoding) , options)
+      ( read ( INPUT, encoding ) , options )
 
 console.log (code)
