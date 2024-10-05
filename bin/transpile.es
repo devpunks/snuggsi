@@ -18,7 +18,7 @@ let
     , dangerousForOf: true
     , templateString: false
     , reservedProperties: true
-    }
+    } // transforms
   } // options
 
 , { code } =
