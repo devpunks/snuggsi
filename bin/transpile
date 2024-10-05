@@ -2,11 +2,10 @@
 
 declare -r ROOT=dist
 
-ROOT=dist
-export INPUT=${INPUT:-$ROOT/snuggsi.es}
-export OUTPUT=${OUTPUT:-$ROOT/snuggsi.js}
-export TRANSPILER=bin/transpile.es
-
+declare -rx \
+  INPUT=${INPUT:-$ROOT/snuggsi.es}
+  OUTPUT=${OUTPUT:-$ROOT/snuggsi.js}
+  TRANSPILER=bin/transpile.es
 
 echo "  🎄  Transpiling …"
 echo "      🌲  $INPUT  🎄  $OUTPUT"
