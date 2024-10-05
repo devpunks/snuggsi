@@ -9,8 +9,7 @@ bin/compile         \
   && bin/cover      \
 exit 0
 
-#bin/cover      && \
-# bin/distribute && \
-# bin/deploy     && \
+# && bin/distribute \
+# && bin/deploy     \
 
 exit 1
