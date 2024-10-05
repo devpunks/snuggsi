@@ -10,7 +10,6 @@ echo '
   ツツツツツツツツツツツツツツツツツツツ
 '
 
-
 declare -x \
   NODE_PATH=${NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules}
 
