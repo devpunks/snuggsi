@@ -2,8 +2,12 @@
 
 # Arrays - https://linuxconfig.org/how-to-use-arrays-in-bash-script
 # ARGUMENT PARSING - https://stackoverflow.com/q/192249/how-do-i-parse-command-line-arguments-in-bash
-function normalize {
-  for argument in $@
+function locate {
+  local -ra arguments=${@:-`pwd`}
+
+  echo ${#RESOURCES[@]} RESOURCES ${RESOURCES[*]}
+
+  for argument in ${arguments[@]}
     do
       echo $( realpath "${argument}" )
     done
