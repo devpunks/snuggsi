@@ -3,16 +3,21 @@
 echo "  🌲  Bundling …"
 echo SNUGGSI $SNUGGSI
 
-cat                                \
-  html-element/index.es            \
-  token-list/index.es              \
-  html-link-element/index.es       \
-  html-template-element/index.es   \
-  custom-element-registry/index.es \
-  parent-node/index.es             \
-  event-target/index.es            \
-  global-event-handlers/index.es   \
-  component/index.es               \
-  element/index.es                 \
-\
-> dist/snuggsi.es
+declare -r BUNDLE=${BUNDLE:-
+  html-element/index.es           
+  token-list/index.es             
+  html-link-element/index.es      
+  html-template-element/index.es  
+  custom-element-registry/index.es
+  parent-node/index.es            
+  event-target/index.es           
+  global-event-handlers/index.es  
+  component/index.es              
+  element/index.es                
+}
+
+echo BUNDLE $BUNDLE
+
+# cat                                \
+# \
+# > dist/snuggsi.es
