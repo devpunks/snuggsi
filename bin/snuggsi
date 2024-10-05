@@ -52,7 +52,7 @@ function command () {
 #   && exit 1 # Short circuit execution
 
 # echo $execute
-}
+} # command
 
 
 declare -x \
