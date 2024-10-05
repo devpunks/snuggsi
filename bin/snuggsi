@@ -14,6 +14,7 @@ declare -x \
   SNUGGSI="$( npm config get prefix )/lib/node_modules/${BASH_SOURCE##*/}"
 
 echo SNUGGSI $SNUGGSI
+source $SNUGGSI/bin/.resources
 
 function check () {
   local \
