@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 
 # Arrays - https://linuxconfig.org/how-to-use-arrays-in-bash-script
-# ARGUMENT PARSING - https://stackoverflow.com/questions/192249/how-do-i-parse-command-line-arguments-in-bash
+# ARGUMENT PARSING - https://stackoverflow.com/q/192249/how-do-i-parse-command-line-arguments-in-bash
 
 echo Resources
 
