@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 menu () {
   echo
   echo "CLI (Command Line Interface) Usage:"
