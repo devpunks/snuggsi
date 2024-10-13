@@ -62,6 +62,7 @@
   "bin": {
     "snuggsi": "bin/snuggsi"
   },
+  "peerDependencies": {},
   "devDependencies": {
     "snuggsi": ".",
     "nyc": "^15.1.0",
