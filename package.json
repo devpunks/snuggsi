@@ -23,7 +23,7 @@
     "url": "https://github.com/devpunks/snuggsi/issues"
   },
   "workspaces": [],
-  "files", [],
+  "files": [],
   "browser": "index.js",
   "main": "index.js",
   "packageManager": "npm@9.5.1",
