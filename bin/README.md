@@ -195,7 +195,6 @@ $ bin/distribute
 git pull -r origin main
 npm version patch
 npm publish
-npm version prepatch --tag=daily -m "😴  %s Night Night !"
 git push origin main --tags
 
 
