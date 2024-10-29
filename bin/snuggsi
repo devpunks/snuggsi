@@ -16,7 +16,7 @@ declare -x \
 echo SNUGGSI 👉 $SNUGGSI
 
 function run () {
-  local \
+  local -r \
     command=$( te ${1} )
 
   echo COMMAND 👉 ${command}
