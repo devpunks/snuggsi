@@ -3,7 +3,7 @@
 # ARGUMENT PARSING - https://stackoverflow.com/q/192249
 # Arrays - https://linuxconfig.org/how-to-use-arrays-in-bash-script
 function locate {
-  local -r resources=${@:-`pwd`}
+  local -r locations=${@:-`pwd`}
 
   for resource in ${resources[@]} ; do
     echo $( realpath "${resource}" )
