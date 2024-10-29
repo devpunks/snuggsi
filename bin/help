@@ -13,6 +13,11 @@ menu () {
   echo "  crank                  Crank it up baby!"
   echo "  integrate              Continuous Integration"
   echo
+  echo "<path> is the *optional* location of 1 or more resource directories."
+  echo "The current directory (.) is used by default."
+  echo
+  echo " $ snuggsi test"
+  echo
   echo "Example usage on ./products directory:"
   echo
   echo " $ snuggsi test products"
