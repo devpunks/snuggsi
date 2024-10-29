@@ -5,8 +5,8 @@
 function locate {
   local -r locations=${@:-`pwd`}
 
-  for resource in ${resources[@]} ; do
-    echo $( realpath "${resource}" )
+  for location in ${locations[@]} ; do
+    echo $( realpath "${location}" )
   done
 } # locate
 
