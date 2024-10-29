@@ -11,7 +11,7 @@ menu () {
   echo
   echo " $ snuggsi test"
   echo
-  echo "And <command> is one of the following:"
+  echo "<command> is one of the following:"
   echo
   echo "  help                   Help documentation"
   echo "  test                   Test suite runner"
