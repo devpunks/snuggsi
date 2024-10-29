@@ -11,7 +11,7 @@ echo "  test                   Test suite runner"
 echo "  crank                  Crank it up baby!"
 echo "  integrate              Continuous Integration"
 echo
-echo "<path> is the *optional* location of 1 or more resource directories."
+echo "<path> is the *optional* location(s) of 1 or more resources."
 echo "The current directory (.) is used by default."
 echo
 echo " $ snuggsi test"
