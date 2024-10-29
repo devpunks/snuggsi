@@ -1,5 +1,6 @@
 #!/usr/bin/env bash
 
+# ARGUMENT PARSING - https://stackoverflow.com/q/192249
 # Arrays - https://linuxconfig.org/how-to-use-arrays-in-bash-script
 # ARGUMENT PARSING - https://stackoverflow.com/q/192249/how-do-i-parse-command-line-arguments-in-bash
 function locate {
