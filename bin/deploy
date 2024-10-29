@@ -1,6 +1,6 @@
 #!/usr/bin/env bash
 
-declare -rx     \
+declare -rx \
   TEAM=devpunks \
   DOMAIN=snuggsi.com
 
