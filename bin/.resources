@@ -13,7 +13,7 @@ function locate {
 declare -a  \
   RESOURCES=( $( locate ${@:2} ) )
 
-echo ; echo ${#RESOURCES[@]} RESOURCES:
+echo ; echo "${#RESOURCES[@]} RESOURCE(S):"
 
 for resource in ${RESOURCES[@]} ; do
   echo 📂  $resource
