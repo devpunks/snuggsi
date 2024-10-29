@@ -2,8 +2,7 @@
 
 set -u
 
-clear
-echo '
+clear ; echo '
   ツツツツツツツツツツツツツツツツツツツ
   ツツツツツ                  ツツツツツ
   ツツツツツ    snuggsi ツ    ツツツツツ
