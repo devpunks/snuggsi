@@ -6,7 +6,7 @@ menu () {
   echo
   echo " $ snuggsi <command> [<path> <path> ...]"
   echo
-  echo "Where <path> is the *optional* location of 1 or more resource directories."
+  echo "<path> is the *optional* location of 1 or more resource directories."
   echo "The current directory (.) is used by default."
   echo
   echo " $ snuggsi test"
