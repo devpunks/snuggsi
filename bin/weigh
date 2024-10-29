@@ -12,8 +12,8 @@ echo "  ⚠️  Maximum allowable weight 👉  $MAXIMUM OCTETS"
 
 
 OCTETS=$(
-    ls -nl $LIBRARY | \
-    awk '{print $5}'
+    ls -nl $LIBRARY \
+      | awk '{print $5}'
   ) || exit 1
 
 
