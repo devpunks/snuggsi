@@ -1,9 +1,8 @@
 #!/usr/bin/env bash
 
-echo
 echo "CLI (Command Line Interface) Usage:"
 echo
-echo " $ snuggsi <command> [<path> <path> ...]"
+echo " $ snuggsi <command> [<resource> <resource> ...]"
 echo
 echo "<command> is one of the following:"
 echo
