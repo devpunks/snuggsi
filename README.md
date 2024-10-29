@@ -128,7 +128,7 @@ If you know [how to write `HTML`](https://developer.mozilla.org/en-US/docs/Web/H
 
 _Not all HTML tags are created equal!_
 
-A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names _(as long as you remember to provide a closing tag)_. In the bad old days of the web, [`HTML5` elements were once _"non-standard"_ to `HTML 4.0`](https://johnresig.com/blog/html5-shiv):
+A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names _(as long as you remember to provide a closing tag)_. In the bad old days of the web, [`HTML5` elements were once _"non-standard"_ to `HTML 4.0`](https://johnresig.com/blog/html5-shiv). However, these days we have far more flexibility in our markup:
 
 ```html
 <a>…</a> <!-- valid (hyperlink) -->
