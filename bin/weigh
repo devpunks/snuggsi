@@ -5,7 +5,6 @@ declare  DIRECTORY=dist
 declare  LIBRARY="$DIRECTORY/snuggsi.min.es.br"
 
 echo THE LIBRARY $LIBRARY
-exit
 
 ls -al $DIRECTORY
 
