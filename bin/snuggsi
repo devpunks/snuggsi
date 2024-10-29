@@ -21,6 +21,8 @@ function run () {
 
   echo COMMAND 👉 ${command}
 
+  source $SNUGGSI/bin/.resources
+
   for resource in "${RESOURCES[@]}" ; do
     ( check $resource ) \
       && echo -e " 👉  📂  $resource ════════════════════\n" \
