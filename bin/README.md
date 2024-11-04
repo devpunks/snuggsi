@@ -269,6 +269,8 @@ git push origin main --tags
 
 ## [`integrate`](integrate)
 
+See [`.travis.yml`](../.travis.yml)
+
 ```bash
 $ bin/integrate
 ```
