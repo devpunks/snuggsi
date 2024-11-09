@@ -217,7 +217,7 @@ npm test
 
 #### Monthly Minor Release
 
-``` bash
+```bash
 # Update node
 git pull -r origin main
 npm view
@@ -235,7 +235,7 @@ npm issues # Github issues
 npm bugs # Github issues
 npm version minor -m "⏰  %s CalVer Monthly Minor Release"
 npm publish --tag=stable
-npm version prepatch --tag=dev -m "⏰  %s It\'s the first of the month!"
+npm version prepatch --tag=latest -m "⏰  %s It\'s the first of the month!"
 git push origin main --tags
 
 # Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
@@ -244,7 +244,7 @@ git push origin main --tags
 
 #### Annual Major Release
 
-``` bash
+```bash
 git pull -r origin main
 npm whoami
 npm owner
@@ -260,7 +260,6 @@ npm cache add <folder>
 npm shrinkwrap # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
 npm deprecate <pkg>[@<previous-year-version>] <message>
 npm publish --tag=stable
-npm version prepatch -m "⏰  %s Happy New Year !"
 git push origin main --tags
 
 # Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
