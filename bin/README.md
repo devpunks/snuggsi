@@ -200,22 +200,19 @@ git push origin main --tags
 # Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
 ```
 
+#### Daily Patch Release
+
+```bash
+# Automated Midnight
+git pull -r origin main
+npm version patch -m "⏰  %s CalVer Daily Patch Release"
+npm publish
+git push origin main --tags
 
 # Tools
-
 npm edit <pkg>[/<subpkg>...]
 npm explore some-dependency -- git pull origin main
 npm test
-
-
-# Manual Pre Release & Bug fixes
-
-git pull -r origin main
-npm version prerelease
-npm publish
-git push origin main --tags
-[
-# Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
 ```
 
 #### Monthly Minor Release
