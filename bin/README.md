@@ -205,8 +205,8 @@ git push origin main --tags
 ```bash
 # Automated Midnight
 git pull -r origin main
-npm version patch -m "⏰  %s CalVer Daily Patch Release"
-npm publish
+npm version patch --tag=dev -m "⏰  %s CalVer Daily Patch Release"
+npm publish --tag=dev
 git push origin main --tags
 
 # Tools
@@ -233,9 +233,8 @@ npm update
 npm pack
 npm issues # Github issues
 npm bugs # Github issues
-npm version minor -m "⏰  %s CalVer Monthly Minor Release"
-npm publish --tag=stable
-npm version prepatch --tag=latest -m "⏰  %s It\'s the first of the month!"
+npm version minor --tag=latest -m "⏰  %s CalVer Monthly Minor Release"
+npm publish --tag=latest
 git push origin main --tags
 
 # Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
@@ -255,7 +254,7 @@ npm issues # Github issues
 npm doctor
 npm audit  # Cleanup npm packages
 npm ci
-npm version major -m "⏰  %s CalVer Annual Major Release"
+npm version major --tag=stable -m "⏰  %s CalVer Annual Major Release"
 npm cache add <folder>
 npm shrinkwrap # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
 npm deprecate <pkg>[@<previous-year-version>] <message>
@@ -267,8 +266,6 @@ git push origin main --tags
 
 
 ## [`integrate`](integrate)
-
-See [`.travis.yml`](../.travis.yml)
 
 ```bash
 $ bin/integrate
