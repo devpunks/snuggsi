@@ -187,7 +187,7 @@ $ bin/distribute
   - [Ubuntu Version History](https://en.wikipedia.org/wiki/Ubuntu_version_history)
 
 
-#### Daily Patch Release
+#### Manual Pre-Release Development
 
 ``` bash
 # Automated Midnight
