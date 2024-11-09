@@ -189,8 +189,8 @@ $ bin/distribute
 
 #### Manual Pre-Release Development
 
-``` bash
-# Automated Midnight
+```bash
+# Manual Pre Release & Bug fixes
 
 git pull -r origin main
 npm version patch
