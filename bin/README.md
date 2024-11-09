@@ -193,7 +193,7 @@ $ bin/distribute
 # Manual Pre Release & Bug fixes
 
 git pull -r origin main
-npm version patch
+npm version prerelease
 npm publish
 git push origin main --tags
 
