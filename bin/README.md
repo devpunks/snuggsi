@@ -195,7 +195,11 @@ git pull -r origin main
 npm version prerelease
 npm publish
 git push origin main --tags
-[
+
+# Tools
+npm edit <pkg>[/<subpkg>...]
+npm explore some-dependency
+npm test
 # Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
 ```
 
