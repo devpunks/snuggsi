@@ -191,7 +191,6 @@ $ bin/distribute
 
 ```bash
 # Manual Pre Release & Bug fixes
-
 git pull -r origin main
 npm version prerelease
 npm publish
