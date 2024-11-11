@@ -216,7 +216,7 @@ git push origin main --tags
 #### Monthly Minor Release
 
 ```bash
-# Update node
+# Automated Monthly
 git pull -r origin main
 npm view
 npm ls
@@ -242,6 +242,7 @@ git push origin main --tags
 #### Annual Major Release
 
 ```bash
+# Automated Yearly
 git pull -r origin main
 npm whoami
 npm owner
