@@ -206,16 +206,11 @@ npm test
 #### Daily Patch Release
 
 ```bash
-# Automated Midnight
+# Automated Daily
 git pull -r origin main
 npm version patch --tag=dev -m "⏰  %s CalVer Daily Patch Release"
 npm publish --tag=dev
 git push origin main --tags
-
-# Tools
-npm edit <pkg>[/<subpkg>...]
-npm explore some-dependency -- git pull origin main
-npm test
 ```
 
 #### Monthly Minor Release
