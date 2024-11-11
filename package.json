@@ -80,7 +80,7 @@
   },
   "bundleDependencies": [],
   "scripts": {
-    "test": "snuggsi test",
+    "test": "node ./watch/index.es.test",
     "start": "snuggsi serve",
     "package": "snuggsi package",
     "postinstall": "echo Post install",
