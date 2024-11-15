@@ -62,7 +62,19 @@
   "bin": {
     "snuggsi": "bin/snuggsi"
   },
+  "watch": [
+    "watch",
+    "token-list",
+    "html-template-element"
+  ],
   "peerDependencies": {},
+  "bundleDependencies": [],
+  "dependencies": {
+    "koa": "2.13.4",
+    "koa-cors": "^0.0.16",
+    "koa-static": "^5.0.0",
+    "basic-auth": "^2.0.0"
+  },
   "devDependencies": {
     "snuggsi": ".",
     "nyc": "^15.1.0",
@@ -72,13 +84,6 @@
     "uglify-es": "^3.3.9",
     "puppeteer-core": "^15.4.0"
   },
-  "dependencies": {
-    "koa": "2.13.4",
-    "koa-cors": "^0.0.16",
-    "koa-static": "^5.0.0",
-    "basic-auth": "^2.0.0"
-  },
-  "bundleDependencies": [],
   "scripts": {
     "test": "node ./watch/index.es.test",
     "start": "snuggsi serve",
