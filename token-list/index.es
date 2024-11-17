@@ -12,7 +12,7 @@ class TokenList {
     , collect = node =>
         /{(\w+|#)}/.test (node.textContent)
           && (node.text = node.textContent)
-              .match (/[^{]+(?=})/g)
+              .match (/[^{]+(?=})/g) // rule
               .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
 
     , walker =
@@ -20,7 +20,7 @@ class TokenList {
           (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
 
     while (walker.nextNode ()) null // Walk all nodes and do nothing.
-  }
+  } // constructor
 
 
   bind (context) {
@@ -41,6 +41,6 @@ class TokenList {
       symbol != 'bind'
         && this [symbol].map
           (tokenize (symbol)) // more than one occurrence
-  }
-}
+  } // bind
+} // TokenList
 

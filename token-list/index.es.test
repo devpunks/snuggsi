@@ -1,3 +1,38 @@
+//import { test, expect } from 'node:test';
+
 // https://github.com/tmpvar/jsdom/issues/317
 // https://github.com/w3c/web-platform-tests/tree/master/dom/traversal
-console.log ('what from TokenList')
+
+const TokenList = require ('./index.es')
+
+console.log ('TokenList', TokenList )
+
+const n = require('node:test')
+, it = n.it // test
+, test = n.test
+, mock = n.mock
+, skip = it.skip
+, todo = it.todo
+, only = it.only
+, after = n.afterEach
+, before = n.beforeEach
+, describe = n.describe
+, assert = require ('assert')
+
+// https://nodejs.org/api/test.html#class-suitecontext
+describe ('TokenList', t => {
+  const node = {}
+
+  test('should add two numbers', _ => {
+    const result = 1 + 2
+    console.log(_.name)
+    assert.strictEqual (result, 3)
+  })
+
+  it('should equal test', _ => {
+    console.log(_.name)
+    assert.strictEqual (test.it, it)
+  })
+})
+
+describe.todo( 'TODO', _ => todo('TODO: something') )
