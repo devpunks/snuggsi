@@ -44,4 +44,3 @@ This is a `DocumentFragment` returned of the `<template>` content.
   - https://github.com/WebReflection/hyperHTML/pull/100
   - https://github.com/webcomponents/template
 
-

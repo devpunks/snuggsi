@@ -1,38 +1,18 @@
+const fetch = resource =>
+  fs.readFileSync (resource, `utf-8`)
 
-//Template =>
-//  Proxy =>
-//    document.getElementsByTagName (tag)[name]
-// Template.foo
-// Template [...]
-
-
-// innerHTML issues
-// http://www.kieranpotts.com/blog/javascript-html-to-dom/
-//
-// https://lists.w3.org/Archives/Public/public-webapps/2012AprJun/0334.html#start334
-
-// investigate `Text.splitText ()`
-// Recurse through elements and bind event handlers
-// https://developer.mozilla.org/en-US/docs/Web/API/Text/splitText
-//
-// Greatly improve <template> implementaiton
-// https://github.com/tmpvar/jsdom/commit/ceb79457dd01a19f56a615cf6a78598be8ed36b8
-var fetch = resource => fs.readFileSync (resource, `utf-8`)
-
-var dom = require (`jsdom`)
+const dom = require (`jsdom`)
   , fs = require (`fs`)
   , item = `Foo`
   , script = './elements/template.js'
-//, src = [fs.readFileSync (script, 'utf-8')]
   , template = fetch (`./index.html`)
   , element = `<ul id='items'>\n\n</ul>\n\n${template}\n\n`
 
-
 var configuration = {
-  //url: 'http://foo.bar.com',
-  //html: element,
-  // file: a file which jsdom will load HTML from; the resulting document's URL will be a file:// URL,
+//html: element,
 //scripts: [script],
+//url: 'http://foo.bar.com',
+// file: a file which jsdom will load HTML from; the resulting document's URL will be a file:// URL,
 //src: src
 }
 
@@ -51,6 +31,47 @@ configuration.onload  = (window) => {
   console.log ('\nWindow.onload: Only called if creation succeeds without error\n')
 }
 
+console.log( configuration )
+
+//import { test, expect } from 'node:test';
+
+// https://github.com/tmpvar/jsdom/issues/317
+// https://github.com/w3c/web-platform-tests/tree/master/dom/traversal
+
+const Template = require ('./index.es')
+
+console.log ('Template', Template )
+
+const n = require('node:test')
+, it = n.it // test
+, test = n.test
+, mock = n.mock
+, skip = it.skip
+, todo = it.todo
+, only = it.only
+, after = n.afterEach
+, before = n.beforeEach
+, describe = n.describe
+, assert = require ('assert')
+
+// https://nodejs.org/api/test.html#class-suitecontext
+describe ('Template', t => {
+  const node = {}
+
+  test('should add two numbers', _ => {
+    const result = 1 + 2
+    console.log(_.name)
+    assert.strictEqual (result, 3)
+  })
+
+  it('should equal test', _ => {
+    console.log(_.name)
+    assert.strictEqual (test.it, it)
+  })
+})
+
+describe.todo( 'TODO', _ => todo('TODO: something') )
+
 // WARNING! ONLY USE LOCAL SCRIPTS
 // https://github.com/tmpvar/jsdom#user-content-for-the-hardcore-jsdomjsdom
 // The jsdom.jsdom method does fewer things automatically; it takes in only HTML source, and it does not allow you to separately supply scripts that it will inject and execute. It just gives you back a document object, with usable document.defaultView, and starts asynchronously executing any <script>s included in the HTML source. You can listen for the 'load' event to wait until scripts are done loading and executing, just like you would in a normal HTML page.
@@ -61,6 +82,8 @@ configuration.onload  = (window) => {
 // var doc = jsdom(markup, options);
 // var window = doc.defaultView;
 // dom.jsdom (element, configuration)
+
+return
 
 var virtualConsole = dom.createVirtualConsole ()
   .sendTo (console)
