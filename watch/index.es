@@ -9,7 +9,6 @@ const
     = process.env
 
 , message = ` 👉  ${path}🔎 👀 \n`
-, test      = `${SNUGGSI}/bin/test`
 , bundle    = `${SNUGGSI}/bin/bundle`
 , shrink    = `${SNUGGSI}/bin/shrink`
 // , publish   = `${SNUGGSI}/bin/publish`
