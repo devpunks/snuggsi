@@ -12,7 +12,7 @@ const
 , test      = `${SNUGGSI}/bin/test`
 , bundle    = `${SNUGGSI}/bin/bundle`
 , shrink    = `${SNUGGSI}/bin/shrink`
-, publish   = `${SNUGGSI}/bin/publish`
+// , publish   = `${SNUGGSI}/bin/publish`
 , transpile = `${SNUGGSI}/bin/transpile`
 , clear     = `tput reset` // htps://askubuntu.com/q/25077/how-to-really-clear-the-terminal
 , echo      = `printf "${message}" && echo "Last Update $(date)"`
