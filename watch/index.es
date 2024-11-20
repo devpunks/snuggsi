@@ -29,7 +29,6 @@ const
 , command =
 //    [ bundle, transpile, shrink, publish, reload, clear, echo, test, validate ]
     [ bundle, transpile, shrink, test, echo ]
-      .filter (Boolean)
       .join ` && `
 
 // console.log ( process.env )
