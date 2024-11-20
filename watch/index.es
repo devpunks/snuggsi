@@ -17,6 +17,7 @@ const
 , echo      = `printf "${message}" && echo "Last Update $(date)"`
 , test      = `node ${SNUGGSI}/watch/index.es.test`
 , validate  = '$SNUGGSI/bin/validate'
+// , test      = `${SNUGGSI}/bin/test`
 //, validate  = 'bin/validate-weight || true'
 
 , exec = require ('child_process').exec
