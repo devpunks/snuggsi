@@ -15,8 +15,6 @@ const
 , transpile = `${SNUGGSI}/bin/transpile`
 , clear     = `tput reset` // htps://askubuntu.com/q/25077/how-to-really-clear-the-terminal
 , echo      = `printf "${message}" && echo "Last Update $(date)"`
-, test      = `node ${SNUGGSI}/watch/index.es.test`
-, validate  = '$SNUGGSI/bin/validate'
 // , test      = `${SNUGGSI}/bin/test`
 //, validate  = 'bin/validate-weight || true'
 
