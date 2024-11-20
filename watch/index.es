@@ -16,6 +16,7 @@ const
 , clear     = `tput reset` // htps://askubuntu.com/q/25077/how-to-really-clear-the-terminal
 , echo      = `printf "${message}" && echo "Last Update $(date)"`
 // , test      = `${SNUGGSI}/bin/test`
+, test      = `node ${SNUGGSI}/watch/index.es.test`
 //, validate  = 'bin/validate-weight || true'
 
 , exec = require ('child_process').exec
