@@ -63,7 +63,7 @@ var TokenList = function (node) {
 
   , collect = function (node) { return /{(\w+|#)}/.test (node.textContent)
         && (node.text = node.textContent)
-            .match (/[^{]+(?=})/g)
+            .match (/[^{]+(?=})/g) // rule
             .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); }); }
 
   , walker =
@@ -71,7 +71,7 @@ var TokenList = function (node) {
         (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
 
   while (walker.nextNode ()) { null } // Walk all nodes and do nothing.
-};
+}; // constructor
 
 
 TokenList.prototype.bind = function (context) {
@@ -91,7 +91,7 @@ TokenList.prototype.bind = function (context) {
     { symbol$1 != 'bind'
       && this [symbol$1].map
         (tokenize (symbol$1)) } // more than one occurrence
-};
+}; // TokenList
 
 // https://codereview.chromium.org/1987413002
 // https://github.com/whatwg/fetch/pull/442
@@ -277,6 +277,21 @@ void ( function (_) {
 
 }) ()
 
+//Template =>
+// Template.foo
+// Template ['...']
+// document.getElementsByTagName (tag)[name]
+
+// innerHTML issues
+// http://kieranpotts.com/blog/javascript-html-to-dom
+// https://lists.w3.org/Archives/Public/public-webapps/2012AprJun/0334.html#start334
+
+// investigate `Text.splitText ()`
+// Recurse through elements and bind event handlers
+// https://developer.mozilla.org/en-US/docs/Web/API/Text/splitText
+//
+// Greatly improve <template> implementaiton
+// https://github.com/tmpvar/jsdom/commit/ceb79457dd01a19f56a615cf6a78598be8ed36b8
 var Template = function (template) {
 
   var
@@ -305,7 +320,7 @@ var Template = function (template) {
         .bind (context)
 
       return clone
-    }
+    } // tokenize
 
   , bind = function (context) {
       range.deleteContents ()
@@ -320,7 +335,7 @@ var Template = function (template) {
   range.setStartAfter (template)
   template.bind = bind
   return template
-}
+} // Template
 
 window.customElements =
   window.customElements
