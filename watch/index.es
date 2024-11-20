@@ -18,6 +18,7 @@ const
 // , test      = `${SNUGGSI}/bin/test`
 , test      = `node ${SNUGGSI}/watch/index.es.test`
 //, validate  = 'bin/validate-weight || true'
+, validate  = '$SNUGGSI/bin/validate'
 
 , exec = require ('child_process').exec
 
