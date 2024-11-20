@@ -28,7 +28,7 @@ const
 
 , command =
 //    [ bundle, transpile, shrink, publish, reload, clear, echo, test, validate ]
-    [ bundle, transpile, shrink, echo ]
+    [ bundle, transpile, shrink, test, echo ]
       .filter (Boolean)
       .join ` && `
 
