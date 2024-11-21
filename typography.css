@@ -34,7 +34,6 @@ html {
   unicode-range: U+0-10FFFF;
   text-align: var(--text-align);
 
-  line-height: 1.612em;
   font-stretch: normal;
   font-variant: normal;
   font-size: var(--rem);

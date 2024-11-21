@@ -3,7 +3,7 @@
 set -u
 
 declare -rx DIRECTORY=${1:-$(pwd)}
-declare -rx BROWSER_PORT=${BROWSER_PORT:-4321}
+# declare -rx BROWSER_PORT=${BROWSER_PORT:-4321}
 declare -r  SNUGGSI=${SNUGGSI:-$( realpath '.' )}
 declare -r  WATCHER=$SNUGGSI/watch/index.es
 
