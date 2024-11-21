@@ -21,6 +21,7 @@ for more details
 
   - `<hello-world>`
   - `<to-do>`
+  - `<add-subtract>`
   - `<data-list>`
   - `<list-filter>`
   - `<valid-form>`
