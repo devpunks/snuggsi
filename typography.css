@@ -37,6 +37,7 @@ html {
   font-stretch: normal;
   font-variant: normal;
   font-size: var(--rem);
+  line-height: 1.6182em;
   font-size-adjust: 0.5;
   font-feature-settings: normal;
   font-family: 'Ubuntu', sans-serif
