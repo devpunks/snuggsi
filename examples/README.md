@@ -35,7 +35,6 @@ for more details
 
 
 ## Web Components
-
   - `<skype-clone>`
   - `<options-scanner>`
 
