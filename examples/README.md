@@ -26,6 +26,8 @@ for more details
   - `<list-filter>`
   - `<valid-form>`
   - `<x-flashy>`
+  - `<drag-drop>`
+  - `<ping-pong>`
   - `<whack-a-mole>`
   - `<audio-player>`
   - `<video-player>`
