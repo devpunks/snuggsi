@@ -20,7 +20,6 @@ for more details
 ## Custom Elements
 
   - `<hello-world>`
-  - `<add-subtract>`
   - `<to-do>`
   - `<data-list>`
   - `<list-filter>`
