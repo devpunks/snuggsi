@@ -19,7 +19,6 @@ for more details
 
 ## Custom Elements
 
-  - `<hello-world>`
   - `<to-do>`
   - `<add-subtract>`
   - `<data-list>`
