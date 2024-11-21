@@ -25,7 +25,6 @@ for more details
   - `<data-list>`
   - `<list-filter>`
   - `<valid-form>`
-  - `<infinity-calendar>`
   - `<x-flashy>`
   - `<whack-a-mole>`
   - `<audio-player>`
