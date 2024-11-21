@@ -20,6 +20,8 @@ for more details
 ## Custom Elements
 
   - `<to-do>`
+  - `<nav-view>`
+  - `<hello-world>`
   - `<add-subtract>`
   - `<data-list>`
   - `<list-filter>`
