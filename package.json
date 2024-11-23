@@ -85,6 +85,6 @@
     "preinstall": "echo  pre-Installing snuggsi",
     "preversion": "echo 'npm preversion (test)'",
     "version": "echo 'npm version (build)' # git add -A dist",
-    "postversion": "echo 'npm postversion' # git push && git push --tags"
+    "postversion": "echo 'npm postversion (publish)' # git push && git push --tags"
   }
 }
