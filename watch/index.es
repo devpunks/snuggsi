@@ -4,8 +4,7 @@
 
 const
   { debounce, throttle } = require ('./govern')
-, { SNUGGSI, BROWSER_PORT, DIRECTORY: path }
-    = process.env
+, { SNUGGSI, BROWSER_PORT, DIRECTORY: path } = process.env
 , clear = `tput reset` // htps://askubuntu.com/q/25077/how-to-really-clear-the-terminal
 , test = `index.es.test`
 , message = ` 👉  ${path}🔎 👀 \n`
@@ -34,7 +33,6 @@ watch.forEach (path => {
     //   - https://stackoverflow.com/questions/12978924/fs-watch-fired-twice-when-i-change-the-watched-file
     // https://github.com/nodejs/node/issues/21643
   , callback = (event, file) => {
-console.log('Calling back')
       const
         start = new Date
       , predicate =
@@ -45,16 +43,13 @@ console.log('Calling back')
             && /\.(test|es|js|css|html)$/
               .test (file)
 
-console.log('The predicate', predicate, event, file)
-      predicate
-        && exec (runner, (error, stdout, stderr) =>
-          error
-            ? console.error (`exec error: ${error}`
-              , 'The Error >>>>> ', stderr )
-            : console.log (`${stdout} \n\n`
-              , `Execution time: ${ (new Date) - start }ms` )
-        ) // exec
-          && setTimeout ( _ => active = false , 1 )
+      predicate && exec (runner, (error, stdout, stderr) =>
+        error
+          ? console.error (`exec error: ${error}`
+            , 'The Error >>>>> ', stderr )
+          : console.log (`${stdout} \n\n`
+            , `Execution time: ${ (new Date) - start }ms` )
+      ) // exec
     } // callback
 
   require ('fs').watch
