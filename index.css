@@ -78,8 +78,7 @@ body > aside summary {
 }
 
 
-[view]
-  { display: block }
+[view] { display: block }
 
 [view]:not(:target) {
   height: 82vh;
