@@ -111,8 +111,7 @@ body > footer {
     );
 }
 
-body > footer em
-  { font-size: 0.8em }
+body > footer em { font-size: 0.8em }
 
 header-group {
   z-index: 2; /* less than github-ribbon */
