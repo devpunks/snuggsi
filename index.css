@@ -265,3 +265,4 @@ body > main, body > aside { flex: 1 }
 
 @media screen (min-width: 786px) { }
 
+@media (min-width:1300px) { }
