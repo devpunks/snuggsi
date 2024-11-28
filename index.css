@@ -263,5 +263,5 @@ body > main, body > aside { flex: 1 }
     position: fixed;
   }
 
-@media (min-width:1300px) { }
+@media screen (min-width: 786px) { }
 
