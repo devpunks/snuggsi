@@ -202,7 +202,6 @@ section#installation pre em.comment
 }
 
 /* HOLY GRAIL */
-
 body { display: flex; flex-flow: column }
 body > main, body > aside { flex: 1 }
 
