@@ -208,7 +208,7 @@ npm test
 ```bash
 # Automated Daily
 git pull -r origin main
-npm version patch --tag=daily -m "⏰  %s CalVer Daily Patch Release"
+npm version patch --tag=dev -m "⏰  %s CalVer Daily Patch Release"
 npm publish --tag=dev
 git push origin main --tags
 ```
