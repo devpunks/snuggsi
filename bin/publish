@@ -19,4 +19,4 @@ echo "  🆕 Publishing library to https://npmjs.org"
 echo
 npm publish --tag=dev
 echo
-npm view
+npm view --tag=dev
