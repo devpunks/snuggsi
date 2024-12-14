@@ -3,16 +3,17 @@
 // https://www.geeksforgeeks.org/difference-between-debouncing-and-throttling
 // https://nordicapis.com/api-rate-limiting-vs-api-throttling-how-are-they-different
 module.exports = {
-  debounce (func, delay = 0) {
-    let id
+  // https://en.wikipedia.org/wiki/Rate_limiting
+  limit (func, max = 0) {
+    let times = 0
 
     return function () {
-      clearTimeout (id)
+      const predicate
+        = max === 0 || ++times <= max
 
-      id = setTimeout
-        ( _ => func (...arguments), delay )
+      predicate && func (...arguments)
     } // function
-  } // debounce
+  } // limit
 
 , throttle (func, duration = 0) {
     let then
@@ -28,16 +29,14 @@ module.exports = {
     } // function
   } // throttle
 
-  // https://en.wikipedia.org/wiki/Rate_limiting
-, limit (func, max = 0) {
-    let times = 0
+, debounce (func, delay = 0) {
+    let id
 
     return function () {
-      const predicate
-        = max === 0 || ++times <= max
+      clearTimeout (id)
 
-      predicate && func (...arguments)
+      id = setTimeout
+        ( _ => func (...arguments), delay )
     } // function
-  } // limit
-
+  } // debounce
 } // exports
