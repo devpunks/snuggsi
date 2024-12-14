@@ -1,77 +1,45 @@
 #!/usr/bin/env bash
 
 # bro is installed locally and manually. No npm cli. HELP!
+declare -r \
+  BROTLI=brotli \
+  ZOPFLI=zopfli \
+  DIST=./dist \
+  FILES=(snuggsi.min.es snuggsi.min.js)
 
+echo "  🍃  Compressing …"
 
-DIST=./dist
-BROTLI=brotli
-ZOPFLI=zopfli
+for file in ${FILES[@]} ; do
+  declare path=${DIST}/${file}
 
+  echo "    🌿  $path"
 
-echo "  🌱  Compressing …"
+  echo -e "\n       🌱  Brotli 👉  ${path}.br"
+  $BROTLI \
+    --stdout \
+    --quality=11 \
+    $path \
+  > $path.br
 
+  echo -e "\n        ☘️  GZIP 👉  ${path}.gz"
+  $ZOPFLI -v \
+    --gzip \
+    --i50 \
+  $path
 
-FILE=$DIST/snuggsi.min.es
+  echo -e "\n        🍀  ZLIB 👉  ${path}.zlib"
+  $ZOPFLI -v \
+    --zlib \
+    --i50 \
+    $path
 
-echo "    🍃  $FILE"
-echo "       🌱  Brotli 👉  $FILE.br"
+  echo -e "\n        🍂  DEFLATE 👉  $path.deflate"
+  $ZOPFLI -v \
+    --deflate \
+    --i50 \
+  $path
 
-$BROTLI         \
-  --stdout \
-  --quality=11  \
-  $FILE \
-> $FILE.br
-
-echo "       🍀  GZIP 👉  $FILE.gz"
-
-$ZOPFLI -v \
-  --gzip \
-  --i50 \
-$FILE
-
-
-echo "       🍂  DEFLATE 👉  $FILE.zo"
-
-$ZOPFLI -v \
-  --deflate \
-  --i50 \
-$FILE
-
-
-FILE=$DIST/snuggsi.min.js
-
-echo "    🍃  $FILE"
-echo "       🌱  Brotli 👉  $FILE.br"
-
-$BROTLI         \
-  --stdout \
-  --quality=11  \
-  $FILE \
-> $FILE.br
-
-
-echo "       🍀  GZIP 👉  $FILE.gz"
-
-$ZOPFLI -v \
-  --gzip \
-  --i50 \
-$FILE
-
-
-echo "       🍂  DEFLATE 👉  $FILE.zo"
-
-$ZOPFLI -v \
-  --deflate \
-  --i50 \
-  $FILE
-
-
-echo "       🍂  ZLIB 👉  $FILE"
-
-$ZOPFLI -v \
-  --zlib \
-  --i50 \
-  $FILE
-
+done
 
 echo
+
