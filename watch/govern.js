@@ -3,7 +3,7 @@
 // https://www.geeksforgeeks.org/difference-between-debouncing-and-throttling
 // https://nordicapis.com/api-rate-limiting-vs-api-throttling-how-are-they-different
 module.exports = {
-  debounce (func, delay = 0) {
+  debounce (func, delay = 1) {
     let id
 
     return _ => {
@@ -12,9 +12,9 @@ module.exports = {
       id = setTimeout
         ( _ => func (...arguments), delay )
     }
-  } //debounce
+  } // debounce
 
-, throttle (func, duration = 0) {
+, throttle (func, duration = 1) {
     let then
 
     return _ => {
