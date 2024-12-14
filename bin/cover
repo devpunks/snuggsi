@@ -5,30 +5,22 @@ set -u
 # ${SNUGGSI?"🔴 Set shell variable to installation location"}
 
 declare -r  THRESHOLD=70                         # Percentage
-declare -r  HARNESS=$SNUGGSI/bin/test            # Test harness
-declare -r  LIBRARIES=.,test,html-element        # resource,middleware,server
+declare -r  HARNESS='npm test'                   # Test harness
+declare -r  LIBRARIES=watch,token-list,html-element,html-template-element
 declare -r  OUTPUT=.nyc_output/                  # Represented in Percentage
 declare -r  EXTENSION=.es                        # Extension for coverage files
 declare -r  REPORTER=text                        # Type of coverage report to generate
 declare -r  COVER=$SNUGGSI/node_modules/.bin/nyc # Coverage runner
-declare -r  CHECK="$COVER check-coverage"        # Coverage checker
-declare -r  EXCLUDE="**/node_modules,middleware,resource,server,test"
+declare -r  CHECK="$COVER --check-coverage"        # Coverage checker
+declare -r  EXCLUDE="./index.test,middleware,resource,server,test"
 
 echo "📊  snuggsi ツ Coverage Report"
 echo
-echo "  🎯  Cover 👉  $COVER"
 echo "  🎯  Threshold 👉  $THRESHOLD %"
+echo "  ⚙️   Cover     👉  $COVER"
 echo "  ➕  Included  👉  $LIBRARIES"
 echo "  ➖  Excluded  👉  $EXCLUDE"
 echo
-
-exit 0
-
-$COVER                    \
-  --exclude=$EXCLUDE      \
-  --reporter=$REPORTER    \
-  --extension=$EXTENSION  \
-  $HARNESS
 
 $CHECK                     \
   --lines      $THRESHOLD  \
@@ -47,4 +39,8 @@ echo "  🚮  Removing 👉  $OUTPUT"
 echo # Remove output directory
 rm -rf $OUTPUT
 
-exit $CODE
+echo $CODE
+exit 0
+
+# exit $CODE
+
