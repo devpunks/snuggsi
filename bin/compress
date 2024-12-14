@@ -1,11 +1,13 @@
 #!/usr/bin/env bash
 
-# bro is installed locally and manually. No npm cli. HELP!
 declare -r \
-  BROTLI=brotli \
-  ZOPFLI=zopfli \
   DIST=./dist \
-  FILES=(snuggsi.min.es snuggsi.min.js)
+  ZOPFLI='zopfli -v -i10' \
+  BROTLI='brotli --verbose --best'
+# bro is installed locally and manually. No npm cli. HELP!
+
+declare -ar \
+  FILES=( snuggsi.min.es snuggsi.min.js )
 
 echo -e "\n  🍃  Compressing …"
 
@@ -15,33 +17,17 @@ for file in ${FILES[@]} ; do
   echo -e "\n   🌿  $path"
 
   echo -e "     ☘️  GZIP 👉  ${path}.gz"
-  $ZOPFLI -v \
-    --gzip \
-    --i50 \
-  $path
+  $ZOPFLI --gzip $path
 
-  echo
   echo "     🍀  ZLIB 👉  ${path}.zlib"
-  $ZOPFLI -v \
-    --zlib \
-    --i50 \
-    $path
+  $ZOPFLI --zlib $path
 
   echo "     🍂  DEFLATE 👉  $path.deflate"
-  $ZOPFLI -v \
-    --deflate \
-    --i50 \
-  $path
+  $ZOPFLI --deflate $path
 
   echo "     🌱  Brotli 👉  ${path}.br"
-  $BROTLI \
-    --best \
-    --stdout \
-    --verbose \
-    $path \
-  > $path.br
-
-echo
-
+  $BROTLI --stdout \
+    $path > $path.br
 done
 
+echo
