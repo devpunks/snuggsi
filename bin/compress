@@ -7,19 +7,12 @@ declare -r \
   DIST=./dist \
   FILES=(snuggsi.min.es snuggsi.min.js)
 
-echo "  🍃  Compressing …"
+echo -e"\n  🍃  Compressing …"
 
 for file in ${FILES[@]} ; do
   declare path=${DIST}/${file}
 
-  echo "    🌿  $path"
-
-  echo -e "\n       🌱  Brotli 👉  ${path}.br"
-  $BROTLI \
-    --stdout \
-    --quality=11 \
-    $path \
-  > $path.br
+  echo -e "\n    🌿  $path"
 
   echo -e "\n        ☘️  GZIP 👉  ${path}.gz"
   $ZOPFLI -v \
@@ -39,7 +32,15 @@ for file in ${FILES[@]} ; do
     --i50 \
   $path
 
-done
+  echo -e "\n       🌱  Brotli 👉  ${path}.br"
+  $BROTLI \
+    --best \
+    --stdout \
+    --verbose \
+    $path \
+  > $path.br
 
 echo
+
+done
 
