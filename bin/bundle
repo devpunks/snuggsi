@@ -1,10 +1,9 @@
 #!/usr/bin/env bash
 
-# Allow overriding $BUNDLE
 declare -r \
-  DESTINATION=${DESTINATION:-
-    $( realpath dist/snuggsi.es ) }
+  DESTINATION=${DESTINATION:-$( realpath dist/snuggsi.es ) }
 
+# Allow overriding $BUNDLE
 declare -r BUNDLE=${BUNDLE:-
   html-element/index.es
   token-list/index.es
@@ -18,7 +17,7 @@ declare -r BUNDLE=${BUNDLE:-
   element/index.es
 } # BUNDLE
 
-echo "  🌲  Bundling …"
+echo "  🌳  Bundling …"
 for item in $BUNDLE ; do
   echo "    🌿 $item"
 done
