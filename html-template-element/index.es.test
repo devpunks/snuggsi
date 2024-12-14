@@ -1,7 +1,7 @@
 const fetch = resource =>
   fs.readFileSync (resource, `utf-8`)
 
-const dom = require (`jsdom`)
+const { JSDOM } = require (`jsdom`)
   , fs = require (`fs`)
   , item = `Foo`
   , script = './elements/template.js'
@@ -31,16 +31,10 @@ configuration.onload  = (window) => {
   console.log ('\nWindow.onload: Only called if creation succeeds without error\n')
 }
 
-console.log( configuration )
-
 //import { test, expect } from 'node:test';
 
 // https://github.com/tmpvar/jsdom/issues/317
 // https://github.com/w3c/web-platform-tests/tree/master/dom/traversal
-
-const Template = require ('./index.es')
-
-console.log ('Template', Template )
 
 const n = require('node:test')
 , it = n.it // test
@@ -60,17 +54,9 @@ describe ('Template', t => {
 
   test('should add two numbers', _ => {
     const result = 1 + 2
-    console.log(_.name)
     assert.strictEqual (result, 3)
   })
-
-  it('should equal test', _ => {
-    console.log(_.name)
-    assert.strictEqual (test.it, it)
-  })
 })
-
-describe.todo( 'TODO', _ => todo('TODO: something') )
 
 // WARNING! ONLY USE LOCAL SCRIPTS
 // https://github.com/tmpvar/jsdom#user-content-for-the-hardcore-jsdomjsdom
@@ -82,6 +68,9 @@ describe.todo( 'TODO', _ => todo('TODO: something') )
 // var doc = jsdom(markup, options);
 // var window = doc.defaultView;
 // dom.jsdom (element, configuration)
+
+const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`)
+console.log( dom.window.document.body.outerHTML ) // "Hello world"
 
 return
 
