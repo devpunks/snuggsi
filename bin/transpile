@@ -8,8 +8,9 @@ declare -rx \
   OUTPUT=${OUTPUT:-$ROOT/snuggsi.js} \
   TRANSPILER=bin/transpile.es
 
+echo
 echo "  🌲  Transpiling …"
-echo "      🌳  $INPUT  🎄🌲  $OUTPUT"
+echo "    🌳  $INPUT  🎄🌲  $OUTPUT"
 echo
 
 
