@@ -9,12 +9,12 @@ declare -r \
 declare -ar \
   FILES=( snuggsi.min.es snuggsi.min.js )
 
-echo -e "\n  🍃  Compressing …"
+echo -e "  🍃  Compressing …"
 
 for file in ${FILES[@]} ; do
   declare path=${DIST}/${file}
 
-  echo -e "\n   🌿  $path"
+  echo -e "   🌿  $path"
 
   echo -e "     ☘️  GZIP 👉  ${path}.gz"
   $ZOPFLI --gzip $path
@@ -28,6 +28,7 @@ for file in ${FILES[@]} ; do
   echo "     🌱  Brotli 👉  ${path}.br"
   $BROTLI --stdout \
     $path > $path.br
+
+  echo
 done
 
-echo

@@ -13,7 +13,6 @@ bin/bundle \
 
 FINISH=` date +%s `
 
-echo
 echo " 🏁  Compilation Process Finished 👉  `date -r $FINISH` "
 echo
 echo "  🕓  Total compilation duration 👉  $((FINISH - START)) secs."
