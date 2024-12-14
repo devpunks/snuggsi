@@ -1,31 +1,26 @@
 #!/usr/bin/env bash
 
-declare  MAXIMUM=1500
-declare  DIRECTORY=dist
-declare  LIBRARY="$DIRECTORY/snuggsi.min.es.br"
+declare -r \
+  MAXIMUM=1500 \
+  DIRECTORY=dist
 
-ls -al $DIRECTORY
+declare -r LIBRARY="${DIRECTORY}/snuggsi.min.es.br"
+declare -r OCTETS=$(
+  ls -nl $LIBRARY | awk '{print $5}'
+) # OCTETS
 
 echo
 echo "🚏 snuggsiツ Weight Check"
 echo "  ⚠️  Maximum allowable weight 👉  $MAXIMUM OCTETS"
 
-
-OCTETS=$(
-    ls -nl $LIBRARY \
-      | awk '{print $5}'
-  ) || exit 1
-
-
 echo "  👇"
 echo "  📃  $LIBRARY"
 
-if [[ $OCTETS -gt $MAXIMUM ]]; then
-  echo "    🔴  Weight 👉  $OCTETS OCTETS"
-  echo "      ❌  Overweight by $((OCTETS - MAXIMUM)) OCTETS"
-  echo && exit 1
-fi
+[[ $OCTETS -lt $MAXIMUM ]] \
+  && echo "    ✅  Weight 👉  $OCTETS OCTETS" \
+  && echo && exit
 
+echo "    🔴  Weight 👉  $OCTETS OCTETS"
+echo "      ❌  Overweight by $((OCTETS - MAXIMUM)) OCTETS"
+echo && exit 1
 
-echo "    ✅  Weight 👉  $OCTETS OCTETS"
-echo

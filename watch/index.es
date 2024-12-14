@@ -10,7 +10,6 @@ const
 , lint = `${SNUGGSI}/bin/lint`
 , weigh = `${SNUGGSI}/bin/weigh`
 , cover = `${SNUGGSI}/bin/cover`
-, message = ` 👉  ${path}🔎 👀 \n`
 , bundle = `${SNUGGSI}/bin/bundle`
 , shrink = `${SNUGGSI}/bin/shrink`
 , compile = `${SNUGGSI}/bin/compile`
@@ -23,11 +22,8 @@ const
 
 watch.forEach (path => {
   const
-    message = ` 👉  ${path}🔎 👀 \n`
-  , test = `node --test ${path}/**.test`
-  , runner
-      = [ clear, compile, lint, cover, weigh, test ]
-        .join ` && `
+    test = `node --test ${path}/**.test`
+  , runner = [ clear, compile, lint, cover, weigh, test ] .join ` && `
     // caveats
     //   - https://nodejs.org/docs/latest/api/fs.html#fs_caveats
     //   - https://github.com/nodejs/node-v0.x-archive/issues/2054#issuecomment-8686322
