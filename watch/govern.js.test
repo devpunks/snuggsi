@@ -10,49 +10,140 @@ const { debounce, throttle, limit }
   = require('./govern.js')
 
 
-todo( 'TODO: debounce' )
-todo( 'TODO: throttle' )
+describe( 'debounce', _ => {
+  let delay = 100
+  let count = 0, expected = 1
+  let debounced = debounce ( _ => console.log('INITIAL LIMIT', ++count) )
 
-describe( 'limit', _ => {
-  let limited
-    = limit( _ => console.log('PUSH IT TO THE LIMIT') )
+  test ('initial call', async self => {
+    debounced ()
 
-  test('unlimited', self => {
-    console.log('The maximum', self, limited)
+    await new Promise (resolve => setTimeout ( _ => {
+      resolve ()
+    }, delay * 2 ) )
 
-    limited ()
-    limited ()
-    limited ()
-    limited ()
-    limited ()
-    limited ()
+    console.log('Count', count, 'Expected', expected)
+    assert ( count === expected )
   }) // test
 
-  context.todo( 'below maximum', _ => {
-    let maximum = 1
-    let limited
-      = limit( _ => console.log('PUSH IT TO THE LIMIT'), maximum)
+  context ('when fast', _ => {
+    let delay = 100
+    let count = 0, expected = 1
+    let debounced = debounce ( _ => console.log('FAST LIMIT', ++count), delay )
 
-    test('below', self => {
-      console.log('The maximum', maximum, self, limited)
+    test ('only called once', async self => {
+      debounced ()
+      debounced ()
 
+      await new Promise (resolve => setTimeout ( _ => {
+        resolve ()
+      }, delay * 2 ) )
+
+      console.log('Count', count, 'Expected', expected)
+      assert ( count === expected )
+    }) // test
+  }) // context
+
+  context ('when slow', _ => {
+    let delay = 100
+    let count = 0, expected = 2
+    let debounced = debounce ( _ => console.log('SLOW LIMIT', ++count), delay )
+
+    test ('called twice', async self => {
+      debounced ()
+      debounced ()
+
+      await new Promise (resolve => setTimeout ( _ => {
+        debounced () ; resolve ()
+      }, delay * 2 ) )
+
+      debounced ()
+      debounced ()
+
+      await new Promise (resolve => setTimeout ( _ => {
+        resolve ()
+      }, delay * 2 ) )
+
+      console.log('Count', count, 'Expected', expected)
+      assert ( count === expected )
+    }) // test
+  }) // context
+}) // debounce
+
+
+describe( 'throttle', _ => {
+  let count = 0, expected = 1
+  let unthrottled = throttle ( _ => ++count )
+
+  test ('initial call', self => {
+    unthrottled ()
+
+    assert ( count === expected )
+  }) // test
+
+  context ('when fast', _ => {
+    let duration = 10
+    let count = 0, expected = 1
+    let throttled
+      = throttle ( _ => ++count, duration )
+
+    test ('only called once', self => {
+      throttled ()
+      throttled ()
+
+      assert ( count === expected )
+    }) // test
+  }) // context
+
+  context ('when slow', _ => {
+    let duration = 10
+    let count = 0, expected = 2
+    let throttled = throttle ( _ => ++count, duration )
+
+    test ('called twice', async self => {
+      throttled ()
+
+      await new Promise (resolve => setTimeout ( _ => {
+        throttled () ; resolve ()
+      }, duration * 2 ) )
+
+      assert ( count === expected )
+    }) // test
+  })
+}) // throttle
+
+describe( 'limit', _ => {
+  let count = 0
+  let expected = Math.round ( Math.random () * 10 )
+  let unlimited = limit ( _ => ++count )
+
+  test ('unlimited', self => {
+    for ( let i = 0; i < runs; i++ ) unlimited ()
+
+    assert ( count === expected )
+  }) // test
+
+  context ('when below maximum', _ => {
+    let count = 0, maximum = 1
+    let limited = limit ( _ => ++count, maximum )
+
+    test ('below', self => {
       limited ()
-      limited ()
+
+      assert ( count === maximum )
     }) // test
   })
 
-  context( 'when maximum', _ => {
-    let maximum = 2
-    let limited
-      = limit( _ => console.log('PUSH IT TO THE LIMIT'), maximum)
+  context ('when maximum', _ => {
+    let count = 0, maximum = 1
+    let limited = limit ( _ => ++count, maximum )
 
-    test('maximum', self => {
-      console.log('The maximum', maximum, self, limited)
+    test ('maximum', self => {
+      limited ()
+      limited ()
 
-      limited ()
-      limited ()
-      limited ()
+      assert ( count === maximum )
     }) // test
   }) // context
-})
+}) // limit
 

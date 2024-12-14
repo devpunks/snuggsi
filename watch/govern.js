@@ -11,7 +11,7 @@ module.exports = {
 
       id = setTimeout
         ( _ => func (...arguments), delay )
-    }
+    } // function
   } // debounce
 
 , throttle (func, duration = 0) {
@@ -19,12 +19,13 @@ module.exports = {
 
     return function () {
       const
-        now = new Date
-      , predicate = now - then >= duration
+        now = +new Date
+      , predicate = !!! then
+          || now - then >= duration
 
       predicate && (then = now)
         && func (...arguments)
-    }
+    } // function
   } // throttle
 
   // https://en.wikipedia.org/wiki/Rate_limiting
@@ -36,7 +37,7 @@ module.exports = {
         = max === 0 || ++times <= max
 
       predicate && func (...arguments)
-    }
+    } // function
   } // limit
 
 } // exports
