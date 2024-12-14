@@ -1,4 +1,6 @@
+// https://dev.to/aneeqakhan/throttling-and-debouncing-explained-1ocb
 // https://www.geeksforgeeks.org/difference-between-debouncing-and-throttling
+  // https://nordicapis.com/api-rate-limiting-vs-api-throttling-how-are-they-different
 module.exports = {
   debounce (func, delay = 0) {
     let id
@@ -11,24 +13,28 @@ module.exports = {
     }
   } //debounce
 
-  // https://nordicapis.com/api-rate-limiting-vs-api-throttling-how-are-they-different
-, throttle (func, delay = 0) {
-    let
-        active, times = 0 // semaphore ???
-
-//, `Run times (${ ++times })\n`
-    let wait = false
+, throttle (func, duration = 0) {
+    let then
 
     return function () {
-      if (wait) return
+      const
+        now = new Date
+      , predicate = now - then >= duration
 
-      func (...arguments)
-      wait = true
-      setTimeout ( _ => wait = false, delay );
+      predicate && (then = now)
+        && func (...arguments)
     }
   } // throttle
 
   // https://en.wikipedia.org/wiki/Rate_limiting
-, limit (func, delay = 0) { } // limit
+, limit (func, max = 1) {
+    let times = 0
+
+    return function () {
+      const predicate = ++times < max
+
+      predicate && func (...arguments)
+    }
+  } // limit
 
 } // exports
