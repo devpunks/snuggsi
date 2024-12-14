@@ -12,27 +12,28 @@ echo -e "\n  🍃  Compressing …"
 for file in ${FILES[@]} ; do
   declare path=${DIST}/${file}
 
-  echo -e "\n    🌿  $path"
+  echo -e "\n   🌿  $path"
 
-  echo -e "\n        ☘️  GZIP 👉  ${path}.gz"
+  echo -e "     ☘️  GZIP 👉  ${path}.gz"
   $ZOPFLI -v \
     --gzip \
     --i50 \
   $path
 
-  echo -e "\n        🍀  ZLIB 👉  ${path}.zlib"
+  echo
+  echo "     🍀  ZLIB 👉  ${path}.zlib"
   $ZOPFLI -v \
     --zlib \
     --i50 \
     $path
 
-  echo -e "\n        🍂  DEFLATE 👉  $path.deflate"
+  echo "     🍂  DEFLATE 👉  $path.deflate"
   $ZOPFLI -v \
     --deflate \
     --i50 \
   $path
 
-  echo -e "\n       🌱  Brotli 👉  ${path}.br"
+  echo "     🌱  Brotli 👉  ${path}.br"
   $BROTLI \
     --best \
     --stdout \
