@@ -1,14 +1,15 @@
 #!/usr/bin/env bash
 
-declare -r ROOT=dist
+declare -r \
+  ROOT=dist
 
 declare -rx \
   INPUT=${INPUT:-$ROOT/snuggsi.es}   \
   OUTPUT=${OUTPUT:-$ROOT/snuggsi.js} \
   TRANSPILER=bin/transpile.es
 
-echo "  🎄  Transpiling …"
-echo "      🌲  $INPUT  🎄  $OUTPUT"
+echo "  🌲  Transpiling …"
+echo "      🌳  $INPUT  🎄🌲  $OUTPUT"
 echo
 
 

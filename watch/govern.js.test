@@ -1,10 +1,3 @@
-console.log('woooooohooooo')
-
-//import { test, expect } from 'node:test';
-
-//const watch = require('./index.es')
-//console.log( watch )
-
 const {
   test, describe,
   beforeEach: before, afterEach: after
@@ -12,7 +5,10 @@ const {
 , assert = require('assert')
 , { skip, todo } = test.it
 
+const { debounce, throttle, limit }
+  = require('./govern.js')
 
-// https://nodejs.org/api/test.html#class-suitecontext
-skip( 'SKIP' )
-todo( 'TODO' )
+
+todo( 'TODO: debounce' )
+todo( 'TODO: throttle' )
+skip( 'SKIP: limit' )

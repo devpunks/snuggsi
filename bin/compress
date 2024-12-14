@@ -7,7 +7,7 @@ declare -r \
   DIST=./dist \
   FILES=(snuggsi.min.es snuggsi.min.js)
 
-echo -e"\n  🍃  Compressing …"
+echo -e "\n  🍃  Compressing …"
 
 for file in ${FILES[@]} ; do
   declare path=${DIST}/${file}

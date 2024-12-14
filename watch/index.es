@@ -10,14 +10,15 @@ const
 , message = ` 👉  ${path}🔎 👀 \n`
 , bundle = `${SNUGGSI}/bin/bundle`
 , shrink = `${SNUGGSI}/bin/shrink`
+, compile = `${SNUGGSI}/bin/compile`
 , validate = `${SNUGGSI}/bin/validate`
 , transpile = `${SNUGGSI}/bin/transpile`
 , exec  = require ('child_process').exec
 , watch = require('../package.json')['watch']
-, echo = `printf "${message}" && echo "Last Update $(date)"`
 , reload = BROWSER_PORT
     && `$SNUGGSI/node_modules/.bin/browser-sync reload --port=$BROWSER_PORT`
-, command = [ bundle, transpile, shrink, reload ]
+, command = [ compile, reload ]
+//, command = [ bundle, transpile, shrink, reload ]
     .filter( Boolean )
     .join ` && `
 

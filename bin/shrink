@@ -1,19 +1,18 @@
 #!/usr/bin/env bash
 
-SHRINK=node_modules/.bin/uglifyjs
+declare -r \
+  SHRINK=node_modules/.bin/uglifyjs
 
+declare -ar \
+  extensions=(es js)
 
 echo "  🌿  Shrinking …"
-
-
-declare -ar extensions=(es js)
-
 for extension in ${extensions[@]}
 do
   declare INPUT=dist/snuggsi.$extension
   declare OUTPUT=dist/snuggsi.min.$extension
 
-  echo "   🌿  $INPUT  🍃  $OUTPUT"
+  echo "   🌲  $INPUT  🌿  $OUTPUT"
 
   $SHRINK                  \
     --compress             \

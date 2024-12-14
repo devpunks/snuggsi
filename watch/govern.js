@@ -5,7 +5,7 @@ module.exports = {
   debounce (func, delay = 0) {
     let id
 
-    return function () {
+    return _ => {
       clearTimeout (id)
 
       id = setTimeout
@@ -16,7 +16,7 @@ module.exports = {
 , throttle (func, duration = 0) {
     let then
 
-    return function () {
+    return _ => {
       const
         now = new Date
       , predicate = now - then >= duration
@@ -30,7 +30,7 @@ module.exports = {
 , limit (func, max = 1) {
     let times = 0
 
-    return function () {
+    return _ => {
       const predicate = ++times < max
 
       predicate && func (...arguments)
