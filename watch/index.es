@@ -16,17 +16,16 @@ const
 , exec  = require ('child_process').exec
 , watch = require('../package.json')['watch']
 , reload = BROWSER_PORT
-    && `$SNUGGSI/node_modules/.bin/browser-sync reload --port=$BROWSER_PORT`
-, command = [ compile, reload ]
-//, command = [ bundle, transpile, shrink, reload ]
+    && `${SNUGGSI}/node_modules/.bin/browser-sync reload --port=${BROWSER_PORT}`
+, command = [ clear, compile ]
     .filter( Boolean )
     .join ` && `
 
 watch.forEach (path => {
   const
     message = ` 👉  ${path}🔎 👀 \n`
-  , test = `node --test ${path}/index.es.test`
-  , runner = [ test, command ].join ` && `
+  , test = `node --test ${path}/**.test`
+  , runner = [ command, test ].join ` && `
     // caveats
     //   - https://nodejs.org/docs/latest/api/fs.html#fs_caveats
     //   - https://github.com/nodejs/node-v0.x-archive/issues/2054#issuecomment-8686322
@@ -53,7 +52,8 @@ watch.forEach (path => {
 
   require ('fs').watch
     // https://nodejs.org/docs/latest/api/fs.html#fswatchfilename-options-listener
-    ( path, { recursive: true }, debounce ( callback ) )
+    ( path, { recursive: true }, callback )
+//  ( path, { recursive: true }, debounce ( callback ) )
 
   console.log('👁️  Watching 📂', `${path}/♾️`)
 }) // forEach
