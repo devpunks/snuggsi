@@ -25,9 +25,8 @@ const
 watch.forEach (path => {
   const
     message = ` 👉  ${path}🔎 👀 \n`
-  , test = `node ${path}/index.es.test`
+  , test = `node --test ${path}/index.es.test`
   , runner = [ test, command ].join ` && `
-  , echo = `printf "${message}" && echo "Last Update $(date)"`
     // caveats
     //   - https://nodejs.org/docs/latest/api/fs.html#fs_caveats
     //   - https://github.com/nodejs/node-v0.x-archive/issues/2054#issuecomment-8686322
@@ -37,25 +36,24 @@ watch.forEach (path => {
       const
         start = new Date
       , predicate =
-          // /^dist/.test (file) ||
-          // /^public/.test (file) ||
           // Vim causes tmp file update `4913`
           ( file !== 4913 ) // https://github.com/b4winckler/vim/blob/master/src/fileio.c#L3704
-            && /\.(test|es|js|css|html)$/
+            && /\.(test|html|css|js|es)$/
               .test (file)
 
-      predicate && exec (runner, (error, stdout, stderr) =>
-        error
+      predicate
+        && exec (runner, (error, stdout, stderr) =>
+          error
           ? console.error (`exec error: ${error}`
             , 'The Error >>>>> ', stderr )
           : console.log (`${stdout} \n`
             , `Execution time: ${ (new Date) - start }ms\n\n` )
-      ) // exec
+        ) // exec
     } // callback
 
   require ('fs').watch
     // https://nodejs.org/docs/latest/api/fs.html#fswatchfilename-options-listener
-    (path, { recursive: true }, debounce( callback ))
+    ( path, { recursive: true }, debounce ( callback ) )
 
   console.log('👁️  Watching 📂', `${path}/♾️`)
 }) // forEach
