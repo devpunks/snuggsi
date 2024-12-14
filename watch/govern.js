@@ -3,10 +3,10 @@
 // https://www.geeksforgeeks.org/difference-between-debouncing-and-throttling
 // https://nordicapis.com/api-rate-limiting-vs-api-throttling-how-are-they-different
 module.exports = {
-  debounce (func, delay = 1) {
+  debounce (func, delay = 0) {
     let id
 
-    return _ => {
+    return function () {
       clearTimeout (id)
 
       id = setTimeout
@@ -14,10 +14,10 @@ module.exports = {
     }
   } // debounce
 
-, throttle (func, duration = 1) {
+, throttle (func, duration = 0) {
     let then
 
-    return _ => {
+    return function () {
       const
         now = new Date
       , predicate = now - then >= duration
@@ -28,11 +28,12 @@ module.exports = {
   } // throttle
 
   // https://en.wikipedia.org/wiki/Rate_limiting
-, limit (func, max = 1) {
+, limit (func, max = 0) {
     let times = 0
 
-    return _ => {
-      const predicate = ++times < max
+    return function () {
+      const predicate
+        = max === 0 || ++times < max
 
       predicate && func (...arguments)
     }
