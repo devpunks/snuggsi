@@ -33,7 +33,7 @@ module.exports = {
 
     return function () {
       const predicate
-        = max === 0 || ++times < max
+        = max === 0 || ++times <= max
 
       predicate && func (...arguments)
     }

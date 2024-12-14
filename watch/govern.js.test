@@ -4,6 +4,7 @@ const {
 } = require('node:test')
 , assert = require('assert')
 , { skip, todo } = test.it
+, context = describe
 
 const { debounce, throttle, limit }
   = require('./govern.js')
@@ -11,4 +12,47 @@ const { debounce, throttle, limit }
 
 todo( 'TODO: debounce' )
 todo( 'TODO: throttle' )
-skip( 'SKIP: limit' )
+
+describe( 'limit', _ => {
+  let limited
+    = limit( _ => console.log('PUSH IT TO THE LIMIT') )
+
+  test('unlimited', self => {
+    console.log('The maximum', self, limited)
+
+    limited ()
+    limited ()
+    limited ()
+    limited ()
+    limited ()
+    limited ()
+  }) // test
+
+  context.todo( 'below maximum', _ => {
+    let maximum = 1
+    let limited
+      = limit( _ => console.log('PUSH IT TO THE LIMIT'), maximum)
+
+    test('below', self => {
+      console.log('The maximum', maximum, self, limited)
+
+      limited ()
+      limited ()
+    }) // test
+  })
+
+  context( 'when maximum', _ => {
+    let maximum = 2
+    let limited
+      = limit( _ => console.log('PUSH IT TO THE LIMIT'), maximum)
+
+    test('maximum', self => {
+      console.log('The maximum', maximum, self, limited)
+
+      limited ()
+      limited ()
+      limited ()
+    }) // test
+  }) // context
+})
+
