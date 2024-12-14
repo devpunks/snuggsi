@@ -7,6 +7,9 @@ const
 , { SNUGGSI, BROWSER_PORT, DIRECTORY: path } = process.env
 , clear = `tput reset` // htps://askubuntu.com/q/25077/how-to-really-clear-the-terminal
 , test = `index.es.test`
+, lint = `${SNUGGSI}/bin/lint`
+, weigh = `${SNUGGSI}/bin/weigh`
+, cover = `${SNUGGSI}/bin/cover`
 , message = ` 👉  ${path}🔎 👀 \n`
 , bundle = `${SNUGGSI}/bin/bundle`
 , shrink = `${SNUGGSI}/bin/shrink`
@@ -17,15 +20,14 @@ const
 , watch = require('../package.json')['watch']
 , reload = BROWSER_PORT
     && `${SNUGGSI}/node_modules/.bin/browser-sync reload --port=${BROWSER_PORT}`
-, command = [ clear, compile ]
-    .filter( Boolean )
-    .join ` && `
 
 watch.forEach (path => {
   const
     message = ` 👉  ${path}🔎 👀 \n`
   , test = `node --test ${path}/**.test`
-  , runner = [ command, test ].join ` && `
+  , runner
+      = [ clear, compile, lint, cover, weigh, test ]
+        .join ` && `
     // caveats
     //   - https://nodejs.org/docs/latest/api/fs.html#fs_caveats
     //   - https://github.com/nodejs/node-v0.x-archive/issues/2054#issuecomment-8686322
