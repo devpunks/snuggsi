@@ -1,6 +1,7 @@
+// https://medium.com/@bs903944/eadd272fe0be
 // https://dev.to/aneeqakhan/throttling-and-debouncing-explained-1ocb
 // https://www.geeksforgeeks.org/difference-between-debouncing-and-throttling
-  // https://nordicapis.com/api-rate-limiting-vs-api-throttling-how-are-they-different
+// https://nordicapis.com/api-rate-limiting-vs-api-throttling-how-are-they-different
 module.exports = {
   debounce (func, delay = 0) {
     let id
