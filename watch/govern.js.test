@@ -1,0 +1,18 @@
+console.log('woooooohooooo')
+
+//import { test, expect } from 'node:test';
+
+//const watch = require('./index.es')
+//console.log( watch )
+
+const {
+  test, describe,
+  beforeEach: before, afterEach: after
+} = require('node:test')
+, assert = require('assert')
+, { skip, todo } = test.it
+
+
+// https://nodejs.org/api/test.html#class-suitecontext
+skip( 'SKIP' )
+todo( 'TODO' )
