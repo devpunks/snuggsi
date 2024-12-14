@@ -47,8 +47,8 @@ watch.forEach (path => {
         error
           ? console.error (`exec error: ${error}`
             , 'The Error >>>>> ', stderr )
-          : console.log (`${stdout} \n\n`
-            , `Execution time: ${ (new Date) - start }ms` )
+          : console.log (`${stdout} \n`
+            , `Execution time: ${ (new Date) - start }ms\n\n` )
       ) // exec
     } // callback
 

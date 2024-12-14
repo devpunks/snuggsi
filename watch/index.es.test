@@ -3,30 +3,29 @@
 //const watch = require('./index.es')
 //console.log( watch )
 
-const n = require('node:test')
-, it = n.it // test
-, test = n.test
-, mock = n.mock
-, skip = it.skip
-, todo = it.todo
-, only = it.only
-, after = n.afterEach
-, before = n.beforeEach
-, describe = n.describe
+const {
+  test, describe,
+  beforeEach: before, afterEach: after
+} = require('node:test')
 , assert = require('assert')
+, { skip, todo } = test.it
+
 
 // https://nodejs.org/api/test.html#class-suitecontext
 describe('watch', t => {
-  test('should add two numbers', _ => {
-    const result = 1 + 2
-    console.log(_.name)
-    assert.strictEqual(result, 3)
-  })
+  before ( _=> console.log ('Before', _) )
+  after  ( _=> console.log ('After', _) )
 
-  it('it should equal test', _ => {
-    console.log(_.name)
-    assert.strictEqual(test.it, it)
+  todo( 'Describe TODO', _ => { console.log ('WTF is going on') })
+
+  test.it('ITTTT', _ => { assert.strictEqual(1,1) })
+
+  test('add two numbers', _ => {
+    assert ( 1+2 === 3 )
   })
 })
 
-describe.todo( 'TODO', _ => todo('TODO: something') )
+skip( 'Describe TODO' )
+todo( 'Describe TODO' )
+
+require('./govern.js.test')
