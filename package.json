@@ -68,7 +68,7 @@
     "html-template-element"
   ],
   "peerDependencies": {},
-  "bundleDependencies": [],
+  "bundleDependencies": {},
   "dependencies": {
     "koa": "2.13.4",
     "koa-cors": "^0.0.16",
