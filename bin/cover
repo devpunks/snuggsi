@@ -4,8 +4,8 @@ set -u
 
 # ${SNUGGSI?"🔴 Set shell variable to installation location"}
 
-declare -r  THRESHOLD=70                         # Percentage
-declare -r  HARNESS='npm test'                   # Test harness
+declare -r  THRESHOLD=100                        # Percentage
+declare -r  HARNESS="node --test watch/**.test"  # Test harness
 declare -r  LIBRARIES=watch,token-list,html-element,html-template-element
 declare -r  OUTPUT=.nyc_output/                  # Represented in Percentage
 declare -r  EXTENSION=.es                        # Extension for coverage files
@@ -39,8 +39,5 @@ echo "  🚮  Removing 👉  $OUTPUT"
 echo # Remove output directory
 rm -rf $OUTPUT
 
-echo $CODE
-exit 0
-
-# exit $CODE
+exit $CODE
 
