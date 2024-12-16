@@ -1,7 +1,6 @@
 # SNUGGSI.STYLE
 
 ## Style
-
 ```bash
 $ bin/style [component-directory | style-file.{sss,css}]
 ```
@@ -9,7 +8,6 @@ $ bin/style [component-directory | style-file.{sss,css}]
 This routine will take **component-directory** as a parameter
 
 ### Styling a Component
-
 ```bash
 $ bin/style ./foo-bar
 ```
@@ -20,7 +18,6 @@ $ bin/style ./foo-bar
 
 
 ### Cascading Style Sheets
-
 ```bash
 $ bin/style index.css
 ```
@@ -30,7 +27,6 @@ $ bin/style index.css
 
 
 #### CSS Custom Properties
-
 ```CSS
 :root {
   --bad-ass-green: #bada55
@@ -40,14 +36,11 @@ body { /* Before */
   background: var(--bad-ass-green)
 }
 
-
 body /* After */
   { background: #bada55 }
 ```
 
-
 #### CSS Grid
-
 ```CSS
 body { /* Before */
 
@@ -56,16 +49,13 @@ body { /* Before */
   grid-template-areas: 'foo bar'
 }
 
-
 body { /* After */
   -ms-grid-template-areas: 'foo bar';
   grid-template-areas: 'foo bar'
 }
 ```
 
-
 ### Snuggsi Style Sheets
-
 ```bash
 $ bin/style index.sss
 ```
@@ -75,3 +65,4 @@ $ bin/style index.sss
   - `@import` inline styles
   - Removes comments from styles
   - Indentation based stylesheets _(Inserts curly braces `{ /* rules /* }`)_
+
