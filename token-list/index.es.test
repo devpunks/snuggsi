@@ -7,7 +7,8 @@ const
 
 // https://nodejs.org/api/test.html#class-suitecontext
 describe ('TokenList', _ => {
-  let node = {}
+  let
+    node = {}
   , result = 1 + 2
 
   test ('adds two numbers', _ => {

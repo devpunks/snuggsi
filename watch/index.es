@@ -22,7 +22,7 @@ const
 
 watch.forEach (path => {
   const
-    test = `node ${path}/**.test`
+    test = `node ${path}/*.test`
   , runner = [ clear, compile, lint, cover, weigh, test ] .join ` && `
     // caveats
     //   - https://nodejs.org/docs/latest/api/fs.html#fs_caveats
