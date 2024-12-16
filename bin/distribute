@@ -10,7 +10,7 @@ echo
 
 # snuggsi.es =============================================================
 git add dist/snuggsi.es
-git commit ---message ":muscle: bump BUNDLED distribution dist/snuggsi.es"
+git commit --message ":muscle: bump BUNDLED distribution dist/snuggsi.es"
 
 git add dist/snuggsi.min.es
 git commit --message":muscle: bump MINIFIED distribution dist/snuggsi.min.es"
