@@ -3,22 +3,14 @@
 <meta charset=UTF-8>
 <meta name=viewport content=width=device-width,initial-scale=1>
 
-<link rel=stylesheet href=https://devpunks.herokuapp.com/typography.css>
 <link rel=stylesheet href=index.css>
+<!-- <script src=../../dist/snuggsi.js></script> -->
+<script nomodule src=//unpkg.com/snuggsi></script>
 
-<script src=/dist/snuggsi.js></script>
-<script name=polyfill src=https://cdnjs.cloudflare.com/ajax/libs/webcomponentsjs/1.0.0/webcomponents-hi-ce.js></script>
 
-<header-group>
-  <h2 slot=header>&lt;add-subtract&gt;</h2>
-  <a  slot=subheader title='See more component examples' href=/examples>See more component examples</a>
-</header-group>
-
-<!-- import works inline body -->
-<link rel=import href=/examples/header-group>
+<h2 slot=header>&lt;add-subtract&gt;</h2>
 
 <add-subtract>
-
   <output>{count}</output>
 
   <menu>
@@ -34,4 +26,3 @@
 </add-subtract>
 
 <script src=index.es></script>
-<script src=/browser-sync.es></script>

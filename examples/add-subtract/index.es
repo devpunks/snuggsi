@@ -13,7 +13,5 @@ Element `add-subtract`
 
   get count ()
     { return this.context.count }
-
 })
-
 
