@@ -1,19 +1,17 @@
 #!/usr/bin/env bash
 
 declare -r  DESTINATION=public
-declare -ar ASSETS=(favicon.ico sandbox.html index.html index.css typography.css)
+declare -ar ASSETS=(favicon.ico index.html index.css typography.css)
 
 echo "📤  Publishing static assets …"
 echo "  To 👉  $DESTINATION/"
 echo "  👇"
 
-for asset in ${ASSETS[@]}
-do
+echo " Adding assets to release" # https://docs.github.com/en/rest/releases/assets?apiVersion=2022-11-28
+for asset in ${ASSETS[@]} ; do
   echo "  📃  $asset 👉  $DESTINATION/$asset"
   cp -f  $asset $DESTINATION
-done
-
-echo
+done ; echo
 
 echo "  🆕 Publishing library to https://npmjs.org"
 echo
