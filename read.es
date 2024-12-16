@@ -1,7 +1,5 @@
 const
-  encoding = 'utf-8'
-
-, { readFileSync: read }
+  { readFileSync: read }
     = require ('fs')
 
 , join = (source, buffer = []) =>
@@ -14,5 +12,5 @@ module.exports = source =>
 
   typeof source === 'string'
     || Array.isArray (source)
-      ? read ( source + '', encoding )
+      ? read ( source + '', 'utf-8' )
       : new Promise ( join ( source ) )
