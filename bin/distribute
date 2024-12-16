@@ -58,7 +58,7 @@ git commit --message":muscle: bump ??? distribution dist/snuggsi.min.es.js"
 
 
 echo '  👊 Bumping package.json version to … ' \
-  `npm version patch --tag=dev -m "⏰  %s CalVer Daily Patch Dev Release"`
+# `npm version patch --tag=dev --message "⏰  %s CalVer Daily Patch Dev Release"`
 echo
 
 echo "  🐙 Fetching master branch on Github."
