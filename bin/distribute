@@ -18,11 +18,17 @@ git commit --message ":muscle: bump MINIFIED distribution dist/snuggsi.min.es"
 git add dist/snuggsi.min.es.br
 git commit --message ":muscle: bump BROTLI distribution dist/snuggsi.min.es.br"
 
+git add dist/snuggsi.min.es.deflate
+git commit --message ":muscle: bump BROTLI distribution dist/snuggsi.min.es.deflate"
+
 git add dist/snuggsi.min.es.gz
 git commit --message ":muscle: bump GZIP distribution dist/snuggsi.min.es.gz"
 
+git add dist/snuggsi.min.es.zlib
+git commit --message ":muscle: bump ZLIB distribution dist/snuggsi.min.es.zlib"
+
 git add dist/snuggsi.min.es.zo
-git commit --message ":muscle: bump ZLIB distribution dist/snuggsi.min.es.zo"
+git commit --message ":muscle: bump Z(opfli)LIB distribution dist/snuggsi.min.es.zo"
 
 
 # snuggsi.js =============================================================
@@ -35,11 +41,17 @@ git commit --message ":muscle: bump MINIFIED distribution dist/snuggsi.min.js"
 git add dist/snuggsi.min.js.br
 git commit --message ":muscle: bump BROTLI distribution dist/snuggsi.min.js.br"
 
+git add dist/snuggsi.min.js.deflate
+git commit --message ":muscle: bump BROTLI distribution dist/snuggsi.min.js.deflate"
+
 git add dist/snuggsi.min.js.gz
 git commit --message ":muscle: bump GZIP distribution dist/snuggsi.min.js.gz"
 
+git add dist/snuggsi.min.js.zlib
+git commit --message ":muscle: bump ZLIB distribution dist/snuggsi.min.js.zlib"
+
 git add dist/snuggsi.min.js.zo
-git commit --message ":muscle: bump ZLIB distribution dist/snuggsi.min.js.zo"
+git commit --message ":muscle: bump Z(opfli)LIB distribution dist/snuggsi.min.js.zo"
 
 
 # unpkg.com ==============================================================
