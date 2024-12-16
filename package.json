@@ -82,7 +82,7 @@
     "jsdom": "^20.0.0",
     "standard": "^17.0.0",
     "uglify-es": "^3.3.9",
-    "puppeteer-core": "^15.4.0"
+    "puppeteer-core": "^23.10.4"
   },
   "scripts": {
     "test": "node ./watch/index.es.test",
