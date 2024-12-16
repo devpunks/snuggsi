@@ -50,7 +50,7 @@ watch.forEach (path => {
 
   require ('fs').watch
     // https://nodejs.org/docs/latest/api/fs.html#fswatchfilename-options-listener
-    ( path, { recursive: true }, debounce ( callback ) )
+    ( path, { recursive: false }, debounce ( callback ) )
 
   console.log('👁️  Watching 📂', `${path}/♾️`)
 }) // forEach
