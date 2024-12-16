@@ -1,5 +1,14 @@
 # EventTarget
 
+## `on ( event, handler )`
+
+## `renderable ( handler )`
+
+## `reflect ( handler )`
+
+## `register ( node, handler, event )`
+
+## References
  - https://github.com/whatwg/html/pull/4237/files
  - https://dom.spec.whatwg.org/#interface-eventtarget
  - https://github.com/WebKit/webkit/commit/2ee15a43f1073459c449aac652530a6814587685
