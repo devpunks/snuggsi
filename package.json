@@ -63,6 +63,7 @@
     "snuggsi": "bin/snuggsi"
   },
   "watch": [
+    ".",
     "watch",
     "token-list",
     "html-template-element"
