@@ -2,3 +2,5 @@
 
 ## `connectedCallback`
 
+## `render`
+
