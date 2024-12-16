@@ -20,7 +20,6 @@ const
   fetch = resource =>
     require (`fs`).readFileSync (resource, `utf-8`)
 , template = fetch (`./index.html`)
-, script = './elements/template.js'
 , element = `<ul id='items'>\n\n</ul>\n\n${template}\n\n`
 , configuration = {
 //html: element,
@@ -32,7 +31,7 @@ const
 
 configuration.done = (error, window) => {
 //console.warn (window.document.querySelector ('template#item').innerHTML)
-  console.warn ('Document inner html\n\n', window.document.documentElement.innerHTML)
+  console.warn ('Document inner html\n\n', window.document.documentElement.outerHTML)
   window.close ()
 } // done
 
@@ -47,15 +46,19 @@ configuration.onload  = (window) => {
 // https://github.com/tmpvar/jsdom/issues/317
 // https://github.com/w3c/web-platform-tests/tree/master/dom/traversal
 
-describe ('unpkg', _ => {
-  let script = ''
+describe ('unpkg', _=> {
+  let script = '<script src=https://unpkg.com/snuggsi></script>'
+  const
+  { window } = new JSDOM(`<!DOCTYPE html>${script}<p>Hello world</p>`)
+  , source = window.document.scripts[0].src
 
-  test ('<script> tag', _ => {
-    const dom = new JSDOM(`<!DOCTYPE html><p>Hello world</p>`)
-    console.log( dom.window.document.body.outerHTML ) // "Hello world"
+  console.log( window.document.documentElement.outerHTML )
 
-    assert (script === '')
-  }) // test
+  before(_=> { }) // before
+
+  test ('<script> source',
+    _=> assert (source === 'https://unpkg.com/snuggsi') ) // test
+
 }) // describe
 
 return
