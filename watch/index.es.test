@@ -1,15 +1,11 @@
-//import { test, expect } from 'node:test';
+const
+  assert = require('assert')
+, { test, describe, beforeEach: before, afterEach: after }
+  = require('node:test')
+, { skip, todo } = test.it
+, context = describe
 
 //const watch = require('./index.es')
-//console.log( watch )
-
-const {
-  test, describe,
-  beforeEach: before, afterEach: after
-} = require('node:test')
-, assert = require('assert')
-, { skip, todo } = test.it
-
 
 // https://nodejs.org/api/test.html#class-suitecontext
 describe('watch', t => {

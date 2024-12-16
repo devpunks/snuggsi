@@ -36,17 +36,12 @@ configuration.onload  = (window) => {
 // https://github.com/tmpvar/jsdom/issues/317
 // https://github.com/w3c/web-platform-tests/tree/master/dom/traversal
 
-const n = require('node:test')
-, it = n.it // test
-, test = n.test
-, mock = n.mock
-, skip = it.skip
-, todo = it.todo
-, only = it.only
-, after = n.afterEach
-, before = n.beforeEach
-, describe = n.describe
-, assert = require ('assert')
+const
+  assert = require('assert')
+, { test, describe, beforeEach: before, afterEach: after }
+  = require('node:test')
+, { skip, todo } = test.it
+, context = describe
 
 // https://nodejs.org/api/test.html#class-suitecontext
 describe ('Template', t => {

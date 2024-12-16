@@ -1,38 +1,29 @@
-//import { test, expect } from 'node:test';
-
-// https://github.com/tmpvar/jsdom/issues/317
-// https://github.com/w3c/web-platform-tests/tree/master/dom/traversal
-
-const TokenList = require ('./index.es')
-
-console.log ('TokenList', TokenList )
-
-const n = require('node:test')
-, it = n.it // test
-, test = n.test
-, mock = n.mock
-, skip = it.skip
-, todo = it.todo
-, only = it.only
-, after = n.afterEach
-, before = n.beforeEach
-, describe = n.describe
-, assert = require ('assert')
+const
+  assert = require('assert')
+, { test, describe, beforeEach: before, afterEach: after }
+  = require('node:test')
+, { skip, todo } = test.it
+, context = describe
 
 // https://nodejs.org/api/test.html#class-suitecontext
-describe ('TokenList', t => {
-  const node = {}
+describe ('TokenList', _ => {
+  let node = {}
+  , result = 1 + 2
 
-  test('should add two numbers', _ => {
-    const result = 1 + 2
-    console.log(_.name)
-    assert.strictEqual (result, 3)
-  })
+  test ('adds two numbers', _ => {
+    assert (result === 3)
+  }) // test
 
-  it('should equal test', _ => {
-    console.log(_.name)
-    assert.strictEqual (test.it, it)
-  })
-})
+  context.todo ('Lexer', _=> {
+    test ('tokenization')
+  }) // context
 
-describe.todo( 'TODO', _ => todo('TODO: something') )
+  context.todo ('Parser', _=> {
+    test ('syntax')
+  }) // context
+
+  describe.todo ('.bind', _=> {
+    test ('binding')
+  }) // describe
+}) // describe
+
