@@ -10,14 +10,14 @@ declare -r \
 declare -ar \
   FILES=( snuggsi.min.es snuggsi.min.js )
 
-echo -e "  🍃  Compressing …"
+echo -e "  🌱  Compressing …"
 
 for file in ${FILES[@]} ; do
   declare path=${DIST}/${file}
 
   echo "   🌿  $path"
 
-  echo "     🌱  Brotli 👉  ${path}.br"
+  echo "     🍃  Brotli 👉  ${path}.br"
   $BROTLI --stdout \
     $path > $path.br
 
@@ -26,11 +26,11 @@ for file in ${FILES[@]} ; do
   $ZOPFLI --deflate $path
 
   # https://www.ietf.org/rfc/rfc1950.txt
-  echo "     🍀  ZLIB 👉  ${path}.zlib"
+  echo "     ☘️  ZLIB 👉  ${path}.zlib"
   $ZOPFLI --zlib $path
 
   # https://www.ietf.org/rfc/rfc1952.txt
-  echo "     ☘️  GZIP 👉  ${path}.gz"
+  echo "     🍀  GZIP 👉  ${path}.gz"
   $ZOPFLI --gzip $path
 
   echo
