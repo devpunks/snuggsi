@@ -8,15 +8,15 @@ const
 //const watch = require('./index.es')
 
 // https://nodejs.org/api/test.html#class-suitecontext
-describe('watch', t => {
+describe('watch', _=> {
   before ( _=> console.log ('Before', _) )
   after  ( _=> console.log ('After', _) )
 
-  todo( 'Describe TODO', _ => { console.log ('WTF is going on') })
+  todo( 'Describe TODO', _=> { console.log ('WTF is going on') })
 
-  test.it('ITTTT', _ => { assert.strictEqual(1,1) })
+  test.it('ITTTT', _=> { assert.strictEqual(1,1) })
 
-  test('add two numbers', _ => {
+  test('add two numbers', _=> {
     assert ( 1+2 === 3 )
   })
 })

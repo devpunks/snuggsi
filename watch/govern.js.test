@@ -9,33 +9,33 @@ const { debounce, throttle, limit }
   = require('./govern.js')
 
 
-describe( 'limit', _ => {
+describe( 'limit', _=> {
   let count = 0
   let expected = Math.round ( Math.random () * 10 )
   let unlimited = limit ( _ => ++count )
 
-  test ('unlimited', self => {
+  test ('unlimited', _=> {
     for ( let i = 0; i < expected; i++ ) unlimited ()
 
     assert ( count === expected )
   }) // test
 
-  context ('when below maximum', _ => {
+  context ('when below maximum', _=> {
     let count = 0, maximum = 1
-    let limited = limit ( _ => ++count, maximum )
+    let limited = limit ( _=> ++count, maximum )
 
-    test ('below', self => {
+    test ('below', _=> {
       limited ()
 
       assert ( count === maximum )
     }) // test
   })
 
-  context ('when maximum', _ => {
+  context ('when maximum', _=> {
     let count = 0, maximum = 1
-    let limited = limit ( _ => ++count, maximum )
+    let limited = limit ( _=> ++count, maximum )
 
-    test ('maximum', self => {
+    test ('maximum', _=> {
       limited ()
       limited ()
 
@@ -44,19 +44,19 @@ describe( 'limit', _ => {
   }) // context
 }) // limit
 
-describe( 'throttle', _ => {
+describe( 'throttle', _=> {
   let count = 0, expected = 1
-  let unthrottled = throttle ( _ => ++count )
+  let unthrottled = throttle ( _=> ++count )
 
-  test ('initial call', self => {
+  test ('initial call', _=> {
     unthrottled ()
 
     assert ( count === expected )
   }) // test
 
-  context ('when fast', _ => {
+  context ('when fast', _=> {
     let duration = 10, count = 0, expected = 1
-    let throttled = throttle ( _ => ++count, duration )
+    let throttled = throttle ( _=> ++count, duration )
 
     test ('only called once', self => {
       throttled ()
@@ -66,14 +66,14 @@ describe( 'throttle', _ => {
     }) // test
   }) // context
 
-  context ('when slow', _ => {
+  context ('when slow', _=> {
     let duration = 10, count = 0, expected = 2
     let throttled = throttle ( _ => ++count, duration )
 
-    test ('called twice', async self => {
+    test ('called twice', async _=> {
       throttled ()
 
-      await new Promise (resolve => setTimeout ( _ => {
+      await new Promise (resolve => setTimeout ( _=> {
         throttled () ; resolve ()
       }, duration * 2 ) )
 
@@ -82,48 +82,48 @@ describe( 'throttle', _ => {
   })
 }) // throttle
 
-describe( 'debounce', _ => {
+describe( 'debounce', _=> {
   let delay = 100, count = 0, expected = 1
-  let debounced = debounce ( _ => ++count )
+  let debounced = debounce ( _=> ++count )
 
-  test ('initial call', async self => {
+  test ('initial call', async _=> {
     debounced ()
 
-    await new Promise (resolve => setTimeout ( _ => {
+    await new Promise (resolve => setTimeout ( _=> {
       resolve ()
     }, delay * 2 ) )
 
     assert ( count === expected )
   }) // test
 
-  context ('when fast', _ => {
+  context ('when fast', _=> {
     let delay = 100, count = 0, expected = 1
-    let debounced = debounce ( _ => ++count, delay )
+    let debounced = debounce ( _=> ++count, delay )
 
-    test ('only called once', async self => {
+    test ('only called once', async _=> {
       debounced ()
       debounced ()
 
-      await new Promise (resolve => setTimeout ( _ => {
+      await new Promise (resolve => setTimeout ( _=> {
         assert ( count === expected )
         resolve ()
       }, delay * 2 ) )
     }) // test
   }) // context
 
-  context ('when slow', _ => {
+  context ('when slow', _=> {
     let delay = 100, count = 0, expected = 2
-    let debounced = debounce ( _ => ++count, delay )
+    let debounced = debounce ( _=> ++count, delay )
 
-    test ('called twice', async self => {
+    test ('called twice', async _=> {
       debounced ()
       debounced ()
 
-      await new Promise (resolve => setTimeout ( _ => {
+      await new Promise (resolve => setTimeout ( _=> {
         debounced () ; resolve ()
       }, delay * 2 ) )
 
-      await new Promise (resolve => setTimeout ( _ => {
+      await new Promise (resolve => setTimeout ( _=> {
         assert ( count === expected )
         resolve ()
       }, delay * 2 ) )

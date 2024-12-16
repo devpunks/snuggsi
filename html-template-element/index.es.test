@@ -5,11 +5,10 @@ const { JSDOM } = require (`jsdom`)
 , { skip, todo } = test.it
 , context = describe
 
-describe ('Template', t => {
+describe ('Template', _ => {
   let
     node = {}
   , result = 1 + 2
-
 
   test('add two numbers', _ => {
     assert (result === 3)

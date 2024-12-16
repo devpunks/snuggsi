@@ -6,12 +6,12 @@ const
 , context = describe
 
 // https://nodejs.org/api/test.html#class-suitecontext
-describe ('TokenList', _ => {
+describe ('TokenList', _=> {
   let
     node = {}
   , result = 1 + 2
 
-  test ('adds two numbers', _ => {
+  test ('adds two numbers', _=> {
     assert (result === 3)
   }) // test
 
