@@ -27,9 +27,6 @@ git commit --message ":muscle: bump GZIP distribution dist/snuggsi.min.es.gz"
 git add dist/snuggsi.min.es.zlib
 git commit --message ":muscle: bump ZLIB distribution dist/snuggsi.min.es.zlib"
 
-git add dist/snuggsi.min.es.zo
-git commit --message ":muscle: bump Z(opfli)LIB distribution dist/snuggsi.min.es.zo"
-
 
 # snuggsi.js =============================================================
 git add dist/snuggsi.js
@@ -49,9 +46,6 @@ git commit --message ":muscle: bump GZIP distribution dist/snuggsi.min.js.gz"
 
 git add dist/snuggsi.min.js.zlib
 git commit --message ":muscle: bump ZLIB distribution dist/snuggsi.min.js.zlib"
-
-git add dist/snuggsi.min.js.zo
-git commit --message ":muscle: bump Z(opfli)LIB distribution dist/snuggsi.min.js.zo"
 
 
 # unpkg.com ==============================================================

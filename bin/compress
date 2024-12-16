@@ -1,8 +1,9 @@
 #!/usr/bin/env bash
 
+# https://github.com/google/zopfli
 declare -r \
   DIST=./dist \
-  ZOPFLI='zopfli -v -i10' \
+  ZOPFLI='zopfli -v -i1' \
   BROTLI='brotli --verbose --best'
 # bro is installed locally and manually. No npm cli. HELP!
 
@@ -14,20 +15,23 @@ echo -e "  🍃  Compressing …"
 for file in ${FILES[@]} ; do
   declare path=${DIST}/${file}
 
-  echo -e "   🌿  $path"
-
-  echo -e "     ☘️  GZIP 👉  ${path}.gz"
-  $ZOPFLI --gzip $path
-
-  echo "     🍀  ZLIB 👉  ${path}.zlib"
-  $ZOPFLI --zlib $path
-
-  echo "     🍂  DEFLATE 👉  $path.deflate"
-  $ZOPFLI --deflate $path
+  echo "   🌿  $path"
 
   echo "     🌱  Brotli 👉  ${path}.br"
   $BROTLI --stdout \
     $path > $path.br
+
+  # https://www.ietf.org/rfc/rfc1951.txt
+  echo ; echo "     🍂  DEFLATE 👉  $path.deflate"
+  $ZOPFLI --deflate $path
+
+  # https://www.ietf.org/rfc/rfc1950.txt
+  echo ; echo "     🍀  ZLIB 👉  ${path}.zlib"
+  $ZOPFLI --zlib $path
+
+  # https://www.ietf.org/rfc/rfc1952.txt
+  echo ; echo "     ☘️  GZIP 👉  ${path}.gz"
+  $ZOPFLI --gzip $path
 
   echo
 done
