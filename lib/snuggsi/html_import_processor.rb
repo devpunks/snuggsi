@@ -1,2 +1,0 @@
-class Snuggsi::HTMLImportProcessor
-end
