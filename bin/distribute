@@ -61,11 +61,11 @@ echo '  👊 Bumping package.json version to … ' \
 # `npm version patch --tag=dev --message "⏰  %s CalVer Daily Patch Dev Release"`
 echo
 
-echo "  🐙 Fetching master branch on Github."
+echo "  🐙 Fetching $BRANCH branch on Github."
 git pull -r origin $BRANCH
 echo
 
-echo "  🐙 Updating master branch on Github."
+echo "  🐙 Updating $BRANCH branch on Github."
 git push origin $BRANCH
 echo
 
