@@ -39,12 +39,9 @@ void ( _ => {
 
   .observe (document.documentElement, { childList: true, subtree: true })
 
-  void
-
-  [].slice
-    .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
-    .map  (load)
-
+  void [].slice
+  .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
+  .map  (load)
 
   // XHR Specs
   // https://xhr.spec.whatwg.org
@@ -52,7 +49,6 @@ void ( _ => {
   // https://xhr.spec.whatwg.org/#interface-progressevent
   // Loader - https://trac.webkit.org/browser/trunk/WebCore/loader/loader.cpp
   function load (link) {
-
     let xhr = new XMLHttpRequest
 
     // Destination - https://fetch.spec.whatwg.org/#requestdestination
@@ -64,7 +60,7 @@ void ( _ => {
     xhr.responseType = 'document'
     // Max requests
     xhr.send ()
-  }
+  } // load
 
 
   // https://github.com/w3c/preload/pull/40
@@ -91,7 +87,7 @@ void ( _ => {
 
     for (let node of response.querySelectorAll ('style,link,script'))
       process (link, node, anchor)
-  }
+  } // onload
 
 
   function process (link, node, anchor) {
@@ -131,7 +127,7 @@ void ( _ => {
       link
         .parentNode
         .insertBefore (clone, anchor)
-  }
+  } // process
 
   // Slot replacement & light DOM stamping
   // https://github.com/w3c/webcomponents/issues/288
@@ -159,7 +155,7 @@ void ( _ => {
         slot.parentNode.replaceChild (replacement, slot)
 
     return this.innerHTML = template.innerHTML
-  }
+  } // stamp
 
 }) ()
 
