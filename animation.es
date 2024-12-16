@@ -7,7 +7,7 @@
 // https://www.webreflection.co.uk/blog/2016/07/31/taming-raf-and-rick
 // https://www.paulirish.com/2011/requestanimationframe-for-smart-animating/
 // http://blog.teamtreehouse.com/efficient-animations-with-requestanimationframe
-//
+
 // Polyfill - https://github.com/WebReflection/dom4/blob/master/src/dom4.js#L428-L469
 
 var aliceTumbling = [
@@ -21,65 +21,47 @@ var aliceTiming = {
   iterations: Infinity
 }
 
-document.getElementById("alice").animate(
-  aliceTumbling,
-  aliceTiming
-)
-
+document.getElementById("alice")
+  .animate( aliceTumbling, aliceTiming)
 
 // https://gist.github.com/paulirish/1579671
 // http://paulirish.com/2011/requestanimationframe-for-smart-animating/
 // http://my.opera.com/emoller/blog/2011/12/20/requestanimationframe-for-smart-er-animating
 
 // requestAnimationFrame polyfill by Erik Möller. fixes from Paul Irish and Tino Zijdel
+void (function() {
+  let lastTime = 0
+  , vendors = ['ms', 'moz', 'webkit', 'o']
 
-// MIT license
+  for(let x = 0; x < vendors.length && !!! window.requestAnimationFrame; ++x) {
+    window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame']
+    window.cancelAnimationFrame  = window[vendors[x]+'CancelAnimationFrame']
+                                || window[vendors[x]+'CancelRequestAnimationFrame']
+  } // for
 
-(function() {
-    var lastTime = 0;
-    var vendors = ['ms', 'moz', 'webkit', 'o'];
-    for(var x = 0; x < vendors.length && !window.requestAnimationFrame; ++x) {
-        window.requestAnimationFrame = window[vendors[x]+'RequestAnimationFrame'];
-        window.cancelAnimationFrame = window[vendors[x]+'CancelAnimationFrame'] 
-                                   || window[vendors[x]+'CancelRequestAnimationFrame'];
-    }
- 
-    if (!window.requestAnimationFrame)
-        window.requestAnimationFrame = function(callback, element) {
-            var currTime = new Date().getTime();
-            var timeToCall = Math.max(0, 16 - (currTime - lastTime));
-            var id = window.setTimeout(function() { callback(currTime + timeToCall); }, 
-              timeToCall);
-            lastTime = currTime + timeToCall;
-            return id;
-        };
- 
-    if (!window.cancelAnimationFrame)
-        window.cancelAnimationFrame = function(id) {
-            clearTimeout(id);
-        };
+  void ( 'requestAnimationFrame' in window )
+    || window.requestAnimationFrame = function (callback, element) {
+      let currTime = new Date().getTime()
+      , timeToCall = Math.max(0, 16 - (currTime - lastTime))
+      , id = window.setTimeout ( function() { callback(currTime + timeToCall) }, timeToCall )
+
+      lastTime = currTime + timeToCall
+
+      return id;
+    } // requestAnimationFrame
+
+  void ( 'cancelAnimationFrame' in window )
+    || window.cancelAnimationFrame
+      = function(id) { clearTimeout (id) }
 }())
 
-/**
- *  * Provides requestAnimationFrame in a cross browser way.
- *   * @author paulirish / http://paulirish.com/
- *    */
-
 // https://gist.github.com/mrdoob/838785
-if ( !window.requestAnimationFrame ) {
-
-    window.requestAnimationFrame = ( function() {
-
-          return window.webkitRequestAnimationFrame ||
-          window.mozRequestAnimationFrame ||
-          window.oRequestAnimationFrame ||
-          window.msRequestAnimationFrame ||
-          function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element ) {
-
-                  window.setTimeout( callback, 1000 / 60 );
-
-                      };
-
-      } )();
-
-}
+void ( 'requestAnimationFrame' in window )
+  || window.requestAnimationFrame = ( function () {
+    return window.webkitRequestAnimationFrame ||
+    window.mozRequestAnimationFrame ||
+    window.oRequestAnimationFrame ||
+    window.msRequestAnimationFrame ||
+    function( /* function FrameRequestCallback */ callback, /* DOMElement Element */ element )
+    { window.setTimeout( callback, 1000 / 60 ) }
+})()
