@@ -62,7 +62,8 @@ var TokenList = function (node) {
       || collect (node); }
 
   , collect = function (node) { return /{(\w+|#)}/.test (node.textContent)
-        && (node.text = node.textContent)
+        && (node.text = node.textContent) // cache
+            // https://en.wikipedia.org/wiki/Lexical_analysis
             .match (/[^{]+(?=})/g) // rule
             .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); }); }
 
@@ -70,6 +71,7 @@ var TokenList = function (node) {
       document.createNodeIterator
         (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
 
+  // Parser
   while (walker.nextNode ()) { null } // Walk all nodes and do nothing.
 }; // constructor
 
@@ -77,20 +79,19 @@ var TokenList = function (node) {
 TokenList.prototype.bind = function (context) {
 
   var
-    tokenize = function (symbol) { return function (node) { return (node.textContent
-        = node.textContent
-        .split ('{'+symbol+'}')
-        .join(context [symbol])); }; }
+    tokenize = function (token) { return function (node) { return (node.textContent = node.textContent
+        .split ('{'+token+'}')
+        .join(context [token])); }; }
 
-  for (var symbol in this)
-    { symbol != 'bind'
-      && this [symbol].map
-        (function (node) { return (node.textContent = node.text); }) }
+  for (var token in this)
+    { token != 'bind' // current method
+      && this [token].map // more than one occurrence
+        (function (node) { return (node.textContent = node.text); }) } // memoize
 
-  for (var symbol$1 in this)
-    { symbol$1 != 'bind'
-      && this [symbol$1].map
-        (tokenize (symbol$1)) } // more than one occurrence
+  for (var token$1 in this)
+    { token$1 != 'bind' // current method
+      && this [token$1].map // more than one occurrence
+        (tokenize (token$1)) }
 }; // TokenList
 
 // https://codereview.chromium.org/1987413002

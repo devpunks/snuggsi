@@ -64,7 +64,8 @@ class TokenList {
 
     , collect = node =>
         /{(\w+|#)}/.test (node.textContent)
-          && (node.text = node.textContent)
+          && (node.text = node.textContent) // cache
+              // https://en.wikipedia.org/wiki/Lexical_analysis
               .match (/[^{]+(?=})/g) // rule
               .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
 
@@ -72,6 +73,7 @@ class TokenList {
         document.createNodeIterator
           (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
 
+    // Parser
     while (walker.nextNode ()) null // Walk all nodes and do nothing.
   } // constructor
 
@@ -79,21 +81,20 @@ class TokenList {
   bind (context) {
 
     const
-      tokenize = symbol => node =>
-        (node.textContent
-          = node.textContent
-          .split ('{'+symbol+'}')
-          .join  (context [symbol]))
+      tokenize = token => node =>
+        (node.textContent = node.textContent
+          .split ('{'+token+'}')
+          .join  (context [token]))
 
-    for (let symbol in this)
-      symbol != 'bind'
-        && this [symbol].map
-          (node => (node.textContent = node.text))
+    for (let token in this)
+      token != 'bind' // current method
+        && this [token].map // more than one occurrence
+          (node => (node.textContent = node.text)) // memoize
 
-    for (let symbol in this)
-      symbol != 'bind'
-        && this [symbol].map
-          (tokenize (symbol)) // more than one occurrence
+    for (let token in this)
+      token != 'bind' // current method
+        && this [token].map // more than one occurrence
+          (tokenize (token))
   } // bind
 } // TokenList
 
