@@ -1,14 +1,12 @@
 const
   { test } = require ('snuggsi')
 
-
 void `YOU GOTSTA BE KIDDING ME`
 
 test `Pending test`
 
 test `I can't believe it's not butter on ${new Date} this is amazing!`
 void (true) // this is a bug in tape
-
 
 test `.test`
   ( 'test' in require ('.') )
@@ -35,47 +33,35 @@ test `Predicate Return Assertions`
   ( () => 'this test evaluates returned predicate'
        == 'this test evaluates returned predicate' )
 
-
 test `Single Assertions`
   ( assert => assert ( 'foo' === 'foo' ) )
 
-
 test `Currying Assertions`
-
-(
-  assert => assert
-
+( assert => assert
   ( 1 == '1' )
   ( 1 === 1  )
 )
 
-
 test `Multiple Assertions`
-
-( assert =>
-
+// https://en.wikipedia.org/wiki/Short-circuit_evaluation
+( assert => // short circuits
     assert ( true )
 
     && // message
-
     assert ( true, 'with message' )
 
     && // currying
-
     assert
       ( true )
       ( 'foo' )
       ( !!! false )
 
     && // loose predicate
-
     assert ( '2' == 2 )
 
     && // strict predicate
-
     assert ( 'baz' === 'baz' )
 
     && // compound predicate
-
     assert ( 'true' && true && '1' && 1 )
-)
+) // Multiple Assertions
