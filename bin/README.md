@@ -1,12 +1,12 @@
-# `bin`stubs
+# `bin/`stubs
 
   > _[Binstubs are just scripts that can be executed directly: `bin/test` as opposed to `sh bin/test`](https://github.com/devpunks/snuggsi/pull/175#issuecomment-405039811)_ - [@brandondees](https://github.com/brandondees)
+
+  **⚠️ For internal use only** _(for the time being)_
 
   Imperative convenience scripts Used conjunctively to automate declarative actions.
   Could potentially be used on "User Land" applications in the near future.
 
-  **⚠️ For internal use only** _(for the time being)_
-  
   _The following script will clone repository and install developer dependencies_
 
 ```bash

@@ -2,7 +2,8 @@
 
 The CustomElementRegistry interface provides methods for registering custom elements and querying registered elements.
 
-[Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry)
+  - [Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/API/CustomElementRegistry)
+  - [Polyfill _(Happy Dom)_](https://github.com/capricorn86/happy-dom/blob/master/packages/happy-dom/src/custom-element/CustomElementRegistry.ts)
 
 
 ## The CustomElementRegistry Interface
@@ -20,7 +21,7 @@ WPT
 ## The Custom Elements Spec
 
 W3C
-  - https://www.w3.org/TR/custom-elements/
+  - https://w3.org/TR/custom-elements/
 
 WHATWG
   - https://html.spec.whatwg.org/multipage/custom-elements.html

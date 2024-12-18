@@ -681,4 +681,6 @@ A chronological [CalVer](https://calver.org) strategy is used instead of [SemVer
 
 ## Contributors
 
+Please read [CONTRIBUTING.md](/CONTRIBUTING.md) before contributing.
+
 Contributing while using [Visual Studio Code](https://code.visualstudio.com/) is simple!  _[Read More](./.vscode#readme)_
