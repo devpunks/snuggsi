@@ -23,5 +23,3 @@ describe('watch', _=> {
 
 skip( 'Describe TODO' )
 todo( 'Describe TODO' )
-
-require('./govern.js.test')

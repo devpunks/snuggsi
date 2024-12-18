@@ -66,6 +66,7 @@
     ".",
     "watch",
     "token-list",
+    "html-element",
     "html-template-element"
   ],
   "peerDependencies": {},
@@ -86,7 +87,8 @@
     "puppeteer-core": "^23.10.4"
   },
   "scripts": {
-    "test": "node ./watch/index.es.test",
+    "test": "shopt -s nullglob && node .{/*,}/*.test.{js,es} && npm run cover",
+    "cover": "snuggsi cover",
     "start": "snuggsi serve",
     "package": "snuggsi package",
     "postinstall": "echo Post install",
