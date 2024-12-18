@@ -21,7 +21,7 @@ const
 
 watch.forEach (path => {
   const
-    test = `node ${path}/*.test.{js,es}`
+    test = `shopt -s nullglob && node ${path}/*.test.{js,es}`
   , runner = [ clear, compile, lint, test, weigh ] .join ` && `
     // caveats
     //   - https://nodejs.org/docs/latest/api/fs.html#fs_caveats
