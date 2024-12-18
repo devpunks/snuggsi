@@ -65,6 +65,7 @@ var TokenList = function (node) {
         && (node.text = node.textContent) // cache
             // https://en.wikipedia.org/wiki/Lexical_analysis
             .match (/[^{]+(?=})/g) // rule
+            // TODO: convert `symbol` to `token`
             .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); }); }
 
   , walker =
@@ -141,12 +142,9 @@ void ( function (_) {
 
   .observe (document.documentElement, { childList: true, subtree: true })
 
-  void
-
-  [].slice
-    .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
-    .map  (load)
-
+  void [].slice
+  .call (document.querySelectorAll ('[rel^=pre][id~="-"]'))
+  .map  (load)
 
   // XHR Specs
   // https://xhr.spec.whatwg.org
@@ -154,7 +152,6 @@ void ( function (_) {
   // https://xhr.spec.whatwg.org/#interface-progressevent
   // Loader - https://trac.webkit.org/browser/trunk/WebCore/loader/loader.cpp
   function load (link) {
-
     var xhr = new XMLHttpRequest
 
     // Destination - https://fetch.spec.whatwg.org/#requestdestination
@@ -166,7 +163,7 @@ void ( function (_) {
     xhr.responseType = 'document'
     // Max requests
     xhr.send ()
-  }
+  } // load
 
 
   // https://github.com/w3c/preload/pull/40
@@ -201,7 +198,7 @@ void ( function (_) {
 
       process (link, node$1, anchor)
     }
-  }
+  } // onload
 
 
   function process (link, node, anchor) {
@@ -241,7 +238,7 @@ void ( function (_) {
       link
         .parentNode
         .insertBefore (clone, anchor)
-  }
+  } // process
 
   // Slot replacement & light DOM stamping
   // https://github.com/w3c/webcomponents/issues/288
@@ -274,7 +271,7 @@ void ( function (_) {
     }
 
     return this.innerHTML = template.innerHTML
-  }
+  } // stamp
 
 }) ()
 
