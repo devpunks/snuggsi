@@ -1,9 +1,9 @@
 const
   { Server, Resource }
-    = require ('..')
+    = require ('../index.es')
 
 , { route }
-    = require ('../middleware')
+    = require ('../middleware/index.es')
 
 , { DIRECTORY: directory, EXAMPLES: examples }
     = process.env

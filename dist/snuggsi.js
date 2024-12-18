@@ -65,6 +65,7 @@ var TokenList = function (node) {
         && (node.text = node.textContent) // cache
             // https://en.wikipedia.org/wiki/Lexical_analysis
             .match (/[^{]+(?=})/g) // rule
+            // TODO: convert `symbol` to `token`
             .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); }); }
 
   , walker =

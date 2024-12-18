@@ -6,10 +6,9 @@ const
   { debounce, throttle } = require ('./govern')
 , { SNUGGSI, BROWSER_PORT, DIRECTORY: path } = process.env
 , clear = `tput reset` // htps://askubuntu.com/q/25077/how-to-really-clear-the-terminal
-, test = `index.es.test`
+, cover = `snuggsi cover`
 , lint = `${SNUGGSI}/bin/lint`
 , weigh = `${SNUGGSI}/bin/weigh`
-, cover = `${SNUGGSI}/bin/cover`
 , bundle = `${SNUGGSI}/bin/bundle`
 , shrink = `${SNUGGSI}/bin/shrink`
 , compile = `${SNUGGSI}/bin/compile`
@@ -23,7 +22,7 @@ const
 watch.forEach (path => {
   const
     test = `node ${path}/*.test.{js,es}`
-  , runner = [ clear, compile, lint, cover, weigh, test ] .join ` && `
+  , runner = [ clear, compile, lint, test, weigh ] .join ` && `
     // caveats
     //   - https://nodejs.org/docs/latest/api/fs.html#fs_caveats
     //   - https://github.com/nodejs/node-v0.x-archive/issues/2054#issuecomment-8686322

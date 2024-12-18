@@ -14,6 +14,7 @@ class TokenList {
           && (node.text = node.textContent) // cache
               // https://en.wikipedia.org/wiki/Lexical_analysis
               .match (/[^{]+(?=})/g) // rule
+              // TODO: convert `symbol` to `token`
               .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
 
     , walker =
