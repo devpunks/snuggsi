@@ -1,11 +1,45 @@
-const { JSDOM } = require (`jsdom`)
+const
   assert = require('assert')
-, { test, describe, beforeEach: before, afterEach: after }
-  = require('node:test')
-, { skip, todo } = test.it
-, context = describe
+, { test, describe, context=describe } = require('node:test')
 
-// WARNING! ONLY USE LOCAL SCRIPTS
+, { JSDOM } = require (`jsdom`)
+, scripts = [ '<script src=https://unpkg.com/snuggsi></script>' ]
+, wrap = content =>
+    `<!DOCTYPE html><html lang=en>${scripts}<body role=application><header></header><nav></nav><main id=content>\n\n${content}\n\n</main><footer></footer>`
+, fetch = resource =>
+    ( /.*\.html$/.test ( resource ) )
+      ? require (`fs`) .readFileSync ( resource )
+      : Buffer.from (resource)
+, browse = url =>
+    /^(www|http:|https:)+[^\s]+[\w]$/.test (url)
+      ? console.log (`TODO: Puppeteer >>> ${url}`)
+      : new JSDOM ( wrap ( fetch (url) ),
+          { runScripts: 'dangerously', resources: 'usable' } ).window
+
+, configuration = { // url, file, src: html, scripts, html,
+//  done (error, window) {
+//    console.log (window.document.documentElement.outerHTML)
+//    window.close ()
+//  } // done
+
+//, onload (window) {
+//    console.log ('Window.onload: Only called if creation succeeds without error')
+//    window.close ()
+//  } // onload
+
+//, created (error, window) {
+//    console.log ('Window.created: Modify `window` object (e.g. add new functions on built-in prototypes before any scripts execute')
+//    window.close ()
+//  } // created
+} // configuration
+
+//const virtualConsole = dom.createVirtualConsole().sendTo( console )
+//virtualConsole.on (`log`, message => console.log (message))
+//dom.env(element, configuration, { virtualConsole })
+//dom.jsdom(element, configuration, { virtualConsole })
+
+// https://github.com/tmpvar/jsdom/issues/317
+// https://github.com/w3c/web-platform-tests/tree/master/dom/traversal
 // https://github.com/tmpvar/jsdom#user-content-for-the-hardcore-jsdomjsdom
 // The jsdom.jsdom method does fewer things automatically; it takes in only HTML source, and it does not allow you to separately supply scripts that it will inject and execute. It just gives you back a document object, with usable document.defaultView, and starts asynchronously executing any <script>s included in the HTML source. You can listen for the 'load' event to wait until scripts are done loading and executing, just like you would in a normal HTML page.
 //
@@ -16,59 +50,23 @@ const { JSDOM } = require (`jsdom`)
 // var window = doc.defaultView;
 // dom.jsdom (element, configuration)
 
-const
-  fetch = resource =>
-    require (`fs`).readFileSync (resource, `utf-8`)
-, template = fetch (`./index.html`)
-, element = `<ul id='items'>\n\n</ul>\n\n${template}\n\n`
-, configuration = {
-//html: element,
-//scripts: [script],
-//url: 'http://foo.bar.com',
-// file: a file which jsdom will load HTML from; the resulting document's URL will be a file:// URL,
-//src: src
-}
 
-configuration.done = (error, window) => {
-//console.warn (window.document.querySelector ('template#item').innerHTML)
-  console.warn ('Document inner html\n\n', window.document.documentElement.outerHTML)
-  window.close ()
-} // done
+const // a file which jsdom will load HTML from; the resulting document's URL will be a file:// URL,
+  file = 'index.test.html'
+, url = 'http://devpunks.studio'
+, window = browse (file)
 
-configuration.created = (error, window) => {
-  console.log ('\n\n\nWindow.created: Modify `window` object (e.g. add new functions on built-in prototypes before any scripts execute')
-} // created
 
-configuration.onload  = (window) => {
-  console.log ('\nWindow.onload: Only called if creation succeeds without error\n')
-} // onload
-
-// https://github.com/tmpvar/jsdom/issues/317
-// https://github.com/w3c/web-platform-tests/tree/master/dom/traversal
-
-describe ('unpkg', _=> {
-  let script = '<script src=https://unpkg.com/snuggsi></script>'
+describe ('scripts', _=> {
   const
-  { window } = new JSDOM(`<!DOCTYPE html>${script}<p>Hello world</p>`)
-  , source = window.document.scripts[0].src
+    source = window.document.scripts[0].src
 
-  console.log( window.document.documentElement.outerHTML )
+  test ('<script> source', _=> {
+//  await window.customElements.whenDefined('foo-bar')
 
-  before(_=> { }) // before
+    console.log( window.document.documentElement.outerHTML )
 
-  test ('<script> source',
-    _=> assert (source === 'https://unpkg.com/snuggsi') ) // test
-
+    assert (source === 'https://unpkg.com/snuggsi')
+  }) // test
 }) // describe
 
-return
-
-var virtualConsole = dom.createVirtualConsole ()
-  .sendTo (console)
-
-virtualConsole
-  .on (`log`, message => console.log (message))
-
-//dom.jsdom(element, configuration, { virtualConsole })
-
-dom.env(element, configuration, { virtualConsole })

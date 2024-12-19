@@ -1,0 +1,29 @@
+<script>
+
+class FooBar extends HTMLElement {
+  constructor () {
+    super ()
+    console.log('this issss', this)
+    this.attachShadow({ mode: 'open' })
+  } // constructor
+
+  connectedCallback () {
+    console.log('CONNECTED!!!!', this.tagName, this, this.outerHTML, this.childNodes.length)
+    console.log (this.foo)
+    console.log (this.bar)
+
+    for ( let node of this.childNodes.values () )
+      console.log( node )
+  } // connectedCallback
+
+  get foo () { return 'foo' }
+  get bar () { return 'bar' }
+}
+
+customElements.define ( 'foo-bar', FooBar )
+
+</script>
+
+<h1>Test Harness</h1>
+
+<foo-bar>Hot<br />Damn!</foo-bar>
