@@ -10,6 +10,8 @@ const
     ( /.*\.html$/.test ( resource ) )
       ? require (`fs`) .readFileSync ( resource )
       : Buffer.from (resource)
+  // https://github.com/ddamato/code-anatomy/blob/master/test/dom.js
+  // https://github.com/ddamato/code-anatomy/blob/master/test/index.spec.js
 , browse = url =>
     /^(www|http:|https:)+[^\s]+[\w]$/.test (url)
       ? console.log (`TODO: Puppeteer >>> ${url}`)
