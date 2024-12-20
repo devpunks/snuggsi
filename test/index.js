@@ -1,20 +1,19 @@
 const
   assert = require('assert')
-, { readFileSync } = require('node:fs')
+, { JSDOM } = require (`jsdom`)
+, { readFileSync: read } = require('node:fs')
 , { test, describe, context=describe } = require('node:test')
 
-
-, { JSDOM } = require (`jsdom`)
 , wrap = ( content, template = 'test/index.html' ) =>
-      readFileSync ( template ).toString()
+      read ( template ).toString()
         .replace( '${content}', content )
 , fetch = resource =>
     ( /.*\.html$/.test ( resource ) )
-      ? readFileSync ( resource )
+      ? read ( resource )
       : Buffer.from ( resource )
   // https://github.com/ddamato/code-anatomy/blob/master/test/dom.js
   // https://github.com/ddamato/code-anatomy/blob/master/test/index.spec.js
-, browse = url =>
+, view = url =>
     /^(www|http:|https:)+[^\s]+[\w]$/.test (url)
       ? console.log (`TODO: Puppeteer >>> ${url}`)
       : new JSDOM ( wrap ( fetch (url) ),
@@ -37,7 +36,7 @@ const
 //  } // created
 } // configuration
 
-module.exports = { assert, browse, context, describe, test, }
+module.exports = { assert, context, describe, read, test, view, }
 
 //const virtualConsole = dom.createVirtualConsole().sendTo( console )
 //virtualConsole.on (`log`, message => console.log (message))
