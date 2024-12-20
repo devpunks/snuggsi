@@ -17,31 +17,34 @@ const
 
 
 module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
-const
-  browser
-    = await puppeteer.launch ({
-      // flags - https://peter.sh/experiments/chromium-command-line-switches/
-        headless
-      , dumpio: true
-      , timeout: 25000
-      , devtools: true
-      , executablePath: path
-      , waitUntil: 'networkidle2'
-//      , args: [
-//          '--no-sandbox',
-//        , '--disable-gpu',
-//        , '--window-size=1920x1080',
-//        ]
-      })
+  const
+    browser
+      = await puppeteer.launch ({
+        // flags - https://peter.sh/experiments/chromium-command-line-switches/
+          headless
+        , dumpio: true
+        , timeout: 25000
+        , devtools: true
+        // chrome://version from browser
+        , executablePath: path // https://stackoverflow.com/a/49734268
+        , waitUntil: 'networkidle2'
+  //      , args: [
+  //          '--no-sandbox',
+  //        , '--disable-gpu',
+  //        , '--window-size=1920x1080',
+  //        ]
+        })
 
-, page = await browser.newPage ``
+  , page = await browser.newPage ``
+
   void await page
+    .goto ( url )
   //.goto ( data (html) )
-    .setContent ( html )
+  //.setContent ( html )
 
   console.warn ( await page.content () )
 
-//await browser.close ``
+  //await browser.close ``
 }
 
 
@@ -79,8 +82,7 @@ function browse (interface) {
     // taken from https://github.com/megawac/MutationObserver.js
     = read (`${root}polyfills/mutation-observer.js`)
 
-  polyfills.textContent
-    = [ mutation_observer, '\n' ].join ``
+  polyfills.textContent = '' // = [ mutation_observer, '\n' ].join ``
 
   snuggsi.textContent = dist
   example.textContent = source
@@ -88,7 +90,7 @@ function browse (interface) {
   document.body.append (polyfills, snuggsi, example)
 
   return document
-}
+} // browse
 
 
 function bundle (lib)

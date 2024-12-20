@@ -6,6 +6,8 @@
   - Puppeteer - https://github.com/puppeteer/puppeteer
   - [JSDOM](https://github.com/tmpvar/jsdom)
     - [Add custom element support](https://github.com/jsdom/jsdom/pull/2548)
+    - [Support for WebComponents API](https://github.com/jsdom/jsdom/issues/1030)
+    - [Make `Attr` extend from `Node` _(again...)_](https://github.com/jsdom/jsdom/issues/1641)
     - [JSDOM (context per test)](https://github.com/tmpvar/jsdom/wiki/Don%27t-stuff-jsdom-globals-onto-the-Node-global)
   - [w3c/web-platform-tests/custom-elements](https://github.com/w3c/web-platform-tests/tree/master/custom-elements)
 
