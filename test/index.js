@@ -1,5 +1,6 @@
 const
-  assert = require('assert')
+  assert = require ('assert')
+, browse = require ('./browse.es')
 , { JSDOM } = require (`jsdom`)
 , { readFileSync: read } = require('node:fs')
 , { test, describe, context=describe } = require('node:test')
@@ -36,7 +37,7 @@ const
 //  } // created
 } // configuration
 
-module.exports = { assert, context, describe, read, test, view, }
+module.exports = { assert, browse, context, describe, read, test, view, }
 
 //const virtualConsole = dom.createVirtualConsole().sendTo( console )
 //virtualConsole.on (`log`, message => console.log (message))
