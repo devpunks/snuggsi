@@ -184,8 +184,8 @@ $ bin/distribute
 
 ### CalVer
 
+  - [Create a git release](https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples)
   - [Ubuntu Version History](https://en.wikipedia.org/wiki/Ubuntu_version_history)
-
 
 #### Manual Pre-Release Development
 
@@ -200,7 +200,6 @@ git push origin main --tags
 npm edit <pkg>[/<subpkg>...]
 npm explore some-dependency
 npm test
-# Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
 ```
 
 #### Daily Patch Release
@@ -234,10 +233,7 @@ npm bugs # Github issues
 npm version minor --tag=latest -m "⏰  %s CalVer Monthly Minor Release"
 npm publish --tag=latest
 git push origin main --tags
-
-# Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
 ```
-
 
 #### Annual Major Release
 
@@ -259,8 +255,6 @@ npm shrinkwrap # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
 npm deprecate <pkg>[@<previous-year-version>] <message>
 npm publish --tag=stable
 git push origin main --tags
-
-# Create a git release - https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples
 ```
 
 
