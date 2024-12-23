@@ -50,11 +50,9 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
   //await browser.close ``
 }
 
-
 void (async function () {
   await module.exports() //('./test/index.html')
 })()
-
 
 const
   root = `${process.env.NODE_PATH}/`
