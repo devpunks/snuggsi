@@ -1,7 +1,7 @@
 const
   assert = require ('assert')
 , browse = require ('./browse.es')
-, { JSDOM } = require (`jsdom`)
+, { JSDOM } = require ('./parse.es')
 , { Socket, Server } = require('./socket.es')
 , { Worker, Service } = require('./worker.es')
 , { readFileSync: read } = require('node:fs')

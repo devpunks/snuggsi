@@ -1,6 +1,6 @@
 // https://mswjs.io
 // https://github.com/mswjs/msw
-console.log ('Mocking Service Worker')
+console.log ('Mocking ServiceWorker')
 
 class Service {}
 

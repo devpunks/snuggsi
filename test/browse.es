@@ -1,6 +1,10 @@
 // WebDriver - https://w3c.github.io/webdriver
 // Webdriver.io - https://github.com/webdriverio
 // WebDriver Bidi - https://w3c.github.io/webdriver-bidi
+//  Happy Dom
+//    - https://github.com/capricorn86/happy-dom/wiki/Browser
+//    - https://github.com/capricorn86/happy-dom/wiki/BrowserPage
+//    - https://github.com/capricorn86/happy-dom/wiki/BrowserContext
 // Benchmark - https://dev.to/chuongtrh/improve-performance-generate-pdf-using-puppeteer-4lg7
 // scrapes - https://hackernoon.com/tips-and-tricks-for-web-scraping-with-puppeteer-ed391a63d952
 

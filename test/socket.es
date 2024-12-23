@@ -1,5 +1,6 @@
+// https://websockets.spec.whatwg.org
 // https://github.com/thoov/mock-socket
-console.log ('Mocking Service Worker')
+console.log ('Mocking WebSockets')
 
 class Socket {}
 
