@@ -188,12 +188,9 @@ $ bin/distribute
   - [Ubuntu Version History](https://en.wikipedia.org/wiki/Ubuntu_version_history)
 
 #### Manual Pre-Release Development
-
 ```bash
 # Manual Pre Release & Bug fixes
-git pull -r origin main
 npm version prerelease
-npm publish
 git push origin main --tags
 
 # Tools
@@ -203,17 +200,18 @@ npm test
 ```
 
 #### Daily Patch Release
-
 ```bash
 # Automated Daily
-git pull -r origin main
-npm version patch --tag=dev -m "⏰  %s CalVer Daily Patch Dev Release"
+# sign-git-tag to prevent infinite recursion
+# ignore-scripts to prevent infinite recursion
+npm version patch --tag=dev --sign-git-tag --ignore-scripts \
+    -m "⏰  %s CalVer Daily Patch Dev Release"
+
 npm publish --tag=dev
 git push origin main --tags
 ```
 
 #### Monthly Minor Release
-
 ```bash
 # Automated Monthly
 git pull -r origin main
@@ -236,7 +234,6 @@ git push origin main --tags
 ```
 
 #### Annual Major Release
-
 ```bash
 # Automated Yearly
 git pull -r origin main
