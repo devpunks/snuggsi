@@ -1,4 +1,4 @@
-console.log ('Mocking DOM Parser')
+console.log ('Parser')
 
 // Window - https://github.com/capricorn86/happy-dom/wiki/Window
 // Console - https://github.com/capricorn86/happy-dom/wiki/VirtualConsole

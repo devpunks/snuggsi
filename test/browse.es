@@ -1,3 +1,5 @@
+console.log ('Browser')
+
 // WebDriver - https://w3c.github.io/webdriver
 // Webdriver.io - https://github.com/webdriverio
 // WebDriver Bidi - https://w3c.github.io/webdriver-bidi
