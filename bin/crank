@@ -3,9 +3,10 @@
 # Thanks Tom M. (@tmornini) for ./crank
 
 # && bin/cover      \
+# && bin/version    \
 bin/compile         \
   && bin/lint       \
   && bin/weigh      \
   && bin/distribute \
-  && bin/deploy     \
-  && bin/publish
+  && bin/publish    \
+  && bin/deploy

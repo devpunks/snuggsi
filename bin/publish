@@ -13,8 +13,6 @@ for asset in ${ASSETS[@]} ; do
   cp -f  $asset $DESTINATION
 done ; echo
 
-echo "  🆕 Publishing library to https://npmjs.org"
-echo
 npm publish --tag=dev
 echo
 npm view --tag=dev
