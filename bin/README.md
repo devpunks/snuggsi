@@ -189,14 +189,13 @@ $ bin/distribute
 
 #### Manual Pre-Release Development
 ```bash
-# Manual Pre Release & Bug fixes
-npm version prerelease
-git push origin main --tags
-
 # Tools
 npm edit <pkg>[/<subpkg>...]
 npm explore some-dependency
 npm test
+
+# Pull Request version
+npm version prerelease
 ```
 
 #### Daily Patch Release
