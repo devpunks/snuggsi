@@ -150,12 +150,12 @@ minor
 
 npm view
 #--------------------------------------------------------------------------
-echo "  🐙 Fetching '$BRANCH' branch on Github."↴
-git pull -r origin $BRANCH↴
+echo "  🐙 Fetching branch on Github."↴
+git pull -r origin
 echo↴
 ↴
-echo "  🐙 Updating '$BRANCH' branch on Github."↴
-git push origin $BRANCH↴
+echo "  🐙 Updating branch on Github."↴
+git push origin
 
 echo "  🔖 Updating tags on Github."↴
 git push origin --tags↴
