@@ -142,7 +142,7 @@ npm view
 #--------------------------------------------------------------------------
 echo "  🐙 Fetching branch on Github."↴
 git pull -r origin
-echo↴
+echo
 ↴
 echo "  🐙 Updating branch on Github."↴
 git push origin
@@ -150,6 +150,6 @@ git push origin
 echo "  🔖 Updating tags on Github."↴
 git push origin --tags
 
-echo↴
+echo
 echo OLD VERSION: $VERSION
 echo NEW VERSION: $(npm pkg get version | tr -d \") TAG: $TAG
