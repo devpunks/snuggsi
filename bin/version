@@ -41,33 +41,6 @@ echo MONTH $MONTH
 echo DAY $DAY
 echo
 
-npm ping
-npm owner ls
-npm org ls devpunks
-npm whoami
-npm profile get
-
-patch
-major
-minor
-
-npm view
-
-echo "  🐙 Fetching '$BRANCH' branch on Github."↴
-git pull -r origin $BRANCH↴
-echo↴
-↴
-echo "  🐙 Updating '$BRANCH' branch on Github."↴
-git push origin $BRANCH↴
-
-echo "  🔖 Updating tags on Github."↴
-git push origin --tags↴
-
-echo↴
-echo OLD VERSION: $VERSION
-echo NEW VERSION: $(npm pkg get version | tr -d \") TAG: $TAG
-
-
 #--------------------------------------------------------------------------
 #
 function major () {
@@ -164,4 +137,29 @@ function patch () {
     -m "⏰  %s CalVer Daily Patch Dev Release"
   $PUBLISH $TAG
 } # patch
+#--------------------------------------------------------------------------
+npm ping
+npm owner ls
+npm org ls devpunks
+npm whoami
+npm profile get
 
+patch
+major
+minor
+
+npm view
+#--------------------------------------------------------------------------
+echo "  🐙 Fetching '$BRANCH' branch on Github."↴
+git pull -r origin $BRANCH↴
+echo↴
+↴
+echo "  🐙 Updating '$BRANCH' branch on Github."↴
+git push origin $BRANCH↴
+
+echo "  🔖 Updating tags on Github."↴
+git push origin --tags↴
+
+echo↴
+echo OLD VERSION: $VERSION
+echo NEW VERSION: $(npm pkg get version | tr -d \") TAG: $TAG
