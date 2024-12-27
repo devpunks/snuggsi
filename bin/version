@@ -42,7 +42,6 @@ echo DAY $DAY
 echo
 
 #--------------------------------------------------------------------------
-#
 function major () {
   (($YEAR == $MAJOR)) && return
 
@@ -93,6 +92,7 @@ function minor () {
   npm update --save $DRY $IGNORE --also=dev
   npm prune $DRY
   npm dedupe $DRY
+  npm cache verify
   npm link # https://docs.npmjs.com/cli/v6/commands/npm-link
 
   # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
@@ -102,27 +102,17 @@ function minor () {
   npm version minor $TAG $SIGN $IGNORE \
     -m "⏰  %s CalVer Monthly Minor Release"
 
-  npm pack --dry-run #$DRY
-  # git add '*.tgz'
-
-  git commit -m '📦 Archive Shrinkwrapped Packages'
   $PUBLISH $TAG
 
   # Create Github Release
   # - https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository
   # must be signed for git describe to work without (lightweight) --tags
   git archive --verbose --format=tar.gz HEAD > "$(git describe --exact-match --tags).tar.gz"
-
   # git add 'v*.tar.gz'
   # https://github.com/marketplace/actions/gh-release
   # https://trstringer.com/github-actions-create-release-upload-artifacts
   # - https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#create-a-release
   echo 'TODO: hook to add artifact via API'
-
-# npm cache add .
-  npm cache verify
-  npm bugs # Github issues
-  npm issues # Github issues
 } # minor
 
 function patch () {
