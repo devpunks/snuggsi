@@ -158,7 +158,7 @@ echo "  🐙 Updating branch on Github."↴
 git push origin
 
 echo "  🔖 Updating tags on Github."↴
-git push origin --tags↴
+git push origin --tags
 
 echo↴
 echo OLD VERSION: $VERSION
