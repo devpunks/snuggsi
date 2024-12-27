@@ -6,6 +6,7 @@ echo "  👇"
 echo "  📝 Committing changes to library..."
 echo
 
+
 # snuggsi.es =============================================================
 git add dist/snuggsi.es
 git commit --message ":muscle: bump BUNDLED distribution dist/snuggsi.es"
@@ -59,3 +60,6 @@ cp dist/snuggsi.min.es dist/snuggsi.min.es.js
 
 git add dist/snuggsi.min.es.js
 git commit --message ":muscle: bump ??? distribution dist/snuggsi.min.es.js"
+
+echo 'TODO: `git diff && git add && git commit` Routine'
+git diff --quiet # Check for dirty files
