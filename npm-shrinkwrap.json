@@ -1,12 +1,12 @@
 {
   "name": "snuggsi",
-  "version": "2024.12.3",
+  "version": "2024.12.4",
   "lockfileVersion": 3,
   "requires": true,
   "packages": {
     "": {
       "name": "snuggsi",
-      "version": "2024.12.3",
+      "version": "2024.12.4",
       "cpu": [
         "x64",
         "arm64"
