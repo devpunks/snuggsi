@@ -1,7 +1,5 @@
 #!/usr/bin/env bash
 
-declare -r BRANCH=main
-
 echo
 echo "📰 Distributing"
 echo "  👇"
