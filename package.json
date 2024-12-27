@@ -87,6 +87,7 @@
     "puppeteer-core": "^23.10.4"
   },
   "scripts": {
+    "watch": "bin/watch",
     "test": "shopt -s nullglob && node .{/*,}/*.test.{js,es} && npm run cover",
     "cover": "snuggsi cover",
     "start": "snuggsi serve",
