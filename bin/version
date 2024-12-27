@@ -1,0 +1,167 @@
+#!/usr/bin/env bash
+
+# https://calver.org
+# https://gist.github.com/DarrenN/8c6a5b969481725a4413
+
+declare -r DRY='' # '--dry-run'
+# sign-git-tag to prevent infinite recursion
+# https://unix.stackexchange.com/a/257065
+# https://github.com/keybase/keybase-issues/issues/2798
+# https://jam.dev/blog/articles/error-gpg-failed-to-sign-the-data
+# https://gist.github.com/paolocarrasco/18ca8fe6e63490ae1be23e84a7039374
+# https://gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
+# https://github.com/keybase/keybase-issues/issues/2798#issuecomment-2290965368
+declare -r SIGN='' # '--sign-git-tag'
+# ignore-scripts to prevent infinite recursion
+declare -r IGNORE='--ignore-scripts'
+declare -r PUBLISH='npm publish'
+
+declare DATE=$(date)
+# https://lachy.id.au/dev/script/examples/datetime/DateFormatStrings.html
+declare YEAR=$(date +%Y)
+declare MONTH=$(date +%m)
+declare DAY=$(date +%d)
+
+# remove double quotes
+declare VERSION=$(npm pkg get version --workspaces=false | tr -d \")
+# https://stackoverflow.com/q/918886
+declare MAJOR=$( echo $VERSION | cut -d "." -f 1 )
+declare MINOR=$( echo $VERSION | cut -d "." -f 2 )
+declare PATCH=$( echo $VERSION | cut -d "." -f 3 )
+
+echo Package Version: $VERSION
+echo MAJOR: $MAJOR
+echo MINOR: $MINOR
+echo PATCH: $PATCH
+echo
+
+echo DATE $DATE
+echo YEAR $YEAR
+echo MONTH $MONTH
+echo DAY $DAY
+echo
+
+npm ping
+npm owner ls
+npm org ls devpunks
+npm whoami
+npm profile get
+
+patch
+major
+minor
+
+npm view
+
+echo "  🐙 Fetching '$BRANCH' branch on Github."↴
+git pull -r origin $BRANCH↴
+echo↴
+↴
+echo "  🐙 Updating '$BRANCH' branch on Github."↴
+git push origin $BRANCH↴
+
+echo "  🔖 Updating tags on Github."↴
+git push origin --tags↴
+
+echo↴
+echo OLD VERSION: $VERSION
+echo NEW VERSION: $(npm pkg get version | tr -d \") TAG: $TAG
+
+
+#--------------------------------------------------------------------------
+#
+function major () {
+  (($YEAR == $MAJOR)) && return
+
+  TAG="--tag=stable"
+  echo "  🗓️  Bumping $YEAR Annual MAJOR ($TAG)  Routine from $MAJOR..."
+  echo
+
+  # Cycle tokens
+  # https://docs.npmjs.com/about-authentication-tokens
+  npm config get
+  npm token list
+  npm doctor
+# npm audit fix $DRY $IGNORE  # Audit npm packages
+  npm ci $DRY $IGNORE # Clean Install
+
+  npm version major $TAG $SIGN $IGNORE \
+    -m "⏰  %s CalVer Annual Major Release"
+
+  $PUBLISH $TAG
+
+  # Deprecate previous-year back (keeping past 12 months)
+  # https://github.com/semver/semver/issues/712
+  # https://softwareengineering.stackexchange.com/q/381763
+  # https://softwareengineering.stackexchange.com/q/337005
+  # https://gist.github.com/SHSharkar/76c44458b454d470d300ea6695e8688f
+  # https://docs.npmjs.com/deprecating-and-undeprecating-packages-or-package-versions
+  echo 'TODO: Merge deprecation branch hook YYYY.0.0-1'
+  # npm deprecate <pkg>[@<previous-year-version>] <message>
+} # major
+
+function minor () {
+  # https://stackoverflow.com/q/918886
+  # This is needed due to major() resetting month to 0 annually
+  local MINOR=$(
+    echo `npm pkg get version --workspaces=false` \
+      | tr -d \" | cut -d "." -f 2
+  )
+
+  (($MONTH == $MINOR)) && return
+
+  TAG="--tag=latest"
+  echo "  🗓️  Bumping $MONTH Monthly MINOR ($TAG) Routine from $MINOR..."
+  echo
+
+  npm ls
+  npm rebuild
+  npm outdated
+  npm update --save $DRY $IGNORE --also=dev
+  npm prune $DRY
+  npm dedupe $DRY
+  npm link # https://docs.npmjs.com/cli/v6/commands/npm-link
+
+  # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
+  npm shrinkwrap # https://stackoverflow.com/q/50743893
+  git add {npm-shrinkwrap,package-lock,package}.json
+  git commit -m '📦 Archive Shrinkwrapped Packages'
+  npm version minor $TAG $SIGN $IGNORE \
+    -m "⏰  %s CalVer Monthly Minor Release"
+
+  npm pack --dry-run #$DRY
+  # git add '*.tgz'
+
+  git commit -m '📦 Archive Shrinkwrapped Packages'
+  $PUBLISH $TAG
+
+  # Create Github Release
+  # - https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository
+  # must be signed for git describe to work without (lightweight) --tags
+  git archive --verbose --format=tar.gz HEAD > "$(git describe --exact-match --tags).tar.gz"
+
+  # git add 'v*.tar.gz'
+  # https://github.com/marketplace/actions/gh-release
+  # https://trstringer.com/github-actions-create-release-upload-artifacts
+  # - https://docs.github.com/en/rest/releases/releases?apiVersion=2022-11-28#create-a-release
+  echo 'TODO: hook to add artifact via API'
+
+# npm cache add .
+  npm cache verify
+  npm bugs # Github issues
+  npm issues # Github issues
+} # minor
+
+function patch () {
+  # cut prepatch (e.g. *-0)
+  local -r patch=$( echo $PATCH | cut -d '-' -f 1 )
+
+  TAG="--tag=dev"
+  echo "  🗓️  Bumping $DAY Daily Patch ($TAG) Routine from $patch ($PATCH)..."
+  echo
+
+  npm version patch $TAG $SIGN $IGNORE \
+    -m "⏰  %s CalVer Daily Patch Dev Release"
+  $PUBLISH $TAG
+} # patch
+

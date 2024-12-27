@@ -12,7 +12,3 @@ for asset in ${ASSETS[@]} ; do
   echo "  📃  $asset 👉  $DESTINATION/$asset"
   cp -f  $asset $DESTINATION
 done ; echo
-
-npm publish --tag=dev
-echo
-npm view --tag=dev

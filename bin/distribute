@@ -61,21 +61,3 @@ cp dist/snuggsi.min.es dist/snuggsi.min.es.js
 
 git add dist/snuggsi.min.es.js
 git commit --message ":muscle: bump ??? distribution dist/snuggsi.min.es.js"
-
-
-echo '  👊 Bumping package.json version to … ' \
-  `npm version patch --tag=dev --message "⏰  %s CalVer Daily Patch Dev Release"`
-echo
-
-echo "  🐙 Fetching '$BRANCH' branch on Github."
-git pull -r origin $BRANCH
-echo
-
-echo "  🐙 Updating '$BRANCH' branch on Github."
-git push origin $BRANCH
-echo
-
-# https://stackoverflow.com/q/3745135/push-git-commits-tags-simultaneously
-echo "  🔖 Updating tags on Github."
-git push origin --tags
-
