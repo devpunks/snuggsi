@@ -14,15 +14,11 @@
   </a>
 
   <a href=https://www.npmjs.com/package/snuggsi target=external>
-    <img src=https://img.shields.io/npm/v/snuggsi.svg alt='npm version'>
-  </a>
-
-  <a href=https://david-dm.org/devpunks/snuggsi target=external>
-    <img src=https://david-dm.org/devpunks/snuggsi/status.svg alt='dependency status'>
+    <img alt='npm version' src=https://img.shields.io/npm/v/snuggsi.svg>
   </a>
 
   <a href=https://github.com/devpunks/snuggsi/blob/master/LICENSE.txt target=external>
-    <img src=https://img.shields.io/npm/l/snuggsi.svg alt=license>
+    <img alt=license src=https://img.shields.io/npm/l/snuggsi.svg>
   </a>
 
 <!-- CodeCov
@@ -79,7 +75,7 @@ __*#UseThePlatform*__
 **snuggsiツ** works in a plain 'ol HTML file! Simply place the following **&lt;script&gt;** within your webpage:
 
 ```html
-<script nomodule src=//unpkg.com/snuggsi></script>
+<script src=https://unpkg.com/snuggsi></script>
 ```
 
 Et Voila _(that's it!)_ ツ
