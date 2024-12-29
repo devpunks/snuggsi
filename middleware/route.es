@@ -2,8 +2,8 @@
 // https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 
 const
-  unspecified = context =>
-    context.status = 501
+  unimplemented = context =>
+    context.status = 501 // NOT IMPLEMENTED
 
 , identify = uri =>
     uri.split `/`.pop ``
@@ -31,10 +31,8 @@ const
     context.params = params.reduce (tokenized (uri), {})
 
 
-module.exports = (uri, endpoint = unspecified) =>
-
+module.exports = (uri, endpoint = unimplemented) =>
   async (context, next, matched, { method } = context) =>
-
     (matched = normalize (uri).exec (context.path))
       && parameterize (uri, matched, context)
       && (endpoint = endpoint [method.toLowerCase ()] || endpoint)

@@ -1,11 +1,15 @@
 // Based on Hypertext Transfer Protocol (HTTP/1.1): Authentication
 // https://tools.ietf.org/html/rfc7235#section-4.1
 
+// JWT
+// - https://sohamkamani.com/nodejs/jwt-authentication
+// - https://github.com/sohamkamani/jwt-nodejs-example
+
 const
   auth = require ('basic-auth')
 
 
-module.exports = ( options = {} ) =>
+module.exports = ( options = { password = 'abc123'} ) =>
 
   async (context, next, { name, pass: password } = auth (context)) =>
 
