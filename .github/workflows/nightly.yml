@@ -49,6 +49,8 @@ jobs:
 
       - name: Install dependencies
         env:
+          EMAIL: ${{ secrets.EMAIL }}
+          AUTHOR: ${{ secrets.AUTHOR }}
           SNUGGSI: "."
           FOO: "FOO SHAZZZAMMM!"
           BAR: "BAR SHAZZZAMMM!"
@@ -56,12 +58,13 @@ jobs:
           sudo apt-get update || true
           sudo apt-get install -y \
             nodejs zopfli
+          git config --global user.email "$EMAIL"
+          git config --global user.name "$AUTHOR"
           cd ./snuggsi
           ls -al
           pwd
           node -v
           npm install
-          npm link .
           ./bin/crank
 
 #--------------------------------------------------------------------------
