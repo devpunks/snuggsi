@@ -100,7 +100,6 @@ jobs:
           sudo apt-get install -y \
             nodejs
           npm install npm@latest --global
-        run: |
           node -v
           ls -al
           echo ${{ github }}
