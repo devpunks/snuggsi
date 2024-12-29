@@ -73,6 +73,7 @@
   "bundleDependencies": {},
   "dependencies": {
     "koa": "2.13.4",
+    "snuggsi": "file:.",
     "koa-cors": "^0.0.16",
     "koa-static": "^5.0.0",
     "basic-auth": "^2.0.0"
@@ -92,7 +93,7 @@
     "cover": "snuggsi cover",
     "start": "snuggsi serve",
     "package": "snuggsi package",
-    "postinstall": "echo Post install",
+    "postinstall": "npm link . ; echo Post install linking",
     "install": "echo  Installing snuggsi",
     "preinstall": "echo  pre-Installing snuggsi",
     "preversion": "echo 'npm preversion (test)'",
