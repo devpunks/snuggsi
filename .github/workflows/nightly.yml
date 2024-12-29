@@ -51,7 +51,8 @@ jobs:
           cd ./snuggsi
           ls -al
           node -v
-          npm ci
+          npm install
+          snuggsi help
 
 #--------------------------------------------------------------------------
 # check:
