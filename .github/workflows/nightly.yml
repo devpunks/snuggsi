@@ -24,19 +24,19 @@ on:
     paths:
       - ".github/workflows/nightly.yml"
 
-#jobs:
-# check:
-#   timeout-minutes: 5
-#   name: Check Signed Tag
+jobs:
+  check:
+    timeout-minutes: 5
+    name: Check Signed Tag
 #   runs-on: ubuntu-latest
 #   if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
 #   outputs:
 #     stringver: ${{ steps.contentrel.outputs.stringver }}
 
-#   steps:
-#     - name: Checkout code
-#       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-#       uses: ./src/github.com/devpunks/snuggsi/.github/actions/test.yml
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: ./src/github.com/devpunks/snuggsi/.github/actions/test.yml
 #       with:
 #         ref: ${{ github.ref }}
 #         path: src/github.com/devpunks/snuggsi
