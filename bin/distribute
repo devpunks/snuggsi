@@ -62,4 +62,5 @@ git add dist/snuggsi.min.es.js
 git commit --message ":muscle: bump ??? distribution dist/snuggsi.min.es.js"
 
 echo 'TODO: `git diff && git add && git commit` Routine'
+git status
 git diff --quiet # Check for dirty files
