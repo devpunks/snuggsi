@@ -1,6 +1,10 @@
 // https://coderwall.com/p/y347ug/encodeuri-vs-encodeuricomponent
 // https://cdivilly.wordpress.com/2014/03/11/why-trailing-slashes-on-uris-are-important/
 
+// History API
+// - https://developer.mozilla.org/en-US/docs/Web/API/History_API
+// - https://html.spec.whatwg.org/multipage/nav-history-apis.html#the-history-interface
+// - https://developer.mozilla.org/en-US/docs/Web/API/History_API/Working_with_the_History_API
 const
   unimplemented = context =>
     context.status = 501 // NOT IMPLEMENTED
