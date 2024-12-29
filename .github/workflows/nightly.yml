@@ -9,7 +9,14 @@ env:
   NODE_VERSION: "18.11.0"
 
 permissions: # added using https://github.com/step-security/secure-workflows
+  actions: read
+  checks: write
+  issues: read
   contents: write
+  packages: write
+  deployments: write
+  pull-requests: write
+  repository-projects: write
 
 on:
   schedule: # https://en.wikipedia.org/wiki/Cron
