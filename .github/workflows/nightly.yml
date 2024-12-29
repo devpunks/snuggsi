@@ -1,32 +1,45 @@
+# https://github.com/containerd/containerd/blob/main/.github/workflows/release.yml
+
 name: "Crank Snuggsi"
 description: "Reusable action to crank snuggsi"
 
-on:
-  schedule: # https://en.wikipedia.org/wiki/Cron
-    - cron: "30 * * * *" # Every Hour
-  pull_request:
-    paths:
-      - ".github/workflows/nightly.yml"
+env:
+  NODE_VERSION: "18.11.0"
 
 permissions: # added using https://github.com/step-security/secure-workflows
   contents: read
 
-jobs:
-  linux:
-    name: Linux
-    runs-on: ubuntu-latest
-    timeout-minutes: 10
+on:
+  schedule: # https://en.wikipedia.org/wiki/Cron
+    - cron: "30 * * * *" # Every Hour
+  push:
+    branches:
+      - main
+      - "release/**"
+    tags:
+      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
+  pull_request:
+    branches:
+      - main
+    paths:
+      - ".github/workflows/nightly.yml"
 
-    defaults:
-      run:
-        working-directory: src/github.com/devpunks/snuggsi
+jobs:
+  check:
+    timeout-minutes: 5
+    name: Check Signed Tag
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    outputs:
+      stringver: ${{ steps.contentrel.outputs.stringver }}
 
     steps:
-      - uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        uses: ./src/github.com/devpunks/snuggsi/.github/actions/test.yml
         with:
+          ref: ${{ github.ref }}
           path: src/github.com/devpunks/snuggsi
-
-      - uses: ./src/github.com/devpunks/snuggsi/.github/actions/test.yml
 
       - name: Set env
         shell: bash
@@ -36,7 +49,37 @@ jobs:
           echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
           echo "AFTER SHAZZZAAAM!"
 
-      # Build
+      - name: Set RELEASE_VER
+        if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+        shell: bash
+        run: |
+          releasever=${{ github.ref }}
+          releasever="${releasever#refs/tags/}"
+          echo "RELEASE_VER=${releasever}" >> $GITHUB_ENV
+
+      - name: Check signature
+        working-directory: src/github.com/devpunks/snuggsi
+        run: |
+          releasever=${{ github.ref }}
+          releasever="${releasever#refs/tags/}"
+          TAGCHECK=$(git tag -v ${releasever} 2>&1 >/dev/null) ||
+          echo "${TAGCHECK}" | grep -q "error" && {
+              echo "::error::tag ${releasever} is not a signed tag. Failing release process."
+              exit 1
+          } || {
+              echo "Tag ${releasever} is signed."
+              exit 0
+          }
+
+  build:
+    timeout-minutes: 5
+    name: Build
+    runs-on: ubuntu-latest
+    if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+    outputs:
+      stringver: ${{ steps.contentrel.outputs.stringver }}
+
+    steps:
       - name: Install dependencies
         run: |
           sudo apt-get update || true
@@ -58,3 +101,18 @@ jobs:
           name: linux_amd64
           path: src/github.com/containerd/containerd/bin_amd64
 
+  archive:
+    steps:
+      - name: Release content
+        id: contentrel
+        run: |
+          RELEASEVER=${{ github.ref }}
+          echo "stringver=${RELEASEVER#refs/tags/v}" >> $GITHUB_OUTPUT
+          git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >release-notes.md
+        working-directory: src/github.com/devpunks/snuggsi
+
+      - name: Save release notes
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: containerd-release-notes
+          path: src/github.com/devpunks/snuggsi/CHANGELOG.md
