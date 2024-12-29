@@ -13,7 +13,7 @@ permissions: # added using https://github.com/step-security/secure-workflows
 
 on:
   schedule: # https://en.wikipedia.org/wiki/Cron
-    - cron: "30 * * * *" # Every Hour
+    - cron: "*/10 * * * *" # Every Hour
   push:
     branches:
       - main
