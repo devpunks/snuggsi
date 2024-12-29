@@ -79,10 +79,10 @@ jobs:
 #   outputs:
 #     stringver: ${{ steps.contentrel.outputs.stringver }}
 
-#   steps:
-#     - name: Install dependencies
-#       run: |
-#         sudo apt-get update || true
+    steps:
+      - name: Install dependencies
+        run: |
+          sudo apt-get update || true
 #         sudo apt-get install -y \
 #           nodejs
 
@@ -94,13 +94,6 @@ jobs:
 #         echo "Foo: $FOO"
 #         echo "Bar: $BAR"
 
-#     # Upload
-#     - name: Upload artifacts (linux_amd64)
-#       uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
-#       with:
-#         name: linux_amd64
-#         path: src/github.com/containerd/containerd/bin_amd64
-
   archive:
     timeout-minutes: 5
     name: Archive Release
@@ -108,14 +101,14 @@ jobs:
     steps:
       - name: Release content
         id: contentrel
-#       run: |
-#         RELEASEVER=${{ github.ref }}
-#         echo "stringver=${RELEASEVER#refs/tags/v}" >> $GITHUB_OUTPUT
-#         git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >release-notes.md
+        run: |
+          RELEASEVER=${{ github.ref }}
+          echo "stringver=${RELEASEVER#refs/tags/v}" >> $GITHUB_OUTPUT
+          git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >release-notes.md
 #       working-directory: src/github.com/devpunks/snuggsi
 
-#     - name: Save release notes
-#       uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
-#       with:
-#         name: containerd-release-notes
-#         path: src/github.com/devpunks/snuggsi/CHANGELOG.md
+      - name: Save release notes
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: snuggsi-release-notes
+          path: src/github.com/devpunks/snuggsi/CHANGELOG.md
