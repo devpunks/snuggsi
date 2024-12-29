@@ -86,6 +86,8 @@ jobs:
           sudo apt-get update || true
           sudo apt-get install -y \
             nodejs
+          node -v
+          ls -al
 
   archive:
     timeout-minutes: 5
