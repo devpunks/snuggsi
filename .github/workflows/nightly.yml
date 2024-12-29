@@ -50,10 +50,12 @@ jobs:
             nodejs
           cd ./snuggsi
           ls -al
+          pwd
           node -v
           npm install
           ./bin/snuggsi
-          ./bin/snuggsi test
+          ./bin/compile
+          ./bin/weigh
 
 #--------------------------------------------------------------------------
 # check:
