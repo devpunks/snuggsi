@@ -52,7 +52,7 @@ jobs:
           ls -al
           node -v
           npm install
-          snuggsi help
+          ./bin/snuggsi help
 
 #--------------------------------------------------------------------------
 # check:
