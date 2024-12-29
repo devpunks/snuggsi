@@ -42,64 +42,64 @@ jobs:
           path: src/github.com/devpunks/snuggsi
 
       - name: Set env
-        shell: bash
-        run: |
-          echo "BEFORE SHAZZZAAAM!"
-          echo "${{ github.workspace }}" >> $GITHUB_ENV
-          echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
-          echo "AFTER SHAZZZAAAM!"
+#       shell: bash
+#       run: |
+#         echo "BEFORE SHAZZZAAAM!"
+#         echo "${{ github.workspace }}" >> $GITHUB_ENV
+#         echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
+#         echo "AFTER SHAZZZAAAM!"
 
       - name: Set RELEASE_VER
         if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
-        shell: bash
-        run: |
-          releasever=${{ github.ref }}
-          releasever="${releasever#refs/tags/}"
-          echo "RELEASE_VER=${releasever}" >> $GITHUB_ENV
+#       shell: bash
+#       run: |
+#         releasever=${{ github.ref }}
+#         releasever="${releasever#refs/tags/}"
+#         echo "RELEASE_VER=${releasever}" >> $GITHUB_ENV
 
-      - name: Check signature
-        working-directory: src/github.com/devpunks/snuggsi
-        run: |
-          releasever=${{ github.ref }}
-          releasever="${releasever#refs/tags/}"
-          TAGCHECK=$(git tag -v ${releasever} 2>&1 >/dev/null) ||
-          echo "${TAGCHECK}" | grep -q "error" && {
-              echo "::error::tag ${releasever} is not a signed tag. Failing release process."
-              exit 1
-          } || {
-              echo "Tag ${releasever} is signed."
-              exit 0
-          }
+#     - name: Check signature
+#       working-directory: src/github.com/devpunks/snuggsi
+#       run: |
+#         releasever=${{ github.ref }}
+#         releasever="${releasever#refs/tags/}"
+#         TAGCHECK=$(git tag -v ${releasever} 2>&1 >/dev/null) ||
+#         echo "${TAGCHECK}" | grep -q "error" && {
+#             echo "::error::tag ${releasever} is not a signed tag. Failing release process."
+#             exit 1
+#         } || {
+#             echo "Tag ${releasever} is signed."
+#             exit 0
+#         }
 
   build:
     timeout-minutes: 5
     name: Build
     runs-on: ubuntu-latest
     if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
-    outputs:
-      stringver: ${{ steps.contentrel.outputs.stringver }}
+#   outputs:
+#     stringver: ${{ steps.contentrel.outputs.stringver }}
 
-    steps:
-      - name: Install dependencies
-        run: |
-          sudo apt-get update || true
-          sudo apt-get install -y \
-            nodejs
+#   steps:
+#     - name: Install dependencies
+#       run: |
+#         sudo apt-get update || true
+#         sudo apt-get install -y \
+#           nodejs
 
-      - name: Build amd64
-        env:
-          FOO: "foo env"
-          BAR: "bar env"
-        run: |
-          echo "Foo: $FOO"
-          echo "Bar: $BAR"
+#     - name: Build amd64
+#       env:
+#         FOO: "foo env"
+#         BAR: "bar env"
+#       run: |
+#         echo "Foo: $FOO"
+#         echo "Bar: $BAR"
 
-      # Upload
-      - name: Upload artifacts (linux_amd64)
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
-        with:
-          name: linux_amd64
-          path: src/github.com/containerd/containerd/bin_amd64
+#     # Upload
+#     - name: Upload artifacts (linux_amd64)
+#       uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+#       with:
+#         name: linux_amd64
+#         path: src/github.com/containerd/containerd/bin_amd64
 
   archive:
     timeout-minutes: 5
@@ -108,14 +108,14 @@ jobs:
     steps:
       - name: Release content
         id: contentrel
-        run: |
-          RELEASEVER=${{ github.ref }}
-          echo "stringver=${RELEASEVER#refs/tags/v}" >> $GITHUB_OUTPUT
-          git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >release-notes.md
-        working-directory: src/github.com/devpunks/snuggsi
+#       run: |
+#         RELEASEVER=${{ github.ref }}
+#         echo "stringver=${RELEASEVER#refs/tags/v}" >> $GITHUB_OUTPUT
+#         git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >release-notes.md
+#       working-directory: src/github.com/devpunks/snuggsi
 
-      - name: Save release notes
-        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
-        with:
-          name: containerd-release-notes
-          path: src/github.com/devpunks/snuggsi/CHANGELOG.md
+#     - name: Save release notes
+#       uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+#       with:
+#         name: containerd-release-notes
+#         path: src/github.com/devpunks/snuggsi/CHANGELOG.md
