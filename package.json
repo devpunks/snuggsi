@@ -73,7 +73,6 @@
   "bundleDependencies": {},
   "dependencies": {
     "koa": "2.13.4",
-    "snuggsi": "file:.",
     "koa-cors": "^0.0.16",
     "koa-static": "^5.0.0",
     "basic-auth": "^2.0.0"
