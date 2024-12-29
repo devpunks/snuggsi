@@ -33,6 +33,34 @@ on:
 #--------------------------------------------------------------------------
 jobs:
 #--------------------------------------------------------------------------
+  dump:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
+#--------------------------------------------------------------------------
   build:
     timeout-minutes: 5
     name: Build
@@ -48,17 +76,20 @@ jobs:
 
       - name: Install dependencies
         env:
-          EMAIL: ${{ secrets.EMAIL }}
-          AUTHOR: ${{ secrets.AUTHOR }}
           SNUGGSI: "."
           FOO: "FOO SHAZZZAMMM!"
           BAR: "BAR SHAZZZAMMM!"
+          EMAIL: ${{ secrets.EMAIL }}
+          AUTHOR: ${{ secrets.AUTHOR }}
+          GH_REPO: ${{ github.repository }}
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           sudo apt-get update || true
           sudo apt-get install -y \
             nodejs zopfli
           git config --global user.email "$EMAIL"
           git config --global user.name "$AUTHOR"
+        run: |
           ls -al
           pwd
           node -v
