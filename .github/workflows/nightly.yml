@@ -42,6 +42,7 @@ jobs:
 
       - name: Install dependencies
         env:
+          SNUGGSI: "."
           FOO: "FOO SHAZZZAMMM!"
           BAR: "BAR SHAZZZAMMM!"
         run: |
@@ -53,9 +54,7 @@ jobs:
           pwd
           node -v
           npm install
-          ./bin/snuggsi
-          ./bin/compile
-          ./bin/weigh
+          ./bin/crank
 
 #--------------------------------------------------------------------------
 # check:
