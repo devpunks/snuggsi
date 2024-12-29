@@ -99,7 +99,6 @@ jobs:
           sudo apt-get update || true
           sudo apt-get install -y \
             nodejs
-          npm install npm@latest --global
           node -v
           ls -al
           echo ${{ github }}
