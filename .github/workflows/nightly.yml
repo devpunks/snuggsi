@@ -74,7 +74,7 @@ jobs:
   build:
     timeout-minutes: 5
     name: Build
-    runs-on: ubuntu-latest
+    runs-on: ubuntu-20.04
 #   if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
 #
     steps:
@@ -83,9 +83,6 @@ jobs:
           FOO: "FOO SHAZZZAMMM!"
           BAR: "BAR SHAZZZAMMM!"
         run: |
-          echo "Foo: $FOO"
-          echo "Bar: $BAR"
-          echo "NODE_VERSION: $NODE_VERSION"
           sudo apt-get update || true
           sudo apt-get install -y \
             nodejs
