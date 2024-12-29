@@ -9,7 +9,7 @@ env:
   NODE_VERSION: "18.11.0"
 
 permissions: # added using https://github.com/step-security/secure-workflows
-  contents: read
+  contents: write
 
 on:
   schedule: # https://en.wikipedia.org/wiki/Cron
@@ -48,7 +48,7 @@ jobs:
         run: |
           sudo apt-get update || true
           sudo apt-get install -y \
-            nodejs
+            nodejs zopfli
           cd ./snuggsi
           ls -al
           pwd
