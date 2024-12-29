@@ -36,9 +36,10 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-#       with:
-#         ref: ${{ github.ref }}
-#         path: src/github.com/devpunks/snuggsi
+        with:
+          fetch-tags: true
+          ref: ${{ github.ref }}
+          path: src/github.com/devpunks/snuggsi
 
 #     - name: Set env
 #       shell: bash
@@ -70,34 +71,30 @@ jobs:
 #             exit 0
 #         }
 
-# build:
-#   timeout-minutes: 5
-#   name: Build
-#   runs-on: ubuntu-latest
+  build:
+    timeout-minutes: 5
+    name: Build
+    runs-on: ubuntu-latest
 #   if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
+#
+    steps:
+      - name: Install dependencies
+        run: |
+          echo "Foo: $FOO"
+          echo "Bar: $BAR"
+          echo "NODE_VERSION: $NODE_VERSION"
+          sudo apt-get update || true
+          sudo apt-get install -y \
+            nodejs
+
+  archive:
+    timeout-minutes: 5
+    name: Archive Release
+    runs-on: ubuntu-latest
 #   outputs:
 #     stringver: ${{ steps.contentrel.outputs.stringver }}
 
-#   steps:
-#     - name: Install dependencies
-#       run: |
-#         sudo apt-get update || true
-#         sudo apt-get install -y \
-#           nodejs
-
-#     - name: Build amd64
-#       env:
-#         FOO: "foo env"
-#         BAR: "bar env"
-#       run: |
-#         echo "Foo: $FOO"
-#         echo "Bar: $BAR"
-
-# archive:
-#   timeout-minutes: 5
-#   name: Archive Release
-#   runs-on: ubuntu-latest
-#   steps:
+    steps:
 #     - name: Release content
 #       id: contentrel
 #       run: |
@@ -106,8 +103,8 @@ jobs:
 #         git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >release-notes.md
 #       working-directory: src/github.com/devpunks/snuggsi
 
-#     - name: Save release notes
-#       uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
-#       with:
-#         name: snuggsi-release-notes
-#         path: src/github.com/devpunks/snuggsi/CHANGELOG.md
+      - name: Save release notes
+        uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+        with:
+          name: snuggsi-release-notes
+          path: src/github.com/devpunks/snuggsi/CHANGELOG.md
