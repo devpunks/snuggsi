@@ -45,7 +45,6 @@ jobs:
         with:
           fetch-tags: true
           ref: ${{ github.ref }}
-          path: ./snuggsi
 
       - name: Install dependencies
         env:
@@ -60,7 +59,6 @@ jobs:
             nodejs zopfli
           git config --global user.email "$EMAIL"
           git config --global user.name "$AUTHOR"
-          cd ./snuggsi
           ls -al
           pwd
           node -v
