@@ -93,7 +93,7 @@
     "cover": "snuggsi cover",
     "start": "snuggsi serve",
     "package": "snuggsi package",
-    "postinstall": "npm link . ; echo Post install linking",
+    "postinstall": "echo Post install linking",
     "install": "echo  Installing snuggsi",
     "preinstall": "echo  pre-Installing snuggsi",
     "preversion": "echo 'npm preversion (test)'",
