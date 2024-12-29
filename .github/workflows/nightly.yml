@@ -84,6 +84,13 @@ jobs:
 #   if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
 #
     steps:
+      - name: Checkout code
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          fetch-tags: true
+          ref: ${{ github.ref }}
+          path: src/github.com/devpunks/snuggsi
+
       - name: Install dependencies
         env:
           FOO: "FOO SHAZZZAMMM!"
@@ -93,13 +100,6 @@ jobs:
           sudo apt-get install -y \
             nodejs
           npm install npm@latest --global
-
-      - name: Checkout code
-        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-        with:
-          fetch-tags: true
-          ref: ${{ github.ref }}
-          path: src/github.com/devpunks/snuggsi
         run: |
           node -v
           ls -al
