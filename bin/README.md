@@ -207,50 +207,39 @@ npm version patch --tag=dev --sign-git-tag --ignore-scripts \
     -m "⏰  %s CalVer Daily Patch Dev Release"
 
 npm publish --tag=dev
-git push origin main --tags
 ```
 
 #### Monthly Minor Release
 ```bash
 # Automated Monthly
-git pull -r origin main
-npm view
 npm ls
 npm outdated
-npm install -g npm@latest
 npm update --also=dev
 npm prune
 npm dedupe
-npm link # https://docs.npmjs.com/cli/v6/commands/npm-link
 npm rebuild
 npm update
 npm pack
 npm issues # Github issues
-npm bugs # Github issues
 npm version minor --tag=latest -m "⏰  %s CalVer Monthly Minor Release"
 npm publish --tag=latest
-git push origin main --tags
 ```
 
 #### Annual Major Release
 ```bash
 # Automated Yearly
-git pull -r origin main
 npm whoami
 npm owner
 npm org devpunks ls
 npm token
 npm config
-npm issues # Github issues
 npm doctor
 npm audit  # Cleanup npm packages
 npm ci
 npm version major --tag=stable -m "⏰  %s CalVer Annual Major Release"
-npm cache add <folder>
 npm shrinkwrap # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
 npm deprecate <pkg>[@<previous-year-version>] <message>
 npm publish --tag=stable
-git push origin main --tags
 ```
 
 
