@@ -42,7 +42,7 @@ jobs:
     env:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
-      - name: Publish
+      - name: Checkout
         uses: actions/checkout@v4
       # Setup .npmrc file to publish to npm
       - name: Setup
@@ -50,7 +50,9 @@ jobs:
         with:
           node-version: 18
           registry-url: 'https://registry.npmjs.org'
-        run: npm install
+      - name: Publish
+      - run: npm install
+      - run: npm list
 #     - run: npm publish --provenance --access public
 
 #--------------------------------------------------------------------------
