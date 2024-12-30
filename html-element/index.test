@@ -9,22 +9,22 @@ const
 
 test ('new HTMLElement', async t => {
 
-  const
-    server
-      = serve ``
+//const
+//  server
+//    = serve ``
 
-  , url
-      = `http://localhost:${process.env.PORT}`
+//, url
+//    = `http://localhost:${process.env.PORT}`
 
-  , browser
-      = await puppeteer.launch ``
+//, browser
+//    = await puppeteer.launch ``
 
-  , page
-      = await browser.newPage ``
+//, page
+//    = await browser.newPage ``
 
-  , log
-      = messages =>
-        console.log ( ... messages.args `` )
+//, log
+//    = messages =>
+//      console.log ( ... messages.args `` )
 
 
   await page.goto (url)
@@ -34,13 +34,13 @@ test ('new HTMLElement', async t => {
 
 //console.warn ('browser', typeof await browse (url))
 
-  page.on ('console', log)
+//page.on ('console', log)
 
-  page.evaluate
-    ( _ => console.log('hello', 5, {foo: 'bar'}))
+//page.evaluate
+//  ( _ => console.log('hello', 5, {foo: 'bar'}))
 
-  server.close
-    (await browser.close ``)
+//server.close
+//  (await browser.close ``)
 
   t.end ()
 })

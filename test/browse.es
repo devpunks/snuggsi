@@ -13,7 +13,7 @@ console.log ('Browser')
 const
 // Navigate to chrome://version
 //path = '/usr/bin/chromium-browser'
-  headless = false
+  headless = true
 , encoding = 'utf8'
 , data     = html =>
     `data:text/html,${html}`
@@ -53,7 +53,7 @@ module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
 
   console.warn ( await page.content () )
 
-  //await browser.close ``
+  await browser.close ``
 }
 
 void (async function () {
