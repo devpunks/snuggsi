@@ -96,16 +96,20 @@ jobs:
           pwd
           # ./bin/crank
 
-      - name: Install node
+      - name: Extract
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
       # run: npm ci --ignore-scripts --no-audit --no-progress --prefer-offline
 
-      - name: Run NPM
+      - name: Install
         shell: bash
         run: npm install && npm view && node -v
+
+      - name: Compile
+        shell: bash
+        run: bin/compile
 
       - name: Run Tests
         shell: bash
@@ -114,7 +118,7 @@ jobs:
           SNUGGSI: "."
         run: node ./*.test.es
 
-      - name: Run Coverage
+      - name: Cover
         shell: bash
         env:
           # Prevent script injection
