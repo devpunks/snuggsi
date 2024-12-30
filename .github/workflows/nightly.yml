@@ -70,17 +70,17 @@ jobs:
 #   if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     steps:
       - name: Checkout code
-      - uses: actions/checkout@v4
-      # uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        #- uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
         with:
           fetch-depth: 0
           fetch-tags: true
           ref: ${{ github.ref }}
           persist-credentials: true
-      - uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          cache: npm
+#     - uses: actions/setup-node@v4
+#       with:
+#         node-version: 18
+#         cache: npm
 
       - name: Install dependencies
         env:
@@ -95,7 +95,7 @@ jobs:
         run: |
           sudo apt-get update || true
           sudo apt-get install -y \
-            zopfli
+            nodejs zopfli
           ls -al
           pwd
           node -v
