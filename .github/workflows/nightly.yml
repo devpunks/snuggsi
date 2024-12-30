@@ -35,6 +35,24 @@ env:
 #--------------------------------------------------------------------------
 jobs:
 #--------------------------------------------------------------------------
+  publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Publish
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      # Setup .npmrc file to publish to npm
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '20.x'
+          registry-url: 'https://registry.npmjs.org'
+      - run: npm install
+#     - run: npm publish --provenance --access public
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+
   dump:
     runs-on: ubuntu-20.04
     steps:
