@@ -105,10 +105,14 @@ jobs:
 
       - name: Run NPM
         shell: bash
+        run: npm install && npm view && node -v
+
+      - name: Run Tests
+        shell: bash
         env:
           # Prevent script injection
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm install && npm view && node -v
+        run: npm test
 
       - name: Commit
         run: >
