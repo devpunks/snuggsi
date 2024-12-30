@@ -39,19 +39,20 @@ jobs:
     runs-on: ubuntu-20.04
     permissions:
       id-token: write
+    env:
+      NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - name: Publish
       - uses: actions/checkout@v4
       # Setup .npmrc file to publish to npm
       - uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          node-version: 18
           registry-url: 'https://registry.npmjs.org'
       - run: npm install
 #     - run: npm publish --provenance --access public
-        env:
-          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 
+#--------------------------------------------------------------------------
   dump:
     runs-on: ubuntu-20.04
     steps:
