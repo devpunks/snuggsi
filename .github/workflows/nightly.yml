@@ -104,7 +104,11 @@ jobs:
       # run: npm ci --ignore-scripts --no-audit --no-progress --prefer-offline
 
       - name: Run NPM
-        run: npm install && npm view && npm whoami && node -v
+        shell: bash
+        env:
+          # Prevent script injection
+          NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+        run: npm install && npm view && node -v
 
       - name: Commit
         run: >
