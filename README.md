@@ -2,24 +2,19 @@
 
 <p align=center>
   <a href=https://npmjs.org/package/snuggsi target=external>
-    <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat>
-  </a>
+    <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat></a>
 
   <a href=https://github.com/devpunks/snuggsi/actions/workflows/nightly.yml target=external>
-    <img alt='Crank Snuggsi' src=https://github.com/devpunks/snuggsi/actions/workflows/nightly.yml/badge.svg>
-  </a>
+    <img alt='Crank Snuggsi' src=https://github.com/devpunks/snuggsi/actions/workflows/nightly.yml/badge.svg></a>
 
   <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme target=external>
-    <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-~%201kB-ff69b4.svg>
-  </a>
+    <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-~%201kB-ff69b4.svg></a>
 
   <a href=https://www.npmjs.com/package/snuggsi target=external>
-    <img alt='npm version' src=https://img.shields.io/npm/v/snuggsi.svg>
-  </a>
+    <img alt='npm version' src=https://img.shields.io/npm/v/snuggsi.svg></a>
 
   <a href=https://github.com/devpunks/snuggsi/blob/master/LICENSE.txt target=external>
-    <img alt=license src=https://img.shields.io/npm/l/snuggsi.svg>
-  </a>
+    <img alt=license src=https://img.shields.io/npm/l/snuggsi.svg></a>
 
 <!-- CodeCov
   <a href='https://codecov.io/github/devpunks/snuggsi?branch=master' target=external>
