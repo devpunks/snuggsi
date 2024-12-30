@@ -43,8 +43,9 @@ jobs:
       NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
     steps:
       - name: Publish
-      - uses: actions/checkout@v4
+        uses: actions/checkout@v4
       # Setup .npmrc file to publish to npm
+      - name: Setup
       - uses: actions/setup-node@v4
         with:
           node-version: 18
