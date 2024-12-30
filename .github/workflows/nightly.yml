@@ -36,6 +36,7 @@ env:
 jobs:
 #--------------------------------------------------------------------------
   publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
+    needs: [build]
     runs-on: ubuntu-20.04
     permissions:
       id-token: write
