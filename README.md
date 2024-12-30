@@ -1,17 +1,21 @@
 <h1 align=center>snuggsi ツ - Easy Custom Elements in <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>~1kiloByte</a> </h1>
 
 <p align=center>
+  <a href=https://www.npmjs.com/package/snuggsi target=external>
+    <img alt='npm version' src=https://img.shields.io/npm/v/snuggsi.svg></a>
+
   <a href=https://npmjs.org/package/snuggsi target=external>
     <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat></a>
-
-  <a href=https://github.com/devpunks/snuggsi/actions/workflows/nightly.yml target=external>
-    <img alt='Crank Snuggsi' src=https://github.com/devpunks/snuggsi/actions/workflows/nightly.yml/badge.svg></a>
 
   <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme target=external>
     <img alt='Brotli size' src=https://img.shields.io/badge/Brotli%20size:-~%201kB-ff69b4.svg></a>
 
-  <a href=https://www.npmjs.com/package/snuggsi target=external>
-    <img alt='npm version' src=https://img.shields.io/npm/v/snuggsi.svg></a>
+  <a href=https://github.com/devpunks/snuggsi/actions/workflows/nightly.yml target=external>
+    <img alt='Crank Snuggsi' src=https://github.com/devpunks/snuggsi/actions/workflows/nightly.yml/badge.svg></a>
+
+  <a href=https://github.com/devpunks/snuggsi/issues target=external>
+    <img src=https://img.shields.io/badge/PRs-welcome-brightgreen.svg alt='Pull requests welcome!'>
+  </a>
 
   <a href=https://github.com/devpunks/snuggsi/blob/master/LICENSE.txt target=external>
     <img alt=license src=https://img.shields.io/npm/l/snuggsi.svg></a>
@@ -21,10 +25,6 @@
     <img src=https://codecov.io/gh/devpunks/snuggsi/branch/master/graph/badge.svg alt='Coverage via Codecov'>
   </a>
 -->
-
-  <a href=https://github.com/devpunks/snuggsi/issues target=external>
-    <img src=https://img.shields.io/badge/PRs-welcome-brightgreen.svg alt='Pull requests welcome!'>
-  </a>
 
 <p align=center>
   <strong align=center>All you need is a browser and basic understanding of <a href=https://developer.mozilla.org/en-US/docs/Web/HTML target=mdn>HTML</a>, <a href=https://developer.mozilla.org/en-US/docs/Web/CSS target=mdn>CSS</a>, &amp; <a href=https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Classes target=mdn>JavaScript Classes</a> to be productive!</strong>
