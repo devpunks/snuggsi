@@ -1,3 +1,5 @@
+#!/usr/bin/env bash
+
 #NODE_PATH:-`npm config get prefix | awk NR==1`/lib/node_modules}" # {print;exit}`!/usr/bin/env bash
 
 set -u
