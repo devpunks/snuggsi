@@ -26,6 +26,8 @@ const
 
 
 module.exports = async function ( url = new URL ('https://snuggsi.com') ) {
+  return
+
   const
     browser
       = await puppeteer.launch ({
