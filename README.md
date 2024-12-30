@@ -1,12 +1,12 @@
 <h1 align=center>snuggsi ツ - Easy Custom Elements in <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>~1kiloByte</a> </h1>
 
-<p align=center>
   <a href=https://npmjs.org/package/snuggsi target=external>
     <img alt='NPM monthly downloads' src=https://img.shields.io/npm/dm/snuggsi.svg?style=flat>
   </a>
 
-  <a href=https://travis-ci.org/devpunks/snuggsi target=external>
-    <img alt='Travis CI build' src=https://travis-ci.org/devpunks/snuggsi.svg?branch=master>
+<p align=center>
+  <a href=https://github.com/devpunks/snuggsi/actions/workflows/nightly.yml target=external>
+    <img alt='Crank Snuggsi' src=https://github.com/devpunks/snuggsi/actions/workflows/nightly.yml/badge.svg>
   </a>
 
   <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme target=external>
