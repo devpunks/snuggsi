@@ -99,10 +99,11 @@ jobs:
           ls -al
           pwd
           node -v
-          # npm install
+          npm install
           # ./bin/crank
       - name: Install node
-        run: npm ci --ignore-scripts --no-audit --no-progress --prefer-offline
+        run: npm install
+      # run: npm ci --ignore-scripts --no-audit --no-progress --prefer-offline
 
       - name: Commit
         run: >
