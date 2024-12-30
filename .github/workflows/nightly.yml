@@ -111,8 +111,9 @@ jobs:
         shell: bash
         env:
           # Prevent script injection
+          SNUGGSI: "."
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: npm test
+        run: node ./*.test.es && bin/cover
 
       - name: Commit
         run: >
