@@ -88,7 +88,7 @@
   },
   "scripts": {
     "watch": "snuggsi watch",
-    "test": "shopt -s nullglob && node .{/*,}/*.test.{js,es} && npm run cover",
+    "test": "node .{/*,}/*.test.{js,es} && npm run cover",
     "cover": "snuggsi cover",
     "start": "snuggsi serve",
     "package": "snuggsi package",
