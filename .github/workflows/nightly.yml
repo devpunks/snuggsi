@@ -120,7 +120,7 @@ jobs:
           # Prevent script injection
           SNUGGSI: "."
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: echo "⚠️  TODO: fix cover"
+        run: node list && npm run
 
       - name: Commit
         run: >
