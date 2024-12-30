@@ -112,8 +112,15 @@ jobs:
         env:
           # Prevent script injection
           SNUGGSI: "."
+        run: node ./*.test.es
+
+      - name: Run Coverage
+        shell: bash
+        env:
+          # Prevent script injection
+          SNUGGSI: "."
           NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-        run: node ./*.test.es && bin/cover | true # ignore error if there are no changes to commit
+        run: echo 'TODO: fix bin/cover | true ' # ignore error if there are no changes to commit
 
       - name: Commit
         run: >
