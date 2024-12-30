@@ -113,11 +113,11 @@ jobs:
           git push origin HEAD:$HEAD_REF
 
 #--------------------------------------------------------------------------
-  check:
-    needs: build
-    timeout-minutes: 5
-    name: Check Signed Tag
-    runs-on: ubuntu-latest
+# check:
+#   needs: build
+#   timeout-minutes: 5
+#   name: Check Signed Tag
+#   runs-on: ubuntu-latest
 #   if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
 #   outputs:
 #     stringver: ${{ steps.contentrel.outputs.stringver }}
