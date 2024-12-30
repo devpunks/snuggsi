@@ -95,13 +95,16 @@ jobs:
           ls -al
           pwd
           # ./bin/crank
+
       - name: Install node
         uses: actions/setup-node@v4
         with:
           node-version: 18
           cache: npm
-        run: npm install && npm view && npm whoami && node -v
       # run: npm ci --ignore-scripts --no-audit --no-progress --prefer-offline
+
+      - name: Run NPM
+        run: npm install && npm view && npm whoami && node -v
 
       - name: Commit
         run: >
