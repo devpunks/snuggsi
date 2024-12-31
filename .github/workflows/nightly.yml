@@ -48,7 +48,6 @@ jobs:
     steps:
     - name: Compile
       run: bin/compile
-
     - name: Checkout
       - uses: actions/checkout@v4
         with:
