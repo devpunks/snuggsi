@@ -14,7 +14,7 @@ declare -r DRY='--dry-run' # '--dry-run'
 declare -r SIGN='' # '--sign-git-tag'
 # ignore-scripts to prevent infinite recursion
 declare -r IGNORE='--ignore-scripts'
-declare -r PUBLISH='npm publish'
+declare -r PUBLISH='npm publish --provenance --access public'
 
 declare DATE=$(date)
 # https://lachy.id.au/dev/script/examples/datetime/DateFormatStrings.html
@@ -54,13 +54,13 @@ function major () {
   npm config get
   npm token list
   npm doctor
-# npm audit fix $DRY $IGNORE  # Audit npm packages
+  npm audit fix $DRY $IGNORE  # Audit npm packages
   npm ci $DRY $IGNORE # Clean Install
 
   npm version major $TAG $SIGN $IGNORE \
     -m "⏰  %s CalVer Annual Major Release"
 
-  $PUBLISH $TAG
+  $PUBLISH $TAG $DRY
 
   # Deprecate previous-year back (keeping past 12 months)
   # https://github.com/semver/semver/issues/712
@@ -101,7 +101,7 @@ function minor () {
   npm version minor $TAG $SIGN $IGNORE \
     -m "⏰  %s CalVer Monthly Minor Release"
 
-  $PUBLISH $TAG
+  $PUBLISH $TAG $DRY
 
   # Create Github Release
   # - https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository
@@ -124,7 +124,7 @@ function patch () {
 
   npm version patch $TAG $SIGN $IGNORE \
     -m "⏰  %s CalVer Daily Patch Dev Release"
-  $PUBLISH $TAG
+  $PUBLISH $TAG $DRY
 } # patch
 #--------------------------------------------------------------------------
 npm ping
