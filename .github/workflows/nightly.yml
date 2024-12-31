@@ -47,7 +47,7 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
     - name: Checkout
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4
         with:
           fetch-depth: 0
           fetch-tags: true
@@ -55,18 +55,18 @@ jobs:
           persist-credentials: true
     - run: ls -al
     - run: pwd
-    - name: Install # https://github.com/marketplace/actions/setup-node-js-environment
-      uses: actions/setup-node@v4
+    - uses: actions/setup-node@v4
         with:
           cache: npm
           node-version: 18
+#   - name: Install # https://github.com/marketplace/actions/setup-node-js-environment
 #   - name: Update
 #     - run: sudo apt-get update
 #     - run: sudo apt-get install -y zopfl
 #   - name: Install
 #       run: npm install && npm view && node -v
 
-    - run: bin/compile
+#   - run: bin/compile
 
 #   - name: Commit
 #     run: >
