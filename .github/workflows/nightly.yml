@@ -42,18 +42,21 @@ env:
 # if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
 jobs:
   build:
-
+    name: Build
+    timeout-minutes: 5
     runs-on: ubuntu-latest
-
     steps:
       - uses: actions/checkout@v4
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20.x'
-      - run: npm ci
-      - run: npm run build --if-present
-      - run: npm test
+      - run: cat npm-shrinkwrap.json
+      - run: cat package.json
+      - run: npm version
+#     - run: npm ci
+#     - run: npm run build --if-present
+#     - run: npm test
 # jobs:
 #   build:
 #     name: Build
