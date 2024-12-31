@@ -56,9 +56,9 @@ jobs:
     - run: pwd
     - name: Install # https://github.com/marketplace/actions/setup-node-js-environment
       - uses: actions/setup-node@v4
-        with:
-          cache: npm
-          node-version: 18
+          with:
+            cache: npm
+            node-version: 18
 #   - name: Update
 #     - run: sudo apt-get update
 #     - run: sudo apt-get install -y zopfl
