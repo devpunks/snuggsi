@@ -41,34 +41,34 @@ env:
 #--------------------------------------------------------------------------
 jobs:
   checkout:
-    timeout-minutes: 5
     name: Checkout
-    runs-on: ubuntu-20.04
-    steps:
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        fetch-tags: true
-        ref: ${{ github.ref }}
-        persist-credentials: true
-  setup:
-    runs-on: ubuntu-20.04
     timeout-minutes: 5
-    name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
+    runs-on: ubuntu-20.04
     steps:
-    - uses: actions/setup-node@v4
-      with:
-        node-version: 18
-        cache: npm
-    - run: npm ci
-    - run: npm test
-  - name: Get
-    run: |
-      sudo apt-get update || true
-      sudo apt-get install -y \
-        zopfli
-      ls -al
-      pwd
+      uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+          ref: ${{ github.ref }}
+          persist-credentials: true
+# setup:
+#   runs-on: ubuntu-20.04
+#   timeout-minutes: 5
+#   name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
+#   steps:
+#   - uses: actions/setup-node@v4
+#     with:
+#       node-version: 18
+#       cache: npm
+#   - run: npm ci
+#   - run: npm test
+# - name: Get
+#   run: |
+#     sudo apt-get update || true
+#     sudo apt-get install -y \
+#       zopfli
+#     ls -al
+#     pwd
       # ./bin/crank
 
 # - name: Install
