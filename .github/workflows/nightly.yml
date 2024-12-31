@@ -55,7 +55,7 @@ jobs:
     - run: pwd
 
   install:
-    - name: Install # https://github.com/marketplace/actions/setup-node-js-environment
+    name: Install # https://github.com/marketplace/actions/setup-node-js-environment
     timeout-minutes: 5
     runs-on: ubuntu-20.04
     steps:
