@@ -128,10 +128,7 @@ function patch () {
 } # patch
 #--------------------------------------------------------------------------
 npm ping
-npm owner ls
-npm org ls devpunks
 npm whoami
-npm profile get
 
 patch
 major
@@ -144,10 +141,10 @@ git pull -r origin
 echo
 
 echo "  🐙 Updating branch on Github."↴
-git push origin
+git push
 
 echo "  🔖 Updating tags on Github."↴
-git push origin --tags
+git push --tags
 
 echo
 echo OLD VERSION: $VERSION
