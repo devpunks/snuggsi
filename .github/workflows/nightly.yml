@@ -50,7 +50,8 @@ jobs:
       - name: Use Node.js
         uses: actions/setup-node@v4
         with:
-          node-version: '20.x'
+          cache: npm
+          node-version: 18
       - run: cat npm-shrinkwrap.json
       - run: cat package.json
       - run: npm version
