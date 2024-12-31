@@ -71,91 +71,91 @@ jobs:
       pwd
       # ./bin/crank
 
-  - name: Install
-    shell: bash
-    run: npm install && npm view && node -v
+# - name: Install
+#   shell: bash
+#   run: npm install && npm view && node -v
 
-      # run: npm ci --ignore-scripts --no-audit --no-progress --prefer-offline
+#     # run: npm ci --ignore-scripts --no-audit --no-progress --prefer-offline
 #--------------------------------------------------------------------------
-  publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
-    needs: [build]
-    runs-on: ubuntu-20.04
-    permissions:
-      id-token: write
-    steps:
-      - name: Checkout
-        uses: actions/checkout@v4
-      # Setup .npmrc file to publish to npm
-      - name: Setup
-        uses: actions/setup-node@v4
-        with:
-          node-version: 18
-          registry-url: 'https://registry.npmjs.org'
-      - run: npm install
-      - run: npm list
+# publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
+#   needs: [build]
+#   runs-on: ubuntu-20.04
+#   permissions:
+#     id-token: write
+#   steps:
+#     - name: Checkout
+#       uses: actions/checkout@v4
+#     # Setup .npmrc file to publish to npm
+#     - name: Setup
+#       uses: actions/setup-node@v4
+#       with:
+#         node-version: 18
+#         registry-url: 'https://registry.npmjs.org'
+#     - run: npm install
+#     - run: npm list
 #     - run: npm publish --provenance --access public
 #--------------------------------------------------------------------------
-  dump:
-    runs-on: ubuntu-20.04
-    steps:
-      - name: Dump GitHub context
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        run: echo "$GITHUB_CONTEXT"
-      - name: Dump job context
-        env:
-          JOB_CONTEXT: ${{ toJson(job) }}
-        run: echo "$JOB_CONTEXT"
-      - name: Dump steps context
-        env:
-          STEPS_CONTEXT: ${{ toJson(steps) }}
-        run: echo "$STEPS_CONTEXT"
-      - name: Dump runner context
-        env:
-          RUNNER_CONTEXT: ${{ toJson(runner) }}
-        run: echo "$RUNNER_CONTEXT"
-      - name: Dump strategy context
-        env:
-          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-        run: echo "$STRATEGY_CONTEXT"
-      - name: Dump matrix context
-        env:
-          MATRIX_CONTEXT: ${{ toJson(matrix) }}
-        run: echo "$MATRIX_CONTEXT"
+# dump:
+#   runs-on: ubuntu-20.04
+#   steps:
+#     - name: Dump GitHub context
+#       env:
+#         GITHUB_CONTEXT: ${{ toJson(github) }}
+#       run: echo "$GITHUB_CONTEXT"
+#     - name: Dump job context
+#       env:
+#         JOB_CONTEXT: ${{ toJson(job) }}
+#       run: echo "$JOB_CONTEXT"
+#     - name: Dump steps context
+#       env:
+#         STEPS_CONTEXT: ${{ toJson(steps) }}
+#       run: echo "$STEPS_CONTEXT"
+#     - name: Dump runner context
+#       env:
+#         RUNNER_CONTEXT: ${{ toJson(runner) }}
+#       run: echo "$RUNNER_CONTEXT"
+#     - name: Dump strategy context
+#       env:
+#         STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+#       run: echo "$STRATEGY_CONTEXT"
+#     - name: Dump matrix context
+#       env:
+#         MATRIX_CONTEXT: ${{ toJson(matrix) }}
+#       run: echo "$MATRIX_CONTEXT"
 #--------------------------------------------------------------------------
-  build:
-    needs: [checkout,setup]
-    timeout-minutes: 5
-    name: Build
-    runs-on: ubuntu-20.04
+# build:
+#   needs: [checkout,setup]
+#   timeout-minutes: 5
+#   name: Build
+#   runs-on: ubuntu-20.04
 #   if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
-    steps:
-    - name: Compile
-      shell: bash
-      run: bin/compile
+#   steps:
+#   - name: Compile
+#     shell: bash
+#     run: bin/compile
 
-    - name: Test
-      shell: bash
-      env:
-        # Prevent script injection
-        SNUGGSI: "."
-      run: node ./*.test.es
+#   - name: Test
+#     shell: bash
+#     env:
+#       # Prevent script injection
+#       SNUGGSI: "."
+#     run: node ./*.test.es
 
-    - name: Cover
-      shell: bash
-      env:
-        # Prevent script injection
-        SNUGGSI: "."
-        NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-      run: npm list && npm run
+#   - name: Cover
+#     shell: bash
+#     env:
+#       # Prevent script injection
+#       SNUGGSI: "."
+#       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#     run: npm list && npm run
 
-    - name: Commit
-      run: >
-        git config user.name "github-actions"
-        git config user.email "github-actions@github.com"
-        git add .
-        git commit -m "Github Workflows" | true # ignore error if there are no changes to commit
-        git push origin HEAD:$HEAD_REF
+#   - name: Commit
+#     run: >
+#       git config user.name "github-actions"
+#       git config user.email "github-actions@github.com"
+#       git add .
+#       git commit -m "Github Workflows" | true # ignore error if there are no changes to commit
+#       git push origin HEAD:$HEAD_REF
 
 #--------------------------------------------------------------------------
 # check:
