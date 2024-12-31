@@ -77,12 +77,12 @@
     "koa-static": "^5.0.0"
   },
   "devDependencies": {
+    "nyc": "^17.0.0",
     "buble": "^0.20.0",
-    "jsdom": "^25.0.1",
-    "nyc": "^15.1.0",
-    "puppeteer-core": "^23.11.1",
+    "jsdom": "^25.0.0",
     "standard": "^17.1.2",
-    "uglify-es": "^3.3.9"
+    "uglify-es": "^3.3.9",
+    "puppeteer-core": "^23.11.1"
   },
   "scripts": {
     "start": "snuggsi serve",
