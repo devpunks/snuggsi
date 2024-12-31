@@ -58,10 +58,10 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-20.04
     steps:
-    - uses: actions/setup-node@v4
+      uses: actions/setup-node@v4
       with:
-        node-version: 18
         cache: npm
+        node-version: 18
     - name: Update
       - run: sudo apt-get update
       - run: sudo apt-get install -y zopfl
