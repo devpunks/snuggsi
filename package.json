@@ -17,7 +17,7 @@
   "homepage": "https://github.com/devpunks/snuggsi#readme",
   "repository": {
     "type": "git",
-    "url": "https://github.com/devpunks/snuggsi.git"
+    "url": "git+https://github.com/devpunks/snuggsi.git"
   },
   "bugs": {
     "url": "https://github.com/devpunks/snuggsi/issues"
