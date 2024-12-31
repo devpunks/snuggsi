@@ -51,16 +51,16 @@ jobs:
         fetch-tags: true
         ref: ${{ github.ref }}
         persist-credentials: true
-    - run: ls -al
-#   - run: pwd
+      - run: ls -al
+      - run: pwd
 
   install:
     shell: bash
     name: Install # https://github.com/marketplace/actions/setup-node-js-environment
     timeout-minutes: 5
     runs-on: ubuntu-20.04
-#   steps:
-#     - uses: actions/setup-node@v4
+    steps:
+      - uses: actions/setup-node@v4
 #       with:
 #         cache: npm
 #         node-version: 18
