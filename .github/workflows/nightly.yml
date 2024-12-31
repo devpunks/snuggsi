@@ -117,8 +117,8 @@ jobs:
     runs-on: ubuntu-20.04
     permissions:
       id-token: write
-    - uses: actions/checkout@v4
-    - uses: actions/setup-node@v4
+  - uses: actions/checkout@v4
+  - uses: actions/setup-node@v4
     steps:
         with:
           node-version: 18
