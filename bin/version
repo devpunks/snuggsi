@@ -93,7 +93,6 @@ function minor () {
   npm prune $DRY
   npm dedupe $DRY
   npm cache verify
-# npm link # https://docs.npmjs.com/cli/v6/commands/npm-link
 
   # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
   npm shrinkwrap # https://stackoverflow.com/q/50743893
