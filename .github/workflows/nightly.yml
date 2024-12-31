@@ -46,17 +46,16 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - name: Use Node.js
+      - name: Checkout
         uses: actions/checkout@v4
-      - name: Use Node.js
+      - name: Setup
         uses: actions/setup-node@v4
         with:
           cache: npm
           node-version: 18
-      - run: cat npm-shrinkwrap.json
-      - run: cat package.json
-      - run: npm version
-      - run: npm ci
+      - name: Install
+        - run: npm version
+        - run: npm ci
 #     - run: npm run build --if-present
 #     - run: npm test
 # jobs:
