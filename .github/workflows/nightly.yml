@@ -41,17 +41,46 @@ env:
 #--------------------------------------------------------------------------
 # if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
 jobs:
+#--------------------------------------------------------------------------
+  dump:
+    runs-on: ubuntu-20.04
+    steps:
+      - name: Dump GitHub context
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
+        run: echo "$GITHUB_CONTEXT"
+      - name: Dump job context
+        env:
+          JOB_CONTEXT: ${{ toJson(job) }}
+        run: echo "$JOB_CONTEXT"
+      - name: Dump steps context
+        env:
+          STEPS_CONTEXT: ${{ toJson(steps) }}
+        run: echo "$STEPS_CONTEXT"
+      - name: Dump runner context
+        env:
+          RUNNER_CONTEXT: ${{ toJson(runner) }}
+        run: echo "$RUNNER_CONTEXT"
+      - name: Dump strategy context
+        env:
+          STRATEGY_CONTEXT: ${{ toJson(strategy) }}
+        run: echo "$STRATEGY_CONTEXT"
+      - name: Dump matrix context
+        env:
+          MATRIX_CONTEXT: ${{ toJson(matrix) }}
+        run: echo "$MATRIX_CONTEXT"
+#--------------------------------------------------------------------------
   build:
     name: Build
+    needs: [dump]
     timeout-minutes: 5
     runs-on: ubuntu-20.04
     steps:
-#--------------------------------------------------------------------------
       - name: Update
         run: |
           sudo apt-get update
           sudo apt-get install -y zopfli
-#--------------------------------------------------------------------------
+
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -59,22 +88,22 @@ jobs:
           fetch-tags: true
           ref: ${{ github.ref }}
           persist-credentials: true
-#--------------------------------------------------------------------------
+
       - name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
         uses: actions/setup-node@v4
         with:
           cache: npm
           node-version: 18
-#--------------------------------------------------------------------------
+
       - name: Install
         run: |
           npm ci --no-audit --no-progress --ignore-scripts --prefer-offline
           npm version
           npm view
-#--------------------------------------------------------------------------
+
       - name: Compile
         run: bin/compile
-#--------------------------------------------------------------------------
+
       - name: Commit
         run: |
           git add .
@@ -82,53 +111,22 @@ jobs:
           git config user.email "github-actions@github.com"
           git commit -m "Github Workflows" | true # ignore error if there are no changes to commit
           git push
-
 #--------------------------------------------------------------------------
-# publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
-#   needs: [build]
-#   runs-on: ubuntu-20.04
-#   permissions:
-#     id-token: write
-#   steps:
-#     - name: Checkout
-#       uses: actions/checkout@v4
-#     # Setup .npmrc file to publish to npm
-#     - name: Setup
-#       uses: actions/setup-node@v4
-#       with:
-#         node-version: 18
-#         registry-url: 'https://registry.npmjs.org'
-#     - run: npm install
-#     - run: npm list
+  publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
+    needs: [build]
+    runs-on: ubuntu-20.04
+    permissions:
+      id-token: write
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 18
+          registry-url: 'https://registry.npmjs.org'
+        run: |
+          npm ci
+          npm list
 #     - run: npm publish --provenance --access public
-#--------------------------------------------------------------------------
-# dump:
-#   runs-on: ubuntu-20.04
-#   steps:
-#     - name: Dump GitHub context
-#       env:
-#         GITHUB_CONTEXT: ${{ toJson(github) }}
-#       run: echo "$GITHUB_CONTEXT"
-#     - name: Dump job context
-#       env:
-#         JOB_CONTEXT: ${{ toJson(job) }}
-#       run: echo "$JOB_CONTEXT"
-#     - name: Dump steps context
-#       env:
-#         STEPS_CONTEXT: ${{ toJson(steps) }}
-#       run: echo "$STEPS_CONTEXT"
-#     - name: Dump runner context
-#       env:
-#         RUNNER_CONTEXT: ${{ toJson(runner) }}
-#       run: echo "$RUNNER_CONTEXT"
-#     - name: Dump strategy context
-#       env:
-#         STRATEGY_CONTEXT: ${{ toJson(strategy) }}
-#       run: echo "$STRATEGY_CONTEXT"
-#     - name: Dump matrix context
-#       env:
-#         MATRIX_CONTEXT: ${{ toJson(matrix) }}
-#       run: echo "$MATRIX_CONTEXT"
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
