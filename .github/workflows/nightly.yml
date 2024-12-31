@@ -54,8 +54,9 @@ jobs:
     - run: ls -al
     - run: pwd
 
-  setup:
-    name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
+  install:
+    shell: bash
+    name: Install # https://github.com/marketplace/actions/setup-node-js-environment
     timeout-minutes: 5
     runs-on: ubuntu-20.04
     steps:
@@ -66,10 +67,9 @@ jobs:
     - name: Update
       - run: sudo apt-get update
       - run: sudo apt-get install -y zopfl
+    - name: Install
+        run: npm install && npm view && node -v
 
-# - name: Install
-#   shell: bash
-#   run: npm install && npm view && node -v
 
 #     # run: npm ci --ignore-scripts --no-audit --no-progress --prefer-offline
 #--------------------------------------------------------------------------
