@@ -45,12 +45,12 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-20.04
     steps:
-      uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          fetch-tags: true
-          ref: ${{ github.ref }}
-          persist-credentials: true
+    - uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        fetch-tags: true
+        ref: ${{ github.ref }}
+        persist-credentials: true
 # setup:
 #   runs-on: ubuntu-20.04
 #   timeout-minutes: 5
