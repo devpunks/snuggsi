@@ -128,6 +128,7 @@ jobs:
         npm list
         # https://docs.npmjs.com/generating-provenance-statements
     - run: npm publish --dry-run --provenance --access public
+    - run: date
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
