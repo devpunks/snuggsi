@@ -140,6 +140,10 @@ echo "  🐙 Fetching branch on Github."↴
 git pull -r origin
 echo
 
+echo "  🐙 Checking branch on Github."↴
+git show-branch main origin/main
+echo
+
 echo "  🐙 Updating branch on Github."↴
 git push
 
