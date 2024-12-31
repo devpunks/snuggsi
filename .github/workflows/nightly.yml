@@ -128,10 +128,11 @@ jobs:
         node-version: 18
         registry-url: 'https://registry.npmjs.org'
     - run: |
-        git config user.name "github-actions"
-        git config user.email "github-actions@github.com"
+        git config user.name "$AUTHOR"
+        git config user.email "$EMAIL"
+        bin/version
+    # https://github.com/orgs/community/discussions/13836
     # https://docs.npmjs.com/generating-provenance-statements
-    - run: bin/version
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
