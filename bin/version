@@ -3,7 +3,7 @@
 # https://calver.org
 # https://gist.github.com/DarrenN/8c6a5b969481725a4413
 
-declare -r DRY='' # '--dry-run'
+declare -r DRY='--dry-run' # '--dry-run'
 # sign-git-tag to prevent infinite recursion
 # https://unix.stackexchange.com/a/257065
 # https://github.com/keybase/keybase-issues/issues/2798
