@@ -47,6 +47,11 @@ jobs:
     runs-on: ubuntu-20.04
     steps:
 #--------------------------------------------------------------------------
+      - name: Update
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y zopfli
+#--------------------------------------------------------------------------
       - name: Checkout
         uses: actions/checkout@v4
         with:
@@ -54,11 +59,6 @@ jobs:
           fetch-tags: true
           ref: ${{ github.ref }}
           persist-credentials: true
-#--------------------------------------------------------------------------
-      - name: Update
-        run: |
-          sudo apt-get update
-          sudo apt-get install -y zopfl
 #--------------------------------------------------------------------------
       - name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
         uses: actions/setup-node@v4
