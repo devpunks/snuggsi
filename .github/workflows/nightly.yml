@@ -129,12 +129,10 @@ jobs:
         node-version: 18
         registry-url: 'https://registry.npmjs.org'
     - run: |
-        npm ci
-        npm list
-        # https://docs.npmjs.com/generating-provenance-statements
-    - run: npm publish --dry-run --provenance --access public
+        git config user.name "github-actions"
+        git config user.email "github-actions@github.com"
+    # https://docs.npmjs.com/generating-provenance-statements
     - run: bin/version
-    - run: date
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
