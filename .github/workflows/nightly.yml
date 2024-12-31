@@ -6,7 +6,7 @@ name: "Crank Snuggsi"
 description: "Reusable action to crank snuggsi"
 #--------------------------------------------------------------------------
 permissions: # added using https://github.com/step-security/secure-workflows
-  actions: read
+  actions: write
   checks: write
   issues: read
   contents: write
@@ -116,7 +116,6 @@ jobs:
     needs: [build]
     runs-on: ubuntu-20.04
     permissions:
-      actions: write
       id-token: write # Provenance
     steps:
     - uses: actions/checkout@v4
