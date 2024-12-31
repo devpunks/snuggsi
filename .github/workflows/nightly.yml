@@ -51,8 +51,10 @@ jobs:
         fetch-tags: true
         ref: ${{ github.ref }}
         persist-credentials: true
+    - run: ls -al
+    - run: pwd
   setup:
-  - name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
+    name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
     timeout-minutes: 5
     runs-on: ubuntu-20.04
     steps:
@@ -60,11 +62,9 @@ jobs:
       with:
         node-version: 18
         cache: npm
-  - name: Get
-  - run: sudo apt-get update
-  - run: sudo apt-get install -y zopfl
-  - run: ls -al
-  - run: pwd
+    - name: Update
+      - run: sudo apt-get update
+      - run: sudo apt-get install -y zopfl
 
 # - name: Install
 #   shell: bash
