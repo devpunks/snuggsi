@@ -71,29 +71,29 @@
   ],
   "bundleDependencies": [],
   "dependencies": {
-    "basic-auth": "^2.0.1",
-    "koa": "2.13.4",
+    "koa": "^2.15.0",
     "koa-cors": "^0.0.16",
+    "basic-auth": "^2.0.1",
     "koa-static": "^5.0.0"
   },
   "devDependencies": {
-    "buble": "^0.20.0",
-    "jsdom": "^20.0.3",
     "nyc": "^15.1.0",
+    "buble": "^0.20.0",
+    "jsdom": "^25.0.0",
     "puppeteer-core": "^23.11.1",
     "standard": "^17.1.2",
     "uglify-es": "^3.3.9"
   },
   "scripts": {
-    "watch": "snuggsi watch",
-    "test": "node .{/*,}/*.test.{js,es} && npm run cover",
-    "cover": "snuggsi cover",
     "start": "snuggsi serve",
-    "postinstall": "echo Post install linking",
+    "cover": "snuggsi cover",
+    "watch": "snuggsi watch",
     "install": "echo  Installing snuggsi",
+    "postinstall": "echo Post install linking",
     "preinstall": "echo  pre-Installing snuggsi",
     "preversion": "echo 'npm preversion (test)'",
     "version": "echo 'npm version (build)' # git add -A dist",
-    "postversion": "echo 'npm postversion (publish)' # git push && git push --tags"
+    "postversion": "echo 'npm postversion (publish)' # git push && git push --tags",
+    "test": "node .{/*,}/*.test.{js,es} && npm run cover"
   }
 }
