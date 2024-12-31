@@ -142,7 +142,7 @@ npm view
 echo "  🐙 Fetching branch on Github."↴
 git pull -r origin
 echo
-↴
+
 echo "  🐙 Updating branch on Github."↴
 git push origin
 
