@@ -46,8 +46,6 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-20.04
     steps:
-    - name: Compile
-      run: bin/compile
     - name: Checkout
       - uses: actions/checkout@v4
         with:
@@ -57,6 +55,7 @@ jobs:
           persist-credentials: true
       - run: ls -al
       - run: pwd
+        #- run: bin/compile
 
 #   - name: Commit
 #     run: >
