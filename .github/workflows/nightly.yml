@@ -81,7 +81,7 @@ jobs:
           git config user.name "github-actions"
           git config user.email "github-actions@github.com"
           git commit -m "Github Workflows" | true # ignore error if there are no changes to commit
-          git push origin HEAD:$HEAD_REF
+          git push
 
 #--------------------------------------------------------------------------
 # publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
