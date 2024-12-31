@@ -52,9 +52,9 @@ jobs:
         fetch-tags: true
         ref: ${{ github.ref }}
         persist-credentials: true
-     #- run: ls -al
-     #- run: pwd
-     #- run: bin/compile
+     - run: ls -al
+     - run: pwd
+     - run: bin/compile
 
 #   - name: Commit
 #     run: >
