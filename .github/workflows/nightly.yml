@@ -59,7 +59,6 @@ jobs:
           fetch-tags: true
           ref: ${{ github.ref }}
           persist-credentials: true
-        run: ls -al && pwd
 #--------------------------------------------------------------------------
       - name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
         uses: actions/setup-node@v4
