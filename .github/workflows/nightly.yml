@@ -6,10 +6,11 @@ name: "Crank Snuggsi"
 description: "Reusable action to crank snuggsi"
 #--------------------------------------------------------------------------
 permissions: # added using https://github.com/step-security/secure-workflows
-  actions: write
-  checks: write
   issues: read
+  checks: write
+  actions: write
   contents: write
+  id-token: write # Provenance
   packages: write
   deployments: write
   pull-requests: write
@@ -115,8 +116,6 @@ jobs:
   publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
     needs: [build]
     runs-on: ubuntu-20.04
-    permissions:
-      id-token: write # Provenance
     steps:
     - uses: actions/checkout@v4
       with:
