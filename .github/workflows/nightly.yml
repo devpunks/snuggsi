@@ -39,15 +39,14 @@ env:
   GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
 #--------------------------------------------------------------------------
+# if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
 jobs:
   build:
     name: Build
     timeout-minutes: 5
     runs-on: ubuntu-20.04
-  # if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     steps:
     - name: Compile
-      shell: bash
       run: bin/compile
 
     - name: Checkout
@@ -59,13 +58,14 @@ jobs:
           persist-credentials: true
       - run: ls -al
       - run: pwd
-    - name: Commit
-      run: >
-        git config user.name "github-actions"
-        git config user.email "github-actions@github.com"
-        git add .
-        git commit -m "Github Workflows" | true # ignore error if there are no changes to commit
-        git push origin HEAD:$HEAD_REF
+
+#   - name: Commit
+#     run: >
+#       git config user.name "github-actions"
+#       git config user.email "github-actions@github.com"
+#       git add .
+#       git commit -m "Github Workflows" | true # ignore error if there are no changes to commit
+#       git push origin HEAD:$HEAD_REF
 
 
 
