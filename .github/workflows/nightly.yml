@@ -53,12 +53,12 @@ jobs:
         fetch-tags: true
         ref: ${{ github.ref }}
         persist-credentials: true
-    - run: ls -al
-    - run: pwd
+      - run: ls -al
     - uses: actions/setup-node@v4
       with:
         cache: npm
         node-version: 18
+      - run: pwd
 #   - name: Install # https://github.com/marketplace/actions/setup-node-js-environment
 #   - name: Update
 #     - run: sudo apt-get update
