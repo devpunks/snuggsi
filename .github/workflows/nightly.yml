@@ -14,7 +14,7 @@ permissions: # added using https://github.com/step-security/secure-workflows
   deployments: write
   pull-requests: write
   repository-projects: write
-
+#--------------------------------------------------------------------------
 on:
   schedule: # https://en.wikipedia.org/wiki/Cron
     - cron: "0 5 * * *" # Midnight EST
@@ -27,7 +27,7 @@ on:
     branches:
       - main
   workflow_dispatch: {}
-
+#--------------------------------------------------------------------------
 env:
   # Prevent script injection
   SNUGGSI: "."
@@ -46,42 +46,36 @@ jobs:
     timeout-minutes: 5
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout
-        with:
-          fetch-depth: 0
-          fetch-tags: true
-          ref: ${{ github.ref }}
-          persist-credentials: true
-        uses: actions/checkout@v4
-      - name: Setup
-        uses: actions/setup-node@v4
-        with:
-          cache: npm
-          node-version: 18
-      - name: Install
-        run: |
-          npm ci
-          npm version
-          npm view
-#   build:
-#     steps:
-#     - name: Checkout
-#       - uses: actions/checkout@v4
-#       - run: ls -al
-#       - uses: actions/setup-node@v4
-#           with:
-#             cache: npm
-#             node-version: 18
-#       - run: pwd
-#   - name: Install # https://github.com/marketplace/actions/setup-node-js-environment
-#   - name: Update
-#     - run: sudo apt-get update
-#     - run: sudo apt-get install -y zopfl
-#   - name: Install
-#       run: npm install && npm view && node -v
-
-#   - run: bin/compile
-
+#--------------------------------------------------------------------------
+    - name: Update
+      run: |
+        sudo apt-get update
+        sudo apt-get install -y zopfl
+#--------------------------------------------------------------------------
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 0
+        fetch-tags: true
+        ref: ${{ github.ref }}
+        persist-credentials: true
+      run: ls -al && pwd
+#--------------------------------------------------------------------------
+    - name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
+      uses: actions/setup-node@v4
+      with:
+        cache: npm
+        node-version: 18
+#--------------------------------------------------------------------------
+    - name: Install
+      run: |
+        npm ci --no-audit --no-progress --ignore-scripts --prefer-offline
+        npm version
+        npm view
+#--------------------------------------------------------------------------
+    - name: Compile
+      run: bin/compile
+#--------------------------------------------------------------------------
 #   - name: Commit
 #     run: >
 #       git config user.name "github-actions"
@@ -90,10 +84,6 @@ jobs:
 #       git commit -m "Github Workflows" | true # ignore error if there are no changes to commit
 #       git push origin HEAD:$HEAD_REF
 
-
-
-
-#     # run: npm ci --ignore-scripts --no-audit --no-progress --prefer-offline
 #--------------------------------------------------------------------------
 # publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
 #   needs: [build]
