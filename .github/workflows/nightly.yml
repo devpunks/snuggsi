@@ -47,34 +47,34 @@ jobs:
     runs-on: ubuntu-latest
     steps:
 #--------------------------------------------------------------------------
-    - name: Update
-      run: |
-        sudo apt-get update
-        sudo apt-get install -y zopfl
+      - name: Update
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y zopfl
 #--------------------------------------------------------------------------
-    - name: Checkout
-      uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        fetch-tags: true
-        ref: ${{ github.ref }}
-        persist-credentials: true
-      run: ls -al && pwd
+      - name: Checkout
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+          ref: ${{ github.ref }}
+          persist-credentials: true
+        run: ls -al && pwd
 #--------------------------------------------------------------------------
-    - name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
-      uses: actions/setup-node@v4
-      with:
-        cache: npm
-        node-version: 18
+      - name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
+        uses: actions/setup-node@v4
+        with:
+          cache: npm
+          node-version: 18
 #--------------------------------------------------------------------------
-    - name: Install
-      run: |
-        npm ci --no-audit --no-progress --ignore-scripts --prefer-offline
-        npm version
-        npm view
+      - name: Install
+        run: |
+          npm ci --no-audit --no-progress --ignore-scripts --prefer-offline
+          npm version
+          npm view
 #--------------------------------------------------------------------------
-    - name: Compile
-      run: bin/compile
+      - name: Compile
+        run: bin/compile
 #--------------------------------------------------------------------------
 #   - name: Commit
 #     run: >
