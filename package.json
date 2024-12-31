@@ -78,7 +78,6 @@
     "basic-auth": "^2.0.0"
   },
   "devDependencies": {
-    "snuggsi": ".",
     "nyc": "^15.1.0",
     "buble": "^0.20",
     "jsdom": "^20.0.0",
@@ -91,7 +90,6 @@
     "test": "node .{/*,}/*.test.{js,es} && npm run cover",
     "cover": "snuggsi cover",
     "start": "snuggsi serve",
-    "package": "snuggsi package",
     "postinstall": "echo Post install linking",
     "install": "echo  Installing snuggsi",
     "preinstall": "echo  pre-Installing snuggsi",
