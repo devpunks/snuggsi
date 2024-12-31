@@ -125,7 +125,8 @@ jobs:
     - run: |
         mkdir -p /home/runner/.gnupg
         print "${GPG_SIGNING_KEY}" | base64 --decode > /home/runner/.gnupg/private.key
-        gpg --import /home/runner/.gnupg
+        ls -al /home/runner/.gnupg/private.key
+        gpg --import /home/runner/.gnupg/private.key
     - run: |
         git config user.name "$AUTHOR"
         git config user.email "$EMAIL"
