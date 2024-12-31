@@ -123,11 +123,10 @@ jobs:
         node-version: 18
         registry-url: 'https://registry.npmjs.org'
     - run: |
-        mkdir -p /home/runner/.gnupg
-        print "${GPG_SIGNING_KEY}" | base64 --decode > /home/runner/.gnupg/private.key
-        ls -al /home/runner/.gnupg
+        print "${GPG_SIGNING_KEY}" | base64 --decode > private.key
+        ls -al *.key
+        gpg --import private.key
         gpg --list-keys
-        gpg --import /home/runner/.gnupg/private.key
     - run: |
         git config user.name "$AUTHOR"
         git config user.email "$EMAIL"
