@@ -33,7 +33,6 @@
         "jsdom": "^20.0.0",
         "nyc": "^15.1.0",
         "puppeteer-core": "^23.10.4",
-        "snuggsi": ".",
         "standard": "^17.0.0",
         "uglify-es": "^3.3.9"
       },
@@ -4992,7 +4991,7 @@
         "x64",
         "arm64"
       ],
-      "dev": true,
+      "extraneous": true,
       "hasInstallScript": true,
       "license": "MIT",
       "os": [
