@@ -127,7 +127,7 @@ jobs:
         npm ci
         npm list
         # https://docs.npmjs.com/generating-provenance-statements
-      - run: npm publish --dry-run --provenance --access public
+    - run: npm publish --dry-run --provenance --access public
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
