@@ -69,21 +69,20 @@
     "html-element",
     "html-template-element"
   ],
-  "peerDependencies": {},
-  "bundleDependencies": {},
+  "bundleDependencies": [],
   "dependencies": {
+    "basic-auth": "^2.0.1",
     "koa": "2.13.4",
     "koa-cors": "^0.0.16",
-    "koa-static": "^5.0.0",
-    "basic-auth": "^2.0.0"
+    "koa-static": "^5.0.0"
   },
   "devDependencies": {
+    "buble": "^0.20.0",
+    "jsdom": "^20.0.3",
     "nyc": "^15.1.0",
-    "buble": "^0.20",
-    "jsdom": "^20.0.0",
-    "standard": "^17.0.0",
-    "uglify-es": "^3.3.9",
-    "puppeteer-core": "^23.10.4"
+    "puppeteer-core": "^23.11.1",
+    "standard": "^17.1.2",
+    "uglify-es": "^3.3.9"
   },
   "scripts": {
     "watch": "snuggsi watch",
