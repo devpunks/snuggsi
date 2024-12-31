@@ -116,19 +116,17 @@ jobs:
     needs: [build]
     runs-on: ubuntu-20.04
     permissions:
-      id-token: write
+      id-token: write # Provenance
     steps:
-    - name: Checkout
-      uses: actions/checkout@v4
-    - name: Setup
-      uses: actions/setup-node@v4
+    - uses: actions/checkout@v4
+    - uses: actions/setup-node@v4
       with:
         node-version: 18
         registry-url: 'https://registry.npmjs.org'
-    - name: Publish
-      run: |
+    - run: |
         npm ci
         npm list
+        # https://docs.npmjs.com/generating-provenance-statements
 #     - run: npm publish --provenance --access public
 #--------------------------------------------------------------------------
 #   - name: Test
