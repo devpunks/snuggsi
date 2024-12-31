@@ -11,7 +11,7 @@ declare -r DRY='' # '--dry-run'
 # https://gist.github.com/paolocarrasco/18ca8fe6e63490ae1be23e84a7039374
 # https://gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 # https://github.com/keybase/keybase-issues/issues/2798#issuecomment-2290965368
-declare -r SIGN='' # '--sign-git-tag'
+declare -r SIGN='--sign-git-tag'
 # ignore-scripts to prevent infinite recursion
 declare -r IGNORE='--ignore-scripts'
 declare -r PUBLISH='npm publish --provenance --access public'
@@ -60,7 +60,7 @@ function major () {
   npm version major $TAG $SIGN $IGNORE \
     -m "⏰  %s CalVer Annual Major Release"
 
-  $PUBLISH $TAG $DRY
+  $PUBLISH $DRY $TAG
 
   # Deprecate previous-year back (keeping past 12 months)
   # https://github.com/semver/semver/issues/712
@@ -89,7 +89,7 @@ function minor () {
   npm ls
   npm rebuild
   npm outdated
-  npm update --save $DRY $IGNORE --include=dev
+  npm update --save --include=dev $DRY $IGNORE
   npm prune $DRY
   npm dedupe $DRY
   npm cache verify
@@ -101,7 +101,7 @@ function minor () {
   npm version minor $TAG $SIGN $IGNORE \
     -m "⏰  %s CalVer Monthly Minor Release"
 
-  $PUBLISH $TAG $DRY
+  $PUBLISH $DRY $TAG
 
   # Create Github Release
   # - https://docs.github.com/en/repositories/releasing-projects-on-github/managing-releases-in-a-repository
@@ -124,23 +124,15 @@ function patch () {
 
   npm version patch $TAG $SIGN $IGNORE \
     -m "⏰  %s CalVer Daily Patch Dev Release"
-  $PUBLISH $TAG $DRY
+
+  $PUBLISH $DRY $TAG
 } # patch
 #--------------------------------------------------------------------------
-npm ping
-npm whoami
-
 patch
 major
 minor
-
-npm cache clean --force
-npm view
+npm version
 #--------------------------------------------------------------------------
-echo "  🐙 Fetching branch on Github."↴
-git pull -r origin
-echo
-
 echo "  🐙 Updating branch on Github."↴
 git push
 echo
