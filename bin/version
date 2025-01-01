@@ -11,7 +11,7 @@ declare -r DRY='' # '--dry-run'
 # https://gist.github.com/paolocarrasco/18ca8fe6e63490ae1be23e84a7039374
 # https://gnupg.org/documentation/manuals/gnupg/Invoking-GPG_002dAGENT.html
 # https://github.com/keybase/keybase-issues/issues/2798#issuecomment-2290965368
-declare -r SIGN='--sign-git-tag'
+declare -r SIGN='' # --sign-git-tag'
 # ignore-scripts to prevent infinite recursion
 declare -r IGNORE='--ignore-scripts'
 # https://github.com/orgs/community/discussions/13836
