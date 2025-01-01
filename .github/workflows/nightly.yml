@@ -1,44 +1,36 @@
 # https://github.com/containerd/containerd/blob/main/.github/workflows/release.yml
+# https://devtron.ai/blog/create-ci-cd-pipelines-with-github-actions-for-kubernetes-the-definitive-guide
 # https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
 # https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow
 
-name: "Crank Snuggsi"
-description: "Reusable action to crank snuggsi"
+name: "Nightly"
+description: "Nightly snuggsi ツ Build"
 #--------------------------------------------------------------------------
 permissions: # added using https://github.com/step-security/secure-workflows
-  issues: read
-  checks: write
+  issues: none
+  checks: none
   actions: write
   contents: write
   id-token: write # Provenance
-  packages: write
-  deployments: write
-  pull-requests: write
-  repository-projects: write
+  packages: none
+  deployments: none
+  pull-requests: none
+  repository-projects: none
 #--------------------------------------------------------------------------
 on:
   schedule: # https://en.wikipedia.org/wiki/Cron
-    - cron: "0 5 * * *" # Midnight EST
+    - cron: "0 8 * * *" # Midnight EST
   push:
-    branches:
-      - main
-    tags:
-      - "v*" # Push events to matching v*, i.e. v1.0, v20.15.10
-  pull_request:
     branches:
       - main
   workflow_dispatch: {}
 #--------------------------------------------------------------------------
 env:
   # Prevent script injection
-  SNUGGSI: "."
-  NODE_VERSION: "18.11.0"
   EMAIL: ${{ secrets.EMAIL }}
   AUTHOR: ${{ secrets.AUTHOR }}
-  HEAD_REF: ${{ github.head_ref }}
-  GH_REPO: ${{ github.repository }}
-  GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+  GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
 #--------------------------------------------------------------------------
 # if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
 jobs:
@@ -100,23 +92,19 @@ jobs:
         run: |
           npm ci --no-audit --no-progress --ignore-scripts --prefer-offline
           npm version
-          npm view
 
       - name: Compile
         run: bin/compile
 #--------------------------------------------------------------------------
   publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
-
+    name: Publish
     needs: [build]
     runs-on: ubuntu-20.04
-    env:
-      GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
     steps:
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
         fetch-tags: true
-        ref: ${{ github.ref }}
         persist-credentials: true
     - uses: actions/setup-node@v4
       with:
@@ -131,8 +119,6 @@ jobs:
         git config user.name "$AUTHOR"
         git config user.email "$EMAIL"
     - run: bin/version
-    # https://github.com/orgs/community/discussions/13836
-    # https://docs.npmjs.com/generating-provenance-statements
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash

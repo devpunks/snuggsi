@@ -14,6 +14,8 @@ declare -r DRY='' # '--dry-run'
 declare -r SIGN='--sign-git-tag'
 # ignore-scripts to prevent infinite recursion
 declare -r IGNORE='--ignore-scripts'
+# https://github.com/orgs/community/discussions/13836
+# https://docs.npmjs.com/generating-provenance-statements
 declare -r PUBLISH='npm publish --provenance --access public'
 
 declare DATE=$(date)
