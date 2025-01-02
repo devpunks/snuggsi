@@ -126,8 +126,9 @@ jobs:
 #--------------------------------------------------------------------------
   archive: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
 #   needs: [publish]
-    timeout-minutes: 5
     name: Archive
+    timeout-minutes: 5
+    working-directory: .
     runs-on: ubuntu-20.04
 #   outputs:
 #     stringver: ${{ steps.contentrel.outputs.stringver }}
@@ -151,7 +152,6 @@ jobs:
           dist
           !dist/*.md
           release-notes.md
-        working-directory: .
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
