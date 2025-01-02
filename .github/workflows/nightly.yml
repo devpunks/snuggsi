@@ -169,8 +169,7 @@ jobs:
       env:
         AID=${{ needs.archive.outputs.aid }}
         TAG=${{ env.TAG }}
-    - run: echo "Artifact ID from previous job is ${AID}"
-    - run: echo "Artifact ID from previous job is ${TAG}"
+      run: echo "${TAG} Artifact ID from previous job is ${AID}"
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
