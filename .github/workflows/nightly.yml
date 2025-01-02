@@ -139,20 +139,20 @@ jobs:
         run: |
           echo "TAG=$(git describe --abbrev=0)" >> $GITHUB_ENV
       #git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >> CHANGELOG.md
-#       git tag -l "${TAG}" -n 200 >> CHANGELOG.md
+        git tag -l "${TAG}" -n 200 >> CHANGELOG.md
 
-#   - name: Upload
-#     uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
-#     id: artifact-upload
-#     with:
-#       retention-days: 30
-#       compression-level: 9
-#       if-no-files-found: warn
-#       name: snuggsi-${{ github.run_id }}
-#       path: |
-#         dist
-#         !dist/*.md
-#         CHANGELOG.md
+    - name: Upload
+      uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
+      id: artifact-upload
+      with:
+        retention-days: 30
+        compression-level: 9
+        if-no-files-found: warn
+        name: snuggsi-${{ github.run_id }}
+        path: |
+          dist
+          !dist/*.md
+          CHANGELOG.md
 #--------------------------------------------------------------------------
   release: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
     name: Release
