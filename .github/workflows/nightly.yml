@@ -148,7 +148,7 @@ jobs:
         compression-level: 0 # no compression
 
     - name: Artifact
-      run: echo Artifacting
+    - run: echo Artifacting
       uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
       with:
         retention-days: 30
