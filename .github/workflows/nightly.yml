@@ -128,6 +128,7 @@ jobs:
   archive: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
 #   needs: [publish]
     name: Archive
+    needs: [publish]
     timeout-minutes: 5
     runs-on: ubuntu-20.04
     outputs:
