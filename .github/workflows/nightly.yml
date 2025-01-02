@@ -138,7 +138,6 @@ jobs:
     - name: Notate
       run: |
         RELEASEVER=${{ github.ref }}
-        TAG=
         echo "TAG=$(git describe --abbrev=0)" >> $GITHUB_ENV
       #git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >> CHANGELOG.md
         git tag -l ${{ env.TAG }} -n 200 >> CHANGELOG.md
