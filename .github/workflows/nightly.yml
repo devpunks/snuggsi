@@ -129,8 +129,9 @@ jobs:
     name: Archive
     timeout-minutes: 5
     runs-on: ubuntu-20.04
-#   outputs:
+    outputs:
 #     stringver: ${{ steps.contentrel.outputs.stringver }}
+      aid: ${{ steps.artifact-upload.outputs.artifact-id }}
     steps: # --------------------------------------------------------------
       - name: Checkout
         uses: actions/checkout@v4
@@ -139,13 +140,14 @@ jobs:
         run: |
           RELEASEVER=${{ github.ref }}
           TAG=
-          echo "TAG=$(git describe --abbrev=0)" >> $GITHUB_OUTPUT
+          echo "TAG=$(git describe --abbrev=0)" >> $GITHUB_ENV
           echo "stringver=${RELEASEVER#refs/tags/v}" >> $GITHUB_OUTPUT
         #git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >> CHANGELOG.md
-          git tag -l ${{ steps.version.outputs.TAG_NAME }} -n 200 >> CHANGELOG.md
+          git tag -l ${{ env.TAG }} -n 200 >> CHANGELOG.md
 
       - name: Upoad
         uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
+        id: artifact-upload
         with:
           retention-days: 30
           compression-level: 9
@@ -157,7 +159,6 @@ jobs:
             CHANGELOG.md
 #--------------------------------------------------------------------------
   release: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
-    if: false
     name: Release
     needs: [archive]
     timeout-minutes: 5
@@ -167,9 +168,8 @@ jobs:
     steps: # --------------------------------------------------------------
       - name: Checkout code
         uses: actions/checkout@v4
-      - env:
-          OUTPUT1: ${{needs.archive.outputs.output1}}
-        run: echo "Artifact ID from previous job is $OUTPUT1"
+      - run: echo "Artifact ID from previous job is ${{ needs.archive.outputs.aid }}"
+      - run: echo "Artifact ID from previous job is ${{ env.TAG }}"
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
