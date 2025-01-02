@@ -139,15 +139,15 @@ jobs:
     - name: Notate
       run: echo Notating
 
-#     - name: Artifact
-#     - uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
-#       with:
-#         retention-days: 30
-#         compression-level: 9
-#         name: dist-without-markdown
-#         path: |
-#           dist
-#           !dist/*.md
+    - name: Artifact
+    - uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
+      with:
+        retention-days: 30
+        compression-level: 9
+        name: dist-without-markdown
+        path: |
+          dist
+          !dist/*.md
 #     # run: echo Artifacting
 
 #     - name: Archive code coverage results
