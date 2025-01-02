@@ -167,10 +167,8 @@ jobs:
 
     - name: Release
       env:
-        env:
-          GITHUB_CONTEXT: ${{ toJson(github) }}
-        AID=${{ needs.archive.outputs.aid }}
-        TAG=${{ env.TAG }}
+        AID: ${{ needs.archive.outputs.aid }}
+        TAG: ${{ env.TAG }}
       run: echo "${TAG} Artifact ID from previous job is ${AID}"
 #--------------------------------------------------------------------------
 #   - name: Test
