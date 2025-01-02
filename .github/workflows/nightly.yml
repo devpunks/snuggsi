@@ -149,6 +149,7 @@ jobs:
         with:
           retention-days: 30
           compression-level: 9
+          if-no-files-found: warn
           name: snuggsi-${{ github.run_id }}
           path: |
             dist
