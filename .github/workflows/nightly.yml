@@ -194,14 +194,14 @@ jobs:
 #   outputs:
 #     stringver: ${{ steps.contentrel.outputs.stringver }}
     steps: # --------------------------------------------------------------
-    - name: Release content
-    - uses: actions/checkout@v4
-      with:
-        fetch-depth: 0
-        fetch-tags: true
-        persist-credentials: true
-    - run: echo Notating
-    - run: echo Archiving
+      - name: Release content
+      - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+          fetch-tags: true
+          persist-credentials: true
+#   - run: echo Notating
+#   - run: echo Archiving
 #       id: contentrel
 #       run: |
 #         RELEASEVER=${{ github.ref }}
