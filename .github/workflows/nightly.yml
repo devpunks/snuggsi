@@ -146,7 +146,6 @@ jobs:
         registry-url: 'https://registry.npmjs.org'
 
     - name: Notate
-      env:
       run: |
         echo "TAG=$( npm pkg get version )" >> $GITHUB_ENV
         git tag -l "${{ env.TAG }}" -n 200 >> CHANGELOG.md
