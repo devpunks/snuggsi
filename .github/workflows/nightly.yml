@@ -124,6 +124,48 @@ jobs:
         git config user.email "$EMAIL"
     - run: bin/version
 #--------------------------------------------------------------------------
+  archive: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
+    needs: [publish]
+    timeout-minutes: 5
+    name: Archive
+    runs-on: ubuntu-20.04
+#   outputs:
+#     stringver: ${{ steps.contentrel.outputs.stringver }}
+    steps: # --------------------------------------------------------------
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Notate
+        run: echo Notating
+
+      - name: Artifact
+      - uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
+        with:
+          retention-days: 30
+          compression-level: 9
+          name: dist-without-markdown
+          path: |
+            dist
+            !dist/*.md
+      # run: echo Artifacting
+
+      - name: Archive code coverage results
+        uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
+        with:
+          name: code-coverage-report
+          path: ./code-coverage.html
+#       run: |
+#         RELEASEVER=${{ github.ref }}
+#         echo "stringver=${RELEASEVER#refs/tags/v}" >> $GITHUB_OUTPUT
+#         git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >release-notes.md
+#       working-directory: src/github.com/devpunks/snuggsi
+
+#     - name: Save release notes
+#       uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
+#       with:
+#         name: snuggsi-release-notes
+#         path: src/github.com/devpunks/snuggsi/CHANGELOG.md
+#--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
 #     env:
@@ -185,32 +227,3 @@ jobs:
 #             echo "Tag ${releasever} is signed."
 #             exit 0
 #         }
-#--------------------------------------------------------------------------
-  archive: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
-    needs: [publish]
-    timeout-minutes: 5
-    name: Archive
-    runs-on: ubuntu-20.04
-#   outputs:
-#     stringver: ${{ steps.contentrel.outputs.stringver }}
-    steps: # --------------------------------------------------------------
-      - name: Release content
-      - uses: actions/checkout@v4
-        with:
-          fetch-depth: 0
-          fetch-tags: true
-          persist-credentials: true
-#   - run: echo Notating
-#   - run: echo Archiving
-#       id: contentrel
-#       run: |
-#         RELEASEVER=${{ github.ref }}
-#         echo "stringver=${RELEASEVER#refs/tags/v}" >> $GITHUB_OUTPUT
-#         git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >release-notes.md
-#       working-directory: src/github.com/devpunks/snuggsi
-
-#     - name: Save release notes
-#       uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
-#       with:
-#         name: snuggsi-release-notes
-#         path: src/github.com/devpunks/snuggsi/CHANGELOG.md
