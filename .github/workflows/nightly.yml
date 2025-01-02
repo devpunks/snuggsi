@@ -132,12 +132,12 @@ jobs:
     outputs:
       aid: ${{ steps.artifact-upload.outputs.artifact-id }}
     steps: # --------------------------------------------------------------
-    - name: Checkout
-      uses: actions/checkout@v4
+      - name: Checkout
+        uses: actions/checkout@v4
 
-    - name: Notate
-      run: |
-        echo "TAG=$(git describe --abbrev=0)" >> $GITHUB_ENV
+      - name: Notate
+        run: |
+          echo "TAG=$(git describe --abbrev=0)" >> $GITHUB_ENV
       #git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >> CHANGELOG.md
 #       git tag -l "${TAG}" -n 200 >> CHANGELOG.md
 
@@ -167,6 +167,8 @@ jobs:
 
     - name: Release
       env:
+        env:
+          GITHUB_CONTEXT: ${{ toJson(github) }}
         AID=${{ needs.archive.outputs.aid }}
         TAG=${{ env.TAG }}
       run: echo "${TAG} Artifact ID from previous job is ${AID}"
