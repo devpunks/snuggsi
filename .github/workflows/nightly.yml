@@ -105,6 +105,7 @@ jobs:
     needs: [build]
     runs-on: ubuntu-20.04
     steps: # --------------------------------------------------------------
+      working-directory: .
     - uses: actions/checkout@v4
       with:
         fetch-depth: 0
@@ -128,7 +129,6 @@ jobs:
 #   needs: [publish]
     name: Archive
     timeout-minutes: 5
-    working-directory: .
     runs-on: ubuntu-20.04
 #   outputs:
 #     stringver: ${{ steps.contentrel.outputs.stringver }}
