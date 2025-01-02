@@ -167,6 +167,9 @@ jobs:
     steps: # --------------------------------------------------------------
       - name: Checkout code
         uses: actions/checkout@v4
+      - env:
+          OUTPUT1: ${{needs.archive.outputs.output1}}
+        run: echo "Artifact ID from previous job is $OUTPUT1"
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
