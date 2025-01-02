@@ -146,7 +146,7 @@ jobs:
       with:
         retention-days: 30
         compression-level: 9
-        name: "snuggsi-${RELEASEVER}"
+        name: snuggsi-${{ github.ref }}
         path: |
           dist
           !dist/*.md
