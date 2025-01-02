@@ -146,11 +146,11 @@ jobs:
       with:
         retention-days: 30
         compression-level: 9
-        name: dist-without-markdown
+        name: "snuggsi-${RELEASEVER}"
         path: |
           dist
           !dist/*.md
-          release-notes.md
+          CHANGELOG.md
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
