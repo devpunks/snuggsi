@@ -36,6 +36,7 @@ env:
 jobs:
 #--------------------------------------------------------------------------
   dump:
+    name: Dump
     runs-on: ubuntu-20.04
     steps: # --------------------------------------------------------------
       - name: Dump GitHub context
@@ -135,12 +136,19 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
+        fetch-depth: 0
         fetch-tags: true
-        persist-credentials: true
+
+    - name: Setup
+    - uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        registry-url: 'https://registry.npmjs.org'
 
     - name: Notate
+      env:
       run: |
-        echo "TAG=$(git describe --abbrev=0)" >> $GITHUB_ENV
+        echo "TAG=$( npm pkg get version )" >> $GITHUB_ENV
         git tag -l "${{ env.TAG }}" -n 200 >> CHANGELOG.md
     #git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >> CHANGELOG.md
 
