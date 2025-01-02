@@ -134,6 +134,9 @@ jobs:
     steps: # --------------------------------------------------------------
     - name: Checkout
       uses: actions/checkout@v4
+      with:
+        fetch-tags: true
+        persist-credentials: true
 
     - name: Notate
       run: |
