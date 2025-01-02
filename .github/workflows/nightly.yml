@@ -148,7 +148,7 @@ jobs:
     - name: Notate
       run: |
         npm pkg get version
-        git tag -l "v$( npm pkg get version )" -n 200 >> CHANGELOG.md
+        git tag -l "v$( npm pkg get version | tr -d \" )" -n 200 >> CHANGELOG.md
     #git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >> CHANGELOG.md
 
     - name: Upload
