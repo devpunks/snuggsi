@@ -83,10 +83,12 @@ jobs:
           persist-credentials: true
 
       - name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@v4 # https://github.com/actions/setup-node
         with:
           cache: npm
-          node-version: 18
+          node-version: 18.x
+          # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#working-with-lockfiles
+          cache-dependency-path: 'npm-shrinkwrap.json'
 
       - name: Install
         run: |
