@@ -137,11 +137,9 @@ jobs:
 
     - name: Notate
       run: |
-        TAG=${{ env.TAG }}
-        RELEASEVER=${{ github.ref }}
         echo "TAG=$(git describe --abbrev=0)" >> $GITHUB_ENV
       #git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >> CHANGELOG.md
-        git tag -l "${TAG}" -n 200 >> CHANGELOG.md
+#       git tag -l "${TAG}" -n 200 >> CHANGELOG.md
 
 #   - name: Upload
 #     uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
