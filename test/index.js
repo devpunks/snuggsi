@@ -1,5 +1,6 @@
 const
   assert = require ('assert')
+, a11y = require ('./a11y.es')
 , browse = require ('./browse.es')
 , { JSDOM } = require ('./parse.es')
 , navigate = require ('./navigate.es')
