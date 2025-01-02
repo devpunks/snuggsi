@@ -148,6 +148,7 @@ jobs:
         compression-level: 0 # no compression
 
     - name: Artifact
+      run: echo Artifacting
       uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
       with:
         retention-days: 30
@@ -156,7 +157,6 @@ jobs:
         path: |
           dist
           !dist/*.md
-#     # run: echo Artifacting
 
 #     - name: Archive code coverage results
 #       uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
