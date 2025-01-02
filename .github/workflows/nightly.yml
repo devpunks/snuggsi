@@ -137,18 +137,12 @@ jobs:
       uses: actions/checkout@v4
 
     - name: Notate
-      run: echo Notating
+      run: |
+        RELEASEVER=${{ github.ref }}
+        echo "stringver=${RELEASEVER#refs/tags/v}" >> $GITHUB_OUTPUT
+        git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >> CHANGELOG.md
 
-    - name: Generate
-      run: dd if=/dev/urandom of=my-1k-file bs=1K count=1
-    - uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
-      with:
-        name: my-artifact
-        path: my-1k-file
-        compression-level: 0 # no compression
-
-    - name: Artifact
-    - run: echo Artifacting
+    - name: Upoad
       uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
       with:
         retention-days: 30
@@ -157,23 +151,8 @@ jobs:
         path: |
           dist
           !dist/*.md
-
-#     - name: Archive code coverage results
-#       uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
-#       with:
-#         name: code-coverage-report
-#         path: ./code-coverage.html
-#       run: |
-#         RELEASEVER=${{ github.ref }}
-#         echo "stringver=${RELEASEVER#refs/tags/v}" >> $GITHUB_OUTPUT
-#         git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >release-notes.md
-#       working-directory: src/github.com/devpunks/snuggsi
-
-#     - name: Save release notes
-#       uses: actions/upload-artifact@b4b15b8c7c6ac21ea08fcf65892d2ee8f75cf882 # v4.4.3
-#       with:
-#         name: snuggsi-release-notes
-#         path: src/github.com/devpunks/snuggsi/CHANGELOG.md
+          release-notes.md
+        working-directory: .
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
