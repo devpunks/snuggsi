@@ -164,8 +164,11 @@ jobs:
     steps: # --------------------------------------------------------------
     - name: Checkout code
       uses: actions/checkout@v4
-    - run: echo "Artifact ID from previous job is ${{ needs.archive.outputs.aid }}"
-    - run: echo "Artifact ID from previous job is ${{ env.TAG }}"
+    - env:
+      AID=${{ needs.archive.outputs.aid }}
+      TAG=${{ env.TAG }}
+    - run: echo "Artifact ID from previous job is ${AID}"
+    - run: echo "Artifact ID from previous job is ${TAG}"
 #--------------------------------------------------------------------------
 #   - name: Test
 #     shell: bash
