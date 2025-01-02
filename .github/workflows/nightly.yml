@@ -37,7 +37,7 @@ jobs:
 #--------------------------------------------------------------------------
   dump:
     runs-on: ubuntu-20.04
-    steps:
+    steps: # --------------------------------------------------------------
       - name: Dump GitHub context
         env:
           GITHUB_CONTEXT: ${{ toJson(github) }}
@@ -68,7 +68,7 @@ jobs:
     needs: [dump]
     timeout-minutes: 5
     runs-on: ubuntu-20.04
-    steps:
+    steps: # --------------------------------------------------------------
       - name: Update
         run: |
           sudo apt-get update
@@ -181,7 +181,6 @@ jobs:
 #             echo "Tag ${releasever} is signed."
 #             exit 0
 #         }
-
 #--------------------------------------------------------------------------
 # archive:
 #   timeout-minutes: 5
