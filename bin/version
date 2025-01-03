@@ -120,7 +120,7 @@ function patch () {
   # cut prepatch (e.g. *-0)
   local -r patch=$( echo $PATCH | cut -d '-' -f 1 )
 
-  TAG="--tag=dev"
+  TAG="--tag=nightly"
   echo "  🗓️  Bumping $DAY Daily Patch ($TAG) Routine from $patch ($PATCH)..."
   echo
 
