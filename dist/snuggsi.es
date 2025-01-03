@@ -51,7 +51,7 @@ for slightly better semantics, including class-side inheritance and not clobberi
     return E
 })()
 
-class TokenList {
+class TokenList { // TODO: Rename to Symbols
 
   constructor (node) {
 
