@@ -13,6 +13,10 @@ Used to symbolize tokens within markup. (i.e. `<p> Hello {first_name}</p>`
 # `NodeFilter
   - https://dom.spec.whatwg.org/#interface-nodefilter
   - https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
+  - https://github.com/jsdom/jsdom/blob/main/lib/jsdom/living/traversal/NodeFilter.webidl
+
+# `NodeIterator`
+  - https://dom.spec.whatwg.org/#interface-nodeiterator
   - https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
   - https://github.com/tmpvar/jsdom/blob/master/lib/jsdom/living/traversal/NodeIterator-impl.js
 
