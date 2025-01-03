@@ -6,7 +6,12 @@ _snuggsi ツ Server - Feel right at `$HOME`_
 ## Features
 
   -  Middleware
+  -  Hot code reloading
+  -  Server Side Rendering
   -  Code splitting for every pages/
+  -  Automatic transpilation and bundling
+  -  Custom layouts with the layouts/ directory
+  -  Static file serving. ./ & ./static/ is mapped to /
 
 
 ## Media MIME Types
