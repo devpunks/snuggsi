@@ -321,7 +321,7 @@ window.customElements =
   window.customElements
   || {/* microfill */}
 
-void ( _ => { /* CustomElementRegistry */
+void ( _ => { // CustomElementRegistry - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry
 
   customElements.define = ( name, constructor ) => {
 
@@ -588,7 +588,7 @@ const Custom = Element => // why buble
       (new Event ('connect'))
 
     this.render ()
-  }
+  } // connectedCallback
 
 
   render () {
@@ -610,7 +610,7 @@ const Custom = Element => // why buble
 
     this.dispatchEvent
       (new Event ('idle'))
-  }
+  } // render
 })
 
 // http://2ality.com/2013/09/window.html
