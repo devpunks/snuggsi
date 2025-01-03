@@ -45,7 +45,9 @@ const
 ```
 
 ### References
-
-  - Next - https://github.com/zeit/next.js
-  - Nuxt - https://github.com/nuxt/nuxt.js
-
+  - https://blog.dwac.dev/posts/html-fragments
+  - https://blog.dwac.dev/posts/html-fragments-routing
+  - https://blog.dwac.dev/posts/streamable-html-fragments
+  - https://developer.mozilla.org/en-US/docs/Web/API/DOMParser
+  - https://github.com/dgp1130/html-fragments-demo/tree/blog-post-streaming
+  - https://developer.mozilla.org/en-US/docs/Web/API/DOMImplementation/createHTMLDocument
