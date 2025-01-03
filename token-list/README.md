@@ -10,7 +10,8 @@ Used to symbolize tokens within markup. (i.e. `<p> Hello {first_name}</p>`
   - https://w3.org/TR/WD-DOM-Level-2/range.html
   - https://developer.mozilla.org/en-US/docs/Web/API/Range
 
-# `NodeIterator`
+# `NodeFilter
+  - https://dom.spec.whatwg.org/#interface-nodefilter
   - https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
   - https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
   - https://github.com/tmpvar/jsdom/blob/master/lib/jsdom/living/traversal/NodeIterator-impl.js
