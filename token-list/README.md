@@ -1,6 +1,6 @@
 # `TokenList`
 
-Used to hold placeholders within markup. (i.e. `<p> Hello {first_name}</p>`
+Used to symbolize tokens within markup. (i.e. `<p> Hello {first_name}</p>`
 
   - http://jsfiddle.net/zaqtg/10
   - https://w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
