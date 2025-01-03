@@ -18,5 +18,6 @@ Used to symbolize tokens within markup. (i.e. `<p> Hello {first_name}</p>`
 # `NodeIterator`
   - https://dom.spec.whatwg.org/#interface-nodeiterator
   - https://developer.mozilla.org/en-US/docs/Web/API/NodeIterator
-  - https://github.com/tmpvar/jsdom/blob/master/lib/jsdom/living/traversal/NodeIterator-impl.js
+  - https://github.com/jsdom/jsdom/blob/main/lib/jsdom/living/traversal/NodeIterator.webidl
+  - https://github.com/jsdom/jsdom/blob/main/lib/jsdom/living/traversal/NodeIterator-impl.js
 
