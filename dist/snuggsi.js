@@ -63,17 +63,16 @@ var TokenList = function (node) {
   // Syntax Analyzer (Parser)
   , analyze = function (node) { return /{(\w+|#)}/.test (node.textContent)
         && (node.text = node.textContent) // cache
-            // https://en.wikipedia.org/wiki/Lexical_analysis
             .match (/[^{]+(?=})/g) // rule
             // TODO: convert `symbol` to `token`
             .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); }); }
 
-  , walker =
-      document.createNodeIterator
+  // Lexical Analyzer (Scanner)
+  , scanner = // https://en.wikipedia.org/wiki/Lexical_analysis#Token
+      document.createNodeIterator // .createTreeWalker
         (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
 
-  // Parser
-  while (walker.nextNode ()) { null } // Walk all nodes and do nothing.
+  while (scanner.nextNode ()) { null } // Walk all nodes and do nothing.
 }; // constructor
 
 
