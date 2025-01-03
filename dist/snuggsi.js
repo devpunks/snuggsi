@@ -57,10 +57,11 @@ var TokenList = function (node) {
   var
     visit = function (node) { return node.attributes && [].slice
          .call (node.attributes)
-         .map(collect)
-      || collect (node); }
+         .map(analyze)
+      || analyze (node); }
 
-  , collect = function (node) { return /{(\w+|#)}/.test (node.textContent)
+  // Syntax Analyzer (Parser)
+  , analyze = function (node) { return /{(\w+|#)}/.test (node.textContent)
         && (node.text = node.textContent) // cache
             // https://en.wikipedia.org/wiki/Lexical_analysis
             .match (/[^{]+(?=})/g) // rule
