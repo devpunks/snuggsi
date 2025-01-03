@@ -5,10 +5,6 @@ _snuggsi ツ Server - Feel right at `$HOME`_
 
 ## Features
 
-  -  Automatic transpilation and bundling (with webpack and babel)
-  -  Hot code reloading
-  -  Static file serving. ./ & ./static/ is mapped to /
-  -  Custom layouts with the layouts/ directory
   -  Middleware
   -  Code splitting for every pages/
 
