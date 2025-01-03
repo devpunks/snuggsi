@@ -1,15 +1,15 @@
-class TokenList {
+class TokenList { // TODO: Rename to Symbols
 
   constructor (node) {
-
     const
       visit = node =>
         node.attributes && [].slice
            .call (node.attributes)
-           .map  (collect)
-        || collect (node)
+           .map  (analyze)
+        || analyze (node)
 
-    , collect = node =>
+    // Syntax Analyzer (Parser)
+    , analyze = node => // https://en.wikipedia.org/wiki/Parsing#Parser
         /{(\w+|#)}/.test (node.textContent)
           && (node.text = node.textContent) // cache
               // https://en.wikipedia.org/wiki/Lexical_analysis
