@@ -75,9 +75,7 @@ var TokenList = function (node) {
   while (scanner.nextNode ()) { null } // Walk all nodes and do nothing.
 }; // constructor
 
-
 TokenList.prototype.bind = function (context) {
-
   var
     tokenize = function (token) { return function (node) { return (node.textContent = node.textContent
         .split ('{'+token+'}')
