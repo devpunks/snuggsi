@@ -2,12 +2,13 @@
 
 Used to symbolize tokens within markup. (i.e. `<p> Hello {first_name}</p>`
 
-  - http://jsfiddle.net/zaqtg/10
+  - https://dom.spec.whatwg.org/#traversal
   - https://w3.org/TR/DOM-Level-2-Traversal-Range/traversal.html
 
-# `TreeWalker`
-  - https://github.com/tmpvar/jsdom/pull/1447
-  - https://developer.mozilla.org/en-US/docs/Web/API/TreeWalker
+# `Range`
+  - https://dom.spec.whatwg.org/#ranges
+  - https://w3.org/TR/WD-DOM-Level-2/range.html
+  - https://developer.mozilla.org/en-US/docs/Web/API/Range
 
 # `NodeIterator`
   - https://developer.mozilla.org/en-US/docs/Web/API/NodeFilter
