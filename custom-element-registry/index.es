@@ -2,7 +2,7 @@ window.customElements =
   window.customElements
   || {/* microfill */}
 
-void ( _ => { /* CustomElementRegistry */
+void ( _ => { // CustomElementRegistry - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry
 
   customElements.define = ( name, constructor ) => {
 
