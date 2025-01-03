@@ -12,22 +12,19 @@ class TokenList { // TODO: Rename to Symbols
     , analyze = node => // https://en.wikipedia.org/wiki/Parsing#Parser
         /{(\w+|#)}/.test (node.textContent)
           && (node.text = node.textContent) // cache
-              // https://en.wikipedia.org/wiki/Lexical_analysis
               .match (/[^{]+(?=})/g) // rule
               // TODO: convert `symbol` to `token`
               .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
 
-    , walker =
-        document.createNodeIterator
+    // Lexical Analyzer (Scanner)
+    , scanner = // https://en.wikipedia.org/wiki/Lexical_analysis#Token
+        document.createNodeIterator // .createTreeWalker
           (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
 
-    // Parser
-    while (walker.nextNode ()) null // Walk all nodes and do nothing.
+    while (scanner.nextNode ()) null // Walk all nodes and do nothing.
   } // constructor
 
-
   bind (context) {
-
     const
       tokenize = token => node =>
         (node.textContent = node.textContent
