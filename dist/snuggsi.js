@@ -336,7 +336,7 @@ window.customElements =
   window.customElements
   || {/* microfill */}
 
-void ( function (_) { /* CustomElementRegistry */
+void ( function (_) { // CustomElementRegistry - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry
 
   customElements.define = function ( name, constructor ) {
 
@@ -632,7 +632,7 @@ var Custom = function (Element) { return ( /*@__PURE__*/(function (superclass) {
       (new Event ('connect'))
 
     this.render ()
-  };
+  }; // connectedCallback
 
 
   anonymous.prototype.render = function () {
