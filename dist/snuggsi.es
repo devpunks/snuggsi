@@ -65,7 +65,6 @@ class TokenList { // TODO: Rename to Symbols
     , analyze = node => // https://en.wikipedia.org/wiki/Parsing#Parser
         /{(\w+|#)}/.test (node.textContent)
           && (node.text = node.textContent) // cache
-              // https://en.wikipedia.org/wiki/Lexical_analysis
               .match (/[^{]+(?=})/g) // rule
               // TODO: convert `symbol` to `token`
               .map   (symbol => (this [symbol] || (this [symbol] = [])).push (node))
