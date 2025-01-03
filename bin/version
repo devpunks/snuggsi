@@ -124,7 +124,7 @@ function patch () {
   echo "  🗓️  Bumping $DAY Daily Patch ($TAG) Routine from $patch ($PATCH)..."
   echo
 
-  npm version prepatch $TAG $SIGN $IGNORE \
+  npm version prerelease $TAG $SIGN $IGNORE \
     -m "⏰  %s CalVer Daily Patch Dev Release"
 
   $PUBLISH $DRY $TAG
