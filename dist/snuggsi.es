@@ -54,7 +54,6 @@ for slightly better semantics, including class-side inheritance and not clobberi
 class TokenList { // TODO: Rename to Symbols
 
   constructor (node) {
-
     const
       visit = node =>
         node.attributes && [].slice
