@@ -26,7 +26,7 @@ const Custom = Element => // why buble
       (new Event ('connect'))
 
     this.render ()
-  }
+  } // connectedCallback
 
 
   render () {
@@ -48,6 +48,6 @@ const Custom = Element => // why buble
 
     this.dispatchEvent
       (new Event ('idle'))
-  }
+  } // render
 })
 
