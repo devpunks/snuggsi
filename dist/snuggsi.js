@@ -54,7 +54,6 @@ for slightly better semantics, including class-side inheritance and not clobberi
 var TokenList = function (node) {
   var this$1 = this;
 
-
   var
     visit = function (node) { return node.attributes && [].slice
          .call (node.attributes)
