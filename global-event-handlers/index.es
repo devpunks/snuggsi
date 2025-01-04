@@ -9,22 +9,22 @@ function GlobalEventHandlers ( Element ) {
   // MDN on* Events
   // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
 
-return class extends Element {
+  return class extends Element {
 
-  onconnect ( event ) {
+    onconnect ( event ) {
 
-    this.templates =
-      this
-        .selectAll ('template[name]')
-        .map (Template)
+      this.templates =
+        this
+          .selectAll ('template[name]')
+          .map (Template)
 
-    this.tokens =
-      new TokenList (this)
+      this.tokens =
+        new TokenList (this)
 
-    super.onconnect
-      && super.onconnect (event)
-  }
+      super.onconnect
+        && super.onconnect (event)
+    }
 
-} // class
+  } // class
 } // GlobalEventHandlers
 
