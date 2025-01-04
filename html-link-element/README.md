@@ -2,14 +2,17 @@
 
 The HTML `<link>` element specifies relationships between the current document and an external resource. Possible uses for this element include defining a relational framework for navigation. This element is most used to link to style sheets.
 
-  - [W3C The `link` Element](https://www.w3.org/TR/html5/document-metadata.html#the-link-element)
+  - [W3C The `link` Element](https://w3.org/TR/html5/document-metadata.html#the-link-element)
   - [Read More on MDN](https://developer.mozilla.org/en-US/docs/Web/API/HTMLLinkElement)
 
 
 ## Resource Hints
 
-  - Resource Hints - https://www.w3.org/TR/resource-hints
+  - Resource Hints - https://w3.org/TR/resource-hints
 
+
+### HTML Modules
+  - https://github.com/WICG/webcomponents/blob/gh-pages/proposals/html-modules-explainer.md
 
 ### Import _(deprecated)_
 
@@ -32,7 +35,7 @@ The HTML `<link>` element specifies relationships between the current document a
   - WPT Preload Tests - https://github.com/w3c/web-platform-tests/tree/master/preload
   - https://github.com/w3ctag/design-reviews/issues/202
   - Fetch preload, destinations, and module scripts - https://github.com/whatwg/fetch/issues/486
-  - Preload. What is it good for? https://www.smashingmagazine.com/2016/02/preload-what-is-it-good-for
+  - Preload. What is it good for? https://smashingmagazine.com/2016/02/preload-what-is-it-good-for
   - Big Bad Preloader - http://calendar.perfplanet.com/2013/big-bad-preloader
   - https://developer.microsoft.com/en-us/microsoft-edge/platform/status/preload/
   - Preloading - https://w3c.github.io/preload
@@ -40,7 +43,7 @@ The HTML `<link>` element specifies relationships between the current document a
     - Core   - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-core-js
     - Script - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-as-script-js
     - Style  - https://gist.github.com/aFarkas/34dde117000ec7075053#file-preload-as-style-js
-    - Firefox "Accept Header for images has been simplified" - https://www.fxsitecompat.com/en-CA/docs/2016/accept-header-for-images-has-been-simplified/
+    - Firefox "Accept Header for images has been simplified" - https://fxsitecompat.com/en-CA/docs/2016/accept-header-for-images-has-been-simplified/
 
 
 #### Preload Use Cases
@@ -68,15 +71,15 @@ The HTML `<link>` element specifies relationships between the current document a
   Why `GlobalEventHandlers.onload`?
 
   - Queue - https://bugs.webkit.org/show_bug.cgi?id=38995#c26
-  - TEST - http://www.phpied.com/files/cssonload/test.html
+  - TEST - http://phpied.com/files/cssonload/test.html
   - Comment from the past - https://bugs.webkit.org/show_bug.cgi?id=38995#c15
 
   - https://trac.webkit.org/browser/webkit/trunk/Source/WebCore/loader/LinkLoader.cpp
   - https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers/onload
   - https://dom.spec.whatwg.org/#concept-event-fire
   - $$$$ loading capabilities - https://pie.gd/test/script-link-events/
-  - $$$$ when is a stylesheet really loaded? https://www.phpied.com/when-is-a-stylesheet-really-loaded/
-  - https://stackoverflow.com/questions/4488567/is-there-any-way-to-detect-when-a-css-file-has-been-fully-loaded
+  - $$$$ when is a stylesheet really loaded? https://phpied.com/when-is-a-stylesheet-really-loaded/
+  - https://stackoverflow.com/q/4488567/is-there-any-way-to-detect-when-a-css-file-has-been-fully-loaded
 
 
 ## MutationObserver
@@ -87,18 +90,18 @@ The HTML `<link>` element specifies relationships between the current document a
 
 ## Implementation Tickets
 
-  - Link rel preload as attribute doesn't support document value - https://bugs.chromium.org/p/chromium/issues/detail?id=593267
-  - (Chrome) Centralize the setting of Accept headers - https://chromium.googlesource.com/chromium/src/+/1f3d63b1d496218b7c90a27dd1699560592a6dcc
-  - Implement load event for `link` element - https://bugs.chromium.org/p/chromium/issues/detail?id=67522
+  - $$$$$$ HOT SWAP URL BASE PATHS! https://eager.io/blog/three-real-world-use-cases-for-mutation-observer
+  - https://bugs.webkit.org/show_bug.cgi?id=3652
   - https://bugzilla.mozilla.org/show_bug.cgi?id=185236
+  - https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/12142852
+  - Caching best practices - https://jakearchibald.com/2016/caching-best-practices
+  - https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
   - Load CSS - https://github.com/filamentgroup/loadCSS/blob/master/src/loadCSS.js
   - CSS Preload - https://github.com/filamentgroup/loadCSS/blob/master/src/cssrelpreload.js
-  - https://bugs.webkit.org/show_bug.cgi?id=3652
-  - https://jakearchibald.com/2017/h2-push-tougher-than-i-thought/#push-vs-preload
-  - https://developer.microsoft.com/en-us/microsoft-edge/platform/issues/12142852/
-  - Caching best practices - https://jakearchibald.com/2016/caching-best-practices/
-  - $$$$$$ HOT SWAP URL BASE PATHS! https://eager.io/blog/three-real-world-use-cases-for-mutation-observer
+  - Implement load event for `link` element - https://bugs.chromium.org/p/chromium/issues/detail?id=67522
+  - Link rel preload as attribute doesn't support document value - https://bugs.chromium.org/p/chromium/issues/detail?id=593267
+  - (Chrome) Centralize the setting of Accept headers - https://chromium.googlesource.com/chromium/src/+/1f3d63b1d496218b7c90a27dd1699560592a6dcc
 
-  - https://github.com/whatwg/html/commit/179983e9eb99efe417349a40ebb664bd11668ddd
   - https://bugs.webkit.org/show_bug.cgi?id=172639
   - https://github.com/whatwg/html/pull/616#issuecomment-180018260
+  - https://github.com/whatwg/html/commit/179983e9eb99efe417349a40ebb664bd11668ddd
