@@ -1,24 +1,16 @@
-let
-  document
+const { assert, test, describe, context, view } = require('../test'),
+  // The resulting document's URL will be a file:// URL,
+  url = 'event-target/index.test.html'
 
-, JSDOM =
-    require ('jsdom').JSDOM
+describe ('EventTarget', _=> {
+  const
+    window = view (url)
+  , source = window.document.scripts[0].src
 
-require ('./index.es')
+  test ('EventTarget', _=> {
+    console.log( window.document.documentElement.outerHTML )
 
-const { test, beforeEach } = require ('tap')
-
-beforeEach ((done) => {
-  JSDOM
-    .fromFile ('./index.test.html', { runScripts: 'dangerously', resources: 'usable' })
-    .then (dom => (document = dom.window.document) && done ())
-})
-
-test ('foo', t => {
-  t.equals (true, true)
-
-  console.log ('Document', document.documentElement.outerHTML)
-
-  t.done ()
-})
+    assert (true)
+  }) // test
+}) // describe
 

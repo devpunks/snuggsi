@@ -104,7 +104,7 @@ return class extends HTMLElement {
             /^on/.test ( event = attribute.name )
             // https://www.quirksmode.org/js/events_tradmod.html
             // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-            && ( handler = ( /{\s*(\w+)/.exec ( node [event]h) || [] ) [1] )
+            && ( handler = ( /{\s*(\w+)/.exec ( node [event] ) || [] ) [1] )
             && ( node [event] = this.renderable (this [handler]) )
   } // register
 
