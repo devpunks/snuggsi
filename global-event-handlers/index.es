@@ -1,4 +1,4 @@
-function GlobalEventHandlers (Element) {
+function GlobalEventHandlers ( Element ) {
 
   // Living Standard HTML5 GlobalEventHandlers
   // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
@@ -26,12 +26,13 @@ function GlobalEventHandlers (Element) {
   // Traditional Registration
   // http://www.quirksmode.org/js/events_tradmod.html
 
-
-  // HandleEvent Registration - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
+  // HandleEvent Registration
+  //   - https://gomakethings.com/callbacks-on-web-components
+  //   - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
 
 return class extends Element {
 
-  onconnect (event) {
+  onconnect ( event ) {
 
     this.templates =
       this
@@ -47,3 +48,4 @@ return class extends Element {
 
 } // class
 } // GlobalEventHandlers
+
