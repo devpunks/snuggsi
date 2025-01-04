@@ -71,6 +71,22 @@ return class extends HTMLElement {
 //off (event, listener = 'on' + this [event])
 //  { this.removeEventListener ( event, listener ) }
 
+  renderable ( handler ) {
+
+    // BIG BUG IN IE!!!
+    //
+    // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
+    //
+    // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
+
+    return event =>
+      // for `return false`
+      handler.call ( this, event ) !== false
+        // check render availability
+        && event.defaultPrevented
+        || this.render ()
+  } // renderable
+
 //dispatch (event)
 //  // MDN EventTarget.dispatchEvent
 //  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
