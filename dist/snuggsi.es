@@ -407,13 +407,13 @@ function EventTarget (HTMLElement) { // why buble
   // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
   //
   // DOM Level 3 EventTarget
-  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+  // https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
   //
   // DOM Level 2 EventTarget
   // (AKA Str🎱  W3C #fockery) ➡️  https://annevankesteren.nl/2016/01/film-at-11
   // 😕  https://w3c.github.io/uievents/DOM3-Events.html#interface-EventTarget
-  //❓❓ https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
-  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+  //❓❓ https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
+  // https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
   // Within https://w3c.github.io/uievents/#conf-interactive-ua
   // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
 
@@ -427,7 +427,6 @@ return class extends HTMLElement {
   //
   // DOM Level 2 EventTarget.addEventListener
   // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
-
 
   on ( event, handler ) {
 
@@ -461,7 +460,7 @@ return class extends HTMLElement {
 //  // DOM Level 2 EventTarget.removeEventListener
 //  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
 
-//  { this.removeEventListener (event, listener) }
+    { this.removeEventListener (event, listener) }
 
 //dispatch (event)
 //  // MDN EventTarget.dispatchEvent
@@ -487,10 +486,9 @@ return class extends HTMLElement {
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-
   reflect (handler) {
 
-    /^on/.test (handler) // is a W3C `on`event
+    /^on/.test (handler) // is a W3C `on*`event
       && handler in HTMLElement.prototype // `on*`
 
       && // automagically delegate event
