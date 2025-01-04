@@ -1,17 +1,16 @@
-const { JSDOM } = require (`jsdom`)
-  assert = require('assert')
-, { test, describe, beforeEach: before, afterEach: after }
-  = require('node:test')
-, { skip, todo } = test.it
-, context = describe
+const { assert, test, describe, context, view } = require('../test'),
+  // The resulting document's URL will be a file:// URL,
+  url = 'html-template-element/index.test.html'
 
-describe ('Template', _ => {
-  let
-    node = {}
-  , result = 1 + 2
+describe ('Template', _=> {
+  const
+    window = view ( url )
+  , source = window.document.scripts[0].src
 
-  test('add two numbers', _ => {
-    assert (result === 3)
+  test ('EventTarget', _=> {
+    console.log( window.document.documentElement.outerHTML )
+
+    assert (true)
   }) // test
-}) // describe 'Template'
+}) // describe
 
