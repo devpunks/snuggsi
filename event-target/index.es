@@ -25,15 +25,22 @@ function EventTarget ( HTMLElement ) { // why buble
   // DOM Level 3 EventTarget
   // https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
 
-return class extends HTMLElement {
-
-  renderable ( handler ) {
-
-    // BIG BUG IN IE!!!
-    //
-    // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
-    //
-    // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
+  //
+  // All Event Handling Models
+  // https://en.wikipedia.org/wiki/DOM_events#Event_handling_models
+  //
+  // Inline Model
+  // https://en.wikipedia.org/wiki/DOM_events#Inline_model
+  //
+  // Traditional Model
+  // https://en.wikipedia.org/wiki/DOM_events#Traditional_model
+  //
+  // Traditional Registration
+  // http://www.quirksmode.org/js/events_tradmod.html
+  //
+  // HandleEvent Registration
+  //   - https://gomakethings.com/callbacks-on-web-components
+  //   - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
 
     return event =>
       // for `return false`
