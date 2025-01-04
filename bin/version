@@ -48,7 +48,7 @@ function major () {
   (($YEAR == $MAJOR)) && return
 
   TAG="--tag=stable"
-  echo "  🗓️  Bumping $YEAR Annual MAJOR ($TAG)  Routine from $MAJOR..."
+  echo "  🗓️  Bumping $YEAR Yearly MAJOR ($TAG)  Routine from $MAJOR..."
   echo
 
   # Cycle tokens
@@ -60,7 +60,7 @@ function major () {
   npm ci $DRY $IGNORE # Clean Install
 
   npm version major $TAG $SIGN $IGNORE \
-    -m "⏰  %s CalVer Annual Major Release"
+    -m "🍾🎉 %s CalVer Yearly Major Release"
 
   $PUBLISH $DRY $TAG
 
@@ -101,7 +101,7 @@ function minor () {
   git add {npm-shrinkwrap,package-lock,package}.json
   git commit -m '📦 Archive Shrinkwrapped Packages'
   npm version minor $TAG $SIGN $IGNORE \
-    -m "⏰  %s CalVer Monthly Minor Release"
+    -m "🗓️  %s CalVer Monthly Minor Release"
 
   $PUBLISH $DRY $TAG
 
@@ -125,7 +125,7 @@ function patch () {
   echo
 
   npm version prerelease $TAG $SIGN $IGNORE \
-    -m "⏰  %s CalVer Daily Patch Dev Release"
+    -m "🌜 %s CalVer Nightly Patch Release"
 
   $PUBLISH $DRY $TAG
 } # patch
