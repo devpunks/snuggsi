@@ -42,13 +42,7 @@ function EventTarget ( HTMLElement ) { // why buble
   //   - https://gomakethings.com/callbacks-on-web-components
   //   - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
 
-    return event =>
-      // for `return false`
-      handler.call ( this, event ) !== false
-        // check render availability
-        && event.defaultPrevented
-        || this.render ()
-  }
+return class extends HTMLElement {
 
   // MDN EventTarget.addEventListener
   // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
