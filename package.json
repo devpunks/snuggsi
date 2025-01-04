@@ -65,9 +65,15 @@
   "watch": [
     ".",
     "watch",
+    "element",
+    "component",
     "token-list",
+    "parent-node",
+    "event-target",
     "html-element",
-    "html-template-element"
+    "global-event-handlers",
+    "html-template-element",
+    "custom-element-registry"
   ],
   "bundleDependencies": [],
   "dependencies": {
