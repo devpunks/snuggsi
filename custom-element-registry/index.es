@@ -1,3 +1,8 @@
+// Scoped CustomElementRegistry
+//   - https://github.com/whatwg/html/issues/10854
+//   - https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Scoped-Custom-Element-Registries.md
+//   - https://github.com/WICG/webcomponents/issues?q=is%3Aissue+label%3A%22scoped+custom+element+registry%22
+
 window.customElements =
   window.customElements
   || {/* microfill */}
