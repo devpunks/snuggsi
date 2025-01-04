@@ -34,9 +34,8 @@ void ( _ => { // CustomElementRegistry - https://developer.mozilla.org/en-US/doc
     for (let mutation of mutations)
       for (let root of mutation.addedNodes)
 
-         !! /\-/.test (root.localName)
-         && customElements [root.localName]
-         && customElements.upgrade (root)
+         /\-/.test ( customElements [root.localName] )
+           && customElements.upgrade (root)
   }))
 
   .observe (document.documentElement, { childList: true, subtree: true })
