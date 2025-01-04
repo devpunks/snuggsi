@@ -20,7 +20,7 @@ return class extends Element {
     { return this.selectAll ( ... arguments ) [0] } // select
 
   selectAll ( strings, ... tokens ) {
-    strings = [ ].concat ( strings )
+    strings = [].concat ( strings )
 
     return [].slice.call
       ( this.querySelectorAll
