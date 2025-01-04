@@ -58,11 +58,11 @@ class TokenList { // TODO: Rename to Symbols
       visit = node =>
         node.attributes && [].slice
            .call (node.attributes)
-           .map  (analyze)
-        || analyze (node)
+           .map  (collect)
+        || collect (node)
 
     // Syntax Analyzer (Parser)
-    , analyze = node => // https://en.wikipedia.org/wiki/Parsing#Parser
+    , collect = node => // https://en.wikipedia.org/wiki/Parsing#Parser
         /{(\w+|#)}/.test (node.textContent)
           && (node.text = node.textContent) // cache
               .match (/[^{]+(?=})/g) // rule

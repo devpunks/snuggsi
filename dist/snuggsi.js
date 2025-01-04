@@ -57,11 +57,11 @@ var TokenList = function (node) {
   var
     visit = function (node) { return node.attributes && [].slice
          .call (node.attributes)
-         .map(analyze)
-      || analyze (node); }
+         .map(collect)
+      || collect (node); }
 
   // Syntax Analyzer (Parser)
-  , analyze = function (node) { return /{(\w+|#)}/.test (node.textContent)
+  , collect = function (node) { return /{(\w+|#)}/.test (node.textContent)
         && (node.text = node.textContent) // cache
             .match (/[^{]+(?=})/g) // rule
             // TODO: convert `symbol` to `token`
