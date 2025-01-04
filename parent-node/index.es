@@ -1,4 +1,4 @@
-function ParentNode (Element) {
+function ParentNode ( Element ) {
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -17,17 +17,18 @@ return class extends Element {
   // id / identify ? // Method used to find descendants by ID
 
   select ( )
-    { return this.selectAll ( ... arguments ) [0] }
+    { return this.selectAll ( ... arguments ) [0] } // select
 
   selectAll ( strings, ... tokens ) {
     strings = [ ].concat ( strings )
 
     return [].slice.call
-      (this.querySelectorAll
-        (tokens.reduce // denormalize selector
-          ((part, token) => part + token + strings.shift ()
-          , strings.shift ())))
-  }
+      ( this.querySelectorAll
+        ( tokens.reduce // denormalize selector
+          ( ( part, token ) => part + token + strings.shift ()
+          , strings.shift () )))
+  } //selectAll
 
-}
-}
+} // class
+} // ParentNode
+
