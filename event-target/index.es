@@ -21,6 +21,9 @@ function EventTarget ( HTMLElement ) { // why buble
   // https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
   // Within https://w3c.github.io/uievents/#conf-interactive-ua
   // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
+  //
+  // DOM Level 3 EventTarget
+  // https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
 
 return class extends HTMLElement {
 
