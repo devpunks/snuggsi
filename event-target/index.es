@@ -56,7 +56,7 @@ return class extends HTMLElement {
   on ( event, handler ) {
 
     this.addEventListener
-      ( event, this.renderable ( handler ) )
+      ( event, this.renderable ( handler , /* TODO: `options` & `useCapture` */ ) )
   } // on
 
 //  // MDN EventTarget.removeEventListener
