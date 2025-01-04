@@ -1,16 +1,18 @@
 function EventTarget ( HTMLElement ) { // why buble
-
-  // DOM Levels
-  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
   //
   // WHATWG Living Standard HTML5 EventTarget
   // https://dom.spec.whatwg.org/#eventtarget
   //
   // MDN EventTarget
   // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
+
+  // DOM Levels
+  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
   //
-  // DOM Level 3 EventTarget
-  // https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+  // DOM Level 0 EventTarget
+  // This event handling model was introduced by Netscape Navigator,
+  // and remains the most cross-browser model as of 2005
+  // https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#DOM_Level_0
   //
   // DOM Level 2 EventTarget
   // (AKA Str🎱  W3C #fockery) ➡️  https://annevankesteren.nl/2016/01/film-at-11
