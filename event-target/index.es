@@ -131,16 +131,6 @@ return class extends HTMLElement {
         this.on ( handler.substr (2), this [handler] )
   } // reflect
 
-  register ( node, handler, event ) {
-    for (let attribute of
-          [].slice.call ( node.attributes ) )
-            /^on/.test ( event = attribute.name )
-            // https://www.quirksmode.org/js/events_tradmod.html
-            // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-            && ( handler = ( /{\s*(\w+)/.exec ( node [event] ) || [] ) [1] )
-            && ( node [event] = this.renderable (this [handler]) )
-  } // register
-
 } // class
 } // EventTarget
 
