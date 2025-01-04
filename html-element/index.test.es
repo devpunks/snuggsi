@@ -1,13 +1,4 @@
-const
-  { test, serve, browse }
-    = require ('test')
-
-const
-  puppeteer
-    = require ('puppeteer')
-
-
-test ('new HTMLElement', async t => {
+// test ('new HTMLElement', async t => {
 
 //const
 //  server
@@ -27,7 +18,7 @@ test ('new HTMLElement', async t => {
 //      console.log ( ... messages.args `` )
 
 
-  await page.goto (url)
+//await page.goto (url)
 
 //for (let i of await page.$$('main'))
 //  console.warn ('EYE', i)
@@ -42,5 +33,5 @@ test ('new HTMLElement', async t => {
 //server.close
 //  (await browser.close ``)
 
-  t.end ()
-})
+//  t.end ()
+//})
