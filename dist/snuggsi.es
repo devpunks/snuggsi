@@ -362,7 +362,7 @@ void ( _ => { // CustomElementRegistry - https://developer.mozilla.org/en-US/doc
 
 })() /* CustomElementRegistry */
 
-function ParentNode (Element) {
+function ParentNode ( Element ) {
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -381,21 +381,22 @@ return class extends Element {
   // id / identify ? // Method used to find descendants by ID
 
   select ( )
-    { return this.selectAll ( ... arguments ) [0] }
+    { return this.selectAll ( ... arguments ) [0] } // select
 
   selectAll ( strings, ... tokens ) {
     strings = [ ].concat ( strings )
 
     return [].slice.call
-      (this.querySelectorAll
-        (tokens.reduce // denormalize selector
-          ((part, token) => part + token + strings.shift ()
-          , strings.shift ())))
-  }
+      ( this.querySelectorAll
+        ( tokens.reduce // denormalize selector
+          ( ( part, token ) => part + token + strings.shift ()
+          , strings.shift () )))
+  } //selectAll
 
-}
-}
-function EventTarget (HTMLElement) { // why buble
+} // class
+} // ParentNode
+
+function EventTarget ( HTMLElement ) { // why buble
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -419,6 +420,22 @@ function EventTarget (HTMLElement) { // why buble
 
 return class extends HTMLElement {
 
+  renderable ( handler ) {
+
+    // BIG BUG IN IE!!!
+    //
+    // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
+    //
+    // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
+
+    return event =>
+      // for `return false`
+      handler.call ( this, event ) !== false
+        // check render availability
+        && event.defaultPrevented
+        || this.render ()
+  }
+
   // MDN EventTarget.addEventListener
   // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
   //
@@ -431,26 +448,9 @@ return class extends HTMLElement {
   on ( event, handler ) {
 
     this.addEventListener
-      (event, this.renderable (handler))
-  }
+      ( event, this.renderable ( handler ) )
+  } // on
 
-  renderable ( handler ) {
-
-    // BIG BUG IN IE!!!
-    //
-    // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
-    //
-    // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
-
-    return event =>
-      // for `return false`
-      handler.call (this, event) !== false
-        // check render availability
-        && event.defaultPrevented
-        || this.render ()
-  }
-
-//off (event, listener = 'on' + this [event])
 //  // MDN EventTarget.removeEventListener
 //  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
 //  //
@@ -460,7 +460,8 @@ return class extends HTMLElement {
 //  // DOM Level 2 EventTarget.removeEventListener
 //  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
 
-    { this.removeEventListener (event, listener) }
+//off (event, listener = 'on' + this [event])
+//  { this.removeEventListener ( event, listener ) }
 
 //dispatch (event)
 //  // MDN EventTarget.dispatchEvent
@@ -486,30 +487,29 @@ return class extends HTMLElement {
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
-  reflect (handler) {
+  reflect ( handler ) {
 
-    /^on/.test (handler) // is a W3C `on*`event
+    /^on/.test ( handler ) // is a W3C `on*`event
       && handler in HTMLElement.prototype // `on*`
 
       && // automagically delegate event
         this.on ( handler.substr (2), this [handler] )
-  }
+  } // reflect
 
-
-  register (node, handler, event) {
+  register ( node, handler, event ) {
     for (let attribute of
-          [].slice.call (node.attributes))
-            /^on/.test (event = attribute.name)
+          [].slice.call ( node.attributes ) )
+            /^on/.test ( event = attribute.name )
             // https://www.quirksmode.org/js/events_tradmod.html
             // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-            && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
+            && ( handler = ( /{\s*(\w+)/.exec ( node [event] ) || [] ) [1] )
             && ( node [event] = this.renderable (this [handler]) )
   } // register
 
 } // class
 } // EventTarget
 
-function GlobalEventHandlers (Element) {
+function GlobalEventHandlers ( Element ) {
 
   // Living Standard HTML5 GlobalEventHandlers
   // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
@@ -537,12 +537,13 @@ function GlobalEventHandlers (Element) {
   // Traditional Registration
   // http://www.quirksmode.org/js/events_tradmod.html
 
-
-  // HandleEvent Registration - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
+  // HandleEvent Registration
+  //   - https://gomakethings.com/callbacks-on-web-components
+  //   - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
 
 return class extends Element {
 
-  onconnect (event) {
+  onconnect ( event ) {
 
     this.templates =
       this
@@ -558,6 +559,7 @@ return class extends Element {
 
 } // class
 } // GlobalEventHandlers
+
 const Custom = Element => // why buble
 
 ( class extends // interfaces

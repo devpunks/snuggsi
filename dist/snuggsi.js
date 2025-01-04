@@ -385,7 +385,7 @@ void ( function (_) { // CustomElementRegistry - https://developer.mozilla.org/e
 
 })() /* CustomElementRegistry */
 
-function ParentNode (Element) {
+function ParentNode ( Element ) {
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -411,7 +411,7 @@ return /*@__PURE__*/(function (Element) {
   anonymous.prototype.select = function ( )
     {
     var ref;
- return (ref = this).selectAll.apply ( ref, arguments ) [0] };
+ return (ref = this).selectAll.apply ( ref, arguments ) [0] }; // select
 
   anonymous.prototype.selectAll = function ( strings ) {
     var tokens = [], len = arguments.length - 1;
@@ -420,16 +420,17 @@ return /*@__PURE__*/(function (Element) {
     strings = [ ].concat ( strings )
 
     return [].slice.call
-      (this.querySelectorAll
-        (tokens.reduce // denormalize selector
-          (function (part, token) { return part + token + strings.shift (); }
-          , strings.shift ())))
+      ( this.querySelectorAll
+        ( tokens.reduce // denormalize selector
+          ( function ( part, token ) { return part + token + strings.shift (); }
+          , strings.shift () )))
   };
 
   return anonymous;
-}(Element))
-}
-function EventTarget (HTMLElement) { // why buble
+}(Element)) // class
+} // ParentNode
+
+function EventTarget ( HTMLElement ) { // why buble
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -441,13 +442,13 @@ function EventTarget (HTMLElement) { // why buble
   // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
   //
   // DOM Level 3 EventTarget
-  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+  // https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
   //
   // DOM Level 2 EventTarget
   // (AKA Str🎱  W3C #fockery) ➡️  https://annevankesteren.nl/2016/01/film-at-11
   // 😕  https://w3c.github.io/uievents/DOM3-Events.html#interface-EventTarget
-  //❓❓ https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
-  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+  //❓❓ https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
+  // https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
   // Within https://w3c.github.io/uievents/#conf-interactive-ua
   // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
 
@@ -460,12 +461,6 @@ return /*@__PURE__*/(function (HTMLElement) {
   anonymous.prototype = Object.create( HTMLElement && HTMLElement.prototype );
   anonymous.prototype.constructor = anonymous;
 
-  anonymous.prototype.on = function ( event, handler ) {
-
-    this.addEventListener
-      (event, this.renderable (handler))
-  };
-
   anonymous.prototype.renderable = function ( handler ) {
     var this$1 = this;
 
@@ -476,13 +471,27 @@ return /*@__PURE__*/(function (HTMLElement) {
     //
     // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
 
-    return function (event) { return handler.call (this$1, event) !== false
+    return function (event) { return handler.call ( this$1, event ) !== false
         // check render availability
         && event.defaultPrevented
         || this$1.render (); }
   };
 
-//off (event, listener = 'on' + this [event])
+  // MDN EventTarget.addEventListener
+  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+  //
+  // WHATWG Living Standard EventTarget.addEventListener
+  // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+  //
+  // DOM Level 2 EventTarget.addEventListener
+  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
+
+  anonymous.prototype.on = function ( event, handler ) {
+
+    this.addEventListener
+      ( event, this.renderable ( handler ) )
+  }; // on
+
 //  // MDN EventTarget.removeEventListener
 //  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
 //  //
@@ -492,7 +501,8 @@ return /*@__PURE__*/(function (HTMLElement) {
 //  // DOM Level 2 EventTarget.removeEventListener
 //  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
 
-//  { this.removeEventListener (event, listener) }
+//off (event, listener = 'on' + this [event])
+//  { this.removeEventListener ( event, listener ) }
 
 //dispatch (event)
 //  // MDN EventTarget.dispatchEvent
@@ -518,26 +528,24 @@ return /*@__PURE__*/(function (HTMLElement) {
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
+  anonymous.prototype.reflect = function ( handler ) {
 
-  anonymous.prototype.reflect = function (handler) {
-
-    /^on/.test (handler) // is a W3C `on`event
+    /^on/.test ( handler ) // is a W3C `on*`event
       && handler in HTMLElement.prototype // `on*`
 
       && // automagically delegate event
         this.on ( handler.substr (2), this [handler] )
-  };
+  }; // reflect
 
-
-  anonymous.prototype.register = function (node, handler, event) {
-    for (var i = 0, list = [].slice.call (node.attributes); i < list.length; i += 1)
+  anonymous.prototype.register = function ( node, handler, event ) {
+    for (var i = 0, list = [].slice.call ( node.attributes ); i < list.length; i += 1 )
             {
       var attribute = list[i];
 
-      /^on/.test (event = attribute.name)
+      /^on/.test ( event = attribute.name )
             // https://www.quirksmode.org/js/events_tradmod.html
             // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-            && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
+            && ( handler = ( /{\s*(\w+)/.exec ( node [event] ) || [] ) [1] )
             && ( node [event] = this.renderable (this [handler]) )
     }
   };
@@ -546,7 +554,7 @@ return /*@__PURE__*/(function (HTMLElement) {
 }(HTMLElement)) // class
 } // EventTarget
 
-function GlobalEventHandlers (Element) {
+function GlobalEventHandlers ( Element ) {
 
   // Living Standard HTML5 GlobalEventHandlers
   // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
@@ -574,8 +582,9 @@ function GlobalEventHandlers (Element) {
   // Traditional Registration
   // http://www.quirksmode.org/js/events_tradmod.html
 
-
-  // HandleEvent Registration - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
+  // HandleEvent Registration
+  //   - https://gomakethings.com/callbacks-on-web-components
+  //   - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
 
 return /*@__PURE__*/(function (Element) {
   function anonymous () {
@@ -586,7 +595,7 @@ return /*@__PURE__*/(function (Element) {
   anonymous.prototype = Object.create( Element && Element.prototype );
   anonymous.prototype.constructor = anonymous;
 
-  anonymous.prototype.onconnect = function (event) {
+  anonymous.prototype.onconnect = function ( event ) {
 
     this.templates =
       this
@@ -603,6 +612,7 @@ return /*@__PURE__*/(function (Element) {
   return anonymous;
 }(Element)) // class
 } // GlobalEventHandlers
+
 var Custom = function (Element) { return ( /*@__PURE__*/(function (superclass) {
     function anonymous () {
       superclass.apply(this, arguments);

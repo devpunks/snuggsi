@@ -62,8 +62,8 @@ return class extends HTMLElement {
 //  // DOM Level 2 EventTarget.removeEventListener
 //  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
 
-  off (event, listener = 'on' + this [event])
-    { this.removeEventListener ( event, listener ) }
+//off (event, listener = 'on' + this [event])
+//  { this.removeEventListener ( event, listener ) }
 
 //dispatch (event)
 //  // MDN EventTarget.dispatchEvent
