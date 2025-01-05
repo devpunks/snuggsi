@@ -169,7 +169,7 @@ jobs:
 #     stringver: ${{ steps.contentrel.outputs.stringver }}
     steps: # --------------------------------------------------------------
     - name: Checkout code
-    - uses: actions/checkout@v4 # https://github.com/actions/checkout
+      uses: actions/checkout@v4 # https://github.com/actions/checkout
 
     - name: Release
       env:
