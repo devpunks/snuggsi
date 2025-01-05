@@ -19,7 +19,7 @@ permissions: # added using https://github.com/step-security/secure-workflows
 #--------------------------------------------------------------------------
 on:
   schedule: # https://en.wikipedia.org/wiki/Cron
-    - cron: "0 0 * * *" # Midnight EST
+    - cron: "0 0 * * *" # Midnight UTC
   push:
     branches:
       - main

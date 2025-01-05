@@ -121,7 +121,7 @@ function patch () {
   local -r patch=$( echo $PATCH | cut -d '-' -f 1 )
 
   TAG="--tag=nightly"
-  echo "  🗓️  Bumping $DAY Daily Patch ($TAG) Routine from $patch ($PATCH)..."
+  echo "  🗓️  Bumping $DAY Nightly Patch ($TAG) Routine from $patch ($PATCH)..."
   echo
 
   npm version prerelease $TAG $SIGN $IGNORE \
