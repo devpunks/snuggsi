@@ -322,6 +322,8 @@ const Template = template => {
 
 // Scoped CustomElementRegistry
 //   - https://github.com/whatwg/html/issues/10854
+//   - https://github.com/WICG/webcomponents/issues/1043
+//   - https://github.com/w3c/tpac2024-breakouts/issues/26
 //   - https://github.com/webcomponents/polyfills/tree/master/packages/scoped-custom-element-registry
 //   - https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Scoped-Custom-Element-Registries.md
 //   - https://github.com/WICG/webcomponents/issues?q=is%3Aissue+label%3A%22scoped+custom+element+registry%22
