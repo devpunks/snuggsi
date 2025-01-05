@@ -7,6 +7,5 @@ bin/compile         \
   && bin/lint       \
   && bin/weigh      \
   && bin/distribute \
-  && bin/version    \
   && bin/publish    \
   && bin/deploy
