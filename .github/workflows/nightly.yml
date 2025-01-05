@@ -28,7 +28,6 @@ on:
 env:
   # Prevent script injection
   EMAIL: ${{ secrets.EMAIL }}
-  AUTHOR: ${{ secrets.AUTHOR }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
 #--------------------------------------------------------------------------
@@ -119,7 +118,7 @@ jobs:
 #       gpg --import private.key
 #       gpg --list-keys
     - run: |
-        git config user.name "$AUTHOR"
+        git config user.name "$GITHUB_ACTOR"
         git config user.email "$EMAIL"
     - run: bin/version
 #--------------------------------------------------------------------------
