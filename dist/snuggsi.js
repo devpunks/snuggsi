@@ -332,8 +332,12 @@ var Template = function (template) {
   return template
 } // Template
 
+// Polyfills
+//   - https://github.com/webcomponents/polyfills
+
 // Scoped CustomElementRegistry
 //   - https://github.com/whatwg/html/issues/10854
+//   - https://github.com/webcomponents/polyfills/tree/master/packages/scoped-custom-element-registry
 //   - https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Scoped-Custom-Element-Registries.md
 //   - https://github.com/WICG/webcomponents/issues?q=is%3Aissue+label%3A%22scoped+custom+element+registry%22
 
@@ -348,7 +352,7 @@ void ( function (_) { // CustomElementRegistry - https://developer.mozilla.org/e
     !! /\-/.test (name)
     && (customElements [name] = constructor)
     && [].slice
-      // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
+      // https://nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       .call ( document.querySelectorAll (name) )
       .map  ( customElements.upgrade )
   }
