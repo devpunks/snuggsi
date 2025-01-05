@@ -54,31 +54,28 @@ for slightly better semantics, including class-side inheritance and not clobberi
 var TokenList = function (node) {
   var this$1 = this;
 
-
   var
     visit = function (node) { return node.attributes && [].slice
          .call (node.attributes)
          .map(collect)
       || collect (node); }
 
+  // Syntax Analyzer (Parser)
   , collect = function (node) { return /{(\w+|#)}/.test (node.textContent)
         && (node.text = node.textContent) // cache
-            // https://en.wikipedia.org/wiki/Lexical_analysis
             .match (/[^{]+(?=})/g) // rule
             // TODO: convert `symbol` to `token`
             .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); }); }
 
-  , walker =
-      document.createNodeIterator
+  // Lexical Analyzer (Scanner)
+  , scanner = // https://en.wikipedia.org/wiki/Lexical_analysis#Token
+      document.createNodeIterator // .createTreeWalker
         (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
 
-  // Parser
-  while (walker.nextNode ()) { null } // Walk all nodes and do nothing.
+  while (scanner.nextNode ()) { null } // Walk all nodes and do nothing.
 }; // constructor
 
-
 TokenList.prototype.bind = function (context) {
-
   var
     tokenize = function (token) { return function (node) { return (node.textContent = node.textContent
         .split ('{'+token+'}')
@@ -335,18 +332,27 @@ var Template = function (template) {
   return template
 } // Template
 
+// Polyfills
+//   - https://github.com/webcomponents/polyfills
+
+// Scoped CustomElementRegistry
+//   - https://github.com/whatwg/html/issues/10854
+//   - https://github.com/webcomponents/polyfills/tree/master/packages/scoped-custom-element-registry
+//   - https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Scoped-Custom-Element-Registries.md
+//   - https://github.com/WICG/webcomponents/issues?q=is%3Aissue+label%3A%22scoped+custom+element+registry%22
+
 window.customElements =
   window.customElements
   || {/* microfill */}
 
-void ( function (_) { /* CustomElementRegistry */
+void ( function (_) { // CustomElementRegistry - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry
 
   customElements.define = function ( name, constructor ) {
 
     !! /\-/.test (name)
     && (customElements [name] = constructor)
     && [].slice
-      // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
+      // https://nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       .call ( document.querySelectorAll (name) )
       .map  ( customElements.upgrade )
   }
@@ -377,9 +383,8 @@ void ( function (_) { /* CustomElementRegistry */
          {
           var root = list[i];
 
-          !! /\-/.test (root.localName)
-         && customElements [root.localName]
-         && customElements.upgrade (root)
+          /\-/.test ( customElements [root.localName] )
+           && customElements.upgrade (root)
         }
     }
   }))
@@ -388,7 +393,7 @@ void ( function (_) { /* CustomElementRegistry */
 
 })() /* CustomElementRegistry */
 
-function ParentNode (Element) {
+function ParentNode ( Element ) {
 
   // DOM Levels
   // (https://developer.mozilla.org/fr/docs/DOM_Levels)
@@ -414,45 +419,68 @@ return /*@__PURE__*/(function (Element) {
   anonymous.prototype.select = function ( )
     {
     var ref;
- return (ref = this).selectAll.apply ( ref, arguments ) [0] };
+ return (ref = this).selectAll.apply ( ref, arguments ) [0] }; // select
 
   anonymous.prototype.selectAll = function ( strings ) {
     var tokens = [], len = arguments.length - 1;
     while ( len-- > 0 ) tokens[ len ] = arguments[ len + 1 ];
 
-    strings = [ ].concat ( strings )
+    strings = [].concat ( strings )
 
     return [].slice.call
-      (this.querySelectorAll
-        (tokens.reduce // denormalize selector
-          (function (part, token) { return part + token + strings.shift (); }
-          , strings.shift ())))
+      ( this.querySelectorAll
+        ( tokens.reduce // denormalize selector
+          ( function ( part, token ) { return part + token + strings.shift (); }
+          , strings.shift () )))
   };
 
   return anonymous;
-}(Element))
-}
-function EventTarget (HTMLElement) { // why buble
+}(Element)) // class
+} // ParentNode
 
-  // DOM Levels
-  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
+function EventTarget ( HTMLElement ) { // why buble
   //
   // WHATWG Living Standard HTML5 EventTarget
   // https://dom.spec.whatwg.org/#eventtarget
   //
   // MDN EventTarget
   // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
+
+  // DOM Levels
+  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
   //
-  // DOM Level 3 EventTarget
-  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+  // DOM Level 0 EventTarget
+  // This event handling model was introduced by Netscape Navigator,
+  // and remains the most cross-browser model as of 2005
+  // https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#DOM_Level_0
   //
   // DOM Level 2 EventTarget
   // (AKA Str🎱  W3C #fockery) ➡️  https://annevankesteren.nl/2016/01/film-at-11
   // 😕  https://w3c.github.io/uievents/DOM3-Events.html#interface-EventTarget
-  //❓❓ https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
-  // https://www.w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+  //❓❓ https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
+  // https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
   // Within https://w3c.github.io/uievents/#conf-interactive-ua
   // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
+  //
+  // DOM Level 3 EventTarget
+  // https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+
+  //
+  // All Event Handling Models
+  // https://en.wikipedia.org/wiki/DOM_events#Event_handling_models
+  //
+  // Inline Model
+  // https://en.wikipedia.org/wiki/DOM_events#Inline_model
+  //
+  // Traditional Model
+  // https://en.wikipedia.org/wiki/DOM_events#Traditional_model
+  //
+  // Traditional Registration
+  // http://www.quirksmode.org/js/events_tradmod.html
+  //
+  // HandleEvent Registration
+  //   - https://gomakethings.com/callbacks-on-web-components
+  //   - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
 
 return /*@__PURE__*/(function (HTMLElement) {
   function anonymous () {
@@ -466,8 +494,20 @@ return /*@__PURE__*/(function (HTMLElement) {
   anonymous.prototype.on = function ( event, handler ) {
 
     this.addEventListener
-      (event, this.renderable (handler))
-  };
+      ( event, this.renderable ( handler  /* TODO: `options` & `useCapture` */ ) )
+  }; // on
+
+//  // MDN EventTarget.removeEventListener
+//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+//  //
+//  // WHATWG Living Standard EventTarget.removeEventListener
+//  // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+//  //
+//  // DOM Level 2 EventTarget.removeEventListener
+//  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
+
+//off (event, listener = 'on' + this [event])
+//  { this.removeEventListener ( event, listener ) }
 
   anonymous.prototype.renderable = function ( handler ) {
     var this$1 = this;
@@ -479,23 +519,11 @@ return /*@__PURE__*/(function (HTMLElement) {
     //
     // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
 
-    return function (event) { return handler.call (this$1, event) !== false
+    return function (event) { return handler.call ( this$1, event ) !== false
         // check render availability
         && event.defaultPrevented
         || this$1.render (); }
-  };
-
-//off (event, listener = 'on' + this [event])
-//  // MDN EventTarget.removeEventListener
-//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
-//  //
-//  // WHATWG Living Standard EventTarget.removeEventListener
-//  // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
-//  //
-//  // DOM Level 2 EventTarget.removeEventListener
-//  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
-
-//  { this.removeEventListener (event, listener) }
+  }; // renderable
 
 //dispatch (event)
 //  // MDN EventTarget.dispatchEvent
@@ -510,6 +538,20 @@ return /*@__PURE__*/(function (HTMLElement) {
 //  { }
 
 
+  anonymous.prototype.register = function ( node, handler, event ) {
+
+    for (var i = 0, list = [].slice.call ( node.attributes ); i < list.length; i += 1 )
+        {
+      var attribute = list[i];
+
+      /^on/.test ( event = attribute.name )
+        // https://www.quirksmode.org/js/events_tradmod.html
+        // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
+        && ( handler = ( /{\s*(\w+)/.exec ( node [event] ) || [] ) [1] )
+        && ( node [event] = this.renderable (this [handler]) )
+    }
+  }; // register
+
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
   // Type Introspection - https://en.wikipedia.org/wiki/Type_introspection
   //
@@ -521,35 +563,20 @@ return /*@__PURE__*/(function (HTMLElement) {
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
 
+  anonymous.prototype.reflect = function ( handler ) {
 
-  anonymous.prototype.reflect = function (handler) {
-
-    /^on/.test (handler) // is a W3C `on`event
+    /^on/.test ( handler ) // is a W3C `on*`event
       && handler in HTMLElement.prototype // `on*`
 
       && // automagically delegate event
         this.on ( handler.substr (2), this [handler] )
   };
 
-
-  anonymous.prototype.register = function (node, handler, event) {
-    for (var i = 0, list = [].slice.call (node.attributes); i < list.length; i += 1)
-            {
-      var attribute = list[i];
-
-      /^on/.test (event = attribute.name)
-            // https://www.quirksmode.org/js/events_tradmod.html
-            // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-            && ( handler = (/{\s*(\w+)/.exec (node [event]) || []) [1])
-            && ( node [event] = this.renderable (this [handler]) )
-    }
-  };
-
   return anonymous;
 }(HTMLElement)) // class
 } // EventTarget
 
-function GlobalEventHandlers (Element) {
+function GlobalEventHandlers ( Element ) {
 
   // Living Standard HTML5 GlobalEventHandlers
   // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
@@ -559,53 +586,34 @@ function GlobalEventHandlers (Element) {
   //
   // MDN on* Events
   // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
-  //
-  // DOM Level 0
-  // This event handling model was introduced by Netscape Navigator,
-  // and remains the most cross-browser model as of 2005
-  // https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#DOM_Level_0
-  //
-  // All Event Handling Models
-  // https://en.wikipedia.org/wiki/DOM_events#Event_handling_models
-  //
-  // Inline Model
-  // https://en.wikipedia.org/wiki/DOM_events#Inline_model
-  //
-  // Traditional Model
-  // https://en.wikipedia.org/wiki/DOM_events#Traditional_model
-  //
-  // Traditional Registration
-  // http://www.quirksmode.org/js/events_tradmod.html
 
+  return /*@__PURE__*/(function (Element) {
+    function anonymous () {
+      Element.apply(this, arguments);
+    }
 
-  // HandleEvent Registration - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
+    if ( Element ) anonymous.__proto__ = Element;
+    anonymous.prototype = Object.create( Element && Element.prototype );
+    anonymous.prototype.constructor = anonymous;
 
-return /*@__PURE__*/(function (Element) {
-  function anonymous () {
-    Element.apply(this, arguments);
-  }
+    anonymous.prototype.onconnect = function ( event ) {
 
-  if ( Element ) anonymous.__proto__ = Element;
-  anonymous.prototype = Object.create( Element && Element.prototype );
-  anonymous.prototype.constructor = anonymous;
+      this.templates =
+        this
+          .selectAll ('template[name]')
+          .map (Template)
 
-  anonymous.prototype.onconnect = function (event) {
+      this.tokens =
+        new TokenList (this)
 
-    this.templates =
-      this
-        .selectAll ('template[name]')
-        .map (Template)
+      Element.prototype.onconnect
+        && Element.prototype.onconnect.call (this, event)
+    };
 
-    this.tokens =
-      new TokenList (this)
-
-    Element.prototype.onconnect
-      && Element.prototype.onconnect.call (this, event)
-  };
-
-  return anonymous;
-}(Element)) // class
+    return anonymous;
+  }(Element)) // class
 } // GlobalEventHandlers
+
 var Custom = function (Element) { return ( /*@__PURE__*/(function (superclass) {
     function anonymous () {
       superclass.apply(this, arguments);
@@ -635,7 +643,7 @@ var Custom = function (Element) { return ( /*@__PURE__*/(function (superclass) {
       (new Event ('connect'))
 
     this.render ()
-  };
+  }; // connectedCallback
 
 
   anonymous.prototype.render = function () {
@@ -689,5 +697,5 @@ var Element = function (tag) { return (
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 //  E.prototype = Element.prototype
 //  return E
-); }
+); } // Element
 
