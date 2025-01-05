@@ -18,7 +18,7 @@ void ( _ => { // CustomElementRegistry - https://developer.mozilla.org/en-US/doc
     !! /\-/.test (name)
     && (customElements [name] = constructor)
     && [].slice
-      // https://www.nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
+      // https://nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       .call ( document.querySelectorAll (name) )
       .map  ( customElements.upgrade )
   }
