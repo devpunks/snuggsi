@@ -75,12 +75,11 @@ jobs:
           sudo apt-get install -y zopfli
 
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v4 # https://github.com/actions/checkout
         with:
-          fetch-depth: 0
+          fetch-depth: 1
           fetch-tags: false
           ref: ${{ github.ref }}
-          persist-credentials: true
 
       - name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
         uses: actions/setup-node@v4 # https://github.com/actions/setup-node
@@ -103,11 +102,10 @@ jobs:
     needs: [build]
     runs-on: ubuntu-20.04
     steps: # --------------------------------------------------------------
-    - uses: actions/checkout@v4
+    - uses: actions/checkout@v4 # https://github.com/actions/checkout
       with:
-        fetch-depth: 0
+        fetch-depth: 1
         fetch-tags: false
-        persist-credentials: true
     - uses: actions/setup-node@v4
       with:
         node-version: 18
@@ -134,7 +132,7 @@ jobs:
     - name: Checkout
       uses: actions/checkout@v4
       with:
-        fetch-depth: 0
+        fetch-depth: 1
         fetch-tags: false
 
     - name: Setup
@@ -171,7 +169,7 @@ jobs:
 #     stringver: ${{ steps.contentrel.outputs.stringver }}
     steps: # --------------------------------------------------------------
     - name: Checkout code
-      uses: actions/checkout@v4
+    - uses: actions/checkout@v4 # https://github.com/actions/checkout
 
     - name: Release
       env:
