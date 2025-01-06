@@ -206,21 +206,6 @@ jobs:
         TAG: ${{ env.TAG }}
       run: echo "${TAG} Artifact ID from previous job is ${AID}"
 #--------------------------------------------------------------------------
-#   - name: Test
-#     shell: bash
-#     env:
-#       # Prevent script injection
-#       SNUGGSI: "."
-#     run: node ./*.test.es
-
-#   - name: Cover
-#     shell: bash
-#     env:
-#       # Prevent script injection
-#       SNUGGSI: "."
-#       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-#     run: npm list && npm run
-#--------------------------------------------------------------------------
 # check:
 #   needs: build
 #   timeout-minutes: 5
