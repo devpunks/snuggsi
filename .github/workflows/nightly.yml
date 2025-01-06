@@ -108,8 +108,10 @@ jobs:
     - name: Install
       uses: browser-actions/setup-chrome@v1.7.2
       with:
-      # no-sudo: false
+        # no-sudo: false
         chrome-version: 130
+        # https://www.npmjs.com/package/chromedriver
+        # https://sites.google.com/chromium.org/driver
         install-chromedriver: true
         install-dependencies: false
     - name: Test
