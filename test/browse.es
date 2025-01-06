@@ -13,7 +13,7 @@ console.log ('Browser')
 const
 // Navigate to chrome://version
 //path = '/usr/bin/chromium-browser'
-  headless = true
+  headless = false
 , encoding = 'utf8'
 , data     = html =>
     `data:text/html,${html}`
