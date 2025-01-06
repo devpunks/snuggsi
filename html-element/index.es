@@ -48,6 +48,6 @@ for slightly better semantics, including class-side inheritance and not clobberi
     //   .setPrototypeOf
     //     (Object.setPrototypeOf (B, A).prototype, A.prototype)
 
-    return E
+  return E
 })()
 
