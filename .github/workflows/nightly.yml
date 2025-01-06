@@ -156,7 +156,7 @@ jobs:
 
     - name: Cover
       id: cover
-      run: npm run cover
+      run: bin/cover
 #--------------------------------------------------------------------------
   publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
     name: 🗞️ Publish
