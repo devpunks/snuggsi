@@ -127,6 +127,7 @@ jobs:
 
     - name: Chrome Setup
       id: chrome
+      # https://github.com/browser-actions/setup-chrome
       uses: browser-actions/setup-chrome@v1.7.2
       with:
         # no-sudo: false
