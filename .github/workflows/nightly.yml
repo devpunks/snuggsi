@@ -160,7 +160,6 @@ jobs:
 #--------------------------------------------------------------------------
   publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
     name: 🗞️ Publish
-    id: publish
     needs: [scan,build,test]
     runs-on: ubuntu-20.04
     steps: # --------------------------------------------------------------
@@ -185,7 +184,6 @@ jobs:
   archive: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
 #   needs: [publish]
     name: 🧊 Archive
-    id: archive
     needs: [publish]
     timeout-minutes: 5
     runs-on: ubuntu-20.04
@@ -225,7 +223,6 @@ jobs:
 #--------------------------------------------------------------------------
   release: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
     name: 🎉 Release
-    id: release
     needs: [publish]
     timeout-minutes: 5
     runs-on: ubuntu-20.04
