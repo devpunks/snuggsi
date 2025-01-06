@@ -111,6 +111,7 @@ jobs:
         ref: ${{ github.ref }}
 
     - name: Node Setup # https://github.com/marketplace/actions/setup-node-js-environment
+      id: setup
       uses: actions/setup-node@v4 # https://github.com/actions/setup-node
       with:
         cache: npm
@@ -125,6 +126,7 @@ jobs:
         npm version
 
     - name: Chrome Setup
+      id: chrome
       uses: browser-actions/setup-chrome@v1.7.2
       with:
         # no-sudo: false
@@ -142,7 +144,7 @@ jobs:
       run: |
         npm run
         node --version
-        ${{ steps.install.outputs.chrome-path }} --version
+        ${{ steps.chrome.outputs.chrome-path }} --version
         npm test
 
 #   - name: Cover
