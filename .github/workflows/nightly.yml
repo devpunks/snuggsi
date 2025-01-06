@@ -146,11 +146,14 @@ jobs:
         npm run
         node --version
         ${{ steps.chrome.outputs.chrome-path }} --version
-        ls -al
+        # TODO: Determine if necessary ------------------------
+        echo
         echo setting nullglob
         echo From $(shopt -p nullglob)
         shopt -s nullglob
         echo To $(shopt -p nullglob)
+        echo
+        # -----------------------------------------------------
         node --test index.test.es
 
 #   - name: Cover
