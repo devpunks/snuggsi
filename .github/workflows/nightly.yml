@@ -98,7 +98,6 @@ jobs:
 #--------------------------------------------------------------------------
   test:
     name: Test
-    needs: [dump,build]
     runs-on: ubuntu-20.04
     env:
       PUPPETEER_SKIP_DOWNLOAD: true
@@ -157,7 +156,7 @@ jobs:
 #--------------------------------------------------------------------------
   publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
     name: Publish
-    needs: [test]
+    needs: [dump,build,test]
     runs-on: ubuntu-20.04
     steps: # --------------------------------------------------------------
     - uses: actions/checkout@v4 # https://github.com/actions/checkout
