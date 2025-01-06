@@ -115,6 +115,7 @@ jobs:
         install-chromedriver: true
         install-dependencies: false
     - name: Test
+      id: test
       env:
         # Prevent script injection
         SNUGGSI: "."
