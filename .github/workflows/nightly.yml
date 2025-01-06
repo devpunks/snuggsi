@@ -273,9 +273,8 @@ jobs:
 #         releasever="${releasever#refs/tags/}"
 
     - name: Check signature
-      env:
-        VERSION=$(git describe --tags --abbrev=0)
       run: |
+        VERSION=$(git describe --tags --abbrev=0)
         git tag -v ${VERSION}
         echo "RELEASE_VER=${RELEASEVER}" >> $GITHUB_ENV
         echo $GITHUB_ENV
