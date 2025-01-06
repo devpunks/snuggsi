@@ -239,11 +239,10 @@ jobs:
       run: echo "${TAG} Artifact ID from previous job is ${AID}"
 #--------------------------------------------------------------------------
   check:
+    name: 🔒 Check
     needs: [publish]
     timeout-minutes: 5
-    name: 🔒 Check
     runs-on: ubuntu-20.04
-#   if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
     steps: # --------------------------------------------------------------
     - name: Checkout
       id: checkout
@@ -269,7 +268,6 @@ jobs:
         npm version
 
 #     - name: Set RELEASE_VER
-#       if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
 #       run: |
 #         releasever=${{ github.ref }}
 #         releasever="${releasever#refs/tags/}"
@@ -277,7 +275,7 @@ jobs:
     - name: Check signature
       env:
         RELEASEREF=${{ github.ref }}
-        RELEASEVER="${releasever#refs/tags/}"
+        RELEASEVER="${RELEASEREF#refs/tags/}"
       run: |
         git tag -v ${RELEASEVER}
         echo RELEASEREF $RELEASEREF
