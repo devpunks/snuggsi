@@ -118,7 +118,10 @@ jobs:
       env:
         # Prevent script injection
         SNUGGSI: "."
-      run: node test
+      run: chrome --version
+    # run: node test
+#   - run: |
+#       ${{ steps.setup-chrome.outputs.chrome-path }} --version
 
 #   - name: Cover
 #     shell: bash
