@@ -154,93 +154,7 @@ $ bin/deploy
 ```bash
 $ bin/distribute
 ```
-
-
-  Used to mark revisions of library upstream on [Github](https://github.com/devpunks/snuggsi)
-  and [npm](https://npmjs.com/package/snuggsi).
-
-  **NOTE:** A chronological [CalVer](https://calver.org) strategy is used instead of [SemVer](https://semver.org).
-
-
-### References
-
-  - https://calver.org/overview.html
-  - https://github.com/mahmoud/calver
-  - https://docs.npmjs.com/cli/v6/using-npm/semver
-  - https://sedimental.org/designing_a_version.html
-  - https://en.wikipedia.org/wiki/Software_versioning
-  - [Tex Versioning](https://en.wikipedia.org/wiki/Software_versioning#TeX)
-  - [Difference between `LTS` and `stable`](https://stackoverflow.com/q/33661274/what-are-the-differences-between-long-term-support-lts-and-stable-versions-of)
-
-
-#### Github Actions
-
-  - Building and testing Node.json
-  - Github Encrypted Secrets - https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets
-  - Publishing packages to npm directory from Github - https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-nodejs-packages#publishing-packages-to-the-npm-registry
-  - Push tags with commits - https://stackoverflow.com/q/3745135/push-git-commits-tags-simultaneously
-
-  Steps:
-
-### CalVer
-
-  - [Create a git release](https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples)
-  - [Ubuntu Version History](https://en.wikipedia.org/wiki/Ubuntu_version_history)
-
-#### Manual Pre-Release Development
-```bash
-# Tools
-npm edit <pkg>[/<subpkg>...]
-npm explore some-dependency
-npm test
-
-# Pull Request version
-npm version prerelease
-```
-
-#### Daily Patch Release
-```bash
-# Automated Daily
-# sign-git-tag to prevent infinite recursion
-# ignore-scripts to prevent infinite recursion
-npm version patch --tag=dev --sign-git-tag --ignore-scripts \
-    -m "⏰  %s CalVer Daily Patch Dev Release"
-
-npm publish --tag=dev
-```
-
-#### Monthly Minor Release
-```bash
-# Automated Monthly
-npm ls
-npm outdated
-npm update --also=dev
-npm prune
-npm dedupe
-npm rebuild
-npm update
-npm pack
-npm issues # Github issues
-npm version minor --tag=latest -m "⏰  %s CalVer Monthly Minor Release"
-npm publish --tag=latest
-```
-
-#### Annual Major Release
-```bash
-# Automated Yearly
-npm whoami
-npm owner
-npm org devpunks ls
-npm token
-npm config
-npm doctor
-npm audit  # Cleanup npm packages
-npm ci
-npm version major --tag=stable -m "⏰  %s CalVer Annual Major Release"
-npm shrinkwrap # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
-npm deprecate <pkg>[@<previous-year-version>] <message>
-npm publish --tag=stable
-```
+  Used to mark distributions of library upstream on [Github](https://github.com/devpunks/snuggsi)
 
 
 ## [`integrate`](integrate)
@@ -425,3 +339,87 @@ $ bin/weigh [library]
   - https://gist.github.com/branneman/8048520
   - https://stackoverflow.com/q/10265798/determine-project-root-from-a-running-node-js-application
   - NODE_PATH on Heroku https://lostechies.com/derickbailey/2014/02/20/how-i-work-around-the-require-problem-in-nodejs
+
+
+## [`version`](version)
+```bash
+$ bin/version
+```
+  Used to mark revisions of library upstream on [Github](https://github.com/devpunks/snuggsi)
+  and [npm](https://npmjs.com/package/snuggsi).
+
+  **NOTE:** A chronological [CalVer](https://calver.org) strategy is used instead of [SemVer](https://semver.org).
+### CalVer
+  - [Create a git release](https://docs.github.com/en/free-pro-team@latest/rest/reference/repos#create-a-release--code-samples)
+  - [Ubuntu Version History](https://en.wikipedia.org/wiki/Ubuntu_version_history)
+
+#### Manual Pre-Release Development
+```bash
+# Tools
+npm edit <pkg>[/<subpkg>...]
+npm explore some-dependency
+npm test
+
+# Pull Request version
+npm version prerelease
+```
+
+#### Daily Patch Release
+```bash
+# Automated Daily
+# sign-git-tag to prevent infinite recursion
+# ignore-scripts to prevent infinite recursion
+npm version patch --tag=dev --sign-git-tag --ignore-scripts \
+    -m "⏰  %s CalVer Daily Patch Dev Release"
+
+npm publish --tag=dev
+```
+
+#### Monthly Minor Release
+```bash
+# Automated Monthly
+npm ls
+npm outdated
+npm update --also=dev
+npm prune
+npm dedupe
+npm rebuild
+npm update
+npm pack
+npm issues # Github issues
+npm version minor --tag=latest -m "⏰  %s CalVer Monthly Minor Release"
+npm publish --tag=latest
+```
+
+#### Annual Major Release
+```bash
+# Automated Yearly
+npm whoami
+npm owner
+npm org devpunks ls
+npm token
+npm config
+npm doctor
+npm audit  # Cleanup npm packages
+npm ci
+npm version major --tag=stable -m "⏰  %s CalVer Annual Major Release"
+npm shrinkwrap # https://docs.npmjs.com/cli/v6/configuring-npm/package-locks
+npm deprecate <pkg>[@<previous-year-version>] <message>
+npm publish --tag=stable
+```
+
+
+### References
+  - https://calver.org/overview.html
+  - https://github.com/mahmoud/calver
+  - https://docs.npmjs.com/cli/v6/using-npm/semver
+  - https://sedimental.org/designing_a_version.html
+  - https://en.wikipedia.org/wiki/Software_versioning
+  - [Tex Versioning](https://en.wikipedia.org/wiki/Software_versioning#TeX)
+  - [Difference between `LTS` and `stable`](https://stackoverflow.com/q/33661274/what-are-the-differences-between-long-term-support-lts-and-stable-versions-of)
+
+#### Github Actions
+  - [Push tags with commits](https://stackoverflow.com/q/3745135/push-git-commits-tags-simultaneously)
+  - [Github Encrypted Secrets](https://docs.github.com/en/free-pro-team@latest/actions/reference/encrypted-secrets)
+  - [Publishing packages to npm directory from Github](https://docs.github.com/en/free-pro-team@latest/actions/guides/publishing-nodejs-packages#publishing-packages-to-the-npm-registry)
+
