@@ -105,6 +105,7 @@ jobs:
 #     CHROMEDRIVER_BINARY: ../../../node_modules/chromedriver/lib/chromedriver/chromedriver
     steps: # --------------------------------------------------------------
     - name: Install
+      id: install
       uses: browser-actions/setup-chrome@v1.7.2
       with:
         # no-sudo: false
