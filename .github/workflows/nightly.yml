@@ -272,7 +272,7 @@ jobs:
 #         releasever=${{ github.ref }}
 #         releasever="${releasever#refs/tags/}"
 
-    - name: Check signature
+    - name: Check
       run: |
         VERSION=$(git describe --tags --abbrev=0)
         git tag -v ${VERSION} || true # TODO: Get to 100% Coverage
