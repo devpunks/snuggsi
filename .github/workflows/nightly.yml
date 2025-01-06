@@ -142,9 +142,8 @@ jobs:
       run: |
         npm run
         node --version
-        chrome --version
-#   - run: |
-#       ${{ steps.setup-chrome.outputs.chrome-path }} --version
+        ${{ steps.install.outputs.chrome-path }} --version
+        npm test
 
 #   - name: Cover
 #     shell: bash
