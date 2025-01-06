@@ -111,12 +111,11 @@ jobs:
         chrome-version: 130
         install-chromedriver: true
         install-dependencies: false
-    # name: Test
-#     shell: bash
-#     env:
-#       # Prevent script injection
-#       SNUGGSI: "."
-#     run: node ./*.test.es
+    - name: Test
+      env:
+        # Prevent script injection
+        SNUGGSI: "."
+      run: node test
 
 #   - name: Cover
 #     shell: bash
