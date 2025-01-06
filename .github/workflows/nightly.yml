@@ -146,9 +146,10 @@ jobs:
         npm run
         node --version
         ${{ steps.chrome.outputs.chrome-path }} --version
+        ls -al
         echo setting nullglob
         echo From $(shopt -p nullglob)
-#       shopt -s nullglob
+        shopt -s nullglob
         echo To $(shopt -p nullglob)
         npm test
 
