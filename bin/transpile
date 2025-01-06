@@ -1,12 +1,12 @@
 #!/usr/bin/env bash
 
 declare -r \
-  ROOT=dist
+  ROOT=dist \
+  TRANSPILER=bin/transpile.es
 
 declare -rx \
   INPUT=${INPUT:-$ROOT/snuggsi.es}   \
-  OUTPUT=${OUTPUT:-$ROOT/snuggsi.js} \
-  TRANSPILER=bin/transpile.es
+  OUTPUT=${OUTPUT:-$ROOT/snuggsi.js}
 
 echo
 echo "  🌲  Transpiling …"
