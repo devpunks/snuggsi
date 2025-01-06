@@ -104,8 +104,28 @@ jobs:
       PUPPETEER_SKIP_DOWNLOAD: true
 #     CHROMEDRIVER_BINARY: ../../../node_modules/chromedriver/lib/chromedriver/chromedriver
     steps: # --------------------------------------------------------------
-    - name: Install
+    - name: Checkout
+      uses: actions/checkout@v4 # https://github.com/actions/checkout
+      with:
+        fetch-depth: 1
+        fetch-tags: false
+        ref: ${{ github.ref }}
+
+    - name: Node Setup # https://github.com/marketplace/actions/setup-node-js-environment
+      uses: actions/setup-node@v4 # https://github.com/actions/setup-node
+      with:
+        cache: npm
+        node-version: 18.x
+        # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#working-with-lockfiles
+        cache-dependency-path: 'npm-shrinkwrap.json'
+
+    - name: Node Install
       id: install
+      run: |
+        npm ci --no-audit --no-progress --ignore-scripts --prefer-offline
+        npm version
+
+    - name: Chrome Setup
       uses: browser-actions/setup-chrome@v1.7.2
       with:
         # no-sudo: false
@@ -114,13 +134,16 @@ jobs:
         # https://sites.google.com/chromium.org/driver
         install-chromedriver: true
         install-dependencies: false
+
     - name: Test
       id: test
       env:
         # Prevent script injection
         SNUGGSI: "."
-      run: chrome --version
-    # run: node test
+      run: |
+        npm run
+        node --version
+        chrome --version
 #   - run: |
 #       ${{ steps.setup-chrome.outputs.chrome-path }} --version
 
