@@ -96,6 +96,36 @@ jobs:
       - name: Compile
         run: bin/compile
 #--------------------------------------------------------------------------
+  test:
+    name: Test
+    needs: [dump,build]
+    runs-on: ubuntu-20.04
+    env:
+      PUPPETEER_SKIP_DOWNLOAD: true
+      CHROMEDRIVER_BINARY: ../../../node_modules/chromedriver/lib/chromedriver/chromedriver
+    steps: # --------------------------------------------------------------
+    - name: Install
+      uses: browser-actions/setup-chrome@v1
+      with:
+      # no-sudo: false
+        chrome-version: 130
+        install-chromedriver: true
+        install-dependencies: false
+    # name: Test
+#     shell: bash
+#     env:
+#       # Prevent script injection
+#       SNUGGSI: "."
+#     run: node ./*.test.es
+
+#   - name: Cover
+#     shell: bash
+#     env:
+#       # Prevent script injection
+#       SNUGGSI: "."
+#       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
+#     run: npm list && npm run
+#--------------------------------------------------------------------------
   publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
     name: Publish
     needs: [build]
