@@ -150,7 +150,8 @@ jobs:
         echo From $(shopt -p nullglob)
         shopt -s nullglob
         echo To $(shopt -p nullglob)
-        npm test
+        ls -al .{/*,}/*.test.{js,es}
+        # npm test
 
 #   - name: Cover
 #     shell: bash
