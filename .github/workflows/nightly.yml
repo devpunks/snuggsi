@@ -239,7 +239,7 @@ jobs:
       run: echo "${TAG} Artifact ID from previous job is ${AID}"
 #--------------------------------------------------------------------------
   check:
-    needs: [build]
+    needs: [publish]
     timeout-minutes: 5
     name: 🔒 Check
     runs-on: ubuntu-20.04
