@@ -98,7 +98,6 @@ jobs:
 #--------------------------------------------------------------------------
   test:
     name: Test
-    id: setup-chrome
     needs: [dump,build]
     runs-on: ubuntu-20.04
     env:
