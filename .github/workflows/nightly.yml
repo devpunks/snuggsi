@@ -274,12 +274,9 @@ jobs:
 
     - name: Check signature
       env:
-        RELEASEREF=${{ github.ref }}
-        RELEASEVER="${RELEASEREF#refs/tags/}"
+        VERSION=$(git describe --tags --abbrev=0)
       run: |
-        git tag -v ${RELEASEVER}
-        echo RELEASEREF $RELEASEREF
-        echo RELEASEVER $RELEASEVER
+        git tag -v ${VERSION}
         echo "RELEASE_VER=${RELEASEVER}" >> $GITHUB_ENV
         echo $GITHUB_ENV
 #       TAGCHECK=$(git tag -v ${releasever} 2>&1 >/dev/null)
