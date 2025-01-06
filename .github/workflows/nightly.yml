@@ -154,7 +154,7 @@ jobs:
         echo To $(shopt -p nullglob)
         echo
         # -----------------------------------------------------
-        node --test index.test.es
+        node --test index.test.es ./**/*.test.{es,js}
 
 #   - name: Cover
 #     shell: bash
