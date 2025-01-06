@@ -146,6 +146,7 @@ jobs:
         node --version
         ${{ steps.chrome.outputs.chrome-path }} --version
         ls -al
+        shopt -p
         npm test
 
 #   - name: Cover
