@@ -12,6 +12,23 @@ describe ('scripts', _=> {
 
     console.log( window.document.documentElement.outerHTML )
 
+const i = window.document.createNodeIterator(
+  window.document.body,
+  window.NodeFilter.SHOW_ELEMENT,
+  { acceptNode(node) { return node.tagName != 'FOO-BAR' ? window.NodeFilter.FILTER_ACCEPT : window.NodeFilter.FILTER_SKIP } }
+);
+
+const pars = [];
+let currentNode;
+
+while ((currentNode = i.nextNode())) {
+  pars.push(currentNode);
+}
+  console.log(pars)
+    console.log ( 'Body', window.document.body.attributes['role'].textContent )
+    console.log ( 'Body', window.document.getElementById('content').attributes['id'].textContent )
+    let d = window.document.implementation.createHTMLDocument('SHAZAAAAMMM!!!')
+    console.log( d.documentElement.outerHTML )
     assert (source === 'https://unpkg.com/snuggsi')
   }) // test
 }) // describe
