@@ -55,23 +55,28 @@ var TokenList = function (node) {
   var this$1 = this;
 
   var
-    visit = function (node) { return node.attributes && [].slice
+    scan = function (node) { return node.attributes && [].slice
          .call (node.attributes)
-         .map(collect)
-      || collect (node); }
+         .map(visit)
+      || visit (node); }
 
   // Syntax Analyzer (Parser)
-  , collect = function (node) { return /{(\w+|#)}/.test (node.textContent)
+  , visit = function (node) { return /{(\w+|#)}/.test (node.textContent)
         && (node.text = node.textContent) // cache
+            // https://en.wikipedia.org/wiki/Identifier_(computer_languages)
             .match (/[^{]+(?=})/g) // rule
             // TODO: convert `symbol` to `token`
+            // https://en.wikipedia.org/wiki/Symbol_table
             .map (function (symbol) { return (this$1 [symbol] || (this$1 [symbol] = [])).push (node); }); }
 
   // Lexical Analyzer (Scanner)
-  , scanner = // https://en.wikipedia.org/wiki/Lexical_analysis#Token
+  , scanner = // https://en.wikipedia.org/wiki/Semantic_analysis_(compilers)
+      // https://en.wikipedia.org/wiki/Parsing#Parser
       document.createNodeIterator // .createTreeWalker
-        (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, visit, null)
+        // https://en.wikipedia.org/wiki/Top-down_parsing
+        (node, NodeFilter.SHOW_ELEMENT | NodeFilter.SHOW_TEXT, scan, null)
 
+  // https://en.wikipedia.org/wiki/One-pass_compiler
   while (scanner.nextNode ()) { null } // Walk all nodes and do nothing.
 }; // constructor
 
