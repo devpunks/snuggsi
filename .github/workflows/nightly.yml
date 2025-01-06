@@ -102,7 +102,7 @@ jobs:
     runs-on: ubuntu-20.04
     env:
       PUPPETEER_SKIP_DOWNLOAD: true
-      CHROMEDRIVER_BINARY: ../../../node_modules/chromedriver/lib/chromedriver/chromedriver
+#     CHROMEDRIVER_BINARY: ../../../node_modules/chromedriver/lib/chromedriver/chromedriver
     steps: # --------------------------------------------------------------
     - name: Install
       uses: browser-actions/setup-chrome@v1
