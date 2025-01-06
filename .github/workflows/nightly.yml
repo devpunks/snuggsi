@@ -97,13 +97,15 @@ jobs:
         run: bin/compile
 #--------------------------------------------------------------------------
   test:
-    name: 🚨 Test
+    name: 📊 Test
     runs-on: ubuntu-20.04
-    env:
+    env # Prevent script injection
+      SNUGGSI: "."
       PUPPETEER_SKIP_DOWNLOAD: true
 #     CHROMEDRIVER_BINARY: ../../../node_modules/chromedriver/lib/chromedriver/chromedriver
     steps: # --------------------------------------------------------------
     - name: Checkout
+      id: checkout
       uses: actions/checkout@v4 # https://github.com/actions/checkout
       with:
         fetch-depth: 1
@@ -130,8 +132,7 @@ jobs:
       # https://github.com/browser-actions/setup-chrome
       uses: browser-actions/setup-chrome@v1.7.2
       with:
-        # no-sudo: false
-        chrome-version: 130
+        chrome-version: stable
         # https://www.npmjs.com/package/chromedriver
         # https://sites.google.com/chromium.org/driver
         install-chromedriver: true
@@ -139,9 +140,6 @@ jobs:
 
     - name: Test
       id: test
-      env:
-        # Prevent script injection
-        SNUGGSI: "."
       run: |
         npm run
         node --version
@@ -156,16 +154,13 @@ jobs:
         # -----------------------------------------------------
         node --test index.test.es ./**/*.test.{es,js}
 
-#   - name: Cover
-#     shell: bash
-#     env:
-#       # Prevent script injection
-#       SNUGGSI: "."
-#       NPM_TOKEN: ${{ secrets.NPM_TOKEN }}
-#     run: npm list && npm run
+    - name: Cover
+      id: cover
+      run: npm run cover
 #--------------------------------------------------------------------------
   publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
     name: 🗞️ Publish
+    id: publish
     needs: [scan,build,test]
     runs-on: ubuntu-20.04
     steps: # --------------------------------------------------------------
@@ -190,6 +185,7 @@ jobs:
   archive: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
 #   needs: [publish]
     name: 🧊 Archive
+    id: archive
     needs: [publish]
     timeout-minutes: 5
     runs-on: ubuntu-20.04
@@ -229,6 +225,7 @@ jobs:
 #--------------------------------------------------------------------------
   release: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
     name: 🎉 Release
+    id: release
     needs: [publish]
     timeout-minutes: 5
     runs-on: ubuntu-20.04
