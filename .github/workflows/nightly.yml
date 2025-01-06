@@ -148,7 +148,7 @@ jobs:
         ls -al
         echo setting nullglob
         echo From $(shopt -p nullglob)
-        shopt -s nullglob
+#       shopt -s nullglob
         echo To $(shopt -p nullglob)
         ls -al .{/*,}/*.test.{js,es}
         # npm test

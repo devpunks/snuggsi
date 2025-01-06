@@ -9,9 +9,8 @@ function bin () {
 }
 
 declare -r \
-  SUITE="${1:-`pwd`}/index.test" \
-  SPEC=`bin`/tap-spec    \
-  TEST=`bin`/tape
+  TEST='node --test' \
+  SUITE="/.{/*,}/*.test.{js,es}"
 
 
 echo
@@ -20,4 +19,4 @@ echo
 echo "  Suite 👉  $SUITE"
 echo
 
-$TEST $SUITE | $SPEC
+$TEST $SUITE
