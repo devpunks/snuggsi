@@ -238,49 +238,57 @@ jobs:
         TAG: ${{ env.TAG }}
       run: echo "${TAG} Artifact ID from previous job is ${AID}"
 #--------------------------------------------------------------------------
-# check:
-#   needs: build
-#   timeout-minutes: 5
-#   name: Check Signed Tag
-#   runs-on: ubuntu-20.04
+  check:
+    needs: [build]
+    timeout-minutes: 5
+    name: 🔒 Check
+    runs-on: ubuntu-20.04
 #   if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
-#   outputs:
-#     stringver: ${{ steps.contentrel.outputs.stringver }}
+    steps: # --------------------------------------------------------------
+    - name: Checkout
+      id: checkout
+      uses: actions/checkout@v4 # https://github.com/actions/checkout
+      with:
+        fetch-depth: 1
+        fetch-tags: false
+        ref: ${{ github.ref }}
 
-#   steps:
-#     - name: Checkout code
-#       uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
-#       with:
-#         fetch-tags: true
-#         ref: ${{ github.ref }}
-#         path: src/github.com/devpunks/snuggsi
+    - name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
+      id: setup
+      uses: actions/setup-node@v4 # https://github.com/actions/setup-node
+      with:
+        cache: npm
+        node-version: 18.x
+        # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#working-with-lockfiles
+        cache-dependency-path: 'npm-shrinkwrap.json'
 
-#     - name: Set env
-#       shell: bash
-#       run: |
-#         echo "BEFORE SHAZZZAAAM!"
-#         echo "${{ github.workspace }}" >> $GITHUB_ENV
-#         echo "${{ github.workspace }}/bin" >> $GITHUB_PATH
-#         echo "AFTER SHAZZZAAAM!"
+    - name: Install
+      id: install
+      run: |
+        npm ci --no-audit --no-progress --ignore-scripts --prefer-offline
+        npm version
 
 #     - name: Set RELEASE_VER
 #       if: github.event_name == 'push' && startsWith(github.ref, 'refs/tags/v')
-#       shell: bash
 #       run: |
 #         releasever=${{ github.ref }}
 #         releasever="${releasever#refs/tags/}"
-#         echo "RELEASE_VER=${releasever}" >> $GITHUB_ENV
 
-#     - name: Check signature
-#       working-directory: src/github.com/devpunks/snuggsi
-#       run: |
-#         releasever=${{ github.ref }}
-#         releasever="${releasever#refs/tags/}"
-#         TAGCHECK=$(git tag -v ${releasever} 2>&1 >/dev/null) ||
-#         echo "${TAGCHECK}" | grep -q "error" && {
-#             echo "::error::tag ${releasever} is not a signed tag. Failing release process."
-#             exit 1
-#         } || {
-#             echo "Tag ${releasever} is signed."
-#             exit 0
-#         }
+    - name: Check signature
+      env:
+        RELEASEREF=${{ github.ref }}
+        RELEASEVER="${releasever#refs/tags/}"
+      run: |
+        git tag -v ${RELEASEVER}
+        echo RELEASEREF $RELEASEREF
+        echo RELEASEVER $RELEASEVER
+        echo "RELEASE_VER=${RELEASEVER}" >> $GITHUB_ENV
+        echo $GITHUB_ENV
+#       TAGCHECK=$(git tag -v ${releasever} 2>&1 >/dev/null)
+#       echo "${TAGCHECK}" | grep -q "error" && {
+#           echo "::error::tag ${releasever} is not a signed tag. Failing release process."
+#           exit 1
+#       } || {
+#           echo "Tag ${releasever} is signed."
+#           exit 0
+#       }
