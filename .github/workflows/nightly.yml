@@ -151,7 +151,7 @@ jobs:
         echo From $(shopt -p nullglob)
         shopt -s nullglob
         echo To $(shopt -p nullglob)
-        npm test
+        node test index.test.es
 
 #   - name: Cover
 #     shell: bash
