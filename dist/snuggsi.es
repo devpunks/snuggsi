@@ -100,6 +100,7 @@ class TokenList { // TODO: Rename to Symbols
         && this [token].map // more than one occurrence
           (tokenize (token))
   } // bind
+
 } // TokenList
 
 // https://codereview.chromium.org/1987413002
@@ -348,7 +349,7 @@ void ( _ => { // CustomElementRegistry - https://developer.mozilla.org/en-US/doc
       // https://nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       .call ( document.querySelectorAll (name) )
       .map  ( customElements.upgrade )
-  }
+  } // define
 
 
   customElements.upgrade = function (root) {
@@ -362,7 +363,7 @@ void ( _ => { // CustomElementRegistry - https://developer.mozilla.org/en-US/doc
       (root, customElements [root.localName].prototype)
 
     root.connectedCallback ()
-  }
+  } // upgrade
 
 
   void (new MutationObserver ( mutations => {
@@ -380,18 +381,17 @@ void ( _ => { // CustomElementRegistry - https://developer.mozilla.org/en-US/doc
 
 function ParentNode ( Element ) {
 
-  // DOM Levels
-  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-  //
-  // Living Standard HTML5 ParentNode
-  // https://dom.spec.whatwg.org/#parentnode
-  //
-  // MDN ParentNode
-  // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode
-  //
-  // ElementTraversal interface
-  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
-
+// DOM Levels
+// (https://developer.mozilla.org/fr/docs/DOM_Levels)
+//
+// Living Standard HTML5 ParentNode
+// https://dom.spec.whatwg.org/#parentnode
+//
+// MDN ParentNode
+// https://developer.mozilla.org/en-US/docs/Web/API/ParentNode
+//
+// ElementTraversal interface
+// https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
 return class extends Element {
 
   // id / identify ? // Method used to find descendants by ID
@@ -410,120 +410,94 @@ return class extends Element {
   } //selectAll
 
 } // class
+
 } // ParentNode
 
 function EventTarget ( HTMLElement ) { // why buble
-  //
-  // WHATWG Living Standard HTML5 EventTarget
-  // https://dom.spec.whatwg.org/#eventtarget
-  //
-  // MDN EventTarget
-  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
 
-  // DOM Levels
-  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-  //
-  // DOM Level 0 EventTarget
-  // This event handling model was introduced by Netscape Navigator,
-  // and remains the most cross-browser model as of 2005
-  // https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#DOM_Level_0
-  //
-  // DOM Level 2 EventTarget
-  // (AKA Str🎱  W3C #fockery) ➡️  https://annevankesteren.nl/2016/01/film-at-11
-  // 😕  https://w3c.github.io/uievents/DOM3-Events.html#interface-EventTarget
-  //❓❓ https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
-  // https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
-  // Within https://w3c.github.io/uievents/#conf-interactive-ua
-  // EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
-  //
-  // DOM Level 3 EventTarget
-  // https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+// WHATWG Living Standard HTML5 EventTarget
+// https://dom.spec.whatwg.org/#eventtarget
+//
+// MDN EventTarget
+// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget
 
-  //
-  // All Event Handling Models
-  // https://en.wikipedia.org/wiki/DOM_events#Event_handling_models
-  //
-  // Inline Model
-  // https://en.wikipedia.org/wiki/DOM_events#Inline_model
-  //
-  // Traditional Model
-  // https://en.wikipedia.org/wiki/DOM_events#Traditional_model
-  //
-  // Traditional Registration
-  // http://www.quirksmode.org/js/events_tradmod.html
-  //
-  // HandleEvent Registration
-  //   - https://gomakethings.com/callbacks-on-web-components
-  //   - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
+// DOM Levels
+// (https://developer.mozilla.org/fr/docs/DOM_Levels)
+//
+// DOM Level 0 EventTarget
+// This event handling model was introduced by Netscape Navigator,
+// and remains the most cross-browser model as of 2005
+// https://en.wikipedia.org/wiki/DOM_events#DOM_Level_0#DOM_Level_0
+//
+// DOM Level 2 EventTarget
+// (AKA Str🎱  W3C #fockery) ➡️  https://annevankesteren.nl/2016/01/film-at-11
+// 😕  https://w3c.github.io/uievents/DOM3-Events.html#interface-EventTarget
+//❓❓ https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html
+// https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+// Within https://w3c.github.io/uievents/#conf-interactive-ua
+// EventTarget links to WHATWG - https://dom.spec.whatwg.org/#eventtarget
+//
+// DOM Level 3 EventTarget
+// https://w3.org/TR/2000/REC-DOM-Level-2-Events-20001113/events.html#Events-EventTarget
+
+//
+// All Event Handling Models
+// https://en.wikipedia.org/wiki/DOM_events#Event_handling_models
+//
+// Inline Model
+// https://en.wikipedia.org/wiki/DOM_events#Inline_model
+//
+// Traditional Model
+// https://en.wikipedia.org/wiki/DOM_events#Traditional_model
+//
+// Traditional Registration
+// http://www.quirksmode.org/js/events_tradmod.html
+//
+// HandleEvent Registration
+//   - https://gomakethings.com/callbacks-on-web-components
+//   - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
 
 return class extends HTMLElement {
 
-  // MDN EventTarget.addEventListener
-  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+  // MDN EventTarget.dispatchEvent
+  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
   //
-  // WHATWG Living Standard EventTarget.addEventListener
+  // WHATWG Living Standard EventTarget.dispatchEvent
+  // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
+  //
+  // DOM Level 2 EventTarget.dispatchEvent
+  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
+  dispatch (name) {
+
+    this.dispatchEvent
+      ( new Event ( name ) )
+  } // dispatch
+
+  // MDN EventTarget.removeEventListener
+  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
+  //
+  // WHATWG Living Standard EventTarget.removeEventListener
   // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
   //
-  // DOM Level 2 EventTarget.addEventListener
-  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
+  // DOM Level 2 EventTarget.removeEventListener
+  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
 
+//off (event, listener = 'on' + this [event])
+//  { this.removeEventListener ( event, listener ) }
+
+// MDN EventTarget.addEventListener
+// https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/addEventListener
+//
+// WHATWG Living Standard EventTarget.addEventListener
+// https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
+//
+// DOM Level 2 EventTarget.addEventListener
+// https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
   on ( event, handler ) {
 
     this.addEventListener
       ( event, this.renderable ( handler , /* TODO: `options` & `useCapture` */ ) )
   } // on
-
-//  // MDN EventTarget.removeEventListener
-//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
-//  //
-//  // WHATWG Living Standard EventTarget.removeEventListener
-//  // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
-//  //
-//  // DOM Level 2 EventTarget.removeEventListener
-//  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
-
-//off (event, listener = 'on' + this [event])
-//  { this.removeEventListener ( event, listener ) }
-
-  renderable ( handler ) {
-
-    // BIG BUG IN IE!!!
-    //
-    // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
-    //
-    // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
-
-    return event =>
-      // for `return false`
-      handler.call ( this, event ) !== false
-        // check render availability
-        && event.defaultPrevented
-        || this.render ()
-  } // renderable
-
-//dispatch (event)
-//  // MDN EventTarget.dispatchEvent
-//  // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
-//  //
-//  // WHATWG Living Standard EventTarget.dispatchEvent
-//  // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
-//  //
-//  // DOM Level 2 EventTarget.dispatchEvent
-//  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
-
-//  { }
-
-
-  register ( node, handler, event ) {
-
-    for (let attribute of
-      [].slice.call ( node.attributes ) )
-        /^on/.test ( event = attribute.name )
-        // https://www.quirksmode.org/js/events_tradmod.html
-        // because under traditional registration the handler value is wrapped in scope `{ onfoo }`
-        && ( handler = ( /{\s*(\w+)/.exec ( node [event] ) || [] ) [1] )
-        && ( node [event] = this.renderable (this [handler]) )
-  } // register
 
   // Reflection - https://en.wikipedia.org/wiki/Reflection_(computer_programming)
   // Type Introspection - https://en.wikipedia.org/wiki/Type_introspection
@@ -535,47 +509,82 @@ return class extends HTMLElement {
   // Introspection should not be confused with reflection,
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
-
   reflect ( handler ) {
 
     /^on/.test ( handler ) // is a W3C `on*`event
-      && handler in HTMLElement.prototype // `on*`
+      && // handler is defined on class
+        handler in HTMLElement.prototype // `on*`
 
       && // automagically delegate event
         this.on ( handler.substr (2), this [handler] )
   } // reflect
 
+  // Classic `on*=TOKEN` attribute handlers
+  register ( node, handler, event ) {
+
+    for (let attribute of
+      [].slice.call ( node.attributes ) )
+        /^on/.test ( event = attribute.name )
+        // https://www.quirksmode.org/js/events_tradmod.html
+        // because under traditional registration the handler value
+        // is wrapped in scope `function on*() {\nonfoo\n}`
+        && ( handler = ( /{\s(\w+)\s}/.exec ( node [event] ) || [] ) [1] )
+        && ( node [event] = this.renderable (this [handler]) )
+  } // register
+
+  // BIG BUG IN IE!!!
+  //
+  // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
+  //
+  // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
+  renderable ( handler ) {
+
+    return event =>
+      // for `return false`
+      handler.call ( this, event ) !== false
+        // check render availability
+        && event.defaultPrevented
+        || this.render ()
+  } // renderable
+
 } // class
+
 } // EventTarget
 
 function GlobalEventHandlers ( Element ) {
 
-  // Living Standard HTML5 GlobalEventHandlers
-  // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
-  //
-  // MDN GlobalEventHandlers
-  // https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
-  //
-  // MDN on* Events
-  // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
+// Living Standard HTML5 GlobalEventHandlers
+// https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
+//
+// MDN GlobalEventHandlers
+// https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
+//
+// MDN on* Events
+// https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
+return class extends Element {
 
-  return class extends Element {
+  onconnect ( event ) {
 
-    onconnect ( event ) {
+    this.templates =
+      this
+        .selectAll ('template[name]')
+        .map (Template)
 
-      this.templates =
-        this
-          .selectAll ('template[name]')
-          .map (Template)
+    this.tokens =
+      new TokenList (this)
 
-      this.tokens =
-        new TokenList (this)
+    super.onconnect
+      && super.onconnect (event)
+  } // onconnect
 
-      super.onconnect
-        && super.onconnect (event)
-    }
+  ondisconnect ( event ) {
 
-  } // class
+    super.ondisconnect
+      && super.ondisconnect (event)
+  } // ondisconnect
+
+} // class
+
 } // GlobalEventHandlers
 
 const Custom = Element => // why buble
@@ -602,12 +611,16 @@ const Custom = Element => // why buble
     this.addEventListener
       ('idle', super.onidle)
 
-    this.dispatchEvent
-      (new Event ('connect'))
+    this.onconnect && this.onconnect ()
+    this.dispatch ('connect')
 
     this.render ()
   } // connectedCallback
 
+  disconnectedCallback () {
+    this.ondisconnect && this.ondisconnect ()
+    this.dispatch ('disconnect')
+  } // disconnectedCallback
 
   render () {
 
@@ -626,10 +639,10 @@ const Custom = Element => // why buble
       .selectAll ('*')
       .map (this.register, this)
 
-    this.dispatchEvent
-      (new Event ('idle'))
+    this.dispatch ('idle')
   } // render
-})
+
+}) // class
 
 // http://2ality.com/2013/09/window.html
 // http://tobyho.com/2013/03/13/window-prop-vs-global-var
