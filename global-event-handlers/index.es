@@ -10,25 +10,25 @@ function GlobalEventHandlers ( Element ) {
 // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
 return class extends Element {
 
-  onconnect ( event ) {
+//onconnect ( event ) {
 
-    this.templates =
-      this
-        .selectAll ('template[name]')
-        .map (Template)
+//  this.templates =
+//    this
+//      .selectAll ('template[name]')
+//      .map (Template)
 
-    this.tokens =
-      new TokenList (this)
+//  this.tokens =
+//    new TokenList (this)
 
-    super.onconnect
-      && super.onconnect (event)
-  } // onconnect
+//  super.onconnect
+//    && super.onconnect (event)
+//} // onconnect
 
-  ondisconnect ( event ) {
+//ondisconnect ( event ) {
 
-    super.ondisconnect
-      && super.ondisconnect (event)
-  } // ondisconnect
+//  super.ondisconnect
+//    && super.ondisconnect (event)
+//} // ondisconnect
 
 } // class
 

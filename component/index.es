@@ -18,18 +18,27 @@ const Custom = Element => // why buble
 
     this.addEventListener
       ('connect', this.onconnect)
- 
+
+    this.dispatch ('connect')
+
+    this.templates =
+      this
+        .selectAll ('template[name]')
+        .map (Template)
+
+    this.tokens =
+      new TokenList (this)
+
     this.addEventListener
       ('idle', super.onidle)
-
-    this.onconnect && this.onconnect ()
-    this.dispatch ('connect')
 
     this.render ()
   } // connectedCallback
 
   disconnectedCallback () {
-    this.ondisconnect && this.ondisconnect ()
+    super.ondisconnect
+      && super.ondisconnect (event)
+
     this.dispatch ('disconnect')
   } // disconnectedCallback
 
