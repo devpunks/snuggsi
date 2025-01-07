@@ -6,7 +6,7 @@
 // Satisfy Element interface document.createElement
 //   - https://dom.spec.whatwg.org/#concept-element-interface
 
-const HTMLElement =
+//const HTMLElement =
 
 /*
 // Domenic discusses
@@ -29,25 +29,25 @@ B.prototype = Object.create(A.prototype);
 for slightly better semantics, including class-side inheritance and not clobbering .constructor.
 */
 
-( _ => {
-  function E () {}
+//( _ => {
+//  function E () {}
 
-  E.prototype =
+//  E.prototype =
 
-    window.HTMLElement.prototype
+//    window.HTMLElement.prototype
 
-  // Prevent `.constructor` clobbering
-  // E.__proto__ = window.HTMLElement
+//  // Prevent `.constructor` clobbering
+//  // E.__proto__ = window.HTMLElement
 
-    // https://github.com/whatwg/html/issues/1704
-    // E.prototype.__proto__
-    //   = (E.__proto__ = HTMLElement).prototype
+//    // https://github.com/whatwg/html/issues/1704
+//    // E.prototype.__proto__
+//    //   = (E.__proto__ = HTMLElement).prototype
 
-    // Domenic's method
-    // Object
-    //   .setPrototypeOf
-    //     (Object.setPrototypeOf (B, A).prototype, A.prototype)
+//    // Domenic's method
+//    // Object
+//    //   .setPrototypeOf
+//    //     (Object.setPrototypeOf (B, A).prototype, A.prototype)
 
-  return E
-})()
+//  return E
+//})()
 
