@@ -1,17 +1,16 @@
 function ParentNode ( Element ) {
 
-  // DOM Levels
-  // (https://developer.mozilla.org/fr/docs/DOM_Levels)
-  //
-  // Living Standard HTML5 ParentNode
-  // https://dom.spec.whatwg.org/#parentnode
-  //
-  // MDN ParentNode
-  // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode
-  //
-  // ElementTraversal interface
-  // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
-
+// DOM Levels
+// (https://developer.mozilla.org/fr/docs/DOM_Levels)
+//
+// Living Standard HTML5 ParentNode
+// https://dom.spec.whatwg.org/#parentnode
+//
+// MDN ParentNode
+// https://developer.mozilla.org/en-US/docs/Web/API/ParentNode
+//
+// ElementTraversal interface
+// https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
 return class extends Element {
 
   // id / identify ? // Method used to find descendants by ID
@@ -30,5 +29,6 @@ return class extends Element {
   } //selectAll
 
 } // class
+
 } // ParentNode
 
