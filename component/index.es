@@ -22,12 +22,16 @@ const Custom = Element => // why buble
     this.addEventListener
       ('idle', super.onidle)
 
-    this.dispatchEvent
-      (new Event ('connect'))
+    this.onconnect && this.onconnect ()
+    this.dispatch ('connect')
 
     this.render ()
   } // connectedCallback
 
+  disconnectedCallback () {
+    this.ondisconnect && this.ondisconnect ()
+    this.dispatch ('disconnect')
+  } // disconnectedCallback
 
   render () {
 
@@ -46,8 +50,8 @@ const Custom = Element => // why buble
       .selectAll ('*')
       .map (this.register, this)
 
-    this.dispatchEvent
-      (new Event ('idle'))
+    this.dispatch ('idle')
   } // render
-})
+
+}) // class
 
