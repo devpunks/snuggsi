@@ -11,10 +11,6 @@ describe ('TokenList', _=> {
     node = {}
   , result = 1 + 2
 
-  test ('adds two numbers', _=> {
-    assert (result === 3)
-  }) // test
-
   context.todo ('Lexer', _=> {
     test ('tokenization')
   }) // context
