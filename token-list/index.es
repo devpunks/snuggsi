@@ -47,5 +47,6 @@ class TokenList { // TODO: Rename to Symbols
         && this [token].map // more than one occurrence
           (tokenize (token))
   } // bind
+
 } // TokenList
 
