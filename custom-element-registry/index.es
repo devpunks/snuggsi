@@ -23,7 +23,7 @@ void ( _ => { // CustomElementRegistry - https://developer.mozilla.org/en-US/doc
       // https://nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
       .call ( document.querySelectorAll (name) )
       .map  ( customElements.upgrade )
-  }
+  } // define
 
 
   customElements.upgrade = function (root) {
@@ -37,7 +37,7 @@ void ( _ => { // CustomElementRegistry - https://developer.mozilla.org/en-US/doc
       (root, customElements [root.localName].prototype)
 
     root.connectedCallback ()
-  }
+  } // upgrade
 
 
   void (new MutationObserver ( mutations => {
