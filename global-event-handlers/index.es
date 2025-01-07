@@ -1,30 +1,36 @@
 function GlobalEventHandlers ( Element ) {
 
-  // Living Standard HTML5 GlobalEventHandlers
-  // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
-  //
-  // MDN GlobalEventHandlers
-  // https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
-  //
-  // MDN on* Events
-  // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
+// Living Standard HTML5 GlobalEventHandlers
+// https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
+//
+// MDN GlobalEventHandlers
+// https://developer.mozilla.org/en-US/docs/Web/API/GlobalEventHandlers
+//
+// MDN on* Events
+// https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
+return class extends Element {
 
-  return class extends Element {
+  onconnect ( event ) {
 
-    onconnect ( event ) {
+    this.templates =
+      this
+        .selectAll ('template[name]')
+        .map (Template)
 
-      this.templates =
-        this
-          .selectAll ('template[name]')
-          .map (Template)
+    this.tokens =
+      new TokenList (this)
 
-      this.tokens =
-        new TokenList (this)
+    super.onconnect
+      && super.onconnect (event)
+  } // onconnect
 
-      super.onconnect
-        && super.onconnect (event)
-    }
+  ondisconnect ( event ) {
 
-  } // class
+    super.ondisconnect
+      && super.ondisconnect (event)
+  } // ondisconnect
+
+} // class
+
 } // GlobalEventHandlers
 
