@@ -1,7 +1,6 @@
 Element `add-subtract`
 
 (class extends HTMLElement {
-
   initialize ()
     { this.context.count = 0 }
 
