@@ -1,15 +1,18 @@
-Element `add-subtract`
+Element (`add-subtract`)
 
 (class extends HTMLElement {
-  initialize ()
-    { this.context.count = 0 }
+  count = 10
+
+  constructor () {
+    super ()
+    console.log('This is from constructor', this.count, this)
+  }
+
+//  connectedCallback() { console.log('Monkey Patch', arguments) }
 
   decrement ()
-    { this.context.count -- }
+    { this.count -- }
 
   increment ()
-    { this.context.count ++ }
-
-  get count ()
-    { return this.context.count }
+    { this.count ++ }
 })
