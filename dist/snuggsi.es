@@ -6,7 +6,7 @@
 // Satisfy Element interface document.createElement
 //   - https://dom.spec.whatwg.org/#concept-element-interface
 
-const HTMLElement =
+//const HTMLElement =
 
 /*
 // Domenic discusses
@@ -29,27 +29,27 @@ B.prototype = Object.create(A.prototype);
 for slightly better semantics, including class-side inheritance and not clobbering .constructor.
 */
 
-( _ => {
-  function E () {}
+//( _ => {
+//  function E () {}
 
-  E.prototype =
+//  E.prototype =
 
-    window.HTMLElement.prototype
+//    window.HTMLElement.prototype
 
-  // Prevent `.constructor` clobbering
-  // E.__proto__ = window.HTMLElement
+//  // Prevent `.constructor` clobbering
+//  // E.__proto__ = window.HTMLElement
 
-    // https://github.com/whatwg/html/issues/1704
-    // E.prototype.__proto__
-    //   = (E.__proto__ = HTMLElement).prototype
+//    // https://github.com/whatwg/html/issues/1704
+//    // E.prototype.__proto__
+//    //   = (E.__proto__ = HTMLElement).prototype
 
-    // Domenic's method
-    // Object
-    //   .setPrototypeOf
-    //     (Object.setPrototypeOf (B, A).prototype, A.prototype)
+//    // Domenic's method
+//    // Object
+//    //   .setPrototypeOf
+//    //     (Object.setPrototypeOf (B, A).prototype, A.prototype)
 
-  return E
-})()
+//  return E
+//})()
 
 class TokenList { // TODO: Rename to Symbols
 
@@ -327,6 +327,17 @@ const Template = template => {
 // Polyfills
 //   - https://github.com/webcomponents/polyfills
 
+//  void (new MutationObserver ( mutations => {
+
+//  for (let mutation of mutations)
+//  for (let root of mutation.addedNodes)
+
+//      /\-/.test ( customElements [root.localName] )
+//      && customElements.upgrade (root)
+//  }))
+//  .observe (document.documentElement, { childList: true, subtree: true })
+
+
 // Scoped CustomElementRegistry
 //   - https://github.com/whatwg/html/issues/10854
 //   - https://github.com/WICG/webcomponents/issues/1043
@@ -335,49 +346,36 @@ const Template = template => {
 //   - https://github.com/WICG/webcomponents/blob/gh-pages/proposals/Scoped-Custom-Element-Registries.md
 //   - https://github.com/WICG/webcomponents/issues?q=is%3Aissue+label%3A%22scoped+custom+element+registry%22
 
-window.customElements =
-  window.customElements
-  || {/* microfill */}
+//window.customElements =
+//window.customElements
+//|| {/* microfill */}
 
-void ( _ => { // CustomElementRegistry - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry
+//void ( _ => { // CustomElementRegistry - https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/FinalizationRegistry
 
-  customElements.define = ( name, constructor ) => {
+//customElements.define = ( name, constructor ) =>
 
-    !! /\-/.test (name)
-    && (customElements [name] = constructor)
-    && [].slice
-      // https://nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
-      .call ( document.querySelectorAll (name) )
-      .map  ( customElements.upgrade )
-  } // define
-
-
-  customElements.upgrade = function (root) {
-
-    const candidates = []
-
-    // Here's where we can swizzle
-    // https://github.com/whatwg/html/issues/1704#issuecomment-241881091
-
-    Object.setPrototypeOf
-      (root, customElements [root.localName].prototype)
-
-    root.connectedCallback ()
-  } // upgrade
+//  /\-/.test (name)
+//    && (customElements [name] = constructor)
+//    && [].slice
+//      // https://nczonline.net/blog/2010/09/28/why-is-getelementsbytagname-faster-that-queryselectorall
+//      .call ( document.querySelectorAll (name) )
+//      .map  ( customElements.upgrade )
 
 
-  void (new MutationObserver ( mutations => {
+//customElements.upgrade = (root) => {
 
-    for (let mutation of mutations)
-      for (let root of mutation.addedNodes)
+//  const candidates = []
 
-         /\-/.test ( customElements [root.localName] )
-           && customElements.upgrade (root)
-  }))
+//  // Here's where we can swizzle
+//  // https://github.com/whatwg/html/issues/1704#issuecomment-241881091
 
-  .observe (document.documentElement, { childList: true, subtree: true })
+//  Object.setPrototypeOf
+//    (root, customElements [root.localName].prototype)
 
-})() /* CustomElementRegistry */
+//  root.connectedCallback ()
+//} // upgrade
+
+//})() /* CustomElementRegistry */
 
 function ParentNode ( Element ) {
 
@@ -392,14 +390,14 @@ function ParentNode ( Element ) {
 //
 // ElementTraversal interface
 // https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
-return class extends Element {
+// return class extends Element {
 
   // id / identify ? // Method used to find descendants by ID
 
-  select ( )
+  Element.prototype.select = function ()
     { return this.selectAll ( ... arguments ) [0] } // select
 
-  selectAll ( strings, ... tokens ) {
+  Element.prototype.selectAll = function ( strings, ... tokens ) {
     strings = [].concat ( strings )
 
     return [].slice.call
@@ -409,11 +407,10 @@ return class extends Element {
           , strings.shift () )))
   } //selectAll
 
-} // class
-
+  return Element
 } // ParentNode
 
-function EventTarget ( HTMLElement ) { // why buble
+function EventTarget ( Element ) { // why buble
 
 // WHATWG Living Standard HTML5 EventTarget
 // https://dom.spec.whatwg.org/#eventtarget
@@ -457,8 +454,6 @@ function EventTarget ( HTMLElement ) { // why buble
 //   - https://gomakethings.com/callbacks-on-web-components
 //   - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
 
-return class extends HTMLElement {
-
   // MDN EventTarget.dispatchEvent
   // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
   //
@@ -467,11 +462,24 @@ return class extends HTMLElement {
   //
   // DOM Level 2 EventTarget.dispatchEvent
   //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
-  dispatch (name) {
+  Element.prototype.dispatch = function (name) {
 
     this.dispatchEvent
       ( new Event ( name ) )
   } // dispatch
+
+  // Classic `on*=TOKEN` attribute handlers
+  Element.prototype.register = function ( node, handler, event ) {
+
+    for (let attribute of
+      [].slice.call ( node.attributes ) )
+        /^on/.test ( event = attribute.name )
+        // https://www.quirksmode.org/js/events_tradmod.html
+        // because under traditional registration the handler value
+        // is wrapped in scope `function on*() {\nonfoo\n}`
+        && ( handler = ( /{\s(\w+)\s}/.exec ( node [event] ) || [] ) [1] )
+        && ( node [event] = this.renderable (this [handler]) )
+  } // register
 
   // MDN EventTarget.removeEventListener
   // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
@@ -493,7 +501,7 @@ return class extends HTMLElement {
 //
 // DOM Level 2 EventTarget.addEventListener
 // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
-  on ( event, handler ) {
+  Element.prototype.on = function ( event, handler ) {
 
     this.addEventListener
       ( event, this.renderable ( handler , /* TODO: `options` & `useCapture` */ ) )
@@ -509,7 +517,7 @@ return class extends HTMLElement {
   // Introspection should not be confused with reflection,
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
-  reflect ( handler ) {
+  Element.prototype.reflect = function ( handler ) {
 
     /^on/.test ( handler ) // is a W3C `on*`event
       && // handler is defined on class
@@ -519,25 +527,12 @@ return class extends HTMLElement {
         this.on ( handler.substr (2), this [handler] )
   } // reflect
 
-  // Classic `on*=TOKEN` attribute handlers
-  register ( node, handler, event ) {
-
-    for (let attribute of
-      [].slice.call ( node.attributes ) )
-        /^on/.test ( event = attribute.name )
-        // https://www.quirksmode.org/js/events_tradmod.html
-        // because under traditional registration the handler value
-        // is wrapped in scope `function on*() {\nonfoo\n}`
-        && ( handler = ( /{\s(\w+)\s}/.exec ( node [event] ) || [] ) [1] )
-        && ( node [event] = this.renderable (this [handler]) )
-  } // register
-
   // BIG BUG IN IE!!!
   //
   // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
   //
   // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
-  renderable ( handler ) {
+  Element.prototype.renderable = function ( handler ) {
 
     return event =>
       // for `return false`
@@ -547,11 +542,10 @@ return class extends HTMLElement {
         || this.render ()
   } // renderable
 
-} // class
-
+  return Element
 } // EventTarget
 
-function GlobalEventHandlers ( Element ) {
+//function GlobalEventHandlers ( Element ) {
 
 // Living Standard HTML5 GlobalEventHandlers
 // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
@@ -561,68 +555,41 @@ function GlobalEventHandlers ( Element ) {
 //
 // MDN on* Events
 // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
-return class extends Element {
+//return class extends Element {
 
-  onconnect ( event ) {
+//onconnect ( event ) {
 
-    this.templates =
-      this
-        .selectAll ('template[name]')
-        .map (Template)
+//  this.templates =
+//    this
+//      .selectAll ('template[name]')
+//      .map (Template)
 
-    this.tokens =
-      new TokenList (this)
+//  this.tokens =
+//    new TokenList (this)
 
-    super.onconnect
-      && super.onconnect (event)
-  } // onconnect
+//  super.onconnect
+//    && super.onconnect (event)
+//} // onconnect
 
-  ondisconnect ( event ) {
+//ondisconnect ( event ) {
 
-    super.ondisconnect
-      && super.ondisconnect (event)
-  } // ondisconnect
+//  super.ondisconnect
+//    && super.ondisconnect (event)
+//} // ondisconnect
 
-} // class
+//} // class
 
-} // GlobalEventHandlers
+//} // GlobalEventHandlers
 
-const Custom = Element => // why buble
+function Custom ( Element ) { // why buble
+//class extends // interfaces
+Element = EventTarget ( ParentNode
+//  ( GlobalEventHandlers
+  ( Element )) // ))
 
-( class extends // interfaces
-  ( ParentNode
-  ( EventTarget
-  ( GlobalEventHandlers
-  ( Element ))))
-{
-  connectedCallback () {
-    this.context = {}
 
-    super.initialize
-      && super.initialize ()
-
-    Object
-      .getOwnPropertyNames (Element.prototype)
-      .map (this.reflect, this)
-
-    this.addEventListener
-      ('connect', this.onconnect)
- 
-    this.addEventListener
-      ('idle', super.onidle)
-
-    this.onconnect && this.onconnect ()
-    this.dispatch ('connect')
-
-    this.render ()
-  } // connectedCallback
-
-  disconnectedCallback () {
-    this.ondisconnect && this.ondisconnect ()
-    this.dispatch ('disconnect')
-  } // disconnectedCallback
-
-  render () {
+//{
+  Element.prototype.render = function () {
 
     for (let template of this.templates)
       template.bind
@@ -642,7 +609,48 @@ const Custom = Element => // why buble
     this.dispatch ('idle')
   } // render
 
-}) // class
+  Element.prototype.connectedCallback ||
+  (Element.prototype.connectedCallback = function () {
+    this.context = {}
+
+    this.initialize
+      && this.initialize ()
+
+    Object
+      .getOwnPropertyNames (Element.prototype)
+      .map (this.reflect, this)
+
+    this.addEventListener
+      ('connect', this.onconnect)
+
+    this.dispatch ('connect')
+
+    this.templates =
+      this
+        .selectAll ('template[name]')
+        .map (Template)
+
+    this.tokens =
+      new TokenList (this)
+
+    this.addEventListener
+      ('idle', this.onidle)
+
+    this.render ()
+  }) // connectedCallback
+
+  Element.prototype.disconnectedCallback ||
+  (Element.prototype.disconnectedCallback = function () {
+    this.ondisconnect
+      && this.ondisconnect ()
+
+    this.dispatch ('disconnect')
+  }) // disconnectedCallback
+
+//} // class
+
+  return Element
+} // Custom
 
 // http://2ality.com/2013/09/window.html
 // http://tobyho.com/2013/03/13/window-prop-vs-global-var
@@ -665,4 +673,4 @@ const Element = tag => (
 // Assign `window.Element.prototype` in case of feature checking on `Element`
 //  E.prototype = Element.prototype
 //  return E
-) // Element
+)
