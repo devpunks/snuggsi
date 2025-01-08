@@ -19,4 +19,4 @@ Version generation and Publishing routine [can be found here](https://github.com
 
 Contanct us if anything seems janky in regards to **security vulnerabilities**.
 
-You can also check the [Dependabot updates](./actions/workflows/dependabot/dependabot-updates) section for existing vulnerability corrections.
+You can also check the [Dependabot updates](https://github.com/devpunks/snuggsi/security/dependabot) section for existing vulnerability corrections.
