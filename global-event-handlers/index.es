@@ -1,4 +1,4 @@
-function GlobalEventHandlers ( Element ) {
+//function GlobalEventHandlers ( Element ) {
 
 // Living Standard HTML5 GlobalEventHandlers
 // https://html.spec.whatwg.org/multipage/webappapis.html#globaleventhandlers
@@ -8,7 +8,7 @@ function GlobalEventHandlers ( Element ) {
 //
 // MDN on* Events
 // https://developer.mozilla.org/en-US/docs/Web/Guide/Events/Event_handlers
-return class extends Element {
+//return class extends Element {
 
 //onconnect ( event ) {
 
@@ -30,7 +30,7 @@ return class extends Element {
 //    && super.ondisconnect (event)
 //} // ondisconnect
 
-} // class
+//} // class
 
-} // GlobalEventHandlers
+//} // GlobalEventHandlers
 
