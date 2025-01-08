@@ -1,4 +1,4 @@
-function EventTarget ( HTMLElement ) { // why buble
+function EventTarget ( Element ) { // why buble
 
 // WHATWG Living Standard HTML5 EventTarget
 // https://dom.spec.whatwg.org/#eventtarget
@@ -42,8 +42,6 @@ function EventTarget ( HTMLElement ) { // why buble
 //   - https://gomakethings.com/callbacks-on-web-components
 //   - https://viperhtml.js.org/hyperhtml/documentation/#essentials-6
 
-return class extends HTMLElement {
-
   // MDN EventTarget.dispatchEvent
   // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/dispatchEvent
   //
@@ -52,11 +50,24 @@ return class extends HTMLElement {
   //
   // DOM Level 2 EventTarget.dispatchEvent
   //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
-  dispatch (name) {
+  Element.prototype.dispatch = function (name) {
 
     this.dispatchEvent
       ( new Event ( name ) )
   } // dispatch
+
+  // Classic `on*=TOKEN` attribute handlers
+  Element.prototype.register = function ( node, handler, event ) {
+
+    for (let attribute of
+      [].slice.call ( node.attributes ) )
+        /^on/.test ( event = attribute.name )
+        // https://www.quirksmode.org/js/events_tradmod.html
+        // because under traditional registration the handler value
+        // is wrapped in scope `function on*() {\nonfoo\n}`
+        && ( handler = ( /{\s(\w+)\s}/.exec ( node [event] ) || [] ) [1] )
+        && ( node [event] = this.renderable (this [handler]) )
+  } // register
 
   // MDN EventTarget.removeEventListener
   // https://developer.mozilla.org/en-US/docs/Web/API/EventTarget/removeEventListener
@@ -78,7 +89,7 @@ return class extends HTMLElement {
 //
 // DOM Level 2 EventTarget.addEventListener
 // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
-  on ( event, handler ) {
+  Element.prototype.on = function ( event, handler ) {
 
     this.addEventListener
       ( event, this.renderable ( handler , /* TODO: `options` & `useCapture` */ ) )
@@ -94,7 +105,7 @@ return class extends HTMLElement {
   // Introspection should not be confused with reflection,
   // which goes a step further and is the ability for a program to manipulate the values,
   // meta-data, properties and/or functions of an object at runtime.
-  reflect ( handler ) {
+  Element.prototype.reflect = function ( handler ) {
 
     /^on/.test ( handler ) // is a W3C `on*`event
       && // handler is defined on class
@@ -104,25 +115,12 @@ return class extends HTMLElement {
         this.on ( handler.substr (2), this [handler] )
   } // reflect
 
-  // Classic `on*=TOKEN` attribute handlers
-  register ( node, handler, event ) {
-
-    for (let attribute of
-      [].slice.call ( node.attributes ) )
-        /^on/.test ( event = attribute.name )
-        // https://www.quirksmode.org/js/events_tradmod.html
-        // because under traditional registration the handler value
-        // is wrapped in scope `function on*() {\nonfoo\n}`
-        && ( handler = ( /{\s(\w+)\s}/.exec ( node [event] ) || [] ) [1] )
-        && ( node [event] = this.renderable (this [handler]) )
-  } // register
-
   // BIG BUG IN IE!!!
   //
   // https://connect.microsoft.com/IE/feedback/details/790389/event-defaultprevented-returns-false-after-preventdefault-was-called
   //
   // https://github.com/webcomponents/webcomponents-platform/blob/master/webcomponents-platform.js#L16
-  renderable ( handler ) {
+  Element.prototype.renderable = function ( handler ) {
 
     return event =>
       // for `return false`
@@ -132,7 +130,6 @@ return class extends HTMLElement {
         || this.render ()
   } // renderable
 
-} // class
-
+  return Element
 } // EventTarget
 
