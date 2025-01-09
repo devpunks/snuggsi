@@ -234,3 +234,82 @@ jobs:
 #           echo "Tag ${releasever} is signed."
 #           exit 0
 #       }
+    # https://slsa.dev/spec/v1.0/provenance
+    # https://docs.docker.com/build/metadata/attestations/slsa-provenance
+    - name: Provenance
+      run: |
+        ls -al
+        echo Provenance routine
+
+    # https://slsa.dev/spec/v1.0
+    # https://github.com/in-toto/attestation
+    # https://docs.docker.com/build/metadata/attestations
+    # https://github.com/slsa-framework/slsa-github-generator
+    # https://security.googleblog.com/2022/04/improving-software-supply-chain.html
+    - name: Attest # https://github.com/marketplace/actions/attest-build-provenance
+      uses: actions/attest-build-provenance@v2 # https://github.com/actions/attest-build-provenance
+      with:
+        subject-path: '<PATH TO ARTIFACT>'
+
+#--------------------------------------------------------------------------
+  release: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
+    if: false
+    name: 🎉 Release
+    needs: [publish]
+    timeout-minutes: 5
+    runs-on: ubuntu-20.04
+#   outputs:
+#     stringver: ${{ steps.contentrel.outputs.stringver }}
+    steps: # --------------------------------------------------------------
+    - name: Checkout code
+      uses: actions/checkout@v4 # https://github.com/actions/checkout
+
+    - name: Release
+      env:
+        AID: ${{ needs.archive.outputs.aid }}
+        TAG: ${{ env.TAG }}
+      run: echo "${TAG} Artifact ID from previous job is ${AID}"
+
+#--------------------------------------------------------------------------
+  archive: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
+    if: false
+    name: 🧊 Archive
+    needs: [publish]
+    timeout-minutes: 5
+    runs-on: ubuntu-20.04
+    outputs:
+      aid: ${{ steps.artifact-upload.outputs.artifact-id }}
+    steps: # --------------------------------------------------------------
+    - name: Checkout
+      uses: actions/checkout@v4
+      with:
+        fetch-depth: 1
+        fetch-tags: false
+
+    - name: Setup
+      uses: actions/setup-node@v4
+      with:
+        node-version: 18
+        registry-url: 'https://registry.npmjs.org'
+
+    - name: Notate
+      run: |
+        npm pkg get version
+        git tag -l "v$( npm pkg get version | tr -d \" )" -n 200 >> CHANGELOG.md
+    #git tag -l ${RELEASEVER#refs/tags/} -n20000 | tail -n +3 | cut -c 5- >> CHANGELOG.md
+
+    - name: Upload
+      uses: actions/upload-artifact@v4 # https://github.com/actions/upload-artifact
+      id: artifact-upload
+      with:
+        retention-days: 30
+        compression-level: 9
+        if-no-files-found: warn
+        name: snuggsi-${{ github.run_id }}
+        path: |
+          dist
+          !dist/*.md
+          CHANGELOG.md
+
+#--------------------------------------------------------------------------
+
