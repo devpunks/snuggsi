@@ -219,7 +219,7 @@ jobs:
 #         releasever=${{ github.ref }}
 #         releasever="${releasever#refs/tags/}"
 
-    - name: Check
+    - name: Check # https://github.com/slsa-framework/slsa-verifier
       run: |
         VERSION=$(git describe --tags --abbrev=0)
         git tag -v ${VERSION} || true # TODO: Get to 100% Coverage
