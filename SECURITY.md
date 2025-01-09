@@ -35,7 +35,7 @@ Artifacts Integrity is about the ability to trust the authenticity of artifacts,
 
 ## Software Attestation
 
-This software uses the _"In-Toto"_ 3-step methodology for cryptographically signing artifacts & metadata:
+This software uses the [_"In-Toto"_](https://github.com/in-toto/in-toto) 3-step methodology for cryptographically signing artifacts & metadata:
 
   1. The DSSE Envelope (“Dead Simple Signing Envelope”): the transport layer.
   2. The in-toto Statement: the attestation header.
