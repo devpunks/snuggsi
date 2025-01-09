@@ -225,6 +225,7 @@ jobs:
         git tag -v ${VERSION} || true # TODO: Get to 100% Coverage
         echo "RELEASE_VER=${RELEASEVER}" >> $GITHUB_ENV
         echo $GITHUB_ENV
+        bin/weigh
 #       TAGCHECK=$(git tag -v ${releasever} 2>&1 >/dev/null)
 #       echo "${TAGCHECK}" | grep -q "error" && {
 #           echo "::error::tag ${releasever} is not a signed tag. Failing release process."
