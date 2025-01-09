@@ -187,7 +187,7 @@ jobs:
   # https://csrc.nist.gov/Projects/ssdf
   verify: # https://slsa.dev/spec/v1.0/verifying-artifacts
     name: 🔒 Verify
-    needs: [publish]
+#   needs: [publish]
     timeout-minutes: 5
     runs-on: ubuntu-20.04
     steps: # --------------------------------------------------------------
