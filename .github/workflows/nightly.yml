@@ -3,8 +3,8 @@
 # https://docs.github.com/en/actions/writing-workflows/choosing-when-your-workflow-runs/events-that-trigger-workflows
 # https://docs.github.com/en/actions/managing-workflow-runs-and-deployments/managing-workflow-runs/manually-running-a-workflow
 
-name: "Nightly"
-description: "Nightly snuggsi ツ Build"
+name: Nightly
+description: Nightly snuggsi ツ Build
 #--------------------------------------------------------------------------
 permissions: # added using https://github.com/step-security/secure-workflows
   issues: none
