@@ -203,6 +203,7 @@ jobs:
         ref: ${{ github.ref }}
 
     - name: Check # https://github.com/slsa-framework/slsa-verifier
+      id: check
       run: |
         VERSION=$(git describe --tags --abbrev=0)
         git tag -v ${VERSION} || true # TODO: Get to 100% Coverage
@@ -220,6 +221,7 @@ jobs:
     # https://slsa.dev/spec/v1.0/provenance
     # https://docs.docker.com/build/metadata/attestations/slsa-provenance
     - name: Provenance
+      id: provenance
       run: |
         ls -al
         echo Provenance routine
@@ -230,6 +232,7 @@ jobs:
     # https://github.com/slsa-framework/slsa-github-generator
     # https://security.googleblog.com/2022/04/improving-software-supply-chain.html
     - name: Attest # https://github.com/marketplace/actions/attest-build-provenance
+      id: attest
       uses: actions/attest-build-provenance@v2 # https://github.com/actions/attest-build-provenance
       with:
         subject-path: '<PATH TO ARTIFACT>'
