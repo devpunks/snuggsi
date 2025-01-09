@@ -202,26 +202,6 @@ jobs:
         fetch-tags: true
         ref: ${{ github.ref }}
 
-    - name: Setup # https://github.com/marketplace/actions/setup-node-js-environment
-      id: setup
-      uses: actions/setup-node@v4 # https://github.com/actions/setup-node
-      with:
-        cache: npm
-        node-version: 18.x
-        # https://github.com/actions/setup-node/blob/main/docs/advanced-usage.md#working-with-lockfiles
-        cache-dependency-path: 'npm-shrinkwrap.json'
-
-    - name: Install
-      id: install
-      run: |
-        npm ci --no-audit --no-progress --ignore-scripts --prefer-offline
-        npm version
-
-#     - name: Set RELEASE_VER
-#       run: |
-#         releasever=${{ github.ref }}
-#         releasever="${releasever#refs/tags/}"
-
     - name: Check # https://github.com/slsa-framework/slsa-verifier
       run: |
         VERSION=$(git describe --tags --abbrev=0)
