@@ -494,7 +494,7 @@ function EventTarget ( Element ) { // why buble
       var attribute = list[i];
 
       /^on/.test ( event = attribute.name )
-        // https://www.quirksmode.org/js/events_tradmod.html
+        // https://quirksmode.org/js/events_tradmod.html
         // because under traditional registration the handler value
         // is wrapped in scope `function on*() {\nonfoo\n}`
         && ( handler = ( /{\s(\w+)\s}/.exec ( node [event] ) || [] ) [1] )
