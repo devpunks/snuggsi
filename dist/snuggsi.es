@@ -389,7 +389,7 @@ function ParentNode ( Element ) {
 // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode
 //
 // ElementTraversal interface
-// https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
+// https://w3.org/TR/ElementTraversal/#interface-elementTraversal
 // return class extends Element {
 
   // id / identify ? // Method used to find descendants by ID
