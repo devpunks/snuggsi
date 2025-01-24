@@ -226,7 +226,15 @@ jobs:
       id: attest
       uses: actions/attest-build-provenance@v2 # https://github.com/actions/attest-build-provenance
       with:
-        subject-path: '<PATH TO ARTIFACT>'
+        subject-path: './index.js'
+
+    # https://slsa.dev/spec/v1.0/provenance
+    # https://docs.docker.com/build/metadata/attestations/slsa-provenance
+    - name: Provenance
+      id: provenance
+      run: |
+        ls -al
+        echo Provenance routine
 
 #--------------------------------------------------------------------------
   release: # https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/storing-and-sharing-data-from-a-workflow
