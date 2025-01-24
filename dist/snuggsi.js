@@ -479,7 +479,7 @@ function EventTarget ( Element ) { // why buble
   // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
   //
   // DOM Level 2 EventTarget.dispatchEvent
-  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
+  //  https://w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
   Element.prototype.dispatch = function (name) {
 
     this.dispatchEvent
