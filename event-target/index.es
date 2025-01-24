@@ -49,7 +49,7 @@ function EventTarget ( Element ) { // why buble
   // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
   //
   // DOM Level 2 EventTarget.dispatchEvent
-  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
+  //  https://w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
   Element.prototype.dispatch = function (name) {
 
     this.dispatchEvent
@@ -62,7 +62,7 @@ function EventTarget ( Element ) { // why buble
     for (let attribute of
       [].slice.call ( node.attributes ) )
         /^on/.test ( event = attribute.name )
-        // https://www.quirksmode.org/js/events_tradmod.html
+        // https://quirksmode.org/js/events_tradmod.html
         // because under traditional registration the handler value
         // is wrapped in scope `function on*() {\nonfoo\n}`
         && ( handler = ( /{\s(\w+)\s}/.exec ( node [event] ) || [] ) [1] )
@@ -76,7 +76,7 @@ function EventTarget ( Element ) { // why buble
   // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
   //
   // DOM Level 2 EventTarget.removeEventListener
-  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
+  // https://w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
 
 //off (event, listener = 'on' + this [event])
 //  { this.removeEventListener ( event, listener ) }
@@ -88,7 +88,7 @@ function EventTarget ( Element ) { // why buble
 // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
 //
 // DOM Level 2 EventTarget.addEventListener
-// https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
+// https://w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
   Element.prototype.on = function ( event, handler ) {
 
     this.addEventListener

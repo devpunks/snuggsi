@@ -509,7 +509,7 @@ function EventTarget ( Element ) { // why buble
   // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
   //
   // DOM Level 2 EventTarget.removeEventListener
-  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
+  // https://w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
 
 //off (event, listener = 'on' + this [event])
 //  { this.removeEventListener ( event, listener ) }
@@ -521,7 +521,7 @@ function EventTarget ( Element ) { // why buble
 // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
 //
 // DOM Level 2 EventTarget.addEventListener
-// https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
+// https://w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
   Element.prototype.on = function ( event, handler ) {
 
     this.addEventListener
