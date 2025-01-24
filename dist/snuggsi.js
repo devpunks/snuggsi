@@ -466,7 +466,7 @@ function EventTarget ( Element ) { // why buble
 // https://en.wikipedia.org/wiki/DOM_events#Traditional_model
 //
 // Traditional Registration
-// http://www.quirksmode.org/js/events_tradmod.html
+// http://quirksmode.org/js/events_tradmod.html
 //
 // HandleEvent Registration
 //   - https://gomakethings.com/callbacks-on-web-components
