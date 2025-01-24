@@ -217,14 +217,6 @@ jobs:
 #           echo "Tag ${releasever} is signed."
 #           exit 0
 #       }
-    # https://slsa.dev/spec/v1.0/provenance
-    # https://docs.docker.com/build/metadata/attestations/slsa-provenance
-    - name: Provenance
-      id: provenance
-      run: |
-        ls -al
-        echo Provenance routine
-
     # https://slsa.dev/spec/v1.0
     # https://github.com/in-toto/attestation
     # https://docs.docker.com/build/metadata/attestations
