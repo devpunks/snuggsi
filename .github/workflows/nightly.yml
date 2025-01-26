@@ -187,6 +187,8 @@ jobs:
     - run: bin/version
 #--------------------------------------------------------------------------
   # https://csrc.nist.gov/Projects/ssdf
+  # https://cli.github.com/manual/gh_attestation_verify
+  # https://docs.github.com/en/actions/security-for-github-actions/using-artifact-attestations
   verify: # https://slsa.dev/spec/v1.0/verifying-artifacts
     name: 🔒 Verify
     needs: [publish]
