@@ -13,7 +13,7 @@ permissions: # added using https://github.com/step-security/secure-workflows
   packages: none
   contents: write
   id-token: write # Provenance
-  packages: none
+  attestations: write # attest
   deployments: none
   pull-requests: none
   repository-projects: none
