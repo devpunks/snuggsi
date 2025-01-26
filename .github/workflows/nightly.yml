@@ -10,6 +10,7 @@ permissions: # added using https://github.com/step-security/secure-workflows
   issues: none
   checks: none
   actions: write
+  packages: none
   contents: write
   id-token: write # Provenance
   packages: none
