@@ -23,7 +23,7 @@ permissions:
 #--------------------------------------------------------------------------
 on:
   schedule: # https://en.wikipedia.org/wiki/Cron
-    - cron: "0 0 * * *" # Midnight UTC
+    - cron: '0 0 * * *' # Daily @ 00:00 Midnight UTC
   push:
     branches:
       - main
