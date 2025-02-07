@@ -236,7 +236,9 @@ jobs:
       id: attest
       uses: actions/attest-build-provenance@v2 # https://github.com/actions/attest-build-provenance
       with:
-        subject-path: './index.js'
+        subject-path: |
+          './dist/snuggsi.*'
+          './snuggsi.js' # TODO: remove
 
     # https://slsa.dev/spec/v1.0/provenance
     # https://docs.docker.com/build/metadata/attestations/slsa-provenance
