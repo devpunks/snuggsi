@@ -6,7 +6,10 @@
 name: Nightly
 description: Nightly snuggsi ツ Build
 #--------------------------------------------------------------------------
-permissions: # added using https://github.com/step-security/secure-workflows
+# https://github.com/step-security/secure-workflows
+# https://graphite.dev/guides/github-actions-permissions
+# https://docs.github.com/en/actions/writing-workflows/choosing-what-your-workflow-does/controlling-permissions-for-github_token
+permissions:
   issues: none
   checks: none
   actions: write
