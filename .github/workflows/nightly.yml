@@ -32,6 +32,8 @@ on:
 env:
   # Prevent script injection
   EMAIL: ${{ secrets.EMAIL }}
+  OWNER: ${{ github.repository_owner }}
+  REPO: ${{ github.event.repository.name }}
   NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
   GPG_SIGNING_KEY: ${{ secrets.GPG_SIGNING_KEY }}
 #--------------------------------------------------------------------------
