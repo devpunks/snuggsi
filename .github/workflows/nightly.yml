@@ -200,6 +200,8 @@ jobs:
     needs: [publish]
     timeout-minutes: 5
     runs-on: ubuntu-20.04
+    env:
+       H_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps: # --------------------------------------------------------------
     - name: Checkout
       id: checkout
