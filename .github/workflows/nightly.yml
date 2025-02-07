@@ -13,8 +13,8 @@ permissions:
   issues: none
   checks: none
   actions: write
-  packages: none
-  contents: write
+  packages: none # containers
+  contents: write # file access
   id-token: write # Provenance
   attestations: write # attest
   deployments: none
