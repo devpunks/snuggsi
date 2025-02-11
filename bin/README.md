@@ -42,7 +42,7 @@ $ cd snuggsi && npm i
   - [`transpile`](#transpile)
   - [`watch`](#watch)
   - [`weigh`](#weigh)
-  - [`weigh`](#version)
+  - [`version`](#version)
 
 
 ## [`browse`](browse)
