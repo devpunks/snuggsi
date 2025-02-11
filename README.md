@@ -45,6 +45,9 @@
      - [`Element` Definition](#element-definition)
      - [`class` Description](#class-description)
    - [`Template`](#template)
+ - [Build Process](#build-process)
+ - [References](#references)
+ - [Contributors](#contributors)
 
 
 # [Why ?](https://github.com/devpunks/snuggsi/wiki/Why%3F)
@@ -655,19 +658,23 @@ template.bind (context)
 ```
 
 
-## Build Process
+## [Build Process](./dist#build-process)
 
 **snuggsiツ** is able to use modern compression algorithms to create
 bundles as small as *~1500 OCTETS* _(or one 1500byte Ethernet packet frame)_
 
-[Read More](https://github.com/devpunks/snuggsi/tree/master/dist#readme)
+[Read More](./dist#readme)
 
 
-### CalVer _(Calendar Versioning)_
+### [CalVer _(Calendar Versioning)_](,/bin/README.md#version)
 
 A chronological [CalVer](https://calver.org) strategy is used instead of [SemVer](https://semver.org).
 [Read More](bin#version)
 
+
+## References
+
+  - [WebComponents Will outlive Your JavaScript Framework](https://youtube.com/watch?v=1vF6puwX3bE)
 
 
 ## Contributors
