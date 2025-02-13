@@ -46,8 +46,3 @@
 Rock your release today!
 
 ![snuggsiツ CalVer releases](https://dev-to-uploads.s3.amazonaws.com/i/4ll6ojigi5w69fetfanv.png)
-
-
-<hr>
-
-{% github devpunks/snuggsi %}
