@@ -82,7 +82,7 @@ var TokenList = function (node) {
 
 TokenList.prototype.bind = function (context) {
   var
-    tokenize = function (token) { return function (node) { return (node.textContent = node.textContent
+    tokenize = function (token) { return function (node) { return (node.textContent = node.text
         .split ('{'+token+'}')
         .join(context [token])); }; }
 
