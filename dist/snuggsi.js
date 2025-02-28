@@ -699,3 +699,7 @@ var Element = function (tag) { return (
 //  return E
 ); }
 
+ent.prototype
+//  return E
+); }
+

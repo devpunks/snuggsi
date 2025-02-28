@@ -86,16 +86,14 @@ class TokenList { // TODO: Rename to Symbols
   bind (context) {
     const
       tokenize = token => node =>
-        (node.textContent = node.text
+        (node.textContent = node.textContent
           .split ('{'+token+'}')
           .join  (context [token]))
 
     for (let token in this)
-      console.log('context', token)
-//  for (let token in this)
-//    token != 'bind' // current method
-//      && this [token].map // more than one occurrence
-//        (node => (node.textContent = node.text)) // memoize
+      token != 'bind' // current method
+        && this [token].map // more than one occurrence
+          (node => (node.textContent = node.text)) // memoize
 
     for (let token in this)
       token != 'bind' // current method
