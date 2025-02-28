@@ -82,14 +82,16 @@ var TokenList = function (node) {
 
 TokenList.prototype.bind = function (context) {
   var
-    tokenize = function (token) { return function (node) { return (node.textContent = node.textContent
+    tokenize = function (token) { return function (node) { return (node.textContent = node.text
         .split ('{'+token+'}')
         .join(context [token])); }; }
 
   for (var token in this)
-    { token != 'bind' // current method
-      && this [token].map // more than one occurrence
-        (function (node) { return (node.textContent = node.text); }) } // memoize
+    { console.log('context', token) }
+//for (let token in this)
+//  token != 'bind' // current method
+//    && this [token].map // more than one occurrence
+//      (node => (node.textContent = node.text)) // memoize
 
   for (var token$1 in this)
     { token$1 != 'bind' // current method
@@ -402,7 +404,7 @@ function ParentNode ( Element ) {
 // https://developer.mozilla.org/en-US/docs/Web/API/ParentNode
 //
 // ElementTraversal interface
-// https://www.w3.org/TR/ElementTraversal/#interface-elementTraversal
+// https://w3.org/TR/ElementTraversal/#interface-elementTraversal
 // return class extends Element {
 
   // id / identify ? // Method used to find descendants by ID
@@ -466,7 +468,7 @@ function EventTarget ( Element ) { // why buble
 // https://en.wikipedia.org/wiki/DOM_events#Traditional_model
 //
 // Traditional Registration
-// http://www.quirksmode.org/js/events_tradmod.html
+// http://quirksmode.org/js/events_tradmod.html
 //
 // HandleEvent Registration
 //   - https://gomakethings.com/callbacks-on-web-components
@@ -479,7 +481,7 @@ function EventTarget ( Element ) { // why buble
   // https://dom.spec.whatwg.org/#dom-eventtarget-dispatchevent
   //
   // DOM Level 2 EventTarget.dispatchEvent
-  //  https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
+  //  https://w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-dispatchEvent
   Element.prototype.dispatch = function (name) {
 
     this.dispatchEvent
@@ -494,7 +496,7 @@ function EventTarget ( Element ) { // why buble
       var attribute = list[i];
 
       /^on/.test ( event = attribute.name )
-        // https://www.quirksmode.org/js/events_tradmod.html
+        // https://quirksmode.org/js/events_tradmod.html
         // because under traditional registration the handler value
         // is wrapped in scope `function on*() {\nonfoo\n}`
         && ( handler = ( /{\s(\w+)\s}/.exec ( node [event] ) || [] ) [1] )
@@ -509,7 +511,7 @@ function EventTarget ( Element ) { // why buble
   // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
   //
   // DOM Level 2 EventTarget.removeEventListener
-  // https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
+  // https://w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-removeEventListener
 
 //off (event, listener = 'on' + this [event])
 //  { this.removeEventListener ( event, listener ) }
@@ -521,7 +523,7 @@ function EventTarget ( Element ) { // why buble
 // https://dom.spec.whatwg.org/#dom-eventtarget-removeeventlistener
 //
 // DOM Level 2 EventTarget.addEventListener
-// https://www.w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
+// https://w3.org/TR/DOM-Level-2-Events/events.html#Events-EventTarget-addEventListener
   Element.prototype.on = function ( event, handler ) {
 
     this.addEventListener
