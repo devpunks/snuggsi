@@ -86,7 +86,7 @@ class TokenList { // TODO: Rename to Symbols
   bind (context) {
     const
       tokenize = token => node =>
-        (node.textContent = node.textContent
+        (node.textContent = node.text
           .split ('{'+token+'}')
           .join  (context [token]))
 
