@@ -87,9 +87,11 @@ TokenList.prototype.bind = function (context) {
         .join(context [token])); }; }
 
   for (var token in this)
-    { token != 'bind' // current method
-      && this [token].map // more than one occurrence
-        (function (node) { return (node.textContent = node.text); }) } // memoize
+    { console.log('context', token) }
+//for (let token in this)
+//  token != 'bind' // current method
+//    && this [token].map // more than one occurrence
+//      (node => (node.textContent = node.text)) // memoize
 
   for (var token$1 in this)
     { token$1 != 'bind' // current method
