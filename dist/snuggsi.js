@@ -332,7 +332,7 @@ var Template = function (template) {
         .map (tokenize)
         .reverse () // Range.insertNode does prepend
         .map (function (fragment) { return range.insertNode (fragment); })
-    }
+    } // bind
 
   range.setStartAfter (template)
   template.bind = bind
