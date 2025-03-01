@@ -319,7 +319,7 @@ const Template = template => {
         .map (tokenize)
         .reverse () // Range.insertNode does prepend
         .map (fragment => range.insertNode (fragment))
-    }
+    } // bind
 
   range.setStartAfter (template)
   template.bind = bind
