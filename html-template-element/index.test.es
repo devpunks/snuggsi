@@ -6,8 +6,7 @@ const { assert, test, describe, context, view } = require('../test')
 
 describe ('Template', _=> {
   const
-    window = view ( url )
-  , source = window.document.scripts[0].src
+    template = document.querySelector `template[name=foo]`
 
   test ('EventTarget', _=> {
     console.log( window.document.documentElement.outerHTML )
