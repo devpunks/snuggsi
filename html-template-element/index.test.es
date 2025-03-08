@@ -1,6 +1,8 @@
 const { assert, test, describe, context, view } = require('../test')
   // The resulting document's URL will be a file:// URL,
-  url = 'html-template-element/index.test.html'
+, window = view ( 'html-template-element/index.test.html' )
+, document = window.document
+, source = document.scripts[0].src
 
 describe ('Template', _=> {
   const
