@@ -9,7 +9,8 @@ describe ('Template', _=> {
     template = document.querySelector `template[name=foo]`
 
   test ('EventTarget', _=> {
-    console.log( window.document.documentElement.outerHTML )
+    console.log( document.documentElement.outerHTML )
+    console.log( template )
 
     assert (true)
   }) // test
