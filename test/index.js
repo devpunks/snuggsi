@@ -52,8 +52,6 @@ const
 //  } // created
 } // configuration
 
-module.exports = { assert, browse, context, describe, read, test, view, }
-
 //const virtualConsole = dom.createVirtualConsole().sendTo( console )
 //virtualConsole.on (`log`, message => console.log (message))
 //dom.env(element, configuration, { virtualConsole })
