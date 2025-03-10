@@ -24,11 +24,6 @@ const
       : Buffer.from ( resource )
   // https://github.com/ddamato/code-anatomy/blob/master/test/dom.js
   // https://github.com/ddamato/code-anatomy/blob/master/test/index.spec.js
-, view = url =>
-    /^(www|http:|https:)+[^\s]+[\w]$/.test (url)
-      ? console.log (`TODO: Puppeteer >>> ${url}`)
-      : new JSDOM ( wrap ( fetch (url) ),
-          { runScripts: 'dangerously', resources: 'usable' } ).window
 
 , configuration = { // url, file, src: html, scripts, html,
 //  done (error, window) {
