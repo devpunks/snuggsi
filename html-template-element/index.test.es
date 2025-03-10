@@ -5,7 +5,7 @@ const
 describe ('Template', _=> {
   const
     template = document.querySelector
-      `template[name=foo]`.content
+      `template[name=foo]`
 
   test ('.content', _=> {
     console.log( document.documentElement.outerHTML )
