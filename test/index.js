@@ -13,9 +13,10 @@ const
 , { readFileSync: read } = require('node:fs')
 , { test, describe, context=describe } = require('node:test')
 
-, wrap = ( content, template = 'test/index.html' ) =>
-      read ( template ).toString()
-        .replace( '${content}', content )
+, wrap = ( content, template = `${__dirname}/index.html` ) =>
+    read ( template ).toString()
+      .replace( '${content}', content )
+
 , fetch = resource =>
     ( /.*\.html$/.test ( resource ) )
       ? read ( resource )
