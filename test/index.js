@@ -19,6 +19,7 @@ const
 
 , fetch = resource =>
     ( /.*\.html$/.test ( resource ) )
+      // TODO: Remove ternary logic
       ? read ( resource )
       : Buffer.from ( resource )
   // https://github.com/ddamato/code-anatomy/blob/master/test/dom.js
