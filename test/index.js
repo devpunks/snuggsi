@@ -30,7 +30,7 @@ const
       .test ( zip ( parts, tokens ) )
       ? console.log (`TODO: Puppeteer >>> ${zip(parts,tokens)}`)
       : new JSDOM ( wrap ( fetch ( zip ( parts, tokens ) ) ),
-          { runScripts: 'dangerously', resources: 'usable', url: `file://${process.cwd()}` } ).window
+          { pretendToBeVisual: true, runScripts: 'dangerously', resources: 'usable', url: `file://${process.cwd()}` } ).window
 
 module.exports = { assert, context, describe, test, read, view, browse, navigate, }
 
