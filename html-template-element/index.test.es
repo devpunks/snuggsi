@@ -8,8 +8,9 @@ describe ('Template', _=> {
       `template[name=foo]`
 
   test ('.content', _=> {
-    console.log( document.documentElement.outerHTML )
-    assert ( template.textContent )
+    assert(template.content.textContent)
+
+    console.log( 'TEST', document.documentElement.outerHTML )
   }) // test
 }) // describe
 
