@@ -25,7 +25,17 @@ const
   // https://github.com/ddamato/code-anatomy/blob/master/test/dom.js
   // https://github.com/ddamato/code-anatomy/blob/master/test/index.spec.js
 
-, configuration = { // url, file, src: html, scripts, html,
+, view = ( parts, ...tokens ) => // add + '' for template strings
+    /^(www|http:|https:)+[^\s]+[\w]$/
+      .test ( zip ( parts, tokens ) )
+      ? console.log (`TODO: Puppeteer >>> ${zip(parts,tokens)}`)
+      : new JSDOM ( wrap ( fetch ( zip ( parts, tokens ) ) ),
+          { runScripts: 'dangerously', resources: 'usable', url: `file://${process.cwd()}` } ).window
+
+module.exports = { assert, context, describe, test, read, view, browse, navigate, }
+
+const
+  configuration = { // url, file, src: html, scripts, html,
 //  done (error, window) {
 //    console.log (window.document.documentElement.outerHTML)
 //    window.close ()
