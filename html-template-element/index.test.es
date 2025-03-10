@@ -4,7 +4,8 @@ const
 
 describe ('Template', _=> {
   const
-    template = document.querySelector `template[name=foo]`
+    template = document.querySelector
+      `template[name=foo]`.content
 
   test ('EventTarget', _=> {
     console.log( document.documentElement.outerHTML )
