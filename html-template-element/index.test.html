@@ -6,5 +6,9 @@
 
 <script>
   console.log('WTF This actually works FROM TEST', document.querySelector('template').content.textContent, window.Element, window.Template, window.customElements.define)
-</script>
+
+  Template('foo')
+    .bind( [ {planet:'Sun'}, {planet:'Earth'} ] )
+
+    console.log( 'TEMPLATE', document.documentElement.outerHTML )
 </script>
