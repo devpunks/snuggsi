@@ -1,5 +1,9 @@
 const
-  assert = require ('assert')
+  zip = (a, b) =>
+    ( typeof a != 'string' )
+      ? a.map( (k, i) => k + ( b[i] || '' ) ).join ``
+      : a
+, assert = require ('assert')
 , a11y = require ('./a11y.es')
 , browse = require ('./browse.es')
 , { JSDOM } = require ('./parse.es')
