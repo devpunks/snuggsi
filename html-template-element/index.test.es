@@ -1,5 +1,5 @@
 const
-  { assert, test, describe, context, view } = require('../test')
+  { assert, test, describe, context, parse, view, browse } = require('../test')
 , { document } = view `${__dirname}/index.test.html`
 
 describe ('Template', _=> {
