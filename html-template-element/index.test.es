@@ -7,7 +7,7 @@ const
 describe ('HTMLTemplateElement', _=> {
   const element = dom
 
-  console.log('DA DOM!!!', element)
+  console.log('DA DOM!!!', element.document)
 
   test ( '.content', _=>
     assert ( true ) )
