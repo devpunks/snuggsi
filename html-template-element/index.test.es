@@ -1,6 +1,8 @@
 const
   { assert, test, describe, context, parse, view, browse } = require('../test')
 , { document } = view `${__dirname}/index.test.html`
+, dom = parse `${__dirname}/index.test.html`
+, browser = browse `${__dirname}/index.test.html`
 
 describe ('Template', _=> {
   const
