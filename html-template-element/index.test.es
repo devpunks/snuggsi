@@ -4,7 +4,7 @@ const
 , dom = parse `${__dirname}/index.test.html`
 , browser = browse `${__dirname}/index.test.html`
 
-describe ('HTMLTemplateElement', _=> {
+describe ( 'HTMLTemplateElement', _=> {
   const element = dom
 
   console.log('DA DOM!', element.document)
