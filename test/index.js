@@ -36,7 +36,8 @@ const
       : new JSDOM ( wrap ( fetch ( zip ( parts, tokens ) ) ),
           { pretendToBeVisual: true, runScripts: 'dangerously', resources: 'usable', url: `file://${process.cwd()}` } ).window
 
-module.exports = { assert, context, describe, test, read, view, browse, navigate, }
+
+module.exports = { assert, context, describe, test, read, parse, view, browse, navigate, }
 
 const
   configuration = { // url, file, src: html, scripts, html,
