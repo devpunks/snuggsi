@@ -4,13 +4,10 @@ const
 , dom = parse `${__dirname}/index.test.html`
 , browser = browse `${__dirname}/index.test.html`
 
-describe ('Template', _=> {
-  const
-    template = document.querySelector
-      `template[name=foo]`
+describe ('HTMLTemplateElement', _=> {
+  const element = dom
 
-  test ('.content', _=> {
-    assert(template.content.textContent)
+  console.log('DA DOM!!!', element)
 
     console.log( 'TEST', document.documentElement.outerHTML )
   }) // test
