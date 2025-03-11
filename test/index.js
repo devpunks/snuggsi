@@ -30,7 +30,7 @@ const
       { runScripts: 'dangerously', resources: 'usable' } ).window
 
 , view = ( parts, ...tokens ) => // add + '' for template strings
-    /^(www|http:|https:)+[^\s]+[\w]$/
+    /^(www|http:|https:)+[^\s]+[\w]$/ // brose or navigate
       .test ( zip ( parts, tokens ) )
       ? console.log (`TODO: Puppeteer >>> ${zip(parts,tokens)}`)
       : new JSDOM ( wrap ( fetch ( zip ( parts, tokens ) ) ),
