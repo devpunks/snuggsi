@@ -9,7 +9,15 @@ describe ('HTMLTemplateElement', _=> {
 
   console.log('DA DOM!!!', element)
 
-    console.log( 'TEST', document.documentElement.outerHTML )
-  }) // test
+  test ( '.content', _=>
+    assert ( true ) )
+
+  describe ('<template name=… >', _=> {
+    const template
+      = document.querySelector `template[name=foo]`
+
+    test ( '.content', _=>
+      assert ( template.content ) )
+  }) // describe
 }) // describe
 
