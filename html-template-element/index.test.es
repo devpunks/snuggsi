@@ -12,7 +12,7 @@ describe ( 'HTMLTemplateElement', _=> {
   test ( '.content', _=>
     assert ( true ) )
 
-  describe ('<template name=…>', _=> {
+  describe ( '<template name=…>', _=> {
     const template
       = document.querySelector `template[name=foo]`
 
