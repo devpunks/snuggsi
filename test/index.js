@@ -25,6 +25,10 @@ const
   // https://github.com/ddamato/code-anatomy/blob/master/test/dom.js
   // https://github.com/ddamato/code-anatomy/blob/master/test/index.spec.js
 
+, parse = ( parts, ...tokens ) => // add + '' for template strings
+    new JSDOM ( wrap ( fetch ( zip ( parts, tokens ) ) ),
+      { runScripts: 'dangerously', resources: 'usable' } ).window
+
 , view = ( parts, ...tokens ) => // add + '' for template strings
     /^(www|http:|https:)+[^\s]+[\w]$/
       .test ( zip ( parts, tokens ) )
