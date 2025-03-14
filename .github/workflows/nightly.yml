@@ -195,9 +195,9 @@ jobs:
   # https://csrc.nist.gov/Projects/ssdf
   # https://cli.github.com/manual/gh_attestation_verify
   # https://docs.github.com /en/actions/security-for-github-actions/using-artifact-attestations
-  # https://www.legitsecurity.com/blog/slsa-provenance-blog-series-part-1-what-is-software-attestation
-  # https://www.legitsecurity.com/blog/slsa-provenance-blog-series-part-2-deeper-dive-into-slsa-provenance
-  # https://www.legitsecurity.com/blog/slsa-provenance-blog-series-part3-challenges-of-adopting-slsa-provenance
+  # https://legitsecurity.com/blog/slsa-provenance-blog-series-part-1-what-is-software-attestation
+  # https://legitsecurity.com/blog/slsa-provenance-blog-series-part-2-deeper-dive-into-slsa-provenance
+  # https://legitsecurity.com/blog/slsa-provenance-blog-series-part3-challenges-of-adopting-slsa-provenance
   verify: # https://slsa.dev/spec/v1.0/verifying-artifacts
     name: 🔒 Verify
     needs: [publish]
