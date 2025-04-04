@@ -25,7 +25,7 @@ declare YEAR=$(date +%Y)
 declare MONTH=$(date +%m)
 declare DAY=$(date +%d)
 
-# remove double quotes
+# Get version & remove double quotes
 declare VERSION=$(npm pkg get version --workspaces=false | tr -d \")
 # https://stackoverflow.com/q/918886
 declare MAJOR=$( echo $VERSION | cut -d "." -f 1 )
