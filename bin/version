@@ -2,6 +2,7 @@
 
 # https://calver.org
 # https://gist.github.com/DarrenN/8c6a5b969481725a4413
+# NPM Security - https://cheatsheetseries.owasp.org/cheatsheets/NPM_Security_Cheat_Sheet.html
 
 declare -r DRY='' # '--dry-run'
 # sign-git-tag to prevent infinite recursion
