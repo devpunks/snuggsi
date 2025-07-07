@@ -42,7 +42,7 @@ jobs:
 #--------------------------------------------------------------------------
   scan:
     name: 🔎 Scan
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps: # --------------------------------------------------------------
       - name: Dump GitHub context
         env:
@@ -74,7 +74,7 @@ jobs:
     if: false
     name: 🏗️ Build
     timeout-minutes: 5
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps: # --------------------------------------------------------------
       - name: Update
         run: |
@@ -108,7 +108,7 @@ jobs:
   test:
     if: false
     name: 📊 Test
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     env: # Prevent script injection
       SNUGGSI: "."
       PUPPETEER_SKIP_DOWNLOAD: true
@@ -172,7 +172,7 @@ jobs:
   publish: # https://docs.github.com/en/actions/use-cases-and-examples/publishing-packages/publishing-nodejs-packages
     name: 🗞️ Publish
 #   needs: [scan,build,test]
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     steps: # --------------------------------------------------------------
     - uses: actions/checkout@v4 # https://github.com/actions/checkout
       with:
@@ -202,7 +202,7 @@ jobs:
     name: 🔒 Verify
     needs: [publish]
     timeout-minutes: 5
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     env:
        H_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps: # --------------------------------------------------------------
@@ -257,7 +257,7 @@ jobs:
     name: 🎉 Release
     needs: [publish]
     timeout-minutes: 5
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
 #   outputs:
 #     stringver: ${{ steps.contentrel.outputs.stringver }}
     steps: # --------------------------------------------------------------
@@ -276,7 +276,7 @@ jobs:
     name: 🧊 Archive
     needs: [publish]
     timeout-minutes: 5
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-22.04
     outputs:
       aid: ${{ steps.artifact-upload.outputs.artifact-id }}
     steps: # --------------------------------------------------------------
