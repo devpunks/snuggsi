@@ -102,7 +102,7 @@ Gone are the sleepless nights where your code [suffers from `<div>`itus](https:/
 
 ## [&lt;`custom-elements`&gt;](/element#readme)
 
-When picking a name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you must be aware of. We can simply use `hello-world` for now.
+When picking a tag name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you must be aware of. The tag name must start with a lowercase letter _(`a-z`)_ and include at least one hyphen _(`-`)_. For example, `a-b` and `c-` are both **valid** Custom Element tag names. However, `-d` and `E-F` are both **invalid** tag names. This requirement distinguishes custom elements from standard HTML elements and will ensure forward compatibility. For now, we can simply use `hello-world`.
 
 
 ### `HTML` Declaration
