@@ -134,10 +134,10 @@ A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names _(as long
 As you learned earlier there are a few conventions to adhere to be considered a _"valid **Custom** Element"_ you will need an alpha-numeric character followed by a hyphen in the tag name _(at minimum)_:
 
 ```html
-<foo></foo> <!-- invalid (CUSTOM element but valid HTML element) -->
-<foo-bar>   <!-- invalid (no closing tag) -->
-<a-></a->   <!-- valid (you only need a character and a hyphen) -->
-<foo-bar></foo-bar> <!-- valid -->
+<foo></foo> <!-- invalid (CUSTOM element but valid HTML unknown element) -->
+<foo-bar>   <!-- invalid (valid tag name, but invalid markup due to no closing tag) -->
+<a-></a->   <!-- valid (minimum requirement of starting with an alpha character and includes a hyphen) -->
+<foo-bar></foo-bar> <!-- valid (starts with alpha character, includes a hyphen, and is completely lowercase) -->
 ```
 
 👍 Rule of thumb: _Use [kebab case (with hyphens)](https://en.wiktionary.org/wiki/kebab_case) for tag names._
