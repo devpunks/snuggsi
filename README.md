@@ -137,7 +137,7 @@ As you learned earlier there are a few conventions to adhere to be considered a 
 <foo></foo> <!-- invalid (CUSTOM element but valid HTML unknown element) -->
 <foo-bar>   <!-- invalid (valid tag name, but invalid markup due to no closing tag) -->
 <a-></a->   <!-- valid (minimum requirement of starting with an alpha character and includes a hyphen) -->
-<foo-bar></foo-bar> <!-- valid (starts with alpha character, includes a hyphen, and is completely lowercase) -->
+<foo-bar></foo-bar> <!-- valid (starts with alpha character, includes a hyphen, is completely lowercase, & has a closing tag) -->
 ```
 
 👍 Rule of thumb: _Use [kebab case (with hyphens)](https://en.wiktionary.org/wiki/kebab_case) for tag names._
