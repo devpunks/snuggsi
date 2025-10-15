@@ -127,7 +127,7 @@ A _"valid `HTML` Element"_ has always _allowed_ non-standard tag names _(as long
 <img />  <!-- valid (x-HTML self closing tag)  -->
 <hr>     <!-- valid (no content tag)  -->
 ```
-👍 Rule of thumb: _Close all **non-standard** `HTML` Element tags!_
+👍 Rule of thumb: _Close all **non-standard** unknown `HTML` Element tags!_
 
 <hr>
 
