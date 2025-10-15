@@ -102,13 +102,13 @@ Gone are the sleepless nights where your code [suffers from `<div>`itus](https:/
 
 ## [&lt;`custom-elements`&gt;](/element#readme)
 
-When picking a tag name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you must be aware of. The tag name must start with a lowercase letter _(`a-z`)_ and include at least one hyphen _(`-`)_. For example, `a-b` and `c-` are both **valid** Custom Element tag names. However, `-d` and `E-F` are both **invalid** tag names. This requirement distinguishes custom elements from standard HTML elements and will ensure forward compatibility. For now, we can simply use `hello-world`.
+When picking a tag name for your custom element [there are a few naming conventions](https://html.spec.whatwg.org/multipage/custom-elements.html#valid-custom-element-name) you must be aware of. The tag name must start with a lowercase letter _(`a-z`)_ and include at least one hyphen _(`-`)_. For example, `a-b` and `c-` are both **valid** Custom Element tag names. However, `-d` and `e-F` are both **invalid** tag names due to the former starting with a hyphen and the latter containing an uppercase letter. These requirements distinguish custom elements from standard HTML elements and will ensure forward compatibility. For now, we can simply use `hello-world`.
 
 
 ### `HTML` Declaration
 
-`HTML` has always been a declarative language. Why not just use it to declare Custom Elements?
-If you know [how to write `HTML`](https://developer.mozilla.org/en-US/docs/Web/HTML) you can start using **snuggsiツ**. Sometimes you need to sandbox a section of your page for styling. Other times you need a custom container of complex functionality. Either way you usually start with a plain ole' `HTML` element declaration:
+`HTML` has always been a declarative language. Why not just use it to _declare_ Custom Elements?
+If you know [how to write `HTML`](https://developer.mozilla.org/en-US/docs/Web/HTML) you can start using **snuggsiツ** immediately. Sometimes you need to sandbox a section of your page for styling. Other times you need a custom container of complex functionality. In the bad ol' days you would usually start with a generic `HTML` element declaration _(e.g. `<div id="hello-world">`)_.
 
 
 #### A Brief History Lesson
