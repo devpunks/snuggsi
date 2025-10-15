@@ -158,9 +158,7 @@ At this point your **custom** element can be styled using CSS just like any othe
 
 ```html
 <style>
-hello-world {
-  background: #bada55
-}
+  hello-world { background: #bada55 }
 </style>
 
 <hello-world>
