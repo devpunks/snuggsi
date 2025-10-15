@@ -70,7 +70,7 @@ _(You can if ya **want** to use **snuggsiツ**  with those tools. But you don't 
 
 [__*#UseThePlatform*__](https://en.wikipedia.org/wiki/Web_platform)
 
-**snuggsiツ** works in a plain ol' `*.html` file! Simply place the following **&lt;script&gt;** within your webpage:
+**snuggsiツ** works in a plain ol' `*.html` file! Simply place the following `<script>` tag within your page:
 
 ```html
 <script src=https://unpkg.com/snuggsi></script>
