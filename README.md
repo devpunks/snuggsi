@@ -1,4 +1,4 @@
-<h1 align=center>snuggsi ツ - Easy Custom Elements in <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>~1kiloByte</a> </h1>
+<h1 align=center>snuggsi ツ - Easy Web Elements in <a href=https://github.com/devpunks/snuggsi/tree/master/dist#readme>~1kiloByte</a> </h1>
 
 <p align=center>
   <a href=https://www.npmjs.com/package/snuggsi target=external>
