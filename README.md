@@ -58,7 +58,6 @@
   1. You prefer to be [D.R.Y.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and build reusable web components on a gradual learning curve.
   2. Because [You _(probably)_ don't need a JavaScript Framework](https://dev.to/steelvoltage/you-probably-don-t-need-a-front-end-framework-26o6).
   3. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration).
-
   4. [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
      are [ready for production](https://medium.com/adobetech/the-web-platform-is-back-fa5752fabdfc)
      &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has
