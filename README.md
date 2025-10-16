@@ -55,9 +55,9 @@
 > _I have a special disdain for beginner JavaScript tutorials that have you run `create-react-app` as the first step, and this exercise has only strengthened my conviction that every beginner programmer should get to grips with HTML, CSS and vanilla JS before delving into frameworks._
 ⸺ [_"Using the platform"_ - Elise Hein](https://elisehe.in/2021/08/22/using-the-platform)
 
-  1. You prefer to be [D.R.Y.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and build reusable web components on a gradual learning curve.
+  1. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration).
   2. Because [You _(probably)_ don't need a JavaScript Framework](https://dev.to/steelvoltage/you-probably-don-t-need-a-front-end-framework-26o6).
-  3. You prefer [convention over configuration](https://en.wikipedia.org/wiki/Convention_over_configuration).
+  3. You prefer to be [D.R.Y.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and build reusable web components on a gradual learning curve.
   4. [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
      are [ready for production](https://medium.com/adobetech/the-web-platform-is-back-fa5752fabdfc)
      &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has
