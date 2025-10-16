@@ -53,7 +53,7 @@
 # [Why ?](https://github.com/devpunks/snuggsi/wiki/Why%3F)
 
 > I have a special disdain for beginner JavaScript tutorials that have you run `create-react-app` as the first step, and this exercise has only strengthened my conviction that every beginner programmer should get to grips with HTML, CSS and vanilla JS before delving into frameworks.
-- [_"Using the platform"_ - Elise Hein](https://elisehe.in/2021/08/22/using-the-platform)
+⸺ [_"Using the platform"_ - Elise Hein](https://elisehe.in/2021/08/22/using-the-platform)
 
   1. You prefer to be [D.R.Y.](https://en.wikipedia.org/wiki/Don%27t_repeat_yourself) and build reusable web components on a gradual learning curve.
   2. Because [You _(probably)_ don't need a JavaScript Framework](https://dev.to/steelvoltage/you-probably-don-t-need-a-front-end-framework-26o6).
