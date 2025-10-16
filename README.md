@@ -62,7 +62,7 @@
   4. [Web Components](https://developer.mozilla.org/en-US/docs/Web/Web_Components)
      are [ready for production](https://medium.com/adobetech/the-web-platform-is-back-fa5752fabdfc)
      &amp; [Custom Elements v1](https://www.w3.org/TR/custom-elements) has
-     [support for every modern 🍃 greenfield browser](#browser-support).
+     [support for every 🍃 greenfield browser](#browser-support).
 
 
 # Easy Installation
