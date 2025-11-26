@@ -45,6 +45,14 @@
       "browser": {
         "default": "./dist/snuggsi.min.es.js"
       }
+    },
+    "./test": {
+      "import": "./test/index.es",
+      "require": "./test/index.js",
+      "default": "./test/index.js",
+      "browser": {
+        "default": "./test/testharness.js"
+      }
     }
   },
   "cpu": [
