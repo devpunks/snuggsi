@@ -48,7 +48,7 @@ function check () {
     resource=$1
 
     test ! -e "$resource" \
-      && echo "  🚫  RESOURCE NOT FOUND 👉 $resource\n\n" \
+      && echo "  🚫  RESOURCE NOT FOUND 👉 $resource" \
       && return 1
 
     return 0
