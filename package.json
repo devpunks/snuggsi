@@ -27,7 +27,7 @@
     "url": "https://github.com/devpunks/snuggsi/issues"
   },
   "workspaces": [],
-  "main": "index.js",
+  "main": "index.es",
   "browser": "index.js",
   "files": [
     "/dist/*.min*"
