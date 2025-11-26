@@ -37,7 +37,7 @@ function te () {
 
   test ! -f $execute \
     || test ${execute##*/} == snuggsi \
-    && echo -e "\n  🚫  NON EXECUTABLE COMMAND !\n\n" \
+    && echo -e "\n  🚫  NON EXECUTABLE COMMAND: ${execute}\n\n" \
     && exit 1 # Short circuit execution
 
   echo $execute
