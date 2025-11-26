@@ -40,6 +40,8 @@
   },
   "exports": {
     ".": {
+      "import": "./index.es",
+      "require": "./index.es",
       "browser": {
         "default": "./dist/snuggsi.min.es.js"
       }
