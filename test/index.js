@@ -1,3 +1,5 @@
+console.log('Loading test/index.js')
+
 const
   zip = (a, b) =>
     ( typeof a != 'string' )
