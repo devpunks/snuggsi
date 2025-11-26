@@ -11,6 +11,7 @@ clear ; echo '
 '
 declare -x -r \
   COMMAND="${1:-help}" \
+  PARAMS="${@:2}" \
   SNUGGSI="${SNUGGSI:-$( npm config get prefix )/lib/node_modules/${BASH_SOURCE##*/}}"
 
 echo SNUGGSI 👉 $SNUGGSI
