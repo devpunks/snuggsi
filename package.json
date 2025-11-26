@@ -91,6 +91,7 @@
   ],
   "bundleDependencies": [],
   "dependencies": {
+    "snuggsi": "file:.",
     "basic-auth": "^2.0.1",
     "koa": "^2.15.3",
     "koa-cors": "^0.0.16",
