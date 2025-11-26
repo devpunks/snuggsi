@@ -22,7 +22,7 @@ function run () {
 
   echo COMMAND 👉 ${command}
 
-  source $SNUGGSI/bin/.resources
+  source $SNUGGSI/bin/.resources $PARAMS
 
   for resource in "${RESOURCES[@]}" ; do
     ( check $resource ) \
