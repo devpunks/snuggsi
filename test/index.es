@@ -1,3 +1,5 @@
+console.log('Loading test/index.es')
+
 const
   test = require ('tape')
 
