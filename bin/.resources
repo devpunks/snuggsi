@@ -10,8 +10,8 @@ function locate {
   done
 } # locate
 
-declare -a  \
-  RESOURCES=( $( locate ${@:2} ) )
+declare -a -x  \
+  RESOURCES=( $( locate ${@} ) )
 
 echo ; echo "${#RESOURCES[@]} RESOURCE(S):"
 
