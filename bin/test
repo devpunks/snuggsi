@@ -10,7 +10,7 @@ function bin () {
 
 declare -r \
   TEST='node --test' \
-  SUITE=".{/*,}/*.test.{js,es}"
+  SUITE=".{/**,}/*.test{,.js,.es}"
 
 
 echo
