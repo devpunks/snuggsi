@@ -9,7 +9,7 @@ clear ; echo '
   ツツツツツ                  ツツツツツ
   ツツツツツツツツツツツツツツツツツツツ
 '
-declare -x \
+declare -x -r \
   COMMAND="${1:-help}" \
   SNUGGSI="$( npm config get prefix )/lib/node_modules/${BASH_SOURCE##*/}"
 
