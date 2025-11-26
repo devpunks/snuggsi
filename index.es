@@ -1,3 +1,5 @@
+console.log('Loading ./index.es')
+
 require ('./polyfills')
 
 const
