@@ -4,7 +4,9 @@ set -u
 
 declare -r \
   TEST='node --test' \
-  SUITE="#{SUITE:-.{/**,}/*.test{,.js,.es}}"
+  SUITE="${@:-$( echo  .{/*,}/*.test{.js,.es} )}"
+# TODO add .test suite extensions
+# SUITE="${@:-'.{/**,}/*.test{,.js,.es}'}"
 
 
 echo
