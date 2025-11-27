@@ -4,7 +4,7 @@ set -u
 
 declare -r \
   TEST='node --test' \
-  SUITE=".{/**,}/*.test{,.js,.es}"
+  SUITE="#{SUITE:-.{/**,}/*.test{,.js,.es}}"
 
 
 echo
