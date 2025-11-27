@@ -11,7 +11,7 @@ function locate {
 declare -a -x \
   RESOURCES=( $( locate "$PARAMS" ) )
 
-echo ; echo "${#RESOURCES[@]} RESOURCE(S):"
+echo ; echo "${#RESOURCES} RESOURCE(S):"
 
 for resource in ${RESOURCES[@]} ; do
   echo "  📂  ${resource}"
