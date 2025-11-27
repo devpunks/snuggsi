@@ -42,6 +42,7 @@
     ".": {
       "import": "./index.es",
       "require": "./index.es",
+      "default": "./index.js",
       "browser": {
         "default": "./dist/snuggsi.min.es.js"
       }
