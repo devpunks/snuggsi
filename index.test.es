@@ -36,4 +36,3 @@ describe ('scripts', _=> {
     assert ( /snuggsi/.test ( source ) )
   }) // test
 }) // describe
-
