@@ -162,7 +162,7 @@ jobs:
         echo To $(shopt -p nullglob)
         echo
         # -----------------------------------------------------
-        node --test index.test.es ./**/*.test.{es,js}
+        npm test
 
     - name: Cover
       id: cover
