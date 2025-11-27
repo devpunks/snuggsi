@@ -43,6 +43,7 @@
       "import": "./index.es",
       "require": "./index.es",
       "default": "./index.js",
+      "unpkg": "./dist/snuggsi.min.es.js",
       "browser": {
         "default": "./dist/snuggsi.min.es.js"
       }
