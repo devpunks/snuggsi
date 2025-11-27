@@ -110,7 +110,7 @@ jobs:
     name: 📊 Test
     runs-on: ubuntu-22.04
     env: # Prevent script injection
-      SNUGGSI: "."
+      SNUGGSI: '.'
       PUPPETEER_SKIP_DOWNLOAD: true
 #     CHROMEDRIVER_BINARY: ../../../node_modules/chromedriver/lib/chromedriver/chromedriver
     steps: # --------------------------------------------------------------
