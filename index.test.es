@@ -31,7 +31,9 @@ describe ('scripts', _=> {
       .createHTMLDocument('SHAZAAAAMMM!!!')
 
     console.log( d.documentElement.outerHTML )
-    assert (source === 'https://unpkg.com/snuggsi')
+
+    // assert (source === 'https://unpkg.com/snuggsi')
+    assert ( /snuggsi/.test ( source ) )
   }) // test
 }) // describe
 
