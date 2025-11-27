@@ -2,10 +2,6 @@
 
 set -u
 
-function bin () {
-  echo ${SNUGGSI}/node_modules/.bin
-}
-
 declare -r \
   TEST='node --test' \
   SUITE=".{/**,}/*.test{,.js,.es}"
