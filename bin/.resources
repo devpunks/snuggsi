@@ -13,6 +13,6 @@ declare -a -x \
 
 echo ; echo "${#RESOURCES} RESOURCE(S):"
 
-for resource in ${RESOURCES[@]} ; do
+for resource in $RESOURCES ; do
   echo "  📂  ${resource}"
 done ; echo
