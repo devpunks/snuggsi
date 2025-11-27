@@ -1,7 +1,6 @@
-const { view, assert, test, describe, context } = require('./test'),
-  // The resulting document's URL will be a file:// URL,
-  url = 'index.test.html'
-, window = view (url)
+const { view, assert, test, describe, context } = require('./test')
+  // The resulting document's scheme will be a file://
+, window = view ( 'index.test.html' )
 
 describe ('scripts', _=> {
   const
