@@ -15,6 +15,7 @@ declare -x -r \
   SNUGGSI="${SNUGGSI:-$( npm config get prefix )/lib/node_modules/${BASH_SOURCE##*/}}"
 
 echo SNUGGSI 👉 $SNUGGSI
+printf "PARAM: %s\n" $PARAMS
 
 function run () {
   local -r \
