@@ -27,7 +27,7 @@ const
     .filter ( method => method !== 'BIND' )
 
 , UNSAFE_METHODS = METHODS
-    .filter (method => !!! SAFE_METHODS.includes (method))
+    .filter (method => !!! SAFE_METHODS.includes ( method ) )
 
 , scan = resource =>
     METHODS.filter (method => method.toLowerCase `` in resource)
