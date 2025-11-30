@@ -112,7 +112,6 @@ test ('serve defaults to `public` when called with empty template literal', asyn
 
 
   server.close ``
-  t.end ()
 })
 
 
