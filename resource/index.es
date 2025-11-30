@@ -48,7 +48,7 @@ module.exports = path =>
 
 new class extends Base ( path = path + '' ) {
 
-  constructor (allow = scan (super ()), headers = { allow }) {
+  constructor ( allow = scan ( super () ), headers = { allow } ) {
 
     const
       endpoint = context =>
