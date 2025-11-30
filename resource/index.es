@@ -83,7 +83,7 @@ new class extends Base ( path = path + '' ) {
     || path
     && identity !== entry
     && await send ( context, [ root, path, identity ].join `` )
-  }
+  } // get
 
 
 //options (context) // should be done by CORS
