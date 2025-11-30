@@ -1,6 +1,6 @@
 const
-  { test, serve, read, fetch }
-    = require ('test')
+  test = require ( 'node:test' )
+, { readFileSync: read } = require ( 'node:fs' )
 
 , { Server }
     = require ('..')
