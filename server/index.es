@@ -32,4 +32,4 @@ module.exports = class extends require ( 'koa' ) {
       .use (root)
       .listen ( port, _ => console.warn (message) )
   } // serve
-}
+} // class
