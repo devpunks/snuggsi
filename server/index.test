@@ -133,7 +133,6 @@ test ('serving specific directory', async t => {
 
 
   server.close ``
-  t.end ()
 })
 
 
