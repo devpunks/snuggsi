@@ -115,7 +115,7 @@ void ( async assert => {
     resource = Resource ``
 
   , server =
-      (new Server ( [ route (resource) ] ))
+      ( new Server ( [ route ( resource ) ] ) )
       .serve ``
 
   , ALLOWED_METHODS = DEFAULT_METHODS
