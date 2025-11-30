@@ -20,7 +20,7 @@ module.exports = class extends require ( 'koa' ) {
   } // constructor
 
 
-  serve ( path = '.', port = process.env.PORT) {
+  serve ( { PWD: path, PORT: port } =  process.env ) {
 
     const
       message
