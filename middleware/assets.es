@@ -5,8 +5,8 @@ const
 , { Resource }
     = require ('..')
 
-console.log ('assets SNUGGSI', Object.keys(require ('..')))
-console.log ('SNUGGSI', process.env.SNUGGSI)
+console.log ( 'assets SNUGGSI', Object.keys ( require ( '..' ) ) )
+console.log ( 'SNUGGSI', process.env.SNUGGSI )
 
 
 module.exports =
