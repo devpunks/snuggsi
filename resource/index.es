@@ -86,9 +86,6 @@ new class extends Base ( path = path + '' ) {
   } // get
 
 
-//options (context) // should be done by CORS
-//  { context.status = 200 }
-
 
 //purge (context) // http://restcookbook.com/Basics/caching/
 //  { context.status = 202 }
