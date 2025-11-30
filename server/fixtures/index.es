@@ -10,7 +10,7 @@ class {
     console.warn ('THIS SHOULD NEVER GET CALLED!!', context)
   } // foo
 
-  put (context) {
+  put ( context ) {
     console.warn ('Wow this is really PUTing!', context)
   } // put
 
