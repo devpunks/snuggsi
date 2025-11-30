@@ -30,7 +30,7 @@ const
     // Buggs @brandondees?
     .filter ( method => method !== 'TRACE' )
     // Bind must be called on a function?
-    .filter (method => method !== 'BIND')
+    .filter ( method => method !== 'BIND' )
 
 , SAFE_METHODS = [ ... DEFAULT_METHODS ]
 
