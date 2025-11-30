@@ -1,5 +1,5 @@
 const
-  { cors, security, snuggsi, negotiator, assets }
+  { cors, security, snuggsi, negotiator }
     = require ( '../middleware/index.es' )
 
 
