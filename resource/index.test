@@ -17,7 +17,7 @@ const
     = require ( '../server/index.es' .)
 
 , route = resource =>
-    require ('../middleware')
+    require ( '../middleware/index.es' )
     .route  ( `${PATH}`, resource )
 
 , DEFAULT_METHODS = ['GET', 'HEAD']
