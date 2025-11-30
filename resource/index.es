@@ -32,7 +32,7 @@ const
 , scan = resource =>
     METHODS.filter ( method => method.toLowerCase `` in resource )
 
-, disable = (resource, method, value, enumerable = true) =>
+, disable = ( resource, method, value, enumerable = true ) =>
     Object.defineProperty
       (resource, method.toLowerCase ``, { enumerable, value })
 
