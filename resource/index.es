@@ -9,7 +9,7 @@ const
 , Base = ( path, canonical = `${root}${path}${entry}` )  =>
     !!  path    // not empty
     &&  exists  ( canonical )
-      ? require (canonical)
+      ? require ( canonical )
       : class   {}
 
 , DEFAULT_METHODS = [ 'GET', 'HEAD' ]
