@@ -277,7 +277,7 @@ void ( async assert => {
       ( new Server ( [ route ( resource ) ] ) )
       .serve ``
 
-  for (asset of assets) {
+  for ( asset of assets ) {
 
     let
       expected = await read
