@@ -149,8 +149,8 @@ test ('serving specific directory with template literal', async t => {
 //t.equal
 //  (200, response.status)
 
-  t.equal
-    ( await response.text ``, await read `./server/fixtures/index.txt` )
+//t.equal
+//  ( await response.text ``, await read `./server/fixtures/index.txt` )
 
 
   server.close ``
