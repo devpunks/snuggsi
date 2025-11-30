@@ -168,7 +168,7 @@ void ( async assert => {
       .serve ``
 
   , DISALLOWED_METHODS = METHODS.filter
-    (method => !!! DEFAULT_METHODS.includes (method))
+    ( method => !!! DEFAULT_METHODS.includes ( method ) )
 
 
   for (method of DISALLOWED_METHODS) {
