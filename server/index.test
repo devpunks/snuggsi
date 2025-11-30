@@ -59,7 +59,7 @@ test ('middleware collection dependency injection', async t => {
       = ( new Server ( stack ) ).serve `server/fixtures`
 
   , { headers }
-      = await fetch (`http://localhost:${process.env.PORT}/`)
+      = await fetch ( `http://localhost:${process.env.PORT}/` )
 
 
   t.equal
