@@ -26,7 +26,7 @@ const
     // cors?
     .filter ( method => method !== 'OPTIONS' )
     // for some reason connect won't work
-    .filter (method => method !== 'CONNECT')
+    .filter ( method => method !== 'CONNECT' )
     // Buggs @brandondees?
     .filter (method => method !== 'TRACE')
     // Bind must be called on a function?
