@@ -90,7 +90,7 @@ new class extends Base ( path = path + '' ) {
 }
 
 
-function mount (point) { // Negotiation requires efficient directory traversal.
+function mount ( point ) { // Negotiation requires efficient directory traversal.
   // https://codehabitude.com/2015/10/11/evolving-a-node-js-directory-walk/
 }
 
