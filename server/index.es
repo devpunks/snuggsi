@@ -7,7 +7,7 @@ console.log ( 'SNUGGSI', process.env.SNUGGSI )
 console.log ( 'server SNUGGSI', Object.keys ( require ( '../index.es' ) ) )
 
 
-module.exports = class extends require ('koa') {
+module.exports = class extends require ( 'koa' ) {
 
   constructor ( middleware = [] ) { super () 
 
