@@ -1,6 +1,6 @@
 const
   { cors, security, snuggsi, negotiator, assets }
-    = require ('../middleware')
+    = require ( '../middleware' )
 
 
 console.log ('server SNUGGSI', Object.keys(require ('../index.es')))
