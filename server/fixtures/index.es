@@ -1,7 +1,6 @@
 module.exports =
 
 class {
-
   constructor () {
     console.warn ('This CAN be called from initialization')
   } // constructor
