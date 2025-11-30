@@ -8,7 +8,7 @@ const
 
 , Base = ( path, canonical = `${root}${path}${entry}` )  =>
     !!  path    // not empty
-    &&  exists  (canonical)
+    &&  exists  ( canonical )
       ? require (canonical)
       : class   {}
 
