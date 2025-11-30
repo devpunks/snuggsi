@@ -5,8 +5,7 @@ const
 , { readFileSync: read } = require ( 'node:fs' )
 // , { test } = require ( '../test/index.es' )
 
-, { Server }
-    = require ('..')
+, Server = require ( './index.es' )
 
 
 test ('new Server does not throw', t => {
