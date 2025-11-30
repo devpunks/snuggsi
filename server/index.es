@@ -16,7 +16,6 @@ module.exports = class extends require ( 'koa' ) {
     , cors        // why is this NOT a function
     , security `` // ...and this IS a function?
     , ... middleware
-    , snuggsi
     ]) this.use ( slice )
   }
 
