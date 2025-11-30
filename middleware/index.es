@@ -8,7 +8,6 @@ module.exports = {
 , security   : require ( './security.es' )
 , browse     : require ( './browse.es' )
 , snuggsi    : require ( './snuggsi.es' )
-, route      : require ( './route.es' )
 //, assets     : require ( './assets.es' )
 , mixins     : require ( '../mixins/middleware.es' )
 } // exports
