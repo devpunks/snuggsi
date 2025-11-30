@@ -25,8 +25,8 @@ module.exports = class Server extends require ( 'koa' ) {
     const
       message
         = `\n📚  Serving ${path}/ on port ${port}\n`
-    , root
-        = assets ( Boolean (path += '') ? path : 'public' )
+//  , root
+//      = assets ( Boolean (path += '') ? path : 'public' )
 
     return this
       .use (root)
