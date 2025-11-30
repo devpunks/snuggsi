@@ -264,7 +264,7 @@ void ( async assert => {
 
 test `GET subresource assets`
 
-void (async assert => {
+void ( async assert => {
 
   const
     point = `/resource/fixtures/`
