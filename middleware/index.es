@@ -7,7 +7,7 @@ module.exports = {
 , cors       : require ('./cors.es')
 , security   : require ('./security.es')
 , browse     : require ('./browse.es')
-, snuggsi    : require ('./snuggsi')
+, snuggsi    : require ('./snuggsi.es')
 , route      : require ('./route')
 , assets     : require ('./assets')
 , mixins     : require ('../mixins/middleware')
