@@ -11,4 +11,4 @@ module.exports = {
 , route      : require ('./route')
 , assets     : require ('./assets')
 , mixins     : require ('../mixins/middleware')
-}
+} // exports
