@@ -102,7 +102,7 @@ async function send ( context, file ) {
     { stat, readFile: read }
     // readFile is FAR SLOWER - https://stackoverflow.com/questions/4589732#answer-4590651
     // https://github.com/claudetech/koa-stream/blob/master/index.js
-      = require ('fs')
+      = require ( 'fs' )
 
   , { size, mtime }
       = await promisify (stat) (file)
