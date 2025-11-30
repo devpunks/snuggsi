@@ -14,7 +14,7 @@ class {
     console.warn ('Wow this is really PUTing!', context)
   } // put
 
-  patch (context) {
+  patch ( context ) {
     console.warn ('Wow this is really PATCHing!', context.params)
     console.warn ('This', context.body = 'SHAZAAAAAM!!!!')
   } // patch
