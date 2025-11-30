@@ -3,7 +3,7 @@ const
     = require ( '../middleware' )
 
 
-console.log ('server SNUGGSI', Object.keys(require ('../index.es')))
+console.log ( 'server SNUGGSI', Object.keys ( require ( '../index.es' ) ) )
 console.log ('SNUGGSI', process.env.SNUGGSI)
 
 
