@@ -171,8 +171,7 @@ void ( async assert => {
     ( method => !!! DEFAULT_METHODS.includes ( method ) )
 
 
-  for (method of DISALLOWED_METHODS) {
-
+  for ( method of DISALLOWED_METHODS ) {
     let
       { status, headers }
         = await fetch ( URL, { method } )
