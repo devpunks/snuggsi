@@ -23,7 +23,7 @@ class {
     console.warn ('Wow this is really POSTing!', context)
   } // post
 
-  delete (context) {
+  delete ( context ) {
     console.warn ('Wow this is really DELETEing!', context)
   } // delete
 } // class
