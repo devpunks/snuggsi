@@ -1,6 +1,6 @@
 const
   { cors, security, snuggsi, negotiator, assets }
-    = require ( '../middleware' )
+    = require ( '../middleware/index.es' )
 
 
 console.log ( 'SNUGGSI', process.env.SNUGGSI )
