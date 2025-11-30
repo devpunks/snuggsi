@@ -288,9 +288,9 @@ void ( async assert => {
 
     , { status, headers } = response
 
-    , type     = headers.get ('Content-Type')
-    , length   = headers.get ('Content-Length')
-    , modified = headers.get ('Last-Modified')
+    , type     = headers.get ( 'Content-Type' )
+    , length   = headers.get ( 'Content-Length' )
+    , modified = headers.get ( 'Last-Modified' )
 
 
     assert ( expected == await response.text `` )
