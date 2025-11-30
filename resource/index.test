@@ -274,7 +274,7 @@ void ( async assert => {
       = [ 'index.html' ]
 
   , server =
-      (new Server ( [ route (resource) ] ))
+      ( new Server ( [ route ( resource ) ] ) )
       .serve ``
 
   for (asset of assets) {
