@@ -1,6 +1,6 @@
 const
   { route }
-    = require ('.')
+    = require ( '.' )
 
 , { Resource }
     = require ('..')
