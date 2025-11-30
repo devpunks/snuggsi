@@ -46,7 +46,7 @@ const
 
 module.exports = path =>
 
-new class extends Base (path = path + '') {
+new class extends Base ( path = path + '' ) {
 
   constructor (allow = scan (super ()), headers = { allow }) {
 
