@@ -2,8 +2,7 @@ const
   test = require ( 'node:test' )
 , { readFileSync: read } = require ( 'node:fs' )
 
-, { Server }
-    = require ('..')
+, Server = require ('./index.es')
 
 
 test ('mount resource location to an endpoint', async t => {
