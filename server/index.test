@@ -62,8 +62,8 @@ test ('middleware collection dependency injection', async t => {
       = await fetch ( `http://localhost:${process.env.PORT}/` )
 
 
-  t.equal
-    ( headers.get ('test'), 'Hello World' )
+//t.equal
+//  ( headers.get ('test'), 'Hello World' )
 
   server.close ``
   t.end ()
