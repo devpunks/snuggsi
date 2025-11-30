@@ -12,7 +12,7 @@ class {
 
   put (context) {
     console.warn ('Wow this is really PUTing!', context)
-  }
+  } // put
 
   patch (context) {
     console.warn ('Wow this is really PATCHing!', context.params)
