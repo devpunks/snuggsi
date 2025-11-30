@@ -310,7 +310,7 @@ void ( async assert => {
 
   const
     point = `/resource/fixtures/`
-  , resource = Resource (point)
+  , resource = Resource ( point )
 
   , server =
       (new Server ( [ route (resource) ] ))
