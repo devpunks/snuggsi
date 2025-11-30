@@ -30,7 +30,7 @@ const
     .filter (method => !!! SAFE_METHODS.includes ( method ) )
 
 , scan = resource =>
-    METHODS.filter (method => method.toLowerCase `` in resource)
+    METHODS.filter ( method => method.toLowerCase `` in resource )
 
 , disable = (resource, method, value, enumerable = true) =>
     Object.defineProperty
