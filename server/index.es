@@ -17,10 +17,10 @@ module.exports = class extends require ( 'koa' ) {
         , security `` // ...and this IS a function?
         , ... middleware
       ] ) this.use ( slice )
-  }
+  } // constructor
 
 
-  serve (path = '', port = process.env.PORT) {
+  serve ( path = '.', port = process.env.PORT) {
 
     const
       message
