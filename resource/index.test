@@ -271,7 +271,7 @@ void ( async assert => {
   , resource = Resource ( point )
 
   , assets // loop resource
-      = ['index.html']
+      = [ 'index.html' ]
 
   , server =
       (new Server ( [ route (resource) ] ))
