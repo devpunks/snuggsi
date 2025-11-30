@@ -246,7 +246,7 @@ void ( async assert => {
       .filter ( name => !!! ALLOWED_METHODS.includes ( name ) )
 
 
-  for (method of DISALLOWED_METHODS) {
+  for ( method of DISALLOWED_METHODS ) {
 
     let
       { status, headers }
