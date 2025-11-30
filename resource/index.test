@@ -144,7 +144,7 @@ void ( async assert => {
 
   , ALLOWED_METHODS = DEFAULT_METHODS
 
-  for (method of ALLOWED_METHODS) {
+  for ( method of ALLOWED_METHODS ) {
     let { status, headers }
       = await fetch ( URL + 'index.html', { method } )
 
