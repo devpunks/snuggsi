@@ -9,6 +9,6 @@ module.exports = {
 , browse     : require ('./browse.es')
 , snuggsi    : require ('./snuggsi.es')
 , route      : require ('./route.es')
-, assets     : require ('./assets')
+, assets     : require ('./assets.es')
 , mixins     : require ('../mixins/middleware')
 } // exports
