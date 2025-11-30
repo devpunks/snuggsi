@@ -331,7 +331,7 @@ void ( async assert => {
 
 test `GET subresource with predefined body`
 
-void (async assert => {
+void ( async assert => {
 
   const
     resource = Resource `/resource/fixtures/`
