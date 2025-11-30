@@ -1,8 +1,9 @@
 //require ('./mount.test')
 
 const
-  { test, read, fetch }
-    = require ('test')
+  test = require ( 'node:test' )
+, { readFileSync: read } = require ( 'node:fs' )
+// , { test } = require ( '../test/index.es' )
 
 , { Server }
     = require ('..')
