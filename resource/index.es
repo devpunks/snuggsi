@@ -105,7 +105,7 @@ async function send ( context, file ) {
       = require ( 'fs' )
 
   , { size, mtime }
-      = await promisify (stat) (file)
+      = await promisify ( stat ) ( file )
 
   , headers = {
       'Content-Length' : size
