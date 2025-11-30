@@ -1,7 +1,7 @@
 const
   entry = 'index.es'
 , root  = process.cwd ``
-, negotiate = require ('./negotiate')
+, negotiate = require ( './negotiate' )
 
 , { existsSync: exists }
     = require ('fs')
