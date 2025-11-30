@@ -85,9 +85,7 @@ new class extends Base ( path = path + '' ) {
     && await send ( context, [ root, path, identity ].join `` )
   } // get
 
-
-
-//purge (context) // http://restcookbook.com/Basics/caching/
+//purge ( context ) // http://restcookbook.com/Basics/caching/
 //  { context.status = 202 }
 }
 
