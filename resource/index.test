@@ -243,7 +243,7 @@ void ( async assert => {
         .filter ( unique )
 
   , DISALLOWED_METHODS = METHODS
-      .filter (name => !!! ALLOWED_METHODS.includes (name))
+      .filter ( name => !!! ALLOWED_METHODS.includes ( name ) )
 
 
   for (method of DISALLOWED_METHODS) {
