@@ -37,7 +37,7 @@ const
 , UNSAFE_METHODS = METHODS.filter
     ( method => !!! SAFE_METHODS.includes ( method ) )
 
-, unique = (method, index, methods) =>
+, unique = ( method, index, methods ) =>
     methods.indexOf (method) === index
 
 , compare = (left, right) =>
