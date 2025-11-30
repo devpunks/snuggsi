@@ -224,7 +224,7 @@ void ( async assert => {
 
 test `Defined Resource disallowed methods`
 
-void (async assert => {
+void ( async assert => {
   const
     { __proto__: proto } = resource
       = Resource `/resource/fixtures/`
