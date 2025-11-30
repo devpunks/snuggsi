@@ -20,7 +20,7 @@ const
     require ( '../middleware/index.es' )
     .route  ( `${PATH}`, resource )
 
-, DEFAULT_METHODS = ['GET', 'HEAD']
+, DEFAULT_METHODS = [ 'GET', 'HEAD' ]
 
 , METHODS = [ ... require ('http').METHODS ]
     // cors?
