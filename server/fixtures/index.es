@@ -17,7 +17,7 @@ class {
   patch (context) {
     console.warn ('Wow this is really PATCHing!', context.params)
     console.warn ('This', context.body = 'SHAZAAAAAM!!!!')
-  }
+  } // patch
 
   post (context) {
     console.warn ('Wow this is really POSTing!', context)
