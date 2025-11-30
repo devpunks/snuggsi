@@ -1,6 +1,6 @@
 const
   entry = 'index.es'
-, root  = process.cwd ``
+, root  = process.env.PWD
 , negotiate = require ( './negotiate' )
 
 , { existsSync: exists }
