@@ -25,5 +25,5 @@ class {
 
   delete (context) {
     console.warn ('Wow this is really DELETEing!', context)
-  }
+  } // delete
 }
