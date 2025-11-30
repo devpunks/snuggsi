@@ -164,7 +164,7 @@ void ( async assert => {
     resource = Resource ``
 
   , server =
-      (new Server ( [ route (resource) ] ))
+      ( new Server ( [ route ( resource ) ] ) )
       .serve ``
 
   , DISALLOWED_METHODS = METHODS.filter
