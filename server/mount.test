@@ -21,5 +21,4 @@ test ('mount resource location to an endpoint', async t => {
 //  ( await read (body), read `./public/favicon.ico` )
 
   server.close ``
-  t.end ()
 })
