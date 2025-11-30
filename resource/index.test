@@ -313,7 +313,7 @@ void ( async assert => {
   , resource = Resource ( point )
 
   , server =
-      (new Server ( [ route (resource) ] ))
+      ( new Server ( [ route ( resource ) ] ) )
       .serve ``
 
   , response = await fetch
