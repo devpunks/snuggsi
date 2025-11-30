@@ -268,7 +268,7 @@ void ( async assert => {
 
   const
     point = `/resource/fixtures/`
-  , resource = Resource (point)
+  , resource = Resource ( point )
 
   , assets // loop resource
       = ['index.html']
