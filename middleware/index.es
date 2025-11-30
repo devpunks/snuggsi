@@ -4,7 +4,7 @@
 module.exports = {
 
   auth       : require ( './auth.es' )
-, cors       : require ('./cors.es')
+, cors       : require ( './cors.es' )
 , security   : require ('./security.es')
 , browse     : require ('./browse.es')
 , snuggsi    : require ('./snuggsi.es')
