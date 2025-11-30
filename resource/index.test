@@ -199,8 +199,8 @@ void ( async assert => {
       .serve ``
 
   , DEFINED_METHODS = Object
-      .getOwnPropertyNames (Object.getPrototypeOf (proto))
-      .map (method => method.toUpperCase ())
+      .getOwnPropertyNames ( Object.getPrototypeOf ( proto ) )
+      .map ( method => method.toUpperCase () )
 
 
   , ALLOWED_METHODS
