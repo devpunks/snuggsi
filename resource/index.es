@@ -16,7 +16,7 @@ const
 
 , SAFE_METHODS = [ ... DEFAULT_METHODS ]
 
-, METHODS = [ ... require ('http').METHODS ]
+, METHODS = [ ... require ( 'http' ).METHODS ]
     // cors?
     .filter ( method => method !== 'OPTIONS' )
     // for some reason connect won't work
