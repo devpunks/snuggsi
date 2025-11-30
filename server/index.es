@@ -29,7 +29,7 @@ module.exports = class Server extends require ( 'koa' ) {
 //      = assets ( Boolean (path += '') ? path : 'public' )
 
     return this
-      .use (root)
+//    .use (root)
       .listen ( port, _ => console.warn (message) )
   } // serve
 } // class
