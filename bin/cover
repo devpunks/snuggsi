@@ -6,7 +6,8 @@ set -u
 
 declare -r  THRESHOLD=100                        # Percentage
 declare -r  EXTENSIONS='.es'                     # Ecmascript
-declare -r  HARNESS="node --test index.test.es **/*.test.es **/*.test.js"    # Test harness
+#declare -r  HARNESS="node --test index.test.es **/*.test.es **/*.test.js"    # Test harness
+declare -r  HARNESS="node --test .{/*,}/*.test{.js,.es}"
 declare -r  OUTPUT=.nyc_output/                  # Represented in Percentage
 declare -r  REPORTER=text                        # Type of coverage report to generate
 declare -r  COVER=$SNUGGSI/node_modules/.bin/nyc # Coverage runner
