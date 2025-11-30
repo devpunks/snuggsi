@@ -39,7 +39,7 @@ const
 , promisify
     = ( operation ) =>
       ( ... args  ) =>
-      new Promise ( (resolve, reject) =>
+      new Promise ( ( resolve, reject ) =>
         operation ( ... args, (error, response) =>
           error ? reject (error) : resolve (response)))
 
