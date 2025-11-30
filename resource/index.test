@@ -195,7 +195,7 @@ void ( async assert => {
       = Resource `/resource/fixtures/`
 
   , server =
-      (new Server ( [ route (resource) ] ))
+      ( new Server ( [ route ( resource ) ] ) )
       .serve ``
 
   , DEFINED_METHODS = Object
