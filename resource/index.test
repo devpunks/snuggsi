@@ -40,7 +40,7 @@ const
 , unique = ( method, index, methods ) =>
     methods.indexOf (method) === index
 
-, compare = (left, right) =>
+, compare = ( left, right ) =>
   // headers in no particular order
     left.slice ().sort ().join `,`
       == right.slice ().sort ().join `,`
