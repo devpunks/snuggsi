@@ -24,7 +24,7 @@ const
     // Buggs @brandondees?
     .filter ( method => method !== 'TRACE' )
     // Bind must be called on a function?
-    .filter (method => method !== 'BIND')
+    .filter ( method => method !== 'BIND' )
 
 , UNSAFE_METHODS = METHODS
     .filter (method => !!! SAFE_METHODS.includes (method))
