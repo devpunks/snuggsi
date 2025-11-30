@@ -8,7 +8,7 @@ class {
 
   static foo (context) {
     console.warn ('THIS SHOULD NEVER GET CALLED!!', context)
-  }
+  } // foo
 
   put (context) {
     console.warn ('Wow this is really PUTing!', context)
