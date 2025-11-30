@@ -2,7 +2,6 @@
 // https://medium.com/netscape/mastering-koa-middleware-f0af6d327a69
 
 module.exports = {
-
   auth       : require ( './auth.es' )
 , cors       : require ( './cors.es' )
 , security   : require ( './security.es' )
