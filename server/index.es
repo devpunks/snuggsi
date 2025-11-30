@@ -9,7 +9,7 @@ console.log ( 'server SNUGGSI', Object.keys ( require ( '../index.es' ) ) )
 
 module.exports = class extends require ( 'koa' ) {
 
-  constructor ( middleware = [] ) { super () 
+  constructor ( middleware = [] ) { super ()
 
     for (let slice of [
       cors        // why is this NOT a function
