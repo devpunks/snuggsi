@@ -142,8 +142,8 @@ test ('serving specific directory with template literal', async t => {
     server
       = ( new Server ).serve `server/fixtures`
 
-  , response
-      = await fetch (`http://localhost:${process.env.PORT}/index.txt`)
+//, response
+//    = await fetch (`http://localhost:${process.env.PORT}/index.txt`)
 
 
   t.equal
