@@ -24,7 +24,7 @@ const
 
 , METHODS = [ ... require ( 'http' ).METHODS ]
     // cors?
-    .filter (method => method !== 'OPTIONS')
+    .filter ( method => method !== 'OPTIONS' )
     // for some reason connect won't work
     .filter (method => method !== 'CONNECT')
     // Buggs @brandondees?
