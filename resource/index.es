@@ -87,7 +87,7 @@ new class extends Base ( path = path + '' ) {
 
 //purge ( context ) // http://restcookbook.com/Basics/caching
 //  { context.status = 202 }
-}
+} // class
 
 
 function mount ( point ) { // Negotiation requires efficient directory traversal.
