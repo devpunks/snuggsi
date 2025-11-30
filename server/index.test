@@ -89,7 +89,6 @@ test ('serve defaults to `public` when called without argument', async t => {
 
 
   server.close ``
-  t.end ()
 })
 
 
