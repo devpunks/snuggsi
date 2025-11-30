@@ -113,5 +113,5 @@ async function send ( context, file ) {
 
   context.set  ( headers )
   context.type = file.split `.`.pop ``
-  context.body = await promisify (read) (file)
+  context.body = await promisify ( read ) ( file )
 }
