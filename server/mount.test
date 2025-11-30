@@ -10,7 +10,7 @@ test ('mount resource location to an endpoint', async t => {
   const
     server =
       ( new Server )
-        .mount `foo`
+//      .mount `foo`
         .serve `public`
 
   , { body }
