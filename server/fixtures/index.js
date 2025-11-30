@@ -1,5 +1,5 @@
 console.log
-  ('Hello World');
+  ('Hello World')
 
 console.log
   ('The quick brown fox jumped over the lazy dog');
