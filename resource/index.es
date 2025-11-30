@@ -4,7 +4,7 @@ const
 , negotiate = require ( './negotiate' )
 
 , { existsSync: exists }
-    = require ('fs')
+    = require ( 'fs' )
 
 , Base = ( path, canonical = `${root}${path}${entry}` )  =>
     !!  path    // not empty
