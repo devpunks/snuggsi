@@ -11,11 +11,11 @@ module.exports = class extends require ( 'koa' ) {
 
   constructor ( middleware = [] ) { super ()
 
-    for (let slice of [ snuggsi
+    for ( let slice of [ snuggsi
     , cors        // why is this NOT a function
     , security `` // ...and this IS a function?
     , ... middleware
-    ]) this.use ( slice )
+    ] ) this.use ( slice )
   }
 
 
