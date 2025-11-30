@@ -209,7 +209,7 @@ void ( async assert => {
         .filter ( unique )
 
 
-  for (method of ALLOWED_METHODS) {
+  for ( method of ALLOWED_METHODS ) {
     let
       { status, headers }
         = await fetch ( URL, { method } )
