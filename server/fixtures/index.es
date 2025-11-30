@@ -4,7 +4,7 @@ class {
 
   constructor () {
     console.warn ('This CAN be called from initialization')
-  }
+  } // constructor
 
   static foo (context) {
     console.warn ('THIS SHOULD NEVER GET CALLED!!', context)
