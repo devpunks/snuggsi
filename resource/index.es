@@ -73,7 +73,7 @@ new class extends Base ( path = path + '' ) {
   // Caching Ranges
   // https://stackoverflow.com/questions/4589732/what-are-the-pros-and-cons-of-fs-createreadstream-vs-fs-readfile-in-node-js#answer-4591335
 
-  async get (context, identity = negotiate (context)) {
+  async get ( context, identity = negotiate ( context ) ) {
     ( super.get || ( _ => _ ) )
       ( context, identity )
 
