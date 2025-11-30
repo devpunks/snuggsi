@@ -2,8 +2,8 @@
 // require ('./fixtures/index.test')
 
 const
-  { test, read, fetch }
-    = require ('snuggsi')
+  test = require ( 'node:test' )
+, { readFileSync: read } = require ( 'node:fs' )
 
 , PORT = 8181
 , SCHEME = 'http'
