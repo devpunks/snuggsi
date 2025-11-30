@@ -159,7 +159,7 @@ void ( async assert => {
 
 test `Default Resource disallowed methods`
 
-void (async assert => {
+void ( async assert => {
   const
     resource = Resource ``
 
