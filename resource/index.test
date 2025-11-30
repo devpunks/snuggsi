@@ -14,7 +14,7 @@ const
 
 
 , { Server, Resource }
-    = require ('../server/index.es')
+    = require ( '../server/index.es' )
 
 , route = resource =>
     require ('../middleware')
