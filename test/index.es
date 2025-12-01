@@ -1,7 +1,7 @@
 console.log ( 'Loading test/index.es' )
 
 const
-  test = require ('tape')
+  test = require ( 'tape' )
 
 // test.onFinish (process.exit)
 
