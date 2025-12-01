@@ -1,4 +1,4 @@
-console.log('Loading test/index.es')
+console.log ( 'Loading test/index.es' )
 
 const
   test = require ('tape')
