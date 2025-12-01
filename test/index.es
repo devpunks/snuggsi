@@ -30,8 +30,8 @@ class Test {
     (this.test = test ())
       .comment (this.name = name)
 
-    return  (this).case
-     .bind (this)
+    return  ( this ).case
+     .bind ( this )
   }
 
   async 'case' (definition, ... options) {
