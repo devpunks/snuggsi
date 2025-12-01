@@ -12,7 +12,7 @@ const
 const
   zip = ( tokens, result = '' ) =>
     [
-      (result, fragment) => result
+      ( result, fragment ) => result
         += `${ fragment }${ tokens.shift `` || `` }`
     , result
     ]
