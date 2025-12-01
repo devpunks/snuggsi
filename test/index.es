@@ -57,7 +57,7 @@ class Test {
 }
 
 module.exports = ( ... name ) =>
-  new Test ( christen (name) )
+  new Test ( christen ( name ) )
 
 void {
 // See chunked responses
