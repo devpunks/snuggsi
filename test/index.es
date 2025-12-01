@@ -7,7 +7,7 @@ const
 
 const
   sleep = time =>
-    new Promise (alarm => setTimeout (alarm, time))
+    new Promise ( alarm => setTimeout ( alarm, time ) )
 
 const
   zip = ( tokens, result = '' ) =>
