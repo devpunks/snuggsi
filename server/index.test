@@ -1,8 +1,12 @@
 //require ('./mount.test')
 
 const
-  test = require ( 'node:test' )
-, { readFileSync: read } = require ( 'node:fs' )
+  { test } = require ( 'node:test' )
+, assert   = require ( 'node:assert/strict' )
+//import { test } from 'node:test'
+//import assert from 'node:assert/strict'
+
+//, { readFileSync: read } = require ( 'node:fs' )
 // , { test } = require ( '../test/index.es' )
 
 , Server = require ( './index.es' )
