@@ -80,39 +80,16 @@ test ('middleware collection dependency injection', t => {
 })
 
 
-test ('serve defaults to `public` when called without argument', async t => {
+test ('serve defaults to `public` when called without argument', t => {
 
-  const
-    file = 'index.html'
+//const
+//  file = 'index.html'
 
-  , server
-      = ( new Server ).serve ('')
+//, server
+//    = ( new Server ).serve ('')
 
-  , response
-      = await fetch (`http://localhost:${process.env.PORT}/${file}`)
-
-
-//t.equal
-//  (200, response.status)
-
-//t.equal
-//  ( await response.text ``, await read (`./public/${file}`) )
-
-
-  server.close ``
-})
-
-
-test ('serve defaults to `public` when called with empty template literal', async t => {
-
-  const
-    file = 'index.html'
-
-    server
-      = ( new Server ).serve ``
-
-  , response
-      = await fetch (`http://localhost:${process.env.PORT}/${file}`)
+//, response
+//    = await fetch (`http://localhost:${process.env.PORT}/${file}`)
 
 
 //t.equal
@@ -122,18 +99,41 @@ test ('serve defaults to `public` when called with empty template literal', asyn
 //  ( await response.text ``, await read (`./public/${file}`) )
 
 
-  server.close ``
+//  server.close ``
 })
 
 
-test ('serving specific directory', async t => {
+test ('serve defaults to `public` when called with empty template literal', t => {
 
-  const
-    server
-      = ( new Server ).serve ('server/fixtures')
+//const
+//  file = 'index.html'
 
-  , response
-      = await fetch (`http://localhost:${process.env.PORT}/index.txt`)
+//  server
+//    = ( new Server ).serve ``
+
+//, response
+//    = await fetch (`http://localhost:${process.env.PORT}/${file}`)
+
+
+//t.equal
+//  (200, response.status)
+
+//t.equal
+//  ( await response.text ``, await read (`./public/${file}`) )
+
+
+//server.close ``
+})
+
+
+test ('serving specific directory', t => {
+
+//const
+//  server
+//    = ( new Server ).serve ('server/fixtures')
+
+//, response
+//    = await fetch (`http://localhost:${process.env.PORT}/index.txt`)
 
 
 //t.equal
