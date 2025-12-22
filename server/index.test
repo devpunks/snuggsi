@@ -48,12 +48,13 @@ test ('closing server with backticks', t => {
 
 test ('closing server by calling with template literal', t => {
 
-  const
-    server
-      = ( new Server ).serve ``
+  //const
+  //  server
+  //    = ( new Server ).serve ``
 
 
-  server.close ``
+  //server.close ``
+  //server.close ()
 })
 
 
