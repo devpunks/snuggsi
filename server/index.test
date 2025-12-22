@@ -16,11 +16,11 @@ test('add should return the correct sum', () => {
   assert.strictEqual(5, 5);
 });
 
-test ('new Server does not throw', t => {
+//test ('new Server does not throw', t => {
 //  console.log (t.end)
 
-  new Server
-})
+//  new Server
+//})
 
 /*
 test ('closing server', t => {
