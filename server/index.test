@@ -25,23 +25,24 @@ test ('new Server does not throw', t => {
 /*
 test ('closing server', t => {
 
-  const
-    server
-      = ( new Server ).serve ``
+  //const
+  //  server
+  //    = ( new Server ).serve ``
 
 
-  server.close ()
+  //server.close ()
 })
 
 
 test ('closing server with backticks', t => {
 
-  const
-    server
-      = ( new Server ).serve ``
+  //const
+  //  server
+  //    = ( new Server ).serve ``
 
 
-  server.close ``
+  //server.close ``
+  //server.close ()
 })
 
 
