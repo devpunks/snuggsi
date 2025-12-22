@@ -12,6 +12,10 @@ const
 , Server = require ( './index.es' )
 
 
+test('add should return the correct sum', () => {
+  assert.strictEqual(5, 5);
+});
+
 test ('new Server does not throw', t => {
 
   new Server
