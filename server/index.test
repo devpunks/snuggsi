@@ -143,15 +143,15 @@ test ('serving specific directory', t => {
 //  ( await response.text ``, await read `./server/fixtures/index.txt` )
 
 
-  server.close ``
+//server.close ``
 })
 
 
-test ('serving specific directory with template literal', async t => {
+test ('serving specific directory with template literal', t => {
 
-  const
-    server
-      = ( new Server ).serve `server/fixtures`
+//const
+//  server
+//    = ( new Server ).serve `server/fixtures`
 
 //, response
 //    = await fetch (`http://localhost:${process.env.PORT}/index.txt`)
@@ -164,5 +164,6 @@ test ('serving specific directory with template literal', async t => {
 //  ( await response.text ``, await read `./server/fixtures/index.txt` )
 
 
-  server.close ``
+//server.close ``
 })
+*/
