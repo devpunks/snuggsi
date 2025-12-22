@@ -17,6 +17,7 @@ test('add should return the correct sum', () => {
 });
 
 test ('new Server does not throw', t => {
+//  console.log (t.end)
 
   new Server
 })
