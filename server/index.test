@@ -58,25 +58,25 @@ test ('closing server by calling with template literal', t => {
 })
 
 
-test ('middleware collection dependency injection', async t => {
+test ('middleware collection dependency injection', t => {
 
-  const
-    middleware = context =>
-      context.set ('test', 'Hello World')
+//const
+//  middleware = context =>
+//    context.set ('test', 'Hello World')
 
-  , stack = [ middleware ]
+//, stack = [ middleware ]
 
-    server
-      = ( new Server ( stack ) ).serve `server/fixtures`
+//  server
+//    = ( new Server ( stack ) ).serve `server/fixtures`
 
-  , { headers }
-      = await fetch ( `http://localhost:${process.env.PORT}/` )
+//, { headers }
+//    = await fetch ( `http://localhost:${process.env.PORT}/` )
 
 
 //t.equal
 //  ( headers.get ('test'), 'Hello World' )
 
-  server.close ``
+//server.close ``
 })
 
 
