@@ -54,8 +54,8 @@ const
 , server
     = new Server ().serve `` // ( new Server ( stack ) ).serve ``
 
-//, { headers }
-//    = await fetch ( `http://localhost:${process.env.PORT}/` )
+, { headers }
+    = await fetch ( `http:localhost:${process.env.PORT}/` )
 
 
 //t.equal
