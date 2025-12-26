@@ -49,14 +49,8 @@ test ('middleware collection dependency injection', async t => {
     middleware = ( request, response ) =>
       response.setHeader ( 'test', 'Hello World' )
 
-const
-  middleware = context =>
-    context.set ('test', 'Hello World')
-
-, stack = [ middleware ]
-
-, server
-    = new Server ().serve `` // ( new Server ( stack ) ).serve ``
+  , server
+      = ( new Server () ).use ( middleware ).listen () // ( new Server ( stack ) ).serve ``
 
 , { headers }
     = await fetch ( `http:localhost:${process.env.PORT}/` )
