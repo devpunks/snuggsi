@@ -2,8 +2,8 @@
 //{ Server, Resource }
 //  = require ('../index.es')
 
-, { route }
-    = require ('../middleware/index.es')
+//, { route }
+//    = require ('../middleware/index.es')
 
 , { DIRECTORY: directory, EXAMPLES: examples }
     = process.env
