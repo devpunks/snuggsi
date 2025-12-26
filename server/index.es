@@ -1,6 +1,7 @@
 // https://expressjs.com/en/api.html
 // https://github.com/expressjs/express/blob/master/lib/application.js
 
+const { PORT=8888, SNUGGSI='.' } = process.env
 
 console.log ( 'SNUGGSI', process.env.SNUGGSI )
 console.log ( 'server SNUGGSI', Object.keys ( require ( '../index.es' ) ) )
