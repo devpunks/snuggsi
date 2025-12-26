@@ -18,5 +18,6 @@ const middleware = [
 //  ( route (`/examples/`, Resource (examples)) )
 
 
-void (new Server (middleware))
-  .serve (directory)
+void ( new Server ( middleware ) )
+  .serve `shazA-aM` // (directory)
+  .listen ()
