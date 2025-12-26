@@ -58,6 +58,10 @@ const
     = await fetch ( `http:localhost:${process.env.PORT}/` )
 
 
+  console.log ( 'server', server )
+  console.log ( 'headers', headers )
+  console.log ( 'link', headers.get ( 'link' )  )
+  console.log ( 'CSP', headers.get ( 'content-security-policy-report-only' )  )
 //t.equal
 //  ( headers.get ('test'), 'Hello World' )
 
