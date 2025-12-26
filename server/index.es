@@ -3,8 +3,11 @@
 
 const { PORT=8888, SNUGGSI='.' } = process.env
 
-console.log ( 'SNUGGSI', process.env.SNUGGSI )
-console.log ( 'server SNUGGSI', Object.keys ( require ( '../index.es' ) ) )
+console.log ( 'PORT', PORT)
+console.log ( 'SNUGGSI', SNUGGSI )
+//const
+//  { cors, security, snuggsi, negotiator }
+//    = require ( '../middleware/index.es' )
 
 
 module.exports = class Server extends require ( 'koa' ) {
