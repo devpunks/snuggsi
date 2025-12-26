@@ -98,8 +98,8 @@ t.equal
 
 test ('serve defaults to `public` when called with empty template literal', async t => {
 
-//const
-//  file = 'index.html'
+const
+  file = 'index.html'
 
 //  server
 //    = ( new Server ).serve ``
