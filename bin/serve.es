@@ -14,10 +14,7 @@ const middleware = [
     //, route (`/hello/`, Resource `/resource/fixtures/`)
   ]
 
-console.log ('bin/serve SNUGGSI', Object.keys(require ('..')))
-console.log ('SNUGGSI', process.env.SNUGGSI)
-
-//examples && middkeware.push
+//examples && middleware.push
 //  ( route (`/examples/`, Resource (examples)) )
 
 
