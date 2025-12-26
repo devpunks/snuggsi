@@ -92,7 +92,7 @@ t.equal
   ( await response.text ``, await read (`./public/${file}`) )
 
 
-//  server.close ``
+  server.close ``
 })
 
 
