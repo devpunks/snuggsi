@@ -140,7 +140,7 @@ server.close ``
 })
 
 
-test ('serving specific directory with template literal', t => {
+test ('serving specific directory with template literal', async t => {
 
 //const
 //  server
