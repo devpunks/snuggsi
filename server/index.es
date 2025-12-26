@@ -131,7 +131,7 @@ export default class extends Server {
     response.end ('[' +
       '"SERVER",' + JSON.stringify ( this ) + ',' +
       '"REQUEST Headers",' + JSON.stringify ( request.headers ) + ',' +
-      '"RESPONSE Headers",' + JSON.stringify ( response.getHeaders () ) + 
+      '"RESPONSE Headers",' + JSON.stringify ( response.getHeaders () ) +
     ']')
   } // candle
 
