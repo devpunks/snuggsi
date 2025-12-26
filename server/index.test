@@ -150,8 +150,8 @@ const
     = await fetch (`http:localhost:${process.env.PORT}/index.txt`)
 
 
-//t.equal
-//  (200, response.status)
+t.equal
+  (200, response.status)
 
 //t.equal
 //  ( await response.text ``, await read `./server/fixtures/index.txt` )
