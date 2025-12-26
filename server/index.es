@@ -107,7 +107,9 @@ export default class extends Server {
   } // constructor
 
 
-  serve ( path = process.env.pwd, port = process.env.PORT || 2000 ) {
+  use ( middleware ) {
+    console.log ( 'Loading middleware', middleware.name, middleware )
+    console.log ( 'Params', middleware.length )
 
     const
       message
