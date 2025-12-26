@@ -5,8 +5,8 @@
 //, { route }
 //    = require ('../middleware/index.es')
 
-, { DIRECTORY: directory, EXAMPLES: examples }
-    = process.env
+//, { DIRECTORY: directory, EXAMPLES: examples }
+//    = process.env
 
 , middleware = [
     //, route (`/hello/`, Resource `/resource/fixtures/`)
