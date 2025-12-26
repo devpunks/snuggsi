@@ -9,6 +9,10 @@ console.log ( 'SNUGGSI', SNUGGSI )
 //  { cors, security, snuggsi, negotiator }
 //    = require ( '../middleware/index.es' )
 
+import log from './logger.js'
+import * as fs from 'node:fs'
+import { Server } from 'node:http'
+import * as path from 'node:path'
 
 module.exports = class Server extends require ( 'koa' ) {
 
