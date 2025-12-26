@@ -87,7 +87,7 @@ export default class extends Server {
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Content-Encoding
         // https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Headers/Transfer-Encoding
 //    , encode
-//    , stream // TODO: file.stream.pipe ( ressponse ) 
+//    , stream // TODO: file.stream.pipe ( ressponse )
 //    , connect // TODO (web)sockets, UDP, WebRTC, RTMP, QUIC
 
         // https://nodejs.org/api/http.html#outgoingmessageaddtrailersheaders
