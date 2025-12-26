@@ -14,7 +14,7 @@ import Server from './index.es'
 //, { readFileSync: read } = require ( 'node:fs' )
 //, { test } = require ( '../test/index.es' )
 
-, Server = require ( './index.es' )
+//, Server = require ( './index.es' )
 
 
 test('add should return the correct sum', () => {
