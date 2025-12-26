@@ -6,8 +6,11 @@ declare -rx             \
   PORT=${PORT:-1234}    \
   DIRECTORY=${1:-`pwd`} # default working directory to current location
 
-readlink ${DIRECTORY}
-
-declare
-
-node $SNUGGSI/bin/serve.es
+command node \
+  --require /Users/devpunks/devpunks/snuggsi/polyfills/ecmascript.es \
+  --import "data:text/javascript, \
+    import { register } from 'node:module'; \
+    import { pathToFileURL } from 'node:url'; \
+    register ( '$HOME/devpunks/snuggsi/polyfills/loader.js', pathToFileURL ( './' )); \
+  " \
+${SNUGGSI}/bin/serve.es
