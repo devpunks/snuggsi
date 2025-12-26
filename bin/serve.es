@@ -8,7 +8,9 @@
 //, { DIRECTORY: directory, EXAMPLES: examples }
 //    = process.env
 
-, middleware = [
+import Server from '../server/index.es'
+
+const middleware = [
     //, route (`/hello/`, Resource `/resource/fixtures/`)
   ]
 
