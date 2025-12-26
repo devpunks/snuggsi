@@ -43,6 +43,7 @@ test ('closing server with backticks', t => {
   server.close ``
 })
 
+test ('middleware collection dependency injection', async t => {
 
 test ('middleware collection dependency injection', t => {
 
