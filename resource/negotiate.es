@@ -1,3 +1,6 @@
+// TODO: Perhaps in `connect` | `load`
+// HTTP 103 - https://developer.mozilla.org/en-US/docs/Web/HTTP/Reference/Status/103
+
 module.exports = context => {
 
   console.warn ('accepts', context.accepts `txt`, context.headers)
