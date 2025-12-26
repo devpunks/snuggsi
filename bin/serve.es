@@ -1,6 +1,6 @@
-const
-  { Server, Resource }
-    = require ('../index.es')
+//const
+//{ Server, Resource }
+//  = require ('../index.es')
 
 , { route }
     = require ('../middleware/index.es')
