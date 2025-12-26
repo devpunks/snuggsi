@@ -104,8 +104,8 @@ const
   server
     = ( new Server ).serve ``
 
-//, response
-//    = await fetch (`http://localhost:${process.env.PORT}/${file}`)
+, response
+    = await fetch (`http:localhost:${process.env.PORT}/${file}`)
 
 
 //t.equal
