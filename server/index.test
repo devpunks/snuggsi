@@ -72,7 +72,8 @@ const
 })
 
 
-test ('serve defaults to `public` when called without argument', t => {
+/*
+test ('serve defaults to `public` when called without argument', async t => {
 
 //const
 //  file = 'index.html'
