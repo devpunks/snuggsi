@@ -101,8 +101,8 @@ test ('serve defaults to `public` when called with empty template literal', asyn
 const
   file = 'index.html'
 
-//  server
-//    = ( new Server ).serve ``
+  server
+    = ( new Server ).serve ``
 
 //, response
 //    = await fetch (`http://localhost:${process.env.PORT}/${file}`)
