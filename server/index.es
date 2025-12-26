@@ -145,4 +145,23 @@ export default class extends Server {
     return this
 //    .use ( root )
   } // serve
-} // class
+
+
+  // Override existing methods if needed
+  listen ( { PORT = 2000 } = process.env, callback = _ => this.log ('listen callback' ) ) {
+
+    this.on ( 'listening', _ => this.log ( 'Listening...' ) )
+
+    this.log ( `📚  About to listen on port ${PORT}\n${callback}` )
+
+    super.listen ( PORT, callback )
+  } // listen
+    
+
+  // Add custom methods
+  log ( message = 'SHAZZZAAAAM!!! Special Log Message', delimeter = '$' ) {
+    console.log ( `Total connections: ${this._connections}` )
+    console.log ( new Date, delimeter, message )
+  } // log
+
+} // Server
