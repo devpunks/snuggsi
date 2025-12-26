@@ -1,6 +1,5 @@
-const
-  { cors, security, snuggsi, negotiator }
-    = require ( '../middleware/index.es' )
+// https://expressjs.com/en/api.html
+// https://github.com/expressjs/express/blob/master/lib/application.js
 
 
 console.log ( 'SNUGGSI', process.env.SNUGGSI )
