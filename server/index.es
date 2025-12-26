@@ -111,11 +111,36 @@ export default class extends Server {
     console.log ( 'Loading middleware', middleware.name, middleware )
     console.log ( 'Params', middleware.length )
 
-    const
-      message
-        = `\n📚  Serving ${path}/ on port ${port}\n`
-//  , root
-//      = assets ( Boolean (path += '') ? path : 'public' )
+    return this.on ( 'request', middleware )
+  } // use
+
+  async handle ( request, response ) {
+    this.log ( `${request.url} - Handle` )
+
+    console.log ( response.constructor )
+    response.statusCode = 200
+    response.setHeader ( 'Content-Type', 'dev/punks' )
+  } // handle
+
+
+  async candle ( request, response ) {
+    this.log ( `Candleing request for ${request.url} with setting: ${this.customSetting}` )
+    response.statusCode = 200
+//  response.strictContentLength = true
+    response.setHeader ( 'Content-Type', MIME_TYPES.json )
+    response.end ('[' +
+      '"SERVER",' + JSON.stringify ( this ) + ',' +
+      '"REQUEST Headers",' + JSON.stringify ( request.headers ) + ',' +
+      '"RESPONSE Headers",' + JSON.stringify ( response.getHeaders () ) + 
+    ']')
+  } // candle
+
+
+  serve ( path = process.env.PWD ) { // check for directory existence
+    const banner = '📚  Serving: ' + ( path || 'public' ) + '/'
+//  , root   = assets ( Boolean ( path += '' ) ? path : 'public' )
+
+    this.log ( banner )
 
     return this
 //    .use (root)
