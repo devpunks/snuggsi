@@ -119,7 +119,7 @@ server.close ``
 })
 
 
-test ('serving specific directory', t => {
+test ('serving specific directory', async t => {
 
 //const
 //  server
