@@ -1,8 +1,13 @@
 //require ('./mount.test')
 
-const
-  assert = require ( 'node:assert/strict' )
-, { test, describe, mock } = require ( 'node:test' )
+import assert from 'node:assert/strict'
+import { test, describe, mock } from 'node:test'
+
+import Server from './index.es'
+
+//const
+//  assert = require ( 'node:assert/strict' )
+//, { test, describe, mock } = require ( 'node:test' )
 //import { test } from 'node:test'
 //import assert from 'node:assert/strict'
 
