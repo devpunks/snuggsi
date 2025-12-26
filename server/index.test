@@ -49,11 +49,7 @@ const
   middleware = context =>
     context.set ('test', 'Hello World')
 
-//const
-//  middleware = context =>
-//    context.set ('test', 'Hello World')
-
-//, stack = [ middleware ]
+, stack = [ middleware ]
 
 //  server
 //    = ( new Server ( stack ) ).serve `server/fixtures`
