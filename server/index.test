@@ -12,7 +12,7 @@ import Server from './index.es'
 //import assert from 'node:assert/strict'
 
 //, { readFileSync: read } = require ( 'node:fs' )
-// , { test } = require ( '../test/index.es' )
+//, { test } = require ( '../test/index.es' )
 
 , Server = require ( './index.es' )
 
