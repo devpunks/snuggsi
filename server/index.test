@@ -29,7 +29,7 @@ test ('closing server', t => {
       = ( new Server ).serve ``
 
 
-  //server.close ()
+  server.close ()
 })
 
 
