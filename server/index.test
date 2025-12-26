@@ -24,9 +24,9 @@ test ( 'new Server does not throw', _ => {
 
 test ('closing server', t => {
 
-  //const
-  //  server
-  //    = ( new Server ).serve ``
+  const
+    server
+      = ( new Server ).serve ``
 
 
   //server.close ()
