@@ -75,8 +75,8 @@ const
 /*
 test ('serve defaults to `public` when called without argument', async t => {
 
-//const
-//  file = 'index.html'
+const
+  file = 'index.html'
 
 //, server
 //    = ( new Server ).serve ('')
