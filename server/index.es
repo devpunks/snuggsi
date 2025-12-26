@@ -14,7 +14,19 @@ import * as fs from 'node:fs'
 import { Server } from 'node:http'
 import * as path from 'node:path'
 
-module.exports = class Server extends require ( 'koa' ) {
+const MIME_TYPES = { // TODO: `negotiate`
+  css: 'text/css',
+  gif: 'image/gif',
+  png: 'image/png',
+  jpg: 'image/jpeg',
+  ico: 'image/x-icon',
+  svg: 'image/svg+xml',
+  js: 'text/javascript',
+  json: 'application/json', // https://datatracker.ietf.org/doc/html/rfc8259
+  txt: 'text/plain; charset=UTF-8',
+  html: 'text/html; charset=UTF-8',
+  default: 'application/octet-stream',
+}
 
   constructor ( middleware = [] ) { super ()
 
