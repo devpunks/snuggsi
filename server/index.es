@@ -143,7 +143,6 @@ export default class extends Server {
     this.log ( banner )
 
     return this
-//    .use (root)
-      .listen ( port, _ => console.warn ( message ) )
+//    .use ( root )
   } // serve
 } // class
