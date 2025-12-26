@@ -121,9 +121,9 @@ server.close ``
 
 test ('serving specific directory', async t => {
 
-//const
-//  server
-//    = ( new Server ).serve ('server/fixtures')
+const
+  server
+    = ( new Server ).serve ('server/fixtures')
 
 //, response
 //    = await fetch (`http://localhost:${process.env.PORT}/index.txt`)
