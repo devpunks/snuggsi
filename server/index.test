@@ -65,7 +65,10 @@ const
 //t.equal
 //  ( headers.get ('test'), 'Hello World' )
 
-//server.close ``
+//server.close(() => {
+//  console.log('Server closed. Exiting process.');
+//  process.exit(0);
+//})
 })
 
 
