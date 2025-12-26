@@ -45,7 +45,9 @@ test ('closing server with backticks', t => {
 
 test ('middleware collection dependency injection', async t => {
 
-test ('middleware collection dependency injection', t => {
+const
+  middleware = context =>
+    context.set ('test', 'Hello World')
 
 //const
 //  middleware = context =>
