@@ -105,7 +105,7 @@ export default class extends Server {
 
       // 'connection' event: emitted when a new TCP stream is established
       .on ( 'connection', socket => this.log ( 'A new connection has been established.' ) )
-      //
+
       // 'clientError' event: emitted if a client connection emits an 'error' event
       .on ( 'clientError' , ( error, socket ) => {
         this.log ( 'Client error:', error.message ) // this.error ?
