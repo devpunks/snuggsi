@@ -24,7 +24,7 @@ Mount resource
 ```javascript
 const
   { Server }
-    = require ('snuggsi')
+    = require ( 'snuggsi' )
 
 (new Server).serve  ``
   .mount ( 'foo', resource `bar` )
