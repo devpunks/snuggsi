@@ -41,7 +41,9 @@ const
   { Server }
     = require ( 'snuggsi' )
 
-(new Server).serve  `path/to/static/assets`
+( new Server )
+  .serve `path/to/static/assets`
+  .listen ``
 ```
 
 ### References
