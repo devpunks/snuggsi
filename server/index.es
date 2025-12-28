@@ -109,7 +109,7 @@ export default class extends Server {
       // 'clientError' event: emitted if a client connection emits an 'error' event
       .on ( 'clientError' , ( error, socket ) => {
         this.log ( 'Client error:', error.message ) // this.error ?
-        socket.end( 'HTTP/1.1 400 Bad Request\r\n\r\n' )
+        socket.end( 'http/1.1 400 bad request\r\n\r\n' )
       })
 
     console.log ( this )
