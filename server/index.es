@@ -113,7 +113,7 @@ export default class extends Server {
       })
 
     console.log ( this )
-    this.log ( `Server Environment: ${ process.env.NODE_ENV || 'development' }` )
+    this.log ( `server environment: ${ process.env.node_env || 'development' }` )
   } // constructor
 
 
