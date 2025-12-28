@@ -29,6 +29,7 @@ const
 ( new Server )
   .serve  ``
   .mount ( 'foo', resource `bar` )
+  .listen ``
 ```
 
 ## .serve
