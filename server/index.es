@@ -102,7 +102,7 @@ export default class extends Server {
     this
       .on ( 'request', this.handle )
       .on ( 'request', this.candle )
-      //
+
       // 'connection' event: emitted when a new TCP stream is established
       .on('connection', (socket) => this.log ( 'A new connection has been established.' ) )
       //
