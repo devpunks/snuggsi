@@ -102,6 +102,24 @@ export default class extends Server {
     this
       .on ( 'request', this.handle )
       .on ( 'request', this.candle )
+      // 'connection' event: emitted when a new TCP stream is established
+      .on('connection', (socket) => { this.log('A new connection has been established.') })
+
+// 3. 'clientError' event: emitted if a client connection emits an 'error' event
+server.addListener('clientError', (err, socket) => {
+  console.error('Client error:', err.message);
+  socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+});
+// 2. 'connection' event: emitted when a new TCP stream is established
+server.addListener('connection', (socket) => {
+  console.log('A new connection has been established.');
+});
+
+// 3. 'clientError' event: emitted if a client connection emits an 'error' event
+server.addListener('clientError', (err, socket) => {
+  console.error('Client error:', err.message);
+  socket.end('HTTP/1.1 400 Bad Request\r\n\r\n');
+})
 
     console.log ( this )
     this.log ( `Server Environment: ${ process.env.NODE_ENV || 'development' }` )
