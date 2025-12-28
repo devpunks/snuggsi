@@ -118,8 +118,8 @@ export default class extends Server {
 
 
   use ( middleware ) {
-    console.log ( 'Loading middleware', middleware.name, middleware )
-    console.log ( 'Params', middleware.length )
+    console.log ( 'loading middleware', middleware.name, middleware )
+    console.log ( 'params', middleware.length )
 
     return this.on ( 'request', middleware )
   } // use
