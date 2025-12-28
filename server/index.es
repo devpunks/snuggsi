@@ -98,6 +98,7 @@ export default class extends Server {
       log ( 'foo.log' )
     ] ) this.use ( slice )
 
+    // https://nodejs.org/api/events.html
     this
       .on ( 'request', this.handle )
       .on ( 'request', this.candle )
