@@ -39,7 +39,7 @@ Serve a specified directory as root
 ```javascript
 const
   { Server }
-    = require ('snuggsi')
+    = require ( 'snuggsi' )
 
 (new Server).serve  `path/to/static/assets`
 ```
