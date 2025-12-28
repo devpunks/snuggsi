@@ -3,7 +3,7 @@
 // Pino vs Winston
 //   - https://betterstack.com/community/comparisons/pino-vs-winston
 //   - https://dev.to/wallacefreitas/pino-vs-winston-choosing-the-right-logger-for-your-nodejs-application-369n
-// Choosing a logging framework - https://betterstack.com/community/guides/logging/logging-framework/
+// Choosing a logging framework - https://betterstack.com/community/guides/logging/logging-framework
 // Logging libraries - https://betterstack.com/community/guides/logging/best-nodejs-logging-libraries
 // Structured logging in Node.js with Winston - https://thedreaming.org/2020/06/24/structured-logging-nodejs
 console.log ('LOGGERRRRRRRRRRRRRRRR')
